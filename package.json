@@ -1,0 +1,21 @@
+{
+  "name": "@anthaathi/root",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "anthaathi-cms-web-client",
+    "anthaathi-common-node-bom",
+    "anthaathi-web-lib"
+  ],
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.2"
+  }
+}

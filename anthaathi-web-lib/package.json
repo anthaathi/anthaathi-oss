@@ -1,0 +1,41 @@
+{
+  "name": "@anthaathi/web-lib",
+  "private": true,
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/web-lib.umd.js",
+  "module": "./dist/web-lib.es.js",
+  "types": "./dist/public.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/web-lib.es.js",
+      "require": "./dist/web-lib.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "vite build && tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@anthaathi/common": "0.0.0"
+  },
+  "peerDependencies": {
+    "@anthaathi/common": "0.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/builder-vite": "^0.1.29",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.9",
+    "@types/node": "^17.0.24",
+    "babel-loader": "^8.2.4",
+    "vitest": "^0.9.3"
+  }
+}
