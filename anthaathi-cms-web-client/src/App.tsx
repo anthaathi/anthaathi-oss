@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { CommonAppProvider } from '@anthaathi/web-lib';
 import { Button } from 'baseui/button';
 

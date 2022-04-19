@@ -1,6 +1,7 @@
+import { ComponentMeta } from '@storybook/react';
+
 import { CommonAppProvider } from './CommonAppProvider';
 
 export default {
-  title: 'Anthaathi/Common',
   component: CommonAppProvider,
-};
+} as ComponentMeta<typeof CommonAppProvider>;

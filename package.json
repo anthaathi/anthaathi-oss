@@ -5,7 +5,8 @@
   "workspaces": [
     "anthaathi-cms-web-client",
     "anthaathi-common-node-bom",
-    "anthaathi-web-lib"
+    "anthaathi-web-lib",
+    "tools/node-tooling"
   ],
   "dependencies": {
     "react": "^18.0.0",

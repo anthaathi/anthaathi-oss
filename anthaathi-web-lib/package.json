@@ -17,15 +17,20 @@
   "scripts": {
     "build": "vite build && tsc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "eslint src/**/*.{tsx,ts}",
+    "extract": "formatjs extract 'src/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file locales/extracted/en-US.json",
+    "compile": "formatjs compile-folder --ast --format simple locales/extracted locales/compiled-locales"
   },
   "dependencies": {
-    "@anthaathi/common": "0.0.0"
+    "@anthaathi/common": "0.0.0",
+    "@carbon/icons-react": "^11.1.0"
   },
   "peerDependencies": {
     "@anthaathi/common": "0.0.0"
   },
   "devDependencies": {
+    "@anthaathi/tooling": "0.0.0",
     "@babel/core": "^7.17.9",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
@@ -36,6 +41,6 @@
     "@storybook/testing-library": "^0.0.9",
     "@types/node": "^17.0.24",
     "babel-loader": "^8.2.4",
-    "vitest": "^0.9.3"
+    "storybook-react-intl": "^1.0.5"
   }
 }
