@@ -74,6 +74,18 @@ configure(subprojects.filter { it in webLibraries }) {
     tasks.register<YarnTask>("buildLib") {
         args.set(listOf("build"))
     }
+
+    tasks.register<YarnTask>("lint") {
+        args.set(listOf("lint"))
+    }
+
+    tasks.register<YarnTask>("test") {
+        args.set(listOf("test"))
+    }
+
+    tasks.register("check") {
+        dependsOn("lint", "test")
+    }
 }
 
 configure(subprojects.filter { it in webClients }) {

@@ -20,6 +20,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint src/**/*.{tsx,ts}",
+    "test": "echo running tests",
     "extract": "formatjs extract 'src/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file locales/extracted/en-US.json",
     "compile": "formatjs compile-folder --ast --format simple locales/extracted locales/compiled-locales"
   },
