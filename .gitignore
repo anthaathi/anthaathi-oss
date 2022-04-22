@@ -24,6 +24,5 @@ dist-ssr
 *.sw?
 .gradle
 build
-/gradle
 compiled-locales
 __generated__
