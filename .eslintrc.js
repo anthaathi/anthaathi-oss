@@ -35,5 +35,7 @@ module.exports = {
     'react/require-default-props': 'off',
     indent: 'off',
     'implicit-arrow-linebreak': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'object-curly-newline': 'off',
   },
 };

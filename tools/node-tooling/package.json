@@ -15,11 +15,15 @@
     "eslint-plugin-react": "^7.28.0",
     "react": "^18.0.0",
     "react-intl": "^5.25.0",
+    "react-relay": "^13.2.0",
+    "relay-runtime": "^13.2.0",
     "ts-node": "^10.7.0",
     "vitest": "^0.9.3"
   },
   "devDependencies": {
     "babel-plugin-formatjs": "^10.3.19",
-    "eslint-plugin-formatjs": "^3.1.0"
+    "babel-plugin-relay": "^13.2.0",
+    "eslint-plugin-formatjs": "^3.1.0",
+    "relay-compiler": "^13.2.0"
   }
 }

@@ -1,136 +1,200 @@
 import * as React from 'react';
-import { styled, Theme, useStyletron } from 'baseui';
-import { Button, SHAPE } from 'baseui/button';
-import { PLACEMENT, StatefulTooltip } from 'baseui/tooltip';
-import { useAtom } from 'jotai';
-// @ts-ignore TODO: FIX IT
-import { ChevronRight } from '@carbon/icons-react';
-import Anthaathi from '../Icon/Anthaathi';
-import SidebarOpen from '../Atoms/SidebarOpen';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { styled, useStyletron } from 'baseui';
+import { LabelSmall } from 'baseui/typography';
+// @ts-ignore
+import { ChevronUp } from '@carbon/icons-react';
+import { FlexFill } from './Utils';
 
-const Sidebar = styled(
-  'div',
-  ({ $theme, $expanded }: { $theme?: Theme; $expanded?: boolean }) => ({
-    display: 'flex',
-    minHeight: `calc(100vh - ${$theme!.sizing.scale400} - ${
-      $theme!.sizing.scale400
-    })`,
-    flexDirection: 'column',
-    width: $expanded ? '320px' : '64px',
-    backgroundColor: $theme?.colors.primary700,
-    alignItems: 'center',
-    transition: `width ${$theme!.animation.easeInCurve} ${
-      $theme!.animation.timing200
-    }`,
-    paddingTop: $theme?.sizing.scale400,
-    paddingBottom: $theme?.sizing.scale400,
-  }),
-);
+const Sidebar = styled('div', {
+  width: '320px',
+  backgroundColor: '#EEE',
+  height: '100vh',
+  overflow: 'auto',
+});
 
-export const SidebarDivider = styled('div', ({ $theme }) => ({
-  width: `calc(100% - ${$theme.sizing.scale600})`,
-  backgroundColor: $theme.colors.backgroundTertiary,
-  marginTop: $theme.sizing.scale100,
-  marginBottom: $theme.sizing.scale100,
-  opacity: '.2',
-  height: '1px',
+export const SidebarToolbar = styled('h1', ({ $theme }) => ({
+  backgroundColor: $theme.colors.backgroundAccent,
+  height: '64px',
+  display: 'flex',
+  alignItems: 'center',
+  paddingLeft: $theme.sizing.scale800,
+  paddingRight: $theme.sizing.scale800,
+  color: $theme.colors.contentInversePrimary,
+  marginTop: 0,
+  marginBottom: 0,
+  width: `calc(100% - ${$theme.sizing.scale800} - ${$theme.sizing.scale800})`,
+  ...$theme.typography.HeadingXSmall,
 }));
 
-export interface SidebarIconButtonProps {
-  isOpen: boolean;
-  icon?: React.ReactElement;
+export interface SidebarItemProps {
   title: React.ReactNode;
-  tooltip: React.ReactNode;
-  iconClass?: string;
-  onClick?: () => void;
+  children: React.ReactNode;
+  action?: React.ReactNode;
 }
 
-export function SidebarIconButton({
-  isOpen,
-  icon: icon_,
-  title,
-  tooltip,
-  iconClass,
-  onClick,
-}: SidebarIconButtonProps) {
+export function SidebarItem({ title, children, action }: SidebarItemProps) {
   const [css, $theme] = useStyletron();
 
-  const icon = React.cloneElement(icon_ || <Anthaathi />, {
-    width: 48,
-    className: `${css({
-      overflow: 'inherit',
-      width: '48px',
-      height: '48px',
-    })} ${iconClass}`.trim(),
-  });
+  const [isOpen, setIsOpen] = useState(false);
+
+  const actionRef = useRef<HTMLSpanElement>(null);
+
+  const handleClick = useCallback(
+    (
+      e: React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>,
+    ) => {
+      if ((e.target as HTMLDivElement).closest('[data-kind="action"]')) {
+        return;
+      }
+
+      setIsOpen((prev) => !prev);
+    },
+    [],
+  );
+
+  const [shouldRender, setShouldRender] = useState(false);
+
+  // eslint-disable-next-line no-undef
+  const ref = useRef<NodeJS.Timeout>();
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+    } else {
+      if (ref.current) {
+        clearTimeout(ref.current);
+      }
+
+      ref.current = setTimeout(() => {
+        setShouldRender(false);
+      }, 220);
+    }
+  }, [isOpen]);
 
   return (
-    <StatefulTooltip
-      content={tooltip}
-      popoverMargin={18}
-      placement={$theme.direction === 'rtl' ? PLACEMENT.left : PLACEMENT.right}
-    >
-      <Button
-        shape={SHAPE.square}
-        $style={{
-          backgroundColor: 'transparent',
-          width: `calc(100% - ${$theme.sizing.scale600})`,
-          display: 'flex',
-          cursor: onClick ? 'pointer' : 'default',
-          placeContent: 'start',
-          alignItems: 'center',
-          ':active': {
-            ...(onClick
-              ? {}
-              : {
-                  backgroundColor: 'transparent',
-                }),
-          },
+    <>
+      <div
+        tabIndex={0}
+        role="button"
+        aria-expanded={isOpen}
+        onKeyDown={(e) => {
+          if (!(e.key === 'Enter' || e.code === 'Enter')) {
+            return;
+          }
+          handleClick(e);
         }}
-        onClick={onClick}
+        onClick={(e) => {
+          handleClick(e);
+        }}
+        className={css({
+          display: 'flex',
+          alignItems: 'center',
+          height: '32px',
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
+          cursor: 'pointer',
+          userSelect: 'none',
+          transition: `background-color ${$theme.animation.easeInCurve} ${$theme.animation.timing100}`,
+          ':hover': {
+            backgroundColor: $theme.colors.backgroundSecondary,
+          },
+        })}
       >
-        {icon}
+        <LabelSmall>{title}</LabelSmall>
 
-        <span
-          className={css({
-            overflow: 'hidden',
-            opacity: isOpen ? 1 : 0,
-            transition: `transform ${$theme!.animation.easeInCurve} ${
-              $theme!.animation.timing200
-            }, opacity ${$theme!.animation.easeInCurve} ${
-              $theme!.animation.timing200
-            }`,
-            display: 'block',
-            whiteSpace: 'nowrap',
-          })}
-        >
-          {title}
+        <span className={css({ flexGrow: 1 })} />
+
+        <span ref={actionRef} data-kind="action">
+          {action}
         </span>
-      </Button>
-    </StatefulTooltip>
+
+        <ChevronUp
+          className={css({
+            transform: isOpen ? 'rotate(0)' : 'rotate(180deg)',
+            marginLeft: '12px',
+          })}
+        />
+      </div>
+      <div
+        className={css({
+          paddingTop: isOpen ? $theme.sizing.scale400 : 0,
+          paddingBottom: isOpen ? $theme.sizing.scale400 : 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+          background: $theme.colors.backgroundPrimary,
+          overflow: 'hidden',
+          maxHeight: isOpen ? '1000px' : '0',
+          transition: `padding ease ${$theme.animation.timing200}, max-height ease ${$theme.animation.timing200}`,
+        })}
+        tabIndex={isOpen ? -1 : undefined}
+      >
+        {shouldRender && children}
+      </div>
+    </>
   );
 }
 
-export function SidebarToggle() {
-  const [isOpen, setIsOpen] = useAtom(SidebarOpen);
+export interface SidebarItemLinkProps {
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+  action?: React.ReactNode;
+  onClick?: Function;
+  isHeading?: boolean;
+}
+
+export function SidebarItemLink({
+  children,
+  icon,
+  onClick,
+  isHeading = false,
+  action,
+}: SidebarItemLinkProps) {
   const [css, $theme] = useStyletron();
 
   return (
-    <Button
-      $style={{
-        width: `calc(100% - ${$theme.sizing.scale600})`,
-        backgroundColor: 'transparent',
+    <div
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (!(e.key === 'Enter' || e.code === 'Enter')) {
+          return;
+        }
+
+        onClick?.(e);
       }}
-      onClick={() => setIsOpen((prev) => !prev)}
+      onClick={onClick as never}
+      className={css({
+        cursor: 'pointer',
+        ':hover': {
+          backgroundColor: $theme.colors.backgroundSecondary,
+        },
+        height: isHeading ? '32px' : '48px',
+        display: 'flex',
+        alignItems: 'center',
+        userSelect: 'none',
+        paddingLeft: $theme.sizing.scale600,
+        paddingRight: $theme.sizing.scale600,
+        color: isHeading
+          ? $theme.colors.backgroundSecondary
+          : $theme.colors.primaryA,
+      })}
     >
-      <ChevronRight
-        className={css({
-          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: `transform ${$theme.animation.easeInCurve} ${$theme.animation.timing200}`,
-        })}
-        size={18}
-      />
-    </Button>
+      {icon && (
+        <div
+          className={css({
+            width: '18px',
+            height: '18px',
+            marginRight: $theme.sizing.scale300,
+          })}
+        >
+          {icon}
+        </div>
+      )}
+      <LabelSmall>{children}</LabelSmall>
+      {action && <FlexFill />}
+      {action}
+    </div>
   );
 }
 

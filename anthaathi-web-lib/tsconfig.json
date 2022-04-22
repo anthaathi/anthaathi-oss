@@ -5,6 +5,8 @@
     "noEmit": false,
     "emitDeclarationOnly": true,
     "outDir": "dist",
+    "declarationDir": "dist",
+    "isolatedModules": false,
     "esModuleInterop": true
   },
   "include": [

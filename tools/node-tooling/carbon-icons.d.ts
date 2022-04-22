@@ -4,7 +4,7 @@ declare module '@carbon/icons-react' {
   type SizeType = 16 | 20 | 24 | 32;
   type ComponentType = React.ForwardRefExoticComponent<
     {
-      size: SizeType | `${SizeType}`;
+      size?: SizeType | `${SizeType}`;
     } & React.RefAttributes<SVGSVGElement>
   >;
   export const Icon: ComponentType;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useStyletron } from 'baseui';
 
-export default function Anthaathi(props: React.SVGProps<SVGSVGElement>) {
+export function Anthaathi(props: React.SVGProps<SVGSVGElement>) {
   const [css] = useStyletron();
 
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" {...props}>
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
@@ -21,3 +22,4 @@ export default function Anthaathi(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+export default Anthaathi;

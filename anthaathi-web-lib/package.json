@@ -8,6 +8,7 @@
   "main": "./dist/web-lib.umd.js",
   "module": "./dist/web-lib.es.js",
   "types": "./dist/public.d.ts",
+  "license": "Apache-2.0",
   "exports": {
     ".": {
       "import": "./dist/web-lib.es.js",

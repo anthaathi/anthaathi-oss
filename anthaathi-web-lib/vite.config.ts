@@ -4,7 +4,7 @@ import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react({})],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/public.ts'),
@@ -20,12 +20,20 @@ export default defineConfig({
         'styletron-react',
         'styletron-engine-atomic',
         'react-jsx-runtime',
+        'jotai',
+        '@carbon/icons-react',
+        'baseui/block',
+        'baseui/button',
+        'baseui/tooltip',
+        'baseui/typography',
+        'jotai/utils',
       ],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           react: 'React',
+          baseui: 'Baseui',
         },
       },
     },

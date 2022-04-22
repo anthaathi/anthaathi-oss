@@ -7,11 +7,18 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prettier": "prettier . --write",
-    "lint": "eslint src/**/*.{tsx,ts} --max-warnings=0"
+    "lint": "eslint src/**/*.{tsx,ts} --max-warnings=0",
+    "relay": "relay-compiler"
   },
   "dependencies": {
     "@anthaathi/common": "0.0.0",
     "@anthaathi/web-lib": "0.0.0"
+  },
+  "relay": {
+    "src": "./src",
+    "schema": "./data/schema.graphql",
+    "language": "typescript",
+    "exclude": ["**/node_modules/**", "**/__mocks__/**", "**/__generated__/**"]
   },
   "devDependencies": {
     "@anthaathi/tooling": "0.0.0",
