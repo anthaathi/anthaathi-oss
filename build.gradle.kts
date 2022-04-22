@@ -1,3 +1,5 @@
+import com.github.gradle.node.yarn.task.YarnTask
+
 buildscript {
     repositories {
         mavenCentral()
@@ -8,7 +10,7 @@ plugins {
     kotlin("jvm") version Versions.KOTLIN_VERSION
     kotlin("plugin.allopen") version Versions.KOTLIN_VERSION
     id("io.quarkus") apply false
-    id("org.siouan.frontend-jdk11") version "6.0.0"
+    id("com.github.node-gradle.node") version "3.2.1"
 }
 
 val quarkusPlatformGroupId: String by project
@@ -27,6 +29,7 @@ allprojects {
 
 val quarkusCommonProjects = listOf(project("anthaathi-cms"))
 val webClients = listOf(project("anthaathi-cms-web-client"))
+val webLibraries = listOf(project("anthaathi-web-lib"))
 
 configure(subprojects.filter { it in quarkusCommonProjects }) {
     apply {
@@ -63,18 +66,26 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
     }
 }
 
-configure(subprojects.filter { it in webClients }) {
+configure(subprojects.filter { it in webLibraries }) {
     apply {
-        plugin("org.siouan.frontend-jdk11")
+        plugin("com.github.node-gradle.node")
     }
 
-    frontend {
-        yarnEnabled.set(true)
-        nodeDistributionProvided.set(true)
-        assembleScript.set("run build")
+    tasks.register<YarnTask>("buildLib") {
+        args.set(listOf("build"))
+    }
+}
 
-        tasks.register<org.siouan.frontendgradleplugin.infrastructure.gradle.RunYarn>("devRun") {
-            script.set("run dev")
+configure(subprojects.filter { it in webClients }) {
+    apply {
+        plugin("com.github.node-gradle.node")
+    }
+
+    tasks.register<YarnTask>("runDev") {
+        args.set(listOf("dev"))
+
+        webLibraries.forEach {
+            dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
         }
     }
 }
