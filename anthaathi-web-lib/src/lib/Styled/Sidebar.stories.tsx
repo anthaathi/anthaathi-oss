@@ -9,7 +9,7 @@ import SidebarCpm, {
   SidebarItemLink,
   SidebarToolbar,
 } from './Sidebar';
-import { CommonAppProvider } from '../CommonAppProvider';
+import { CommonAppProvider } from '../Components/CommonAppProvider';
 import SidebarMenu, {
   SidebarMenuDivider,
   SidebarMenuIconButton,

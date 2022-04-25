@@ -5,6 +5,7 @@ import { Button, KIND, SHAPE, SIZE } from 'baseui/button';
 import { ChevronLeft } from '@carbon/icons-react';
 import { atomWithStorage } from 'jotai/utils';
 import { useAtom } from 'jotai';
+import { useIntl } from 'react-intl';
 import SidebarMenu, {
   SidebarMenuDivider,
   SidebarMenuIconButton,
@@ -12,6 +13,7 @@ import SidebarMenu, {
 } from '../../Styled/SidebarMenu';
 import Anthaathi from '../../Icon/Anthaathi';
 import Sidebar, { SidebarToolbar } from '../../Styled/Sidebar';
+import SkipToContent from '../../Styled/SkipToContent';
 
 const SidebarButtonAtom = atomWithStorage('_mini_sidebarOpen', false);
 
@@ -114,6 +116,7 @@ export function DefaultLayout({
   sidebarMenuItem,
 }: DefaultLayoutProps) {
   const [css, $theme] = useStyletron();
+  const intl = useIntl();
 
   return (
     <div
@@ -126,6 +129,12 @@ export function DefaultLayout({
       })}
     >
       <SidebarMenu className={css({ position: 'fixed', zIndex: 1, left: 0 })}>
+        <SkipToContent data-component="skip-to-content">
+          {intl.formatMessage({
+            defaultMessage: 'Skip to content',
+            id: 'ZKtRoA',
+          })}
+        </SkipToContent>
         <SidebarMenuIconButton
           icon={<Anthaathi width={48} height={48} />}
           title="Anthaathi"

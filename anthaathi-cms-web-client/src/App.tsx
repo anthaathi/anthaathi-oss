@@ -8,6 +8,7 @@ import LoadingScreen from './Common/LoadingScreen';
 
 const Content = React.lazy(() => import('./Pages/Content'));
 const Intro = React.lazy(() => import('./Pages/Intro'));
+const Media = React.lazy(() => import('./Pages/Media'));
 
 export interface AppProps {
   children: React.ReactNode;
@@ -38,8 +39,8 @@ export default createFarceRouter({
           Component: Content,
         },
         {
-          path: '/loading',
-          Component: LoadingScreen,
+          path: '/media',
+          Component: Media,
         },
       ],
     },

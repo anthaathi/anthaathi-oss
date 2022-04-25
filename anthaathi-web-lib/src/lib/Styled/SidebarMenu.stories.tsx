@@ -8,7 +8,7 @@ import SidebarCmp, {
   SidebarMenuIconButton,
   SidebarMenuToggle,
 } from './SidebarMenu';
-import { CommonAppProvider } from '../CommonAppProvider';
+import { CommonAppProvider } from '../Components/CommonAppProvider';
 import Anthaathi from '../Icon/Anthaathi';
 
 export default {

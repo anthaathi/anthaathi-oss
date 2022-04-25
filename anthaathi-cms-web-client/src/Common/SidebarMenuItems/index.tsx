@@ -2,11 +2,11 @@ import * as React from 'react';
 import { SidebarMenuIconButton } from '@anthaathi/web-lib';
 import { Block } from 'baseui/block';
 import {
-  Development,
-  BlockStorage,
-  MediaLibrary,
   Api,
+  BlockStorage,
+  Development,
   Http,
+  MediaLibrary,
   Settings,
 } from '@carbon/icons-react';
 import { useRouter } from 'found';

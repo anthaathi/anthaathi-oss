@@ -4,7 +4,11 @@
   "scripts": {
     "gen-typeing:carbon-icons": "ts-node ./type-generator.ts"
   },
+  "license": "MIT",
   "dependencies": {
+    "@swc/core": "^1.2.171",
+    "@swc/jest": "^0.2.20",
+    "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "eslint": "^7.32.0",
@@ -13,12 +17,13 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
+    "jest": "^27.5.1",
     "react": "^18.0.0",
     "react-intl": "^5.25.0",
     "react-relay": "^13.2.0",
+    "react-test-renderer": "^18.0.0",
     "relay-runtime": "^13.2.0",
-    "ts-node": "^10.7.0",
-    "vitest": "^0.9.3"
+    "ts-node": "^10.7.0"
   },
   "devDependencies": {
     "babel-plugin-formatjs": "^10.3.19",

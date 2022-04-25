@@ -6,7 +6,8 @@
     "anthaathi-cms-web-client",
     "anthaathi-common-node-bom",
     "anthaathi-web-lib",
-    "tools/node-tooling"
+    "tools/node-tooling",
+    "anthaathi-crm-web-client"
   ],
   "dependencies": {
     "react": "^18.0.0",

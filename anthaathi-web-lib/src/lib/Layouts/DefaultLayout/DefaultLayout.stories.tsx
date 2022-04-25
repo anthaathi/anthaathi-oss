@@ -3,7 +3,7 @@ import { Block } from 'baseui/block';
 // @ts-ignore
 import { Home } from '@carbon/icons-react';
 import DefaultLayout from './index';
-import { CommonAppProvider } from '../../CommonAppProvider';
+import { CommonAppProvider } from '../../Components/CommonAppProvider';
 import { SidebarToolbar } from '../../Styled/Sidebar';
 import { SidebarMenuIconButton } from '../../Styled/SidebarMenu';
 

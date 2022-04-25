@@ -27,6 +27,7 @@ export default defineConfig({
         'baseui/tooltip',
         'baseui/typography',
         'jotai/utils',
+        'react-intl',
       ],
       output: {
         // Provide global variables to use in the UMD build

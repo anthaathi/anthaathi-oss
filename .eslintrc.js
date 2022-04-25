@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: ['plugin:react/recommended', 'airbnb'],
   parser: '@typescript-eslint/parser',
@@ -37,5 +38,6 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'react/jsx-wrap-multilines': 'off',
     'object-curly-newline': 'off',
+    'function-paren-newline': 'off',
   },
 };
