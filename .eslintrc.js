@@ -39,5 +39,6 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'object-curly-newline': 'off',
     'function-paren-newline': 'off',
+    'operator-linebreak': 'off',
   },
 };

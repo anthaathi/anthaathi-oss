@@ -3,11 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "workspaces": [
-    "anthaathi-cms-web-client",
-    "anthaathi-common-node-bom",
-    "anthaathi-web-lib",
-    "tools/node-tooling",
-    "anthaathi-crm-web-client"
+    "apps/anthaathi-cms-web-client",
+    "apps/anthaathi-common-node-bom",
+    "apps/anthaathi-crm-web-client",
+
+    "libs/anthaathi-web-lib",
+    "libs/anthaathi-common-node-bom",
+    "libs/anthaathi-form-builder",
+    "libs/anthaathi-form-cli",
+
+    "tools/node-tooling"
   ],
   "dependencies": {
     "react": "^18.0.0",

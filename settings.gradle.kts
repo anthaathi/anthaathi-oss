@@ -14,8 +14,14 @@ pluginManagement {
 
 rootProject.name = "anthaathi"
 
-include("anthaathi-cms")
-include("anthaathi-cms-web-client")
-include("anthaathi-common-node-bom")
-include("anthaathi-web-lib")
-include("anthaathi-crm-web-client")
+include(
+    ":libs:anthaathi-common-node-bom",
+    ":libs:anthaathi-web-lib",
+    ":libs:anthaathi-form-builder"
+)
+
+include(
+    ":apps:anthaathi-cms",
+    ":apps:anthaathi-cms-web-client",
+    ":apps:anthaathi-crm-web-client"
+)

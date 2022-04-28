@@ -27,9 +27,17 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf(project("anthaathi-cms"))
-val webClients = listOf(project("anthaathi-cms-web-client"))
-val webLibraries = listOf(project("anthaathi-web-lib"))
+val quarkusCommonProjects = listOf(project(":apps:anthaathi-cms"))
+
+val webClients = listOf(
+    project(":apps:anthaathi-cms-web-client"),
+    project(":apps:anthaathi-crm-web-client")
+)
+
+val webLibraries = listOf(
+    project(":libs:anthaathi-web-lib"),
+    project(":libs:anthaathi-form-builder")
+)
 
 configure(subprojects.filter { it in quarkusCommonProjects }) {
     apply {
