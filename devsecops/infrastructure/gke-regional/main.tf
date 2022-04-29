@@ -9,7 +9,7 @@ terraform {
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
-  name     = "${var.prefix}-${var.project_id}-gke"
+  name     = "${var.prefix}-${var.project_id}-${var.region}-gke"
   location = var.region
 
   # We can't create a cluster with no node pool defined, but we want to only use
@@ -43,10 +43,18 @@ resource "google_container_node_pool" "primary_nodes" {
       env = var.project_id
     }
 
-    # preemptible  = true
-    machine_type = "e2-standard-2"
+    linux_node_config {
+      sysctls = {
+      }
+    }
+
+    preemptible  = var.preemptible
+
+    machine_type = var.machine_type
+
     tags         = ["gke-node", "${var.project_id}-gke"]
-    metadata = {
+
+    metadata     = {
       disable-legacy-endpoints = "true"
     }
   }
