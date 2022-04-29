@@ -22,6 +22,7 @@ variable "gke_num_nodes" {
 }
 
 variable "node_storage" {
+  type = number
   default = 250
   description = "Storage for kubernetes nodes"
 }

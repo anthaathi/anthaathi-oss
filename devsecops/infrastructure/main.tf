@@ -15,4 +15,5 @@ module "development-cluster" {
   gke_num_nodes = 1
   google_compute_network_vpc_name = google_compute_network.vpc_development.name
   preemptible = true
+  node_storage = 100
 }
