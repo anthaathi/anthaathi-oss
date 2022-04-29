@@ -30,8 +30,3 @@ module "development_cluster" {
   env                             = "development"
   tags                            = ["gke-development"]
 }
-
-provider "helm" {
-  alias      = "development_cluster_helm"
-  kubernetes = "kubernetes.development_cluster"
-}
