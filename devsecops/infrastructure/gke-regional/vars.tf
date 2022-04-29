@@ -45,3 +45,8 @@ variable "preemptible" {
   default = false
   description = "For dev cluster"
 }
+
+variable "tags" {
+  type = list(string)
+  default = []
+}

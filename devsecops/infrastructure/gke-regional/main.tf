@@ -43,13 +43,13 @@ resource "google_container_node_pool" "primary_nodes" {
       env = var.env
     }
 
-    preemptible  = var.preemptible
+    preemptible = var.preemptible
 
     machine_type = var.machine_type
 
-    tags         = ["gke-node", "${var.project_id}-gke"]
+    tags = setunion(["gke-node", "${var.project_id}-gke"], var.tags)
 
-    metadata     = {
+    metadata = {
       disable-legacy-endpoints = "true"
     }
   }
