@@ -3,10 +3,9 @@ import { useCallback, useMemo } from 'react';
 import { JSONSchema7 } from 'json-schema';
 import { apply, RulesLogic } from 'json-logic-js';
 
-export interface Bindings<T = any> {
+export interface Bindings {
   $ref: string;
-  value?: T;
-  errors?: string[];
+  $paths: (string | number)[];
 }
 
 export interface UIElement<T> {

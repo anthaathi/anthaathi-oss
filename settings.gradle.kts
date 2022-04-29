@@ -25,3 +25,6 @@ include(
     ":apps:anthaathi-cms-web-client",
     ":apps:anthaathi-crm-web-client"
 )
+
+include("devsecops")
+include(":devsecops:infrastructure")
