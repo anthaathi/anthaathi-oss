@@ -6,6 +6,10 @@ variable "region" {
   description = "region"
 }
 
+variable "google_compute_network_vpc_name" {
+  description = "vpc name"
+}
+
 variable "prefix" {
   type = string
   default = "anthaathi"
