@@ -6,17 +6,17 @@ terraform {
     }
   }
 }
-
-data "google_client_config" "current" {}
-
-provider "kubernetes" {
-  alias                  = "development_cluster"
-  host                   = module.development_cluster.endpoint
-  token                  = data.google_client_config.current.access_token
-  client_certificate     = base64decode(module.development_cluster.client_certificate)
-  client_key             = base64decode(module.development_cluster.client_key)
-  cluster_ca_certificate = base64decode(module.development_cluster.cluster_ca_certificate)
-}
+#
+#data "google_client_config" "current" {}
+#
+#provider "kubernetes" {
+#  alias                  = "development_cluster"
+#  host                   = module.development_cluster.endpoint
+#  token                  = data.google_client_config.current.access_token
+#  client_certificate     = base64decode(module.development_cluster.client_certificate)
+#  client_key             = base64decode(module.development_cluster.client_key)
+#  cluster_ca_certificate = base64decode(module.development_cluster.cluster_ca_certificate)
+#}
 
 module "development_cluster" {
   source                          = "./gke-regional"
