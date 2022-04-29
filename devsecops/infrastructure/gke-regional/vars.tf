@@ -10,6 +10,10 @@ variable "google_compute_network_vpc_name" {
   description = "vpc name"
 }
 
+variable "env" {
+  description = "Env"
+}
+
 variable "prefix" {
   type = string
   default = "anthaathi"

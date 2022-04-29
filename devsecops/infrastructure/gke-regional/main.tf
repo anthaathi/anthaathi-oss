@@ -40,7 +40,7 @@ resource "google_container_node_pool" "primary_nodes" {
     disk_size_gb = var.node_storage
 
     labels = {
-      env = var.project_id
+      env = var.env
     }
 
     preemptible  = var.preemptible
