@@ -69,38 +69,48 @@ export function Default() {
             readOnly: true,
           },
         },
-      ]}
-      $dataSchema={{
-        type: 'object',
-        properties: {
-          title: { type: 'string', maxLength: 255, default: '' },
-          description: { type: 'string', maxLength: 5000 },
-          requestType: { type: 'string' },
-          customer: { type: 'array', items: { type: 'string' } },
-          reporter: { type: 'array', items: { type: 'string' } },
-          tags: {
-            type: 'array',
-            items: {
-              type: 'string',
-            },
-          },
-          assigned: {
-            type: 'array',
-            items: {
-              type: 'string',
-            },
-          },
-          attachment: {
-            type: 'string',
-          },
-          reference: {
-            type: 'string',
-          },
-          priority: {
-            type: 'string',
+        {
+          $element: Input,
+          $$kind: 'anthaathi/element',
+          binding: {
+            $ref: 'https://anthaathi.org/crm/task.json#/title',
           },
         },
-      }}
+      ]}
+      $dataSchema={[
+        {
+          $id: 'https://anthaathi.org/crm/task.json#',
+          type: 'object',
+          properties: {
+            title: { type: 'string', maxLength: 255 },
+            description: { type: 'string', maxLength: 5000 },
+            requestType: { type: 'string' },
+            customer: { type: 'array', items: { type: 'string' } },
+            reporter: { type: 'array', items: { type: 'string' } },
+            tags: {
+              type: 'array',
+              items: {
+                type: 'string',
+              },
+            },
+            assigned: {
+              type: 'array',
+              items: {
+                type: 'string',
+              },
+            },
+            attachment: {
+              type: 'string',
+            },
+            reference: {
+              type: 'string',
+            },
+            priority: {
+              type: 'string',
+            },
+          },
+        },
+      ]}
     />
   );
 }
