@@ -43,11 +43,6 @@ resource "google_container_node_pool" "primary_nodes" {
       env = var.project_id
     }
 
-    linux_node_config {
-      sysctls = {
-      }
-    }
-
     preemptible  = var.preemptible
 
     machine_type = var.machine_type
