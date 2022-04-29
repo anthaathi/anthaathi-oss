@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.5.0"
+    }
+  }
+}
+
 module "development-cluster" {
   source     = "./gke-regional"
   project_id = var.project_id
