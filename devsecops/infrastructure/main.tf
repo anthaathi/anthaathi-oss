@@ -58,28 +58,6 @@ module "gce-lb-http" {
   }
 }
 
-
-module "development_named_port_0" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 0)
-  name           = "http"
-  port           = "30000"
-}
-
-module "development_named_port_1" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 1)
-  name           = "http"
-  port           = "30000"
-}
-
-module "development_named_port_2" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 2)
-  name           = "http"
-  port           = "30000"
-}
-
 module "ambassador" {
   source           = "basisai/ambassador/helm"
   version          = "1.0.0-alpha4"
