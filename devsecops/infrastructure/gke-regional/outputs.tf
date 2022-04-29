@@ -19,7 +19,7 @@ output "kubernetes_cluster_host" {
 }
 
 output "instance_groups" {
-  value = google_container_cluster.primary.instance_group_urls
+  value = google_container_node_pool.primary_nodes.instance_group_urls
 }
 
 output "endpoint" {
