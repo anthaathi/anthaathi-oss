@@ -26,3 +26,4 @@ dist-ssr
 build
 compiled-locales
 __generated__
+.terraform
