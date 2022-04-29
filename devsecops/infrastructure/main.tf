@@ -2,7 +2,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "3.5.0"
+      version = "4.19.0"
     }
   }
 }
@@ -31,13 +31,18 @@ module "development_cluster" {
   tags                            = ["gke-development"]
 }
 
-module "glb_development" {
+provider "helm" {
+  alias      = "development_cluster_helm"
+  kubernetes = "kubernetes.development_cluster"
+}
+
+module "gce-lb-dev-http" {
   source            = "GoogleCloudPlatform/lb-http/google"
-  version           = "6.2.0"
+  version           = "~> 6.2.0"
+  project           = var.project_id
   name              = "gke-development-lb"
   target_tags       = ["gke-development"]
   firewall_networks = [google_compute_network.vpc_development.name]
-  enable_cdn        = false
 
   backends = {
     "0" = [
@@ -58,39 +63,3 @@ module "glb_development" {
     "/,http,30000,10",
   ]
 }
-
-module "development_named_port_0" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 0)
-  name           = "http"
-  port           = "30000"
-}
-
-module "development_named_port_1" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 1)
-  name           = "http"
-  port           = "30000"
-}
-
-module "development_named_port_2" {
-  source         = "github.com/danisla/terraform-google-named-ports"
-  instance_group = element(module.development_cluster.instance_groups, 2)
-  name           = "http"
-  port           = "30000"
-}
-
-provider "helm" {
-  alias = "development_cluster_helm"
-  kubernetes = "kubernetes.development_cluster"
-}
-
-#module "ambassador" {
-#  source           = "basisai/ambassador/helm"
-#  version          = "1.0.0-alpha4"
-#  load_balancer_ip = module.glb_development.external_ip
-#
-#  providers = {
-#    helm = helm.development_cluster_helm
-#  }
-#}
