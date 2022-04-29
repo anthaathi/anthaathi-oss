@@ -2,7 +2,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "3.0.0"
+      version = "3.5.0"
     }
   }
 }
@@ -85,12 +85,12 @@ provider "helm" {
   kubernetes = "kubernetes.development_cluster"
 }
 
-module "ambassador" {
-  source           = "basisai/ambassador/helm"
-  version          = "1.0.0-alpha4"
-  load_balancer_ip = module.glb_development.external_ip
-
-  providers = {
-    helm = helm.development_cluster_helm
-  }
-}
+#module "ambassador" {
+#  source           = "basisai/ambassador/helm"
+#  version          = "1.0.0-alpha4"
+#  load_balancer_ip = module.glb_development.external_ip
+#
+#  providers = {
+#    helm = helm.development_cluster_helm
+#  }
+#}
