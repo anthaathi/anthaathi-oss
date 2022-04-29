@@ -54,6 +54,7 @@ module "gce-lb-http" {
 }
 
 provider "helm" {
+  alias = "development_cluster_helm"
   kubernetes {
     host                   = module.development_cluster.endpoint
     token                  = data.google_client_config.current.access_token
