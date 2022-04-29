@@ -30,11 +30,6 @@ module "development_cluster" {
   tags                            = ["gke-development"]
 }
 
-provider "helm" {
-  alias      = "development_cluster_helm"
-  kubernetes = "kubernetes.development_cluster"
-}
-
 module "gce-lb-http" {
   source            = "GoogleCloudPlatform/lb-http/google"
   version           = "~> 6.2.0"
@@ -55,6 +50,16 @@ module "gce-lb-http" {
         group = element(module.development_cluster.instance_groups, 2)
       },
     ]
+  }
+}
+
+provider "helm" {
+  kubernetes {
+    host                   = module.development_cluster.endpoint
+    token                  = data.google_client_config.current.access_token
+    client_certificate     = base64decode(module.development_cluster.client_certificate)
+    client_key             = base64decode(module.development_cluster.client_key)
+    cluster_ca_certificate = base64decode(module.development_cluster.cluster_ca_certificate)
   }
 }
 
