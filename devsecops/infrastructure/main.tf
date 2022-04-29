@@ -80,14 +80,17 @@ module "development_named_port_2" {
   port           = "30000"
 }
 
+provider "helm" {
+  alias = "development_cluster_helm"
+  kubernetes = "kubernetes.development_cluster"
+}
+
 module "ambassador" {
   source           = "basisai/ambassador/helm"
   version          = "1.0.0-alpha4"
   load_balancer_ip = module.glb_development.external_ip
 
   providers = {
-    helm = {
-      kubernetes = "kubernetes.development_cluster"
-    }
+    helm = "helm.development_cluster_helm"
   }
 }
