@@ -33,7 +33,7 @@ module "development_cluster" {
 
 module "glb_development" {
   source            = "GoogleCloudPlatform/lb-http/google"
-  version           = "1.0.10"
+  version           = "6.2.0"
   name              = "gke-development-lb"
   target_tags       = ["gke-development"]
   firewall_networks = [google_compute_network.vpc_development.name]
@@ -91,6 +91,6 @@ module "ambassador" {
   load_balancer_ip = module.glb_development.external_ip
 
   providers = {
-    helm = "helm.development_cluster_helm"
+    helm = helm.development_cluster_helm
   }
 }
