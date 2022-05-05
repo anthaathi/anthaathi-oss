@@ -75,7 +75,7 @@ jobs:
           dockerfiles: |
             ./apps/${{ matrix.app }}/Dockerfile
           image: ${{ matrix.app }}
-          tags: 'development' ${{ github.sha }}
+          tags: "'development' ${{ github.sha }}"
 
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
@@ -98,7 +98,7 @@ jobs:
           dockerfiles: |
             ./apps/${{ matrix.app }}/Dockerfile
           image: ${{ matrix.app }}
-          tags: 'latest' ${{ github.sha }}
+          tags: "'latest' ${{ github.sha }}"
 
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
