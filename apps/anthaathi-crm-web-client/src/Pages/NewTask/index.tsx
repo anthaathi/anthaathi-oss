@@ -11,7 +11,7 @@ export default function NewTask() {
   const intl = useIntl();
 
   return (
-    <AppContent $style={{ marginTop: '12px' }}>
+    <AppContent $style={{ marginTop: '12px' }} $small>
       <Block
         $style={{
           padding: $theme.sizing.scale800,

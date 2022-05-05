@@ -1,24 +1,22 @@
 import * as React from 'react';
-import { SidebarMenuIconButton, SidebarMenuDivider } from '@anthaathi/web-lib';
+import { SidebarMenuDivider, SidebarMenuIconButton } from '@anthaathi/web-lib';
 import { Block } from 'baseui/block';
 import {
-  Dashboard,
-  Settings,
-  Calendar,
-  Group,
-  FileStorage,
-  Hashtag,
   Add,
+  Calendar,
+  Dashboard,
+  FileStorage,
+  Group,
+  Hashtag,
+  Settings,
+  // @ts-ignore
 } from '@carbon/icons-react';
 import { useRouter } from 'found';
 import { useIntl } from 'react-intl';
-import { useStyletron } from 'baseui';
 
 export default function SidebarMenuItems() {
   const { router } = useRouter();
   const intl = useIntl();
-
-  const [css] = useStyletron();
 
   return (
     <>
@@ -32,7 +30,6 @@ export default function SidebarMenuItems() {
         onClick={() => {
           router.push('/task/create');
         }}
-        className={css({})}
       />
 
       <SidebarMenuDivider />

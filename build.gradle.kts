@@ -30,7 +30,7 @@ allprojects {
 val quarkusCommonProjects = listOf(project(":apps:anthaathi-cms"))
 
 val webClients = listOf(
-    project(":apps:anthaathi-cms-web-client"),
+    // project(":apps:anthaathi-cms-web-client"),
     project(":apps:anthaathi-crm-web-client")
 )
 

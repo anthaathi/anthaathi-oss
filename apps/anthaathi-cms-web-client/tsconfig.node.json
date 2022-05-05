@@ -1,0 +1,15 @@
+
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "types": [
+      "@types/node"
+    ]
+  },
+  "extends": "../tsconfig.json",
+  "include": [
+    "vite.config.ts"
+  ]
+}

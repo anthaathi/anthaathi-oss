@@ -15,7 +15,7 @@ render(
     <IntlProvider locale="en-US" messages={enUS}>
       <WebProvider lang="en-US">
         <CommonAppProvider>
-          <App resolver={new Resolver(env)} />
+          <App resolver={new Resolver(env) as never} />
         </CommonAppProvider>
       </WebProvider>
     </IntlProvider>

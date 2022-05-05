@@ -1,9 +1,16 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": [
+    "../../node_modules",
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
 }
