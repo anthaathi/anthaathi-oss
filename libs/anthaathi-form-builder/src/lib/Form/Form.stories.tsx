@@ -74,6 +74,7 @@ export function Default() {
           $$kind: 'anthaathi/element',
           binding: {
             $ref: 'https://anthaathi.org/crm/task.json#/title',
+            $paths: [],
           },
         },
       ]}
