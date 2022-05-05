@@ -114,7 +114,7 @@ configure(subprojects.filter { it in webClients }) {
     tasks.register<YarnTask>("runDev") {
         args.set(listOf("dev"))
 
-        dependsOn.add("i18nExtract")
+        dependsOn.add("i18nCompile")
 
         webLibraries.forEach {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
@@ -124,7 +124,7 @@ configure(subprojects.filter { it in webClients }) {
     tasks.register<YarnTask>("buildProd") {
         args.set(listOf("build"))
 
-        dependsOn.add("i18nExtract")
+        dependsOn.add("i18nCompile")
 
         webLibraries.forEach {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
