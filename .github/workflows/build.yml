@@ -80,7 +80,7 @@ jobs:
         with:
           context: apps/${{ matrix.app }}
           dockerfiles: |
-            ./Dockerfile
+            ./apps/${{ matrix.app }}/Dockerfile
           image: ${{ matrix.app }}
           tags: ${{ github.event.release.prerelease && 'development' || 'latest' }} ${{ github.sha }}
 
