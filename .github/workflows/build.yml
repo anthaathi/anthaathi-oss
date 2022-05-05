@@ -39,6 +39,8 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.1.1
+        with:
+          cache: 'yarn'
 
       - name: Install yarn packages
         run: yarn install
@@ -63,7 +65,7 @@ jobs:
       - name: Build WebApps
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: :${{ matrix.app }}:buildProd
+          arguments: :apps:${{ matrix.app }}:buildProd
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
