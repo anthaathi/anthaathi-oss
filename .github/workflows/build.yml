@@ -127,7 +127,7 @@ jobs:
           openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
           openshift_token: ${{ env.OPENSHIFT_TOKEN }}
           insecure_skip_tls_verify: true
-          namespace: ${{ env.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
+          namespace: ${{ secrets.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
 
       # This step should create a deployment, service, and route to run your app and expose it to the internet.
       # https://github.com/redhat-actions/oc-new-app#readme
@@ -138,7 +138,7 @@ jobs:
         with:
           app_name: ${{ matrix.app }}-dev
           image: ${{ steps.push-image-dev.outputs.registry-path }}
-          namespace: ${{ env.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
+          namespace: ${{ secrets.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
           port: ${{ env.APP_PORT }}
 
       - name: Print application URL
