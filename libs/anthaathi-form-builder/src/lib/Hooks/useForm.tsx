@@ -5,20 +5,17 @@ export interface UseFormCallback<T> {
   // eslint-disable-next-line no-unused-vars
   onChange: (_: T) => void;
   onBlur: () => void;
-  value: T;
+  value?: T;
   error: string[];
 }
 
 export function useForm<T>(): UseFormCallback<T> {
-  const object = useContext(DataConfigContext);
   const [value, setValue] = useState<T>();
   const onChange = useCallback((value_: T) => {
     setValue(value_);
   }, []);
   const onBlur = useCallback(() => {}, []);
   const error = useMemo(() => [], []);
-
-  console.log(object);
 
   return {
     onChange,

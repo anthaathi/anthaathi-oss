@@ -31,9 +31,6 @@ export default function generateInitialJSON(
     case 'array':
       initialJson = schema.default || [];
 
-      if (!schema.default) {
-      }
-
       break;
     case 'string':
       initialJson = schema.default || '';
