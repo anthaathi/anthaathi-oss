@@ -12,6 +12,8 @@ env:
 
 on:
   push:
+    branches:
+      - main
     tags:
       - "*"
 
@@ -42,6 +44,9 @@ jobs:
 
       - name: Install yarn packages
         run: yarn install
+
+      - name: Display prerelease
+        run: echo ${{ github.event.release.prerelease }}
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -75,7 +80,7 @@ jobs:
           dockerfiles: |
             ./apps/${{ matrix.app }}/Dockerfile
           image: ${{ matrix.app }}
-          tags: 'development' ${{ github.sha }}
+          tags: ${{ github.sha + ' development' }}
 
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
@@ -98,7 +103,7 @@ jobs:
           dockerfiles: |
             ./apps/${{ matrix.app }}/Dockerfile
           image: ${{ matrix.app }}
-          tags: 'latest' ${{ github.sha }}
+          tags: ${{ github.sha + ' latest' }}
 
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
