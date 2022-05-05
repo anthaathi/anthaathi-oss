@@ -24,5 +24,8 @@
     "@vitejs/plugin-react": "^1.3.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.2"
+  },
+  "scripts": {
+    "postinstall": "echo \"$(echo \"// @ts-nocheck\"; cat node_modules/baseui/spinner/index.d.ts)\" > node_modules/baseui/spinner/index.d.ts"
   }
 }
