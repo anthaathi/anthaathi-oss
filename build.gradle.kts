@@ -101,8 +101,20 @@ configure(subprojects.filter { it in webClients }) {
         plugin("com.github.node-gradle.node")
     }
 
+    tasks.register<YarnTask>("i18nExtract") {
+        args.set(listOf("extract"))
+    }
+
+    tasks.register<YarnTask>("i18nCompile") {
+        args.set(listOf("compile"))
+
+        dependsOn.add("i18nExtract")
+    }
+
     tasks.register<YarnTask>("runDev") {
         args.set(listOf("dev"))
+
+        dependsOn.add("i18nExtract")
 
         webLibraries.forEach {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
@@ -111,6 +123,8 @@ configure(subprojects.filter { it in webClients }) {
 
     tasks.register<YarnTask>("buildProd") {
         args.set(listOf("build"))
+
+        dependsOn.add("i18nExtract")
 
         webLibraries.forEach {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
