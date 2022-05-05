@@ -108,4 +108,12 @@ configure(subprojects.filter { it in webClients }) {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
         }
     }
+
+    tasks.register<YarnTask>("buildProd") {
+        args.set(listOf("build"))
+
+        webLibraries.forEach {
+            dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
+        }
+    }
 }
