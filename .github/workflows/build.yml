@@ -11,11 +11,8 @@ env:
   IMAGE_TAGS: ""
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - "*"
+  release:
+    types: [ published ]
 
 permissions:
   contents: read
