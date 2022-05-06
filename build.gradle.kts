@@ -27,7 +27,16 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf(project(":apps:anthaathi-cms"), project(":apps:anthaathi-crm"))
+val quarkusCommonProjects = listOf(
+    // project(":apps:anthaathi-cms"),
+    project(":apps:anthaathi-crm")
+)
+
+val quarkusWebAppDeps = mapOf(
+    project(":apps:anthaathi-crm") to listOf(
+        project(":apps:anthaathi-crm-web-client")
+    )
+)
 
 val webClients = listOf(
     // project(":apps:anthaathi-cms-web-client"),
@@ -39,41 +48,6 @@ val webLibraries = listOf(
     project(":libs:anthaathi-form-builder")
 )
 
-configure(subprojects.filter { it in quarkusCommonProjects }) {
-    apply {
-        plugin("org.jetbrains.kotlin.jvm")
-        plugin("org.jetbrains.kotlin.plugin.allopen")
-        plugin("io.quarkus")
-    }
-
-    dependencies {
-        implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
-        implementation("io.quarkus:quarkus-kotlin")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("io.quarkus:quarkus-arc")
-        implementation("io.quarkus:quarkus-resteasy-reactive")
-        // implementation("io.quarkus:quarkus-oidc")
-
-        testImplementation("io.quarkus:quarkus-junit5")
-        testImplementation("io.rest-assured:rest-assured")
-    }
-
-    allOpen {
-        annotation("javax.ws.rs.Path")
-        annotation("javax.enterprise.context.ApplicationScoped")
-        annotation("io.quarkus.test.junit.QuarkusTest")
-    }
-
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
-        kotlinOptions.javaParameters = true
-    }
-
-    java {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-}
 
 configure(subprojects.filter { it in webLibraries }) {
     apply {
@@ -130,5 +104,53 @@ configure(subprojects.filter { it in webClients }) {
         webLibraries.forEach {
             dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
         }
+    }
+}
+
+configure(subprojects.filter { it in quarkusCommonProjects }) {
+    apply {
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.allopen")
+        plugin("io.quarkus")
+    }
+
+    dependencies {
+        implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+        implementation("io.quarkus:quarkus-kotlin")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("io.quarkus:quarkus-arc")
+        implementation("io.quarkus:quarkus-resteasy-reactive")
+        // implementation("io.quarkus:quarkus-oidc")
+
+        testImplementation("io.quarkus:quarkus-junit5")
+        testImplementation("io.rest-assured:rest-assured")
+    }
+
+    allOpen {
+        annotation("javax.ws.rs.Path")
+        annotation("javax.enterprise.context.ApplicationScoped")
+        annotation("io.quarkus.test.junit.QuarkusTest")
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+        kotlinOptions.javaParameters = true
+    }
+
+    if (quarkusWebAppDeps.containsKey(this)) {
+        quarkusWebAppDeps[this]?.forEach { itt ->
+            val task = tasks.withType<Copy> {
+                from(File(itt.projectDir, "dist").toString())
+                to(File(this.project.projectDir, "src/main/resources/META-INF/resources"))
+                dependsOn.add(itt.tasks.find { tsk -> tsk.name == "buildProd" })
+            }
+
+            tasks.getByName("build").dependsOn.add(task)
+        }
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
