@@ -1,4 +1,4 @@
-package org.anthaathi.cms
+package org.anthaathi.crm
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path

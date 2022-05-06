@@ -1,4 +1,4 @@
-package org.anthaathi.cms
+package org.anthaathi.crm
 
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured.given
