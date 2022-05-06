@@ -22,6 +22,7 @@ include(
 
 include(
     ":apps:anthaathi-cms",
+    ":apps:anthaathi-crm",
     ":apps:anthaathi-cms-web-client",
     ":apps:anthaathi-crm-web-client"
 )
