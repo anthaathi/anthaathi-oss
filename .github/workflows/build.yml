@@ -14,6 +14,8 @@ permissions:
   contents: read
   packages: write
 
+name: Build Container Images
+
 jobs:
   test:
     uses: ./.github/workflows/tests.yml
@@ -69,9 +71,9 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         if: "github.event.release.prerelease"
         with:
-          image: ${{ matrix.app }}
+          image: anthaathi/${{ matrix.app }}
           tags: ${{ github.sha }} development
-          registry: ${{ env.IMAGE_REGISTRY }}
+          registry: ghcr.io
           username: ${{ env.IMAGE_REGISTRY_USER }}
           password: ${{ env.IMAGE_REGISTRY_PASSWORD }}
 
