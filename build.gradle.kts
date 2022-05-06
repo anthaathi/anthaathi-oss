@@ -144,17 +144,20 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
 
     if (quarkusWebAppDeps.containsKey(this)) {
         tasks.build {
+            val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
+
+            doFirst {
+                mkdir(fileProjectPath)
+            }
+
             quarkusWebAppDeps[this.project]?.forEach { itt ->
                 val moveFileTaskName = "${ this.project.name }${ itt.name }moveFile"
-                val fileProjectPath = File(this.project.projectDir, "build/resources/main/META-INF/resources").toString()
-                val assembleTask = this.project.tasks.find { it.name == "assemble" }
+
 
                 val task = itt.tasks.register<Copy>(moveFileTaskName) {
                     from(File(this.project.projectDir, "dist").toString())
                     into(fileProjectPath)
-
                     dependsOn("buildProd")
-                    dependsOn(assembleTask)
                 }
 
                 dependsOn(task)

@@ -9,12 +9,20 @@ import java.util.Scanner
 
 @Provider
 class NotFoundExceptionMapper : ExceptionMapper<NotFoundException?> {
-    private val notFoundPage: String = Scanner(
-        this.javaClass.getResourceAsStream("/META-INF/resources/index.html"),
-        "UTF-8"
-    ).useDelimiter("\\A").next()
+    private var notFoundPage: String? = null
+
+    init {
+        notFoundPage = Scanner(
+            this.javaClass.getResourceAsStream("/META-INF/resources/index.html"),
+            "UTF-8"
+        ).useDelimiter("\\A").next()
+    }
 
     override fun toResponse(exception: NotFoundException?): Response {
+        if (notFoundPage == null) {
+            return Response.status(404).build()
+        }
+
         return Response.status(200).entity(notFoundPage).build()
     }
 }
