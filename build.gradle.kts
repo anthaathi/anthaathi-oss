@@ -130,7 +130,7 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
                 dependsOn("buildProd")
             }
 
-            this.project.tasks.getByName("quarkusBuild").dependsOn.add(task)
+            this.project.tasks.getByName("quarkusGenerateCode").dependsOn.add(task)
         }
     }
 
