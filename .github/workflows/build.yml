@@ -46,18 +46,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Build App Development
-        if: "github.event.release.prerelease"
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-        with:
-          arguments: :apps:${{ matrix.app }}:build -Dquarkus.docker.executable-name=podman -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=development
-
-      - name: Build App Latest
-        if: "!github.event.release.prerelease"
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-        with:
-          arguments: :apps:${{ matrix.app }}:build -Dquarkus.docker.executable-name=podman -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.event.release.tag_name }} -Dquarkus.container-image.additional-tags=latest
-
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -65,29 +53,31 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # https://github.com/redhat-actions/push-to-registry#readme
-      - name: Push to registry
-        id: push-image-dev
-        uses: redhat-actions/push-to-registry@v2
+      - name: Build App And Push Development
         if: "github.event.release.prerelease"
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          image: anthaathi/${{ matrix.app }}
-          tags: ${{ github.sha }} development
-          registry: ghcr.io
-          username: ${{ env.IMAGE_REGISTRY_USER }}
-          password: ${{ env.IMAGE_REGISTRY_PASSWORD }}
+          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+        env:
+          quarkus.container-image.username: ${{ github.repository_owner }}
+          quarkus.container-image.password: ${{ secrets.GITHUB_TOKEN }}
+          quarkus.container-image.registry: ghcr.io
+          quarkus.container-image.tag: ${{ github.sha }}
+          quarkus.container-image.additional-tags: development
+          quarkus.container-image.group: anthaathi
 
-      # https://github.com/redhat-actions/push-to-registry#readme
-      - name: Push to registry
+      - name: Build App And Push Latest
         if: "!github.event.release.prerelease"
-        id: push-image-prod
-        uses: redhat-actions/push-to-registry@v2
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          image: anthaathi/${{ matrix.app }}
-          tags: ${{ github.event.release.tag_name }} latest
-          registry: ghcr.io
-          username: ${{ env.IMAGE_REGISTRY_USER }}
-          password: ${{ env.IMAGE_REGISTRY_PASSWORD }}
+          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+        env:
+          quarkus.container-image.username: ${{ github.repository_owner }}
+          quarkus.container-image.password: ${{ secrets.GITHUB_TOKEN }}
+          quarkus.container-image.registry: ghcr.io
+          quarkus.container-image.tag: ${{ github.event.release.tag_name }}
+          quarkus.container-image.additional-tags: latest
+          quarkus.container-image.group: anthaathi
 
       - name: Install oc
         uses: redhat-actions/openshift-tools-installer@v1
