@@ -29,7 +29,7 @@ jobs:
 
     strategy:
       matrix:
-        app: ["anthaathi-crm-web-client"]
+        app: ["anthaathi-crm"]
 
     steps:
       - uses: actions/checkout@v3
@@ -42,24 +42,23 @@ jobs:
       - name: Install yarn packages
         run: yarn install
 
-      - name: Display prerelease
-        run: echo ${{ github.event.release.prerelease }}
-
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Build frontend with Gradle
+      - name: Build App Development
+        if: "github.event.release.prerelease"
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: buildLib
+          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=development
 
-      - name: Build WebApps
+      - name: Build App Latest
+        if: "!github.event.release.prerelease"
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: :apps:${{ matrix.app }}:buildProd
+          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.event.release.tag_name }} -Dquarkus.container-image.additional-tags=latest
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -68,39 +67,17 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push
-        uses: redhat-actions/buildah-build@v2
-        id: build-image-dev
-        if: "github.event.release.prerelease"
-        with:
-          context: apps/${{ matrix.app }}
-          dockerfiles: |
-            ./apps/${{ matrix.app }}/Dockerfile
-          image: ${{ matrix.app }}
-          tags: ${{ github.sha }} development
-
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
         id: push-image-dev
         uses: redhat-actions/push-to-registry@v2
         if: "github.event.release.prerelease"
         with:
-          image: ${{ steps.build-image-dev.outputs.image }}
-          tags: ${{ steps.build-image-dev.outputs.tags }}
+          image: ghcr.io/anthaathi/${{ matrix.app }}
+          tags: ${{ github.sha }} development
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.IMAGE_REGISTRY_USER }}
           password: ${{ env.IMAGE_REGISTRY_PASSWORD }}
-
-      - name: Build and push
-        uses: redhat-actions/buildah-build@v2
-        id: build-image-prod
-        if: "!github.event.release.prerelease"
-        with:
-          context: apps/${{ matrix.app }}
-          dockerfiles: |
-            ./apps/${{ matrix.app }}/Dockerfile
-          image: ${{ matrix.app }}
-          tags: ${{ github.sha }} latest
 
       # https://github.com/redhat-actions/push-to-registry#readme
       - name: Push to registry
@@ -108,8 +85,8 @@ jobs:
         id: push-image-prod
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ steps.build-image-prod.outputs.image }}
-          tags: ${{ steps.build-image-prod.outputs.tags }}
+          image: ghcr.io/anthaathi/${{ matrix.app }}
+          tags: ${{ github.event.release.tag_name }} latest
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.IMAGE_REGISTRY_USER }}
           password: ${{ env.IMAGE_REGISTRY_PASSWORD }}
@@ -128,27 +105,3 @@ jobs:
           openshift_token: ${{ env.OPENSHIFT_TOKEN }}
           insecure_skip_tls_verify: true
           namespace: ${{ env.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
-
-      # This step should create a deployment, service, and route to run your app and expose it to the internet.
-      # https://github.com/redhat-actions/oc-new-app#readme
-      - name: Create and expose app
-        id: deploy-and-expose-dev
-        uses: redhat-actions/oc-new-app@v1
-        if: "github.event.release.prerelease"
-        with:
-          app_name: ${{ matrix.app }}-dev
-          image: ${{ steps.push-image-dev.outputs.registry-path }}
-          namespace: ${{ env.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
-          port: ${{ env.APP_PORT }}
-
-      - name: Print application URL
-        if: "github.event.release.prerelease"
-        env:
-          ROUTE: ${{ steps.deploy-and-expose-dev.outputs.route }}
-          SELECTOR: ${{ steps.deploy-and-expose-dev.outputs.selector }}
-        run: |
-          [[ -n ${{ env.ROUTE }} ]] || (echo "Determining application route failed in previous step"; exit 1)
-          echo
-          echo "======================== Your application is available at: ========================"
-          echo ${{ env.ROUTE }}
-          echo "==================================================================================="
