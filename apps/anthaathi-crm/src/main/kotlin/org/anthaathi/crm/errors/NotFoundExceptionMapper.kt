@@ -5,6 +5,7 @@ import javax.ws.rs.core.Response
 import javax.ws.rs.ext.ExceptionMapper
 import javax.ws.rs.ext.Provider
 import java.util.Scanner
+import javax.ws.rs.core.MediaType
 
 
 @Provider
@@ -23,10 +24,15 @@ class NotFoundExceptionMapper : ExceptionMapper<NotFoundException?> {
     }
 
     override fun toResponse(exception: NotFoundException?): Response {
+        Response.status(200).entity(notFoundPage)
+
         if (notFoundPage == null) {
-            return Response.status(404).build()
+            return Response.noContent().status(404).build()
         }
 
-        return Response.status(200).entity(notFoundPage).build()
+        return Response.status(200)
+            .type(MediaType.TEXT_HTML)
+            .entity(notFoundPage)
+            .build()
     }
 }
