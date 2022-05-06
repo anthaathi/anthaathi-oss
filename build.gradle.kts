@@ -137,20 +137,26 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
         kotlinOptions.javaParameters = true
     }
 
-    if (quarkusWebAppDeps.containsKey(this)) {
-        quarkusWebAppDeps[this]?.forEach { itt ->
-            val task = tasks.withType<Copy> {
-                from(File(itt.projectDir, "dist").toString())
-                to(File(this.project.projectDir, "src/main/resources/META-INF/resources"))
-                dependsOn.add(itt.tasks.find { tsk -> tsk.name == "buildProd" })
-            }
-
-            tasks.getByName("build").dependsOn.add(task)
-        }
-    }
-
     java {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    if (quarkusWebAppDeps.containsKey(this)) {
+        tasks.build {
+            quarkusWebAppDeps[this.project]?.forEach { itt ->
+                val moveFileTaskName = "${ this.project.name }${ itt.name }moveFile"
+                val fileProjectPath = File(this.project.projectDir, "build/resources/main/META-INF/resources").toString()
+
+                val task = itt.tasks.register<Copy>(moveFileTaskName) {
+                    from(File(this.project.projectDir, "dist").toString())
+                    into(fileProjectPath)
+
+                    dependsOn("buildProd")
+                }
+
+                dependsOn(task)
+            }
+        }
     }
 }
