@@ -114,24 +114,28 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
         plugin("io.quarkus")
     }
 
-    if (quarkusWebAppDeps.containsKey(this)) {
-        val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
+    tasks.register("buildDocker") {
+        if (quarkusWebAppDeps.containsKey(this.project)) {
+            val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
 
-        quarkusWebAppDeps[this.project]?.forEach { itt ->
-            val moveFileTaskName = "${ this.project.name }-${ itt.name }moveFile"
+            quarkusWebAppDeps[this.project]?.forEach { itt ->
+                val moveFileTaskName = "${ this.project.name }-${ itt.name }moveFile"
 
-            val task = itt.tasks.register<Copy>(moveFileTaskName) {
-                doFirst {
-                    mkdir(fileProjectPath)
+                val task = itt.tasks.register<Copy>(moveFileTaskName) {
+                    doFirst {
+                        mkdir(fileProjectPath)
+                    }
+                    from(File(this.project.projectDir, "dist").toString())
+                    into(fileProjectPath)
+
+                    dependsOn("buildProd")
                 }
-                from(File(this.project.projectDir, "dist").toString())
-                into(fileProjectPath)
 
-                dependsOn("buildProd")
+                dependsOn.add(task)
             }
-
-            this.project.tasks.getByName("quarkusGenerateCode").dependsOn.add(task)
         }
+
+        finalizedBy(tasks.build)
     }
 
     dependencies {
