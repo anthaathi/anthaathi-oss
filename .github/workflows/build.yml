@@ -57,13 +57,13 @@ jobs:
         if: "github.event.release.prerelease"
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.username=${{ github.repository_owner }} -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=development -Dnative -Dquarkus.container-image.group=anthaathi
+          arguments: :apps:${{ matrix.app }}:buildDocker -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.username=${{ github.repository_owner }} -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=development -Dnative -Dquarkus.container-image.group=anthaathi
 
       - name: Build App And Push Latest
         if: "!github.event.release.prerelease"
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: :apps:${{ matrix.app }}:build -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.username=${{ github.repository_owner }} -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=latest -Dnative -Dquarkus.container-image.group=anthaathi
+          arguments: :apps:${{ matrix.app }}:buildDocker -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.username=${{ github.repository_owner }} -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} -Dquarkus.container-image.registry=ghcr.io -Dquarkus.container-image.tag=${{ github.sha }} -Dquarkus.container-image.additional-tags=latest -Dnative -Dquarkus.container-image.group=anthaathi
 
       - name: Install oc
         uses: redhat-actions/openshift-tools-installer@v1
