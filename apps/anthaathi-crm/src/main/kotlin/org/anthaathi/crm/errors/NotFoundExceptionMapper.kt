@@ -12,10 +12,14 @@ class NotFoundExceptionMapper : ExceptionMapper<NotFoundException?> {
     private var notFoundPage: String? = null
 
     init {
-        notFoundPage = Scanner(
-            this.javaClass.getResourceAsStream("/META-INF/resources/index.html"),
-            "UTF-8"
-        ).useDelimiter("\\A").next()
+        try {
+            notFoundPage = Scanner(
+                this.javaClass.getResourceAsStream("/META-INF/resources/index.html"),
+                "UTF-8"
+            ).useDelimiter("\\A").next()
+        } catch (_: Exception) {
+            println("index.html not found")
+        }
     }
 
     override fun toResponse(exception: NotFoundException?): Response {

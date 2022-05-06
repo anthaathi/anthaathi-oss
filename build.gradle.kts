@@ -114,13 +114,32 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
         plugin("io.quarkus")
     }
 
+    if (quarkusWebAppDeps.containsKey(this)) {
+        val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
+
+        quarkusWebAppDeps[this.project]?.forEach { itt ->
+            val moveFileTaskName = "${ this.project.name }-${ itt.name }moveFile"
+
+            val task = itt.tasks.register<Copy>(moveFileTaskName) {
+                doFirst {
+                    mkdir(fileProjectPath)
+                }
+                from(File(this.project.projectDir, "dist").toString())
+                into(fileProjectPath)
+
+                dependsOn("buildProd")
+            }
+
+            this.project.tasks.getByName("quarkusBuild").dependsOn.add(task)
+        }
+    }
+
     dependencies {
         implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
         implementation("io.quarkus:quarkus-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation("io.quarkus:quarkus-arc")
         implementation("io.quarkus:quarkus-resteasy-reactive")
-        // implementation("io.quarkus:quarkus-oidc")
 
         testImplementation("io.quarkus:quarkus-junit5")
         testImplementation("io.rest-assured:rest-assured")
@@ -140,28 +159,5 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
     java {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    if (quarkusWebAppDeps.containsKey(this)) {
-        tasks.build {
-            val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
-
-            doFirst {
-                mkdir(fileProjectPath)
-            }
-
-            quarkusWebAppDeps[this.project]?.forEach { itt ->
-                val moveFileTaskName = "${ this.project.name }${ itt.name }moveFile"
-
-
-                val task = itt.tasks.register<Copy>(moveFileTaskName) {
-                    from(File(this.project.projectDir, "dist").toString())
-                    into(fileProjectPath)
-                    dependsOn("buildProd")
-                }
-
-                dependsOn(task)
-            }
-        }
     }
 }
