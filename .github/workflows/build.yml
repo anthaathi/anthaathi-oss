@@ -104,4 +104,4 @@ jobs:
           openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
           openshift_token: ${{ env.OPENSHIFT_TOKEN }}
           insecure_skip_tls_verify: true
-          namespace: ${{ env.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
+          namespace: ${{ secrets.OPENSHIFT_NAMESPACE_DEVELOPMENT }}
