@@ -73,7 +73,7 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         if: "github.event.release.prerelease"
         with:
-          image: ghcr.io/anthaathi/${{ matrix.app }}
+          image: ${{ matrix.app }}
           tags: ${{ github.sha }} development
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.IMAGE_REGISTRY_USER }}
@@ -85,7 +85,7 @@ jobs:
         id: push-image-prod
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ghcr.io/anthaathi/${{ matrix.app }}
+          image: ${{ matrix.app }}
           tags: ${{ github.event.release.tag_name }} latest
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.IMAGE_REGISTRY_USER }}
