@@ -1,4 +1,3 @@
-// @ts-ignore
 const carbonIcons = require('@carbon/icons-react');
 
 const fs = require('fs');
@@ -17,4 +16,6 @@ const fileContent = `${Object.keys(carbonIcons).reduce(
 `,
 )}\n}`;
 
-fs.writeFileSync(path.resolve('./carbon-icons.d.ts'), fileContent);
+fs.writeFileSync(path.resolve('./../../src/carbon-icons.d.ts'), fileContent);
+
+export {};
