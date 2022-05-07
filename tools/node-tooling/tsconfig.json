@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "types": [
+      "@types/node"
+    ],
+    "module": "commonjs",
+    "isolatedModules": true
+  },
+  "extends": "../../tsconfig.json",
+  "include": [
+    "coverage-merger.ts",
+    "type-generator.ts"
+  ]
+}

@@ -28,3 +28,4 @@ compiled-locales
 __generated__
 .terraform
 /apps/*/src/main/resources/META-INF/resources/
+coverage/
