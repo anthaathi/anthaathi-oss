@@ -2,7 +2,8 @@
   "name": "@anthaathi/tooling",
   "version": "0.0.0",
   "scripts": {
-    "gen-typeing:carbon-icons": "ts-node ./type-generator.ts"
+    "gen-typeing:carbon-icons": "ts-node ./type-generator.ts",
+    "codecoverage": "ts-node coverage-merger.ts"
   },
   "license": "MIT",
   "dependencies": {

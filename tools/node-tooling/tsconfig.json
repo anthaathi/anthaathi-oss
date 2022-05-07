@@ -5,10 +5,13 @@
     ],
     "types": [
       "@types/node"
-    ]
+    ],
+    "module": "commonjs",
+    "isolatedModules": true
   },
   "extends": "../../tsconfig.json",
   "include": [
-    "vite.config.ts"
+    "coverage-merger.ts",
+    "type-generator.ts"
   ]
 }
