@@ -14,10 +14,12 @@ class NotFoundExceptionMapper : ExceptionMapper<NotFoundException?> {
 
     init {
         try {
-            notFoundPage = Scanner(
-                this.javaClass.getResourceAsStream("/META-INF/resources/index.html"),
-                "UTF-8"
-            ).useDelimiter("\\A").next()
+            notFoundPage = this.javaClass.getResourceAsStream("/META-INF/resources/index.html")?.let {
+                Scanner(
+                    it,
+                    "UTF-8"
+                ).useDelimiter("\\A").next()
+            }
         } catch (_: Exception) {
             println("index.html not found")
         }
