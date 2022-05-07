@@ -11,11 +11,20 @@ plugins {
     kotlin("plugin.allopen") version Versions.KOTLIN_VERSION
     id("io.quarkus") apply false
     id("com.github.node-gradle.node") version "3.2.1"
+    id("org.sonarqube") version "3.3"
 }
 
 val quarkusPlatformGroupId: String by project
 val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "anthaathi_anthaathi")
+        property("sonar.organization", "anthaathi")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
 
 allprojects {
     group = "org.anthaathi"
