@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Input as InputW, InputProps } from 'baseui/input';
-import { FormControl, FormControlProps } from 'baseui/form-control';
 import { FC } from 'react';
+import { Input as InputW } from 'baseui/input';
 import { CommonAppProvider } from '@anthaathi/web-lib';
 import Form from './index';
 import { useForm } from '../Hooks/useForm';
