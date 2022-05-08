@@ -26,3 +26,7 @@ include(
     ":apps:anthaathi-cms-web-client",
     ":apps:anthaathi-crm-web-client"
 )
+
+include(
+    ":tools:node-tooling"
+)
