@@ -8,7 +8,7 @@ const engine = new Styletron({ prefix: '_' });
 
 const LightTheme = createLightTheme(
   {
-    primaryFontFamily: "'IBM Plex Sans', sans-serif",
+    primaryFontFamily: "'Red Hat Text', sans-serif",
   },
   {
     borders: {

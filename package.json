@@ -10,7 +10,7 @@
     "libs/anthaathi-web-lib",
     "libs/anthaathi-common-node-bom",
     "libs/anthaathi-form-builder",
-    "libs/anthaathi-form-cli",
+    "libs/anthaathi-form-baseui",
 
     "tools/node-tooling"
   ],

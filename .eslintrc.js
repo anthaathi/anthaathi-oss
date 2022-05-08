@@ -40,5 +40,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'function-paren-newline': 'off',
     'operator-linebreak': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

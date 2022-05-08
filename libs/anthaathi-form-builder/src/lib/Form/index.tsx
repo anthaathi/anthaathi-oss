@@ -15,26 +15,35 @@ export interface Bindings {
   $paths: (string | number)[];
 }
 
+export type ElementType<T> =
+  | UIElement<T>
+  | UIElement<T>[]
+  | DynamicElement
+  | React.ReactNode
+  | ModelAccess;
+
 export interface UIElement<T> {
   $import?: string;
   $element: string | React.FunctionComponent;
   $$kind: 'anthaathi/element';
   scope?: string;
-  props?: Record<
-    string,
-    UIElement<T> | UIElement<T>[] | DynamicElement | React.ReactNode
-  >;
+  props?: Record<string, ElementType<T>>;
   binding?: Bindings;
 }
 
 export interface FormProps<T> {
   $dataSchema: JSONSchema7[];
-  $renderSchema: UIElement<T> | UIElement<T>[] | React.ReactNode;
+  $renderSchema: ElementType<T>;
 }
 
 export interface DynamicElement {
   $$kind: 'anthaathi/dynamic';
   jsonLogic: RulesLogic;
+}
+
+export interface ModelAccess {
+  $$kind: 'anthaathi/model';
+  $path: (string | number)[];
 }
 
 export const DataConfigContext = React.createContext<Bindings[]>([]);
@@ -45,20 +54,16 @@ export const DataModelRegistry = React.createContext<
   [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>]
 >(null as never);
 
-export const ModelDataContext = React.createContext<
-  [object, Dispatch<SetStateAction<object>>]
->(null as never);
-
 const useProvideDataSchema = ($dataSchema: JSONSchema7[]) => {
   const initialValues = useMemo(() => {
     const returnObject: Record<string, any> = {};
 
-    $dataSchema.forEach((e, index) => {
-      returnObject[e.$id || index === 0 ? '' : index] = generateInitialJSON(e);
+    $dataSchema.forEach((e) => {
+      returnObject[e.$id!] = generateInitialJSON(e);
     });
 
     return returnObject;
-  }, []);
+  }, [$dataSchema]);
 
   return useState<Record<string, any>>(initialValues);
 };
@@ -70,13 +75,7 @@ export function Form<T>({
   const dataSchema = useProvideDataSchema($dataSchema);
 
   const renderComponent = useCallback(
-    (
-      $renderSchema:
-        | UIElement<T>
-        | UIElement<T>[]
-        | DynamicElement
-        | React.ReactNode,
-    ) => {
+    ($renderSchema: ElementType<T>) => {
       const processedProps: { children?: React.ReactNode } = Object.keys(
         ($renderSchema as UIElement<T>).props || {},
       ).reduce((result, key) => {
@@ -97,7 +96,9 @@ export function Form<T>({
       );
 
       return (
-        <DataConfigContext.Consumer>
+        <DataConfigContext.Consumer
+          key={($renderSchema as UIElement<T>)?.props?.key as string}
+        >
           {(value) => (
             <DataConfigContext.Provider
               value={[
@@ -111,17 +112,11 @@ export function Form<T>({
         </DataConfigContext.Consumer>
       );
     },
-    [],
+    [$renderSchema_, $dataSchema, dataSchema[0]],
   );
 
   const renderElements = useCallback(
-    (
-      $renderSchema:
-        | UIElement<T>
-        | UIElement<T>[]
-        | DynamicElement
-        | React.ReactNode,
-    ): React.ReactNode => {
+    ($renderSchema: ElementType<T>): React.ReactNode => {
       if (Array.isArray($renderSchema)) {
         return $renderSchema.map((res) => renderElements(res));
       }
@@ -131,19 +126,27 @@ export function Form<T>({
       }
 
       if (($renderSchema as DynamicElement)?.$$kind === 'anthaathi/dynamic') {
-        return apply(($renderSchema as DynamicElement).jsonLogic, {
-          test: 'test',
-        });
+        return apply(
+          ($renderSchema as DynamicElement).jsonLogic,
+          dataSchema[0],
+        );
+      }
+
+      if (($renderSchema as ModelAccess)?.$$kind === 'anthaathi/model') {
+        return ($renderSchema as ModelAccess).$path.reduce(
+          (object, key) => (object || {})[key],
+          dataSchema[0],
+        ) as any;
       }
 
       return $renderSchema as React.ReactNode;
     },
-    [],
+    [dataSchema[0], renderComponent],
   );
 
   const element = useMemo(
     () => renderElements($renderSchema_) || null,
-    [$renderSchema_],
+    [$renderSchema_, dataSchema[0], renderElements],
   );
 
   return (
