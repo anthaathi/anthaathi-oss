@@ -17,7 +17,8 @@ rootProject.name = "anthaathi"
 include(
     ":libs:anthaathi-common-node-bom",
     ":libs:anthaathi-web-lib",
-    ":libs:anthaathi-form-builder"
+    ":libs:anthaathi-form-builder",
+    ":libs:anthaathi-form-baseui"
 )
 
 include(
@@ -25,4 +26,8 @@ include(
     ":apps:anthaathi-crm",
     ":apps:anthaathi-cms-web-client",
     ":apps:anthaathi-crm-web-client"
+)
+
+include(
+    ":tools:node-tooling"
 )

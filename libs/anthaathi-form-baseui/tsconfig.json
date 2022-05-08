@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,
@@ -11,9 +11,11 @@
     "resolveJsonModule": true
   },
   "include": [
-    "."
+    "./src",
+    "../../node_modules/@types/jest/index.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

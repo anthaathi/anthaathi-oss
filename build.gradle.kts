@@ -45,9 +45,9 @@ val webClients = listOf(
 
 val webLibraries = listOf(
     project(":libs:anthaathi-web-lib"),
-    project(":libs:anthaathi-form-builder")
+    project(":libs:anthaathi-form-builder"),
+    project(":libs:anthaathi-form-baseui")
 )
-
 
 configure(subprojects.filter { it in webLibraries }) {
     apply {
@@ -63,11 +63,13 @@ configure(subprojects.filter { it in webLibraries }) {
     }
 
     tasks.register<YarnTask>("test") {
-        args.set(listOf("test"))
+        args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
     }
 
     tasks.register("check") {
         dependsOn("lint", "test")
+
+        finalizedBy(project(":tools:node-tooling").tasks.getByName("coverageMerger"))
     }
 }
 
