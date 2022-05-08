@@ -96,7 +96,9 @@ export function Form<T>({
       );
 
       return (
-        <DataConfigContext.Consumer>
+        <DataConfigContext.Consumer
+          key={($renderSchema as UIElement<T>)?.props?.key as string}
+        >
           {(value) => (
             <DataConfigContext.Provider
               value={[
@@ -124,9 +126,10 @@ export function Form<T>({
       }
 
       if (($renderSchema as DynamicElement)?.$$kind === 'anthaathi/dynamic') {
-        return apply(($renderSchema as DynamicElement).jsonLogic, {
-          test: 'test',
-        });
+        return apply(
+          ($renderSchema as DynamicElement).jsonLogic,
+          dataSchema[0],
+        );
       }
 
       if (($renderSchema as ModelAccess)?.$$kind === 'anthaathi/model') {
