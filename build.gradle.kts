@@ -46,7 +46,7 @@ val webClients = listOf(
 val webLibraries = listOf(
     project(":libs:anthaathi-web-lib"),
     project(":libs:anthaathi-form-builder"),
-    project(":libs:anthaathi-baseui")
+    project(":libs:anthaathi-form-baseui")
 )
 
 configure(subprojects.filter { it in webLibraries }) {

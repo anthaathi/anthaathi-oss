@@ -47,14 +47,14 @@ describe('Form Module', () => {
           {
             $element: 'p',
             $$kind: 'anthaathi/element',
-            props: { children: 'test2', 'data-testid': 'p2 element', key: 2 },
+            props: { children: 'test2', 'data-testid': 'p2-element', key: 2 },
           },
         ]}
       />,
     );
 
     expect(snapshot.getByTestId('p-element').textContent).toBe('test');
-    expect(snapshot.getByTestId('p2-element').textContent).toBe('test');
+    expect(snapshot.getByTestId('p2-element').textContent).toBe('test2');
   });
 
   it('should render with two way data binding', () => {

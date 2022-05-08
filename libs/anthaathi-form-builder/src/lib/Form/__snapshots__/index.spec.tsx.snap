@@ -10,21 +10,6 @@ exports[`Form Module should render item 1`] = `
 </div>
 `;
 
-exports[`Form Module should render item array 1`] = `
-<div>
-  <p
-    data-testid="p-element"
-  >
-    test
-  </p>
-  <p
-    data-testid="p2 element"
-  >
-    test2
-  </p>
-</div>
-`;
-
 exports[`Form Module should render item when it model 1`] = `
 <div>
   <input
