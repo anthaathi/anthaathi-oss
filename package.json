@@ -2,16 +2,15 @@
   "name": "@anthaathi/root",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "yarn@3.2.0",
   "workspaces": [
     "apps/anthaathi-cms-web-client",
     "apps/anthaathi-common-node-bom",
     "apps/anthaathi-crm-web-client",
-
     "libs/anthaathi-web-lib",
     "libs/anthaathi-common-node-bom",
     "libs/anthaathi-form-builder",
     "libs/anthaathi-form-baseui",
-
     "tools/node-tooling"
   ],
   "dependencies": {
