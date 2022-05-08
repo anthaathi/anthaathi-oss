@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 declare module '@carbon/icons-react' {
+  import React from 'react';
   type SizeType = 16 | 20 | 24 | 32;
   type ComponentType = React.ForwardRefExoticComponent<
     {

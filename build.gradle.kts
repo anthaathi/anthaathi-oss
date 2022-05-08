@@ -49,7 +49,6 @@ val webLibraries = listOf(
     project(":libs:anthaathi-baseui")
 )
 
-
 configure(subprojects.filter { it in webLibraries }) {
     apply {
         plugin("com.github.node-gradle.node")
@@ -64,11 +63,13 @@ configure(subprojects.filter { it in webLibraries }) {
     }
 
     tasks.register<YarnTask>("test") {
-        args.set(listOf("test"))
+        args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
     }
 
     tasks.register("check") {
         dependsOn("lint", "test")
+
+        finalizedBy(project(":tools:node-tooling").tasks.getByName("coverageMerger"))
     }
 }
 

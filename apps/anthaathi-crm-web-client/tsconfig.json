@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "resolveJsonModule": true,
     "allowJs": true
@@ -12,5 +12,5 @@
     "node_modules",
     "**/*.spec.ts",
     "**/*.spec.tsx"
-  ],
+  ]
 }
