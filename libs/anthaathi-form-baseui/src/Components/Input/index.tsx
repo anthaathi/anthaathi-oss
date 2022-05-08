@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Input as InputBase } from 'baseui/input';
-import { useForm } from '@anthaathi/form/dist/lib/Hooks/useForm';
+import { useForm } from '@anthaathi/form';
 
 export default function Input() {
   const { value, onChange, onBlur } = useForm<string>();

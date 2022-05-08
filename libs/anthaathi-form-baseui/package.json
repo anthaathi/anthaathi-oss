@@ -5,14 +5,14 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/form-lib.umd.js",
-  "module": "./dist/form-lib.es.js",
+  "main": "./dist/form-baseui-lib.umd.js",
+  "module": "./dist/form-baseui-lib.es.js",
   "types": "./dist/public.d.ts",
   "license": "Apache-2.0",
   "exports": {
     ".": {
-      "import": "./dist/form-lib.es.js",
-      "require": "./dist/form-lib.umd.js"
+      "import": "./dist/form-baseui-lib.es.js",
+      "require": "./dist/form-baseui-lib.umd.js"
     }
   },
   "scripts": {

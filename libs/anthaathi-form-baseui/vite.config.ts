@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/public.ts'),
-      name: 'form-lib',
-      fileName: (format) => `form-lib.${format}.js`,
+      name: 'form-baseui-lib',
+      fileName: (format) => `form-baseui-lib.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
