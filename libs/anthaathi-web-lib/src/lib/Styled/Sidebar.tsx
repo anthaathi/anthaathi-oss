@@ -6,6 +6,8 @@ import { LabelSmall } from 'baseui/typography';
 import { ChevronUp } from '@carbon/icons-react';
 import { FlexFill } from './Utils';
 
+const animationTiming = process.env.NODE_ENV === 'test' ? 0 : 220;
+
 const Sidebar = styled('div', {
   width: '320px',
   backgroundColor: '#EEE',
@@ -68,7 +70,7 @@ export function SidebarItem({ title, children, action }: SidebarItemProps) {
 
       ref.current = setTimeout(() => {
         setShouldRender(false);
-      }, 220);
+      }, animationTiming);
     }
   }, [isOpen]);
 
@@ -77,7 +79,8 @@ export function SidebarItem({ title, children, action }: SidebarItemProps) {
       <div
         tabIndex={0}
         role="button"
-        aria-expanded={isOpen}
+        data-testid="sidebar-title"
+        aria-expanded={isOpen ? 'true' : 'false'}
         onKeyDown={(e) => {
           if (!(e.key === 'Enter' || e.code === 'Enter')) {
             return;
@@ -135,11 +138,11 @@ export function SidebarItem({ title, children, action }: SidebarItemProps) {
   );
 }
 
-export interface SidebarItemLinkProps {
+export interface SidebarItemLinkProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   icon?: React.ReactNode;
   action?: React.ReactNode;
-  onClick?: Function;
   isHeading?: boolean;
 }
 
@@ -149,6 +152,7 @@ export function SidebarItemLink({
   onClick,
   isHeading = false,
   action,
+  ...props
 }: SidebarItemLinkProps) {
   const [css, $theme] = useStyletron();
 
@@ -161,7 +165,7 @@ export function SidebarItemLink({
           return;
         }
 
-        onClick?.(e);
+        onClick?.(e as never);
       }}
       onClick={onClick as never}
       className={css({
@@ -179,6 +183,7 @@ export function SidebarItemLink({
           ? $theme.colors.backgroundSecondary
           : $theme.colors.primaryA,
       })}
+      {...props}
     >
       {icon && (
         <div

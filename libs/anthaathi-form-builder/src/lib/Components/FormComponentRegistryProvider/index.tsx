@@ -15,7 +15,7 @@ export interface FormComponentRegistryProviderProps {
   registry: Record<string, Registry[]>;
 }
 
-export default function FormComponentRegistryProvider({
+export function FormComponentRegistryProvider({
   children,
   registry,
 }: FormComponentRegistryProviderProps) {
@@ -25,3 +25,5 @@ export default function FormComponentRegistryProvider({
     </FormComponentRegistry.Provider>
   );
 }
+
+export default FormComponentRegistryProvider;

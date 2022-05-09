@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "vite build && tsc",
-    "storybook": "start-storybook -p 6007",
+    "storybook": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
     "lint": "eslint src/**/*.{tsx,ts}",
     "test": "jest",

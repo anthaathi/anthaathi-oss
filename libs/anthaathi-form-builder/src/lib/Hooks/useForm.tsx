@@ -10,9 +10,13 @@ export interface UseFormCallback<T> {
 }
 
 export function useForm<T>(): UseFormCallback<T> {
-  const context = useContext(DataConfigContext);
+  const context = useContext(DataConfigContext) || [];
 
   const [data, setData] = useContext(DataModelRegistry);
+
+  if (context.length === 0) {
+    throw new Error('binding is require when using useForm');
+  }
 
   const { $ref } = useMemo(() => context[context.length - 1], [context]);
 

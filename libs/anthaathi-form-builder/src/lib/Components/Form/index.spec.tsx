@@ -295,4 +295,37 @@ describe('Form Module', () => {
       'testajax',
     );
   });
+
+  it('should render from registry with two way data binding if no binding', () => {
+    expect(() =>
+      render(
+        <FormComponentRegistryProvider
+          registry={{
+            'baseui/input': [{ component: Input, $element: 'input' }],
+          }}
+        >
+          <Form
+            $dataSchema={[
+              {
+                type: 'object',
+                $id: 'test',
+                properties: { title: { type: 'string', default: 'test' } },
+              },
+            ]}
+            $renderSchema={[
+              {
+                $element: 'input',
+                $import: 'baseui/input',
+                $$kind: 'anthaathi/element',
+                props: {
+                  'data-testid': 'input',
+                  key: 2,
+                },
+              },
+            ]}
+          />
+        </FormComponentRegistryProvider>,
+      ),
+    ).toThrowError();
+  });
 });
