@@ -1,3 +1,3 @@
-export { Form } from './lib/Form';
-export type { FormProps } from './lib/Form';
+export { Form } from './lib/Components/Form';
+export type { FormProps } from './lib/Components/Form';
 export { useForm } from './lib/Hooks/useForm';

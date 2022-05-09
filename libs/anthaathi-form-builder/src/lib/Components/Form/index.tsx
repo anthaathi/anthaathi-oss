@@ -1,14 +1,21 @@
 import * as React from 'react';
 import {
+  ClassType,
+  ComponentClass,
   Dispatch,
+  FunctionComponent,
+  ReactHTML,
+  ReactSVG,
   SetStateAction,
   useCallback,
+  useContext,
   useMemo,
   useState,
 } from 'react';
 import { JSONSchema7 } from 'json-schema';
 import { apply, RulesLogic } from 'json-logic-js';
-import generateInitialJSON from '../Utils/generate-initial-JSON';
+import generateInitialJSON from '../../Utils/generate-initial-JSON';
+import { FormComponentRegistry } from '../FormComponentRegistryProvider';
 
 export interface Bindings {
   $ref: string;
@@ -22,9 +29,17 @@ export type ElementType<T> =
   | React.ReactNode
   | ModelAccess;
 
+export type TypeComponent =
+  | string
+  | keyof ReactHTML
+  | keyof ReactSVG
+  | FunctionComponent
+  | ClassType<any, any, any>
+  | ComponentClass;
+
 export interface UIElement<T> {
   $import?: string;
-  $element: string | React.FunctionComponent;
+  $element: TypeComponent;
   $$kind: 'anthaathi/element';
   scope?: string;
   props?: Record<string, ElementType<T>>;
@@ -74,6 +89,8 @@ export function Form<T>({
 }: FormProps<T>) {
   const dataSchema = useProvideDataSchema($dataSchema);
 
+  const registry = useContext(FormComponentRegistry);
+
   const renderComponent = useCallback(
     ($renderSchema: ElementType<T>) => {
       const processedProps: { children?: React.ReactNode } = Object.keys(
@@ -90,7 +107,12 @@ export function Form<T>({
       const { children, ...props } = processedProps;
 
       const element = React.createElement(
-        ($renderSchema as UIElement<T>).$element,
+        ($renderSchema as UIElement<T>).$import
+          ? registry[($renderSchema as UIElement<T>).$import as never].find(
+              (res) =>
+                res.$element === ($renderSchema as UIElement<T>).$element,
+            )?.component
+          : ($renderSchema as UIElement<T>).$element,
         props,
         children || null,
       );

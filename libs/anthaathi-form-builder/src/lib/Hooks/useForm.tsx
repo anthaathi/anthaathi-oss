@@ -1,5 +1,5 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { DataConfigContext, DataModelRegistry } from '../Form';
+import { DataConfigContext, DataModelRegistry } from '../Components/Form';
 
 export interface UseFormCallback<T> {
   // eslint-disable-next-line no-unused-vars

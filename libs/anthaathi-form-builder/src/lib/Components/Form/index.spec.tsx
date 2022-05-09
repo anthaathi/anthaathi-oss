@@ -2,7 +2,8 @@ import * as React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Form from './index';
-import { useForm } from '../Hooks/useForm';
+import { useForm } from '../../Hooks/useForm';
+import FormComponentRegistryProvider from '../FormComponentRegistryProvider';
 
 describe('Form Module', () => {
   function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
@@ -217,5 +218,81 @@ describe('Form Module', () => {
     userEvent.type(snapshot.getByTestId('input'), 'Something amazing');
 
     expect(snapshot.container).toMatchSnapshot();
+  });
+
+  it('should render from registry', () => {
+    const snapshot = render(
+      <FormComponentRegistryProvider
+        registry={{ 'baseui/input': [{ component: Input, $element: 'input' }] }}
+      >
+        <Form
+          $dataSchema={[
+            {
+              type: 'object',
+              $id: 'test',
+              properties: { title: { type: 'string', default: 'test' } },
+            },
+          ]}
+          $renderSchema={[
+            {
+              $element: 'input',
+              $import: 'baseui/input',
+              $$kind: 'anthaathi/element',
+              props: {
+                'data-testid': 'input',
+                key: 2,
+              },
+              binding: {
+                $ref: 'test',
+                $paths: ['title'],
+              },
+            },
+          ]}
+        />
+      </FormComponentRegistryProvider>,
+    );
+
+    expect((snapshot.getByTestId('input') as HTMLInputElement).value).toBe(
+      'test',
+    );
+  });
+
+  it('should render from registry with two way data binding', () => {
+    const snapshot = render(
+      <FormComponentRegistryProvider
+        registry={{ 'baseui/input': [{ component: Input, $element: 'input' }] }}
+      >
+        <Form
+          $dataSchema={[
+            {
+              type: 'object',
+              $id: 'test',
+              properties: { title: { type: 'string', default: 'test' } },
+            },
+          ]}
+          $renderSchema={[
+            {
+              $element: 'input',
+              $import: 'baseui/input',
+              $$kind: 'anthaathi/element',
+              props: {
+                'data-testid': 'input',
+                key: 2,
+              },
+              binding: {
+                $ref: 'test',
+                $paths: ['title'],
+              },
+            },
+          ]}
+        />
+      </FormComponentRegistryProvider>,
+    );
+
+    userEvent.type(snapshot.getByTestId('input'), 'ajax');
+
+    expect((snapshot.getByTestId('input') as HTMLInputElement).value).toBe(
+      'testajax',
+    );
   });
 });
