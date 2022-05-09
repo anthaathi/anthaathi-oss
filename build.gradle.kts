@@ -35,6 +35,13 @@ val quarkusCommonProjects = listOf(
 val quarkusWebAppDeps = mapOf(
     project(":apps:anthaathi-crm") to listOf(
         project(":apps:anthaathi-crm-web-client")
+    ),
+)
+
+// This needs to be calculate in future
+val libraryDeps = mapOf(
+    project(":libs:anthaathi-form-baseui") to listOf(
+        project(":libs:anthaathi-form-builder")
     )
 )
 
@@ -56,6 +63,10 @@ configure(subprojects.filter { it in webLibraries }) {
 
     tasks.register<YarnTask>("buildLib") {
         args.set(listOf("build"))
+
+        libraryDeps[this.project]?.forEach { itt ->
+            this.dependsOn.add(itt.tasks.getByName("buildLib"))
+        }
     }
 
     tasks.register<YarnTask>("lint") {
