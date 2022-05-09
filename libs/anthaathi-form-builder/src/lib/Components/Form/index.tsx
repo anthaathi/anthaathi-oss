@@ -166,7 +166,7 @@ export function Form<T>({
     [dataSchema[0], renderComponent],
   );
 
-  const element = useMemo(
+  const elementToRender = useMemo(
     () => renderElements($renderSchema_) || null,
     [$renderSchema_, dataSchema[0], renderElements],
   );
@@ -174,7 +174,7 @@ export function Form<T>({
   return (
     <DataModelRegistry.Provider value={dataSchema}>
       <DataSchemaRegistry.Provider value={$dataSchema}>
-        {element}
+        {elementToRender}
       </DataSchemaRegistry.Provider>
     </DataModelRegistry.Provider>
   );
