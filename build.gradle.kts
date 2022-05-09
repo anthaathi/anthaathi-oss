@@ -67,7 +67,7 @@ configure(subprojects.filter { it in webLibraries }) {
     }
 
     tasks.register("check") {
-        dependsOn("lint", "test")
+        dependsOn("lint", "test", "buildLib")
 
         finalizedBy(project(":tools:node-tooling").tasks.getByName("coverageMerger"))
     }
