@@ -28,6 +28,7 @@ export default defineConfig({
         'baseui/typography',
         'jotai/utils',
         'react-intl',
+        '@anthaathi/form',
       ],
       output: {
         // Provide global variables to use in the UMD build
