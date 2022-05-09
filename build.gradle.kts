@@ -41,7 +41,8 @@ val quarkusWebAppDeps = mapOf(
 // This needs to be calculate in future
 val libraryDeps = mapOf(
     project(":libs:anthaathi-form-baseui") to listOf(
-        project(":libs:anthaathi-form-builder")
+        project(":libs:anthaathi-form-builder"),
+        project(":libs:anthaathi-web-lib")
     )
 )
 
