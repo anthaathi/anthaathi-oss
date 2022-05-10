@@ -9,6 +9,7 @@ import {
   SetStateAction,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -44,11 +45,13 @@ export interface UIElement<T> {
   scope?: string;
   props?: Record<string, ElementType<T>>;
   binding?: Bindings;
+  datasourceBinding?: string | string[];
 }
 
-export interface FormProps<T> {
+export interface FormProps<T, W = any> {
   $dataSchema: JSONSchema7[];
   $renderSchema: ElementType<T>;
+  $dataSources?: Record<string, W>;
 }
 
 export interface DynamicElement {
@@ -64,6 +67,8 @@ export interface ModelAccess {
 export const DataConfigContext = React.createContext<Bindings[]>([]);
 
 export const DataSchemaRegistry = React.createContext<Record<string, any>>({});
+
+export const ConfigProvider = React.createContext<UIElement<any> | null>(null);
 
 export const DataModelRegistry = React.createContext<
   [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>]
@@ -83,10 +88,22 @@ const useProvideDataSchema = ($dataSchema: JSONSchema7[]) => {
   return useState<Record<string, any>>(initialValues);
 };
 
+export const DataSourceContext = React.createContext<
+  [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>]
+>(null as never);
+
 export function Form<T>({
   $dataSchema,
   $renderSchema: $renderSchema_,
+  $dataSources = {},
 }: FormProps<T>) {
+  const state = useState($dataSources || {});
+  const [, setDataSources] = state;
+
+  useEffect(() => {
+    setDataSources($dataSources);
+  }, [$dataSources]);
+
   const dataSchema = useProvideDataSchema($dataSchema);
 
   const registry = useContext(FormComponentRegistry);
@@ -128,7 +145,9 @@ export function Form<T>({
                 ($renderSchema as UIElement<T>).binding!,
               ].filter(Boolean)}
             >
-              {element}
+              <ConfigProvider.Provider value={$renderSchema as UIElement<T>}>
+                {element}
+              </ConfigProvider.Provider>
             </DataConfigContext.Provider>
           )}
         </DataConfigContext.Consumer>
@@ -172,11 +191,13 @@ export function Form<T>({
   );
 
   return (
-    <DataModelRegistry.Provider value={dataSchema}>
-      <DataSchemaRegistry.Provider value={$dataSchema}>
-        {elementToRender}
-      </DataSchemaRegistry.Provider>
-    </DataModelRegistry.Provider>
+    <DataSourceContext.Provider value={state}>
+      <DataModelRegistry.Provider value={dataSchema}>
+        <DataSchemaRegistry.Provider value={$dataSchema}>
+          {elementToRender}
+        </DataSchemaRegistry.Provider>
+      </DataModelRegistry.Provider>
+    </DataSourceContext.Provider>
   );
 }
 
