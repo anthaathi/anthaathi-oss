@@ -43,6 +43,9 @@ val libraryDeps = mapOf(
     project(":libs:anthaathi-form-baseui") to listOf(
         project(":libs:anthaathi-form-builder"),
         project(":libs:anthaathi-web-lib")
+    ),
+    project(":libs:anthaathi-form-builder") to listOf(
+        project(":libs:anthaathi-json-in-action")
     )
 )
 
@@ -54,7 +57,8 @@ val webClients = listOf(
 val webLibraries = listOf(
     project(":libs:anthaathi-web-lib"),
     project(":libs:anthaathi-form-builder"),
-    project(":libs:anthaathi-form-baseui")
+    project(":libs:anthaathi-form-baseui"),
+    project(":libs:anthaathi-json-in-action")
 )
 
 configure(subprojects.filter { it in webLibraries }) {
