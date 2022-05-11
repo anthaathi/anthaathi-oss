@@ -21,7 +21,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "json-logic-js": "^2.0.2"
+    "json-logic-js": "^2.0.2",
+    "@anthaathi/common": "0.0.0"
   },
   "peerDependencies": {
   },
