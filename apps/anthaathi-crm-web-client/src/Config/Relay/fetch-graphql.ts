@@ -4,7 +4,6 @@ async function fetchGraphQL(text: any, variables: any) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'bearer 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',
     },
     body: JSON.stringify({
       query: text,

@@ -1,10 +1,9 @@
-async function fetchGraphQL(text, variables) {
+async function fetchGraphQL(text: string, variables: Record<string, any>) {
   // Fetch data from GitHub's GraphQL API:
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'bearer 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',
     },
     body: JSON.stringify({
       query: text,
