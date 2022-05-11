@@ -1,5 +1,6 @@
-export {
-  ActionStore,
+export { ActionStore } from './action-store';
+
+export type {
   ActionFunction,
   SetDataAction,
   SetNewData,
