@@ -1,0 +1,34 @@
+{
+  "name": "@anthaathi/json-in-action",
+  "private": true,
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/json-in-action-lib.umd.js",
+  "module": "./dist/json-in-action-lib.es.js",
+  "types": "./dist/public.d.ts",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "import": "./dist/json-in-action-lib.es.js",
+      "require": "./dist/json-in-action-lib.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "vite build && tsc",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "json-logic-js": "^2.0.2",
+    "@anthaathi/common": "0.0.0"
+  },
+  "peerDependencies": {
+  },
+  "devDependencies": {
+    "@anthaathi/tooling": "0.0.0",
+    "@types/jest": "^27.5.0",
+    "@types/json-logic-js": "^1.2.1"
+  }
+}

@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "vite build && tsc",
-    "storybook": "start-storybook -p 6007",
+    "storybook": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
     "lint": "eslint src/**/*.{tsx,ts}",
     "test": "jest",
@@ -26,13 +26,15 @@
   },
   "dependencies": {
     "@anthaathi/common": "0.0.0",
+    "@anthaathi/form": "0.0.0",
     "@carbon/icons-react": "^11.1.0",
     "json-logic-js": "^2.0.2"
   },
   "peerDependencies": {
     "@anthaathi/common": "0.0.0",
     "@anthaathi/form-builder": "0.0.0",
-    "@carbon/icons-react": "^11.1.0"
+    "@carbon/icons-react": "^11.1.0",
+    "@anthaathi/form": "0.0.0"
   },
   "devDependencies": {
     "@anthaathi/form": "0.0.0",

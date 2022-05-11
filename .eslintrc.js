@@ -41,5 +41,6 @@ module.exports = {
     'function-paren-newline': 'off',
     'operator-linebreak': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/destructuring-assignment': 'off',
   },
 };

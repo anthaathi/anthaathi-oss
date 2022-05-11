@@ -6,6 +6,7 @@ import * as path from 'path';
 export default defineConfig({
   plugins: [react({})],
   build: {
+    sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, 'src/public.ts'),
       name: 'form-lib',
@@ -28,6 +29,7 @@ export default defineConfig({
         'baseui/typography',
         'jotai/utils',
         'react-intl',
+        'json-logic-js',
       ],
       output: {
         // Provide global variables to use in the UMD build

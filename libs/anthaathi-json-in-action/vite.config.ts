@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/public.ts'),
-      name: 'form-baseui-lib',
-      fileName: (format) => `form-baseui-lib.${format}.js`,
+      name: 'json-in-action-lib',
+      fileName: (format) => `json-in-action-lib.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

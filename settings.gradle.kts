@@ -18,7 +18,8 @@ include(
     ":libs:anthaathi-common-node-bom",
     ":libs:anthaathi-web-lib",
     ":libs:anthaathi-form-builder",
-    ":libs:anthaathi-form-baseui"
+    ":libs:anthaathi-form-baseui",
+    ":libs:anthaathi-json-in-action",
 )
 
 include(

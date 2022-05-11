@@ -1,5 +1,5 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { DataConfigContext, DataModelRegistry } from '../Form';
+import { DataConfigContext, DataModelRegistry } from '../Components/Form';
 
 export interface UseFormCallback<T> {
   // eslint-disable-next-line no-unused-vars
@@ -10,9 +10,13 @@ export interface UseFormCallback<T> {
 }
 
 export function useForm<T>(): UseFormCallback<T> {
-  const context = useContext(DataConfigContext);
+  const context = useContext(DataConfigContext) || [];
 
   const [data, setData] = useContext(DataModelRegistry);
+
+  if (context.length === 0) {
+    throw new Error('binding is require when using useForm');
+  }
 
   const { $ref } = useMemo(() => context[context.length - 1], [context]);
 

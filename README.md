@@ -1,5 +1,10 @@
 # Anthaathi
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=anthaathi_anthaathi&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=anthaathi_anthaathi)
+[![Issues](https://img.shields.io/github/issues/anthaathi/anthaathi)](https://github.com/anthaathi/anthaathi/issues)
+[![License](https://img.shields.io/github/license/anthaathi/anthaathi)](https://github.com/anthaathi/anthaathi/blob/main/LICENSE)
+
+
 # Customer Relation Management
 
 Open source customer relation management platform.

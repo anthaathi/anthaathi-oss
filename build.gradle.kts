@@ -35,6 +35,17 @@ val quarkusCommonProjects = listOf(
 val quarkusWebAppDeps = mapOf(
     project(":apps:anthaathi-crm") to listOf(
         project(":apps:anthaathi-crm-web-client")
+    ),
+)
+
+// This needs to be calculate in future
+val libraryDeps = mapOf(
+    project(":libs:anthaathi-form-baseui") to listOf(
+        project(":libs:anthaathi-form-builder"),
+        project(":libs:anthaathi-web-lib")
+    ),
+    project(":libs:anthaathi-form-builder") to listOf(
+        project(":libs:anthaathi-json-in-action")
     )
 )
 
@@ -46,7 +57,8 @@ val webClients = listOf(
 val webLibraries = listOf(
     project(":libs:anthaathi-web-lib"),
     project(":libs:anthaathi-form-builder"),
-    project(":libs:anthaathi-form-baseui")
+    project(":libs:anthaathi-form-baseui"),
+    project(":libs:anthaathi-json-in-action")
 )
 
 configure(subprojects.filter { it in webLibraries }) {
@@ -56,6 +68,10 @@ configure(subprojects.filter { it in webLibraries }) {
 
     tasks.register<YarnTask>("buildLib") {
         args.set(listOf("build"))
+
+        libraryDeps[this.project]?.forEach { itt ->
+            this.dependsOn.add(itt.tasks.getByName("buildLib"))
+        }
     }
 
     tasks.register<YarnTask>("lint") {
@@ -67,7 +83,7 @@ configure(subprojects.filter { it in webLibraries }) {
     }
 
     tasks.register("check") {
-        dependsOn("lint", "test")
+        dependsOn("lint", "test", "buildLib")
 
         finalizedBy(project(":tools:node-tooling").tasks.getByName("coverageMerger"))
     }

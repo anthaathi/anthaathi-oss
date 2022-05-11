@@ -1,14 +1,21 @@
 import * as React from 'react';
 import {
+  ClassType,
+  ComponentClass,
   Dispatch,
+  FunctionComponent,
+  ReactHTML,
+  ReactSVG,
   SetStateAction,
   useCallback,
+  useContext,
   useMemo,
   useState,
 } from 'react';
 import { JSONSchema7 } from 'json-schema';
 import { apply, RulesLogic } from 'json-logic-js';
-import generateInitialJSON from '../Utils/generate-initial-JSON';
+import generateInitialJSON from '../../Utils/generate-initial-JSON';
+import { FormComponentRegistry } from '../FormComponentRegistryProvider';
 
 export interface Bindings {
   $ref: string;
@@ -22,18 +29,28 @@ export type ElementType<T> =
   | React.ReactNode
   | ModelAccess;
 
+export type TypeComponent =
+  | string
+  | keyof ReactHTML
+  | keyof ReactSVG
+  | FunctionComponent
+  | ClassType<any, any, any>
+  | ComponentClass;
+
 export interface UIElement<T> {
   $import?: string;
-  $element: string | React.FunctionComponent;
+  $element: TypeComponent;
   $$kind: 'anthaathi/element';
   scope?: string;
   props?: Record<string, ElementType<T>>;
   binding?: Bindings;
+  datasourceBinding?: string | string[];
 }
 
-export interface FormProps<T> {
+export interface FormProps<T, W = any> {
   $dataSchema: JSONSchema7[];
   $renderSchema: ElementType<T>;
+  $dataSources?: Record<string, W>;
 }
 
 export interface DynamicElement {
@@ -49,6 +66,8 @@ export interface ModelAccess {
 export const DataConfigContext = React.createContext<Bindings[]>([]);
 
 export const DataSchemaRegistry = React.createContext<Record<string, any>>({});
+
+export const ConfigProvider = React.createContext<UIElement<any> | null>(null);
 
 export const DataModelRegistry = React.createContext<
   [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>]
@@ -68,11 +87,20 @@ const useProvideDataSchema = ($dataSchema: JSONSchema7[]) => {
   return useState<Record<string, any>>(initialValues);
 };
 
+export const DataSourceContext = React.createContext<
+  [Record<string, any>, Dispatch<SetStateAction<Record<string, any>>>]
+>(null as never);
+
 export function Form<T>({
   $dataSchema,
   $renderSchema: $renderSchema_,
+  $dataSources = {},
 }: FormProps<T>) {
+  const state = useState($dataSources || {});
+
   const dataSchema = useProvideDataSchema($dataSchema);
+
+  const registry = useContext(FormComponentRegistry);
 
   const renderComponent = useCallback(
     ($renderSchema: ElementType<T>) => {
@@ -90,7 +118,12 @@ export function Form<T>({
       const { children, ...props } = processedProps;
 
       const element = React.createElement(
-        ($renderSchema as UIElement<T>).$element,
+        ($renderSchema as UIElement<T>).$import
+          ? registry[($renderSchema as UIElement<T>).$import as never].find(
+              (res) =>
+                res.$element === ($renderSchema as UIElement<T>).$element,
+            )?.component
+          : ($renderSchema as UIElement<T>).$element,
         props,
         children || null,
       );
@@ -106,7 +139,9 @@ export function Form<T>({
                 ($renderSchema as UIElement<T>).binding!,
               ].filter(Boolean)}
             >
-              {element}
+              <ConfigProvider.Provider value={$renderSchema as UIElement<T>}>
+                {element}
+              </ConfigProvider.Provider>
             </DataConfigContext.Provider>
           )}
         </DataConfigContext.Consumer>
@@ -144,17 +179,19 @@ export function Form<T>({
     [dataSchema[0], renderComponent],
   );
 
-  const element = useMemo(
+  const elementToRender = useMemo(
     () => renderElements($renderSchema_) || null,
     [$renderSchema_, dataSchema[0], renderElements],
   );
 
   return (
-    <DataModelRegistry.Provider value={dataSchema}>
-      <DataSchemaRegistry.Provider value={$dataSchema}>
-        {element}
-      </DataSchemaRegistry.Provider>
-    </DataModelRegistry.Provider>
+    <DataSourceContext.Provider value={state}>
+      <DataModelRegistry.Provider value={dataSchema}>
+        <DataSchemaRegistry.Provider value={$dataSchema}>
+          {elementToRender}
+        </DataSchemaRegistry.Provider>
+      </DataModelRegistry.Provider>
+    </DataSourceContext.Provider>
   );
 }
 

@@ -11,10 +11,11 @@
     "resolveJsonModule": true
   },
   "include": [
-    ".",
+    "./src",
     "../../node_modules/@types/jest/index.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }
