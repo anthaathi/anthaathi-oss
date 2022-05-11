@@ -9,7 +9,6 @@ import {
   SetStateAction,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -98,11 +97,6 @@ export function Form<T>({
   $dataSources = {},
 }: FormProps<T>) {
   const state = useState($dataSources || {});
-  const [, setDataSources] = state;
-
-  useEffect(() => {
-    setDataSources($dataSources);
-  }, [$dataSources]);
 
   const dataSchema = useProvideDataSchema($dataSchema);
 
