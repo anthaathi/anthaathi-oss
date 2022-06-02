@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "workspaces": [
     "apps/anthaathi-commerce-mobile",
+    "apps/anthaathi-commerce-web-client",
 
     "libs/anthaathi-web-lib",
     "libs/anthaathi-json-in-action",
