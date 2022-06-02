@@ -3,9 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "workspaces": [
-    "apps/anthaathi-cms-web-client",
-    "apps/anthaathi-common-node-bom",
-    "apps/anthaathi-crm-web-client",
+    "apps/anthaathi-commerce-mobile",
+
     "libs/anthaathi-web-lib",
     "libs/anthaathi-json-in-action",
     "libs/anthaathi-common-node-bom",

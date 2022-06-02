@@ -1,6 +1,5 @@
-console.log('called1');
-
 module.exports = {
+  presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     [
       'formatjs',
@@ -10,4 +9,9 @@ module.exports = {
       },
     ],
   ],
+  env: {
+    production: {
+      plugins: ['react-native-paper/babel'],
+    },
+  },
 };
