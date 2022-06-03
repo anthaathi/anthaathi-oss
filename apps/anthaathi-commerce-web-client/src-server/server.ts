@@ -2,31 +2,29 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import process from "process";
+import process from 'process';
+import { ViteDevServer } from 'vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITE_TEST_BUILD;
-
-process.env.MY_CUSTOM_SECRET = 'API_KEY_qwertyuiop';
 
 export async function createServer(
   root: string = process.cwd(),
   isProd: boolean = process.env.NODE_ENV === 'production',
   hmrPort?: number,
 ) {
-  const resolve = (p) => path.resolve(__dirname, p);
+  const resolve = (p: string) => path.resolve(__dirname, p);
 
   const indexProd = isProd
-    ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
+    ? fs
+        .readFileSync(resolve('client/index.html'), 'utf-8')
+        .replace(/>\s+</g, '><')
     : '';
 
   const app = express();
 
-  /**
-   * @type {import('vite').ViteDevServer}
-   */
-  let vite;
+  let vite: ViteDevServer;
   if (!isProd) {
     vite = await (
       await import('vite')
@@ -64,13 +62,15 @@ export async function createServer(
       let template, render;
       if (!isProd) {
         // always read fresh template in dev
-        template = fs.readFileSync(resolve('../index.html'), 'utf-8');
+        template = fs
+          .readFileSync(resolve('../index.html'), 'utf-8')
+          .replace(/>\s+</g, '><');
         template = await vite.transformIndexHtml(url, template);
         render = (await vite.ssrLoadModule('/src/entry-server')).render;
       } else {
         template = indexProd;
         // @ts-ignore
-        render = (await import('./dist/server/entry-server')).render;
+        render = (await import('./server/entry-server')).render;
       }
 
       const context: Record<string, string> = {};
@@ -84,13 +84,14 @@ export async function createServer(
       const html = template.replace(`<!--app-html-->`, appHtml);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
-    } catch (e) {
+    } catch (e: any) {
       !isProd && vite.ssrFixStacktrace(e);
       console.log(e.stack);
       res.status(500).end(e.stack);
     }
   });
 
+  // @ts-ignore
   return { app, vite };
 }
 
