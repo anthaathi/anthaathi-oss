@@ -16,6 +16,6 @@
     "noEmit": false,
     "outDir": "dist"
   },
-  "include": ["src-server/server.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

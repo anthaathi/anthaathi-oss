@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html {{app_html_attributes}}>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{app_head}}
+</head>
+<body {{body_attributes}}>
+{{no_script}}
+<div id="anthaathi-root">{{app_html}}</div>
+<script nonce="{{nonce}}" type="module" src="/src/main.tsx"></script>
+</body>
+</html>
