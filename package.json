@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "workspaces": [
-    "apps/anthaathi-commerce-mobile",
-    "apps/anthaathi-commerce-web-client",
+    "apps/*",
 
     "libs/anthaathi-web-lib",
     "libs/anthaathi-json-in-action",
@@ -18,6 +17,10 @@
     "tools/node-tooling"
   ],
   "scripts": {
-    "postinstall": "echo \"$(echo \"// @ts-nocheck\"; cat node_modules/baseui/spinner/index.d.ts)\" > node_modules/baseui/spinner/index.d.ts"
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }

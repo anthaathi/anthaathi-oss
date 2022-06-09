@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "acli serve --dev"
   },
   "dependencies": {
-    "@anthaathi/web-cli": "0.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.10",

@@ -1,5 +1,5 @@
 export { WebProvider } from './lib/Components/WebProvider';
-export { CommonAppProvider } from './lib/Components/CommonAppProvider';
+export { CommonAppProvider, engine } from './lib/Components/CommonAppProvider';
 export { DefaultLayout, SidebarContent } from './lib/Layouts/DefaultLayout';
 export type { SidebarContentProps } from './lib/Layouts/DefaultLayout';
 export {

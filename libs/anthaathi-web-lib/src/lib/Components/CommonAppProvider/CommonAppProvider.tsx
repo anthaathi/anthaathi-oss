@@ -1,14 +1,48 @@
 import * as React from 'react';
 import { BaseProvider, createLightTheme } from 'baseui';
 import { Provider as StyletronProvider } from 'styletron-react';
-import { Client as Styletron } from 'styletron-engine-atomic';
+import { Client, Server } from 'styletron-engine-atomic';
 import { Block } from 'baseui/block';
+import type { Theme } from 'baseui';
 
-const engine = new Styletron({ prefix: '_' });
+const getHydrateClass = () =>
+  document.getElementsByClassName(
+    '_styletron_hydrate_',
+  ) as HTMLCollectionOf<HTMLStyleElement>;
+
+export const engine =
+  typeof window === 'undefined'
+    ? new Server()
+    : new Client({
+        hydrate: getHydrateClass(),
+      });
+
+const overrides: Partial<Theme> = {
+  typography: {
+    HeadingLarge: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+    HeadingMedium: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+    HeadingSmall: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+    HeadingXSmall: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+    HeadingXLarge: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+    HeadingXXLarge: {
+      fontFamily: "'Red Hat Display', sans-serif",
+    },
+  } as Theme['typography'],
+};
 
 const LightTheme = createLightTheme(
   {
-    primaryFontFamily: "'Red Hat Text', sans-serif",
+    primaryFontFamily: "'IBM Plex Sans', sans-serif",
   },
   {
     borders: {
@@ -18,6 +52,7 @@ const LightTheme = createLightTheme(
       popoverBorderRadius: '8px',
       surfaceBorderRadius: '8px',
     },
+    ...overrides,
   },
 );
 
