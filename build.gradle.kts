@@ -27,7 +27,9 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf<Project>()
+val quarkusCommonProjects = listOf(
+    project(":apps:anthaathi-common-graphql-engine")
+)
 
 val quarkusWebAppDeps = mapOf<Project, List<Project>>()
 

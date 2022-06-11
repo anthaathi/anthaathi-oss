@@ -30,3 +30,5 @@ include(
 include(
     ":tools:node-tooling"
 )
+
+include(":apps:anthaathi-common-graphql-engine")
