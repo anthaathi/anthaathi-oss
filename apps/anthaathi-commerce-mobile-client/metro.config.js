@@ -16,7 +16,9 @@ function getConfig(appDir, options = {}) {
   // https://bit.ly/2LHHTP0
   const watchFolders = [
     path.resolve(appDir, '..', '..', 'node_modules'),
-    ...workspaces.filter(workspaceDir => !(workspaceDir === appDir)),
+    ...workspaces
+      .filter(workspaceDir => !(workspaceDir === appDir))
+      .filter(res => res.indexOf('.') === -1),
   ];
 
   return {

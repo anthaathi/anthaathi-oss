@@ -8,6 +8,8 @@ module.exports = {
         ast: true,
       },
     ],
+    'relay',
+    ['module:react-native-dotenv'],
   ],
   env: {
     production: {

@@ -1,4 +1,4 @@
-package com.anthaathicommercemobile.newarchitecture.modules;
+package org.anthaathi.ecommerce.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

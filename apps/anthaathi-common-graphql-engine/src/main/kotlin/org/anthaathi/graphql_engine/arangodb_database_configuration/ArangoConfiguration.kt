@@ -3,7 +3,6 @@ package org.anthaathi.graphql_engine.arangodb_database_configuration
 import com.arangodb.ArangoDB
 import com.arangodb.ArangoDatabase
 import com.arangodb.DbName
-import org.eclipse.microprofile.config.inject.ConfigProperty
 import java.io.InputStream
 import javax.enterprise.context.Dependent
 import javax.enterprise.inject.Produces

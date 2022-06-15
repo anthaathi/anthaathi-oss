@@ -1,4 +1,4 @@
-package com.anthaathicommercemobile.newarchitecture.components;
+package org.anthaathi.ecommerce.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

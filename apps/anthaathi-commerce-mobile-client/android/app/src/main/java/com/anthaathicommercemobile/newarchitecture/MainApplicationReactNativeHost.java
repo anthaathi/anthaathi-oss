@@ -1,4 +1,4 @@
-package com.anthaathicommercemobile.newarchitecture;
+package org.anthaathi.ecommerce.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.anthaathicommercemobile.BuildConfig;
-import com.anthaathicommercemobile.newarchitecture.components.MainComponentsRegistry;
-import com.anthaathicommercemobile.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import org.anthaathi.ecommerce.BuildConfig;
+import org.anthaathi.ecommerce.newarchitecture.components.MainComponentsRegistry;
+import org.anthaathi.ecommerce.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
