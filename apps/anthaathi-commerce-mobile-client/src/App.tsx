@@ -1,19 +1,39 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Button} from '@rneui/themed';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {IntlProvider} from 'react-intl';
+import {NavigationContainer} from '@react-navigation/native';
+import {RelayEnvironmentProvider} from 'react-relay';
+import RelayEnv from './config/relay-env';
+import enUS from './compiled-locales/en-US.json';
+import {
+  MD3LightTheme as DefaultTheme,
+  Provider as PaperProvider,
+  ThemeBase,
+} from 'react-native-paper';
+import CMSRenderer from './features/CMS';
 
-const App = ({navigation}: NativeStackScreenProps<any>) => {
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  version: 3,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#0f8443',
+    primaryContainer: '#f4faf7',
+    secondary: 'rgb(244, 250, 247)',
+  },
+} as ThemeBase;
+
+const App = () => {
   return (
-    <View>
-      <Button
-        onPress={() => {
-          navigation.push('Home2');
-        }}
-      >
-        Hello world
-      </Button>
-    </View>
+    <IntlProvider locale="en-US" messages={enUS}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <RelayEnvironmentProvider environment={RelayEnv as never}>
+            <CMSRenderer />
+          </RelayEnvironmentProvider>
+        </NavigationContainer>
+      </PaperProvider>
+    </IntlProvider>
   );
 };
 
