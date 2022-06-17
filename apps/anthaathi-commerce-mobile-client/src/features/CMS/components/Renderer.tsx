@@ -137,10 +137,10 @@ export default function () {
               text: 'Omkar',
               button1Text: 'SHOP NOW',
               button1Link: 'https://google.com',
-              height: [100, 180, 180, 180],
+              height: [180, 240, 260, 270],
               image:
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
-              width: ['33%', '50%', '100%', '100%'],
+              width: ['100%', '50%', '100%', '100%'],
             },
             {
               key: '1233',
@@ -149,10 +149,10 @@ export default function () {
               text: 'Omkar',
               button1Text: 'SHOP NOW',
               button1Link: 'https://google.com',
-              height: 180,
+              height: [180, 240, 260, 270],
               image:
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
-              width: ['33%', '50%', '100%', '100%'],
+              width: ['100%', '50%', '100%', '100%'],
             },
             {
               key: '123',

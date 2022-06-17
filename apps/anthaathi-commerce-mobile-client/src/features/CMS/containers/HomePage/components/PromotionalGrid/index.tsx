@@ -98,7 +98,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
             width: '100%' as never,
           }}
           style={{position: 'absolute'}}
-        ></Image>
+        />
 
         <View
           style={{
@@ -154,7 +154,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
               <PromotionalGridButton
                 label={item.button1Text}
                 onPress={() => {}}
-              ></PromotionalGridButton>
+              />
             )}
             {item.button2Text && (
               <>
@@ -162,7 +162,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
                 <PromotionalGridButton
                   label={item.button2Text}
                   onPress={() => {}}
-                ></PromotionalGridButton>
+                />
               </>
             )}
           </View>

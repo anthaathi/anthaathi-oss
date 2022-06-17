@@ -7,7 +7,7 @@ export const ResponsiveContext = createContext<{
   extraLarge: [number];
 }>({
   small: [599],
-  medium: [600, 904],
+  medium: [600, 1239],
   large: [1240, 1439],
   extraLarge: [1439],
 });
