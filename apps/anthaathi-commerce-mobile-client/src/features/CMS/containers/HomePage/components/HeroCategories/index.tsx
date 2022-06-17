@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {useMemo} from 'react';
-import {Text} from 'react-native-paper';
-import {View, VirtualizedList, Image} from 'react-native';
-import {useIntl} from 'react-intl';
+import {Text, TouchableRipple} from 'react-native-paper';
+import {Image, View, VirtualizedList} from 'react-native';
 
 export interface Item {
   title: string;
@@ -20,7 +19,7 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
     return items.reduce<Item[][]>(
       (previousValue, currentValue, currentIndex) => {
         if (currentIndex % 2) {
-          const newArray = [...previousValue];
+          const newArray: Item[][] = [...previousValue];
           newArray[previousValue.length - 1].push(currentValue);
           return newArray;
         } else {
@@ -33,7 +32,7 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
 
   return (
     <>
-      <View style={{marginLeft: 24, marginTop: 0}}>
+      <View>
         <Text variant="titleLarge" style={{marginBottom: 9}}>
           {title}
         </Text>
@@ -68,21 +67,31 @@ function ItemRenderer({element}: {element: Item}) {
   const dimension = 97;
 
   return (
-    <View style={{marginRight: 12}}>
-      <Image
-        source={{
-          uri: element.image,
-          height: dimension,
-          width: dimension,
-        }}
-        style={{borderRadius: 97 / 2}}
-      />
-      <Text
-        style={{textAlign: 'center', marginBottom: 12}}
-        variant="labelMedium"
-      >
-        {element.title}
-      </Text>
-    </View>
+    <TouchableRipple
+      onPress={() => {}}
+      style={{borderRadius: 12, padding: 4, marginRight: 12}}
+    >
+      <View>
+        <Image
+          source={{
+            uri: element.image,
+            height: dimension,
+            width: dimension,
+          }}
+          style={{borderRadius: dimension / 2}}
+        />
+        <Text
+          style={{
+            textAlign: 'center',
+            marginBottom: 12,
+            marginTop: 6,
+            fontWeight: '600',
+          }}
+          variant="labelMedium"
+        >
+          {element.title}
+        </Text>
+      </View>
+    </TouchableRipple>
   );
 }
