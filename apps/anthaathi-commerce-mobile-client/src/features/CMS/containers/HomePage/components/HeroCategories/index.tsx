@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {useMemo} from 'react';
 import {Text} from 'react-native-paper';
-import {View, VirtualizedList} from 'react-native';
+import {View, VirtualizedList, Image} from 'react-native';
+import {useIntl} from 'react-intl';
 
 export interface Item {
   title: string;
@@ -32,17 +33,19 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
 
   return (
     <>
-      <View style={{marginLeft: 12}}>
-        <Text variant="titleLarge">{title}</Text>
+      <View style={{marginLeft: 24, marginTop: 0}}>
+        <Text variant="titleLarge" style={{marginBottom: 9}}>
+          {title}
+        </Text>
 
         <View>
-          <VirtualizedList<Item[][]>
+          <VirtualizedList<Item[]>
             data={itemsSpited}
             initialNumToRender={4}
             horizontal={true}
-            renderItem={({item: Item}) => <ItemRenderer item={item} />}
+            renderItem={({item}) => <ItemRendererColumn item={item} />}
             getItemCount={() => itemsSpited.length}
-            keyExtractor={(item, index) => item[index]?.[0]?.key || index + ''}
+            keyExtractor={(item, index) => item?.[0]?.key || index + ''}
             getItem={(res, index) => res[index]}
           />
         </View>
@@ -51,6 +54,35 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
   );
 }
 
-function ItemRenderer({item}: {item: Item[][]}) {
-  return <Text>{item.title}</Text>;
+function ItemRendererColumn({item}: {item: Item[]}) {
+  return (
+    <View style={{display: 'flex', flexDirection: 'column'}}>
+      {item.map(element => (
+        <ItemRenderer key={element.key} element={element} />
+      ))}
+    </View>
+  );
+}
+
+function ItemRenderer({element}: {element: Item}) {
+  const dimension = 97;
+
+  return (
+    <View style={{marginRight: 12}}>
+      <Image
+        source={{
+          uri: element.image,
+          height: dimension,
+          width: dimension,
+        }}
+        style={{borderRadius: 97 / 2}}
+      />
+      <Text
+        style={{textAlign: 'center', marginBottom: 12}}
+        variant="labelMedium"
+      >
+        {element.title}
+      </Text>
+    </View>
+  );
 }

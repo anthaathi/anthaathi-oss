@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    margin: 12,
+    margin: 24,
     paddingLeft: 12,
     paddingRight: 12,
     paddingTop: 12,
