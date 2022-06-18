@@ -1,3 +1,5 @@
+console.log('called1');
+
 module.exports = {
   plugins: [
     [

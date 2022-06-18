@@ -1,0 +1,22 @@
+diff --git a/node_modules/baseui/overrides.ts b/node_modules/baseui/overrides.ts
+index 9d57041..0b22c30 100644
+--- a/node_modules/baseui/overrides.ts
++++ b/node_modules/baseui/overrides.ts
+@@ -8,7 +8,7 @@ type StyleOverride<T> =
+ 
+ type ComponentOverride<T> =
+   | React.ComponentType<T>
+-  | React.RefForwardingComponent<T>;
++  | React.ForwardRefRenderFunction<T>;
+ 
+ interface OverrideObject<T> {
+   component?: ComponentOverride<T>;
+diff --git a/node_modules/baseui/spinner/index.d.ts b/node_modules/baseui/spinner/index.d.ts
+index 448223e..c74bb6f 100644
+--- a/node_modules/baseui/spinner/index.d.ts
++++ b/node_modules/baseui/spinner/index.d.ts
+@@ -1,3 +1,4 @@
++// @ts-nocheck
+ import { StyletronComponent } from 'styletron-react';
+ import { Sizing } from '../theme.ts';
+ 

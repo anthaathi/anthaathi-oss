@@ -32,9 +32,9 @@
   },
   "peerDependencies": {
     "@anthaathi/common": "0.0.0",
+    "@anthaathi/form": "0.0.0",
     "@anthaathi/form-builder": "0.0.0",
-    "@carbon/icons-react": "^11.1.0",
-    "@anthaathi/form": "0.0.0"
+    "@carbon/icons-react": "^11.1.0"
   },
   "devDependencies": {
     "@anthaathi/form": "0.0.0",

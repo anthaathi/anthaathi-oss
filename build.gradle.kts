@@ -28,17 +28,12 @@ allprojects {
 }
 
 val quarkusCommonProjects = listOf(
-    // project(":apps:anthaathi-cms"),
-    project(":apps:anthaathi-crm")
+    project(":apps:anthaathi-common-graphql-engine")
 )
 
-val quarkusWebAppDeps = mapOf(
-    project(":apps:anthaathi-crm") to listOf(
-        project(":apps:anthaathi-crm-web-client")
-    ),
-)
+val quarkusWebAppDeps = mapOf<Project, List<Project>>()
 
-// This needs to be calculate in future
+// This needs to be calculated in future
 val libraryDeps = mapOf(
     project(":libs:anthaathi-form-baseui") to listOf(
         project(":libs:anthaathi-form-builder"),
@@ -49,16 +44,17 @@ val libraryDeps = mapOf(
     )
 )
 
-val webClients = listOf(
-    // project(":apps:anthaathi-cms-web-client"),
-    project(":apps:anthaathi-crm-web-client")
-)
+val webClients = listOf<Project>()
 
 val webLibraries = listOf(
     project(":libs:anthaathi-web-lib"),
     project(":libs:anthaathi-form-builder"),
     project(":libs:anthaathi-form-baseui"),
     project(":libs:anthaathi-json-in-action")
+)
+
+val reactNativeApps = listOf(
+    project(":apps:anthaathi-commerce-mobile-client")
 )
 
 configure(subprojects.filter { it in webLibraries }) {

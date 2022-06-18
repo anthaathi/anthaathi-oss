@@ -23,12 +23,12 @@ include(
 )
 
 include(
-    ":apps:anthaathi-cms",
-    ":apps:anthaathi-crm",
-    ":apps:anthaathi-cms-web-client",
-    ":apps:anthaathi-crm-web-client"
+    ":apps:anthaathi-commerce-mobile-client",
+    ":apps:anthaathi-commerce-web-client"
 )
 
 include(
     ":tools:node-tooling"
 )
+
+include(":apps:anthaathi-common-graphql-engine")
