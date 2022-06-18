@@ -7,6 +7,7 @@ import PromotionalGrid from '../containers/HomePage/components/PromotionalGrid';
 import {useResponsiveValue} from '../utils/useResponsiveValue';
 import Header from './Header';
 import FeaturedCollection from '../containers/HomePage/components/FeaturedCollection';
+import FeaturedProduct from '../containers/HomePage/components/FeaturedProduct';
 
 export default function () {
   const {
@@ -238,6 +239,19 @@ export default function () {
                 price: 3423,
               },
             ]}
+          />
+        </View>
+        <View style={{marginTop: 12}}>
+          <FeaturedProduct
+            productInfo={{
+              name: 'Fruit Platter',
+              image: [
+                'https://burst.shopifycdn.com/photos/three-pumpkins-in-a-beam-of-sunlight.jpg?width=373&format=pjpg&exif=1&iptc=1',
+                'https://burst.shopifycdn.com/photos/small-orange-pumpkin-with-green-leaves-behind.jpg?width=373&format=pjpg&exif=1&iptc=1',
+              ],
+              description: `100% fresh. Benefits: As the saying goes "Apple a day keep the doctor away" Red Apples are extremely rich in important antioxidants, flavanoids, and dietary fibre. Apple fruits are firm and the skin is shiny and smooth. The color of the skin can be red, green, yellow, or a combination of those colors.The flesh is white, red or ivory.`,
+              price: 334,
+            }}
           />
         </View>
       </ScrollView>

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {Card, Text, Title} from 'react-native-paper';
-import {Image, View, VirtualizedList} from 'react-native';
+import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-export interface Product {
+export interface ProductProps {
   name: string;
   price: number;
   image: string;
@@ -12,12 +12,14 @@ export interface Product {
 
 export interface FeaturedCollectionProps {
   title: string;
-  products: Product[];
+  products: ProductProps[];
+  viewAllOnPress?: () => {}; // view all product link
 }
 
 export default function FeaturedCollection({
   title,
   products,
+  viewAllOnPress,
 }: FeaturedCollectionProps) {
   return (
     <>
@@ -26,20 +28,30 @@ export default function FeaturedCollection({
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
+            alignItems: 'center',
             marginHorizontal: 10,
           }}
         >
-          <Text variant="titleLarge" style={{marginBottom: 9}}>
+          <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
             {title}
           </Text>
 
-          <Text variant="titleMedium" style={{marginBottom: 9}}>
-            View All
-          </Text>
+          <Pressable onPress={viewAllOnPress}>
+            <Text
+              variant="titleMedium"
+              style={{
+                marginBottom: 9,
+                textDecorationLine: 'underline',
+                fontSize: 14,
+              }}
+            >
+              View All
+            </Text>
+          </Pressable>
         </View>
 
         <View>
-          <VirtualizedList<Product>
+          <VirtualizedList<ProductProps>
             data={products}
             initialNumToRender={4}
             horizontal={true}
@@ -54,8 +66,7 @@ export default function FeaturedCollection({
   );
 }
 
-function ItemRenderer({item}: {item: Product}) {
-  console.log(item);
+function ItemRenderer({item}: {item: ProductProps}) {
   return (
     <Card
       style={{

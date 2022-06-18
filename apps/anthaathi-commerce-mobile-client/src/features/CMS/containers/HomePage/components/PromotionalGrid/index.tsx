@@ -22,7 +22,7 @@ export interface PromotionalGridItem {
   button2Link?: string;
   image: string;
   videoURL?: string;
-  width?: ResponsiveInput<'33%' | '50%' | '80%' | '100%'>;
+  width?: ResponsiveInput<'33%' | '50%' | '100%'>;
   height: ResponsiveInput<number>;
   textAlignment?: CommonPlacement;
   textColor?: string;
