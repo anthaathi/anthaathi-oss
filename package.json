@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "postinstall": "patch-package"
+    "postinstall": "./node_modules/.bin/patch-package"
   },
   "dependencies": {
     "patch-package": "^6.4.7",
