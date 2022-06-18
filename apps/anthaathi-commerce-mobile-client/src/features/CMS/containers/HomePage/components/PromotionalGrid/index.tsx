@@ -27,6 +27,10 @@ export interface PromotionalGridItem {
   textAlignment?: CommonPlacement;
   textColor?: string;
   key: string;
+  paddingLeft?: ResponsiveInput<number>;
+  paddingRight?: ResponsiveInput<number>;
+  paddingBottom?: ResponsiveInput<number>;
+  paddingTop?: ResponsiveInput<number>;
 }
 
 export default function PromotionalGrid(props: PromotionalGridProps) {
@@ -36,7 +40,6 @@ export default function PromotionalGrid(props: PromotionalGridProps) {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        margin: 18,
       }}
     >
       {props.items.map(item => {
@@ -78,12 +81,19 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
 
   const itemWidth = useResponsiveValue(item.width ?? '33%');
   const itemHeight = useResponsiveValue(item.height);
+  const paddingLeft = useResponsiveValue(item.paddingLeft ?? 12);
+  const paddingRight = useResponsiveValue(item.paddingRight ?? 12);
+  const paddingTop = useResponsiveValue(item.paddingTop ?? 12);
+  const paddingBottom = useResponsiveValue(item.paddingBottom ?? 12);
 
   return (
     <View
       style={{
         width: itemWidth,
-        padding: 6,
+        paddingLeft: paddingLeft,
+        paddingRight: paddingRight,
+        paddingTop: paddingTop,
+        paddingBottom: paddingBottom,
       }}
     >
       <View

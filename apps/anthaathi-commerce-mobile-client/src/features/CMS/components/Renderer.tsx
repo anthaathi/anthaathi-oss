@@ -4,20 +4,23 @@ import {ScrollView, View} from 'react-native';
 import {DeliveringSelection} from '../containers/HomePage/components/DeliveringSelection';
 import HeroCategories from '../containers/HomePage/components/HeroCategories';
 import PromotionalGrid from '../containers/HomePage/components/PromotionalGrid';
+import {useResponsiveValue} from '../utils/useResponsiveValue';
 
 export default function () {
   const {
     colors: {background},
   } = useTheme();
 
+  const padding = useResponsiveValue([12, 24, 24, 24]);
+
   return (
     <ScrollView style={{height: '100%', backgroundColor: background}}>
       <View
         style={{
-          marginLeft: 24,
-          marginRight: 24,
-          marginTop: 24,
-          marginBottom: 12,
+          marginLeft: padding,
+          marginRight: padding,
+          marginTop: padding,
+          marginBottom: padding,
         }}
       >
         <DeliveringSelection location="Dubai" country="United Arab Emirates" />
