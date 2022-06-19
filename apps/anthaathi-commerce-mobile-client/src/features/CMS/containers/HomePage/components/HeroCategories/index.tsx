@@ -12,9 +12,14 @@ export interface Item {
 export interface HeroCategoriesProps {
   title: string;
   items: Item[];
+  onPress?: (key: string) => void;
 }
 
-export default function HeroCategories({title, items}: HeroCategoriesProps) {
+export default function HeroCategories({
+  title,
+  items,
+  onPress,
+}: HeroCategoriesProps) {
   const itemsSpited: Item[][] = useMemo(() => {
     return items.reduce<Item[][]>(
       (previousValue, currentValue, currentIndex) => {
@@ -42,7 +47,9 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
             data={itemsSpited}
             initialNumToRender={4}
             horizontal={true}
-            renderItem={({item}) => <ItemRendererColumn item={item} />}
+            renderItem={({item}) => (
+              <ItemRendererColumn onPress={onPress || (() => {})} item={item} />
+            )}
             getItemCount={() => itemsSpited.length}
             keyExtractor={(item, index) => item?.[0]?.key || index + ''}
             getItem={(res, index) => res[index]}
@@ -53,24 +60,42 @@ export default function HeroCategories({title, items}: HeroCategoriesProps) {
   );
 }
 
-function ItemRendererColumn({item}: {item: Item[]}) {
+function ItemRendererColumn({
+  item,
+  onPress,
+}: {
+  item: Item[];
+  onPress: (key: string) => void;
+}) {
   return (
     <View style={{display: 'flex', flexDirection: 'column'}}>
       {item.map(element => (
-        <ItemRenderer key={element.key} element={element} />
+        <ItemRenderer
+          key={element.key}
+          element={element}
+          onPress={() => onPress(element.key)}
+        />
       ))}
     </View>
   );
 }
 
-function ItemRenderer({element}: {element: Item}) {
+function ItemRenderer({
+  element,
+  onPress,
+}: {
+  element: Item;
+  onPress: () => void;
+}) {
   const dimension = 97;
 
   return (
     <TouchableRipple
-      onPress={() => {}}
-      style={{borderRadius: 12, padding: 4, marginRight: 12}}
-    >
+      testID={`heroItem${element.key}`}
+      onPress={() => {
+        onPress();
+      }}
+      style={{borderRadius: 12, padding: 4, marginRight: 12}}>
       <View>
         <Image
           source={{
@@ -87,8 +112,7 @@ function ItemRenderer({element}: {element: Item}) {
             marginTop: 6,
             fontWeight: '600',
           }}
-          variant="labelMedium"
-        >
+          variant="labelMedium">
           {element.title}
         </Text>
       </View>
