@@ -44,6 +44,10 @@ val reactNativeApps = listOf(
     project(":apps:anthaathi-commerce-mobile-client")
 )
 
+val kotlinLibraries = listOf(
+    project(":libs:anthaathi-arango-query-builder")
+)
+
 // Quarkus configuration
 configure(subprojects.filter { it in quarkusCommonProjects }) {
     apply {
@@ -131,5 +135,19 @@ configure(subprojects.filter { it in reactNativeApps }) {
         dependsOn("postinstall")
 
         args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
+    }
+}
+
+configure(subprojects.filter { it in kotlinLibraries }) {
+    apply {
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.allopen")
+    }
+
+    dependencies {
+        implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
     }
 }
