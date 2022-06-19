@@ -34,8 +34,10 @@ jobs:
         with:
           arguments: test
 
-      - name: Merge all codecoverage
-        run: cd tools/node-tooling && yarn
+      - name: Test all packages
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        with:
+          arguments: coverageMerger
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
