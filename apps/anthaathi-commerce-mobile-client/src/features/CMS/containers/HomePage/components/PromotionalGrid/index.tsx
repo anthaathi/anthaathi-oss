@@ -66,6 +66,7 @@ function PromotionalGridButton(props: {
             paddingRight: 18,
             paddingTop: 8,
             paddingBottom: 8,
+            fontWeight: 'bold',
           }}
           variant="labelSmall"
         >

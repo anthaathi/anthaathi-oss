@@ -1,41 +1,30 @@
 import React from 'react';
 import {Image, StatusBar} from 'react-native';
-import {Appbar} from 'react-native-paper';
+import {Appbar, useTheme} from 'react-native-paper';
 
 export interface HeaderProps {
-  rightIconMenu: boolean;
-  rightIconName: string;
-  leftIconMenu: boolean;
-  leftIconName: string;
+  rightIcon?: string;
+  leftIcon?: string;
   title?: string;
 }
-const Header = ({
-  rightIconMenu,
-  rightIconName,
-  leftIconMenu,
-  leftIconName,
-  title = '',
-}: HeaderProps) => {
+const Header = ({rightIcon, leftIcon, title = ''}: HeaderProps) => {
+  const theme = useTheme();
   return (
     <>
       <StatusBar
         animated={true}
-        backgroundColor="#FFFFFF"
-        barStyle="dark-content"
+        backgroundColor={theme.colors.primary}
+        barStyle={theme.dark ? 'dark-content' : 'light-content'}
       />
 
       <Appbar.Header
         style={{
-          backgroundColor: '#fff',
+          backgroundColor: theme.colors.background,
         }}
       >
-        {rightIconMenu ? (
-          <Appbar.Action
-            icon={rightIconName}
-            color="#364A15"
-            onPress={() => {}}
-          />
-        ) : null}
+        {rightIcon && (
+          <Appbar.Action icon={rightIcon} color="#364A15" onPress={() => {}} />
+        )}
         {title === '' ? (
           <Image
             style={{height: 48, width: 70}}
@@ -45,13 +34,9 @@ const Header = ({
           />
         ) : null}
         <Appbar.Content title={title} />
-        {leftIconMenu ? (
-          <Appbar.Action
-            icon={leftIconName}
-            color="#364A15"
-            onPress={() => {}}
-          />
-        ) : null}
+        {leftIcon && (
+          <Appbar.Action icon={leftIcon} color="#364A15" onPress={() => {}} />
+        )}
       </Appbar.Header>
     </>
   );

@@ -13,13 +13,13 @@ export interface ProductProps {
 export interface FeaturedCollectionProps {
   title: string;
   products: ProductProps[];
-  viewAllOnPress?: () => {}; // view all product link
+  handlePress?: () => {}; // view all product link
 }
 
 export default function FeaturedCollection({
   title,
   products,
-  viewAllOnPress,
+  handlePress,
 }: FeaturedCollectionProps) {
   return (
     <>
@@ -36,7 +36,7 @@ export default function FeaturedCollection({
             {title}
           </Text>
 
-          <Pressable onPress={viewAllOnPress}>
+          <Pressable onPress={handlePress}>
             <Text
               variant="titleMedium"
               style={{
@@ -70,7 +70,6 @@ function ItemRenderer({item}: {item: ProductProps}) {
   return (
     <Card
       style={{
-        backgroundColor: '#f8f8f8',
         marginVertical: 5,
         marginHorizontal: 10,
       }}

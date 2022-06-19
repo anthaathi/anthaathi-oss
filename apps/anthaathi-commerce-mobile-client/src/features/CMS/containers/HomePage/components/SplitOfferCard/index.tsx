@@ -1,0 +1,76 @@
+import {View, Image} from 'react-native';
+import React from 'react';
+import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
+import {Button, Text, useTheme} from 'react-native-paper';
+
+export interface SplitCardOfferProps {
+  title: string;
+  subtitle: string;
+  description?: string;
+  image: string;
+  buttonTitle: string;
+  onPress?: () => void;
+}
+
+const SplitCardOffer = (props: SplitCardOfferProps) => {
+  const itemWidth = useResponsiveValue(['90%', '60%', '50%', '50%']);
+  const itemHeight = useResponsiveValue([240, 280, 320, 320]);
+  const itemTwoWidth = useResponsiveValue(['80%', '40%', '50%', '50%']);
+  // const theme = useTheme();
+
+  return (
+    <View
+      style={{
+        flexDirection: itemWidth === '90%' ? 'column' : 'row-reverse',
+        alignItems: 'center',
+        marginVertical: 10,
+      }}
+    >
+      <Image
+        source={{
+          uri: props.image,
+        }}
+        style={{
+          width: itemWidth,
+          height: itemHeight,
+        }}
+      />
+      <View style={{width: itemTwoWidth, alignItems: 'center'}}>
+        <Text
+          style={{
+            color: '#000',
+            fontSize: 22,
+            fontWeight: 'bold',
+            marginVertical: 5,
+            paddingTop: 10,
+          }}
+          variant="titleSmall"
+        >
+          {props.title}
+        </Text>
+
+        <Text
+          style={{
+            textAlign: 'center',
+            color: '#000',
+            fontSize: 16,
+            fontWeight: '100',
+            marginVertical: 10,
+          }}
+          variant="titleSmall"
+        >
+          {props.subtitle}
+        </Text>
+        <Button
+          mode="contained"
+          style={{backgroundColor: '#000000', borderRadius: 1, marginVertical: 5}}
+          onPress={props.onPress}
+        >
+          {props.buttonTitle}
+        </Button>
+      </View>
+    </View>
+  );
+};
+
+export default SplitCardOffer;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useIntl} from 'react-intl';
 import {Image, Pressable, View} from 'react-native';
 import {Badge, Button, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
@@ -6,7 +7,7 @@ import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 export interface ProductDetails {
   name: string;
   description: string;
-  price: number;
+  price: string;
   image: string[];
 }
 
@@ -17,66 +18,34 @@ export interface ProductDetailsProps {
 }
 
 function FeaturedProduct(props: ProductDetailsProps) {
-  const itemWidth = useResponsiveValue(['80%', '50%', '50%', '50%']);
+  const itemWidth = useResponsiveValue(['80%', '70%', '70%', '70%']);
   const [imageIndex, setImageIndex] = React.useState(0);
-
-  const ImageSelection = () => {
-    return (
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginVertical: 15,
-        }}
-      >
-        <Pressable
-          style={{
-            paddingHorizontal: 10,
-          }}
-          onPress={() => {
-            setImageIndex(0);
-          }}
-        >
-          <Badge
-            style={{
-              backgroundColor: imageIndex == 0 ? '#000000' : '#cccccc',
-            }}
-            size={imageIndex == 0 ? 12 : 8}
-          />
-        </Pressable>
-        <Pressable
-          style={{
-            paddingHorizontal: 10,
-          }}
-          onPress={() => {
-            setImageIndex(1);
-          }}
-        >
-          <Badge
-            style={{
-              backgroundColor: imageIndex == 1 ? '#000000' : '#cccccc',
-            }}
-            size={imageIndex == 1 ? 12 : 8}
-          />
-        </Pressable>
-      </View>
-    );
-  };
+  const intl = useIntl();
 
   return (
-    <View style={{marginVertical: 10, marginHorizontal: 12}}>
-      <Text
-        variant="titleLarge"
-        style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}
-      >
-        {props.productInfo.name}
-      </Text>
-
+    <View
+      style={{
+        marginVertical: 10,
+        marginHorizontal: 12,
+        flexDirection: itemWidth === '80%' ? 'column' : 'row',
+      }}
+    >
+      {itemWidth === '80%' && (
+        <Text
+          variant="titleLarge"
+          style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}
+        >
+          {props.productInfo.name}
+        </Text>
+      )}
       <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        style={[
+          {
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          itemWidth !== '80%' && {width: '50%'},
+        ]}
       >
         <Image
           style={{
@@ -89,9 +58,22 @@ function FeaturedProduct(props: ProductDetailsProps) {
           }}
         />
 
-        <ImageSelection />
+        <ImageSelection
+          id={imageIndex}
+          onChange={setImageIndex}
+          imageLength={props.productInfo.image.length}
+        />
       </View>
-      <View>
+      <View style={[itemWidth !== '80%' && {width: '50%'}]}>
+        {itemWidth !== '80%' && (
+          <Text
+            variant="titleLarge"
+            style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}
+          >
+            {props.productInfo.name}
+          </Text>
+        )}
+
         <Pricing price={props.productInfo.price} />
         <Text
           variant="titleLarge"
@@ -105,7 +87,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
           labelStyle={{color: '#313652'}}
           style={{borderColor: '#313652', borderRadius: 1, marginBottom: 10}}
         >
-          Add to cart
+          {intl.formatMessage({defaultMessage: 'Add to cart'})}
         </Button>
 
         <Button
@@ -118,18 +100,19 @@ function FeaturedProduct(props: ProductDetailsProps) {
             marginBottom: 10,
           }}
         >
-          Buy it now
+          {intl.formatMessage({defaultMessage: 'Buy it now'})}
         </Button>
       </View>
     </View>
   );
 }
 
-const Pricing = ({price}: {price: number}) => {
+const Pricing = ({price}: {price: string}) => {
+  const intl = useIntl();
   return (
     <>
       <Text variant="titleLarge" style={{fontSize: 16, fontWeight: '500'}}>
-        Price
+        {intl.formatMessage({defaultMessage: 'Price'})}
       </Text>
       <Text
         variant="titleLarge"
@@ -138,6 +121,45 @@ const Pricing = ({price}: {price: number}) => {
         {price}
       </Text>
     </>
+  );
+};
+
+const ImageSelection = ({
+  id,
+  imageLength,
+  onChange,
+}: {
+  id: number;
+  imageLength: number;
+  onChange: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+      }}
+    >
+      {[...Array(imageLength).keys()].map(index => (
+        <Pressable
+          key={index}
+          style={{
+            paddingHorizontal: 10,
+            paddingVertical: 15,
+          }}
+          onPress={() => {
+            onChange(index);
+          }}
+        >
+          <Badge
+            style={{
+              backgroundColor: id == index ? '#000000' : '#cccccc',
+            }}
+            size={id == index ? 12 : 8}
+          />
+        </Pressable>
+      ))}
+    </View>
   );
 };
 
