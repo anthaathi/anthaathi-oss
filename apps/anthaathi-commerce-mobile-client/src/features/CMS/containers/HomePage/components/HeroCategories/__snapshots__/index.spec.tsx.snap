@@ -330,6 +330,7 @@ exports[`HeroCategories should render the item 1`] = `
                   },
                 ]
               }
+              testID="heroItemtest"
             >
               <View>
                 <Image

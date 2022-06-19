@@ -21,8 +21,7 @@ export default function () {
           marginRight: padding,
           marginTop: padding,
           marginBottom: padding,
-        }}
-      >
+        }}>
         <DeliveringSelection location="Dubai" country="United Arab Emirates" />
       </View>
 
