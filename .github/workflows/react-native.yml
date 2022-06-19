@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: lts
+          node-version: 16.x
           cache: 'yarn'
 
       - name: Install yarn packages
