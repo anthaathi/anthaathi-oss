@@ -12,7 +12,7 @@ const getLcovFiles = function lcov(src: string): Promise<string[]> {
 };
 
 async function init() {
-  const files = await getLcovFiles('../../coverage');
+  const files = await getLcovFiles('../..');
 
   const mergedReport = files.reduce(
     (mergedReportCurrent, currFile) =>
