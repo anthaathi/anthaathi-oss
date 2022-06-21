@@ -151,7 +151,6 @@ export default function () {
                 heading: 'Something',
                 text: 'Omkar',
                 button1Text: 'SHOP NOW',
-                button1Link: 'https://google.com',
                 height: [180, 240, 260, 270],
                 image:
                   'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
@@ -163,7 +162,6 @@ export default function () {
                 heading: 'Something',
                 text: 'Omkar',
                 button1Text: 'SHOP NOW',
-                button1Link: 'https://google.com',
                 height: [180, 240, 260, 270],
                 image:
                   'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -175,7 +173,6 @@ export default function () {
                 heading: 'Something',
                 text: 'Omkar',
                 button1Text: 'SHOP NOW',
-                button1Link: 'https://google.com',
                 height: [180, 240, 260, 270],
                 image:
                   'https://burst.shopifycdn.com/photos/ripe-red-strawberries-in-a-white-bowl.jpg?height=240&format=pjpg&exif=1&iptc=1',
@@ -263,22 +260,30 @@ export default function () {
           />
         </View>
 
-        {/* <PromotionalProductGrid
+        <PromotionalProductGrid
           products={[
             {
               name: 'Baby Yellow Pepper',
               image:
                 'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
               price: '12',
+              heading: 'NRTC Fresh',
+              buttonTitle: 'Shop',
+              label: 'New',
+              description: '100% fresh. Sourced from Netherlands',
             },
             {
               name: 'Capsicum mixed',
               image:
                 'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
               price: '23',
+              heading: 'NRTC Fresh',
+              buttonTitle: 'Shop',
+              label: 'New',
+              description: '100% fresh. Sourced from Netherlands',
             },
           ]}
-        /> */}
+        />
 
         <SplitCardOffer
           title="Get Exclusive Offers"

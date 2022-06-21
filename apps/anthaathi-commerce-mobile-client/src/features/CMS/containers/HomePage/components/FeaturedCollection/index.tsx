@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Card, Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 
 export interface ProductProps {
   name: string;
@@ -67,8 +68,11 @@ export default function FeaturedCollection({
 }
 
 function ItemRenderer({item}: {item: ProductProps}) {
+  const itemHeight = useResponsiveValue([160, 250, 290, 330]);
+  const itemWidth = useResponsiveValue([150, 240, 280, 320]);
+
   return (
-    <Card
+    <View
       style={{
         marginVertical: 5,
         marginHorizontal: 10,
@@ -77,7 +81,7 @@ function ItemRenderer({item}: {item: ProductProps}) {
     >
       <Card.Content style={{alignItems: 'center'}}>
         <Image
-          style={{height: 160, width: 150, borderRadius: 4}}
+          style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
           source={{
             uri: item.image,
           }}
@@ -119,6 +123,6 @@ function ItemRenderer({item}: {item: ProductProps}) {
           {'200g - 300g per pack*'}
         </Text>
       </Card.Content>
-    </Card>
+    </View>
   );
 }
