@@ -13,37 +13,6 @@ export interface HeroSlideProps {
 
 const HeroSlide = (props: HeroSlideProps) => {
   const theme = useTheme();
-  
-  /* A Component that returns a button. */
-  function HeroSlideButton(props: {
-    onPress: ((e: GestureResponderEvent) => void) | undefined;
-    label: string;
-  }) {
-    return (
-      <TouchableRipple onPress={props.onPress}>
-        <View
-          style={{
-            backgroundColor: (theme.colors as MD3Colors).background,
-            borderRadius: 1,
-          }}
-        >
-          <Text
-            style={{
-              color: (theme.colors as MD3Colors).onBackground,
-              paddingLeft: 18,
-              paddingRight: 18,
-              paddingTop: 8,
-              paddingBottom: 8,
-              fontWeight: '700',
-            }}
-            variant="labelSmall"
-          >
-            {props.label}
-          </Text>
-        </View>
-      </TouchableRipple>
-    );
-  }
 
   return (
     <View style={{marginVertical: 10}}>
@@ -109,5 +78,38 @@ const HeroSlide = (props: HeroSlideProps) => {
     </View>
   );
 };
+
+function HeroSlideButton(props: {
+  onPress: ((e: GestureResponderEvent) => void) | undefined;
+  label: string;
+}) {
+  const theme = useTheme();
+
+  return (
+    <TouchableRipple onPress={props.onPress}>
+      <View
+        style={{
+          backgroundColor: (theme.colors as MD3Colors).background,
+          borderRadius: 1,
+        }}
+      >
+        <Text
+          style={{
+            color: (theme.colors as MD3Colors).onBackground,
+            paddingLeft: 18,
+            paddingRight: 18,
+            paddingTop: 8,
+            paddingBottom: 8,
+            fontWeight: '700',
+          }}
+          variant="labelSmall"
+        >
+          {props.label}
+        </Text>
+      </View>
+    </TouchableRipple>
+  );
+}
+
 
 export default HeroSlide;
