@@ -1,7 +1,7 @@
-import {View, Image, Dimensions} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
-// import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
+import {useDimension} from '../../../../utils/useDimension';
 
 export interface ColumnProps {
   title: string;
@@ -15,6 +15,8 @@ export interface TextWithImageProps {
 }
 
 const TextWithImage = (props: TextWithImageProps) => {
+  const [width] = useDimension();
+  
   return (
     <View style={{alignItems: 'center'}}>
       <Text
@@ -31,10 +33,8 @@ const TextWithImage = (props: TextWithImageProps) => {
       </Text>
       <View
         style={{
-          flexDirection:
-            Dimensions.get('window').width < 600 ? 'column' : 'row',
-
-          flexWrap: Dimensions.get('window').width < 600 ? 'nowrap' : 'wrap',
+          flexDirection: width < 600 ? 'column' : 'row',
+          flexWrap: width < 600 ? 'nowrap' : 'wrap',
         }}
       >
         {props.columns.map((data, index) => (
@@ -51,10 +51,6 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
   return (
     <View style={{alignItems: 'center', marginVertical: 10}}>
       <View
-        // Image
-        // source={{
-        //   uri: data.image,
-        // }}
         style={{
           height: 240,
           width: 240,

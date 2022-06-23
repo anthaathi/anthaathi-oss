@@ -16,8 +16,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
   const itemWidth = useResponsiveValue(['90%', '60%', '50%', '50%']);
   const itemHeight = useResponsiveValue([240, 280, 320, 320]);
   const itemTwoWidth = useResponsiveValue(['80%', '40%', '50%', '50%']);
-  // const theme = useTheme();
-
+  
   return (
     <View
       style={{

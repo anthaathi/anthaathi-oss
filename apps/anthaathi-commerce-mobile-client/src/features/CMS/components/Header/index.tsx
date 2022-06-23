@@ -29,7 +29,7 @@ const Header = ({rightIcon, leftIcon, title = ''}: HeaderProps) => {
           <Image
             style={{height: 48, width: 70}}
             source={{
-              uri: 'https://www.nrtcfresh.com/wp-content/uploads/elementor/thumbs/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk.png',
+              uri: 'app_logo_url',
             }}
           />
         ) : null}

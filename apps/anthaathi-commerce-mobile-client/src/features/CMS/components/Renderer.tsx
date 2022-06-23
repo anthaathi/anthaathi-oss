@@ -22,7 +22,7 @@ export default function () {
 
   return (
     <>
-      <Header rightIcon="menu" leftIcon="magnify" />
+      <Header rightIcon="menu" leftIcon="magnify" title="Anthaathi" />
       <ScrollView style={{height: '100%', backgroundColor: background}}>
         <View
           style={{
@@ -191,6 +191,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
                 key: '12',
                 price: 12,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Capsicum mixed',
@@ -198,6 +201,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '23',
                 price: 23,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Cherry Tomato Mix',
@@ -205,6 +211,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/small-orange-pumpkin-with-green-leaves-behind.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '34',
                 price: 231,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Cucumber',
@@ -212,6 +221,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/ripe-red-strawberries-in-a-white-bowl.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '324',
                 price: 232,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Fruit Platter',
@@ -219,6 +231,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/small-orange-pumpkin-with-green-leaves-behind.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '334',
                 price: 334,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Kumquats',
@@ -226,6 +241,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '3341',
                 price: 2323,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
               {
                 name: 'Mango Alphonso',
@@ -233,6 +251,9 @@ export default function () {
                   'https://burst.shopifycdn.com/photos/three-pumpkins-in-a-beam-of-sunlight.jpg?width=373&format=pjpg&exif=1&iptc=1',
                 key: '33141',
                 price: 3423,
+                currency: 'AED',
+                weight_unit: 'KG',
+                packaging: 'pack',
               },
             ]}
           />
@@ -298,26 +319,22 @@ export default function () {
               {
                 title: 'Register',
                 description: 'Description Register',
-                image:
-                  'https://www.nrtcfresh.com/wp-content/uploads/2020/08/Page-1.svg',
+                image: '',
               },
               {
                 title: 'Select Products & Place Order',
                 description: 'Description Select Products & Place Order',
-                image:
-                  'https://www.nrtcfresh.com/wp-content/uploads/2020/07/icon-HIW-02.svg',
+                image: '',
               },
               {
                 title: 'Schedule Delivery',
                 description: 'Description Schedule Delivery',
-                image:
-                  'https://www.nrtcfresh.com/wp-content/uploads/2020/07/noun_Select-Product_2206098-1.svg',
+                image: '',
               },
               {
                 title: 'Schedule Delivery',
                 description: 'Description Schedule Delivery',
-                image:
-                  'https://www.nrtcfresh.com/wp-content/uploads/2020/07/noun_Select-Product_2206098-1.svg',
+                image: '',
               },
             ]}
           />

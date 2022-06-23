@@ -11,6 +11,14 @@ import {
 } from 'react-native-paper';
 import CMSRenderer from './features/CMS';
 
+declare global {
+  namespace ReactNativePaper {
+    interface ThemeColors {
+      black: string;
+    }
+  }
+}
+
 const theme = {
   ...DefaultTheme,
   roundness: 2,

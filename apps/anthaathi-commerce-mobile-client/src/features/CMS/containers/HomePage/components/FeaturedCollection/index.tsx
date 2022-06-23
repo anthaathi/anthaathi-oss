@@ -3,11 +3,16 @@ import {Card, Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
+import {useIntl} from 'react-intl';
 
 export interface ProductProps {
   name: string;
+  description?: string;
   price: number;
+  currency: string;
   image: string;
+  weight_unit: string;
+  packaging: string;
   key: string;
 }
 
@@ -22,6 +27,10 @@ export default function FeaturedCollection({
   products,
   handlePress,
 }: FeaturedCollectionProps) {
+  const intl = useIntl();
+  const itemHeight = useResponsiveValue([160, 250, 290, 330]);
+  const itemWidth = useResponsiveValue([150, 240, 280, 320]);
+
   return (
     <>
       <View>
@@ -46,7 +55,7 @@ export default function FeaturedCollection({
                 fontSize: 14,
               }}
             >
-              View All
+              {intl.formatMessage({defaultMessage: 'View All'})}
             </Text>
           </Pressable>
         </View>
@@ -56,7 +65,13 @@ export default function FeaturedCollection({
             data={products}
             initialNumToRender={4}
             horizontal={true}
-            renderItem={({item}) => <ItemRenderer item={item} />}
+            renderItem={({item}) => (
+              <ItemRenderer
+                item={item}
+                itemHeight={itemHeight}
+                itemWidth={itemWidth}
+              />
+            )}
             getItemCount={() => products.length}
             keyExtractor={item => item.key}
             getItem={(res, index) => res[index]}
@@ -67,10 +82,15 @@ export default function FeaturedCollection({
   );
 }
 
-function ItemRenderer({item}: {item: ProductProps}) {
-  const itemHeight = useResponsiveValue([160, 250, 290, 330]);
-  const itemWidth = useResponsiveValue([150, 240, 280, 320]);
-
+function ItemRenderer({
+  item,
+  itemHeight,
+  itemWidth,
+}: {
+  item: ProductProps;
+  itemHeight: number;
+  itemWidth: number;
+}) {
   return (
     <View
       style={{
@@ -109,7 +129,7 @@ function ItemRenderer({item}: {item: ProductProps}) {
           }}
         >
           <Text style={{color: '#008D3E', fontSize: 12, fontWeight: '400'}}>
-            {'AED' + ' '}
+            {item.currency + ' '}
           </Text>
           <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
             {item.price}
