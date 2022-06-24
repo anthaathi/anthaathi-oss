@@ -10,7 +10,7 @@ plugins {
     kotlin("jvm") version Versions.KOTLIN_VERSION
     kotlin("plugin.allopen") version Versions.KOTLIN_VERSION
     id("io.quarkus") apply false
-    id("com.github.node-gradle.node") version "3.2.1"
+    id("com.github.node-gradle.node") version "3.3.0"
 }
 
 val quarkusPlatformGroupId: String by project
