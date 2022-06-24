@@ -3,6 +3,7 @@ import com.github.gradle.node.yarn.task.YarnTask
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
 }
 

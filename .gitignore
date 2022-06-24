@@ -37,3 +37,6 @@ coverage/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/libs/graphql-engine/target/
+/libs/graphql-engine/runtime/target/
+/libs/graphql-engine/deployment/target/
