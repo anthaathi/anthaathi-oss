@@ -28,9 +28,7 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf(
-    project(":apps:anthaathi-common-graphql-engine")
-)
+val quarkusCommonProjects = listOf<Project>()
 
 val quarkusWebAppDeps = mapOf<Project, List<Project>>()
 
@@ -45,9 +43,7 @@ val reactNativeApps = listOf(
     project(":apps:anthaathi-commerce-mobile-client")
 )
 
-val kotlinLibraries = listOf(
-    project(":libs:anthaathi-arango-query-builder")
-)
+val kotlinLibraries = listOf<Project>()
 
 // Quarkus configuration
 configure(subprojects.filter { it in quarkusCommonProjects }) {

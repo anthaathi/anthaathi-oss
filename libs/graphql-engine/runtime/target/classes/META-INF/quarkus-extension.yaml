@@ -1,9 +1,0 @@
----
-name: "Graphql Engine"
-description: "Build Graphql"
-metadata:
-  built-with-quarkus-core: "2.10.0.Final"
-  extension-dependencies:
-  - "io.quarkus:quarkus-arc"
-  - "io.quarkus:quarkus-core"
-artifact: "org.anthaathi:graphql-engine::jar:1.0.0-SNAPSHOT"
