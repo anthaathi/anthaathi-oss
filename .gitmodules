@@ -1,3 +1,0 @@
-[submodule "apps/graphql-engine/libgraphqlparser"]
-	path = apps/graphql-engine/libgraphqlparser
-	url = git@github.com:graphql/libgraphqlparser.git
