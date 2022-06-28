@@ -15,7 +15,7 @@ pluginManagement {
 rootProject.name = "anthaathi"
 
 include(
-    ":libs:anthaathi-arango-query-builder"
+    ":apps:anthaathi-graphql-engine"
 )
 
 include(
@@ -25,5 +25,3 @@ include(
 include(
     ":tools:node-tooling"
 )
-
-include(":apps:anthaathi-common-graphql-engine")
