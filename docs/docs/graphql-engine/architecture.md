@@ -4,7 +4,10 @@ sidebar_position: 2
 # Architecture
 
 1. Schema Fetcher
-2. Hooks
+2. Data Connector
+   1. Schema Generator
+   2. Data Fetcher
+3. Hooks
 
 ## Schema Fetcher
 
