@@ -5,7 +5,8 @@
   "version": "0.0.0",
   "workspaces": [
     "apps/anthaathi-commerce-mobile-client",
-    "tools/node-tooling"
+    "tools/node-tooling",
+    "docs"
   ],
   "dependenciesMeta": {
     "anthaathicommercemobile": {
