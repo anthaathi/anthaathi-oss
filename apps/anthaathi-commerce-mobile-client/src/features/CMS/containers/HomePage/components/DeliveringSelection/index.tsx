@@ -19,21 +19,16 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
     <TouchableHighlight
       underlayColor={(theme.colors as MD3Colors).primary}
       onPress={props.onPress}
-      style={[
-        {
-          borderStyle: 'solid',
-          borderWidth: 1,
-          borderColor: (theme.colors as MD3Colors).primary,
-          borderRadius: 4,
-        },
-      ]}
     >
       <View
         style={[
           styles.root,
           {
-            backgroundColor: (theme.colors as MD3Colors).primaryContainer,
+            borderStyle: 'solid',
+            borderWidth: 1,
+            borderColor: (theme.colors as MD3Colors).primary,
             borderRadius: 4,
+            backgroundColor: (theme.colors as MD3Colors).primaryContainer,
           },
         ]}
       >
@@ -61,10 +56,8 @@ const styles = StyleSheet.create({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    paddingLeft: 6,
-    paddingRight: 6,
-    paddingTop: 0,
-    paddingBottom: 0,
+    paddingHorizontal: 6,
+    paddingVertical: 0,
     borderRadius: 12,
   },
   column: {

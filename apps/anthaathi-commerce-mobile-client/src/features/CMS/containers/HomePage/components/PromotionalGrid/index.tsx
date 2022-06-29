@@ -17,9 +17,9 @@ export interface PromotionalGridItem {
   heading: string;
   text: string;
   button1Text: string;
-  button1Link: string;
+  onPress1?: () => void;
   button2Text?: string;
-  button2Link?: string;
+  onPress2?: () => void;
   image: string;
   videoURL?: string;
   width?: ResponsiveInput<'33%' | '50%' | '100%'>;
@@ -66,6 +66,7 @@ function PromotionalGridButton(props: {
             paddingRight: 18,
             paddingTop: 8,
             paddingBottom: 8,
+            fontWeight: 'bold',
           }}
           variant="labelSmall"
         >
@@ -171,7 +172,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
                 <View style={{width: 12}} />
                 <PromotionalGridButton
                   label={item.button2Text}
-                  onPress={() => {}}
+                  onPress={item.onPress1}
                 />
               </>
             )}
