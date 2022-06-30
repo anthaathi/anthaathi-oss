@@ -23,5 +23,9 @@ include(
 )
 
 include(
+    ":apps:anthaathi-graphql-framework"
+)
+
+include(
     ":tools:node-tooling"
 )
