@@ -1,23 +1,19 @@
 {
   "name": "@anthaathi/root",
   "private": true,
+  "packageManager": "yarn@3.2.1",
   "version": "0.0.0",
   "workspaces": [
-    "apps/*",
-
-    "libs/anthaathi-web-lib",
-    "libs/anthaathi-json-in-action",
-    "libs/anthaathi-common-node-bom",
-    "libs/anthaathi-form-builder",
-    "libs/anthaathi-form-baseui",
-    "libs/anthaathi-vite-ssr",
-
-    "cli/anthaathi-web-cli",
-
+    "apps/anthaathi-commerce-mobile-client",
     "tools/node-tooling"
   ],
+  "dependenciesMeta": {
+    "anthaathicommercemobile": {
+      "built": false
+    }
+  },
   "scripts": {
-    "postinstall": "patch-package"
+    "postinstall": "./node_modules/.bin/patch-package"
   },
   "dependencies": {
     "patch-package": "^6.4.7",

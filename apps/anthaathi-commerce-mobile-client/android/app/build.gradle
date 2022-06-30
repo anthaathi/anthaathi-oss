@@ -237,13 +237,21 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            if (project.hasProperty('APP_KEYSTORE_PATH')) {
+                storeFile file(APP_KEYSTORE_PATH)
+                storePassword APP_KEYSTORE_PASSWORD
+                keyAlias APP_KEYSTORE_ALIAS
+                keyPassword APP_KEYSTORE_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
-            signingConfig signingConfigs.release
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug

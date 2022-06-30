@@ -34,93 +34,17 @@ val quarkusCommonProjects = listOf(
 val quarkusWebAppDeps = mapOf<Project, List<Project>>()
 
 // This needs to be calculated in future
-val libraryDeps = mapOf(
-    project(":libs:anthaathi-form-baseui") to listOf(
-        project(":libs:anthaathi-form-builder"),
-        project(":libs:anthaathi-web-lib")
-    ),
-    project(":libs:anthaathi-form-builder") to listOf(
-        project(":libs:anthaathi-json-in-action")
-    )
-)
+val libraryDeps = mapOf<Project, List<Project>>()
 
 val webClients = listOf<Project>()
 
-val webLibraries = listOf(
-    project(":libs:anthaathi-web-lib"),
-    project(":libs:anthaathi-form-builder"),
-    project(":libs:anthaathi-form-baseui"),
-    project(":libs:anthaathi-json-in-action")
-)
+val webLibraries = listOf<Project>()
 
 val reactNativeApps = listOf(
     project(":apps:anthaathi-commerce-mobile-client")
 )
 
-configure(subprojects.filter { it in webLibraries }) {
-    apply {
-        plugin("com.github.node-gradle.node")
-    }
-
-    tasks.register<YarnTask>("buildLib") {
-        args.set(listOf("build"))
-
-        libraryDeps[this.project]?.forEach { itt ->
-            this.dependsOn.add(itt.tasks.getByName("buildLib"))
-        }
-    }
-
-    tasks.register<YarnTask>("lint") {
-        args.set(listOf("lint"))
-    }
-
-    tasks.register<YarnTask>("test") {
-        args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
-    }
-
-    tasks.register("check") {
-        dependsOn("lint", "test", "buildLib")
-
-        finalizedBy(project(":tools:node-tooling").tasks.getByName("coverageMerger"))
-    }
-}
-
-configure(subprojects.filter { it in webClients }) {
-    apply {
-        plugin("com.github.node-gradle.node")
-    }
-
-    tasks.register<YarnTask>("i18nExtract") {
-        args.set(listOf("extract"))
-    }
-
-    tasks.register<YarnTask>("i18nCompile") {
-        args.set(listOf("compile"))
-
-        dependsOn.add("i18nExtract")
-    }
-
-    tasks.register<YarnTask>("runDev") {
-        args.set(listOf("dev"))
-
-        dependsOn.add("i18nCompile")
-
-        webLibraries.forEach {
-            dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
-        }
-    }
-
-    tasks.register<YarnTask>("buildProd") {
-        args.set(listOf("build"))
-
-        dependsOn.add("i18nCompile")
-
-        webLibraries.forEach {
-            dependsOn.add(it.tasks.find { task -> task.name == "buildLib" })
-        }
-    }
-}
-
+// Quarkus configuration
 configure(subprojects.filter { it in quarkusCommonProjects }) {
     apply {
         plugin("org.jetbrains.kotlin.jvm")
@@ -129,6 +53,8 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
     }
 
     tasks.register("buildDocker") {
+        // This build the frontend application and move it to the build
+        // folder so one container can have frontend and backend
         if (quarkusWebAppDeps.containsKey(this.project)) {
             val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
 
@@ -177,5 +103,33 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
     java {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+configure(subprojects.filter { it in reactNativeApps }) {
+    apply {
+        plugin("com.github.node-gradle.node")
+    }
+
+    tasks.register<YarnTask>("i18nBuild") {
+        args.set(listOf("i18n"))
+    }
+
+    tasks.register<YarnTask>("relay") {
+        args.set(listOf("relay"))
+    }
+
+    tasks.register<YarnTask>("lint") {
+        args.set(listOf("lint"))
+    }
+
+    tasks.register<YarnTask>("postinstall") {
+        dependsOn("i18nBuild", "relay")
+    }
+
+    tasks.register<YarnTask>("test") {
+        dependsOn("postinstall")
+
+        args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
     }
 }

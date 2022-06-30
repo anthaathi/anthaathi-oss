@@ -1,5 +1,4 @@
 const carbonIcons = require('@carbon/icons-react');
-
 const fs = require('fs');
 const path = require('path');
 

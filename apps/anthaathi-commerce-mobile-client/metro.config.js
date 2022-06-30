@@ -5,7 +5,6 @@
  * @format
  */
 
-const blacklist = require('metro-config/src/defaults/blacklist');
 const getWorkspaces = require('get-yarn-workspaces');
 const path = require('path');
 

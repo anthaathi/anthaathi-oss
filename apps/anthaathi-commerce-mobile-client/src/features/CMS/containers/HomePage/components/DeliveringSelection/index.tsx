@@ -8,7 +8,7 @@ import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 export interface DeliveringSelectionProps {
   location: string;
   country: string;
-  onPress?: () => {};
+  onPress?: () => void;
 }
 
 export function DeliveringSelection(props: DeliveringSelectionProps) {
@@ -19,6 +19,7 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
     <TouchableHighlight
       underlayColor={(theme.colors as MD3Colors).primary}
       onPress={props.onPress}
+      testID="deliveringSelection"      
     >
       <View
         style={[
@@ -30,10 +31,9 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
             borderRadius: 4,
             backgroundColor: (theme.colors as MD3Colors).primaryContainer,
           },
-        ]}
-      >
+        ]}>
         <View style={{...styles.alignCenter, ...{width: 38}}}>
-          <Icon name="map-marker" color={theme.colors.primary} size={24}></Icon>
+          <Icon name="map-marker" color={theme.colors.primary} size={24} />
         </View>
         <View style={styles.column}>
           <Text variant="labelMedium">
@@ -46,7 +46,7 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
 
         <View style={{flexGrow: 1}} />
 
-        <IconButton onPress={props.onPress} icon="chevron-right"></IconButton>
+        <IconButton onPress={props.onPress} icon="chevron-right" />
       </View>
     </TouchableHighlight>
   );

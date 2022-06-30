@@ -5,10 +5,10 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "postinstall": "./node_modules/.bin/jetify",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "jetify",
     "extract": "formatjs extract \"src/**/*.{ts,tsx,vue}\" --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/locales/en-US.json",
     "compile": "formatjs compile-folder --ast --format simple src/locales src/compiled-locales",
     "i18n": "yarn extract && yarn compile",
@@ -29,30 +29,22 @@
     "react-relay": "^14.0.0",
     "relay-runtime": "^14.0.0"
   },
-  "workspaces": {
-    "nohoist": [
-      "react-native",
-      "react-native/**",
-      "react-native-dev-menu",
-      "react-native-svg",
-      "jetifier",
-      "metro",
-      "react",
-      "react-native-safe-area-context",
-      "react-native-safe-area-view",
-      "react-native-paper",
-      "react-native-vector-icons"
-    ]
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.18.2",
     "@babel/runtime": "^7.12.5",
     "@formatjs/cli": "^5.0.1",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.5",
+    "@testing-library/react-native": "^9.1.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.67.3",
     "@types/react-native-vector-icons": "^6.4.10",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/relay-runtime": "^13.0.3",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "babel-jest": "^26.6.3",
@@ -68,9 +60,6 @@
     "react-test-renderer": "17.0.2",
     "relay-compiler": "^14.0.0",
     "typescript": "^4.4.4"
-  },
-  "resolutions": {
-    "@types/react": "^17"
   },
   "jest": {
     "preset": "react-native",

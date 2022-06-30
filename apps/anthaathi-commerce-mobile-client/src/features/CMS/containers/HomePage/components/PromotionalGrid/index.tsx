@@ -40,8 +40,7 @@ export default function PromotionalGrid(props: PromotionalGridProps) {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-      }}
-    >
+      }}>
       {props.items.map(item => {
         return <PromotionalGridItemRenderer key={item.key} item={item} />;
       })}
@@ -68,8 +67,7 @@ function PromotionalGridButton(props: {
             paddingBottom: 8,
             fontWeight: 'bold',
           }}
-          variant="labelSmall"
-        >
+          variant="labelSmall">
           {props.label}
         </Text>
       </View>
@@ -95,13 +93,11 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
         paddingRight: paddingRight,
         paddingTop: paddingTop,
         paddingBottom: paddingBottom,
-      }}
-    >
+      }}>
       <View
         style={{
           height: itemHeight,
-        }}
-      >
+        }}>
         <Image
           source={{
             uri: item.image,
@@ -117,16 +113,14 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-          }}
-        >
+          }}>
           <Text
             style={{
               textAlign: item.textAlignment ?? 'center',
               color: (theme.colors as MD3Colors).onPrimary,
               marginBottom: 6,
             }}
-            variant="titleSmall"
-          >
+            variant="titleSmall">
             {item.subHeading}
           </Text>
           <Text
@@ -135,8 +129,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
               color: (theme.colors as MD3Colors).onPrimary,
               marginBottom: 6,
             }}
-            variant="titleLarge"
-          >
+            variant="titleLarge">
             {item.heading}
           </Text>
           <Text
@@ -145,8 +138,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
               color: (theme.colors as MD3Colors).onPrimary,
               marginBottom: 12,
             }}
-            variant="bodyMedium"
-          >
+            variant="bodyMedium">
             {item.text}
           </Text>
         </View>
@@ -159,8 +151,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
               alignItems: 'center',
               justifyContent: 'center',
               paddingBottom: 12,
-            }}
-          >
+            }}>
             {item.button1Text && (
               <PromotionalGridButton
                 label={item.button1Text}

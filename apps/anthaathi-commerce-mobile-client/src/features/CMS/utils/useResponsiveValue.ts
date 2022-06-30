@@ -40,7 +40,12 @@ export function useResponsiveValue<T = number | string>(
       return 2;
     }
     return 3;
-  }, [width]);
+  }, [
+    responsiveValue.large,
+    responsiveValue.medium,
+    responsiveValue.small,
+    width,
+  ]);
 
   if (!Array.isArray(input)) {
     return input as T;
