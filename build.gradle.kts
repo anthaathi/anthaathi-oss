@@ -12,6 +12,7 @@ plugins {
     kotlin("plugin.allopen") version Versions.KOTLIN_VERSION
     id("io.quarkus") apply false
     id("com.github.node-gradle.node") version "3.3.0"
+    id("fr.stardustenterprises.rust.wrapper") version "3.2.4" apply false
 }
 
 val quarkusPlatformGroupId: String by project
