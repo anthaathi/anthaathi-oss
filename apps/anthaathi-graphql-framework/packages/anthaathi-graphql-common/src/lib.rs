@@ -11,6 +11,10 @@ pub mod config_loader {
     use serde_derive::{Deserialize, Serialize};
     use serde_yaml::Value;
 
+    pub fn parse_config(input_file: &str) -> serde_yaml::Result<Config> {
+        return serde_yaml::from_str(input_file);
+    }
+
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
     pub struct ConfigSpec {
         pub hosts: Option<Vec<String>>,
@@ -20,7 +24,7 @@ pub mod config_loader {
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
     pub struct ConfigDestination {
-        #[serde(rename="name")]
+        #[serde(rename = "name")]
         pub plugin_name: String,
         pub config: Value,
     }
@@ -34,7 +38,7 @@ pub mod config_loader {
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
     pub struct ConfigHTTPConfig {
         pub name: String,
-        #[serde(rename="match")]
+        #[serde(rename = "match")]
         pub match_: Option<Vec<ConfigMatchOption>>,
         pub header: Option<ConfigHeaders>,
         pub destination: ConfigDestination,
@@ -48,11 +52,11 @@ pub mod config_loader {
         pub uri: Option<StringMatch>,
         pub method: Option<StringMatch>,
         pub headers: Option<HashMap<String, StringMatch>>,
-        #[serde(rename="query_params")]
+        #[serde(rename = "query_params")]
         pub query_params: Option<HashMap<String, StringMatch>>,
-        #[serde(rename="ignoreUriCase")]
+        #[serde(rename = "ignoreUriCase")]
         pub ignore_uri_case: Option<bool>,
-        #[serde(rename="withoutHeaders")]
+        #[serde(rename = "withoutHeaders")]
         pub without_headers: Option<HashMap<String, StringMatch>>,
     }
 
