@@ -6,23 +6,61 @@ pub mod schema_loader_plugin {
 }
 
 pub mod config_loader {
-    use std::collections::BTreeMap;
+    use std::collections::{BTreeMap, HashMap};
 
     use serde_derive::{Deserialize, Serialize};
+    use serde_yaml::Value;
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
     pub struct ConfigSpec {
-        pub hosts: Vec<String>,
-        pub http: Option<Vec<ConfigHTTPConfig>>,
+        pub hosts: Option<Vec<String>>,
+        pub port: Vec<ConfigPort>,
+        pub http: Vec<ConfigHTTPConfig>,
+    }
+
+    #[derive(Debug, PartialEq, Serialize, Deserialize)]
+    pub struct ConfigDestination {
+        #[serde(rename="name")]
+        pub plugin_name: String,
+        pub config: Value,
+    }
+
+    #[derive(Debug, PartialEq, Serialize, Deserialize)]
+    pub struct ConfigPort {
+        pub name: String,
+        pub number: u32,
+    }
+
+    #[derive(Debug, PartialEq, Serialize, Deserialize)]
+    pub struct ConfigHTTPConfig {
+        pub name: String,
+        #[serde(rename="match")]
+        pub match_: Option<Vec<ConfigMatchOption>>,
+        pub header: Option<ConfigHeaders>,
         pub destination: ConfigDestination,
     }
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
-    pub struct ConfigDestination {}
+    pub struct ConfigMatchOption {
+        // The name assigned to a match. The match’s name will be concatenated with the parent
+        // route’s name and will be logged in the access logs for requests matching this route.
+        pub name: String,
+        pub uri: Option<StringMatch>,
+        pub method: Option<StringMatch>,
+        pub headers: Option<HashMap<String, StringMatch>>,
+        #[serde(rename="query_params")]
+        pub query_params: Option<HashMap<String, StringMatch>>,
+        #[serde(rename="ignoreUriCase")]
+        pub ignore_uri_case: Option<bool>,
+        #[serde(rename="withoutHeaders")]
+        pub without_headers: Option<HashMap<String, StringMatch>>,
+    }
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
-    pub struct ConfigHTTPConfig {
-        pub header: Option<ConfigHeaders>,
+    pub struct StringMatch {
+        pub exact: Option<String>,
+        pub prefix: Option<String>,
+        pub regex: Option<String>,
     }
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -52,7 +90,7 @@ mod tests {
     use indoc::indoc;
 
     #[test]
-    fn it_load_default_config() {
+    fn it_load_default_config_1() {
         let result = 2 + 2;
         assert_eq!(result, 4);
 
@@ -60,13 +98,54 @@ mod tests {
             apiVersion: alphaV1
             spec:
               - hosts:
-                - www.google.com
-                destination:
-                  name: something
-                  config:
-                    somethign: yesIamhere
+                - $1.anthaathi.org
+                port:
+                - name: http
+                  number: 80
+                http:
+                - destination:
+                    name: FileLoader
+                    config:
+                      fileMapping:
+                      - name: something
+                        file: data/$1.graphql
+                  match:
+                  - name: matchtogoogle
+                    uri:
+                      exact: /_api/graphql
+                  name: goingToFile
         "};
 
-        let _config: Config = serde_yaml::from_str(input_file).expect("should load file");
+        let config: Config = serde_yaml::from_str(input_file).expect("should load file");
+        insta::assert_yaml_snapshot!(config);
+    }
+
+    #[test]
+    fn it_load_default_config_2() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+
+        let input_file = indoc! {"
+            apiVersion: alphaV1
+            spec:
+              - port:
+                - name: http
+                  number: 80
+                http:
+                - destination:
+                    name: FileLoader
+                    config:
+                      fileMapping:
+                      - name: something
+                        file: data/$1.graphql
+                  match:
+                  - name: matchtogoogle
+                    uri:
+                      exact: /_api/graphql
+                  name: goingToFile
+        "};
+
+        let config: Config = serde_yaml::from_str(input_file).expect("should load file");
+        insta::assert_yaml_snapshot!(config);
     }
 }
