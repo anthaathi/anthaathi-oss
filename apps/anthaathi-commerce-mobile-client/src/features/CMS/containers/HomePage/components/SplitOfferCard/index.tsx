@@ -16,15 +16,14 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
   const itemWidth = useResponsiveValue(['90%', '60%', '50%', '50%']);
   const itemHeight = useResponsiveValue([240, 280, 320, 320]);
   const itemTwoWidth = useResponsiveValue(['80%', '40%', '50%', '50%']);
-  
+
   return (
     <View
       style={{
         flexDirection: itemWidth === '90%' ? 'column' : 'row-reverse',
         alignItems: 'center',
         marginVertical: 10,
-      }}
-    >
+      }}>
       <Image
         source={{
           uri: props.image,
@@ -43,8 +42,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
             marginVertical: 5,
             paddingTop: 10,
           }}
-          variant="titleSmall"
-        >
+          variant="titleSmall">
           {props.title}
         </Text>
 
@@ -56,15 +54,17 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
             fontWeight: '100',
             marginVertical: 10,
           }}
-          variant="titleSmall"
-        >
+          variant="titleSmall">
           {props.subtitle}
         </Text>
         <Button
           mode="contained"
-          style={{backgroundColor: '#000000', borderRadius: 1, marginVertical: 5}}
-          onPress={props.onPress}
-        >
+          style={{
+            backgroundColor: '#000000',
+            borderRadius: 1,
+            marginVertical: 5,
+          }}
+          onPress={props.onPress}>
           {props.buttonTitle}
         </Button>
       </View>

@@ -28,13 +28,11 @@ function FeaturedProduct(props: ProductDetailsProps) {
         marginVertical: 10,
         marginHorizontal: 12,
         flexDirection: itemWidth === '80%' ? 'column' : 'row',
-      }}
-    >
+      }}>
       {itemWidth === '80%' && (
         <Text
           variant="titleLarge"
-          style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}
-        >
+          style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}>
           {props.productInfo.name}
         </Text>
       )}
@@ -45,8 +43,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
             justifyContent: 'center',
           },
           itemWidth !== '80%' && {width: '50%'},
-        ]}
-      >
+        ]}>
         <Image
           style={{
             height: 280,
@@ -68,8 +65,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
         {itemWidth !== '80%' && (
           <Text
             variant="titleLarge"
-            style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}
-          >
+            style={{marginBottom: 9, fontSize: 20, fontWeight: '600'}}>
             {props.productInfo.name}
           </Text>
         )}
@@ -77,16 +73,14 @@ function FeaturedProduct(props: ProductDetailsProps) {
         <Pricing price={props.productInfo.price} />
         <Text
           variant="titleLarge"
-          style={{marginBottom: 9, fontSize: 12, fontWeight: '400'}}
-        >
+          style={{marginBottom: 9, fontSize: 12, fontWeight: '400'}}>
           {props.productInfo.description}
         </Text>
         <Button
           mode="outlined"
           onPress={props.handleAddToCart}
           labelStyle={{color: '#313652'}}
-          style={{borderColor: '#313652', borderRadius: 1, marginBottom: 10}}
-        >
+          style={{borderColor: '#313652', borderRadius: 1, marginBottom: 10}}>
           {intl.formatMessage({defaultMessage: 'Add to cart'})}
         </Button>
 
@@ -98,8 +92,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
             backgroundColor: '#313652',
             borderRadius: 1,
             marginBottom: 10,
-          }}
-        >
+          }}>
           {intl.formatMessage({defaultMessage: 'Buy it now'})}
         </Button>
       </View>
@@ -116,8 +109,7 @@ const Pricing = ({price}: {price: string}) => {
       </Text>
       <Text
         variant="titleLarge"
-        style={{marginBottom: 9, fontSize: 16, fontWeight: '500'}}
-      >
+        style={{marginBottom: 9, fontSize: 16, fontWeight: '500'}}>
         {price}
       </Text>
     </>
@@ -138,8 +130,7 @@ const ImageSelection = ({
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-      }}
-    >
+      }}>
       {[...Array(imageLength).keys()].map(index => (
         <Pressable
           key={index}
@@ -149,8 +140,7 @@ const ImageSelection = ({
           }}
           onPress={() => {
             onChange(index);
-          }}
-        >
+          }}>
           <Badge
             style={{
               backgroundColor: id == index ? '#000000' : '#cccccc',

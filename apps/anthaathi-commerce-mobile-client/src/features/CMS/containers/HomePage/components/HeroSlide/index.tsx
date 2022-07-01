@@ -23,15 +23,13 @@ const HeroSlide = (props: HeroSlideProps) => {
         style={{
           height: 240,
           width: '100%',
-        }}
-      >
+        }}>
         <View
           style={{
             height: '100%',
             width: '100%',
             backgroundColor: 'rgba(0,0,0,0.1)',
-          }}
-        >
+          }}>
           <View
             style={{
               flexGrow: 1,
@@ -40,8 +38,7 @@ const HeroSlide = (props: HeroSlideProps) => {
               justifyContent: 'flex-end',
               marginHorizontal: 20,
               marginVertical: 30,
-            }}
-          >
+            }}>
             <Text
               style={{
                 color: (theme.colors as MD3Colors).background,
@@ -50,8 +47,7 @@ const HeroSlide = (props: HeroSlideProps) => {
                 marginVertical: 5,
                 paddingTop: 10,
               }}
-              variant="titleSmall"
-            >
+              variant="titleSmall">
               {props.title}
             </Text>
 
@@ -62,8 +58,7 @@ const HeroSlide = (props: HeroSlideProps) => {
                 fontWeight: '400',
                 marginVertical: 10,
               }}
-              variant="titleSmall"
-            >
+              variant="titleSmall">
               {props.subTitle}
             </Text>
             {props.buttonTitle && (
@@ -91,8 +86,7 @@ function HeroSlideButton(props: {
         style={{
           backgroundColor: (theme.colors as MD3Colors).background,
           borderRadius: 1,
-        }}
-      >
+        }}>
         <Text
           style={{
             color: (theme.colors as MD3Colors).onBackground,
@@ -102,14 +96,12 @@ function HeroSlideButton(props: {
             paddingBottom: 8,
             fontWeight: '700',
           }}
-          variant="labelSmall"
-        >
+          variant="labelSmall">
           {props.label}
         </Text>
       </View>
     </TouchableRipple>
   );
 }
-
 
 export default HeroSlide;

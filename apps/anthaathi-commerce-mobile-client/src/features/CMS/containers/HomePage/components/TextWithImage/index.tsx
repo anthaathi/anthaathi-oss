@@ -16,7 +16,7 @@ export interface TextWithImageProps {
 
 const TextWithImage = (props: TextWithImageProps) => {
   const [width] = useDimension();
-  
+
   return (
     <View style={{alignItems: 'center'}}>
       <Text
@@ -27,16 +27,14 @@ const TextWithImage = (props: TextWithImageProps) => {
           fontWeight: '100',
           marginVertical: 10,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {props.title}
       </Text>
       <View
         style={{
           flexDirection: width < 600 ? 'column' : 'row',
           flexWrap: width < 600 ? 'nowrap' : 'wrap',
-        }}
-      >
+        }}>
         {props.columns.map((data, index) => (
           <View key={index}>
             <ColumnCard data={data} />
@@ -66,8 +64,7 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
           fontWeight: '100',
           marginVertical: 5,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {data.title}
       </Text>
       <Text
@@ -78,8 +75,7 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
           fontWeight: '100',
           marginBottom: 10,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {data.description}
       </Text>
     </View>

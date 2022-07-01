@@ -26,12 +26,11 @@ function PromotionalProductGrid(props: PromotionalProductGridProps) {
         flexDirection: itemWidth === '80%' ? 'column' : 'row',
         flexWrap: itemWidth === '80%' ? 'nowrap' : 'wrap',
         marginVertical: 10,
-      }}
-    >
+      }}>
       {props.products &&
         props.products.map((product, index) => (
           <View key={index}>
-            <ProductGrid product={product} />
+            <ProductGrid product={product} itemWidth={itemWidth} />
           </View>
         ))}
     </View>
@@ -40,8 +39,13 @@ function PromotionalProductGrid(props: PromotionalProductGridProps) {
 
 export default PromotionalProductGrid;
 
-const ProductGrid = ({product}: {product: ProductGridProps}) => {
-  const itemWidth = useResponsiveValue(['80%', '100%', '100%', '100%']);
+const ProductGrid = ({
+  product,
+  itemWidth,
+}: {
+  product: ProductGridProps;
+  itemWidth: string;
+}) => {
   const theme = useTheme();
 
   return (
@@ -49,8 +53,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
       style={{
         alignItems: 'center',
         marginHorizontal: itemWidth === '80%' ? 20 : 10,
-      }}
-    >
+      }}>
       <View style={{width: itemWidth, alignItems: 'center'}}>
         <ImageBackground
           source={{
@@ -59,16 +62,14 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
           style={{
             height: 240,
             width: '99%',
-          }}
-        >
+          }}>
           <View
             style={{
               height: '100%',
               width: '100%',
               alignItems: 'flex-end',
               justifyContent: 'flex-start',
-            }}
-          >
+            }}>
             <Text
               style={{
                 color: theme.colors.background,
@@ -80,8 +81,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
                 borderRadius: 1,
                 backgroundColor: '#313652',
               }}
-              variant="titleSmall"
-            >
+              variant="titleSmall">
               {product.label}
             </Text>
             <Text
@@ -95,8 +95,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
                 borderRadius: 1,
                 backgroundColor: theme.colors.background,
               }}
-              variant="titleSmall"
-            >
+              variant="titleSmall">
               {product.price}
             </Text>
           </View>
@@ -109,8 +108,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
               fontWeight: '200',
               marginVertical: 5,
             }}
-            variant="titleSmall"
-          >
+            variant="titleSmall">
             {product.heading}
           </Text>
           <Text
@@ -120,8 +118,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
               fontWeight: '200',
               marginVertical: 5,
             }}
-            variant="titleSmall"
-          >
+            variant="titleSmall">
             {product.name}
           </Text>
 
@@ -132,8 +129,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
               fontWeight: '200',
               marginVertical: 5,
             }}
-            variant="titleSmall"
-          >
+            variant="titleSmall">
             {product.description}
           </Text>
 
@@ -144,8 +140,7 @@ const ProductGrid = ({product}: {product: ProductGridProps}) => {
               borderRadius: 1,
               marginVertical: 5,
             }}
-            onPress={product.onPress}
-          >
+            onPress={product.onPress}>
             {product.buttonTitle}
           </Button>
         </View>
