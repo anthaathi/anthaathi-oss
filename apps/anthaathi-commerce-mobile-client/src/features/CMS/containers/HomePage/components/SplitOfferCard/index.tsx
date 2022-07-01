@@ -1,7 +1,7 @@
 import {View, Image} from 'react-native';
 import React from 'react';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {Button, Text, useTheme} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 
 export interface SplitCardOfferProps {
   title: string;
@@ -23,7 +23,8 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
         flexDirection: itemWidth === '90%' ? 'column' : 'row-reverse',
         alignItems: 'center',
         marginVertical: 10,
-      }}>
+      }}
+      testID="splitCardOffer">
       <Image
         source={{
           uri: props.image,

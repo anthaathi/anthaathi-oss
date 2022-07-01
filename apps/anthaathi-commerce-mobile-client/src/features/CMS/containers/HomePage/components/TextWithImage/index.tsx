@@ -1,4 +1,4 @@
-import {View, Dimensions} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
 import {useDimension} from '../../../../utils/useDimension';
@@ -18,7 +18,7 @@ const TextWithImage = (props: TextWithImageProps) => {
   const [width] = useDimension();
 
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={{alignItems: 'center'}} testID="textWithImage">
       <Text
         style={{
           textAlign: 'center',

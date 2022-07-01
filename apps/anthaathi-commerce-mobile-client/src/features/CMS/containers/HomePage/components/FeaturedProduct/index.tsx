@@ -7,8 +7,9 @@ import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 export interface ProductDetails {
   name: string;
   description: string;
-  price: string;
+  price: number;
   image: string[];
+  currency: string;
 }
 
 export interface ProductDetailsProps {
@@ -28,7 +29,8 @@ function FeaturedProduct(props: ProductDetailsProps) {
         marginVertical: 10,
         marginHorizontal: 12,
         flexDirection: itemWidth === '80%' ? 'column' : 'row',
-      }}>
+      }}
+      testID="featuredProduct">
       {itemWidth === '80%' && (
         <Text
           variant="titleLarge"
@@ -70,7 +72,10 @@ function FeaturedProduct(props: ProductDetailsProps) {
           </Text>
         )}
 
-        <Pricing price={props.productInfo.price} />
+        <Pricing
+          price={props.productInfo.price}
+          currency={props.productInfo.currency}
+        />
         <Text
           variant="titleLarge"
           style={{marginBottom: 9, fontSize: 12, fontWeight: '400'}}>
@@ -100,7 +105,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
   );
 }
 
-const Pricing = ({price}: {price: string}) => {
+const Pricing = ({price, currency}: {price: number; currency: string}) => {
   const intl = useIntl();
   return (
     <>
@@ -110,7 +115,10 @@ const Pricing = ({price}: {price: string}) => {
       <Text
         variant="titleLarge"
         style={{marginBottom: 9, fontSize: 16, fontWeight: '500'}}>
-        {price}
+        {intl.formatNumber(price, {
+          style: 'currency',
+          currency: currency,
+        })}
       </Text>
     </>
   );

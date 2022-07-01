@@ -9,7 +9,7 @@ import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 export interface DeliveringSelectionProps {
   location: string;
   country: string;
-  onPress?: () => {};
+  onPress?: () => void;
 }
 
 export function DeliveringSelection(props: DeliveringSelectionProps) {

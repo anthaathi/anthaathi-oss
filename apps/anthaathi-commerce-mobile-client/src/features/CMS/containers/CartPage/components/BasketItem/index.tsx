@@ -2,6 +2,7 @@ import {Image, Pressable, View} from 'react-native';
 import React from 'react';
 import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
+import {useIntl} from 'react-intl';
 
 export interface ItemProps {
   name: string;
@@ -21,6 +22,8 @@ export interface BasketItemProps {
 }
 
 const BasketItem = (props: BasketItemProps) => {
+  const intl = useIntl();
+
   return (
     <View
       style={{
@@ -45,8 +48,7 @@ const BasketItem = (props: BasketItemProps) => {
               fontSize: 14,
               color: '#008D3E',
             }}>
-            Remove All
-            {/* {intl.formatMessage({defaultMessage: 'Remove All'})} */}
+            {intl.formatMessage({defaultMessage: 'Remove All'})}
           </Text>
         </Pressable>
       </View>
@@ -61,6 +63,7 @@ const BasketItem = (props: BasketItemProps) => {
 };
 
 function ItemRenderer({item}: {item: ItemProps}) {
+  const intl = useIntl();
   const itemHeight = useResponsiveValue([120, 250, 290, 330]);
   const itemWidth = useResponsiveValue([120, 240, 280, 320]);
   return (
@@ -107,17 +110,10 @@ function ItemRenderer({item}: {item: ItemProps}) {
               fontWeight: '700',
               marginLeft: 5,
             }}>
-            {item.currency}
-          </Text>
-          <Text
-            variant="titleLarge"
-            style={{
-              fontSize: 14,
-              color: '#008D3E',
-              fontWeight: '700',
-              marginLeft: 5,
-            }}>
-            {item.price}
+            {intl.formatNumber(item.price, {
+              style: 'currency',
+              currency: item.currency,
+            })}
           </Text>
         </View>
       </View>

@@ -9,7 +9,20 @@ export interface ViewTextProps {
   titleStyle?: StyleProp<TextStyle>;
   subtitleStyle?: StyleProp<TextStyle>;
 }
-const PricingCard = () => {
+
+export interface PriceCurrencyProps {
+  currency: string;
+  price: number;
+}
+export interface PricingCardProps {
+  subtotal: PriceCurrencyProps;
+  discount: PriceCurrencyProps;
+  promoDiscount: PriceCurrencyProps;
+  shippingCharges: PriceCurrencyProps;
+  total: PriceCurrencyProps;
+}
+
+const PricingCard = (props: PricingCardProps) => {
   const intl = useIntl();
 
   return (
@@ -24,24 +37,39 @@ const PricingCard = () => {
       <Card.Content>
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Subtotal'})}
-          subtitle={'AED 00.00'}
+          subtitle={intl.formatNumber(props.subtotal.price, {
+            style: 'currency',
+            currency: props.subtotal.currency,
+          })}
         />
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Discount'})}
-          subtitle={'AED 00.00'}
+          subtitle={intl.formatNumber(props.discount.price, {
+            style: 'currency',
+            currency: props.discount.currency,
+          })}
         />
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Promo Discount'})}
-          subtitle={'AED 00.00'}
+          subtitle={intl.formatNumber(props.promoDiscount.price, {
+            style: 'currency',
+            currency: props.promoDiscount.currency,
+          })}
         />
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Shipping Charges.'})}
-          subtitle={'Free'}
+          subtitle={intl.formatNumber(props.shippingCharges.price, {
+            style: 'currency',
+            currency: props.shippingCharges.currency,
+          })}
           subtitleStyle={{fontWeight: '500', color: '#E94040'}}
         />
         <ViewText
-          title={intl.formatMessage({defaultMessage: 'Promo Discount'})}
-          subtitle={'AED 00.00'}
+          title={intl.formatMessage({defaultMessage: 'Total'})}
+          subtitle={intl.formatNumber(props.total.price, {
+            style: 'currency',
+            currency: props.total.currency,
+          })}
           titleStyle={{fontSize: 16, fontWeight: '700', color: '#364A15'}}
           subtitleStyle={{fontSize: 16, fontWeight: '700', color: '#008D3E'}}
         />

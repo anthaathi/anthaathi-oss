@@ -70,6 +70,7 @@ export default function SuggestedItem({
                 item={item}
                 itemHeight={itemHeight}
                 itemWidth={itemWidth}
+                intl={intl}
               />
             )}
             getItemCount={() => products.length}
@@ -86,10 +87,12 @@ function ItemRenderer({
   item,
   itemHeight,
   itemWidth,
+  intl,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
+  intl: any;
 }) {
   return (
     <View
@@ -122,11 +125,11 @@ function ItemRenderer({
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: '#008D3E', fontSize: 12, fontWeight: '400'}}>
-            {item.currency + ' '}
-          </Text>
           <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
-            {item.price}
+            {intl.formatNumber(item.price, {
+              style: 'currency',
+              currency: item.currency,
+            })}
           </Text>
           <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
             {' / ' + item.packaging}

@@ -16,7 +16,7 @@ export interface CategoriesCardProps {
 
 const CategoriesCard = (props: CategoriesCardProps) => {
   return (
-    <View style={{marginHorizontal: 10}}>
+    <View style={{marginHorizontal: 10}} testID="categoryCard">
       <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
         {props.title}
       </Text>
@@ -26,8 +26,7 @@ const CategoriesCard = (props: CategoriesCardProps) => {
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
-        }}
-      >
+        }}>
         {props.categories.map(item => {
           return <CategoryItemRenderer key={item.key} item={item} />;
         })}
@@ -48,8 +47,7 @@ function CategoryItemRenderer({item}: {item: CategoryProps}) {
         marginVertical: 10,
         marginHorizontal: '1%',
       }}
-      key={item.key}
-    >
+      key={item.key}>
       <View>
         <Image
           source={{
@@ -64,8 +62,7 @@ function CategoryItemRenderer({item}: {item: CategoryProps}) {
             marginTop: 6,
             fontWeight: '600',
           }}
-          variant="labelMedium"
-        >
+          variant="labelMedium">
           {item.title}
         </Text>
       </View>

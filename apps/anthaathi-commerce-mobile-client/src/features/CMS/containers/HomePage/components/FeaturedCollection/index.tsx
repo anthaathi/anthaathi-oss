@@ -33,51 +33,49 @@ export default function FeaturedCollection({
   const itemWidth = useResponsiveValue([150, 240, 280, 320]);
 
   return (
-    <>
-      <View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginHorizontal: 10,
-          }}>
-          <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
-            {title}
+    <View testID="featuredCollection">
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginHorizontal: 10,
+        }}>
+        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
+          {title}
+        </Text>
+
+        <Pressable onPress={handlePress}>
+          <Text
+            variant="titleMedium"
+            style={{
+              marginBottom: 9,
+              textDecorationLine: 'underline',
+              fontSize: 14,
+            }}>
+            {intl.formatMessage({defaultMessage: 'View All'})}
           </Text>
-
-          <Pressable onPress={handlePress}>
-            <Text
-              variant="titleMedium"
-              style={{
-                marginBottom: 9,
-                textDecorationLine: 'underline',
-                fontSize: 14,
-              }}>
-              {intl.formatMessage({defaultMessage: 'View All'})}
-            </Text>
-          </Pressable>
-        </View>
-
-        <View>
-          <VirtualizedList<ProductProps>
-            data={products}
-            initialNumToRender={4}
-            horizontal={true}
-            renderItem={({item}) => (
-              <ItemRenderer
-                item={item}
-                itemHeight={itemHeight}
-                itemWidth={itemWidth}
-              />
-            )}
-            getItemCount={() => products.length}
-            keyExtractor={item => item.key}
-            getItem={(res, index) => res[index]}
-          />
-        </View>
+        </Pressable>
       </View>
-    </>
+
+      <View>
+        <VirtualizedList<ProductProps>
+          data={products}
+          initialNumToRender={4}
+          horizontal={true}
+          renderItem={({item}) => (
+            <ItemRenderer
+              item={item}
+              itemHeight={itemHeight}
+              itemWidth={itemWidth}
+            />
+          )}
+          getItemCount={() => products.length}
+          keyExtractor={item => item.key}
+          getItem={(res, index) => res[index]}
+        />
+      </View>
+    </View>
   );
 }
 
@@ -90,6 +88,7 @@ function ItemRenderer({
   itemHeight: number;
   itemWidth: number;
 }) {
+  const intl = useIntl();
   return (
     <View
       style={{
@@ -124,11 +123,11 @@ function ItemRenderer({
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: '#008D3E', fontSize: 12, fontWeight: '400'}}>
-            {item.currency + ' '}
-          </Text>
           <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
-            {item.price}
+            {intl.formatNumber(item.price, {
+              style: 'currency',
+              currency: item.currency,
+            })}
           </Text>
           <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
             {' / ' + item.packaging}

@@ -15,7 +15,7 @@ const HeroSlide = (props: HeroSlideProps) => {
   const theme = useTheme();
 
   return (
-    <View style={{marginVertical: 10}}>
+    <View style={{marginVertical: 10}} testID="heroSlide">
       <ImageBackground
         source={{
           uri: props.backgroundImageSrc,

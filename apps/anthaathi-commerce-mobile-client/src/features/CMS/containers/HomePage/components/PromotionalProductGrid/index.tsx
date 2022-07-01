@@ -1,5 +1,6 @@
 import React from 'react';
-import {ImageBackground, View, VirtualizedList} from 'react-native';
+import {useIntl} from 'react-intl';
+import {ImageBackground, View} from 'react-native';
 import {Button, Text, useTheme} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 
@@ -7,7 +8,8 @@ export interface ProductGridProps {
   name: string;
   heading: string;
   description?: string;
-  price: string;
+  price: number;
+  currency: string;
   image: string;
   buttonTitle: string;
   label: string;
@@ -26,7 +28,8 @@ function PromotionalProductGrid(props: PromotionalProductGridProps) {
         flexDirection: itemWidth === '80%' ? 'column' : 'row',
         flexWrap: itemWidth === '80%' ? 'nowrap' : 'wrap',
         marginVertical: 10,
-      }}>
+      }}
+      testID="promotionalProductGrid">
       {props.products &&
         props.products.map((product, index) => (
           <View key={index}>
@@ -47,6 +50,7 @@ const ProductGrid = ({
   itemWidth: string;
 }) => {
   const theme = useTheme();
+  const intl = useIntl();
 
   return (
     <View
@@ -96,7 +100,10 @@ const ProductGrid = ({
                 backgroundColor: theme.colors.background,
               }}
               variant="titleSmall">
-              {product.price}
+              {intl.formatNumber(product.price, {
+                style: 'currency',
+                currency: product.currency,
+              })}
             </Text>
           </View>
         </ImageBackground>
