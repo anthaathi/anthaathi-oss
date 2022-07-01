@@ -1,0 +1,31 @@
+---
+source: packages/anthaathi-graphql-common/src/lib.rs
+expression: config
+---
+apiVersion: alphaV1
+spec:
+  - hosts: ~
+    port:
+      - name: http
+        number: 80
+    http:
+      - name: goingToFile
+        match:
+          - name: matchtogoogle
+            uri:
+              exact: /_api/graphql
+              prefix: ~
+              regex: ~
+            method: ~
+            headers: ~
+            query_params: ~
+            ignoreUriCase: ~
+            withoutHeaders: ~
+        header: ~
+        destination:
+          name: FileLoader
+          config:
+            fileMapping:
+              - name: something
+                file: data/$1.graphql
+
