@@ -1,7 +1,7 @@
 import {View, Image} from 'react-native';
 import React from 'react';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {Button, Text, useTheme} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 
 export interface SplitCardOfferProps {
   title: string;
@@ -16,7 +16,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
   const itemWidth = useResponsiveValue(['90%', '60%', '50%', '50%']);
   const itemHeight = useResponsiveValue([240, 280, 320, 320]);
   const itemTwoWidth = useResponsiveValue(['80%', '40%', '50%', '50%']);
-  
+
   return (
     <View
       style={{
@@ -24,7 +24,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
         alignItems: 'center',
         marginVertical: 10,
       }}
-    >
+      testID="splitCardOffer">
       <Image
         source={{
           uri: props.image,
@@ -43,8 +43,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
             marginVertical: 5,
             paddingTop: 10,
           }}
-          variant="titleSmall"
-        >
+          variant="titleSmall">
           {props.title}
         </Text>
 
@@ -56,15 +55,17 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
             fontWeight: '100',
             marginVertical: 10,
           }}
-          variant="titleSmall"
-        >
+          variant="titleSmall">
           {props.subtitle}
         </Text>
         <Button
           mode="contained"
-          style={{backgroundColor: '#000000', borderRadius: 1, marginVertical: 5}}
-          onPress={props.onPress}
-        >
+          style={{
+            backgroundColor: '#000000',
+            borderRadius: 1,
+            marginVertical: 5,
+          }}
+          onPress={props.onPress}>
           {props.buttonTitle}
         </Button>
       </View>

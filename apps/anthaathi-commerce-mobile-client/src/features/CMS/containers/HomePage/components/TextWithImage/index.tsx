@@ -1,4 +1,4 @@
-import {View, Dimensions} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
 import {useDimension} from '../../../../utils/useDimension';
@@ -16,9 +16,9 @@ export interface TextWithImageProps {
 
 const TextWithImage = (props: TextWithImageProps) => {
   const [width] = useDimension();
-  
+
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={{alignItems: 'center'}} testID="textWithImage">
       <Text
         style={{
           textAlign: 'center',
@@ -27,16 +27,14 @@ const TextWithImage = (props: TextWithImageProps) => {
           fontWeight: '100',
           marginVertical: 10,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {props.title}
       </Text>
       <View
         style={{
           flexDirection: width < 600 ? 'column' : 'row',
           flexWrap: width < 600 ? 'nowrap' : 'wrap',
-        }}
-      >
+        }}>
         {props.columns.map((data, index) => (
           <View key={index}>
             <ColumnCard data={data} />
@@ -66,8 +64,7 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
           fontWeight: '100',
           marginVertical: 5,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {data.title}
       </Text>
       <Text
@@ -78,8 +75,7 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
           fontWeight: '100',
           marginBottom: 10,
         }}
-        variant="titleSmall"
-      >
+        variant="titleSmall">
         {data.description}
       </Text>
     </View>

@@ -40,7 +40,8 @@ export default function PromotionalGrid(props: PromotionalGridProps) {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-      }}>
+      }}
+      testID="promotionalGrid">
       {props.items.map(item => {
         return <PromotionalGridItemRenderer key={item.key} item={item} />;
       })}
