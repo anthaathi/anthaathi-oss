@@ -1,0 +1,15 @@
+[package]
+name = "anthaathi-graphql-core"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anthaathi-graphql-common = { path = "../anthaathi-graphql-common" }
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
+
+serde = "1.0"
+serde_yaml = "0.8"
+serde_derive = "1.0.137"
