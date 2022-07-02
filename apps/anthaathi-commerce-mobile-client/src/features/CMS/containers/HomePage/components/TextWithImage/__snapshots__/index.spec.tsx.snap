@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextWithImage should render the item 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+    }
+  }
+  testID="textWithImage"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "rgba(28, 27, 31, 1)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 0.1,
+          "lineHeight": 20,
+        },
+        Object {
+          "textAlign": "left",
+        },
+        Object {
+          "writingDirection": "ltr",
+        },
+        Object {
+          "color": "#000",
+          "fontSize": 22,
+          "fontWeight": "100",
+          "marginVertical": 10,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    How It Works
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginVertical": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.1)",
+              "height": 240,
+              "marginHorizontal": 5,
+              "width": 240,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 18,
+                "fontWeight": "100",
+                "marginVertical": 5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Register
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 16,
+                "fontWeight": "100",
+                "marginBottom": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Description Register
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginVertical": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.1)",
+              "height": 240,
+              "marginHorizontal": 5,
+              "width": 240,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 18,
+                "fontWeight": "100",
+                "marginVertical": 5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Select Products & Place Order
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 16,
+                "fontWeight": "100",
+                "marginBottom": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Description Select Products & Place Order
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginVertical": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.1)",
+              "height": 240,
+              "marginHorizontal": 5,
+              "width": 240,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 18,
+                "fontWeight": "100",
+                "marginVertical": 5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Schedule Delivery
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "#000",
+                "fontSize": 16,
+                "fontWeight": "100",
+                "marginBottom": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Description Schedule Delivery
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

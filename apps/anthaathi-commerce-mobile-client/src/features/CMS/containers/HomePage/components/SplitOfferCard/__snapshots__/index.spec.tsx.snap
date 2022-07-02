@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplitCardOffer should render the item 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row-reverse",
+      "marginVertical": 10,
+    }
+  }
+  testID="splitCardOffer"
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705",
+      }
+    }
+    style={
+      Object {
+        "height": 280,
+        "width": "60%",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "width": "40%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 0.1,
+            "lineHeight": 20,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "color": "#000",
+            "fontSize": 22,
+            "fontWeight": "bold",
+            "marginVertical": 5,
+            "paddingTop": 10,
+          },
+        ]
+      }
+    >
+      Get Exclusive Offers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 0.1,
+            "lineHeight": 20,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "fontWeight": "100",
+            "marginVertical": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Get exclusive offers & more by signing up for our promotional email
+    </Text>
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "backgroundColor": "#000000",
+              "borderColor": "transparent",
+              "borderRadius": 1,
+              "borderStyle": "solid",
+              "borderWidth": 0,
+              "marginVertical": 5,
+              "minWidth": 64,
+            }
+          }
+        >
+          <View
+            accessibilityRole="button"
+            accessibilityState={
+              Object {
+                "disabled": true,
+              }
+            }
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                Object {
+                  "borderRadius": 1,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.1,
+                      "lineHeight": 20,
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "writingDirection": "ltr",
+                    },
+                    Array [
+                      Object {
+                        "marginHorizontal": 16,
+                        "marginVertical": 9,
+                        "textAlign": "center",
+                      },
+                      false,
+                      Object {
+                        "marginHorizontal": 24,
+                        "marginVertical": 10,
+                      },
+                      undefined,
+                      false,
+                      Object {
+                        "color": "rgba(255, 255, 255, 1)",
+                        "fontFamily": "System",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                View Offers
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

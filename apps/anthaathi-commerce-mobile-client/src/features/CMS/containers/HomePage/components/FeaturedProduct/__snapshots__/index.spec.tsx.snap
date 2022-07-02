@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedProduct should render the item 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "marginHorizontal": 12,
+      "marginVertical": 10,
+    }
+  }
+  testID="featuredProduct"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+        Object {
+          "width": "50%",
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": 280,
+          "width": "70%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingHorizontal": 10,
+            "paddingVertical": 15,
+          }
+        }
+      >
+        <Text
+          collapsable={false}
+          numberOfLines={1}
+          style={
+            Object {
+              "alignSelf": "flex-end",
+              "backgroundColor": "#000000",
+              "borderRadius": 6,
+              "color": "rgba(255, 255, 255, 1)",
+              "fontSize": 6,
+              "height": 12,
+              "lineHeight": 12,
+              "minWidth": 12,
+              "opacity": 1,
+              "overflow": "hidden",
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "width": "50%",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "600",
+            "marginBottom": 9,
+          },
+        ]
+      }
+    >
+      test
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "500",
+          },
+        ]
+      }
+    >
+      Price
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "500",
+            "marginBottom": 9,
+          },
+        ]
+      }
+    >
+      $0.00
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "fontSize": 12,
+            "fontWeight": "400",
+            "marginBottom": 9,
+          },
+        ]
+      }
+    >
+      test
+    </Text>
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "borderColor": "#313652",
+              "borderRadius": 1,
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "marginBottom": 10,
+              "minWidth": 64,
+            }
+          }
+        >
+          <View
+            accessibilityRole="button"
+            accessibilityState={
+              Object {
+                "disabled": true,
+              }
+            }
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                Object {
+                  "borderRadius": 1,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.1,
+                      "lineHeight": 20,
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "writingDirection": "ltr",
+                    },
+                    Array [
+                      Object {
+                        "marginHorizontal": 16,
+                        "marginVertical": 9,
+                        "textAlign": "center",
+                      },
+                      false,
+                      Object {
+                        "marginHorizontal": 24,
+                        "marginVertical": 10,
+                      },
+                      undefined,
+                      false,
+                      Object {
+                        "color": "rgba(103, 80, 164, 1)",
+                        "fontFamily": "System",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      Object {
+                        "color": "#313652",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Add to cart
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0,
+          "shadowRadius": 0,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "backgroundColor": "#313652",
+              "borderColor": "transparent",
+              "borderRadius": 1,
+              "borderStyle": "solid",
+              "borderWidth": 0,
+              "marginBottom": 10,
+              "minWidth": 64,
+            }
+          }
+        >
+          <View
+            accessibilityRole="button"
+            accessibilityState={
+              Object {
+                "disabled": true,
+              }
+            }
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                Object {
+                  "borderRadius": 1,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.1,
+                      "lineHeight": 20,
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "writingDirection": "ltr",
+                    },
+                    Array [
+                      Object {
+                        "marginHorizontal": 16,
+                        "marginVertical": 9,
+                        "textAlign": "center",
+                      },
+                      false,
+                      Object {
+                        "marginHorizontal": 24,
+                        "marginVertical": 10,
+                      },
+                      undefined,
+                      false,
+                      Object {
+                        "color": "rgba(255, 255, 255, 1)",
+                        "fontFamily": "System",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      Object {
+                        "color": "#ffffff",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Buy it now
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
