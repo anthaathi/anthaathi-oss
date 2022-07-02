@@ -34,8 +34,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/anthaathi/anthaathi/tree/main/docs/',
+          editUrl: 'https://github.com/anthaathi/anthaathi/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
@@ -67,11 +66,11 @@ const config = {
               {
                 type: 'doc',
                 docId: 'graphql-engine/index',
-                label: 'GraphQL Engine'
-              }
-            ]
+                label: 'GraphQL Engine',
+              },
+            ],
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/anthaathi/anthaathi',
             label: 'GitHub',
@@ -110,6 +109,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['rust'],
       },
     }),
 };

@@ -3,11 +3,8 @@ source: packages/anthaathi-graphql-common/src/lib.rs
 expression: config
 ---
 apiVersion: alphaV1
-spec:
+handler:
   - hosts: ~
-    port:
-      - name: http
-        number: 80
     http:
       - name: goingToFile
         match:
@@ -16,7 +13,6 @@ spec:
               exact: /_api/graphql
               prefix: ~
               regex: ~
-            method: ~
             headers: ~
             query_params: ~
             ignoreUriCase: ~
@@ -28,4 +24,10 @@ spec:
             fileMapping:
               - name: something
                 file: data/$1.graphql
+    listener:
+      - http
+listener:
+  - name: http
+    address: "0.0.0.0:3000"
+    tls: {}
 

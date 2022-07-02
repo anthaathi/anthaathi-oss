@@ -16,11 +16,21 @@ pub mod config_loader {
     }
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
-    pub struct ConfigSpec {
+    pub struct ConfigHandler {
         pub hosts: Option<Vec<String>>,
-        pub port: Vec<ConfigPort>,
         pub http: Vec<ConfigHTTPConfig>,
+        pub listener: Vec<String>,
     }
+
+    #[derive(Debug, PartialEq, Serialize, Deserialize)]
+    pub struct ConfigListener {
+        pub name: String,
+        pub address: String,
+        pub tls: Option<TLSConfig>,
+    }
+
+    #[derive(Debug, PartialEq, Serialize, Deserialize)]
+    pub struct TLSConfig {}
 
     #[derive(Debug, PartialEq, Serialize, Deserialize)]
     pub struct ConfigDestination {
@@ -50,7 +60,6 @@ pub mod config_loader {
         // route’s name and will be logged in the access logs for requests matching this route.
         pub name: String,
         pub uri: Option<StringMatch>,
-        pub method: Option<StringMatch>,
         pub headers: Option<HashMap<String, StringMatch>>,
         #[serde(rename = "query_params")]
         pub query_params: Option<HashMap<String, StringMatch>>,
@@ -84,7 +93,8 @@ pub mod config_loader {
     pub struct Config {
         #[serde(rename = "apiVersion")]
         pub api_version: String,
-        pub spec: Vec<ConfigSpec>,
+        pub handler: Vec<ConfigHandler>,
+        pub listener: Vec<ConfigListener>,
     }
 }
 
@@ -98,14 +108,17 @@ mod tests {
         let result = 2 + 2;
         assert_eq!(result, 4);
 
+        // language=YAML
         let input_file = indoc! {"
             apiVersion: alphaV1
-            spec:
+            listener:
+              - address: localhost:3000
+                name: http
+            handler:
               - hosts:
                 - $1.anthaathi.org
-                port:
-                - name: http
-                  number: 80
+                listener:
+                - http
                 http:
                 - destination:
                     name: FileLoader
@@ -129,13 +142,18 @@ mod tests {
         let result = 2 + 2;
         assert_eq!(result, 4);
 
+        // language=YAML
         let input_file = indoc! {"
             apiVersion: alphaV1
-            spec:
-              - port:
-                - name: http
-                  number: 80
-                http:
+            listener:
+            - address: 0.0.0.0:3000
+              name: http
+              tls:
+                mode: certificate
+                cert: somepath
+                key: somethign
+            handler:
+              - http:
                 - destination:
                     name: FileLoader
                     config:
@@ -147,6 +165,8 @@ mod tests {
                     uri:
                       exact: /_api/graphql
                   name: goingToFile
+                listener:
+                - http
         "};
 
         let config: Config = serde_yaml::from_str(input_file).expect("should load file");
