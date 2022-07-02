@@ -21,7 +21,8 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
         borderWidth: 1,
         borderRadius: 4,
         marginVertical: 5,
-      }}>
+      }}
+      testID="deliveryAddressCard">
       <Card.Content>
         <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
           {props.deliveryTitle}

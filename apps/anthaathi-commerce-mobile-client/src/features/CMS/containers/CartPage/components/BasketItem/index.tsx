@@ -28,7 +28,8 @@ const BasketItem = (props: BasketItemProps) => {
     <View
       style={{
         marginHorizontal: 10,
-      }}>
+      }}
+      testID="basketItem">
       <View
         style={{
           flexDirection: 'row',

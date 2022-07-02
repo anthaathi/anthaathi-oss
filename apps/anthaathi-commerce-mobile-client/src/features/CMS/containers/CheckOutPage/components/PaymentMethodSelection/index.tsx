@@ -16,7 +16,7 @@ export interface PaymentMethodProps {
 const PaymentMethodSelection = (props: PaymentMethodProps) => {
   const [checkedKey, setCheckedKey] = useState('');
   return (
-    <View style={{marginHorizontal: 10}}>
+    <View style={{marginHorizontal: 10}} testID="paymentMethodSelection">
       <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
         {props.title}
       </Text>

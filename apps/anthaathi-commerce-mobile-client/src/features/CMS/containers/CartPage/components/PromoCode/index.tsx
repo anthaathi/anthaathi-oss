@@ -13,7 +13,8 @@ const PromoCode = (props: PromoCodeProps) => {
   const theme = useTheme();
   return (
     <View
-      style={{alignItems: 'center', marginVertical: 5, marginHorizontal: 10}}>
+      style={{alignItems: 'center', marginVertical: 5, marginHorizontal: 10}}
+      testID="promoCode">
       <Pressable
         onPress={props.handlePress}
         style={{
