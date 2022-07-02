@@ -33,53 +33,51 @@ export default function SuggestedItem({
   const itemWidth = useResponsiveValue([130, 170, 240, 280]);
 
   return (
-    <>
-      <View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginHorizontal: 10,
-          }}>
+    <View testID="suggestedItem">
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginHorizontal: 10,
+        }}>
+        <Text
+          variant="titleLarge"
+          style={{marginBottom: 9, fontSize: 18, color: '#808080'}}>
+          {title}
+        </Text>
+        <Pressable onPress={handlePress}>
           <Text
-            variant="titleLarge"
-            style={{marginBottom: 9, fontSize: 18, color: '#808080'}}>
-            {title}
+            variant="titleMedium"
+            style={{
+              marginBottom: 9,
+              textDecorationLine: 'underline',
+              fontSize: 14,
+            }}>
+            {intl.formatMessage({defaultMessage: 'View All'})}
           </Text>
-          <Pressable onPress={handlePress}>
-            <Text
-              variant="titleMedium"
-              style={{
-                marginBottom: 9,
-                textDecorationLine: 'underline',
-                fontSize: 14,
-              }}>
-              {intl.formatMessage({defaultMessage: 'View All'})}
-            </Text>
-          </Pressable>
-        </View>
-
-        <View>
-          <VirtualizedList<ProductProps>
-            data={products}
-            initialNumToRender={4}
-            horizontal={true}
-            renderItem={({item}) => (
-              <ItemRenderer
-                item={item}
-                itemHeight={itemHeight}
-                itemWidth={itemWidth}
-                intl={intl}
-              />
-            )}
-            getItemCount={() => products.length}
-            keyExtractor={item => item.key}
-            getItem={(res, index) => res[index]}
-          />
-        </View>
+        </Pressable>
       </View>
-    </>
+
+      <View>
+        <VirtualizedList<ProductProps>
+          data={products}
+          initialNumToRender={4}
+          horizontal={true}
+          renderItem={({item}) => (
+            <ItemRenderer
+              item={item}
+              itemHeight={itemHeight}
+              itemWidth={itemWidth}
+              intl={intl}
+            />
+          )}
+          getItemCount={() => products.length}
+          keyExtractor={item => item.key}
+          getItem={(res, index) => res[index]}
+        />
+      </View>
+    </View>
   );
 }
 

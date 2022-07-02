@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeliveryAddressCard should render the item 1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.15,
+      "shadowRadius": 3,
+    }
+  }
+>
+  <View
+    collapsable={false}
+    style={
+      Object {
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "rgba(255, 251, 254, 1)",
+          "borderColor": "#E3E2E7",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "elevation": 1,
+          "marginHorizontal": 10,
+          "marginVertical": 5,
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+        testID="deliveryAddressCard"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingHorizontal": 16,
+              },
+              Object {
+                "paddingVertical": 16,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 16,
+                  "fontWeight": "600",
+                },
+              ]
+            }
+          >
+            Delivery Address
+          </Text>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "width": "85%",
+                  },
+                ]
+              }
+            >
+              USA
+            </Text>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "paddingHorizontal": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                    },
+                  ]
+                }
+              >
+                Change
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              Mobile
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              : +90909090
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

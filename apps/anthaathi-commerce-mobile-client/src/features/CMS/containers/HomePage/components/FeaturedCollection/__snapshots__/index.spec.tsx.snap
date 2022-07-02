@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedCollection should render the item 1`] = `
+<View
+  testID="featuredCollection"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginHorizontal": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "fontSize": 20,
+            "marginBottom": 9,
+          },
+        ]
+      }
+    >
+      test
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 24,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "writingDirection": "ltr",
+            },
+            Object {
+              "fontSize": 14,
+              "marginBottom": 9,
+              "textDecorationLine": "underline",
+            },
+          ]
+        }
+      >
+        View All
+      </Text>
+    </View>
+  </View>
+  <View>
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "currency": "USD",
+            "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+            "key": "test",
+            "name": "test",
+            "notes": "pack",
+            "packaging": "pack",
+            "price": 0,
+            "weight_unit": "KG",
+          },
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={4}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginHorizontal": 10,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 4,
+                    "height": 250,
+                    "width": 240,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "rgba(28, 27, 31, 0.87)",
+                          "writingDirection": "ltr",
+                        },
+                        Array [
+                          Object {
+                            "fontSize": 20,
+                            "letterSpacing": 0.15,
+                            "lineHeight": 30,
+                            "marginVertical": 2,
+                          },
+                          Object {
+                            "fontSize": 14,
+                            "fontWeight": "bold",
+                            "marginRight": 10,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  test
+                </Text>
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#364A15",
+                        "fontSize": 18,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Entypo",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#808080",
+                      "fontSize": 12,
+                      "fontWeight": "400",
+                    },
+                  ]
+                }
+              >
+                Dorne
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#008D3E",
+                        "fontSize": 14,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                  $0.00
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#808080",
+                        "fontSize": 12,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                   / pack
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#808080",
+                      "fontSize": 12,
+                      "fontWeight": "400",
+                    },
+                  ]
+                }
+              >
+                pack
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

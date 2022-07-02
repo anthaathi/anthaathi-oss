@@ -33,7 +33,8 @@ const PricingCard = (props: PricingCardProps) => {
         borderWidth: 1,
         borderRadius: 4,
         marginVertical: 5,
-      }}>
+      }}
+      testID="pricingCard">
       <Card.Content>
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Subtotal'})}

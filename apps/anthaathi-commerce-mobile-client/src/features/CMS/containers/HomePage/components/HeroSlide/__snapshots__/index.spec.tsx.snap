@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroSlide should render the item 1`] = `
+<View
+  style={
+    Object {
+      "marginVertical": 10,
+    }
+  }
+  testID="heroSlide"
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": 240,
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": 240,
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,0.1)",
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "display": "flex",
+            "flexGrow": 1,
+            "justifyContent": "flex-end",
+            "marginHorizontal": 20,
+            "marginVertical": 30,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 251, 254, 1)",
+                "fontSize": 24,
+                "fontWeight": "bold",
+                "marginVertical": 5,
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          test
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 251, 254, 1)",
+                "fontSize": 16,
+                "fontWeight": "400",
+                "marginVertical": 10,
+              },
+            ]
+          }
+        >
+          test
+        </Text>
+        <View
+          accessibilityState={
+            Object {
+              "disabled": true,
+            }
+          }
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              false,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(255, 251, 254, 1)",
+                "borderRadius": 1,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "letterSpacing": 0.5,
+                    "lineHeight": 16,
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
+                  },
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontWeight": "700",
+                    "paddingBottom": 8,
+                    "paddingLeft": 18,
+                    "paddingRight": 18,
+                    "paddingTop": 8,
+                  },
+                ]
+              }
+            >
+              View All
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

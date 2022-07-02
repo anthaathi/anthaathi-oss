@@ -11,16 +11,6 @@ exports[`DeliveringSection should render the item 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "borderColor": "rgba(103, 80, 164, 1)",
-        "borderRadius": 4,
-        "borderStyle": "solid",
-        "borderWidth": 1,
-      },
-    ]
-  }
   testID="deliveringSelection"
 >
   <View
@@ -30,14 +20,15 @@ exports[`DeliveringSection should render the item 1`] = `
           "borderRadius": 12,
           "display": "flex",
           "flexDirection": "row",
-          "paddingBottom": 0,
-          "paddingLeft": 6,
-          "paddingRight": 6,
-          "paddingTop": 0,
+          "paddingHorizontal": 6,
+          "paddingVertical": 0,
         },
         Object {
           "backgroundColor": "rgba(234, 221, 255, 1)",
+          "borderColor": "rgba(103, 80, 164, 1)",
           "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 1,
         },
       ]
     }

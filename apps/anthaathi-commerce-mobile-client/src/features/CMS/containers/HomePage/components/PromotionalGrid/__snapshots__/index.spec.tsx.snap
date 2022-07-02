@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromotionalGrid should render the item 1`] = `
+<View
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+    }
+  }
+  testID="promotionalGrid"
+>
+  <View
+    style={
+      Object {
+        "paddingBottom": 12,
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "paddingTop": 12,
+        "width": "50%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "height": 240,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+          }
+        }
+        style={
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexGrow": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 6,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Something
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 22,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 28,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 6,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Something
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingBottom": 12,
+          }
+        }
+      >
+        <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              false,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(255, 251, 254, 1)",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "letterSpacing": 0.5,
+                    "lineHeight": 16,
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
+                  },
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontWeight": "bold",
+                    "paddingBottom": 8,
+                    "paddingLeft": 18,
+                    "paddingRight": 18,
+                    "paddingTop": 8,
+                  },
+                ]
+              }
+            >
+              SHOP NOW
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "paddingBottom": 12,
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "paddingTop": 12,
+        "width": "50%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "height": 240,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+          }
+        }
+        style={
+          Object {
+            "height": "100%",
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexGrow": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0.1,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 6,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Something
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 22,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 28,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 6,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Something
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0.25,
+                "lineHeight": 20,
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "writingDirection": "ltr",
+              },
+              Object {
+                "color": "rgba(255, 255, 255, 1)",
+                "marginBottom": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          test
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingBottom": 12,
+          }
+        }
+      >
+        <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              false,
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(255, 251, 254, 1)",
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "letterSpacing": 0.5,
+                    "lineHeight": 16,
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
+                  },
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontWeight": "bold",
+                    "paddingBottom": 8,
+                    "paddingLeft": 18,
+                    "paddingRight": 18,
+                    "paddingTop": 8,
+                  },
+                ]
+              }
+            >
+              SHOP NOW
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

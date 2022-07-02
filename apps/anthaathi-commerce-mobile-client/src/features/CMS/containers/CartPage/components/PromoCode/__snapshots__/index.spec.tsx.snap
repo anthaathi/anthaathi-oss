@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromoCode should render the item 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+    }
+  }
+  testID="promoCode"
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgba(234, 221, 255, 1)",
+        "borderRadius": 4,
+        "height": 48,
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "#737272",
+              "fontSize": 14,
+              "fontWeight": "500",
+            },
+          ]
+        }
+      >
+        Add your promo code
+      </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "rgba(103, 80, 164, 1)",
+              "fontSize": 20,
+            },
+            undefined,
+            Object {
+              "fontFamily": "FontAwesome",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;

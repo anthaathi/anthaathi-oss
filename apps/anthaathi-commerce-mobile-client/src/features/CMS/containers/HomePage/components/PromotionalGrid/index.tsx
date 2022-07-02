@@ -102,10 +102,12 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
         <Image
           source={{
             uri: item.image,
+          }}
+          style={{
+            position: 'absolute',
             height: '100%' as never,
             width: '100%' as never,
           }}
-          style={{position: 'absolute'}}
         />
 
         <View

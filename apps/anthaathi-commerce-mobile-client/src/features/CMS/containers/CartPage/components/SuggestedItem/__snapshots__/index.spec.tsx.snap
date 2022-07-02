@@ -1,0 +1,760 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestedItem should render the item 1`] = `
+<View
+  testID="suggestedItem"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginHorizontal": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "writingDirection": "ltr",
+          },
+          Object {
+            "color": "#808080",
+            "fontSize": 18,
+            "marginBottom": 9,
+          },
+        ]
+      }
+    >
+      Suggested
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontSize": 16,
+              "fontWeight": "500",
+              "letterSpacing": 0.15,
+              "lineHeight": 24,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "writingDirection": "ltr",
+            },
+            Object {
+              "fontSize": 14,
+              "marginBottom": 9,
+              "textDecorationLine": "underline",
+            },
+          ]
+        }
+      >
+        View All
+      </Text>
+    </View>
+  </View>
+  <View>
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "currency": "USD",
+            "image": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+            "key": "12",
+            "name": "Baby Yellow Pepper",
+            "packaging": "pack",
+            "price": 12,
+            "weight_unit": "KG",
+          },
+          Object {
+            "currency": "USD",
+            "image": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
+            "key": "23",
+            "name": "Capsicum mixed",
+            "packaging": "pack",
+            "price": 23,
+            "weight_unit": "KG",
+          },
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={4}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginHorizontal": 10,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 4,
+                    "height": 180,
+                    "width": 170,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "rgba(28, 27, 31, 0.87)",
+                          "writingDirection": "ltr",
+                        },
+                        Array [
+                          Object {
+                            "fontSize": 20,
+                            "letterSpacing": 0.15,
+                            "lineHeight": 30,
+                            "marginVertical": 2,
+                          },
+                          Object {
+                            "fontSize": 14,
+                            "fontWeight": "bold",
+                            "marginRight": 10,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Baby Yellow Pepper
+                </Text>
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#364A15",
+                        "fontSize": 18,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Entypo",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#008D3E",
+                        "fontSize": 14,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                  $12.00
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#808080",
+                        "fontSize": 12,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                   / pack
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#808080",
+                      "fontSize": 12,
+                      "fontWeight": "400",
+                    },
+                  ]
+                }
+              />
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 0,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  }
+                }
+              >
+                <View
+                  collapsable={false}
+                  style={
+                    Object {
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 0,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "backgroundColor": "#F1F9F4",
+                        "borderColor": "transparent",
+                        "borderRadius": 0,
+                        "borderStyle": "solid",
+                        "borderWidth": 0,
+                        "minWidth": 64,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityRole="button"
+                      accessibilityState={
+                        Object {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          Object {
+                            "overflow": "hidden",
+                          },
+                          Object {
+                            "borderRadius": 20,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "alignItems": "center",
+                              "flexDirection": "row",
+                              "justifyContent": "center",
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        <Text
+                          numberOfLines={1}
+                          selectable={false}
+                          style={
+                            Array [
+                              Object {
+                                "color": "rgba(28, 27, 31, 1)",
+                                "fontSize": 14,
+                                "fontWeight": "500",
+                                "letterSpacing": 0.1,
+                                "lineHeight": 20,
+                              },
+                              Object {
+                                "textAlign": "left",
+                              },
+                              Object {
+                                "writingDirection": "ltr",
+                              },
+                              Array [
+                                Object {
+                                  "marginHorizontal": 16,
+                                  "marginVertical": 9,
+                                  "textAlign": "center",
+                                },
+                                false,
+                                Object {
+                                  "marginHorizontal": 24,
+                                  "marginVertical": 10,
+                                },
+                                undefined,
+                                false,
+                                Object {
+                                  "color": "rgba(255, 255, 255, 1)",
+                                  "fontFamily": "System",
+                                  "fontSize": 14,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.1,
+                                  "lineHeight": 20,
+                                },
+                                Object {
+                                  "color": "#008D3E",
+                                },
+                              ],
+                            ]
+                          }
+                        >
+                          Add
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginHorizontal": 10,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 16,
+                  },
+                  undefined,
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
+                  }
+                }
+                style={
+                  Object {
+                    "borderRadius": 4,
+                    "height": 180,
+                    "width": 170,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "rgba(28, 27, 31, 0.87)",
+                          "writingDirection": "ltr",
+                        },
+                        Array [
+                          Object {
+                            "fontSize": 20,
+                            "letterSpacing": 0.15,
+                            "lineHeight": 30,
+                            "marginVertical": 2,
+                          },
+                          Object {
+                            "fontSize": 14,
+                            "fontWeight": "bold",
+                            "marginRight": 10,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Capsicum mixed
+                </Text>
+                <Text
+                  allowFontScaling={false}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#364A15",
+                        "fontSize": 18,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "Entypo",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                    "marginTop": 5,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#008D3E",
+                        "fontSize": 14,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                  $23.00
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#808080",
+                        "fontSize": 12,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                   / pack
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Object {
+                      "color": "#808080",
+                      "fontSize": 12,
+                      "fontWeight": "400",
+                    },
+                  ]
+                }
+              />
+              <View
+                collapsable={false}
+                style={
+                  Object {
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 0,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  }
+                }
+              >
+                <View
+                  collapsable={false}
+                  style={
+                    Object {
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 0,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    }
+                  }
+                >
+                  <View
+                    collapsable={false}
+                    style={
+                      Object {
+                        "backgroundColor": "#F1F9F4",
+                        "borderColor": "transparent",
+                        "borderRadius": 0,
+                        "borderStyle": "solid",
+                        "borderWidth": 0,
+                        "minWidth": 64,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <View
+                      accessibilityRole="button"
+                      accessibilityState={
+                        Object {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          Object {
+                            "overflow": "hidden",
+                          },
+                          Object {
+                            "borderRadius": 20,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "alignItems": "center",
+                              "flexDirection": "row",
+                              "justifyContent": "center",
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        <Text
+                          numberOfLines={1}
+                          selectable={false}
+                          style={
+                            Array [
+                              Object {
+                                "color": "rgba(28, 27, 31, 1)",
+                                "fontSize": 14,
+                                "fontWeight": "500",
+                                "letterSpacing": 0.1,
+                                "lineHeight": 20,
+                              },
+                              Object {
+                                "textAlign": "left",
+                              },
+                              Object {
+                                "writingDirection": "ltr",
+                              },
+                              Array [
+                                Object {
+                                  "marginHorizontal": 16,
+                                  "marginVertical": 9,
+                                  "textAlign": "center",
+                                },
+                                false,
+                                Object {
+                                  "marginHorizontal": 24,
+                                  "marginVertical": 10,
+                                },
+                                undefined,
+                                false,
+                                Object {
+                                  "color": "rgba(255, 255, 255, 1)",
+                                  "fontFamily": "System",
+                                  "fontSize": 14,
+                                  "fontWeight": "500",
+                                  "letterSpacing": 0.1,
+                                  "lineHeight": 20,
+                                },
+                                Object {
+                                  "color": "#008D3E",
+                                },
+                              ],
+                            ]
+                          }
+                        >
+                          Add
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

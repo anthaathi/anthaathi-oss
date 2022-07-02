@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PricingCard should render the item 1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.15,
+      "shadowRadius": 3,
+    }
+  }
+>
+  <View
+    collapsable={false}
+    style={
+      Object {
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 1,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "rgba(255, 251, 254, 1)",
+          "borderColor": "#E3E2E7",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "elevation": 1,
+          "marginHorizontal": 10,
+          "marginVertical": 5,
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          Object {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+        testID="pricingCard"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingHorizontal": 16,
+              },
+              Object {
+                "paddingVertical": 16,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 3,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Subtotal
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "600",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              $10.10
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 3,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Discount
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "600",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              $10.10
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 3,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Promo Discount
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "600",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              $10.10
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 3,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Shipping Charges.
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "600",
+                  },
+                  Object {
+                    "color": "#E94040",
+                    "fontWeight": "500",
+                  },
+                ]
+              }
+            >
+              $0.00
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 3,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#808080",
+                    "fontSize": 14,
+                  },
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 16,
+                    "fontWeight": "700",
+                  },
+                ]
+              }
+            >
+              Total
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "600",
+                  },
+                  Object {
+                    "color": "#008D3E",
+                    "fontSize": 16,
+                    "fontWeight": "700",
+                  },
+                ]
+              }
+            >
+              $10.10
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
