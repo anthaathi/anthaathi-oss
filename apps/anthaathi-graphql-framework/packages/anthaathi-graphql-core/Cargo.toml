@@ -9,7 +9,6 @@ edition = "2021"
 anthaathi-graphql-common = { path = "../anthaathi-graphql-common" }
 hyper = { version = "0.14", features = ["full"] }
 tokio = { version = "1", features = ["full"] }
-
 serde = "1.0"
 serde_yaml = "0.8"
 serde_derive = "1.0.137"
