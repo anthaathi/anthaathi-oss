@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeSlot should render the item 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 10,
+    }
+  }
+  testID="timeSlot"
+>
+  <Text
+    style={
+      Object {
+        "color": "#364A15",
+        "fontSize": 16,
+        "fontWeight": "600",
+      }
+    }
+  >
+    Timeslot
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "marginVertical": 5,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#F1F9F4",
+          "borderRadius": 2,
+          "height": 38,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginRight": 10,
+          "width": 108,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#364A15",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+      >
+        09am - 12pm
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#F1F9F4",
+          "borderRadius": 2,
+          "height": 38,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginRight": 10,
+          "width": 108,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#364A15",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+      >
+        01pm - 05pm
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#F1F9F4",
+          "borderRadius": 2,
+          "height": 38,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginRight": 10,
+          "width": 108,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#364A15",
+            "fontSize": 14,
+            "fontWeight": "400",
+          }
+        }
+      >
+        05pm - 10pm
+      </Text>
+    </View>
+  </View>
+</View>
+`;

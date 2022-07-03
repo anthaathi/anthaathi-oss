@@ -1,0 +1,2032 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeliveryDateSelection should render the item 1`] = `
+<View
+  style={
+    Object {
+      "marginHorizontal": 10,
+    }
+  }
+  testID="deliveryDateSelection"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgba(28, 27, 31, 1)",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Object {
+            "color": "#364A15",
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+        ]
+      }
+    >
+      Delivery Date
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "#364A15",
+              "fontSize": 16,
+              "fontWeight": "600",
+            },
+          ]
+        }
+      >
+        August
+      </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#364A15",
+              "fontSize": 20,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Design Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        󰅀
+      </Text>
+    </View>
+  </View>
+  <View>
+    <RCTScrollView
+      horizontal={true}
+    >
+      <View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1F9F4",
+              "borderRadius": 2,
+              "justifyContent": "center",
+              "marginRight": 10,
+              "paddingHorizontal": 20,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            Day
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            00
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
