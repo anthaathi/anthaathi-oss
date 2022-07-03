@@ -53,9 +53,7 @@ pub mod anthaathi_graphql_core {
     impl Error for GraphQLServerError {}
 
     pub async fn init_server(config_input: &str) -> Result<impl GraphQLServer, GraphQLServerError> {
-        let config = parse_config(config_input);
-
-        let config = match config {
+        let config = match parse_config(config_input) {
             Err(e) => {
                 return Err(GraphQLServerError {
                     stack: vec![e.to_string()],

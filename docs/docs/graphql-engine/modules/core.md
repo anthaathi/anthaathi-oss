@@ -38,10 +38,16 @@ mod core {
         handlers: Vec<GQLHandlers>,
     }
 
-    impl Listener for GQLListeners {}
+    impl Listener for GQLListeners {
+        
+    }
 
     pub trait Handler {}
 
     struct GQLHandlers {}
+    
+    impl Handler for GQLHandlers {
+        
+    }
 }
 ```
