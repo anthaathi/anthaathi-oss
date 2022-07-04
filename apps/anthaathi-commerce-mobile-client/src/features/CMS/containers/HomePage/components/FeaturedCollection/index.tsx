@@ -3,7 +3,7 @@ import {Card, Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {IntlShape, useIntl} from 'react-intl';
+import {useIntl} from 'react-intl';
 
 export interface ProductProps {
   name: string;
@@ -68,7 +68,6 @@ export default function FeaturedCollection({
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
-              intl={intl}
             />
           )}
           getItemCount={() => products.length}
@@ -84,13 +83,12 @@ function ItemRenderer({
   item,
   itemHeight,
   itemWidth,
-  intl,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
-  intl: IntlShape;
 }) {
+  const intl = useIntl();
   return (
     <View
       style={{

@@ -1,5 +1,5 @@
 import React from 'react';
-import {IntlShape, useIntl} from 'react-intl';
+import {useIntl} from 'react-intl';
 import {ImageBackground, View} from 'react-native';
 import {Button, Text, ThemeBase, useTheme} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
@@ -22,7 +22,6 @@ export interface PromotionalProductGridProps {
 
 function PromotionalProductGrid(props: PromotionalProductGridProps) {
   const theme = useTheme();
-  const intl = useIntl();
   const itemWidth = useResponsiveValue(['80%', '100%', '100%', '100%']);
 
   return (
@@ -39,7 +38,6 @@ function PromotionalProductGrid(props: PromotionalProductGridProps) {
             <ProductGrid
               product={product}
               itemWidth={itemWidth}
-              intl={intl}
               theme={theme}
             />
           </View>
@@ -53,14 +51,14 @@ export default PromotionalProductGrid;
 const ProductGrid = ({
   product,
   itemWidth,
-  intl,
+
   theme,
 }: {
   product: ProductGridProps;
   itemWidth: string;
-  intl: IntlShape;
   theme: ThemeBase;
 }) => {
+  const intl = useIntl();
   return (
     <View
       style={{

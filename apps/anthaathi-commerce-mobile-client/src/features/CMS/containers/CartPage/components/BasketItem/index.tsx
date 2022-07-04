@@ -2,7 +2,7 @@ import {Image, Pressable, View} from 'react-native';
 import React from 'react';
 import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {IntlShape, useIntl} from 'react-intl';
+import {useIntl} from 'react-intl';
 
 export interface ItemProps {
   name: string;
@@ -64,7 +64,6 @@ const BasketItem = (props: BasketItemProps) => {
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
-              intl={intl}
             />
           );
         })}
@@ -77,13 +76,12 @@ function ItemRenderer({
   item,
   itemHeight,
   itemWidth,
-  intl,
 }: {
   item: ItemProps;
   itemHeight: number;
   itemWidth: number;
-  intl: IntlShape;
 }) {
+  const intl = useIntl();
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
