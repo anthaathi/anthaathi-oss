@@ -46,7 +46,7 @@ export default function HeroCategories({
           <VirtualizedList<Item[]>
             data={itemsSpited}
             initialNumToRender={4}
-            horizontal={true}
+            horizontal
             renderItem={({item}) => (
               <ItemRendererColumn onPress={onPress || (() => {})} item={item} />
             )}
@@ -85,16 +85,14 @@ function ItemRenderer({
   onPress,
 }: {
   element: Item;
-  onPress: () => void;
+  onPress?: () => void;
 }) {
   const dimension = 97;
 
   return (
     <TouchableRipple
       testID={`heroItem${element.key}`}
-      onPress={() => {
-        onPress();
-      }}
+      onPress={onPress}
       style={{borderRadius: 12, padding: 4, marginRight: 12}}>
       <View>
         <Image

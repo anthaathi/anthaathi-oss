@@ -20,7 +20,7 @@ export interface ProductProps {
 export interface FeaturedCollectionProps {
   title: string;
   products: ProductProps[];
-  handlePress?: () => {}; // view all product link
+  handlePress?: () => void; // view all product link
 }
 
 export default function SuggestedItem({
@@ -63,13 +63,12 @@ export default function SuggestedItem({
         <VirtualizedList<ProductProps>
           data={products}
           initialNumToRender={4}
-          horizontal={true}
+          horizontal
           renderItem={({item}) => (
             <ItemRenderer
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
-              intl={intl}
             />
           )}
           getItemCount={() => products.length}
@@ -85,13 +84,12 @@ function ItemRenderer({
   item,
   itemHeight,
   itemWidth,
-  intl,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
-  intl: any;
 }) {
+  const intl = useIntl();
   return (
     <View
       style={{

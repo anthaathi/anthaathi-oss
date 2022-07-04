@@ -151,9 +151,9 @@ const ImageSelection = ({
           }}>
           <Badge
             style={{
-              backgroundColor: id == index ? '#000000' : '#cccccc',
+              backgroundColor: id === index ? '#000000' : '#cccccc',
             }}
-            size={id == index ? 12 : 8}
+            size={id === index ? 12 : 8}
           />
         </Pressable>
       ))}

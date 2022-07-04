@@ -18,11 +18,13 @@ export interface ItemProps {
 export interface BasketItemProps {
   title: string;
   items: ItemProps[];
-  handlePress?: () => {};
+  handlePress?: () => void;
 }
 
 const BasketItem = (props: BasketItemProps) => {
   const intl = useIntl();
+  const itemHeight = useResponsiveValue([120, 250, 290, 330]);
+  const itemWidth = useResponsiveValue([120, 240, 280, 320]);
 
   return (
     <View
@@ -56,17 +58,30 @@ const BasketItem = (props: BasketItemProps) => {
 
       <View>
         {props.items.map(item => {
-          return <ItemRenderer key={item.key} item={item} />;
+          return (
+            <ItemRenderer
+              key={item.key}
+              item={item}
+              itemHeight={itemHeight}
+              itemWidth={itemWidth}
+            />
+          );
         })}
       </View>
     </View>
   );
 };
 
-function ItemRenderer({item}: {item: ItemProps}) {
+function ItemRenderer({
+  item,
+  itemHeight,
+  itemWidth,
+}: {
+  item: ItemProps;
+  itemHeight: number;
+  itemWidth: number;
+}) {
   const intl = useIntl();
-  const itemHeight = useResponsiveValue([120, 250, 290, 330]);
-  const itemWidth = useResponsiveValue([120, 240, 280, 320]);
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

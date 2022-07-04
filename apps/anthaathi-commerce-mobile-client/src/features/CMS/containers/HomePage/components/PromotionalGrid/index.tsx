@@ -158,7 +158,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
             {item.button1Text && (
               <PromotionalGridButton
                 label={item.button1Text}
-                onPress={() => {}}
+                onPress={item.onPress1}
               />
             )}
             {item.button2Text && (

@@ -1,4 +1,4 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, GestureResponderEvent} from 'react-native';
 import React from 'react';
 
 type SlotProps = {
@@ -31,7 +31,13 @@ const TimeSlotSelection = (props: TimeSlotProps) => {
   );
 };
 
-const Slot = ({slot}: {slot: SlotProps}) => {
+const Slot = ({
+  slot,
+  onPress,
+}: {
+  slot: SlotProps;
+  onPress?: ((e: GestureResponderEvent) => void) | undefined;
+}) => {
   return (
     <Pressable
       style={{
@@ -44,7 +50,7 @@ const Slot = ({slot}: {slot: SlotProps}) => {
         marginRight: 10,
         marginBottom: 10,
       }}
-      onPress={() => {}}>
+      onPress={onPress}>
       <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
         {slot.name}
       </Text>

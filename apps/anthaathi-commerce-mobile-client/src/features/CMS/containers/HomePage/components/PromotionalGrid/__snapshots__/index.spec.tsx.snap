@@ -146,11 +146,11 @@ exports[`PromotionalGrid should render the item 1`] = `
         <View
           accessibilityState={
             Object {
-              "disabled": false,
+              "disabled": true,
             }
           }
           accessible={true}
-          focusable={true}
+          focusable={false}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -341,11 +341,11 @@ exports[`PromotionalGrid should render the item 1`] = `
         <View
           accessibilityState={
             Object {
-              "disabled": false,
+              "disabled": true,
             }
           }
           accessible={true}
-          focusable={true}
+          focusable={false}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

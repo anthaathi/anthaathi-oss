@@ -1,4 +1,4 @@
-import {View, Pressable, ScrollView} from 'react-native';
+import {View, Pressable, ScrollView, GestureResponderEvent} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
 
@@ -37,7 +37,7 @@ const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
         </Pressable>
       </View>
       <View>
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal>
           {[...Array(dates).keys()].map(index => {
             return <SelectDate key={index} />;
           })}
@@ -47,7 +47,11 @@ const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
   );
 };
 
-const SelectDate = () => {
+const SelectDate = ({
+  onPress,
+}: {
+  onPress?: ((e: GestureResponderEvent) => void) | undefined;
+}) => {
   return (
     <Pressable
       style={{
@@ -59,7 +63,7 @@ const SelectDate = () => {
         paddingHorizontal: 20,
         paddingVertical: 15,
       }}
-      onPress={() => {}}>
+      onPress={onPress}>
       <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
         Day
       </Text>
