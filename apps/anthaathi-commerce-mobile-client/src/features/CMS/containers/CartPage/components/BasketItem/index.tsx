@@ -72,7 +72,7 @@ const BasketItem = (props: BasketItemProps) => {
   );
 };
 
-function ItemRenderer({
+const ItemRenderer = ({
   item,
   itemHeight,
   itemWidth,
@@ -80,7 +80,7 @@ function ItemRenderer({
   item: ItemProps;
   itemHeight: number;
   itemWidth: number;
-}) {
+}) => {
   const intl = useIntl();
   return (
     <View>
@@ -136,7 +136,7 @@ function ItemRenderer({
       <Divider style={{marginVertical: 10}} />
     </View>
   );
-}
+};
 
 const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
   return (
