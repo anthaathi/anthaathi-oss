@@ -2,7 +2,7 @@ import {Image, Pressable, View} from 'react-native';
 import React from 'react';
 import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {useIntl} from 'react-intl';
+import {IntlShape, useIntl} from 'react-intl';
 
 export interface ItemProps {
   name: string;
@@ -18,11 +18,13 @@ export interface ItemProps {
 export interface BasketItemProps {
   title: string;
   items: ItemProps[];
-  handlePress?: () => {};
+  handlePress?: () => void;
 }
 
 const BasketItem = (props: BasketItemProps) => {
   const intl = useIntl();
+  const itemHeight = useResponsiveValue([120, 250, 290, 330]);
+  const itemWidth = useResponsiveValue([120, 240, 280, 320]);
 
   return (
     <View
@@ -56,17 +58,32 @@ const BasketItem = (props: BasketItemProps) => {
 
       <View>
         {props.items.map(item => {
-          return <ItemRenderer key={item.key} item={item} />;
+          return (
+            <ItemRenderer
+              key={item.key}
+              item={item}
+              itemHeight={itemHeight}
+              itemWidth={itemWidth}
+              intl={intl}
+            />
+          );
         })}
       </View>
     </View>
   );
 };
 
-function ItemRenderer({item}: {item: ItemProps}) {
-  const intl = useIntl();
-  const itemHeight = useResponsiveValue([120, 250, 290, 330]);
-  const itemWidth = useResponsiveValue([120, 240, 280, 320]);
+function ItemRenderer({
+  item,
+  itemHeight,
+  itemWidth,
+  intl,
+}: {
+  item: ItemProps;
+  itemHeight: number;
+  itemWidth: number;
+  intl: IntlShape;
+}) {
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>

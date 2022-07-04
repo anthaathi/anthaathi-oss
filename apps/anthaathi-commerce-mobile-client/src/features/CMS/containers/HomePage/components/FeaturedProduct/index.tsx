@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useIntl} from 'react-intl';
+import {IntlShape, useIntl} from 'react-intl';
 import {Image, Pressable, View} from 'react-native';
 import {Badge, Button, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
@@ -75,6 +75,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
         <Pricing
           price={props.productInfo.price}
           currency={props.productInfo.currency}
+          intl={intl}
         />
         <Text
           variant="titleLarge"
@@ -105,8 +106,15 @@ function FeaturedProduct(props: ProductDetailsProps) {
   );
 }
 
-const Pricing = ({price, currency}: {price: number; currency: string}) => {
-  const intl = useIntl();
+const Pricing = ({
+  price,
+  currency,
+  intl,
+}: {
+  price: number;
+  currency: string;
+  intl: IntlShape;
+}) => {
   return (
     <>
       <Text variant="titleLarge" style={{fontSize: 16, fontWeight: '500'}}>

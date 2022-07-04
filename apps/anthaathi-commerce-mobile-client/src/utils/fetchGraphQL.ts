@@ -18,5 +18,5 @@ export default async function fetchGraphQL(
   });
 
   // Get the response as JSON
-  return await response.json();
+  return response.json();
 }

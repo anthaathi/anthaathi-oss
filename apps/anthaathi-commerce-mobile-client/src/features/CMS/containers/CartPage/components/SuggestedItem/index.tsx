@@ -3,7 +3,7 @@ import {Button, Card, Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {useIntl} from 'react-intl';
+import {IntlShape, useIntl} from 'react-intl';
 
 export interface ProductProps {
   name: string;
@@ -20,7 +20,7 @@ export interface ProductProps {
 export interface FeaturedCollectionProps {
   title: string;
   products: ProductProps[];
-  handlePress?: () => {}; // view all product link
+  handlePress?: () => void; // view all product link
 }
 
 export default function SuggestedItem({
@@ -63,7 +63,7 @@ export default function SuggestedItem({
         <VirtualizedList<ProductProps>
           data={products}
           initialNumToRender={4}
-          horizontal={true}
+          horizontal
           renderItem={({item}) => (
             <ItemRenderer
               item={item}
@@ -90,7 +90,7 @@ function ItemRenderer({
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
-  intl: any;
+  intl: IntlShape;
 }) {
   return (
     <View
