@@ -32,6 +32,7 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
             {props.deliveryAddress}
           </Text>
           <Pressable
+            testID="changeAddressButton"
             style={{paddingHorizontal: 10}}
             onPress={props.handlePress}>
             <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>

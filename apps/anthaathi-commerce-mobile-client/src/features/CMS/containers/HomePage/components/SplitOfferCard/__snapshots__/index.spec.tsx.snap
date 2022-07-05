@@ -23,6 +23,7 @@ exports[`SplitCardOffer should render the item 1`] = `
         "width": "60%",
       }
     }
+    testID="offerImage"
   />
   <View
     style={
@@ -156,6 +157,7 @@ exports[`SplitCardOffer should render the item 1`] = `
                 },
               ]
             }
+            testID="buttonPress"
           >
             <View
               style={

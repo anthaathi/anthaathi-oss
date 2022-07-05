@@ -82,6 +82,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
           {props.productInfo.description}
         </Text>
         <Button
+          testID="handleAddToCart"
           mode="outlined"
           onPress={props.handleAddToCart}
           labelStyle={{color: '#313652'}}
@@ -90,6 +91,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
         </Button>
 
         <Button
+          testID="handleBuyItNow"
           mode="contained"
           onPress={props.handleBuyItNow}
           labelStyle={{color: '#ffffff'}}

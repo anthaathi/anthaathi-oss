@@ -57,6 +57,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           "justifyContent": "center",
         }
       }
+      testID="selectMonth"
     >
       <Text
         style={

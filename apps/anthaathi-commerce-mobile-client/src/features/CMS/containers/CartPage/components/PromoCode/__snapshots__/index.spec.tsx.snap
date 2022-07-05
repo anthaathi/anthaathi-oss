@@ -33,6 +33,7 @@ exports[`PromoCode should render the item 1`] = `
         "width": "100%",
       }
     }
+    testID="handlePress"
   >
     <View
       style={

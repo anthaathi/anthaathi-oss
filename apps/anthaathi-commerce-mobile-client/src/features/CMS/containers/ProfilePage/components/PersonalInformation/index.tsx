@@ -40,6 +40,7 @@ const PersonalInformation = (props: PersonalInformationProps) => {
             {props.title}
           </Text>
           <Button
+            testID="editPersonalInfo"
             mode="text"
             labelStyle={{color: '#008D3E'}}
             onPress={props.handlePress}>

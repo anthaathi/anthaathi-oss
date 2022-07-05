@@ -166,6 +166,7 @@ exports[`PersonalInformation should render the item 1`] = `
                         },
                       ]
                     }
+                    testID="editPersonalInfo"
                   >
                     <View
                       style={

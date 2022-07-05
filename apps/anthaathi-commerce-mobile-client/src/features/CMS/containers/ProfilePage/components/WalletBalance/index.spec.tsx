@@ -5,20 +5,25 @@ import {IntlProvider} from 'react-intl';
 
 import locale from '../../../../../../compiled-locales/en-US.json';
 import {ThemeProvider} from 'react-native-paper';
-import DeliveryDateSelection from './index';
+import WalletBalance from './index';
 
-describe('DeliveryDateSelection', () => {
+describe('WalletBalance', () => {
   it('should render the item', function () {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <DeliveryDateSelection title={'Delivery Date'} />
+          <WalletBalance
+            title="Wallet Balance"
+            balance={0}
+            currency="USD"
+            buttonTitle="Top-up"
+          />
         </IntlProvider>
       </ThemeProvider>,
     );
 
     expect(temp).toMatchSnapshot();
-    expect(temp.queryByTestId('deliveryDateSelection')).toBeTruthy();
+    expect(temp.queryByTestId('walletBalance')).toBeTruthy();
   });
 
   it('should call when we call tap handlePress', function () {
@@ -27,27 +32,35 @@ describe('DeliveryDateSelection', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <DeliveryDateSelection
-            title={'Delivery Date'}
+          <WalletBalance
+            title="Wallet Balance"
+            balance={0}
+            currency="USD"
+            buttonTitle="Top-up"
             handlePress={onpress}
           />
         </IntlProvider>
       </ThemeProvider>,
     );
 
-    fireEvent.press(temp.queryByTestId('selectMonth')!);
+    fireEvent.press(temp.queryByTestId('handlePress')!);
     expect(onpress).toBeCalledTimes(1);
   });
 
-  it('should have DeliveryDateSelection title', () => {
+  it('should have WalletBalance title', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <DeliveryDateSelection title={'Delivery Date'} />
+          <WalletBalance
+            title="Wallet Balance"
+            balance={0}
+            currency="USD"
+            buttonTitle="Top-up"
+          />
         </IntlProvider>
       </ThemeProvider>,
     );
 
-    expect(temp.queryByText('Delivery Date')).toBeTruthy();
+    expect(temp.queryByText('Wallet Balance')).toBeTruthy();
   });
 });
