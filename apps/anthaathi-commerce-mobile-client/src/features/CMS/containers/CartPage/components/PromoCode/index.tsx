@@ -16,6 +16,7 @@ const PromoCode = (props: PromoCodeProps) => {
       style={{alignItems: 'center', marginVertical: 5, marginHorizontal: 10}}
       testID="promoCode">
       <Pressable
+        testID="handlePress"
         onPress={props.handlePress}
         style={{
           backgroundColor: (theme.colors as MD3Colors).primaryContainer,

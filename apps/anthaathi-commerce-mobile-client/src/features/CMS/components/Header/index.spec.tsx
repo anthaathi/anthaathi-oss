@@ -11,7 +11,7 @@ describe('header', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <Header leftIcon="menu" title="Header title" rightIcon="search" />
+          <Header leftIcon="menu" title="Header title" />
         </IntlProvider>
       </ThemeProvider>,
     );
@@ -48,7 +48,7 @@ describe('header', () => {
           <Header
             rightOnPress={rightonpress}
             title="Header title"
-            rightIcon="search"
+            rightIcon="menu"
           />
         </IntlProvider>
       </ThemeProvider>,
@@ -56,5 +56,17 @@ describe('header', () => {
 
     fireEvent.press(temp.queryByTestId('rightOnHandler')!);
     expect(rightonpress).toBeCalledTimes(1);
+  });
+
+  it('should have Header title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <Header title="Header title" />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('Header title')).toBeTruthy();
   });
 });

@@ -26,6 +26,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
       }}
       testID="splitCardOffer">
       <Image
+        testID="offerImage"
         source={{
           uri: props.image,
         }}
@@ -59,6 +60,7 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
           {props.subtitle}
         </Text>
         <Button
+          testID="buttonPress"
           mode="contained"
           style={{
             backgroundColor: '#000000',

@@ -270,6 +270,7 @@ exports[`FeaturedProduct should render the item 1`] = `
                 },
               ]
             }
+            testID="handleAddToCart"
           >
             <View
               style={
@@ -404,6 +405,7 @@ exports[`FeaturedProduct should render the item 1`] = `
                 },
               ]
             }
+            testID="handleBuyItNow"
           >
             <View
               style={

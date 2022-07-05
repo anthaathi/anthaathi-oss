@@ -104,6 +104,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                 },
               ]
             }
+            testID="addNewAddress"
           >
             <View
               style={

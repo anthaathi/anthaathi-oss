@@ -35,6 +35,7 @@ const DeliveryAddresses = (props: DeliveryAddressesProps) => {
           {props.title}
         </Text>
         <Button
+          testID="addNewAddress"
           mode="text"
           labelStyle={{color: '#008D3E'}}
           onPress={props.handlePress}>

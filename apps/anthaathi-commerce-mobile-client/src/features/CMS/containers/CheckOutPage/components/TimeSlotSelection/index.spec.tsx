@@ -36,4 +36,32 @@ describe('TimeSlot', () => {
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('timeSlot')).toBeTruthy();
   });
+
+  it('should have PromoCode title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <TimeSlot
+            title="Timeslot"
+            timeSlots={[
+              {
+                key: '1',
+                name: '09am - 12pm',
+              },
+              {
+                key: '2',
+                name: '01pm - 05pm',
+              },
+              {
+                key: '3',
+                name: '05pm - 10pm',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('Timeslot')).toBeTruthy();
+  });
 });

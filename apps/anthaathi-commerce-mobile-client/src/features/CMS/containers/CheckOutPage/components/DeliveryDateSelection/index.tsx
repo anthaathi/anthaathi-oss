@@ -25,6 +25,7 @@ const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
         </Text>
 
         <Pressable
+          testID="selectMonth"
           onPress={props.handlePress}
           style={{
             flexDirection: 'row',

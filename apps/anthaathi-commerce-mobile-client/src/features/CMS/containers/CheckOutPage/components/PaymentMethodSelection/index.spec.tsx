@@ -36,4 +36,32 @@ describe('PaymentMethodSelection', () => {
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('paymentMethodSelection')).toBeTruthy();
   });
+
+  it('should have PaymentMethodSelection title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <PaymentMethodSelection
+            title="Payment Method"
+            options={[
+              {
+                key: '1',
+                name: 'Credit / Debit Card',
+              },
+              {
+                key: '2',
+                name: 'Cash on delivery',
+              },
+              {
+                key: '3',
+                name: 'Wallet',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('Payment Method')).toBeTruthy();
+  });
 });
