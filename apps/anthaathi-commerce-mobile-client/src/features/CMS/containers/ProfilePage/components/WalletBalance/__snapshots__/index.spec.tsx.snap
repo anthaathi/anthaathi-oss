@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WalletBalance should render the item 1`] = `
+<View
+  testID="walletBalance"
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "height": 60,
+        "justifyContent": "space-between",
+        "marginHorizontal": 10,
+      }
+    }
+    testID="handlePress"
+  >
+    <View
+      style={
+        Object {
+          "borderBottomLeftRadius": 2,
+          "borderColor": "#008D3E",
+          "borderTopLeftRadius": 2,
+          "borderWidth": 1,
+          "justifyContent": "center",
+          "width": "80%",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "#808080",
+              "fontSize": 12,
+              "fontWeight": "400",
+              "marginLeft": 10,
+            },
+          ]
+        }
+      >
+        Wallet Balance
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "#008D3E",
+              "fontSize": 14,
+              "fontWeight": "700",
+              "marginLeft": 10,
+            },
+          ]
+        }
+      >
+        $0.00
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#008D3E",
+          "borderBottomRightRadius": 2,
+          "borderColor": "#008D3E",
+          "borderTopRightRadius": 2,
+          "borderWidth": 1,
+          "justifyContent": "center",
+          "width": "20%",
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Design Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        󰅌
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 10,
+              "fontWeight": "400",
+            },
+          ]
+        }
+      >
+        Top-up
+      </Text>
+    </View>
+  </View>
+</View>
+`;
