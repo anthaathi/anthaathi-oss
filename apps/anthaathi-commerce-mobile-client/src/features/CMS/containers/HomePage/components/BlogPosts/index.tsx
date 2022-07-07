@@ -38,7 +38,7 @@ const BlogPosts = (props: BlogPostProps) => {
           {props.title}
         </Text>
 
-        <Pressable onPress={props.handlePress}>
+        <Pressable onPress={props.handlePress} testID="handlePressBlogs">
           <Text
             variant="titleMedium"
             style={{

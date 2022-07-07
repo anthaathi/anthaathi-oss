@@ -45,7 +45,7 @@ export default function FeaturedCollection({
           {title}
         </Text>
 
-        <Pressable onPress={handlePress}>
+        <Pressable onPress={handlePress} testID="onPressCollection">
           <Text
             variant="titleMedium"
             style={{
@@ -60,6 +60,7 @@ export default function FeaturedCollection({
 
       <View>
         <VirtualizedList<ProductProps>
+          testID="productList"
           data={products}
           initialNumToRender={4}
           horizontal={true}

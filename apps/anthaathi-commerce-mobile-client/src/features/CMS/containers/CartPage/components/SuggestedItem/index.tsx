@@ -46,7 +46,7 @@ export default function SuggestedItem({
           style={{marginBottom: 9, fontSize: 18, color: '#808080'}}>
           {title}
         </Text>
-        <Pressable onPress={handlePress}>
+        <Pressable onPress={handlePress} testID="handlePressSuggestedItem">
           <Text
             variant="titleMedium"
             style={{
@@ -61,6 +61,7 @@ export default function SuggestedItem({
 
       <View>
         <VirtualizedList<ProductProps>
+          testID="suggestedItemList"
           data={products}
           initialNumToRender={4}
           horizontal
