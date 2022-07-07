@@ -43,4 +43,16 @@ describe('DeliveringSection', () => {
     fireEvent.press(temp.queryByTestId('deliveringSelection')!);
     expect(onpress).toBeCalledTimes(1);
   });
+
+  it('should have DeliveringSelection country, location name', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <DeliveringSelection country="India" location="Dubai" />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('Dubai - India')).toBeTruthy();
+  });
 });

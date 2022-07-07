@@ -59,6 +59,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
       renderItem={[Function]}
       scrollEventThrottle={50}
       stickyHeaderIndices={Array []}
+      testID="heroCategoriesList"
     >
       <View>
         <View
@@ -284,6 +285,7 @@ exports[`HeroCategories should render the item 1`] = `
       renderItem={[Function]}
       scrollEventThrottle={50}
       stickyHeaderIndices={Array []}
+      testID="heroCategoriesList"
     >
       <View>
         <View

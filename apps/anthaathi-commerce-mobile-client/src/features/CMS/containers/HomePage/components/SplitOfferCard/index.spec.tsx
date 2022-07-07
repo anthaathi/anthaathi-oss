@@ -28,7 +28,7 @@ describe('SplitCardOffer', () => {
     expect(temp.queryByTestId('splitCardOffer')).toBeTruthy();
   });
 
-  it('should call when we call tap rightOnPress', function () {
+  it('should call when we call tap onPress', function () {
     const onpress = jest.fn();
 
     const temp = render(

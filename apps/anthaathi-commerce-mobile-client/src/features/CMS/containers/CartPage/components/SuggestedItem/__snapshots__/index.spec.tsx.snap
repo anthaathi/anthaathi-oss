@@ -53,6 +53,7 @@ exports[`SuggestedItem should render the item 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
+      testID="handlePressSuggestedItem"
     >
       <Text
         style={
@@ -121,6 +122,7 @@ exports[`SuggestedItem should render the item 1`] = `
       renderItem={[Function]}
       scrollEventThrottle={50}
       stickyHeaderIndices={Array []}
+      testID="suggestedItemList"
     >
       <View>
         <View

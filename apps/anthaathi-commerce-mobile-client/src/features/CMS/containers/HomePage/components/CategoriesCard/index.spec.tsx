@@ -13,6 +13,7 @@ describe('CategoryCard', () => {
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
           <CategoriesCard
+            title="Categories"
             categories={[
               {
                 title: 'test',
@@ -28,5 +29,26 @@ describe('CategoryCard', () => {
 
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('categoryCard')).toBeTruthy();
+  });
+
+  it('should have SuggestedItem title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <CategoriesCard
+            title="Categories"
+            categories={[
+              {
+                title: 'test',
+                key: 'test',
+                image:
+                  'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+    expect(temp.queryByText('Categories')).toBeTruthy();
   });
 });

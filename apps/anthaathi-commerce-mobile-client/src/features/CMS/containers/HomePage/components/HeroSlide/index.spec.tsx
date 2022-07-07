@@ -25,4 +25,22 @@ describe('HeroSlide', () => {
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('heroSlide')).toBeTruthy();
   });
+
+  it('should have HeroSlide title, subTitle', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <HeroSlide
+            backgroundImageSrc="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430"
+            title="test title"
+            subTitle="test subtitle"
+            buttonTitle="View All"
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('test title')).toBeTruthy();
+    expect(temp.queryByText('test subtitle')).toBeTruthy();
+  });
 });

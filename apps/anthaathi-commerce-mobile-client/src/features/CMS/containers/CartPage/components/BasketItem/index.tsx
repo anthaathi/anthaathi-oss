@@ -42,7 +42,7 @@ const BasketItem = (props: BasketItemProps) => {
           {props.title}
         </Text>
 
-        <Pressable onPress={props.handlePress}>
+        <Pressable onPress={props.handlePress} testID="handlePressBasketItem">
           <Text
             variant="titleMedium"
             style={{

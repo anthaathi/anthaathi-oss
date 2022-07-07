@@ -45,6 +45,7 @@ export default function HeroCategories({
         <View>
           <VirtualizedList<Item[]>
             data={itemsSpited}
+            testID="heroCategoriesList"
             initialNumToRender={4}
             horizontal
             renderItem={({item}) => (

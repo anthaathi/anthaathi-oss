@@ -31,7 +31,9 @@ exports[`CategoryCard should render the item 1`] = `
         },
       ]
     }
-  />
+  >
+    Categories
+  </Text>
   <View
     style={
       Object {
