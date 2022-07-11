@@ -15,8 +15,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -38,8 +47,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'Name test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'Description test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -64,8 +82,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
