@@ -13,6 +13,10 @@ plugins {
     id("io.quarkus") apply false
     id("com.github.node-gradle.node") version "3.3.0"
     id("fr.stardustenterprises.rust.wrapper") version "3.2.4" apply false
+
+    id("org.springframework.boot") version "2.7.1" apply false
+    id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
+    kotlin("plugin.spring") version "1.6.21" apply false
 }
 
 val quarkusPlatformGroupId: String by project
@@ -45,6 +49,26 @@ val reactNativeApps = listOf(
 )
 
 val kotlinLibraries = listOf<Project>()
+
+
+val springBoot = listOf(project(":apps:anthaathi-graphql-engine"))
+
+configure(subprojects.filter { it in springBoot }) {
+    apply {
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.spring")
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+    }
+
+    java.sourceCompatibility = JavaVersion.VERSION_11
+
+    repositories {
+        mavenCentral()
+    }
+}
 
 // Quarkus configuration
 configure(subprojects.filter { it in quarkusCommonProjects }) {

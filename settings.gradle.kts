@@ -15,15 +15,11 @@ pluginManagement {
 rootProject.name = "anthaathi"
 
 include(
-    ":apps:anthaathi-graphql-engine"
-)
-
-include(
     ":apps:anthaathi-commerce-mobile-client",
 )
 
 include(
-    ":apps:anthaathi-graphql-framework"
+    ":apps:anthaathi-graphql-engine"
 )
 
 include(
