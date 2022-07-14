@@ -128,7 +128,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
               titleStyle={{
                 color: '#000000',
               }}
-              title="Description">
+              title={intl.formatMessage({defaultMessage: 'Description'})}>
               <Text style={{marginHorizontal: 20}}>
                 {props.productInfo.listInfo?.description}
               </Text>
@@ -136,7 +136,9 @@ function FeaturedProduct(props: ProductDetailsProps) {
             <Divider />
             <List.Accordion
               titleStyle={{color: '#000000'}}
-              title="Shipping information"
+              title={intl.formatMessage({
+                defaultMessage: 'Shipping information',
+              })}
               expanded={expanded}
               onPress={handlePress}>
               <Text style={{marginHorizontal: 20}}>
