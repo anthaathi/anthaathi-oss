@@ -5,6 +5,7 @@ import graphql.schema.idl.TypeDefinitionRegistry
 import org.anthaathi.graphqlengine.plugins.core.interfaces.CorePlugin
 import org.anthaathi.graphqlengine.plugins.core.interfaces.PluginKind
 import org.apache.commons.text.CaseUtils
+import java.util.*
 
 class ArangoGraphqlEngine : CorePlugin {
     override val name = "arangoCollection"
@@ -17,7 +18,7 @@ class ArangoGraphqlEngine : CorePlugin {
 
         typeDefinitionRegistry.addAll(parseConnectionDirective(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
-        // typeDefinitionRegistry.addAll(createInsertMutation(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createInsertMutation(definitions.values.toMutableList()))
 
         return typeDefinitionRegistry
     }
@@ -25,47 +26,55 @@ class ArangoGraphqlEngine : CorePlugin {
     private fun createInsertMutation(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
         val definitions = mutableListOf<TypeDefinition<*>>()
 
-        val mutationList = mutableListOf<FieldDefinition>()
+        val objectTypeDefinitions = types.filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
 
-        types.filterIsInstance<ObjectTypeDefinition>().forEach { it ->
-            mutationList.add(
-                FieldDefinition.newFieldDefinition()
-                    .name("create${it.name}")
-                    .inputValueDefinition(
-                        InputValueDefinition.newInputValueDefinition()
-                            .name("input")
-                            .type(TypeName("Create${it.name}Input"))
-                            .build()
-                    )
-                    .build()
-            )
+        objectTypeDefinitions.forEach { objectTypeDefinition ->
 
-            val inputValues: List<InputValueDefinition> = it.children.map {
-                if (it.children !is FieldDefinition) {
-                    return@map null
-                }
+            val inputValueDefinitions = mutableListOf<InputValueDefinition>()
+            val mutationFieldDefinition = mutableListOf<FieldDefinition>()
 
-                return@map InputValueDefinition.newInputValueDefinition()
-                    .name("")
-                    .type(TypeName(""))
-                    .build()
+            objectTypeDefinition.fieldDefinitions.forEach {
+                val type = if (it.name.lowercase() == "id") unwrapNonNull(it.type) else it.type
+                inputValueDefinitions.add(
+                    InputValueDefinition.newInputValueDefinition()
+                        .name(it.name.toString())
+                        .type(type)
+                        .build()
+                )
+            }
 
-            }.filterNotNull()
+            objectTypeDefinitions.forEach {
+                mutationFieldDefinition.add(
+                    FieldDefinition.newFieldDefinition()
+                        .name("Create${it.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}")
+                        .type(TypeName(it.name))
+                        .inputValueDefinition(
+                            InputValueDefinition.newInputValueDefinition()
+                                .name("input")
+                                .type(NonNullType.newNonNullType()
+                                    .type(TypeName("${it.name}Input"))
+                                    .build())
+                                .build()
+                        )
+                        .build()
+                )
+            }
 
             definitions.add(
                 InputObjectTypeDefinition.newInputObjectDefinition()
-                    .name("Create${it.name}Input")
-                    .inputValueDefinitions(inputValues)
+                    .name("${objectTypeDefinition.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}Input")
+                    .inputValueDefinitions(inputValueDefinitions)
+                    .build()
+            )
+
+            definitions.add(
+                ObjectTypeDefinition.newObjectTypeDefinition()
+                    .name("Mutation")
+                    .fieldDefinitions(mutationFieldDefinition)
                     .build()
             )
         }
-
-        definitions.add(
-            ObjectTypeExtensionDefinition.newObjectTypeDefinition()
-                .name("Mutation")
-                .fieldDefinitions(mutationList)
-                .build()
-        )
 
         return definitions
     }
