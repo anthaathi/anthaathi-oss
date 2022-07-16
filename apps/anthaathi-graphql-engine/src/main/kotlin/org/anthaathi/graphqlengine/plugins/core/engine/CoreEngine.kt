@@ -4,7 +4,7 @@ import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsTypeDefinitionRegistry
 import graphql.language.*
 import graphql.schema.idl.TypeDefinitionRegistry
-import org.anthaathi.graphqlengine.plugins.arango.ArangoGraphqlEngine
+import org.anthaathi.graphqlengine.plugins.postgres.PostgreSQLGraphqlEngine
 import org.anthaathi.graphqlengine.plugins.core.input_generator.IDCmp
 import org.anthaathi.graphqlengine.plugins.core.input_generator.InputGenerator
 import org.anthaathi.graphqlengine.plugins.core.input_generator.StringCmp
@@ -13,7 +13,7 @@ import org.anthaathi.graphqlengine.plugins.core.interfaces.CorePlugin
 @DgsComponent
 class CoreEngine {
     val plugins = listOf<CorePlugin>(
-        ArangoGraphqlEngine()
+        PostgreSQLGraphqlEngine()
     )
 
     val inputGenerator = listOf<InputGenerator>(
@@ -23,7 +23,7 @@ class CoreEngine {
 
     @DgsTypeDefinitionRegistry
     fun registry(schemaRegistry: TypeDefinitionRegistry): TypeDefinitionRegistry? {
-        var typeDefinitionRegistry = createNodeForQuery()
+        var typeDefinitionRegistry = TypeDefinitionRegistry()
 
         plugins.forEach {
             typeDefinitionRegistry = typeDefinitionRegistry.merge(it.registry(schemaRegistry))
@@ -32,6 +32,8 @@ class CoreEngine {
         inputGenerator.forEach {
             typeDefinitionRegistry = typeDefinitionRegistry.merge(it.registry(schemaRegistry))
         }
+
+        typeDefinitionRegistry.add(createNodeQuery())
 
         return typeDefinitionRegistry
     }
@@ -52,29 +54,4 @@ class CoreEngine {
             .name("Query")
             .build()
     }
-
-    private fun createNodeForQuery(): TypeDefinitionRegistry {
-        val registry = TypeDefinitionRegistry()
-
-        registry.add(createNodeInterface())
-
-        return registry;
-    }
-
-    private fun createNodeInterface(): InterfaceTypeDefinition {
-        val idField = FieldDefinition.newFieldDefinition()
-            .name("id")
-            .type(NonNullType(TypeName("ID")))
-            .build()
-
-        return InterfaceTypeDefinition.newInterfaceTypeDefinition()
-            .name("Node")
-            .definitions(
-                listOf(
-                    idField
-                )
-            )
-            .build()
-    }
-
 }

@@ -1,14 +1,13 @@
-package org.anthaathi.graphqlengine.plugins.arango
+package org.anthaathi.graphqlengine.plugins.postgres
 
 import graphql.language.*
 import graphql.schema.idl.TypeDefinitionRegistry
 import org.anthaathi.graphqlengine.plugins.core.interfaces.CorePlugin
 import org.anthaathi.graphqlengine.plugins.core.interfaces.PluginKind
 import org.apache.commons.text.CaseUtils
-import java.util.*
 
-class ArangoGraphqlEngine : CorePlugin {
-    override val name = "arangoCollection"
+class PostgreSQLGraphqlEngine : CorePlugin {
+    override val name = "postgres"
     override val kind: PluginKind = PluginKind.DATABASE
     override val idPrefix: String = "anthaathi://db/"
 
@@ -16,6 +15,7 @@ class ArangoGraphqlEngine : CorePlugin {
         val definitions = schemaRegistry.types()
         val typeDefinitionRegistry = TypeDefinitionRegistry()
 
+        typeDefinitionRegistry.add(createNodeInterface())
         typeDefinitionRegistry.addAll(parseConnectionDirective(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createInsertMutation(definitions.values.toMutableList()))
@@ -30,12 +30,11 @@ class ArangoGraphqlEngine : CorePlugin {
             .filter { it.hasDirective(name) }
 
         objectTypeDefinitions.forEach { objectTypeDefinition ->
-
             val inputValueDefinitions = mutableListOf<InputValueDefinition>()
             val mutationFieldDefinition = mutableListOf<FieldDefinition>()
 
             objectTypeDefinition.fieldDefinitions.forEach {
-                val type = if (it.name.lowercase() == "id") unwrapNonNull(it.type) else it.type
+                val type = if (it.name == "id") unwrapNonNull(it.type) else it.type
                 inputValueDefinitions.add(
                     InputValueDefinition.newInputValueDefinition()
                         .name(it.name.toString())
@@ -47,13 +46,13 @@ class ArangoGraphqlEngine : CorePlugin {
             objectTypeDefinitions.forEach {
                 mutationFieldDefinition.add(
                     FieldDefinition.newFieldDefinition()
-                        .name("Create${it.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}")
+                        .name("create${ CaseUtils.toCamelCase(it.name, true) }")
                         .type(TypeName(it.name))
                         .inputValueDefinition(
                             InputValueDefinition.newInputValueDefinition()
                                 .name("input")
                                 .type(NonNullType.newNonNullType()
-                                    .type(TypeName("${it.name}Input"))
+                                    .type(TypeName("Create${it.name}Input"))
                                     .build())
                                 .build()
                         )
@@ -63,7 +62,7 @@ class ArangoGraphqlEngine : CorePlugin {
 
             definitions.add(
                 InputObjectTypeDefinition.newInputObjectDefinition()
-                    .name("${objectTypeDefinition.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}Input")
+                    .name("Create${ CaseUtils.toCamelCase(objectTypeDefinition.name, true) }Input")
                     .inputValueDefinitions(inputValueDefinitions)
                     .build()
             )
@@ -266,4 +265,19 @@ class ArangoGraphqlEngine : CorePlugin {
             .build()
     }
 
+    private fun createNodeInterface(): InterfaceTypeDefinition {
+        val idField = FieldDefinition.newFieldDefinition()
+            .name("id")
+            .type(NonNullType(TypeName("ID")))
+            .build()
+
+        return InterfaceTypeDefinition.newInterfaceTypeDefinition()
+            .name("Node")
+            .definitions(
+                listOf(
+                    idField
+                )
+            )
+            .build()
+    }
 }

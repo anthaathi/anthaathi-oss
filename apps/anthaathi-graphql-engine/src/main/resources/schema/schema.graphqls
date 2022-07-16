@@ -1,15 +1,15 @@
-directive @arangoCollection(name: String!) on OBJECT
+directive @postgresCollection(name: String!) on OBJECT
 directive @hasMetadata on OBJECT
 directive @cmsObject on OBJECT
 directive @tenantScoped on OBJECT
 
-type Product implements Node @arangoCollection(name: "product") @hasMetadata @cmsObject @tenantScoped {
+type Product implements Node @postgresCollection(name: "product") @hasMetadata @cmsObject @tenantScoped {
     id: ID!
     title: String!
     description: HTML!
 }
 
-type Page implements Node @arangoCollection(name: "page") @hasMetadata @cmsObject @tenantScoped {
+type Page implements Node @postgresCollection(name: "page") @hasMetadata @cmsObject @tenantScoped {
     id: ID!
     title: String!
     description: HTML!
