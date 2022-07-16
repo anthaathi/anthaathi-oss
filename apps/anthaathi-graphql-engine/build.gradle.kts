@@ -19,6 +19,20 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-text
     implementation("org.apache.commons:commons-text:1.9")
+
+
+    // In this case we are using the JUnit5 testing framework
+    testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:3.2.+")
+
+    // Many will want to serialize into JSON.  In this case you should also add the Jackson plugin
+    testImplementation("io.github.origin-energy:java-snapshot-testing-plugin-jackson:3.2.+")
+    testImplementation("com.fasterxml.jackson.core:jackson-core:2.11.3")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.11.3")
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.11.3")
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.3")
+
+    // slf4j logging implementation if you don't already have one
+    testImplementation("org.slf4j:slf4j-simple:2.0.0-alpha0")
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
