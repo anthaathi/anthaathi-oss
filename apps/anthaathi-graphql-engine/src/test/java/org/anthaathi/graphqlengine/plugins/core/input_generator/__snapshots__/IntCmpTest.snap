@@ -1,0 +1,12 @@
+org.anthaathi.graphqlengine.plugins.core.input_generator.IntCmpTest.registry=type Query {
+  _snap: Boolean
+}
+
+input IntComparisonInput {
+  _eq: Int
+  _neq: Int
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+}
