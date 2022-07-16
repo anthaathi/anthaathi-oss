@@ -4,10 +4,8 @@ import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsTypeDefinitionRegistry
 import graphql.language.*
 import graphql.schema.idl.TypeDefinitionRegistry
+import org.anthaathi.graphqlengine.plugins.core.input_generator.*
 import org.anthaathi.graphqlengine.plugins.postgres.PostgreSQLGraphqlEngine
-import org.anthaathi.graphqlengine.plugins.core.input_generator.IDCmp
-import org.anthaathi.graphqlengine.plugins.core.input_generator.InputGenerator
-import org.anthaathi.graphqlengine.plugins.core.input_generator.StringCmp
 import org.anthaathi.graphqlengine.plugins.core.interfaces.CorePlugin
 
 @DgsComponent
@@ -18,7 +16,11 @@ class CoreEngine {
 
     val inputGenerator = listOf<InputGenerator>(
         StringCmp(),
-        IDCmp()
+        IDCmp(),
+        BooleanCmp(),
+        FloatCmp(),
+        IntCmp(),
+        DateTimeCmp()
     )
 
     @DgsTypeDefinitionRegistry

@@ -1,0 +1,8 @@
+org.anthaathi.graphqlengine.plugins.core.input_generator.BooleanCmpTest.registry=type Query {
+  _snap: Boolean
+}
+
+input BooleanComparisonInput {
+  eq: Boolean
+  neq: Boolean
+}

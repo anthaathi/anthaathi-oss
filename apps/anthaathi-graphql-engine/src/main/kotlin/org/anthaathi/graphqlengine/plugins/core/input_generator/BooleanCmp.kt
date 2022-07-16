@@ -5,7 +5,7 @@ import graphql.language.InputValueDefinition
 import graphql.language.TypeName
 import graphql.schema.idl.TypeDefinitionRegistry
 
-class IDCmp : InputGenerator {
+class BooleanCmp : InputGenerator{
     override fun registry(schemaRegistry: TypeDefinitionRegistry): TypeDefinitionRegistry? {
         val registry = TypeDefinitionRegistry()
         registry.add(generate())
@@ -14,17 +14,17 @@ class IDCmp : InputGenerator {
 
     private fun generate(): InputObjectTypeDefinition? {
         return InputObjectTypeDefinition.newInputObjectDefinition()
-            .name("IDComparisonInput")
+            .name("BooleanComparisonInput")
             .inputValueDefinition(
                 InputValueDefinition.newInputValueDefinition()
                     .name("eq")
-                    .type(TypeName("ID"))
+                    .type(TypeName("Boolean"))
                     .build()
             )
             .inputValueDefinition(
                 InputValueDefinition.newInputValueDefinition()
                     .name("neq")
-                    .type(TypeName("ID"))
+                    .type(TypeName("Boolean"))
                     .build()
             )
             .build()
