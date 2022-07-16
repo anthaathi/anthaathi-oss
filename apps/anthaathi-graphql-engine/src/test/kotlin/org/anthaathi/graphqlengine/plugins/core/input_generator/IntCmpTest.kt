@@ -18,7 +18,7 @@ internal class IntCmpTest {
         val result = IntCmp().registry(typeDefinitionRegistry)
 
         expect!!
-            .serializer("json")
-            .toMatchSnapshot(result);
+            .serializer("graphql")
+            .toMatchSnapshot(result)
     }
 }

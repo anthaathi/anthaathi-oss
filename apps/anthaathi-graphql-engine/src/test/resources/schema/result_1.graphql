@@ -29,7 +29,7 @@ type PageInfo {
 type Query {
     node(id: ID!): Node
 
-    products(first: Int, last: Int, before: String, after: String, where: [ProductConditionInput]): ProductConnection
+    products(first: Int, last: Int, before: String, after: String, where: [ProductConditionInput!]): ProductConnection
 
     productByHandle(handle: String!): Product
 }
@@ -42,6 +42,9 @@ input CreateProductInput {
 input ProductConditionInput {
     _and: [ProductConditionInput!]
     _or: [ProductConditionInput!]
+
+    title: StringComparisonInput!
+    description: HTML!
 }
 
 input IDComparisonInput {
