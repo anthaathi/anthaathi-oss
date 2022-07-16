@@ -3,6 +3,6 @@ org.anthaathi.graphqlengine.plugins.core.input_generator.IDCmpTest.registry=type
 }
 
 input IDComparisonInput {
-  _eq: ID
-  _neq: ID
+  eq: ID
+  neq: ID
 }

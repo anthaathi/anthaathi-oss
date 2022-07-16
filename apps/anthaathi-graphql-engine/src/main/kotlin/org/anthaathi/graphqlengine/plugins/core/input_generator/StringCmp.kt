@@ -2,6 +2,8 @@ package org.anthaathi.graphqlengine.plugins.core.input_generator
 
 import graphql.language.InputObjectTypeDefinition
 import graphql.language.InputValueDefinition
+import graphql.language.ListType
+import graphql.language.NonNullType
 import graphql.language.TypeName
 import graphql.schema.idl.TypeDefinitionRegistry
 
@@ -17,17 +19,34 @@ class StringCmp : InputGenerator {
             .name("StringComparisonInput")
             .inputValueDefinition(
                 InputValueDefinition.newInputValueDefinition()
-                    .name("_eq")
+                    .name("eq")
                     .type(TypeName("String"))
                     .build()
             )
             .inputValueDefinition(
                 InputValueDefinition.newInputValueDefinition()
-                    .name("_neq")
+                    .name("neq")
                     .type(TypeName("String"))
+                    .build()
+            )
+            .inputValueDefinition(
+                InputValueDefinition.newInputValueDefinition()
+                    .name("in")
+                    .type(
+                        ListType.newListType()
+                        .type(NonNullType(TypeName("String")))
+                        .build())
+                    .build()
+            )
+            .inputValueDefinition(
+                InputValueDefinition.newInputValueDefinition()
+                    .name("notIn")
+                    .type(
+                        ListType.newListType()
+                        .type(NonNullType(TypeName("String")))
+                        .build())
                     .build()
             )
             .build()
     }
-
 }
