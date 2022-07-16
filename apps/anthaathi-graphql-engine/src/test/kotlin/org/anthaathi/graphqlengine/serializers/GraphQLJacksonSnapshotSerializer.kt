@@ -6,6 +6,7 @@ import au.com.origin.snapshots.serializers.ToStringSnapshotSerializer
 import graphql.language.FieldDefinition
 import graphql.language.ObjectTypeExtensionDefinition
 import graphql.language.TypeName
+import graphql.scalars.ExtendedScalars
 import graphql.schema.idl.RuntimeWiring
 import graphql.schema.idl.SchemaGenerator
 import graphql.schema.idl.SchemaPrinter
@@ -19,6 +20,7 @@ class GraphQLJacksonSnapshotSerializer : SnapshotSerializer {
         val encoded = Arrays.stream(objects).map { obj: Any? ->
             if (obj is TypeDefinitionRegistry) {
                 val runtimeWiring = RuntimeWiring.newRuntimeWiring()
+                    .scalar(ExtendedScalars.DateTime)
                     .build()
 
                 obj.add(
@@ -36,6 +38,7 @@ class GraphQLJacksonSnapshotSerializer : SnapshotSerializer {
                 val result = SchemaGenerator().makeExecutableSchema(obj, runtimeWiring)
                 return@map SchemaPrinter(
                     SchemaPrinter.Options.defaultOptions()
+                        .includeScalarTypes(true)
                         .includeDirectives(false)
                 ).print(result)
             }
