@@ -1,15 +1,15 @@
-directive @postgresCollection(name: String!) on OBJECT
+directive @postgres(name: String!) on OBJECT
 directive @hasMetadata on OBJECT
 directive @cmsObject on OBJECT
 directive @tenantScoped on OBJECT
 
-type Product implements Node @postgresCollection(name: "product") @hasMetadata @cmsObject @tenantScoped {
+type Product implements Node @postgres(name: "product") @hasMetadata @cmsObject @tenantScoped {
     id: ID!
     title: String!
     description: HTML!
 }
 
-type Page implements Node @postgresCollection(name: "page") @hasMetadata @cmsObject @tenantScoped {
+type Page implements Node @postgres(name: "page") @hasMetadata @cmsObject @tenantScoped {
     id: ID!
     title: String!
     description: HTML!
