@@ -20,8 +20,8 @@ class PostgreSQLGraphqlEngine : CorePlugin {
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createInsertInputTypes(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createUpdateInputTypes(definitions.values.toMutableList()))
-        typeDefinitionRegistry.add(createUpdateResponseType())
-        typeDefinitionRegistry.add(createDeleteResponseType())
+        typeDefinitionRegistry.addAll(createUpdateResponseType(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createDeleteResponseType(definitions.values.toMutableList()))
 
         typeDefinitionRegistry.add(ObjectTypeDefinition.newObjectTypeDefinition()
             .name("Mutation")
@@ -114,27 +114,38 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                     .inputValueDefinition(
                         InputValueDefinition.newInputValueDefinition()
                             .name("input")
-                            .type(TypeName("Create${ CaseUtils.toCamelCase(it.name, true) }Input"))
+                            .type(TypeName("Update${ CaseUtils.toCamelCase(it.name, true) }Input"))
                             .build()
                     )
-                    .type(TypeName("UpdateResponse"))
+                    .type(TypeName("Update${ it.name }Response"))
                     .build()
             )
         }
 
         return fieldDefinitions
     }
-    private fun createUpdateResponseType(): ObjectTypeDefinition {
+    private fun createUpdateResponseType(types: MutableList<TypeDefinition<*>>): List<ObjectTypeDefinition> {
+        val responseTypeDefinitions = mutableListOf<ObjectTypeDefinition>()
 
-        return ObjectTypeDefinition.newObjectTypeDefinition()
-            .name("UpdateResponse")
-            .fieldDefinition(
-                FieldDefinition.newFieldDefinition()
-                    .name("affectedRows")
-                    .type(TypeName("Int"))
+        val objectTypeDefinitions = types
+            .filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        objectTypeDefinitions.forEach {
+            responseTypeDefinitions.add(
+                ObjectTypeDefinition.newObjectTypeDefinition()
+                    .name("Update${ it.name }Response")
+                    .fieldDefinition(
+                        FieldDefinition.newFieldDefinition()
+                            .name("affectedRows")
+                            .type(TypeName("Int"))
+                            .build()
+                    )
                     .build()
             )
-            .build()
+        }
+
+        return responseTypeDefinitions
     }
     private fun createUpdateInputTypes(types: MutableList<TypeDefinition<*>>): List<InputObjectTypeDefinition> {
         val inputObjectTypeDefinitions = mutableListOf<InputObjectTypeDefinition>()
@@ -146,13 +157,14 @@ class PostgreSQLGraphqlEngine : CorePlugin {
             val inputValueDefinitions = mutableListOf<InputValueDefinition>()
 
             objectTypeDefinition.fieldDefinitions.forEach {
-                val type = if (it.name == "id") unwrapNonNull(it.type) else it.type
-                inputValueDefinitions.add(
-                    InputValueDefinition.newInputValueDefinition()
-                        .name(it.name.toString())
-                        .type(type)
-                        .build()
-                )
+                if (it.name != "id") {
+                    inputValueDefinitions.add(
+                        InputValueDefinition.newInputValueDefinition()
+                            .name(it.name.toString())
+                            .type(unwrapNonNull(it.type))
+                            .build()
+                    )
+                }
             }
 
             inputObjectTypeDefinitions.add(
@@ -186,23 +198,35 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                             )
                             .build()
                     )
-                    .type(TypeName("DeleteResponse"))
+                    .type(TypeName("Delete${ it.name }Response"))
                     .build()
             )
         }
 
         return fieldDefinitions
     }
-    private fun createDeleteResponseType(): ObjectTypeDefinition {
-        return ObjectTypeDefinition.newObjectTypeDefinition()
-            .name("DeleteResponse")
-            .fieldDefinition(
-                FieldDefinition.newFieldDefinition()
-                    .name("affectedRows")
-                    .type(TypeName("Int"))
+    private fun createDeleteResponseType(types: MutableList<TypeDefinition<*>>): List<ObjectTypeDefinition> {
+        val responseTypeDefinitions = mutableListOf<ObjectTypeDefinition>()
+
+        val objectTypeDefinitions = types
+            .filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        objectTypeDefinitions.forEach {
+            responseTypeDefinitions.add(
+                ObjectTypeDefinition.newObjectTypeDefinition()
+                    .name("Delete${ it.name }Response")
+                    .fieldDefinition(
+                        FieldDefinition.newFieldDefinition()
+                            .name("affectedRows")
+                            .type(TypeName("Int"))
+                            .build()
+                    )
                     .build()
             )
-            .build()
+        }
+
+        return responseTypeDefinitions
     }
 
     private fun createConnectionForQuery(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
