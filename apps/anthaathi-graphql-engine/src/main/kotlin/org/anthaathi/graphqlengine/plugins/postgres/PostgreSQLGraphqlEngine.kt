@@ -18,20 +18,56 @@ class PostgreSQLGraphqlEngine : CorePlugin {
         typeDefinitionRegistry.add(createNodeInterface())
         typeDefinitionRegistry.addAll(parseConnectionDirective(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
-        typeDefinitionRegistry.addAll(createInsertMutation(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createInsertInputType(definitions.values.toMutableList()))
+        typeDefinitionRegistry.add(createUpdateResponseType())
+        typeDefinitionRegistry.add(createDeleteResponseType())
+
+        typeDefinitionRegistry.add(ObjectTypeDefinition.newObjectTypeDefinition()
+            .name("Mutation")
+            .fieldDefinitions(
+                createInsertMutationFields(definitions.values.toMutableList())
+                +   createUpdateMutationFields(definitions.values.toMutableList())
+                +   createDeleteMutationFields(definitions.values.toMutableList())
+            )
+            .build())
 
         return typeDefinitionRegistry
     }
 
-    private fun createInsertMutation(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
-        val definitions = mutableListOf<TypeDefinition<*>>()
+    private fun createInsertMutationFields(types: MutableList<TypeDefinition<*>>): List<FieldDefinition> {
+        val fieldDefinitions = mutableListOf<FieldDefinition>()
+
+        val objectTypeDefinitions = types.filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        objectTypeDefinitions.forEach {
+            fieldDefinitions.add(
+                FieldDefinition.newFieldDefinition()
+                    .name("create${ CaseUtils.toCamelCase(it.name, true) }")
+                    .type(TypeName(it.name))
+                    .inputValueDefinition(
+                        InputValueDefinition.newInputValueDefinition()
+                            .name("input")
+                            .type(NonNullType.newNonNullType()
+                                .type(TypeName("Create${it.name}Input"))
+                                .build())
+                            .build()
+                    )
+                    .build()
+            )
+        }
+
+        return fieldDefinitions
+    }
+    private fun createInsertInputType(types: MutableList<TypeDefinition<*>>): List<InputObjectTypeDefinition> {
+        val inputObjectTypeDefinitions = mutableListOf<InputObjectTypeDefinition>()
 
         val objectTypeDefinitions = types.filterIsInstance<ObjectTypeDefinition>()
             .filter { it.hasDirective(name) }
 
         objectTypeDefinitions.forEach { objectTypeDefinition ->
             val inputValueDefinitions = mutableListOf<InputValueDefinition>()
-            val mutationFieldDefinition = mutableListOf<FieldDefinition>()
+            val fieldDefinition = mutableListOf<FieldDefinition>()
 
             objectTypeDefinition.fieldDefinitions.forEach {
                 val type = if (it.name == "id") unwrapNonNull(it.type) else it.type
@@ -43,39 +79,95 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                 )
             }
 
-            objectTypeDefinitions.forEach {
-                mutationFieldDefinition.add(
-                    FieldDefinition.newFieldDefinition()
-                        .name("create${ CaseUtils.toCamelCase(it.name, true) }")
-                        .type(TypeName(it.name))
-                        .inputValueDefinition(
-                            InputValueDefinition.newInputValueDefinition()
-                                .name("input")
-                                .type(NonNullType.newNonNullType()
-                                    .type(TypeName("Create${it.name}Input"))
-                                    .build())
-                                .build()
-                        )
-                        .build()
-                )
-            }
-
-            definitions.add(
+            inputObjectTypeDefinitions.add(
                 InputObjectTypeDefinition.newInputObjectDefinition()
                     .name("Create${ CaseUtils.toCamelCase(objectTypeDefinition.name, true) }Input")
                     .inputValueDefinitions(inputValueDefinitions)
                     .build()
             )
+        }
 
-            definitions.add(
-                ObjectTypeDefinition.newObjectTypeDefinition()
-                    .name("Mutation")
-                    .fieldDefinitions(mutationFieldDefinition)
+        return inputObjectTypeDefinitions
+    }
+
+    private fun createUpdateMutationFields(types: MutableList<TypeDefinition<*>>): List<FieldDefinition>    {
+        val fieldDefinitions = mutableListOf<FieldDefinition>()
+
+        val objectTypeDefinitions = types
+            .filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        objectTypeDefinitions.forEach {
+            fieldDefinitions.add(
+                FieldDefinition.newFieldDefinition()
+                    .name("update${ it.name }")
+                    .inputValueDefinition(
+                        InputValueDefinition.newInputValueDefinition()
+                            .name("where")
+                            .type(
+                                NonNullType.newNonNullType()
+                                    .type(ListType(TypeName("${ it.name }ConditionInput")))
+                                    .build()
+                            )
+                            .build()
+                    )
+                    .type(TypeName("updateResponse"))
                     .build()
             )
         }
 
-        return definitions
+        return fieldDefinitions
+    }
+    private fun createUpdateResponseType(): ObjectTypeDefinition {
+
+        return ObjectTypeDefinition.newObjectTypeDefinition()
+            .name("updateResponse")
+            .fieldDefinition(
+                FieldDefinition.newFieldDefinition()
+                    .name("affectedRows")
+                    .type(TypeName("Int"))
+                    .build()
+            )
+            .build()
+    }
+
+    private fun createDeleteMutationFields(types: MutableList<TypeDefinition<*>>): List<FieldDefinition>  {
+        val objectTypeDefinitions = types
+            .filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        val fieldDefinitions = mutableListOf<FieldDefinition>()
+        objectTypeDefinitions.forEach {
+            fieldDefinitions.add(
+                FieldDefinition.newFieldDefinition()
+                    .name("delete${ it.name }")
+                    .inputValueDefinition(
+                        InputValueDefinition.newInputValueDefinition()
+                            .name("where")
+                            .type(
+                                NonNullType.newNonNullType()
+                                    .type(ListType(TypeName("${ it.name }ConditionInput")))
+                                    .build()
+                            )
+                            .build()
+                    )
+                    .type(TypeName("deleteResponse"))
+                    .build()
+            )
+        }
+
+        return fieldDefinitions
+    }
+    private fun createDeleteResponseType(): ObjectTypeDefinition {
+        return ObjectTypeDefinition.newObjectTypeDefinition()
+            .name("deleteResponse")
+            .fieldDefinition(
+                FieldDefinition.newFieldDefinition()
+                    .name("affectedRows")
+                    .type(TypeName("Int"))
+                    .build()
+            )
+            .build()
     }
 
     private fun createConnectionForQuery(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
@@ -95,7 +187,6 @@ class PostgreSQLGraphqlEngine : CorePlugin {
 
         return definitions
     }
-
     private fun createConditionInput(it: TypeDefinition<ObjectTypeDefinition>): TypeDefinition<InputObjectTypeDefinition> {
         val inputs = mutableListOf<InputValueDefinition>()
 
@@ -138,7 +229,7 @@ class PostgreSQLGraphqlEngine : CorePlugin {
             .build()
     }
 
-    fun unwrapNonNull(it: Type<*>): Type<*>? {
+    private fun unwrapNonNull(it: Type<*>): Type<*>? {
         return if (it is NonNullType) {
             it.children.first() as Type<*>?
         } else {
