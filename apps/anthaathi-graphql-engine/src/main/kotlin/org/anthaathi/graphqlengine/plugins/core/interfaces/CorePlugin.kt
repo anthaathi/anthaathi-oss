@@ -2,16 +2,14 @@ package org.anthaathi.graphqlengine.plugins.core.interfaces
 
 import graphql.schema.idl.TypeDefinitionRegistry
 
-enum class PluginKind {
-    DATABASE,
+interface CorePlugin {
+    val idPrefix: String
+
+    fun registry(schemaRegistry: TypeDefinitionRegistry): TypeDefinitionRegistry?
 }
 
-interface CorePlugin {
-    val name: String
-    val kind: PluginKind
-    val priority: Int
-        get() = 0
-    val idPrefix: String
+interface SchemaTypeGenerator {
+    val decorators: List<String>
 
     fun registry(schemaRegistry: TypeDefinitionRegistry): TypeDefinitionRegistry?
 }
