@@ -4,11 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {RelayEnvironmentProvider} from 'react-relay';
 import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
-import {
-  MD3LightTheme as DefaultTheme,
-  Provider as PaperProvider,
-  ThemeBase,
-} from 'react-native-paper';
+import {MD3LightTheme as DefaultTheme, Provider as PaperProvider, ThemeBase,} from 'react-native-paper';
 import CMSRenderer from './features/CMS';
 
 declare global {
@@ -37,7 +33,13 @@ const App = () => {
       <PaperProvider theme={theme}>
         <NavigationContainer>
           <RelayEnvironmentProvider environment={RelayEnv as never}>
-            <CMSRenderer />
+            <CMSRenderer components={[
+              {
+                _component: 'core.header',
+                key: '123',
+                title: 'Something'
+              }
+            ]} />
           </RelayEnvironmentProvider>
         </NavigationContainer>
       </PaperProvider>
