@@ -18,7 +18,8 @@ class PostgreSQLGraphqlEngine : CorePlugin {
         typeDefinitionRegistry.add(createNodeInterface())
         typeDefinitionRegistry.addAll(parseConnectionDirective(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
-        typeDefinitionRegistry.addAll(createInsertInputType(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createInsertInputTypes(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createUpdateInputTypes(definitions.values.toMutableList()))
         typeDefinitionRegistry.add(createUpdateResponseType())
         typeDefinitionRegistry.add(createDeleteResponseType())
 
@@ -59,7 +60,7 @@ class PostgreSQLGraphqlEngine : CorePlugin {
 
         return fieldDefinitions
     }
-    private fun createInsertInputType(types: MutableList<TypeDefinition<*>>): List<InputObjectTypeDefinition> {
+    private fun createInsertInputTypes(types: MutableList<TypeDefinition<*>>): List<InputObjectTypeDefinition> {
         val inputObjectTypeDefinitions = mutableListOf<InputObjectTypeDefinition>()
 
         val objectTypeDefinitions = types.filterIsInstance<ObjectTypeDefinition>()
@@ -67,7 +68,6 @@ class PostgreSQLGraphqlEngine : CorePlugin {
 
         objectTypeDefinitions.forEach { objectTypeDefinition ->
             val inputValueDefinitions = mutableListOf<InputValueDefinition>()
-            val fieldDefinition = mutableListOf<FieldDefinition>()
 
             objectTypeDefinition.fieldDefinitions.forEach {
                 val type = if (it.name == "id") unwrapNonNull(it.type) else it.type
@@ -105,13 +105,19 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                         InputValueDefinition.newInputValueDefinition()
                             .name("where")
                             .type(
-                                NonNullType.newNonNullType()
-                                    .type(ListType(TypeName("${ it.name }ConditionInput")))
+                                ListType.newListType()
+                                    .type(NonNullType(TypeName("${ it.name }ConditionInput")))
                                     .build()
                             )
                             .build()
                     )
-                    .type(TypeName("updateResponse"))
+                    .inputValueDefinition(
+                        InputValueDefinition.newInputValueDefinition()
+                            .name("input")
+                            .type(TypeName("Create${ CaseUtils.toCamelCase(it.name, true) }Input"))
+                            .build()
+                    )
+                    .type(TypeName("UpdateResponse"))
                     .build()
             )
         }
@@ -121,7 +127,7 @@ class PostgreSQLGraphqlEngine : CorePlugin {
     private fun createUpdateResponseType(): ObjectTypeDefinition {
 
         return ObjectTypeDefinition.newObjectTypeDefinition()
-            .name("updateResponse")
+            .name("UpdateResponse")
             .fieldDefinition(
                 FieldDefinition.newFieldDefinition()
                     .name("affectedRows")
@@ -129,6 +135,35 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                     .build()
             )
             .build()
+    }
+    private fun createUpdateInputTypes(types: MutableList<TypeDefinition<*>>): List<InputObjectTypeDefinition> {
+        val inputObjectTypeDefinitions = mutableListOf<InputObjectTypeDefinition>()
+
+        val objectTypeDefinitions = types.filterIsInstance<ObjectTypeDefinition>()
+            .filter { it.hasDirective(name) }
+
+        objectTypeDefinitions.forEach { objectTypeDefinition ->
+            val inputValueDefinitions = mutableListOf<InputValueDefinition>()
+
+            objectTypeDefinition.fieldDefinitions.forEach {
+                val type = if (it.name == "id") unwrapNonNull(it.type) else it.type
+                inputValueDefinitions.add(
+                    InputValueDefinition.newInputValueDefinition()
+                        .name(it.name.toString())
+                        .type(type)
+                        .build()
+                )
+            }
+
+            inputObjectTypeDefinitions.add(
+                InputObjectTypeDefinition.newInputObjectDefinition()
+                    .name("Update${ CaseUtils.toCamelCase(objectTypeDefinition.name, true) }Input")
+                    .inputValueDefinitions(inputValueDefinitions)
+                    .build()
+            )
+        }
+
+        return inputObjectTypeDefinitions
     }
 
     private fun createDeleteMutationFields(types: MutableList<TypeDefinition<*>>): List<FieldDefinition>  {
@@ -145,13 +180,13 @@ class PostgreSQLGraphqlEngine : CorePlugin {
                         InputValueDefinition.newInputValueDefinition()
                             .name("where")
                             .type(
-                                NonNullType.newNonNullType()
-                                    .type(ListType(TypeName("${ it.name }ConditionInput")))
+                                ListType.newListType()
+                                    .type(NonNullType(TypeName("${ it.name }ConditionInput")))
                                     .build()
                             )
                             .build()
                     )
-                    .type(TypeName("deleteResponse"))
+                    .type(TypeName("DeleteResponse"))
                     .build()
             )
         }
@@ -160,7 +195,7 @@ class PostgreSQLGraphqlEngine : CorePlugin {
     }
     private fun createDeleteResponseType(): ObjectTypeDefinition {
         return ObjectTypeDefinition.newObjectTypeDefinition()
-            .name("deleteResponse")
+            .name("DeleteResponse")
             .fieldDefinition(
                 FieldDefinition.newFieldDefinition()
                     .name("affectedRows")
