@@ -15,7 +15,7 @@ class CRUDGenerator : SchemaTypeGenerator {
         val typeDefinitionRegistry = TypeDefinitionRegistry()
 
         typeDefinitionRegistry.add(createNodeInterface())
-        typeDefinitionRegistry.addAll(parseConnectionDirective(definitions.values.toMutableList()))
+        typeDefinitionRegistry.addAll(createConnectionDirective(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createConnectionForQuery(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createInsertInputTypes(definitions.values.toMutableList()))
         typeDefinitionRegistry.addAll(createUpdateInputTypes(definitions.values.toMutableList()))
@@ -331,6 +331,7 @@ class CRUDGenerator : SchemaTypeGenerator {
                                 .type(TypeName("${it.name}ConditionInput"))
                                 .build()
                         )
+                        .additionalData("generatedFrom", it.name)
                         .type(TypeName("${it.name}Connection"))
                         .build()
                 }
@@ -342,6 +343,7 @@ class CRUDGenerator : SchemaTypeGenerator {
     private fun createConnection(name: String): TypeDefinition<ObjectTypeDefinition?> {
         return ObjectTypeDefinition.newObjectTypeDefinition()
             .name("${name}Connection")
+            .additionalData("generatedFrom", name)
             .fieldDefinition(
                 FieldDefinition.newFieldDefinition()
                     .name("edges")
@@ -360,6 +362,7 @@ class CRUDGenerator : SchemaTypeGenerator {
     private fun createEdge(name: String): TypeDefinition<ObjectTypeDefinition?> {
         return ObjectTypeDefinition.newObjectTypeDefinition()
             .name("${name}Edge")
+            .additionalData("generatedFrom", name)
             .fieldDefinitions(
                 listOf(
                     FieldDefinition.newFieldDefinition()
@@ -374,7 +377,7 @@ class CRUDGenerator : SchemaTypeGenerator {
             ).build()
     }
 
-    private fun parseConnectionDirective(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
+    private fun createConnectionDirective(types: MutableList<TypeDefinition<*>>): List<TypeDefinition<*>> {
         val definitions = mutableListOf<TypeDefinition<*>>()
 
         if (!types.any { it.name == "PageInfo" }) {

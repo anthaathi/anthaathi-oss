@@ -33,6 +33,10 @@ dependencies {
 
     // slf4j logging implementation if you don't already have one
     testImplementation("org.slf4j:slf4j-simple:2.0.0-alpha0")
+
+    // TODO: THIS LIBRARY NEEDS TO CHANGE
+    // https://mvnrepository.com/artifact/io.zeko/zeko-sql-builder
+    implementation("io.zeko:zeko-sql-builder:1.4.0")
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
