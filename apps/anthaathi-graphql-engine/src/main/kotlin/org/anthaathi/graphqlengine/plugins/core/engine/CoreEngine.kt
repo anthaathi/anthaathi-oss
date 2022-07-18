@@ -4,20 +4,19 @@ import com.netflix.graphql.dgs.DgsCodeRegistry
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsTypeDefinitionRegistry
 import graphql.language.*
-import graphql.schema.DataFetcher
-import graphql.schema.DataFetchingEnvironment
-import graphql.schema.FieldCoordinates
 import graphql.schema.GraphQLCodeRegistry
 import graphql.schema.idl.TypeDefinitionRegistry
 import org.anthaathi.graphqlengine.plugins.core.input_generator.*
-import org.anthaathi.graphqlengine.plugins.core.interfaces.CorePlugin
+import org.anthaathi.graphqlengine.plugins.core.interfaces.GQLDataFetcher
 import org.anthaathi.graphqlengine.plugins.core.schema_generator.CRUDGenerator
-import java.util.*
+import org.anthaathi.graphqlengine.plugins.data_fetchers.postgres.PostgreSQLGraphqlEngine
 
 
 @DgsComponent
 class CoreEngine {
-    val plugins = listOf<CorePlugin>()
+    val plugins = listOf<GQLDataFetcher>(
+        PostgreSQLGraphqlEngine()
+    )
     val schemaGenerator = listOf(CRUDGenerator())
 
     val inputGenerator = listOf(
@@ -51,11 +50,23 @@ class CoreEngine {
         codeRegistryBuilder: GraphQLCodeRegistry.Builder,
         registry: TypeDefinitionRegistry?
     ): GraphQLCodeRegistry.Builder? {
-        val df = DataFetcher { dfe: DataFetchingEnvironment? -> Random().nextInt() }
+        var prev = codeRegistryBuilder
 
-        val coordinates = FieldCoordinates.coordinates("Query", "randomNumber")
+        (registry!!.types()["Query"] as ObjectTypeDefinition).fieldDefinitions.forEach {
+            if (it.additionalData.containsKey("generatedFrom")) {
+                val rootType = registry.types()[it.additionalData["generatedFrom"]]!!
 
-        return codeRegistryBuilder.dataFetcher(coordinates, df)
+                val matchedPlugin = plugins.find { plugin -> rootType.hasDirective(plugin.directive) }
+
+                val outputFromPlugin = matchedPlugin!!.registry(prev, registry, it, rootType)
+
+                if (outputFromPlugin != null) {
+                    prev = outputFromPlugin
+                }
+            }
+        }
+
+        return prev
     }
 
     private fun createNodeQuery(): ObjectTypeDefinition {
