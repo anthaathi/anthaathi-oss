@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=JetBrains+Mono&family=Red+Hat+Text&family=Red+Hat+Display&display=swap');
+@import url("https://use.typekit.net/cte6nak.css");
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #180255;
+  --ifm-color-primary-dark: #16024c;
+  --ifm-color-primary-darker: #140248;
+  --ifm-color-primary-darkest: #11013b;
+  --ifm-color-primary-light: #1a025e;
+  --ifm-color-primary-lighter: #1c0262;
+  --ifm-color-primary-lightest: #1f036e;
+  --ifm-code-font-size: 95%;
+  --ifm-heading-font-family: 'mundial', sans-serif;
+  --ifm-font-family-base: 'Red Hat Text', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+  --ifm-max-width: 1200px;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-button-border-radius: 0;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-navbar-background-color: #000;
+  --ifm-navbar-link-hover-color: #FFF;
+  --ifm-font-color-base-inverse: #FFF;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-breadcrumb-color-active: #FFF;
+  --ifm-menu-color-active: #FFF;
+}
+
+.navbar__logo img {
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+}
+
+.navbar__inner {
+  margin: 0 auto;
+}
+
+.hero-primary {
+}
+
+@media (max-width: 996px) {
+  .navbar__toggle {
+    margin-right: 18px;
+  }
+}
+
+.container {
+  padding: 0;
+}
+
+.hero__subtitle {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.items-wrapper:hover > .item {
+  max-height: 240px;
+}
