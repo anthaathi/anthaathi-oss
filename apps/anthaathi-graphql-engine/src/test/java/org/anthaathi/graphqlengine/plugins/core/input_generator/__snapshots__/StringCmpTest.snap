@@ -1,0 +1,10 @@
+org.anthaathi.graphqlengine.plugins.core.input_generator.StringCmpTest.registry=type Query {
+  _snap: Boolean
+}
+
+input StringComparisonInput {
+  eq: String
+  in: [String!]
+  neq: String
+  notIn: [String!]
+}

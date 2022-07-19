@@ -37,7 +37,15 @@ const App = () => {
       <PaperProvider theme={theme}>
         <NavigationContainer>
           <RelayEnvironmentProvider environment={RelayEnv as never}>
-            <CMSRenderer />
+            <CMSRenderer
+              components={[
+                {
+                  _component: 'core.header',
+                  key: '123',
+                  title: 'Something',
+                },
+              ]}
+            />
           </RelayEnvironmentProvider>
         </NavigationContainer>
       </PaperProvider>

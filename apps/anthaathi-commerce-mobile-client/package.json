@@ -43,6 +43,7 @@
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.67.3",
     "@types/react-native-vector-icons": "^6.4.10",
+    "@types/react-relay": "^13.0.2",
     "@types/react-test-renderer": "^17.0.1",
     "@types/relay-runtime": "^13.0.3",
     "@typescript-eslint/eslint-plugin": "^5.17.0",

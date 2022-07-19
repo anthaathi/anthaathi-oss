@@ -1,0 +1,12 @@
+org.anthaathi.graphqlengine.plugins.core.input_generator.FloatCmpTest.registry=type Query {
+  _snap: Boolean
+}
+
+input FloatComparisonInput {
+  eq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  neq: Float
+}

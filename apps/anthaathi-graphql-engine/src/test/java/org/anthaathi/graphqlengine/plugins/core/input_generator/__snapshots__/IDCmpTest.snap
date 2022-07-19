@@ -1,0 +1,8 @@
+org.anthaathi.graphqlengine.plugins.core.input_generator.IDCmpTest.registry=type Query {
+  _snap: Boolean
+}
+
+input IDComparisonInput {
+  eq: ID
+  neq: ID
+}

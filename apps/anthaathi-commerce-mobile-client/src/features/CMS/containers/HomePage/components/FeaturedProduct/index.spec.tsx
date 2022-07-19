@@ -69,7 +69,6 @@ describe('FeaturedProduct', () => {
     );
 
     expect(temp.queryByText('Name test')).toBeTruthy();
-    expect(temp.queryByText('Description test')).toBeTruthy();
   });
 
   it('should call when we call tap handleAddToCart, handleBuyItNow', function () {

@@ -1,0 +1,56 @@
+interface Node {
+    id: ID!
+}
+
+type Product implements Node {
+    "A globally-unique identifier."
+    id: ID!
+    title: String!
+    description: HTML!
+}
+
+type ProductConnection {
+    edges: [ProductEdge]
+    pageInfo: PageInfo!
+}
+
+type ProductEdge {
+    cursor: String!
+    node: Product
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String
+    endCursor: String
+}
+
+type Query {
+    node(id: ID!): Node
+
+    products(first: Int, last: Int, before: String, after: String, where: [ProductConditionInput!]): ProductConnection
+
+    productByHandle(handle: String!): Product
+}
+
+input CreateProductInput {
+    title: String!
+    description: HTML!
+}
+
+input ProductConditionInput {
+    _and: [ProductConditionInput!]
+    _or: [ProductConditionInput!]
+
+    title: StringComparisonInput!
+    description: HTML!
+}
+
+input IDComparisonInput {
+    _neq: String
+    _eq: String
+}
+
+scalar HTML
+scalar DateTime
