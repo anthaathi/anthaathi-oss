@@ -10,6 +10,7 @@ export interface HeaderProps {
   title?: string;
   placement?: 'left' | 'center';
 }
+
 const Header = ({
   rightIcon,
   rightOnPress,
@@ -76,3 +77,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export const HeaderCMSInput = {
+  _component: 'core.header',
+  component: Header,
+};
