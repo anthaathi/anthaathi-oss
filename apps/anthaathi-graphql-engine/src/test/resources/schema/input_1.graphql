@@ -1,0 +1,14 @@
+directive @postgres(name: String!) on OBJECT
+directive @hasMetadata on OBJECT
+directive @cmsObject on OBJECT
+directive @tenantScoped on OBJECT
+
+"A globally-unique identifier."
+type Product implements Node @postgres(name: "product") @hasMetadata @cmsObject @tenantScoped {
+    id: ID!
+    title: String!
+    description: HTML!
+}
+
+scalar HTML
+scalar DateTime

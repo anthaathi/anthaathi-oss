@@ -3,6 +3,7 @@ import com.github.gradle.node.yarn.task.YarnTask
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
 }
 
@@ -10,7 +11,12 @@ plugins {
     kotlin("jvm") version Versions.KOTLIN_VERSION
     kotlin("plugin.allopen") version Versions.KOTLIN_VERSION
     id("io.quarkus") apply false
-    id("com.github.node-gradle.node") version "3.2.1"
+    id("com.github.node-gradle.node") version "3.3.0"
+    id("fr.stardustenterprises.rust.wrapper") version "3.2.4" apply false
+
+    id("org.springframework.boot") version "2.7.1" apply false
+    id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
+    kotlin("plugin.spring") version "1.6.21" apply false
 }
 
 val quarkusPlatformGroupId: String by project
@@ -27,9 +33,7 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf(
-    project(":apps:anthaathi-common-graphql-engine")
-)
+val quarkusCommonProjects = listOf<Project>()
 
 val quarkusWebAppDeps = mapOf<Project, List<Project>>()
 
@@ -43,6 +47,28 @@ val webLibraries = listOf<Project>()
 val reactNativeApps = listOf(
     project(":apps:anthaathi-commerce-mobile-client")
 )
+
+val kotlinLibraries = listOf<Project>()
+
+
+val springBoot = listOf(project(":apps:anthaathi-graphql-engine"))
+
+configure(subprojects.filter { it in springBoot }) {
+    apply {
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.spring")
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
+    }
+
+    java.sourceCompatibility = JavaVersion.VERSION_11
+
+    repositories {
+        mavenCentral()
+    }
+}
 
 // Quarkus configuration
 configure(subprojects.filter { it in quarkusCommonProjects }) {
@@ -131,5 +157,19 @@ configure(subprojects.filter { it in reactNativeApps }) {
         dependsOn("postinstall")
 
         args.set(listOf("test", "--coverage", "--coverageReporters=lcov"))
+    }
+}
+
+configure(subprojects.filter { it in kotlinLibraries }) {
+    apply {
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.jetbrains.kotlin.plugin.allopen")
+    }
+
+    dependencies {
+        implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
     }
 }
