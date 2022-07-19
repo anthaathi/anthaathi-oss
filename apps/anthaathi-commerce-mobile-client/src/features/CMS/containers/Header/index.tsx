@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
 export const HeaderCMSInput = {
   _component: 'core.header',
   component: Header,
-}
+};
