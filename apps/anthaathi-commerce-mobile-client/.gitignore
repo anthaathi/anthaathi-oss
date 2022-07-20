@@ -60,3 +60,11 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 compiled-locales
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
