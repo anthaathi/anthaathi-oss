@@ -16,6 +16,7 @@ rootProject.name = "anthaathi"
 
 include(
     ":apps:anthaathi-commerce-mobile-client",
+    ":apps:anthaathi-crm-web-client",
 )
 
 include(

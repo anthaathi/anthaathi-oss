@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "workspaces": [
     "apps/anthaathi-commerce-mobile-client",
+    "apps/anthaathi-crm-web-client",
     "tools/node-tooling",
     "docs"
   ],
@@ -19,5 +20,8 @@
   "dependencies": {
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0"
+  },
+  "devDependencies": {
+    "gts": "^3.1.0"
   }
 }
