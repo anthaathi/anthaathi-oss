@@ -8,6 +8,7 @@ import './index.css';
 
 import { appTheme } from './utils/theme/app-theme';
 import { RecoilRoot } from 'recoil';
+import { BrowserRouter } from 'react-router-dom';
 
 const engine = new Styletron({ prefix: '_' });
 
@@ -20,7 +21,9 @@ renderRoot.render(
     <RecoilRoot>
       <StyletronProvider value={engine}>
         <BaseProvider theme={appTheme}>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </BaseProvider>
       </StyletronProvider>
     </RecoilRoot>

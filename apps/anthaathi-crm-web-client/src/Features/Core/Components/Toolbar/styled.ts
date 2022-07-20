@@ -7,8 +7,8 @@ export const ToolbarWrapper = styled('header', ({ $theme }) => ({
   placeItems: 'center',
   height: '48px',
   color: $theme.colors.primaryB,
-  paddingLeft: $theme.sizing.scale200,
-  paddingRight: $theme.sizing.scale200,
+  paddingLeft: $theme.sizing.scale500,
+  paddingRight: $theme.sizing.scale500,
 }));
 
 export const ToolbarTitle = styled('h1', ({ $theme }) => ({

@@ -7,15 +7,25 @@ import { Sidebar } from '../../Core/Components/Sidebar';
 import { useRecoilValue } from 'recoil';
 import { headerOpenAtom } from '../../Core/Components/Header/atom';
 import { ProjectSelection } from '../../Core/Components/ProjectSelection';
+import { Search } from '../../Core/Components/Search';
+import { FlexFill } from '../../Core/Components/FlexFill';
+import { Navigation } from 'baseui/side-navigation';
+import { useLocation, useHistory } from 'react-router-dom';
+import { Icon } from '../../Core/Components/Icon';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
+  header?: React.ReactNode;
 }
 
-export function DefaultLayout({ children }: DefaultLayoutProps) {
+export function DefaultLayout({ children, header }: DefaultLayoutProps) {
   const [css, $theme] = useStyletron();
 
   const headerOpen = useRecoilValue(headerOpenAtom);
+
+  const { pathname } = useLocation();
+
+  const history = useHistory();
 
   return (
     <div
@@ -35,23 +45,18 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
       >
         <Toolbar>
           <ToolbarTitle>Anthaathi CRM</ToolbarTitle>
+
+          <FlexFill />
+          <Search />
+          <FlexFill />
         </Toolbar>
       </div>
-
-      <Sidebar
-        $style={{
-          transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
-        }}
-      >
-        <ProjectSelection />
-      </Sidebar>
 
       <main
         className={css({
           flexGrow: 1,
           backgroundColor: $theme.colors.backgroundSecondary,
-          position: 'fixed',
-          top: '96px',
+          marginTop: '96px',
           marginLeft: headerOpen ? '320px' : 0,
           transitionProperty: 'margin',
           transitionDuration: '100ms',
@@ -60,10 +65,56 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           height: '100%',
         })}
       >
+        {header}
+
+        <Sidebar
+          $style={{
+            transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
+          }}
+        >
+          <ProjectSelection />
+
+          <Navigation
+            items={[
+              {
+                title: <SidebarItem icon="home" title="Overview" />,
+                itemId: '/',
+              },
+              {
+                title: <SidebarItem icon="calendar" title="Calendar" />,
+                itemId: '/calendar',
+              },
+            ]}
+            activeItemId={location.pathname}
+            onChange={({ event, item }) => {
+              // prevent page reload
+              event.preventDefault();
+              history.push(item.itemId);
+            }}
+          />
+        </Sidebar>
+
         {children}
       </main>
 
       <Footer />
+    </div>
+  );
+}
+
+export function SidebarItem({ icon, title }: { icon: string; title: string }) {
+  const [css] = useStyletron();
+
+  return (
+    <div
+      className={css({
+        display: 'flex',
+        alignItems: 'center',
+      })}
+    >
+      <Icon icon={icon} />
+      <span className={css({ width: '10px' })} />
+      {title}
     </div>
   );
 }

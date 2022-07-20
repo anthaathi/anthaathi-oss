@@ -6,6 +6,8 @@ import { LabelLarge, LabelSmall } from 'baseui/typography';
 export function ProjectSelection() {
   const [css, $theme] = useStyletron();
 
+  console.log($theme.typography.headingFontFamily);
+
   return (
     <ul
       className={css({
@@ -43,10 +45,23 @@ export function ProjectSelection() {
         }}
         title={
           <div>
-            <LabelSmall color="contentInverseSecondary" marginBottom="scale200">
+            <LabelSmall
+              color="contentInverseSecondary"
+              marginBottom="scale200"
+              $style={{
+                fontFamily: $theme.typography.headingFontFamily,
+              }}
+            >
               Projects
             </LabelSmall>
-            <LabelLarge color="primaryB">Ajinkyatara</LabelLarge>
+            <LabelLarge
+              $style={{
+                fontFamily: $theme.typography.headingFontFamily,
+              }}
+              color="primaryB"
+            >
+              Ajinkyatara
+            </LabelLarge>
           </div>
         }
       >
