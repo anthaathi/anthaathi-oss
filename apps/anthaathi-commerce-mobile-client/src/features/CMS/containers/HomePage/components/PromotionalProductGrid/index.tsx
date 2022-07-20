@@ -2,6 +2,7 @@ import React from 'react';
 import {useIntl} from 'react-intl';
 import {ImageBackground, View} from 'react-native';
 import {Button, Text, ThemeBase, useTheme} from 'react-native-paper';
+import {HomePageComponentType} from '../../../../types/common';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 
 export interface ProductGridProps {
@@ -161,4 +162,9 @@ const ProductGrid = ({
       </View>
     </View>
   );
+};
+
+export const PromotionalProductGridCMSInput = {
+  _component: HomePageComponentType.PromotionalProductGrid,
+  component: PromotionalProductGrid,
 };

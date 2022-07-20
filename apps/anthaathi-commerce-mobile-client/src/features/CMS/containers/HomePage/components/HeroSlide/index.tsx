@@ -2,13 +2,14 @@ import {View, GestureResponderEvent, ImageBackground} from 'react-native';
 import React from 'react';
 import {Text, useTheme, TouchableRipple} from 'react-native-paper';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface HeroSlideProps {
   backgroundImageSrc: string;
   title: string;
   subTitle: string;
   buttonTitle: string;
-  handleOnPress?: () => void;
+  handlePress?: () => void;
 }
 
 const HeroSlide = (props: HeroSlideProps) => {
@@ -64,7 +65,7 @@ const HeroSlide = (props: HeroSlideProps) => {
             {props.buttonTitle && (
               <HeroSlideButton
                 label={props.buttonTitle}
-                onPress={props.handleOnPress}
+                onPress={props.handlePress}
               />
             )}
           </View>
@@ -81,7 +82,7 @@ function HeroSlideButton(props: {
   const theme = useTheme();
 
   return (
-    <TouchableRipple onPress={props.onPress}>
+    <TouchableRipple testID="heroSlideOnPress" onPress={props.onPress}>
       <View
         style={{
           backgroundColor: (theme.colors as MD3Colors).background,
@@ -105,3 +106,8 @@ function HeroSlideButton(props: {
 }
 
 export default HeroSlide;
+
+export const HeroSlideCMSInput = {
+  _component: HomePageComponentType.HeroSlide,
+  component: HeroSlide,
+};

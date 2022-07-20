@@ -31,7 +31,7 @@ describe('CategoryCard', () => {
     expect(temp.queryByTestId('categoryCard')).toBeTruthy();
   });
 
-  it('should have SuggestedItem title', () => {
+  it('should have CategoryCard title', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>

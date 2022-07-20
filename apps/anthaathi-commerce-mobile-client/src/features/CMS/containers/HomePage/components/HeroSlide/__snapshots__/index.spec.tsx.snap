@@ -138,6 +138,7 @@ exports[`HeroSlide should render the item 1`] = `
               undefined,
             ]
           }
+          testID="heroSlideOnPress"
         >
           <View
             style={

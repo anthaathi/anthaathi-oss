@@ -1,9 +1,10 @@
 import {Image, Pressable, View} from 'react-native';
 import React from 'react';
-import {Divider, Text} from 'react-native-paper';
+import {Divider, Text, TouchableRipple} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useDimension} from '../../../../utils/useDimension';
+import {HomePageComponentType} from '../../../../types/common';
 
 type BlogsProps = {
   id: number;
@@ -80,24 +81,26 @@ const MainBlog = ({
   itemHeight: number;
 }) => {
   return (
-    <View style={{alignItems: 'center', marginBottom: 10}}>
-      <Image
-        source={{uri: blog.image}}
-        style={{height: itemHeight, width: '100%'}}
-      />
-      <Text
-        style={{
-          fontSize: 16,
-          fontFamily: '700',
-          width: '70%',
-          textAlign: 'center',
-        }}>
-        {blog.title}
-      </Text>
-      <Text style={{fontSize: 14, fontFamily: '400'}}>
-        {blog.published_date}
-      </Text>
-    </View>
+    <TouchableRipple onPress={() => {}}>
+      <View style={{alignItems: 'center', marginBottom: 10}}>
+        <Image
+          source={{uri: blog.image}}
+          style={{height: itemHeight, width: '100%'}}
+        />
+        <Text
+          style={{
+            fontSize: 16,
+            fontFamily: '700',
+            width: '70%',
+            textAlign: 'center',
+          }}>
+          {blog.title}
+        </Text>
+        <Text style={{fontSize: 14, fontFamily: '400'}}>
+          {blog.published_date}
+        </Text>
+      </View>
+    </TouchableRipple>
   );
 };
 
@@ -109,19 +112,26 @@ const BlogRenderer = ({
   itemHeight: number;
 }) => {
   return (
-    <View style={{flexDirection: 'row', marginBottom: 10}}>
-      <Image
-        source={{uri: blog.image}}
-        style={{height: itemHeight, width: '40%'}}
-      />
-      <View style={{marginHorizontal: '2%', width: '56%'}}>
-        <Text style={{fontSize: 16, fontFamily: '700'}}>{blog.title}</Text>
-        <Text style={{fontSize: 14, fontFamily: '400'}}>
-          {blog.published_date}
-        </Text>
+    <TouchableRipple onPress={() => {}}>
+      <View style={{flexDirection: 'row', marginBottom: 10}}>
+        <Image
+          source={{uri: blog.image}}
+          style={{height: itemHeight, width: '40%'}}
+        />
+        <View style={{marginHorizontal: '2%', width: '56%'}}>
+          <Text style={{fontSize: 16, fontFamily: '700'}}>{blog.title}</Text>
+          <Text style={{fontSize: 14, fontFamily: '400'}}>
+            {blog.published_date}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableRipple>
   );
 };
 
 export default BlogPosts;
+
+export const BlogPostsCMSInput = {
+  _component: HomePageComponentType.BlogPosts,
+  component: BlogPosts,
+};

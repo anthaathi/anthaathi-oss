@@ -4,6 +4,7 @@ import {Image, Pressable, View} from 'react-native';
 import {Badge, Button, Divider, List, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {HomePageComponentType} from '../../../../types/common';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -233,3 +234,8 @@ const TextIcon = ({iconName, title}: {iconName: string; title: string}) => {
 };
 
 export default FeaturedProduct;
+
+export const FeaturedProductCMSInput = {
+  _component: HomePageComponentType.FeaturedProduct,
+  component: FeaturedProduct,
+};

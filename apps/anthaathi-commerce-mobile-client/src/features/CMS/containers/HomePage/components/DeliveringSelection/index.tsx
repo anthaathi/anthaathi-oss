@@ -5,6 +5,7 @@ import {useIntl} from 'react-intl';
 import {IconButton, Text, ThemeBase, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface DeliveringSelectionProps {
   location: string;
@@ -72,3 +73,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export const DeliveringSelectionCMSInput = {
+  _component: HomePageComponentType.DeliveringSelection,
+  component: DeliveringSelection,
+};

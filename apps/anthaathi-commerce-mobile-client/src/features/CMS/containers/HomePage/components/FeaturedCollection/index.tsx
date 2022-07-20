@@ -4,6 +4,7 @@ import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface ProductProps {
   name: string;
@@ -142,3 +143,8 @@ function ItemRenderer({
     </View>
   );
 }
+
+export const FeaturedCollectionCMSInput = {
+  _component: HomePageComponentType.FeaturedCollection,
+  component: FeaturedCollection,
+};

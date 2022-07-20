@@ -2,6 +2,7 @@ import {View, Image} from 'react-native';
 import React from 'react';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {Button, Text} from 'react-native-paper';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface SplitCardOfferProps {
   title: string;
@@ -12,7 +13,7 @@ export interface SplitCardOfferProps {
   onPress?: () => void;
 }
 
-const SplitCardOffer = (props: SplitCardOfferProps) => {
+const SplitOfferCard = (props: SplitCardOfferProps) => {
   const itemWidth = useResponsiveValue(['90%', '60%', '50%', '50%']);
   const itemHeight = useResponsiveValue([240, 280, 320, 320]);
   const itemTwoWidth = useResponsiveValue(['80%', '40%', '50%', '50%']);
@@ -75,4 +76,9 @@ const SplitCardOffer = (props: SplitCardOfferProps) => {
   );
 };
 
-export default SplitCardOffer;
+export default SplitOfferCard;
+
+export const SplitOfferCardCMSInput = {
+  _component: HomePageComponentType.SplitOfferCard,
+  component: SplitOfferCard,
+};
