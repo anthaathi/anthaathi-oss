@@ -38,6 +38,7 @@ import { coordinateGetter as multipleContainersCoordinateGetter } from './multip
 import { createRange } from '../../utilities';
 import { Item } from '../Item';
 import { Container, ContainerProps } from '../Container';
+import { useStyletron } from 'baseui';
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) =>
   defaultAnimateLayoutChanges({ ...args, wasDragging: true });
@@ -73,6 +74,7 @@ function DroppableContainer({
     },
     animateLayoutChanges,
   });
+
   const isOverContainer = over
     ? (id === over.id && active?.data.current?.type !== 'container') ||
       items.includes(over.id)

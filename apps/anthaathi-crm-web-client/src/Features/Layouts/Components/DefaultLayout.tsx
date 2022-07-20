@@ -10,7 +10,7 @@ import { ProjectSelection } from '../../Core/Components/ProjectSelection';
 import { Search } from '../../Core/Components/Search';
 import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
 
 export interface DefaultLayoutProps {
@@ -25,7 +25,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
 
   const { pathname } = useLocation();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -85,11 +85,11 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
                 itemId: '/calendar',
               },
             ]}
-            activeItemId={location.pathname}
+            activeItemId={pathname}
             onChange={({ event, item }) => {
               // prevent page reload
               event.preventDefault();
-              history.push(item.itemId);
+              navigate(item.itemId);
             }}
           />
         </Sidebar>

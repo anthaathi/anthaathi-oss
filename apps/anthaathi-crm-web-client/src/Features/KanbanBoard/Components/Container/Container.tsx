@@ -19,6 +19,7 @@ export interface Props {
   unstyled?: boolean;
   onClick?(): void;
   onRemove?(): void;
+  className?: string;
 }
 
 export const Container = forwardRef<HTMLDivElement, Props>(
@@ -53,15 +54,19 @@ export const Container = forwardRef<HTMLDivElement, Props>(
             '--columns': columns,
           } as React.CSSProperties
         }
-        className={classNames(
-          styles.Container,
-          unstyled && styles.unstyled,
-          horizontal && styles.horizontal,
-          hover && styles.hover,
-          placeholder && styles.placeholder,
-          scrollable && styles.scrollable,
-          shadow && styles.shadow
-        )}
+        className={
+          classNames(
+            styles.Container,
+            unstyled && styles.unstyled,
+            horizontal && styles.horizontal,
+            hover && styles.hover,
+            placeholder && styles.placeholder,
+            scrollable && styles.scrollable,
+            shadow && styles.shadow
+          ) +
+            ' ' +
+            props.className ?? ''
+        }
         onClick={onClick}
         tabIndex={onClick ? 0 : undefined}
       >

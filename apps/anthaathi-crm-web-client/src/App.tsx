@@ -1,8 +1,8 @@
 import { DefaultLayout } from './Features/Layouts/Components/DefaultLayout';
 import { Header, HeaderToggle } from './Features/Core/Components/Header';
 import React from 'react';
-import { KanbanBoard } from './Features/KanbanBoard/Components/Kanban';
-import { Block } from 'baseui/block';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage } from './Pages/HomePage';
 
 function App() {
   return (
@@ -13,9 +13,10 @@ function App() {
         </Header>
       }
     >
-      <Block $style={{ overflow: 'auto', minHeight: 'calc(100vh - 96px)' }}>
-        <KanbanBoard />
-      </Block>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="task/:id" element={<>test</>}></Route>
+      </Routes>
     </DefaultLayout>
   );
 }
