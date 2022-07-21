@@ -40,6 +40,7 @@ exports[`HeroSlide should render the item 1`] = `
           undefined,
         ]
       }
+      testID="backgroundImage"
     />
     <View
       style={
@@ -174,6 +175,7 @@ exports[`HeroSlide should render the item 1`] = `
                   },
                 ]
               }
+              testID="buttonTitle"
             >
               View All
             </Text>

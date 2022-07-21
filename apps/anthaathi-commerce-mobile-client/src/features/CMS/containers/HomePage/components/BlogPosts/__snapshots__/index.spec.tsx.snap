@@ -142,6 +142,7 @@ exports[`BlogPosts should render the item 1`] = `
                 "width": "100%",
               }
             }
+            testID="mainBlogImage"
           />
           <Text
             style={
@@ -153,13 +154,14 @@ exports[`BlogPosts should render the item 1`] = `
                   "textAlign": "left",
                 },
                 Object {
-                  "fontFamily": "700",
                   "fontSize": 16,
+                  "fontWeight": "700",
                   "textAlign": "center",
                   "width": "70%",
                 },
               ]
             }
+            testID="mainBlogTitle"
           >
             blog title
           </Text>
@@ -173,11 +175,12 @@ exports[`BlogPosts should render the item 1`] = `
                   "textAlign": "left",
                 },
                 Object {
-                  "fontFamily": "400",
                   "fontSize": 14,
+                  "fontWeight": "400",
                 },
               ]
             }
+            testID="mainBlogDate"
           >
             May 26, 2022
           </Text>
@@ -269,8 +272,8 @@ exports[`BlogPosts should render the item 1`] = `
                     "textAlign": "left",
                   },
                   Object {
-                    "fontFamily": "700",
                     "fontSize": 16,
+                    "fontWeight": "700",
                   },
                 ]
               }
@@ -287,8 +290,8 @@ exports[`BlogPosts should render the item 1`] = `
                     "textAlign": "left",
                   },
                   Object {
-                    "fontFamily": "400",
                     "fontSize": 14,
+                    "fontWeight": "400",
                   },
                 ]
               }
@@ -359,8 +362,8 @@ exports[`BlogPosts should render the item 1`] = `
                     "textAlign": "left",
                   },
                   Object {
-                    "fontFamily": "700",
                     "fontSize": 16,
+                    "fontWeight": "700",
                   },
                 ]
               }
@@ -377,8 +380,8 @@ exports[`BlogPosts should render the item 1`] = `
                     "textAlign": "left",
                   },
                   Object {
-                    "fontFamily": "400",
                     "fontSize": 14,
+                    "fontWeight": "400",
                   },
                 ]
               }

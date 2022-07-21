@@ -51,4 +51,28 @@ describe('CategoryCard', () => {
     );
     expect(temp.queryByText('Categories')).toBeTruthy();
   });
+
+  it('should have Categories Image', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <CategoriesCard
+            title="Categories"
+            categories={[
+              {
+                title: 'test',
+                key: 'test',
+                image:
+                  'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('categoryImage')!.props.source).toMatchObject({
+      uri: 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
+    });
+  });
 });

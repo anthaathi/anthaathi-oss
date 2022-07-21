@@ -10,6 +10,7 @@ export interface HeaderProps {
   leftOnPress?: () => void;
   title?: string;
   placement?: 'left' | 'center';
+  logoImage?: string;
 }
 
 const Header = ({
@@ -19,6 +20,7 @@ const Header = ({
   leftOnPress,
   title = '',
   placement = 'left',
+  logoImage,
 }: HeaderProps) => {
   const theme = useTheme();
   return (
@@ -42,6 +44,7 @@ const Header = ({
         )}
         {title === '' ? (
           <Image
+            testID="headerImage"
             style={[
               {
                 height: 48,
@@ -50,7 +53,7 @@ const Header = ({
               placement === 'center' && styles.headerAlign,
             ]}
             source={{
-              uri: 'app_logo_url',
+              uri: logoImage,
             }}
           />
         ) : null}

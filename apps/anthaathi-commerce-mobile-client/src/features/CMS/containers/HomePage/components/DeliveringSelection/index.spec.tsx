@@ -54,5 +54,6 @@ describe('DeliveringSection', () => {
     );
 
     expect(temp.queryByText('Dubai - India')).toBeTruthy();
+    expect(temp.queryByText('Delivering to')).toBeTruthy();
   });
 });

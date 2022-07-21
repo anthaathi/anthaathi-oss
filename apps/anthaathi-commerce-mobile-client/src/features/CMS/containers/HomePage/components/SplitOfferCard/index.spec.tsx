@@ -49,7 +49,7 @@ describe('SplitOfferCard', () => {
     expect(onpress).toBeCalledTimes(1);
   });
 
-  it('should have SplitOfferCard title and subtitle', () => {
+  it('should have SplitOfferCard title, subtitle and button title', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
@@ -69,6 +69,7 @@ describe('SplitOfferCard', () => {
         'Get exclusive offers & more by signing up for our promotional email',
       ),
     ).toBeTruthy();
+    expect(temp.queryByText('View Offers')).toBeTruthy();
   });
 
   it('should have SplitOfferCard Image', () => {

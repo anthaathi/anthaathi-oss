@@ -65,6 +65,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
             itemWidth !== '80%' && {width: '50%'},
           ]}>
           <Image
+            testID="productImage"
             style={{
               height: 280,
               width: itemWidth,
@@ -199,6 +200,7 @@ const ImageSelection = ({
             onChange(index);
           }}>
           <Badge
+            testID="badgeSelectImage"
             style={{
               backgroundColor: id === index ? '#000000' : '#cccccc',
             }}

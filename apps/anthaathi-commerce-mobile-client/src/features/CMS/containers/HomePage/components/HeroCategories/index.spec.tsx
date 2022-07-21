@@ -28,8 +28,7 @@ describe('HeroCategories', () => {
     );
 
     expect(temp).toMatchSnapshot();
-
-    fireEvent.press(temp.queryByTestId('heroItemtest')!);
+    expect(temp.queryByTestId('heroCategory')).toBeTruthy();
   });
 
   it('should fire event when click on the categories', function () {
@@ -61,9 +60,7 @@ describe('HeroCategories', () => {
     );
 
     expect(temp).toMatchSnapshot();
-
     fireEvent.press(temp.queryByTestId('heroItemtest')!);
-
     expect(test).toBeCalledWith('test');
   });
 

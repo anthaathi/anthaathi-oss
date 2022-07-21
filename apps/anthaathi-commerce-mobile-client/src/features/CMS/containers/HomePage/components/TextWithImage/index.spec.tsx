@@ -39,4 +39,35 @@ describe('TextWithImage', () => {
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('textWithImage')).toBeTruthy();
   });
+
+  it('should have TextWithImage title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <TextWithImage
+            title="How It Works"
+            columns={[
+              {
+                title: 'Register',
+                description: 'Description Register',
+                image: '',
+              },
+              {
+                title: 'Select Products & Place Order',
+                description: 'Description Select Products & Place Order',
+                image: '',
+              },
+              {
+                title: 'Schedule Delivery',
+                description: 'Description Schedule Delivery',
+                image: '',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('How It Works')).toBeTruthy();
+  });
 });
