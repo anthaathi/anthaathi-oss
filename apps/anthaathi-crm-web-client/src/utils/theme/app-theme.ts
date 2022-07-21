@@ -18,11 +18,18 @@ export const appTheme = createLightTheme(
       headingFontFamily:
         'Kanit, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
+    sizing: {
+      maxAppWidth: '1600px',
+    },
   }
 );
 
 declare module 'baseui/themes' {
   export interface Typography {
     headingFontFamily: string;
+  }
+
+  export interface Sizing {
+    maxAppWidth: string;
   }
 }

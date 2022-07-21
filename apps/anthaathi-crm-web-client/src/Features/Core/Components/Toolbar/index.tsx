@@ -1,10 +1,14 @@
 import React from 'react';
-import { ToolbarWrapper } from './styled';
+import { ToolbarSection, ToolbarWrapper } from './styled';
 
 export interface ToolbarProps {
   children: React.ReactNode;
 }
 
 export function Toolbar({ children }: ToolbarProps) {
-  return <ToolbarWrapper>{children}</ToolbarWrapper>;
+  return (
+    <ToolbarWrapper>
+      <ToolbarSection>{children}</ToolbarSection>
+    </ToolbarWrapper>
+  );
 }

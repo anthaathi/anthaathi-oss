@@ -12,6 +12,7 @@ import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
+import { HeaderWrapper } from '../../Core/Components/Header';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -58,10 +59,10 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           backgroundColor: $theme.colors.backgroundSecondary,
           marginTop: '96px',
           marginLeft: headerOpen ? '320px' : 0,
-          transitionProperty: 'margin',
+          transitionProperty: 'margin,width',
           transitionDuration: '100ms',
           transitionTimingFunction: 'ease',
-          width: '100%',
+          width: headerOpen ? 'calc(100% - 320px)' : '100%',
           height: '100%',
         })}
       >
@@ -103,13 +104,14 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
 }
 
 export function SidebarItem({ icon, title }: { icon: string; title: string }) {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <div
       className={css({
         display: 'flex',
         alignItems: 'center',
+        ...$theme.typography.LabelSmall,
       })}
     >
       <Icon icon={icon} />

@@ -6,8 +6,6 @@ import { LabelLarge, LabelSmall } from 'baseui/typography';
 export function ProjectSelection() {
   const [css, $theme] = useStyletron();
 
-  console.log($theme.typography.headingFontFamily);
-
   return (
     <ul
       className={css({

@@ -11,4 +11,5 @@ export const Sidebar = styled('div', ({ $theme }) => ({
   transitionProperty: 'all',
   transitionDuration: '100ms',
   transitionTimingFunction: 'ease',
+  zIndex: 1,
 }));
