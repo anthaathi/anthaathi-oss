@@ -39,6 +39,7 @@ exports[`FeaturedProduct should render the item 1`] = `
             "width": "70%",
           }
         }
+        testID="productImage"
       />
       <View
         style={
@@ -88,6 +89,7 @@ exports[`FeaturedProduct should render the item 1`] = `
                 "textAlignVertical": "center",
               }
             }
+            testID="badgeSelectImage"
           />
         </View>
       </View>

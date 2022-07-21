@@ -52,6 +52,7 @@ function CategoryItemRenderer({item}: {item: CategoryProps}) {
         key={item.key}>
         <View>
           <Image
+            testID="categoryImage"
             source={{
               uri: item.image,
             }}

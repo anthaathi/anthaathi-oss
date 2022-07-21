@@ -219,7 +219,7 @@ exports[`DeliveringSection should render the item 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(73, 69, 79, 1)",
+                    "color": "rgba(103, 80, 164, 1)",
                     "fontSize": 24,
                   },
                   Array [

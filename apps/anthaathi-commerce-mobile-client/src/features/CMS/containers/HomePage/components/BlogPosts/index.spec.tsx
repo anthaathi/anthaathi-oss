@@ -114,4 +114,75 @@ describe('BlogPosts', () => {
 
     expect(temp.queryByText('From the journal')).toBeTruthy();
   });
+
+  it('should have BlogPosts Main blog Image', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <BlogPosts
+            title="From the journal"
+            mainBlog={{
+              id: 1,
+              title: 'blog title',
+              image:
+                'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg',
+              published_date: 'May 26, 2022',
+              author: 'author name',
+            }}
+            blogs={[
+              {
+                id: 2,
+                title: 'blog title',
+                image:
+                  'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg',
+                published_date: 'May 26, 2022',
+                author: 'author name',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('mainBlogImage')!.props.source).toMatchObject({
+      uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg',
+    });
+  });
+
+  it('should have BlogPosts title, published_date', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <BlogPosts
+            title="From the journal"
+            mainBlog={{
+              id: 1,
+              title: 'main blog title',
+              image:
+                'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg',
+              published_date: 'May 26, 2022',
+              author: 'author name',
+            }}
+            blogs={[
+              {
+                id: 2,
+                title: 'blog title',
+                image:
+                  'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg',
+                published_date: 'May 26, 2022',
+                author: 'author name',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('mainBlogTitle')?.children).toContain(
+      'main blog title',
+    );
+    expect(temp.queryByTestId('mainBlogDate')?.children).toContain(
+      'May 26, 2022',
+    );
+  });
 });
