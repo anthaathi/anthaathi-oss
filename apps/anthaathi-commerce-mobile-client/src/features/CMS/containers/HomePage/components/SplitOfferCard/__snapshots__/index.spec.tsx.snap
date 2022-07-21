@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SplitCardOffer should render the item 1`] = `
+exports[`SplitOfferCard should render the item 1`] = `
 <View
   style={
     Object {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CommonPlacement} from '../../../../types/common';
+import {CommonPlacement, HomePageComponentType} from '../../../../types/common';
 import {GestureResponderEvent, Image, View} from 'react-native';
 import {Text, TouchableRipple, useTheme} from 'react-native-paper';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
@@ -176,3 +176,8 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
     </View>
   );
 }
+
+export const PromotionalGridCMSInput = {
+  _component: HomePageComponentType.PromotionalGrid,
+  component: PromotionalGrid,
+};

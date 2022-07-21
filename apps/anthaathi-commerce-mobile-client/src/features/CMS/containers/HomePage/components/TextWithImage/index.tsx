@@ -2,6 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
 import {useDimension} from '../../../../utils/useDimension';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface ColumnProps {
   title: string;
@@ -83,3 +84,8 @@ const ColumnCard = ({data}: {data: ColumnProps}) => {
 };
 
 export default TextWithImage;
+
+export const TextWithImageCMSInput = {
+  _component: HomePageComponentType.TextWithImage,
+  component: TextWithImage,
+};

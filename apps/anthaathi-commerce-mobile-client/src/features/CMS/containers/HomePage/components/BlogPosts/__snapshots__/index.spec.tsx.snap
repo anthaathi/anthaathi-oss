@@ -101,64 +101,87 @@ exports[`BlogPosts should render the item 1`] = `
       }
     >
       <View
-        style={
+        accessibilityState={
           Object {
-            "alignItems": "center",
-            "marginBottom": 10,
+            "disabled": false,
           }
         }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            false,
+            undefined,
+          ]
+        }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg",
-            }
-          }
+        <View
           style={
             Object {
-              "height": 320,
-              "width": "100%",
+              "alignItems": "center",
+              "marginBottom": 10,
             }
           }
-        />
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-              },
-              Object {
-                "textAlign": "left",
-              },
-              Object {
-                "fontFamily": "700",
-                "fontSize": 16,
-                "textAlign": "center",
-                "width": "70%",
-              },
-            ]
-          }
         >
-          blog title
-        </Text>
-        <Text
-          style={
-            Array [
+          <Image
+            source={
               Object {
-                "color": "rgba(28, 27, 31, 1)",
-              },
+                "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg",
+              }
+            }
+            style={
               Object {
-                "textAlign": "left",
-              },
-              Object {
-                "fontFamily": "400",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          May 26, 2022
-        </Text>
+                "height": 320,
+                "width": "100%",
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "fontFamily": "700",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                  "width": "70%",
+                },
+              ]
+            }
+          >
+            blog title
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(28, 27, 31, 1)",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "fontFamily": "400",
+                  "fontSize": 14,
+                },
+              ]
+            }
+          >
+            May 26, 2022
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -186,137 +209,183 @@ exports[`BlogPosts should render the item 1`] = `
       }
     >
       <View
-        style={
+        accessibilityState={
           Object {
-            "flexDirection": "row",
-            "marginBottom": 10,
+            "disabled": false,
           }
         }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            false,
+            undefined,
+          ]
+        }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
-            }
-          }
-          style={
-            Object {
-              "height": 120,
-              "width": "40%",
-            }
-          }
-        />
         <View
           style={
             Object {
-              "marginHorizontal": "2%",
-              "width": "56%",
+              "flexDirection": "row",
+              "marginBottom": 10,
             }
           }
         >
-          <Text
+          <Image
+            source={
+              Object {
+                "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
+              }
+            }
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Object {
-                  "fontFamily": "700",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "height": 120,
+                "width": "40%",
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "marginHorizontal": "2%",
+                "width": "56%",
+              }
             }
           >
-            blog title
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Object {
-                  "fontFamily": "400",
-                  "fontSize": 14,
-                },
-              ]
-            }
-          >
-            May 26, 2022
-          </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontFamily": "700",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              blog title
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontFamily": "400",
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              May 26, 2022
+            </Text>
+          </View>
         </View>
       </View>
       <View
-        style={
+        accessibilityState={
           Object {
-            "flexDirection": "row",
-            "marginBottom": 10,
+            "disabled": false,
           }
         }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            false,
+            undefined,
+          ]
+        }
       >
-        <Image
-          source={
-            Object {
-              "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
-            }
-          }
-          style={
-            Object {
-              "height": 120,
-              "width": "40%",
-            }
-          }
-        />
         <View
           style={
             Object {
-              "marginHorizontal": "2%",
-              "width": "56%",
+              "flexDirection": "row",
+              "marginBottom": 10,
             }
           }
         >
-          <Text
+          <Image
+            source={
+              Object {
+                "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
+              }
+            }
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Object {
-                  "fontFamily": "700",
-                  "fontSize": 16,
-                },
-              ]
+              Object {
+                "height": 120,
+                "width": "40%",
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "marginHorizontal": "2%",
+                "width": "56%",
+              }
             }
           >
-            blog title
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Object {
-                  "fontFamily": "400",
-                  "fontSize": 14,
-                },
-              ]
-            }
-          >
-            May 26, 2022
-          </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontFamily": "700",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              blog title
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgba(28, 27, 31, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Object {
+                    "fontFamily": "400",
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              May 26, 2022
+            </Text>
+          </View>
         </View>
       </View>
     </View>

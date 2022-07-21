@@ -15,8 +15,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -38,8 +47,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'Name test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'Description test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -51,7 +69,6 @@ describe('FeaturedProduct', () => {
     );
 
     expect(temp.queryByText('Name test')).toBeTruthy();
-    expect(temp.queryByText('Description test')).toBeTruthy();
   });
 
   it('should call when we call tap handleAddToCart, handleBuyItNow', function () {
@@ -64,8 +81,17 @@ describe('FeaturedProduct', () => {
           <FeaturedProduct
             productInfo={{
               name: 'test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
               price: 0,
-              description: 'test',
               currency: 'USD',
               image: [
                 'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
@@ -82,5 +108,36 @@ describe('FeaturedProduct', () => {
     fireEvent.press(temp.queryByTestId('handleBuyItNow')!);
     expect(onpress1).toBeCalledTimes(1);
     expect(onpress2).toBeCalledTimes(1);
+  });
+
+  it('should have FeaturedProduct name', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <FeaturedProduct
+            productInfo={{
+              name: 'test',
+              listInfo: {
+                description: 'test',
+                shippingInformation: 'Shipping Information',
+              },
+              blockInfo: {
+                freeShipping: 'Free shipping in UAE',
+                inStock: 'In stock, ready to ship',
+                securePayments: 'Secure Payments',
+                isFresh: 'Fresh',
+              },
+              price: 0,
+              currency: 'USD',
+              image: [
+                'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
+              ],
+            }}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByText('test')).toBeTruthy();
   });
 });

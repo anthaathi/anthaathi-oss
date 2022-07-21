@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, StatusBar, StyleSheet, View} from 'react-native';
 import {Appbar, useTheme} from 'react-native-paper';
+import {CoreComponentType} from '../../types/common';
 
 export interface HeaderProps {
   rightIcon?: string;
@@ -79,6 +80,6 @@ const styles = StyleSheet.create({
 });
 
 export const HeaderCMSInput = {
-  _component: 'core.header',
+  _component: CoreComponentType.Header,
   component: Header,
 };

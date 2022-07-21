@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useMemo} from 'react';
 import {Text, TouchableRipple} from 'react-native-paper';
 import {Image, View, VirtualizedList} from 'react-native';
+import {HomePageComponentType} from '../../../../types/common';
 
 export interface Item {
   title: string;
@@ -118,3 +119,8 @@ function ItemRenderer({
     </TouchableRipple>
   );
 }
+
+export const HeroCategoriesCMSInput = {
+  _component: HomePageComponentType.HeroCategories,
+  component: HeroCategories,
+};

@@ -5,16 +5,16 @@ import {IntlProvider} from 'react-intl';
 
 import locale from '../../../../../../compiled-locales/en-US.json';
 import {ThemeProvider} from 'react-native-paper';
-import SplitCardOffer from './index';
+import SplitOfferCard from './index';
 
-describe('SplitCardOffer', () => {
+describe('SplitOfferCard', () => {
   const image =
     'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705';
   it('should render the item', function () {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <SplitCardOffer
+          <SplitOfferCard
             title="Get Exclusive Offers"
             subtitle="Get exclusive offers & more by signing up for our promotional email"
             image={image}
@@ -34,7 +34,7 @@ describe('SplitCardOffer', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <SplitCardOffer
+          <SplitOfferCard
             title="Get Exclusive Offers"
             subtitle="Get exclusive offers & more by signing up for our promotional email"
             image={image}
@@ -49,11 +49,11 @@ describe('SplitCardOffer', () => {
     expect(onpress).toBeCalledTimes(1);
   });
 
-  it('should have SplitCardOffer title and subtitle', () => {
+  it('should have SplitOfferCard title and subtitle', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <SplitCardOffer
+          <SplitOfferCard
             title="Get Exclusive Offers"
             subtitle="Get exclusive offers & more by signing up for our promotional email"
             image={image}
@@ -71,11 +71,11 @@ describe('SplitCardOffer', () => {
     ).toBeTruthy();
   });
 
-  it('should have SplitCardOffer Image', () => {
+  it('should have SplitOfferCard Image', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <SplitCardOffer
+          <SplitOfferCard
             title="Get Exclusive Offers"
             subtitle="Get exclusive offers & more by signing up for our promotional email"
             image={image}

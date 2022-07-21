@@ -2,91 +2,651 @@
 
 exports[`FeaturedProduct should render the item 1`] = `
 <View
-  style={
-    Object {
-      "flexDirection": "row",
-      "marginHorizontal": 12,
-      "marginVertical": 10,
-    }
-  }
   testID="featuredProduct"
 >
   <View
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-        },
-        Object {
-          "width": "50%",
-        },
-      ]
+      Object {
+        "flexDirection": "row",
+        "marginHorizontal": 12,
+        "marginVertical": 10,
+      }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
-        }
-      }
-      style={
-        Object {
-          "borderRadius": 4,
-          "height": 280,
-          "width": "70%",
-        }
-      }
-    />
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          Object {
+            "width": "50%",
+          },
+        ]
       }
     >
-      <View
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Image
+        source={
+          Object {
+            "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+          }
+        }
         style={
           Object {
-            "paddingHorizontal": 10,
-            "paddingVertical": 15,
+            "borderRadius": 4,
+            "height": 280,
+            "width": "70%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "paddingHorizontal": 10,
+              "paddingVertical": 15,
+            }
+          }
+        >
+          <Text
+            collapsable={false}
+            numberOfLines={1}
+            style={
+              Object {
+                "alignSelf": "flex-end",
+                "backgroundColor": "#000000",
+                "borderRadius": 6,
+                "color": "rgba(255, 255, 255, 1)",
+                "fontSize": 6,
+                "height": 12,
+                "lineHeight": 12,
+                "minWidth": 12,
+                "opacity": 1,
+                "overflow": "hidden",
+                "paddingHorizontal": 3,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "width": "50%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontSize": 22,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 28,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "writingDirection": "ltr",
+            },
+            Object {
+              "fontSize": 20,
+              "fontWeight": "600",
+              "marginBottom": 9,
+            },
+          ]
+        }
+      >
+        test
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontSize": 22,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 28,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "writingDirection": "ltr",
+            },
+            Object {
+              "fontSize": 16,
+              "fontWeight": "500",
+            },
+          ]
+        }
+      >
+        Price
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+              "fontSize": 22,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 28,
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "writingDirection": "ltr",
+            },
+            Object {
+              "fontSize": 16,
+              "fontWeight": "500",
+              "marginBottom": 9,
+            },
+          ]
+        }
+      >
+        $0.00
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 2,
           }
         }
       >
         <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          Free shipping in UAE
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 2,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          Fresh
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 2,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          Secure Payments
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 2,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontSize": 16,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "rgba(28, 27, 31, 1)",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          In stock, ready to ship
+        </Text>
+      </View>
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
           collapsable={false}
-          numberOfLines={1}
           style={
             Object {
-              "alignSelf": "flex-end",
-              "backgroundColor": "#000000",
-              "borderRadius": 6,
-              "color": "rgba(255, 255, 255, 1)",
-              "fontSize": 6,
-              "height": 12,
-              "lineHeight": 12,
-              "minWidth": 12,
-              "opacity": 1,
-              "overflow": "hidden",
-              "paddingHorizontal": 3,
-              "textAlign": "center",
-              "textAlignVertical": "center",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0,
+              "shadowRadius": 0,
             }
           }
-        />
+        >
+          <View
+            collapsable={false}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#313652",
+                "borderRadius": 1,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "marginVertical": 10,
+                "minWidth": 64,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": true,
+                }
+              }
+              accessible={true}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "borderRadius": 1,
+                  },
+                ]
+              }
+              testID="handleAddToCart"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "writingDirection": "ltr",
+                      },
+                      Array [
+                        Object {
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        false,
+                        Object {
+                          "marginHorizontal": 24,
+                          "marginVertical": 10,
+                        },
+                        undefined,
+                        false,
+                        Object {
+                          "color": "rgba(103, 80, 164, 1)",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.1,
+                          "lineHeight": 20,
+                        },
+                        Object {
+                          "color": "#313652",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  Add to cart
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        collapsable={false}
+        style={
+          Object {
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0,
+            "shadowRadius": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0,
+              "shadowRadius": 0,
+            }
+          }
+        >
+          <View
+            collapsable={false}
+            style={
+              Object {
+                "backgroundColor": "#313652",
+                "borderColor": "transparent",
+                "borderRadius": 1,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "marginBottom": 10,
+                "minWidth": 64,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": true,
+                }
+              }
+              accessible={true}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "borderRadius": 1,
+                  },
+                ]
+              }
+              testID="handleBuyItNow"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 0.1,
+                        "lineHeight": 20,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "writingDirection": "ltr",
+                      },
+                      Array [
+                        Object {
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        false,
+                        Object {
+                          "marginHorizontal": 24,
+                          "marginVertical": 10,
+                        },
+                        undefined,
+                        false,
+                        Object {
+                          "color": "rgba(255, 255, 255, 1)",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.1,
+                          "lineHeight": 20,
+                        },
+                        Object {
+                          "color": "#ffffff",
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  Buy it now
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </View>
@@ -94,193 +654,381 @@ exports[`FeaturedProduct should render the item 1`] = `
     style={
       Array [
         Object {
-          "width": "50%",
+          "marginVertical": 8,
         },
+        undefined,
       ]
     }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
-            "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
+    theme={
+      Object {
+        "animation": Object {
+          "scale": 1,
+        },
+        "colors": Object {
+          "background": "rgba(255, 251, 254, 1)",
+          "elevation": Object {
+            "level0": "transparent",
+            "level1": "rgb(247, 243, 249)",
+            "level2": "rgb(243, 237, 246)",
+            "level3": "rgb(238, 232, 244)",
+            "level4": "rgb(236, 230, 243)",
+            "level5": "rgb(233, 227, 241)",
           },
-          Object {
-            "textAlign": "left",
-          },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
-            "fontSize": 20,
-            "fontWeight": "600",
-            "marginBottom": 9,
-          },
-        ]
-      }
-    >
-      test
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
-            "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
-          },
-          Object {
-            "textAlign": "left",
-          },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
+          "error": "rgba(179, 38, 30, 1)",
+          "errorContainer": "rgba(249, 222, 220, 1)",
+          "inverseOnSurface": "rgba(244, 239, 244, 1)",
+          "inversePrimary": "rgba(208, 188, 255, 1)",
+          "inverseSurface": "rgba(49, 48, 51, 1)",
+          "onBackground": "rgba(28, 27, 31, 1)",
+          "onError": "rgba(255, 255, 255, 1)",
+          "onErrorContainer": "rgba(65, 14, 11, 1)",
+          "onPrimary": "rgba(255, 255, 255, 1)",
+          "onPrimaryContainer": "rgba(33, 0, 93, 1)",
+          "onSecondary": "rgba(255, 255, 255, 1)",
+          "onSecondaryContainer": "rgba(29, 25, 43, 1)",
+          "onSurface": "rgba(28, 27, 31, 1)",
+          "onSurfaceDisabled": "rgba(28, 27, 31, 0.38)",
+          "onSurfaceVariant": "rgba(73, 69, 79, 1)",
+          "onTertiary": "rgba(255, 255, 255, 1)",
+          "onTertiaryContainer": "rgba(49, 17, 29, 1)",
+          "outline": "rgba(121, 116, 126, 1)",
+          "primary": "rgba(103, 80, 164, 1)",
+          "primaryContainer": "rgba(234, 221, 255, 1)",
+          "secondary": "rgba(98, 91, 113, 1)",
+          "secondaryContainer": "rgba(232, 222, 248, 1)",
+          "shadow": "rgba(0, 0, 0, 1)",
+          "surface": "rgba(255, 251, 254, 1)",
+          "surfaceDisabled": "rgba(28, 27, 31, 0.12)",
+          "surfaceVariant": "rgba(231, 224, 236, 1)",
+          "tertiary": "rgba(125, 82, 96, 1)",
+          "tertiaryContainer": "rgba(255, 216, 228, 1)",
+        },
+        "dark": false,
+        "isV3": true,
+        "roundness": 4,
+        "typescale": Object {
+          "bodyLarge": Object {
+            "fontFamily": "System",
             "fontSize": 16,
-            "fontWeight": "500",
-          },
-        ]
-      }
-    >
-      Price
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
             "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
           },
-          Object {
-            "textAlign": "left",
-          },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "500",
-            "marginBottom": 9,
-          },
-        ]
-      }
-    >
-      $0.00
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
+          "bodyMedium": Object {
+            "fontFamily": "System",
+            "fontSize": 14,
             "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
           },
-          Object {
-            "textAlign": "left",
-          },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
+          "bodySmall": Object {
+            "fontFamily": "System",
             "fontSize": 12,
             "fontWeight": "400",
-            "marginBottom": 9,
+            "letterSpacing": 0.4,
+            "lineHeight": 16,
           },
+          "displayLarge": Object {
+            "fontFamily": "System",
+            "fontSize": 57,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 64,
+          },
+          "displayMedium": Object {
+            "fontFamily": "System",
+            "fontSize": 45,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 52,
+          },
+          "displaySmall": Object {
+            "fontFamily": "System",
+            "fontSize": 36,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 44,
+          },
+          "headlineLarge": Object {
+            "fontFamily": "System",
+            "fontSize": 32,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 40,
+          },
+          "headlineMedium": Object {
+            "fontFamily": "System",
+            "fontSize": 28,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 36,
+          },
+          "headlineSmall": Object {
+            "fontFamily": "System",
+            "fontSize": 24,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 32,
+          },
+          "labelLarge": Object {
+            "fontFamily": "System",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 0.1,
+            "lineHeight": 20,
+          },
+          "labelMedium": Object {
+            "fontFamily": "System",
+            "fontSize": 12,
+            "fontWeight": "500",
+            "letterSpacing": 0.5,
+            "lineHeight": 16,
+          },
+          "labelSmall": Object {
+            "fontFamily": "System",
+            "fontSize": 11,
+            "fontWeight": "500",
+            "letterSpacing": 0.5,
+            "lineHeight": 16,
+          },
+          "titleLarge": Object {
+            "fontFamily": "System",
+            "fontSize": 22,
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 28,
+          },
+          "titleMedium": Object {
+            "fontFamily": "System",
+            "fontSize": 16,
+            "fontWeight": "500",
+            "letterSpacing": 0.15,
+            "lineHeight": 24,
+          },
+          "titleSmall": Object {
+            "fontFamily": "System",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 0.1,
+            "lineHeight": 20,
+          },
+        },
+        "version": 3,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "rgba(255, 251, 254, 1)",
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": false,
+              "expanded": false,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Array [
+                Object {
+                  "padding": 8,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <View
+            pointerEvents="none"
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "margin": 8,
+                  },
+                  Object {
+                    "flex": 1,
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(28, 27, 31, 1)",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "color": "#000000",
+                      },
+                    ],
+                  ]
+                }
+              >
+                Description
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "margin": 8,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                accessibilityElementsHidden={true}
+                allowFontScaling={false}
+                importantForAccessibility="no-hide-descendants"
+                pointerEvents="none"
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgba(73, 69, 79, 1)",
+                      "fontSize": 24,
+                    },
+                    Array [
+                      Object {
+                        "lineHeight": 24,
+                        "transform": Array [
+                          Object {
+                            "scaleX": 1,
+                          },
+                        ],
+                      },
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰅀
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
+          },
+          undefined,
+          false,
+          false,
+          undefined,
         ]
       }
-    >
-      test
-    </Text>
-    <View
-      collapsable={false}
-      style={
-        Object {
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 0,
-            "width": 0,
-          },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
-        }
-      }
-    >
+    />
+    <View>
       <View
-        collapsable={false}
         style={
           Object {
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 0,
-              "width": 0,
-            },
-            "shadowOpacity": 0,
-            "shadowRadius": 0,
+            "backgroundColor": "rgba(255, 251, 254, 1)",
           }
         }
       >
         <View
-          collapsable={false}
-          style={
+          accessibilityRole="button"
+          accessibilityState={
             Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#313652",
-              "borderRadius": 1,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "marginBottom": 10,
-              "minWidth": 64,
+              "disabled": false,
+              "expanded": true,
             }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Array [
+                Object {
+                  "padding": 8,
+                },
+                undefined,
+              ],
+            ]
           }
         >
           <View
-            accessibilityRole="button"
-            accessibilityState={
+            pointerEvents="none"
+            style={
               Object {
-                "disabled": true,
+                "alignItems": "center",
+                "flexDirection": "row",
               }
             }
-            accessible={true}
-            focusable={false}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "overflow": "hidden",
-                },
-                Object {
-                  "borderRadius": 1,
-                },
-              ]
-            }
-            testID="handleAddToCart"
           >
             <View
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "margin": 8,
+                  },
+                  Object {
+                    "flex": 1,
                     "justifyContent": "center",
                   },
-                  undefined,
                 ]
               }
             >
@@ -291,187 +1039,109 @@ exports[`FeaturedProduct should render the item 1`] = `
                   Array [
                     Object {
                       "color": "rgba(28, 27, 31, 1)",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 0.1,
-                      "lineHeight": 20,
                     },
                     Object {
                       "textAlign": "left",
                     },
-                    Object {
-                      "writingDirection": "ltr",
-                    },
                     Array [
                       Object {
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
+                        "fontSize": 16,
                       },
-                      false,
-                      Object {
-                        "marginHorizontal": 24,
-                        "marginVertical": 10,
-                      },
-                      undefined,
-                      false,
                       Object {
                         "color": "rgba(103, 80, 164, 1)",
-                        "fontFamily": "System",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 0.1,
-                        "lineHeight": 20,
                       },
                       Object {
-                        "color": "#313652",
+                        "color": "#000000",
                       },
                     ],
                   ]
                 }
               >
-                Add to cart
+                Shipping information
               </Text>
             </View>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      collapsable={false}
-      style={
-        Object {
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 0,
-            "width": 0,
-          },
-          "shadowOpacity": 0,
-          "shadowRadius": 0,
-        }
-      }
-    >
-      <View
-        collapsable={false}
-        style={
-          Object {
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 0,
-              "width": 0,
-            },
-            "shadowOpacity": 0,
-            "shadowRadius": 0,
-          }
-        }
-      >
-        <View
-          collapsable={false}
-          style={
-            Object {
-              "backgroundColor": "#313652",
-              "borderColor": "transparent",
-              "borderRadius": 1,
-              "borderStyle": "solid",
-              "borderWidth": 0,
-              "marginBottom": 10,
-              "minWidth": 64,
-            }
-          }
-        >
-          <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": true,
-              }
-            }
-            accessible={true}
-            focusable={false}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "overflow": "hidden",
-                },
-                Object {
-                  "borderRadius": 1,
-                },
-              ]
-            }
-            testID="handleBuyItNow"
-          >
             <View
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
+                    "margin": 8,
                   },
                   undefined,
                 ]
               }
             >
               <Text
-                numberOfLines={1}
+                accessibilityElementsHidden={true}
+                allowFontScaling={false}
+                importantForAccessibility="no-hide-descendants"
+                pointerEvents="none"
                 selectable={false}
                 style={
                   Array [
                     Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 0.1,
-                      "lineHeight": 20,
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "writingDirection": "ltr",
+                      "color": "rgba(73, 69, 79, 1)",
+                      "fontSize": 24,
                     },
                     Array [
                       Object {
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      false,
-                      Object {
-                        "marginHorizontal": 24,
-                        "marginVertical": 10,
-                      },
-                      undefined,
-                      false,
-                      Object {
-                        "color": "rgba(255, 255, 255, 1)",
-                        "fontFamily": "System",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 0.1,
-                        "lineHeight": 20,
+                        "lineHeight": 24,
+                        "transform": Array [
+                          Object {
+                            "scaleX": 1,
+                          },
+                        ],
                       },
                       Object {
-                        "color": "#ffffff",
+                        "backgroundColor": "transparent",
                       },
                     ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
                   ]
                 }
               >
-                Buy it now
+                󰅃
               </Text>
             </View>
           </View>
         </View>
       </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(28, 27, 31, 1)",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Object {
+              "marginHorizontal": 20,
+            },
+          ]
+        }
+      >
+        Shipping Information
+      </Text>
     </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(231, 224, 236, 1)",
+            "height": 0.5,
+          },
+          undefined,
+          false,
+          false,
+          undefined,
+        ]
+      }
+    />
   </View>
 </View>
 `;
