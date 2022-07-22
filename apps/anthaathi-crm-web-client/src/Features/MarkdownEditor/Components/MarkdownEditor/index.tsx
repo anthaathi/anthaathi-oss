@@ -1,0 +1,157 @@
+import { Textarea } from 'baseui/textarea';
+import { useStyletron } from 'baseui';
+import { Button, KIND, SIZE } from 'baseui/button';
+import React, { useCallback, useRef } from 'react';
+import { Icon } from '../../../Core/Components/Icon';
+import { expandBorderStyles } from 'baseui/styles';
+
+export interface MarkdownEditorProps {
+  value: string;
+  onChange(value: string): void;
+}
+
+export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
+  const [css, $theme] = useStyletron();
+
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const insertText = useCallback(
+    (start: string, end: string = '') => {
+      if (!textareaRef.current) {
+        return;
+      }
+
+      const { selectionStart, selectionEnd, value } = textareaRef.current;
+
+      const startingText = value.substring(0, selectionStart);
+      const endingText = value.substring(selectionEnd);
+
+      const selectedText = value.substring(selectionStart, selectionEnd);
+
+      if (
+        startingText.endsWith(start) &&
+        (!end || endingText.startsWith(end))
+      ) {
+        const newStartingText = startingText.substring(
+          0,
+          startingText.length - start.length
+        );
+
+        const newEndingText = endingText.substring(
+          endingText.length + end.length
+        );
+
+        onChange(newStartingText + selectedText + newEndingText);
+
+        setTimeout(() => {
+          textareaRef.current?.setSelectionRange(
+            newStartingText.length,
+            selectedText.length + newEndingText.length
+          );
+          textareaRef.current?.focus();
+        });
+      } else {
+        onChange(startingText + start + selectedText + end + endingText);
+
+        setTimeout(() => {
+          textareaRef.current?.setSelectionRange(
+            (startingText + start).length,
+            (startingText + start + selectedText).length
+          );
+          textareaRef.current?.focus();
+        }, 0);
+      }
+    },
+    [textareaRef]
+  );
+
+  const insertAtStart = useCallback(
+    (contentToInsert: string) => {
+      if (!textareaRef.current) {
+        return;
+      }
+    },
+    [textareaRef]
+  );
+
+  const insertURL = useCallback(() => {}, [textareaRef]);
+
+  return (
+    <div
+      className={css({
+        ...expandBorderStyles($theme.borders.border200),
+        borderRadius: $theme.borders.inputBorderRadius,
+      })}
+    >
+      <div
+        className={css({
+          display: 'flex',
+          backgroundColor: $theme.colors.backgroundTertiary,
+          padding: $theme.sizing.scale200,
+          borderBottomColor: $theme.borders.border200.borderColor,
+          borderBottomWidth: $theme.borders.border200.borderWidth,
+          borderBottomStyle: $theme.borders.border200.borderStyle as never,
+          borderTopRightRadius: $theme.borders.inputBorderRadius,
+          borderTopLeftRadius: $theme.borders.inputBorderRadius,
+        })}
+      >
+        <ActionButton onClick={() => insertAtStart('### ')}>
+          <Icon icon="header" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertText('**', '**')}>
+          <Icon icon="bold" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertText('_', '_')}>
+          <Icon icon="italic" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertAtStart('> ')}>
+          <Icon icon="quote-left" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertURL()}>
+          <Icon icon="link" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertAtStart('-')}>
+          <Icon icon="list-ul" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertAtStart('- []')}>
+          <Icon icon="check-square-o" />
+        </ActionButton>
+
+        <ActionButton onClick={() => insertText('@')}>
+          <Icon icon="at" />
+        </ActionButton>
+
+        <ActionButton>
+          <Icon icon="upload" />
+        </ActionButton>
+      </div>
+
+      <Textarea
+        inputRef={textareaRef}
+        onChange={(e) => {
+          onChange((e.target as HTMLInputElement).value);
+        }}
+        value={value}
+      />
+    </div>
+  );
+}
+
+export interface ActionButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+export function ActionButton({ children, onClick }: ActionButtonProps) {
+  return (
+    <Button kind={KIND.secondary} size={SIZE.mini} onClick={onClick}>
+      {children}
+    </Button>
+  );
+}

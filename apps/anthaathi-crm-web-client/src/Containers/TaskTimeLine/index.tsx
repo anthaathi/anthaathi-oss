@@ -16,6 +16,7 @@ import { LabelRenderer } from '../../Features/IssueTracker/Components/LabelRende
 import { LabelSmall } from 'baseui/typography';
 import { FilesSidebar } from '../../Features/IssueTracker/Components/FilesSidebar';
 import { Timeline } from '../../Features/Timeline/Components/Timeline';
+import { AddCommentTextbox } from '../../Features/Timeline/Components/AddCommentTextbox';
 
 export function TaskTimeLine() {
   const [css, $theme] = useStyletron();
@@ -42,6 +43,7 @@ export function TaskTimeLine() {
     >
       <StickyContainer>
         <Timeline />
+        <AddCommentTextbox />
       </StickyContainer>
 
       <StickySidebar>
