@@ -69,4 +69,18 @@ describe('header', () => {
 
     expect(temp.queryByText('Header title')).toBeTruthy();
   });
+
+  it('should have Header Image', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <Header logoImage="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705" />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('headerImage')!.props.source).toMatchObject({
+      uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705',
+    });
+  });
 });

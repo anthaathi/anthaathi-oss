@@ -37,28 +37,26 @@ export default function HeroCategories({
   }, [items]);
 
   return (
-    <>
-      <View>
-        <Text variant="titleLarge" style={{marginBottom: 9}}>
-          {title}
-        </Text>
+    <View testID="heroCategory">
+      <Text variant="titleLarge" style={{marginBottom: 9}}>
+        {title}
+      </Text>
 
-        <View>
-          <VirtualizedList<Item[]>
-            data={itemsSpited}
-            testID="heroCategoriesList"
-            initialNumToRender={4}
-            horizontal
-            renderItem={({item}) => (
-              <ItemRendererColumn onPress={onPress || (() => {})} item={item} />
-            )}
-            getItemCount={() => itemsSpited.length}
-            keyExtractor={(item, index) => item?.[0]?.key || index + ''}
-            getItem={(res, index) => res[index]}
-          />
-        </View>
+      <View>
+        <VirtualizedList<Item[]>
+          data={itemsSpited}
+          testID="heroCategoriesList"
+          initialNumToRender={4}
+          horizontal
+          renderItem={({item}) => (
+            <ItemRendererColumn onPress={onPress || (() => {})} item={item} />
+          )}
+          getItemCount={() => itemsSpited.length}
+          keyExtractor={(item, index) => item?.[0]?.key || index + ''}
+          getItem={(res, index) => res[index]}
+        />
       </View>
-    </>
+    </View>
   );
 }
 

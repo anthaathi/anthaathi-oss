@@ -34,7 +34,7 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
           },
         ]}>
         <View style={{...styles.alignCenter, ...{width: 38}}}>
-          <Icon name="map-marker" color={theme.colors.primary} size={24}></Icon>
+          <Icon name="map-marker" color={theme.colors.primary} size={24} />
         </View>
         <View style={styles.column}>
           <Text variant="labelMedium">
@@ -47,7 +47,11 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
 
         <View style={{flexGrow: 1}} />
 
-        <IconButton onPress={props.onPress} icon="chevron-right"></IconButton>
+        <IconButton
+          onPress={props.onPress}
+          icon="chevron-right"
+          iconColor={theme.colors.primary}
+        />
       </View>
     </TouchableHighlight>
   );

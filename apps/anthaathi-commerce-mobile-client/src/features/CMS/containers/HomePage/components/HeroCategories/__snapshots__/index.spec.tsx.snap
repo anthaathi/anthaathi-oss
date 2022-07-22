@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HeroCategories should fire event when click on the categories 1`] = `
-<View>
+<View
+  testID="heroCategory"
+>
   <Text
     style={
       Array [
@@ -232,7 +234,9 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
 `;
 
 exports[`HeroCategories should render the item 1`] = `
-<View>
+<View
+  testID="heroCategory"
+>
   <Text
     style={
       Array [

@@ -64,4 +64,40 @@ describe('HeroSlide', () => {
     fireEvent.press(temp.queryByTestId('heroSlideOnPress')!);
     expect(onpress).toBeCalledTimes(1);
   });
+
+  it('should have HeroSlide Image', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <HeroSlide
+            backgroundImageSrc="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430"
+            title="test title"
+            subTitle="test subtitle"
+            buttonTitle="View All"
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('backgroundImage')!.props.source).toMatchObject({
+      uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430',
+    });
+  });
+
+  it('should have HeroSlide button title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <HeroSlide
+            backgroundImageSrc="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430"
+            title="test title"
+            subTitle="test subtitle"
+            buttonTitle="View All"
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('buttonTitle')?.children).toContain('View All');
+  });
 });

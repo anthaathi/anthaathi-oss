@@ -131,5 +131,6 @@ describe('FeaturedCollection', () => {
     );
 
     expect(temp.queryByText('Test title')).toBeTruthy();
+    expect(temp.queryByText('View All')).toBeTruthy();
   });
 });

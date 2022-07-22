@@ -84,19 +84,21 @@ const MainBlog = ({
     <TouchableRipple onPress={() => {}}>
       <View style={{alignItems: 'center', marginBottom: 10}}>
         <Image
+          testID="mainBlogImage"
           source={{uri: blog.image}}
           style={{height: itemHeight, width: '100%'}}
         />
         <Text
+          testID="mainBlogTitle"
           style={{
             fontSize: 16,
-            fontFamily: '700',
+            fontWeight: '700',
             width: '70%',
             textAlign: 'center',
           }}>
           {blog.title}
         </Text>
-        <Text style={{fontSize: 14, fontFamily: '400'}}>
+        <Text testID="mainBlogDate" style={{fontSize: 14, fontWeight: '400'}}>
           {blog.published_date}
         </Text>
       </View>
@@ -119,8 +121,8 @@ const BlogRenderer = ({
           style={{height: itemHeight, width: '40%'}}
         />
         <View style={{marginHorizontal: '2%', width: '56%'}}>
-          <Text style={{fontSize: 16, fontFamily: '700'}}>{blog.title}</Text>
-          <Text style={{fontSize: 14, fontFamily: '400'}}>
+          <Text style={{fontSize: 16, fontWeight: '700'}}>{blog.title}</Text>
+          <Text style={{fontSize: 14, fontWeight: '400'}}>
             {blog.published_date}
           </Text>
         </View>
