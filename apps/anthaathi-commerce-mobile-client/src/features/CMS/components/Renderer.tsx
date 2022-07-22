@@ -1,4 +1,8 @@
 import * as React from 'react';
+import {BasketItemCMSInput} from '../containers/CartPage/components/BasketItem';
+import {PricingCardCMSInput} from '../containers/CartPage/components/PricingCard';
+import {PromoCodeCMSInput} from '../containers/CartPage/components/PromoCode';
+import {SuggestedItemCMSInput} from '../containers/CartPage/components/SuggestedItem';
 import {HeaderCMSInput} from '../containers/Header';
 import {BlogPostsCMSInput} from '../containers/HomePage/components/BlogPosts';
 import {CategoriesCardCMSInput} from '../containers/HomePage/components/CategoriesCard';
@@ -18,6 +22,7 @@ export interface RendererProps {
 
 const renderer = [
   HeaderCMSInput,
+  //home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
   CategoriesCardCMSInput,
@@ -29,6 +34,11 @@ const renderer = [
   PromotionalProductGridCMSInput,
   SplitOfferCardCMSInput,
   TextWithImageCMSInput,
+  //cart page
+  BasketItemCMSInput,
+  PricingCardCMSInput,
+  PromoCodeCMSInput,
+  SuggestedItemCMSInput,
 ];
 
 const mapConverted: Record<string, React.FunctionComponent> = {};

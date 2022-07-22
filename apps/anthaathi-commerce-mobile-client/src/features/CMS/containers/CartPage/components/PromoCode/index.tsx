@@ -3,6 +3,7 @@ import {Pressable, View} from 'react-native';
 import {Text, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
+import {CartPageComponentType} from '../../../../types/common';
 
 export interface PromoCodeProps {
   title: string;
@@ -41,3 +42,8 @@ const PromoCode = (props: PromoCodeProps) => {
 };
 
 export default PromoCode;
+
+export const PromoCodeCMSInput = {
+  _component: CartPageComponentType.PromoCode,
+  component: PromoCode,
+};

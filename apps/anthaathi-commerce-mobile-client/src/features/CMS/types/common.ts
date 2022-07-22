@@ -24,3 +24,10 @@ export enum HomePageComponentType {
   SplitOfferCard = 'home.split-offer-card',
   TextWithImage = 'home.text-with-image',
 }
+
+export enum CartPageComponentType {
+  BasketItem = 'cart.basket-item',
+  PricingCard = 'cart.pricing-card',
+  PromoCode = 'cart.promo-code',
+  SuggestedItem = 'cart.suggested-item',
+}

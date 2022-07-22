@@ -71,6 +71,7 @@ describe('BasketItem', () => {
       </ThemeProvider>,
     );
     expect(temp.queryByText('Items')).toBeTruthy();
+    expect(temp.queryByText('Remove All')).toBeTruthy();
   });
 
   it('should call when we call tap handlePress', function () {
@@ -100,5 +101,67 @@ describe('BasketItem', () => {
     );
     fireEvent.press(temp.queryByTestId('handlePressBasketItem')!);
     expect(onpress).toBeCalledTimes(1);
+  });
+
+  it('should have BasketItem Product Image', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <BasketItem
+            title="Items"
+            items={[
+              {
+                name: 'Capsicum mixed',
+                image:
+                  'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
+                key: '23',
+                price: 23,
+                numberOfItems: 2,
+                currency: 'USD',
+                weight_unit: 'KG',
+                packaging: '500 gms',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(
+      temp.queryByTestId('basketProductImage')!.props.source,
+    ).toMatchObject({
+      uri: 'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
+    });
+  });
+
+  it('should have BasketItem Product name, packing, price', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <BasketItem
+            title="Items"
+            items={[
+              {
+                name: 'Capsicum mixed',
+                image:
+                  'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
+                key: '23',
+                price: 23,
+                numberOfItems: 2,
+                currency: 'USD',
+                weight_unit: 'KG',
+                packaging: '500 gms',
+              },
+            ]}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('productName')?.children).toContain(
+      'Capsicum mixed',
+    );
+    expect(temp.queryByTestId('productPacking')?.children).toContain('500 gms');
+    expect(temp.queryByTestId('productPrice')?.children).toContain('$23.00');
   });
 });

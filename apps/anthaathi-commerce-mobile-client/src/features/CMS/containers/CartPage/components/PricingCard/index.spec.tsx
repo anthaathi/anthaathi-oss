@@ -26,4 +26,23 @@ describe('PricingCard', () => {
     expect(temp).toMatchSnapshot();
     expect(temp.queryByTestId('pricingCard')).toBeTruthy();
   });
+
+  it('should have PricingCard title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <PricingCard
+            subtotal={{currency: 'USD', price: 10.1}}
+            discount={{currency: 'USD', price: 10.1}}
+            promoDiscount={{currency: 'USD', price: 10.1}}
+            shippingCharges={{currency: 'USD', price: 0}}
+            total={{currency: 'USD', price: 10.1}}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryAllByTestId('title').length).toBe(5);
+    expect(temp.queryAllByTestId('subtitle').length).toBe(5);
+  });
 });

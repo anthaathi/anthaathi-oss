@@ -99,6 +99,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="title"
             >
               Subtotal
             </Text>
@@ -113,6 +114,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="subtitle"
             >
               $10.10
             </Text>
@@ -137,6 +139,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="title"
             >
               Discount
             </Text>
@@ -151,6 +154,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="subtitle"
             >
               $10.10
             </Text>
@@ -175,6 +179,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="title"
             >
               Promo Discount
             </Text>
@@ -189,6 +194,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="subtitle"
             >
               $10.10
             </Text>
@@ -213,6 +219,7 @@ exports[`PricingCard should render the item 1`] = `
                   undefined,
                 ]
               }
+              testID="title"
             >
               Shipping Charges.
             </Text>
@@ -230,6 +237,7 @@ exports[`PricingCard should render the item 1`] = `
                   },
                 ]
               }
+              testID="subtitle"
             >
               $0.00
             </Text>
@@ -258,6 +266,7 @@ exports[`PricingCard should render the item 1`] = `
                   },
                 ]
               }
+              testID="title"
             >
               Total
             </Text>
@@ -276,6 +285,7 @@ exports[`PricingCard should render the item 1`] = `
                   },
                 ]
               }
+              testID="subtitle"
             >
               $10.10
             </Text>

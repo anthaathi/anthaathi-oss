@@ -3,6 +3,7 @@ import React from 'react';
 import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
+import {CartPageComponentType} from '../../../../types/common';
 
 export interface ItemProps {
   name: string;
@@ -87,6 +88,7 @@ const ItemRenderer = ({
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row'}}>
           <Image
+            testID="basketProductImage"
             source={{uri: item.image}}
             style={{height: itemHeight, width: itemWidth}}
           />
@@ -99,11 +101,13 @@ const ItemRenderer = ({
             }}>
             <View>
               <Text
+                testID="productName"
                 variant="titleLarge"
                 style={{fontSize: 14, color: '#364A15', fontWeight: '900'}}>
                 {item.name}
               </Text>
               <Text
+                testID="productPacking"
                 variant="titleLarge"
                 style={{fontSize: 12, color: '#808080', fontWeight: '400'}}>
                 {item.packaging}
@@ -119,6 +123,7 @@ const ItemRenderer = ({
             alignContent: 'flex-end',
           }}>
           <Text
+            testID="productPrice"
             variant="titleLarge"
             style={{
               fontSize: 14,
@@ -183,3 +188,8 @@ const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
 };
 
 export default BasketItem;
+
+export const BasketItemCMSInput = {
+  _component: CartPageComponentType.BasketItem,
+  component: BasketItem,
+};
