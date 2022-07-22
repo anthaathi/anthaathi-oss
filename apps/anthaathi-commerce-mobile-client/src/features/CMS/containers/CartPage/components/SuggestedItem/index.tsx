@@ -4,6 +4,7 @@ import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
+import {CartPageComponentType} from '../../../../types/common';
 
 export interface ProductProps {
   name: string;
@@ -148,3 +149,8 @@ function ItemRenderer({
     </View>
   );
 }
+
+export const SuggestedItemCMSInput = {
+  _component: CartPageComponentType.SuggestedItem,
+  component: SuggestedItem,
+};

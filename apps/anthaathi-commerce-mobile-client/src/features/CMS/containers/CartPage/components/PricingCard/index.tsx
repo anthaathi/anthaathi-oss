@@ -2,6 +2,7 @@ import {View, Text, TextStyle, StyleProp} from 'react-native';
 import React from 'react';
 import {Card} from 'react-native-paper';
 import {useIntl} from 'react-intl';
+import {CartPageComponentType} from '../../../../types/common';
 
 export interface ViewTextProps {
   title: string;
@@ -93,10 +94,13 @@ const ViewText = ({
         marginHorizontal: 3,
         marginVertical: 5,
       }}>
-      <Text style={[{color: '#808080', fontSize: 14}, titleStyle]}>
+      <Text
+        testID="title"
+        style={[{color: '#808080', fontSize: 14}, titleStyle]}>
         {title}
       </Text>
       <Text
+        testID="subtitle"
         style={[
           {color: '#364A15', fontSize: 14, fontWeight: '600'},
           subtitleStyle,
@@ -108,3 +112,8 @@ const ViewText = ({
 };
 
 export default PricingCard;
+
+export const PricingCardCMSInput = {
+  _component: CartPageComponentType.PricingCard,
+  component: PricingCard,
+};
