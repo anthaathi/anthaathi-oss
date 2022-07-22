@@ -240,6 +240,7 @@ exports[`PersonalInformation should render the item 1`] = `
                 "marginVertical": 5,
               }
             }
+            testID="infoTextComponentId"
           >
             <Text
               style={
@@ -271,6 +272,7 @@ exports[`PersonalInformation should render the item 1`] = `
                 "marginVertical": 5,
               }
             }
+            testID="infoTextComponentId"
           >
             <Text
               style={
@@ -302,6 +304,7 @@ exports[`PersonalInformation should render the item 1`] = `
                 "marginVertical": 5,
               }
             }
+            testID="infoTextComponentId"
           >
             <Text
               style={
@@ -333,6 +336,7 @@ exports[`PersonalInformation should render the item 1`] = `
                 "marginVertical": 5,
               }
             }
+            testID="infoTextComponentId"
           >
             <Text
               style={

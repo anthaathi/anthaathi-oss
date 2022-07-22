@@ -3,6 +3,7 @@ import React from 'react';
 import {Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useIntl} from 'react-intl';
+import {ProfilePageComponentType} from '../../../../types/common';
 
 export interface WalletBalanceProps {
   title: string;
@@ -78,3 +79,8 @@ const WalletBalance = (props: WalletBalanceProps) => {
 };
 
 export default WalletBalance;
+
+export const WalletBalanceCMSInput = {
+  _component: ProfilePageComponentType.WalletBalance,
+  component: WalletBalance,
+};

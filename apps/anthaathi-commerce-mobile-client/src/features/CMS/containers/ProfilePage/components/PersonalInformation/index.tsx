@@ -2,6 +2,7 @@ import {Text, View} from 'react-native';
 import React from 'react';
 import {Button, Card} from 'react-native-paper';
 import {useIntl} from 'react-intl';
+import {ProfilePageComponentType} from '../../../../types/common';
 
 type PersonalInfo = {
   name: string;
@@ -71,6 +72,7 @@ const PersonalInformation = (props: PersonalInformationProps) => {
 const InformationRenderer = ({label, name}: {label: string; name: string}) => {
   return (
     <View
+      testID="infoTextComponentId"
       style={{
         flexDirection: 'row',
         marginVertical: 5,
@@ -86,3 +88,8 @@ const InformationRenderer = ({label, name}: {label: string; name: string}) => {
 };
 
 export default PersonalInformation;
+
+export const PersonalInformationCMSInput = {
+  _component: ProfilePageComponentType.PersonalInformation,
+  component: PersonalInformation,
+};

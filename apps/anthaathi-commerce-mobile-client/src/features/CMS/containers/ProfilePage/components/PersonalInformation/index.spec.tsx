@@ -72,4 +72,24 @@ describe('PersonalInformation', () => {
 
     expect(temp.queryByText('Personal Information')).toBeTruthy();
   });
+
+  it('should have PersonalInformation Text Component', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <PersonalInformation
+            title={'Personal Information'}
+            personalInfo={{
+              name: 'User name',
+              email: 'user_mail@gmail.com',
+              mobile: '+91 0000000000',
+              alternateMobile: '+91 0000000000',
+            }}
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryAllByTestId('infoTextComponentId').length).toBe(4);
+  });
 });
