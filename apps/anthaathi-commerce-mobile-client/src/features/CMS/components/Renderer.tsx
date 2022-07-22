@@ -3,6 +3,10 @@ import {BasketItemCMSInput} from '../containers/CartPage/components/BasketItem';
 import {PricingCardCMSInput} from '../containers/CartPage/components/PricingCard';
 import {PromoCodeCMSInput} from '../containers/CartPage/components/PromoCode';
 import {SuggestedItemCMSInput} from '../containers/CartPage/components/SuggestedItem';
+import {DeliveryAddressCardCMSInput} from '../containers/CheckOutPage/components/DeliveryAddressCard';
+import {DeliveryDateSelectionCMSInput} from '../containers/CheckOutPage/components/DeliveryDateSelection';
+import {PaymentMethodSelectionCMSInput} from '../containers/CheckOutPage/components/PaymentMethodSelection';
+import {TimeSlotSelectionCMSInput} from '../containers/CheckOutPage/components/TimeSlotSelection';
 import {HeaderCMSInput} from '../containers/Header';
 import {BlogPostsCMSInput} from '../containers/HomePage/components/BlogPosts';
 import {CategoriesCardCMSInput} from '../containers/HomePage/components/CategoriesCard';
@@ -15,6 +19,7 @@ import {PromotionalGridCMSInput} from '../containers/HomePage/components/Promoti
 import {PromotionalProductGridCMSInput} from '../containers/HomePage/components/PromotionalProductGrid';
 import {SplitOfferCardCMSInput} from '../containers/HomePage/components/SplitOfferCard';
 import {TextWithImageCMSInput} from '../containers/HomePage/components/TextWithImage';
+import {OrderDetailsListCMSInput} from '../containers/OrderPage/components/OrderDetailsList';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -39,6 +44,13 @@ const renderer = [
   PricingCardCMSInput,
   PromoCodeCMSInput,
   SuggestedItemCMSInput,
+  //checkout page
+  DeliveryAddressCardCMSInput,
+  DeliveryDateSelectionCMSInput,
+  PaymentMethodSelectionCMSInput,
+  TimeSlotSelectionCMSInput,
+  // order page
+  OrderDetailsListCMSInput,
 ];
 
 const mapConverted: Record<string, React.FunctionComponent> = {};

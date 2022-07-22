@@ -2,6 +2,7 @@ import {Pressable, View} from 'react-native';
 import React from 'react';
 import {Card, Text} from 'react-native-paper';
 import {useIntl} from 'react-intl';
+import {OrderPageComponentType} from '../../../../types/common';
 
 export interface OrderDetailsProps {
   orderId: string;
@@ -82,10 +83,14 @@ const InformationRenderer = ({label, name}: {label: string; name: string}) => {
         justifyContent: 'space-between',
         marginVertical: 5,
       }}>
-      <Text style={{color: '#808080', fontSize: 14, fontWeight: '400'}}>
+      <Text
+        testID="labelInfoRendererId"
+        style={{color: '#808080', fontSize: 14, fontWeight: '400'}}>
         {label + ':  '}
       </Text>
-      <Text style={{color: '#364A15', fontSize: 14, fontWeight: '500'}}>
+      <Text
+        testID="nameInfoRendererId"
+        style={{color: '#364A15', fontSize: 14, fontWeight: '500'}}>
         {name}
       </Text>
     </View>
@@ -93,3 +98,8 @@ const InformationRenderer = ({label, name}: {label: string; name: string}) => {
 };
 
 export default OrderDetailsList;
+
+export const OrderDetailsListCMSInput = {
+  _component: OrderPageComponentType.OrderDetailsList,
+  component: OrderDetailsList,
+};

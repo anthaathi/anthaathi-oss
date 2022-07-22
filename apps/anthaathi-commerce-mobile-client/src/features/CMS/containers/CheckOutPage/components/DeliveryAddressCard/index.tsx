@@ -2,6 +2,7 @@ import React from 'react';
 import {useIntl} from 'react-intl';
 import {Pressable, View} from 'react-native';
 import {Card, Text} from 'react-native-paper';
+import {CheckOutPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressCardProps {
   deliveryTitle: string;
@@ -35,7 +36,9 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
             testID="changeAddressButton"
             style={{paddingHorizontal: 10}}
             onPress={props.handlePress}>
-            <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
+            <Text
+              testID="deliverAddressButtonTitle"
+              style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
               {props.buttonTitle}
             </Text>
           </Pressable>
@@ -54,3 +57,8 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
 };
 
 export default DeliveryAddressCard;
+
+export const DeliveryAddressCardCMSInput = {
+  _component: CheckOutPageComponentType.DeliveryAddressCard,
+  component: DeliveryAddressCard,
+};

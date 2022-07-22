@@ -3,6 +3,7 @@ import React from 'react';
 import {Text} from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {CheckOutPageComponentType} from '../../../../types/common';
 
 export interface DeliveryDateSelectionProps {
   title: string;
@@ -76,3 +77,8 @@ const SelectDate = ({
 };
 
 export default DeliveryDateSelection;
+
+export const DeliveryDateSelectionCMSInput = {
+  _component: CheckOutPageComponentType.DeliveryDateSelection,
+  component: DeliveryDateSelection,
+};

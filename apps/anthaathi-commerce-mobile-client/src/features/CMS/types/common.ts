@@ -31,3 +31,14 @@ export enum CartPageComponentType {
   PromoCode = 'cart.promo-code',
   SuggestedItem = 'cart.suggested-item',
 }
+
+export enum CheckOutPageComponentType {
+  DeliveryAddressCard = 'checkout.delivery-address-card',
+  DeliveryDateSelection = 'checkout.delivery-date-selection',
+  PaymentMethodSelection = 'checkout.payment-method-selection',
+  TimeSlotSelection = 'checkout.time-slot-selection',
+}
+
+export enum OrderPageComponentType {
+  OrderDetailsList = 'order.order-details-list',
+}

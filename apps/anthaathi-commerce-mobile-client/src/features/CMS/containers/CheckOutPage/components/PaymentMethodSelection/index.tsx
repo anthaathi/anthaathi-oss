@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Pressable, View} from 'react-native';
 import {Card, Divider, Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {CheckOutPageComponentType} from '../../../../types/common';
 
 type PaymentOptions = {
   key: string;
@@ -87,3 +88,8 @@ const OptionItem = ({
 };
 
 export default PaymentMethodSelection;
+
+export const PaymentMethodSelectionCMSInput = {
+  _component: CheckOutPageComponentType.PaymentMethodSelection,
+  component: PaymentMethodSelection,
+};

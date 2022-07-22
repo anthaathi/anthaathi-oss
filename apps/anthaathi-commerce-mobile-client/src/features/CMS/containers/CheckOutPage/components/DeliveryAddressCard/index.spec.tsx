@@ -26,7 +26,7 @@ describe('DeliveryAddressCard', () => {
     expect(temp.queryByTestId('deliveryAddressCard')).toBeTruthy();
   });
 
-  it('should have DeliveryAddressCard title, address', () => {
+  it('should have DeliveryAddressCard title, address and mobile number', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
@@ -42,6 +42,8 @@ describe('DeliveryAddressCard', () => {
 
     expect(temp.queryByText('Delivery Address')).toBeTruthy();
     expect(temp.queryByText('USA')).toBeTruthy();
+    expect(temp.queryByText('Mobile')).toBeTruthy();
+    expect(temp.queryByText(': +90909090')).toBeTruthy();
   });
 
   it('should call when we call tap handlePress', function () {
@@ -63,5 +65,24 @@ describe('DeliveryAddressCard', () => {
 
     fireEvent.press(temp.queryByTestId('changeAddressButton')!);
     expect(onpress).toBeCalledTimes(1);
+  });
+
+  it('should have DeliveryAddressCard button title', () => {
+    const temp = render(
+      <ThemeProvider>
+        <IntlProvider locale="en-US" messages={locale}>
+          <DeliveryAddressCard
+            deliveryTitle="Delivery Address"
+            deliveryAddress="USA"
+            buttonTitle="Change"
+            mobileNumber="+90909090"
+          />
+        </IntlProvider>
+      </ThemeProvider>,
+    );
+
+    expect(temp.queryByTestId('deliverAddressButtonTitle')?.children).toContain(
+      'Change',
+    );
   });
 });

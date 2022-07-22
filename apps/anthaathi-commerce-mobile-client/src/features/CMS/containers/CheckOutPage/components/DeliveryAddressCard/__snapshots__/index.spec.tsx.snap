@@ -161,6 +161,7 @@ exports[`DeliveryAddressCard should render the item 1`] = `
                     },
                   ]
                 }
+                testID="deliverAddressButtonTitle"
               >
                 Change
               </Text>
