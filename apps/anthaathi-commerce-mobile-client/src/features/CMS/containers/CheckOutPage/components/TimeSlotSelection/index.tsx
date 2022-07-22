@@ -1,5 +1,6 @@
 import {View, Text, Pressable, GestureResponderEvent} from 'react-native';
 import React from 'react';
+import {CheckOutPageComponentType} from '../../../../types/common';
 
 type SlotProps = {
   key: string;
@@ -59,3 +60,8 @@ const Slot = ({
 };
 
 export default TimeSlotSelection;
+
+export const TimeSlotSelectionCMSInput = {
+  _component: CheckOutPageComponentType.TimeSlotSelection,
+  component: TimeSlotSelection,
+};

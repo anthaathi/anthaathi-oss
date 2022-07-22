@@ -2,6 +2,7 @@ import {Pressable, View} from 'react-native';
 import React from 'react';
 import {Button, Card, Divider, Text} from 'react-native-paper';
 import {useIntl} from 'react-intl';
+import {ProfilePageComponentType} from '../../../../types/common';
 
 type AddressProps = {
   firstName?: string;
@@ -71,6 +72,7 @@ const AddressRenderer = ({
   return (
     <>
       <View
+        testID="addressComponent"
         style={{
           flexDirection: 'row',
           justifyContent: 'flex-start',
@@ -78,7 +80,9 @@ const AddressRenderer = ({
           marginVertical: 5,
         }}>
         <View style={{width: '80%'}}>
-          <Text style={{fontSize: 14, color: '#364A15', fontWeight: '600'}}>
+          <Text
+            testID="addressText1"
+            style={{fontSize: 14, color: '#364A15', fontWeight: '600'}}>
             {data.apartment +
               ', ' +
               data.address +
@@ -93,9 +97,12 @@ const AddressRenderer = ({
           </Text>
         </View>
         <Pressable
+          testID="addressChangeButtonPress"
           onPress={handlePress}
           style={{width: '20%', alignItems: 'center'}}>
-          <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
+          <Text
+            testID="addressChangeButtonTitle"
+            style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
             {intl.formatMessage({defaultMessage: 'Edit'})}
           </Text>
         </Pressable>
@@ -106,3 +113,8 @@ const AddressRenderer = ({
 };
 
 export default DeliveryAddresses;
+
+export const DeliveryAddressesCMSInput = {
+  _component: ProfilePageComponentType.DeliveryAddresses,
+  component: DeliveryAddresses,
+};

@@ -111,6 +111,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Order ID:  
               </Text>
@@ -130,6 +131,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 #123456
               </Text>
@@ -159,6 +161,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Date:  
               </Text>
@@ -178,6 +181,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 Tue, 12 Aug 2022
               </Text>
@@ -207,6 +211,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Order Items:  
               </Text>
@@ -226,6 +231,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 5 Items
               </Text>
@@ -255,6 +261,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Total Bill:  
               </Text>
@@ -274,6 +281,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 $0.00
               </Text>
@@ -421,6 +429,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Order ID:  
               </Text>
@@ -440,6 +449,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 #123456
               </Text>
@@ -469,6 +479,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Date:  
               </Text>
@@ -488,6 +499,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 Tue, 12 Aug 2022
               </Text>
@@ -517,6 +529,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Order Items:  
               </Text>
@@ -536,6 +549,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 5 Items
               </Text>
@@ -565,6 +579,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="labelInfoRendererId"
               >
                 Total Bill:  
               </Text>
@@ -584,6 +599,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                     },
                   ]
                 }
+                testID="nameInfoRendererId"
               >
                 $0.00
               </Text>

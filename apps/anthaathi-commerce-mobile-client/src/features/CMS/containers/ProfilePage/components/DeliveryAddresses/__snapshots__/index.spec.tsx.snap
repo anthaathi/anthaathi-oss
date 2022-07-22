@@ -257,6 +257,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                   "marginVertical": 5,
                 }
               }
+              testID="addressComponent"
             >
               <View
                 style={
@@ -281,6 +282,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                       },
                     ]
                   }
+                  testID="addressText1"
                 >
                   apartment, address, city, Country
                 </Text>
@@ -323,6 +325,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "width": "20%",
                   }
                 }
+                testID="addressChangeButtonPress"
               >
                 <Text
                   style={
@@ -340,6 +343,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                       },
                     ]
                   }
+                  testID="addressChangeButtonTitle"
                 >
                   Edit
                 </Text>
@@ -370,6 +374,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                   "marginVertical": 5,
                 }
               }
+              testID="addressComponent"
             >
               <View
                 style={
@@ -394,6 +399,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                       },
                     ]
                   }
+                  testID="addressText1"
                 >
                   apartment, address, city, Country
                 </Text>
@@ -436,6 +442,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "width": "20%",
                   }
                 }
+                testID="addressChangeButtonPress"
               >
                 <Text
                   style={
@@ -453,6 +460,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                       },
                     ]
                   }
+                  testID="addressChangeButtonTitle"
                 >
                   Edit
                 </Text>

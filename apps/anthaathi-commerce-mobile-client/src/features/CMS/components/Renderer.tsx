@@ -3,6 +3,10 @@ import {BasketItemCMSInput} from '../containers/CartPage/components/BasketItem';
 import {PricingCardCMSInput} from '../containers/CartPage/components/PricingCard';
 import {PromoCodeCMSInput} from '../containers/CartPage/components/PromoCode';
 import {SuggestedItemCMSInput} from '../containers/CartPage/components/SuggestedItem';
+import {DeliveryAddressCardCMSInput} from '../containers/CheckOutPage/components/DeliveryAddressCard';
+import {DeliveryDateSelectionCMSInput} from '../containers/CheckOutPage/components/DeliveryDateSelection';
+import {PaymentMethodSelectionCMSInput} from '../containers/CheckOutPage/components/PaymentMethodSelection';
+import {TimeSlotSelectionCMSInput} from '../containers/CheckOutPage/components/TimeSlotSelection';
 import {HeaderCMSInput} from '../containers/Header';
 import {BlogPostsCMSInput} from '../containers/HomePage/components/BlogPosts';
 import {CategoriesCardCMSInput} from '../containers/HomePage/components/CategoriesCard';
@@ -15,6 +19,11 @@ import {PromotionalGridCMSInput} from '../containers/HomePage/components/Promoti
 import {PromotionalProductGridCMSInput} from '../containers/HomePage/components/PromotionalProductGrid';
 import {SplitOfferCardCMSInput} from '../containers/HomePage/components/SplitOfferCard';
 import {TextWithImageCMSInput} from '../containers/HomePage/components/TextWithImage';
+import {OrderDetailsListCMSInput} from '../containers/OrderPage/components/OrderDetailsList';
+import {SubCategoriesCMSInput} from '../containers/ProductListPage/components/SubCategories';
+import {DeliveryAddressesCMSInput} from '../containers/ProfilePage/components/DeliveryAddresses';
+import {PersonalInformationCMSInput} from '../containers/ProfilePage/components/PersonalInformation';
+import {WalletBalanceCMSInput} from '../containers/ProfilePage/components/WalletBalance';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -22,7 +31,7 @@ export interface RendererProps {
 
 const renderer = [
   HeaderCMSInput,
-  //home page
+  // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
   CategoriesCardCMSInput,
@@ -34,11 +43,24 @@ const renderer = [
   PromotionalProductGridCMSInput,
   SplitOfferCardCMSInput,
   TextWithImageCMSInput,
-  //cart page
+  // cart page
   BasketItemCMSInput,
   PricingCardCMSInput,
   PromoCodeCMSInput,
   SuggestedItemCMSInput,
+  // checkout page
+  DeliveryAddressCardCMSInput,
+  DeliveryDateSelectionCMSInput,
+  PaymentMethodSelectionCMSInput,
+  TimeSlotSelectionCMSInput,
+  // order page
+  OrderDetailsListCMSInput,
+  // product list page
+  SubCategoriesCMSInput,
+  // profile page
+  DeliveryAddressesCMSInput,
+  PersonalInformationCMSInput,
+  WalletBalanceCMSInput,
 ];
 
 const mapConverted: Record<string, React.FunctionComponent> = {};

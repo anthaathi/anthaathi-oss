@@ -1,6 +1,7 @@
 import {View, VirtualizedList} from 'react-native';
 import React from 'react';
 import {Button} from 'react-native-paper';
+import {ProductListPageComponentType} from '../../../../types/common';
 
 type CategoryDetailsProps = {
   id: string;
@@ -50,3 +51,8 @@ const ItemRenderer = ({item}: {item: CategoryDetailsProps}) => {
 };
 
 export default SubCategories;
+
+export const SubCategoriesCMSInput = {
+  _component: ProductListPageComponentType.SubCategories,
+  component: SubCategories,
+};

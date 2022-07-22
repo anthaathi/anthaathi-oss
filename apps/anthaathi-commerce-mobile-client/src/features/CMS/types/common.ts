@@ -26,8 +26,29 @@ export enum HomePageComponentType {
 }
 
 export enum CartPageComponentType {
-  BasketItem = 'cart.basket-item',
-  PricingCard = 'cart.pricing-card',
-  PromoCode = 'cart.promo-code',
-  SuggestedItem = 'cart.suggested-item',
+  BasketItem = 'cart-page.basket-item',
+  PricingCard = 'cart-page.pricing-card',
+  PromoCode = 'cart-page.promo-code',
+  SuggestedItem = 'cart-page.suggested-item',
+}
+
+export enum CheckOutPageComponentType {
+  DeliveryAddressCard = 'checkout-page.delivery-address-card',
+  DeliveryDateSelection = 'checkout-page.delivery-date-selection',
+  PaymentMethodSelection = 'checkout-page.payment-method-selection',
+  TimeSlotSelection = 'checkout-page.time-slot-selection',
+}
+
+export enum OrderPageComponentType {
+  OrderDetailsList = 'order-page.order-details-list',
+}
+
+export enum ProductListPageComponentType {
+  SubCategories = 'product-list.sub-categories',
+}
+
+export enum ProfilePageComponentType {
+  DeliveryAddresses = 'profile-page.delivery-addresses',
+  PersonalInformation = 'profile-page.personal-information',
+  WalletBalance = 'profile-page.wallet-balance',
 }
