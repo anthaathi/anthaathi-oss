@@ -38,7 +38,6 @@ import { coordinateGetter as multipleContainersCoordinateGetter } from './multip
 import { createRange } from '../../utilities';
 import { Item } from '../Item';
 import { Container, ContainerProps } from '../Container';
-import { useStyletron } from 'baseui';
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) =>
   defaultAnimateLayoutChanges({ ...args, wasDragging: true });
@@ -140,6 +139,7 @@ interface Props {
   trashable?: boolean;
   scrollable?: boolean;
   vertical?: boolean;
+  onChange?: () => void;
 }
 
 export const TRASH_ID = 'void';
@@ -164,6 +164,7 @@ export function KanbanBoard({
   trashable = false,
   vertical = false,
   scrollable,
+  onChange,
 }: Props) {
   const [items, setItems] = useState<Items>(
     () =>
@@ -174,9 +175,11 @@ export function KanbanBoard({
         D: createRange(itemCount, (index) => `D${index + 1}`),
       }
   );
+
   const [containers, setContainers] = useState(
     Object.keys(items) as UniqueIdentifier[]
   );
+
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const lastOverId = useRef<UniqueIdentifier | null>(null);
   const recentlyMovedToNewContainer = useRef(false);

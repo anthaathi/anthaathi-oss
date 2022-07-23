@@ -10,9 +10,8 @@ import { ProjectSelection } from '../../Core/Components/ProjectSelection';
 import { Search } from '../../Core/Components/Search';
 import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
-import { HeaderWrapper } from '../../Core/Components/Header';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -45,7 +44,9 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
         })}
       >
         <Toolbar>
-          <ToolbarTitle>Anthaathi CRM</ToolbarTitle>
+          <ToolbarTitle $as={Link} to="/">
+            Anthaathi CRM
+          </ToolbarTitle>
 
           <FlexFill />
           <Search />
@@ -56,7 +57,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
       <main
         className={css({
           flexGrow: 1,
-          backgroundColor: $theme.colors.backgroundSecondary,
+          backgroundColor: $theme.colors.primaryB,
           marginTop: '96px',
           marginLeft: headerOpen ? '320px' : 0,
           transitionProperty: 'margin,width',
@@ -66,7 +67,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           height: '100%',
         })}
       >
-        {header}
+        {header || <div id="app-header" />}
 
         <Sidebar
           $style={{
@@ -80,6 +81,10 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
               {
                 title: <SidebarItem icon="home" title="Overview" />,
                 itemId: '/',
+              },
+              {
+                title: <SidebarItem icon="users" title="Customer" />,
+                itemId: '/customer',
               },
               {
                 title: <SidebarItem icon="calendar" title="Calendar" />,

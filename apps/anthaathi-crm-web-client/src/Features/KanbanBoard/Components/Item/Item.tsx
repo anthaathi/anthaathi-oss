@@ -6,6 +6,7 @@ import type { Transform } from '@dnd-kit/utilities';
 import { Handle, Remove } from './components';
 
 import styles from './Item.module.css';
+import { useStyletron } from 'baseui';
 
 export interface Props {
   dragOverlay?: boolean;
@@ -78,6 +79,8 @@ export const Item = React.memo(
         };
       }, [dragOverlay]);
 
+      const [css] = useStyletron();
+
       return renderItem ? (
         renderItem({
           dragOverlay: Boolean(dragOverlay),
@@ -125,14 +128,20 @@ export const Item = React.memo(
           ref={ref}
         >
           <div
-            className={classNames(
-              styles.Item,
-              dragging && styles.dragging,
-              handle && styles.withHandle,
-              dragOverlay && styles.dragOverlay,
-              disabled && styles.disabled,
-              color && styles.color
-            )}
+            className={
+              classNames(
+                dragging && 'styles.dragging',
+                handle && 'styles.withHandle',
+                dragOverlay && 'styles.dragOverlay',
+                disabled && 'styles.disabled',
+                color && 'styles.color'
+              ) +
+              ' ' +
+              css({
+                width: '100%',
+                display: 'flex',
+              })
+            }
             style={style}
             data-cypress="draggable-item"
             {...(!handle ? listeners : undefined)}

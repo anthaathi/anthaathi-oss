@@ -19,7 +19,7 @@ export const appTheme = createLightTheme(
         'Kanit, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
     sizing: {
-      maxAppWidth: '1600px',
+      maxAppWidth: 'none',
     },
   }
 );

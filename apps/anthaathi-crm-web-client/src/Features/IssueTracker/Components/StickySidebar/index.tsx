@@ -26,3 +26,7 @@ export const StickyContainer = styled('div', () => ({
   width: 'calc(100% - 420px)',
   paddingTop: '12px',
 }));
+
+export const StickyContainerWrapper = styled('div', {
+  margin: '0 24px',
+});

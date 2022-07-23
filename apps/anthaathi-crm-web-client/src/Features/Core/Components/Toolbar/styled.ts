@@ -15,10 +15,16 @@ export const ToolbarSection = styled('div', ({ $theme }) => ({
   maxWidth: $theme.sizing.maxAppWidth,
   margin: '0 auto',
   width: '100%',
+  height: '48px',
 }));
 
 export const ToolbarTitle = styled('h1', ({ $theme }) => ({
   ...$theme.typography.HeadingXSmall,
   fontFamily: $theme.typography.headingFontFamily,
   fontSize: $theme.sizing.scale600,
+  color: $theme.colors.primaryB,
+  textDecoration: 'none',
+  ':active': {
+    textDecoration: 'none',
+  },
 }));

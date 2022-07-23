@@ -4,8 +4,16 @@ import { Menu } from 'baseui/icon';
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { headerOpenAtom } from './atom';
+import { createPortal } from 'react-dom';
 
-export const Header = styled('header', ({ $theme }) => ({
+export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
+  return createPortal(
+    <_Header {...props} />,
+    document.getElementById('app-header')!!
+  );
+};
+
+export const _Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
   height: '48px',
   paddingLeft: $theme.sizing.scale400,
