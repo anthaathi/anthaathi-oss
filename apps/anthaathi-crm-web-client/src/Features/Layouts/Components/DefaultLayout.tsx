@@ -12,6 +12,7 @@ import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
+import TaskCreateModal from "../../../Containers/TaskCreateModal";
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -78,6 +79,9 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
 
           <Navigation
             items={[
+              {
+                title: <TaskCreateModal />
+              },
               {
                 title: <SidebarItem icon="home" title="Overview" />,
                 itemId: '/',
