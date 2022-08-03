@@ -7,7 +7,6 @@ import { Icon } from '../../../Core/Components/Icon';
 import { Search } from 'baseui/icon';
 import { StatefulPopover, PLACEMENT } from 'baseui/popover';
 
-import { Card, StyledBody } from 'baseui/card';
 import { ListItemLabel } from 'baseui/list';
 import { Check } from 'baseui/icon';
 import React from 'react';
@@ -20,10 +19,15 @@ type ListInfo = {
 };
 export interface PeopleSelectorProps {
   label: string;
+  inputTitle?: string;
   list?: ListInfo[];
 }
 
-export function SidebarSelectorText({ list, label }: PeopleSelectorProps) {
+export function SidebarSelectorText({
+  list,
+  label,
+  inputTitle,
+}: PeopleSelectorProps) {
   const [, $theme] = useStyletron();
   const [value, setValue] = React.useState<ListInfo[]>([]);
 
@@ -31,7 +35,12 @@ export function SidebarSelectorText({ list, label }: PeopleSelectorProps) {
     <div>
       <StatefulPopover
         content={() => (
-          <CardType list={list} value={value} setValue={setValue} />
+          <CardType
+            inputTitle={inputTitle}
+            list={list}
+            value={value}
+            setValue={setValue}
+          />
         )}
         placement={PLACEMENT.bottom}
         popoverMargin={4}
@@ -86,10 +95,12 @@ export function SidebarSelectorText({ list, label }: PeopleSelectorProps) {
 }
 
 const CardType = ({
+  inputTitle,
   list,
   value,
   setValue,
 }: {
+  inputTitle?: string;
   list?: ListInfo[];
   value: ListInfo[];
   setValue: React.Dispatch<React.SetStateAction<ListInfo[]>>;
@@ -98,19 +109,40 @@ const CardType = ({
   const [listData, setListData] = React.useState<ListInfo[] | undefined>(list);
   const [name, setName] = React.useState<string>('');
   return (
-    <Card
-      overrides={{
-        Root: {
-          style: () => ({
-            borderRadius: '0px',
-            width: '320px',
-          }),
-        },
+    <div
+      style={{
+        borderRadius: '4px',
+        width: '320px',
+        paddingTop: '10px',
+        paddingBottom: '10px',
+        backgroundColor: '#fff',
+        borderWidth: '1px',
       }}
     >
-      <StyledBody>
-        Search, here! 👋
+      <LabelMedium
+        $style={{
+          marginLeft: '10px',
+          marginBottom: '10px',
+          fontWeight: 'bold',
+        }}
+      >
+        {inputTitle}
+      </LabelMedium>
+      <div
+        style={{
+          border: '1px solid #E2E2E2',
+        }}
+      />
+      <div>
         <Input
+          overrides={{
+            Root: {
+              style: ({ $theme }) => ({
+                margin: '10px',
+                width: '300px',
+              }),
+            },
+          }}
           size={INPUT_SIZE.compact}
           startEnhancer={<Search size="18px" />}
           placeholder="Enter text"
@@ -127,6 +159,11 @@ const CardType = ({
               setListData(userList);
             }
             setName(keyword);
+          }}
+        />
+        <div
+          style={{
+            border: '1px solid #E2E2E2',
           }}
         />
         {listData?.map((data) => (
@@ -168,9 +205,9 @@ const CardType = ({
           </>
         ))}
         {listData?.length === 0 && name.length > 0 && (
-          <LabelSmall>No user found</LabelSmall>
+          <LabelSmall $style={{ margin: '10px' }}>No user found</LabelSmall>
         )}
-      </StyledBody>
-    </Card>
+      </div>
+    </div>
   );
 };

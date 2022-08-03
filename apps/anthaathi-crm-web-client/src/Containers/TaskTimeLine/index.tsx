@@ -12,20 +12,10 @@ import { Button, KIND, SIZE } from 'baseui/button';
 import { Block } from 'baseui/block';
 import { Icon } from '../../Features/Core/Components/Icon';
 import { NotificationCustomizationByIssue } from '../../Features/IssueTracker/Components/NotificationCustomizationByIssue';
-import { LabelRenderer } from '../../Features/IssueTracker/Components/LabelRenderer';
 import { HeadingMedium, LabelSmall } from 'baseui/typography';
 import { FilesSidebar } from '../../Features/IssueTracker/Components/FilesSidebar';
-import {
-  TimelineBadge,
-  TimelineItem,
-  TimelineItemBody,
-} from '../../Features/Timeline/Components/TimelineItem';
 import { AddCommentTextbox } from '../../Features/Timeline/Components/AddCommentTextbox';
 import {
-  TimelineItemWrapper,
-  TimelineStatus,
-  TimelineStatusBody,
-  TimelineStatusTitleWrapper,
   TimelineWrapper,
 } from '../../Features/Timeline/Components/TimelineStatus';
 import { TaskList } from '../../Features/Tasks/Components/TaskList';
@@ -94,14 +84,15 @@ export function TaskTimeLine() {
             <Tab title="Manage" overrides={override}>
               <SidebarSelectorText
                 label="Assigned"
+                inputTitle='Enter username'
                 list={[
                   {
                     id: '1',
-                    name: 'kedar',
+                    name: 'user 1',
                   },
                   {
                     id: '2',
-                    name: 'chandu',
+                    name: 'user 2',
                   },
                 ]}
               />
