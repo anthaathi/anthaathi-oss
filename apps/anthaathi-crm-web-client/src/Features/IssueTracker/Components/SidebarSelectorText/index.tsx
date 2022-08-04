@@ -13,6 +13,8 @@ import React from 'react';
 import { Tag } from 'baseui/tag';
 import { Input, SIZE as INPUT_SIZE } from 'baseui/input';
 
+import { TimelineStatusTitleWrapper } from '../../../Timeline/Components/TimelineStatus';
+
 type ListInfo = {
   id: string;
   name: string;
@@ -121,51 +123,43 @@ const CardType = ({
     >
       <LabelMedium
         $style={{
-          marginLeft: '10px',
+          marginLeft: '20px',
           marginBottom: '10px',
           fontWeight: 'bold',
         }}
       >
         {inputTitle}
       </LabelMedium>
-      <div
-        style={{
-          border: '1px solid #E2E2E2',
-        }}
-      />
       <div>
-        <Input
-          overrides={{
-            Root: {
-              style: ({ $theme }) => ({
-                margin: '10px',
-                width: '300px',
-              }),
-            },
-          }}
-          size={INPUT_SIZE.compact}
-          startEnhancer={<Search size="18px" />}
-          placeholder="Enter text"
-          onChange={(e: React.FormEvent<HTMLInputElement>) => {
-            const keyword = e.currentTarget.value;
-            if (keyword !== '') {
-              const results = listData?.filter((user) => {
-                return user.name
-                  .toLowerCase()
-                  .startsWith(keyword.toLowerCase());
-              });
-              setListData(results);
-            } else {
-              setListData(userList);
-            }
-            setName(keyword);
-          }}
-        />
-        <div
-          style={{
-            border: '1px solid #E2E2E2',
-          }}
-        />
+        <TimelineStatusTitleWrapper>
+          <Input
+            overrides={{
+              Root: {
+                style: () => ({
+                  marginTop: '5px',
+                  marginBottom: '5px',
+                }),
+              },
+            }}
+            size={INPUT_SIZE.compact}
+            startEnhancer={<Search size="18px" />}
+            placeholder="Enter text"
+            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+              const keyword = e.currentTarget.value;
+              if (keyword !== '') {
+                const results = listData?.filter((user) => {
+                  return user.name
+                    .toLowerCase()
+                    .startsWith(keyword.toLowerCase());
+                });
+                setListData(results);
+              } else {
+                setListData(userList);
+              }
+              setName(keyword);
+            }}
+          />
+        </TimelineStatusTitleWrapper>
         {listData?.map((data) => (
           <>
             <li
@@ -174,6 +168,7 @@ const CardType = ({
                 display: 'flex',
                 marginTop: 20,
                 marginBottom: 10,
+                paddingLeft: 5,
               }}
               key={data.id}
               onClick={() => {
@@ -205,7 +200,13 @@ const CardType = ({
           </>
         ))}
         {listData?.length === 0 && name.length > 0 && (
-          <LabelSmall $style={{ margin: '10px' }}>No user found</LabelSmall>
+          <LabelSmall
+            $style={{
+              margin: '10px',
+            }}
+          >
+            No user found
+          </LabelSmall>
         )}
       </div>
     </div>
