@@ -13,8 +13,6 @@ import React from 'react';
 import { Tag } from 'baseui/tag';
 import { Input, SIZE as INPUT_SIZE } from 'baseui/input';
 
-import { TimelineStatusTitleWrapper } from '../../../Timeline/Components/TimelineStatus';
-
 type ListInfo = {
   id: string;
   name: string;
@@ -118,7 +116,6 @@ const CardType = ({
         paddingTop: '10px',
         paddingBottom: '10px',
         backgroundColor: '#fff',
-        borderWidth: '1px',
       }}
     >
       <LabelMedium
@@ -131,13 +128,22 @@ const CardType = ({
         {inputTitle}
       </LabelMedium>
       <div>
-        <TimelineStatusTitleWrapper>
+        <div
+          style={{
+            borderLeftWidth: '0px',
+            borderRightWidth: '0px',
+            borderTopWidth: '1px',
+            borderBottomWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: 'hsla(0, 0%, 0%, 0.08)',
+          }}
+        >
           <Input
             overrides={{
               Root: {
                 style: () => ({
-                  marginTop: '5px',
-                  marginBottom: '5px',
+                  margin: '10px',
+                  width: '300px',
                 }),
               },
             }}
@@ -159,16 +165,27 @@ const CardType = ({
               setName(keyword);
             }}
           />
-        </TimelineStatusTitleWrapper>
-        {listData?.map((data) => (
-          <>
+        </div>
+
+        {listData?.map((data, index) => (
+          <div
+            key={index}
+            style={{
+              borderLeftWidth: '0px',
+              borderRightWidth: '0px',
+              borderTopWidth: '0px',
+              borderBottomWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: 'hsla(0, 0%, 0%, 0.08)',
+            }}
+          >
             <li
               style={{
                 listStyleType: 'none',
                 display: 'flex',
-                marginTop: 20,
-                marginBottom: 10,
-                paddingLeft: 5,
+                marginTop: 15,
+                marginBottom: 15,
+                paddingLeft: 10,
               }}
               key={data.id}
               onClick={() => {
@@ -188,16 +205,16 @@ const CardType = ({
               }}
             >
               <Check
-                size={20}
+                size={22}
                 color={
                   value.some((obj) => obj.id === data.id) ? '#000' : '#fff'
                 }
               />
-              <div style={{ marginLeft: 10 }}>
+              <div style={{ marginLeft: 5 }}>
                 <ListItemLabel>{data.name}</ListItemLabel>
               </div>
             </li>
-          </>
+          </div>
         ))}
         {listData?.length === 0 && name.length > 0 && (
           <LabelSmall

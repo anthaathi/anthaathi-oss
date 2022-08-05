@@ -17,6 +17,8 @@ export const appTheme = createLightTheme(
     typography: {
       headingFontFamily:
         'Kanit, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
+      primaryFontFamily:
+        '\'IBM Plex Sans\',system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
     sizing: {
       maxAppWidth: 'none',
@@ -27,6 +29,7 @@ export const appTheme = createLightTheme(
 declare module 'baseui/themes' {
   export interface Typography {
     headingFontFamily: string;
+    primaryFontFamily: string;
   }
 
   export interface Sizing {
