@@ -13,6 +13,10 @@ function TaskCreateModal() {
         <div>
             <Button
                 onClick={ () => setIsOpen(true) }
+                $style={{
+                    padding: "10px",
+                    margin: "10px"
+                }}
             >
                 Create New Task
             </Button>

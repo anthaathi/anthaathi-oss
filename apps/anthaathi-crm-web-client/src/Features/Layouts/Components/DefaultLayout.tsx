@@ -75,13 +75,11 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
             transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
+          <TaskCreateModal />
           <ProjectSelection />
 
           <Navigation
             items={[
-              {
-                title: <TaskCreateModal />
-              },
               {
                 title: <SidebarItem icon="home" title="Overview" />,
                 itemId: '/',
