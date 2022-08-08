@@ -27,6 +27,7 @@ export const appTheme = createLightTheme(
 declare module 'baseui/themes' {
   export interface Typography {
     headingFontFamily: string;
+    primaryFontFamily: string;
   }
 
   export interface Sizing {

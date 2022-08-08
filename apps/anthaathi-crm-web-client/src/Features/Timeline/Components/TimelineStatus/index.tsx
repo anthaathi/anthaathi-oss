@@ -5,9 +5,11 @@ export const TimelineStatus = styled('div', ({ $theme }) => ({
   backgroundColor: $theme.colors.backgroundSecondary,
 }));
 
-export const TimelineWrapper = styled('div', {
-  marginLeft: '60px',
-});
+export const TimelineWrapper = styled('div', ({ $theme }) => ({
+  [$theme.mediaQuery.large]: {
+    marginLeft: '60px',
+  },
+}));
 
 export const TimelineItemWrapper = styled('div', {
   marginLeft: '80px',
