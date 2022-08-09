@@ -82,7 +82,6 @@ export const Item = React.memo(
         };
       }, [dragOverlay]);
 
-      const [, $theme] = useStyletron();
       const [css] = useStyletron();
 
       return renderItem ? (
@@ -133,7 +132,7 @@ export const Item = React.memo(
         >
           <div
             style={{
-              height: '230px',
+              height: '240px',
               width: '420px',
               marginTop: '5px',
               marginBottom: '5px',
@@ -144,27 +143,7 @@ export const Item = React.memo(
               borderColor: 'hsla(0, 0%, 0%, 0.04)',
             }}
           >
-            <Block
-              display="flex"
-              margin="scale500"
-              alignItems="center"
-              justifyContent="space-between"
-              $style={{ cursor: 'pointer' }}
-              onClick={() => {}}
-            >
-              <Block display="flex" alignItems="center">
-                <Avatar name={`Han Solo`} size="scale900" />
-                <LabelLarge
-                  $style={{
-                    fontFamily: $theme.typography.headingFontFamily,
-                    marginLeft: '5px',
-                  }}
-                >
-                  Get things done you got that
-                </LabelLarge>
-              </Block>
-              <span className="fa fa-ellipsis-v" aria-hidden="true" />
-            </Block>
+            <ItemHeader title="Get things done you got that" name="user name" />
             <div
               style={{
                 borderWidth: '1px',
@@ -209,7 +188,10 @@ export const Item = React.memo(
                 }}
               />
               <Block margin="scale500" alignItems="center">
-                {value}
+                <UserAvatar name="User name" />
+                <UserAvatar name="User name" />
+                <UserAvatar name="User name" />
+                {/* {value} */}
                 <span className={styles.Actions}>
                   {onRemove ? (
                     <Remove className={styles.Remove} onClick={onRemove} />
@@ -224,3 +206,63 @@ export const Item = React.memo(
     }
   )
 );
+
+const UserAvatar = ({ name, imgSrc }: { name: string; imgSrc?: string }) => {
+  return (
+    <Avatar
+      overrides={{
+        Root: {
+          style: () => ({
+            marginRight: '5px',
+          }),
+        },
+      }}
+      src={imgSrc}
+      name={name}
+      size="scale900"
+    />
+  );
+};
+
+const ItemHeader = ({
+  title,
+  name,
+  imgSrc,
+  onClick1,
+  onClick2,
+}: {
+  title: string;
+  name: string;
+  imgSrc?: string;
+  onClick1?(): void;
+  onClick2?(): void;
+}) => {
+  const [, $theme] = useStyletron();
+  return (
+    <Block
+      display="flex"
+      margin="scale500"
+      alignItems="center"
+      justifyContent="space-between"
+      $style={{ cursor: 'pointer' }}
+      onClick={onClick1}
+    >
+      <Block display="flex" alignItems="center">
+        <UserAvatar name={name} imgSrc={imgSrc} />
+        <LabelLarge
+          $style={{
+            fontFamily: $theme.typography.headingFontFamily,
+            marginLeft: '5px',
+          }}
+        >
+          {title}
+        </LabelLarge>
+      </Block>
+      <span
+        className="fa fa-ellipsis-v"
+        aria-hidden="true"
+        onClick={onClick2}
+      />
+    </Block>
+  );
+};
