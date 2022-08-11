@@ -51,16 +51,17 @@ export function HeaderToggle() {
           kind={KIND.secondary}
           size={SIZE.compact}
           $style={{
-            width: '40px',
-            height: '40px',
+            width: '36px',
+            height: '36px',
+            padding: '0px',
             backgroundColor: '#045aaa',
             ':hover': { backgroundColor: '#045aaa' },
           }}
           onClick={() => setHeaderOpen((prev) => !prev)}
         >
-          {!headerOpen && <Menu color="#fff" size={22} />}
-
-          {headerOpen && <Delete color="#fff" size={22} />}
+          {!headerOpen && <Menu color="#fff" size={20} />}
+          
+          {headerOpen && <Delete color="#fff" size={20} />}
         </Button>
         <ToolbarTitle $as={Link} to="/">
           Anthaathi CRM
