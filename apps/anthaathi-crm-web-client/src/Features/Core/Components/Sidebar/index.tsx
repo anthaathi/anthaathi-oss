@@ -6,7 +6,7 @@ export const Sidebar = styled('div', ({ $theme }) => ({
   left: 0,
   top: '48px',
   height: 'calc(100vh - 48px)',
-  backgroundColor: '#2e3439',
+  backgroundColor: $theme.colors.primarySideBarA,
   boxShadow: $theme.lighting.shadow400,
   transitionProperty: 'all',
   transitionDuration: '100ms',

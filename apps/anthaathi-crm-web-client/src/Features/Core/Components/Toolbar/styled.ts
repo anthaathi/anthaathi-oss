@@ -1,7 +1,7 @@
 import { styled } from 'baseui';
 
 export const ToolbarWrapper = styled('header', ({ $theme }) => ({
-  backgroundColor: '#056ac8',
+  backgroundColor: $theme.colors.primaryHeaderA,
   height: '48px',
   color: $theme.colors.primaryB,
   paddingRight: $theme.sizing.scale500,

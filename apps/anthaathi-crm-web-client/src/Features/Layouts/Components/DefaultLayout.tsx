@@ -12,6 +12,7 @@ import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
+import { Header } from '../../Core/Components/Header';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -35,24 +36,6 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
         minHeight: '100vh',
       })}
     >
-      {/* <div
-        className={css({
-          boxShadow: $theme.lighting.shadow400,
-          position: 'fixed',
-          width: '100%',
-          zIndex: 2,
-        })}
-      >
-        <Toolbar>
-          <ToolbarTitle $as={Link} to="/">
-            Anthaathi CRM
-          </ToolbarTitle>
-
-          <FlexFill />
-          <Search />
-          <FlexFill />
-        </Toolbar>
-      </div> */}
 
       <main
         className={css({
@@ -67,7 +50,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           height: '100%',
         })}
       >
-        {header || <div id="app-header" />}
+        {header || <Header />}
 
         <Sidebar
           $style={{
@@ -102,11 +85,11 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
                 style: ({ $active }) => {
                   if (!$active)
                     return {
-                      color: '#2e3439',
+                      color: $theme.colors.primarySideBarA,
                     };
                   return {
-                    backgroundImage: '#1e2225',
-                    borderLeftColor: '#1e2225',
+                    backgroundImage: $theme.colors.primarySideBarB,
+                    borderLeftColor: $theme.colors.primarySideBarA,
                   };
                 },
               },

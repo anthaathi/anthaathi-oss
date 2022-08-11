@@ -1,23 +1,14 @@
-import { styled } from 'baseui';
+import { styled, useStyletron } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';
 import { Menu } from 'baseui/icon';
 import { Delete } from 'baseui/icon';
-import React from 'react';
 import { useRecoilState } from 'recoil';
 import { headerOpenAtom } from './atom';
-import { createPortal } from 'react-dom';
 import { ToolbarTitle } from '../Toolbar/styled';
 import { Link } from 'react-router-dom';
 import { Toolbar } from '../Toolbar';
 
-export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
-  return createPortal(
-    <_Header {...props} />,
-    document.getElementById('app-header')!!
-  );
-};
-
-export const _Header = styled('header', ({ $theme }) => ({
+export const Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
   height: '48px',
   paddingLeft: $theme.sizing.scale400,
@@ -26,7 +17,7 @@ export const _Header = styled('header', ({ $theme }) => ({
   top: '0px',
   left: 0,
   right: 0,
-  backgroundColor: '#056ac8',
+  backgroundColor: $theme.colors.primaryHeaderA,
   zIndex: 1,
 }));
 
@@ -43,6 +34,7 @@ export const HeaderWrapper = styled('div', ({ $theme }) => ({
 
 export function HeaderToggle() {
   const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
+  const [, $theme] = useStyletron();
 
   return (
     <div>
@@ -54,8 +46,8 @@ export function HeaderToggle() {
             width: '36px',
             height: '36px',
             padding: '0px',
-            backgroundColor: '#045aaa',
-            ':hover': { backgroundColor: '#045aaa' },
+            backgroundColor: $theme.colors.primaryHeaderB,
+            ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
           }}
           onClick={() => setHeaderOpen((prev) => !prev)}
         >
