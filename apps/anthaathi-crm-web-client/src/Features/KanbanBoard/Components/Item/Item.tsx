@@ -140,7 +140,7 @@ export const Item = React.memo(
               padding: '0px',
               borderWidth: '1px',
               borderStyle: 'solid',
-              borderColor: 'hsla(0, 0%, 0%, 0.04)',
+              borderColor: 'hsla(0, 0%, 0%, 0.08)',
             }}
           >
             <ItemHeader title="Get things done you got that" name="user name" />
@@ -172,7 +172,11 @@ export const Item = React.memo(
               {...props}
               tabIndex={!handle ? 0 : undefined}
             >
-              <Block margin="scale500" alignItems="center">
+              <Block
+                margin="scale500"
+                alignItems="center"
+                $style={{ cursor: 'pointer' }}
+              >
                 <LabelMedium>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Architecto enim eum excepturi, explicabo fuga in inventore

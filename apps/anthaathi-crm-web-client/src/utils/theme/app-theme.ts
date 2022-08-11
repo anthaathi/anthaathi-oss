@@ -21,6 +21,11 @@ export const appTheme = createLightTheme(
     sizing: {
       maxAppWidth: 'none',
     },
+    colors: {
+      primaryHeaderA: '#056ac8',
+      primaryHeaderB: '#045aaa',
+      primarySideBarA: '#2e3439',
+    },
   }
 );
 
@@ -32,5 +37,11 @@ declare module 'baseui/themes' {
 
   export interface Sizing {
     maxAppWidth: string;
+  }
+
+  export interface Colors {
+    primaryHeaderA: string;
+    primaryHeaderB: string;
+    primarySideBarA: string;
   }
 }

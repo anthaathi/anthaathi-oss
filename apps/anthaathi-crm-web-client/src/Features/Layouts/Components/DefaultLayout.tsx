@@ -10,8 +10,9 @@ import { ProjectSelection } from '../../Core/Components/ProjectSelection';
 import { Search } from '../../Core/Components/Search';
 import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
+import { Header } from '../../Core/Components/Header';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -35,30 +36,12 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
         minHeight: '100vh',
       })}
     >
-      <div
-        className={css({
-          boxShadow: $theme.lighting.shadow400,
-          position: 'fixed',
-          width: '100%',
-          zIndex: 2,
-        })}
-      >
-        <Toolbar>
-          <ToolbarTitle $as={Link} to="/">
-            Anthaathi CRM
-          </ToolbarTitle>
-
-          <FlexFill />
-          <Search />
-          <FlexFill />
-        </Toolbar>
-      </div>
 
       <main
         className={css({
           flexGrow: 1,
           backgroundColor: $theme.colors.primaryB,
-          marginTop: '96px',
+          marginTop: '48px',
           marginLeft: headerOpen ? '320px' : 0,
           transitionProperty: 'margin,width',
           transitionDuration: '100ms',
@@ -67,14 +50,14 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           height: '100%',
         })}
       >
-        {header || <div id="app-header" />}
+        {header || <Header />}
 
         <Sidebar
           $style={{
             transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
-          <ProjectSelection />
+          {/* <ProjectSelection /> */}
 
           <Navigation
             items={[
@@ -97,6 +80,20 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
               event.preventDefault();
               navigate(item.itemId);
             }}
+            overrides={{
+              NavItem: {
+                style: ({ $active }) => {
+                  if (!$active)
+                    return {
+                      color: $theme.colors.primarySideBarA,
+                    };
+                  return {
+                    backgroundImage: $theme.colors.primarySideBarB,
+                    borderLeftColor: $theme.colors.primarySideBarA,
+                  };
+                },
+              },
+            }}
           />
         </Sidebar>
 
@@ -117,6 +114,7 @@ export function SidebarItem({ icon, title }: { icon: string; title: string }) {
         display: 'flex',
         alignItems: 'center',
         ...$theme.typography.LabelSmall,
+        color: '#fff',
       })}
     >
       <Icon icon={icon} />
