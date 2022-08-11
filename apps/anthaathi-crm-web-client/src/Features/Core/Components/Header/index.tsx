@@ -1,10 +1,14 @@
 import { styled } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';
 import { Menu } from 'baseui/icon';
+import { Delete } from 'baseui/icon';
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { headerOpenAtom } from './atom';
 import { createPortal } from 'react-dom';
+import { ToolbarTitle } from '../Toolbar/styled';
+import { Link } from 'react-router-dom';
+import { Toolbar } from '../Toolbar';
 
 export const Header = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return createPortal(
@@ -19,10 +23,10 @@ export const _Header = styled('header', ({ $theme }) => ({
   paddingLeft: $theme.sizing.scale400,
   paddingRight: $theme.sizing.scale400,
   position: 'fixed',
-  top: '48px',
+  top: '0px',
   left: 0,
   right: 0,
-  backgroundColor: $theme.colors.primaryB,
+  backgroundColor: '#056ac8',
   zIndex: 1,
 }));
 
@@ -38,15 +42,30 @@ export const HeaderWrapper = styled('div', ({ $theme }) => ({
 }));
 
 export function HeaderToggle() {
-  const [, setHeaderOpen] = useRecoilState(headerOpenAtom);
+  const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
 
   return (
-    <Button
-      kind={KIND.secondary}
-      size={SIZE.compact}
-      onClick={() => setHeaderOpen((prev) => !prev)}
-    >
-      <Menu />
-    </Button>
+    <div>
+      <Toolbar>
+        <Button
+          kind={KIND.secondary}
+          size={SIZE.compact}
+          $style={{
+            width: '40px',
+            height: '40px',
+            backgroundColor: '#045aaa',
+            ':hover': { backgroundColor: '#045aaa' },
+          }}
+          onClick={() => setHeaderOpen((prev) => !prev)}
+        >
+          {!headerOpen && <Menu color="#fff" size={22} />}
+
+          {headerOpen && <Delete color="#fff" size={22} />}
+        </Button>
+        <ToolbarTitle $as={Link} to="/">
+          Anthaathi CRM
+        </ToolbarTitle>
+      </Toolbar>
+    </div>
   );
 }

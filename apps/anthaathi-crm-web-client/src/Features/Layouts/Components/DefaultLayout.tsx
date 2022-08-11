@@ -10,7 +10,7 @@ import { ProjectSelection } from '../../Core/Components/ProjectSelection';
 import { Search } from '../../Core/Components/Search';
 import { FlexFill } from '../../Core/Components/FlexFill';
 import { Navigation } from 'baseui/side-navigation';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
 
 export interface DefaultLayoutProps {
@@ -35,7 +35,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
         minHeight: '100vh',
       })}
     >
-      <div
+      {/* <div
         className={css({
           boxShadow: $theme.lighting.shadow400,
           position: 'fixed',
@@ -52,13 +52,13 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           <Search />
           <FlexFill />
         </Toolbar>
-      </div>
+      </div> */}
 
       <main
         className={css({
           flexGrow: 1,
           backgroundColor: $theme.colors.primaryB,
-          marginTop: '96px',
+          marginTop: '48px',
           marginLeft: headerOpen ? '320px' : 0,
           transitionProperty: 'margin,width',
           transitionDuration: '100ms',
@@ -74,7 +74,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
             transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
-          <ProjectSelection />
+          {/* <ProjectSelection /> */}
 
           <Navigation
             items={[
@@ -97,6 +97,20 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
               event.preventDefault();
               navigate(item.itemId);
             }}
+            overrides={{
+              NavItem: {
+                style: ({ $active }) => {
+                  if (!$active)
+                    return {
+                      color: '#2e3439',
+                    };
+                  return {
+                    backgroundImage: '#1e2225',
+                    borderLeftColor: '#1e2225',
+                  };
+                },
+              },
+            }}
           />
         </Sidebar>
 
@@ -117,6 +131,7 @@ export function SidebarItem({ icon, title }: { icon: string; title: string }) {
         display: 'flex',
         alignItems: 'center',
         ...$theme.typography.LabelSmall,
+        color: '#fff',
       })}
     >
       <Icon icon={icon} />
