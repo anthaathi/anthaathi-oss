@@ -45,14 +45,17 @@ export function HeaderToggle() {
           $style={{
             width: '36px',
             height: '36px',
-            padding: '0px',
+            paddingLeft: '0px',
+            paddingRight: '0px',
+            paddingTop: '0px',
+            paddingBottom: '0px',
             backgroundColor: $theme.colors.primaryHeaderB,
             ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
           }}
           onClick={() => setHeaderOpen((prev) => !prev)}
         >
           {!headerOpen && <Menu color="#fff" size={20} />}
-          
+
           {headerOpen && <Delete color="#fff" size={20} />}
         </Button>
         <ToolbarTitle $as={Link} to="/">

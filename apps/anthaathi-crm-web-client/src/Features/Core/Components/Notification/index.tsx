@@ -61,8 +61,14 @@ function Notification({
                   $style={{
                     width: '24px',
                     height: '24px',
-                    padding: '0px',
-                    borderRadius: '4px',
+                    paddingLeft: '0px',
+                    paddingRight: '0px',
+                    paddingTop: '0px',
+                    paddingBottom: '0px',
+                    borderTopLeftRadius: '4px',
+                    borderTopRightRadius: '4px',
+                    borderBottomLeftRadius: '4px',
+                    borderBottomRightRadius: '4px',
                     backgroundColor: '#fff',
                     ':hover': { backgroundColor: $theme.colors.notificationA },
                   }}
@@ -87,8 +93,7 @@ function Notification({
                   }),
                   type === 'Report' &&
                     css({
-                      borderColor: $theme.colors.notificationC,
-                      border: '1px solid',
+                      border: `1px solid ${$theme.colors.notificationC}`,
                       backgroundColor: '#fff',
                     }),
                   type === 'Alert' &&
@@ -125,8 +130,14 @@ function Notification({
                 $style={{
                   width: '24px',
                   height: '24px',
-                  padding: '0px',
-                  borderRadius: '4px',
+                  paddingLeft: '0px',
+                  paddingRight: '0px',
+                  paddingTop: '0px',
+                  paddingBottom: '0px',
+                  borderTopLeftRadius: '4px',
+                  borderTopRightRadius: '4px',
+                  borderBottomLeftRadius: '4px',
+                  borderBottomRightRadius: '4px',
                   backgroundColor: '#fff',
                   marginLeft: '5px',
                   ':hover': { backgroundColor: $theme.colors.notificationA },
@@ -171,10 +182,19 @@ function Notification({
               kind={KIND.tertiary}
               size={SIZE.compact}
               $style={{
-                padding: '0px',
-                borderRadius: '4px',
+                paddingLeft: '0px',
+                paddingRight: '0px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+                borderTopLeftRadius: '4px',
+                borderTopRightRadius: '4px',
+                borderBottomLeftRadius: '4px',
+                borderBottomRightRadius: '4px',
                 backgroundColor: '#fff',
-                margin: '10px 0 0 0',
+                marginTop: '10px',
+                marginLeft: '0px',
+                marginRight: '0px',
+                marginBottom: '0px',
                 color: $theme.colors.notificationK,
                 ':hover': {
                   backgroundColor: '#fff',
