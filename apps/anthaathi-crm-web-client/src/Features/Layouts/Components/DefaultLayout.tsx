@@ -1,18 +1,13 @@
 import React from 'react';
-import { Toolbar } from '../../Core/Components/Toolbar';
-import { ToolbarTitle } from '../../Core/Components/Toolbar/styled';
-import { useStyletron } from 'baseui';
-import { Footer } from '../../Core/Components/Footer';
-import { Sidebar } from '../../Core/Components/Sidebar';
-import { useRecoilValue } from 'recoil';
-import { headerOpenAtom } from '../../Core/Components/Header/atom';
-import { ProjectSelection } from '../../Core/Components/ProjectSelection';
-import { Search } from '../../Core/Components/Search';
-import { FlexFill } from '../../Core/Components/FlexFill';
-import { Navigation } from 'baseui/side-navigation';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Icon } from '../../Core/Components/Icon';
-import { Header } from '../../Core/Components/Header';
+import {useStyletron} from 'baseui';
+import {Footer} from '../../Core/Components/Footer';
+import {Sidebar} from '../../Core/Components/Sidebar';
+import {useRecoilValue} from 'recoil';
+import {headerOpenAtom} from '../../Core/Components/Header/atom';
+import {Navigation} from 'baseui/side-navigation';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {Icon} from '../../Core/Components/Icon';
+import {Header} from '../../Core/Components/Header';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
@@ -57,21 +52,31 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
             transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
-          {/* <ProjectSelection /> */}
-
           <Navigation
             items={[
               {
-                title: <SidebarItem icon="home" title="Overview" />,
+                title: <SidebarItem icon="dashboard" title="Dashboard" />,
                 itemId: '/',
               },
               {
-                title: <SidebarItem icon="users" title="Customer" />,
+                title: <SidebarItem icon="layout-header-sidebar-left" title="Spaces" />,
+                itemId: '/spaces',
+              },
+              {
+                title: <SidebarItem icon="users" title="Customers" />,
                 itemId: '/customer',
+              },
+              {
+                title: <SidebarItem icon="check-circle-o" title="Todos" />,
+                itemId: '/todos',
               },
               {
                 title: <SidebarItem icon="calendar" title="Calendar" />,
                 itemId: '/calendar',
+              },
+              {
+                title: <SidebarItem icon="bell-o" title="Notifications" />,
+                itemId: '/notification',
               },
             ]}
             activeItemId={pathname}
@@ -83,13 +88,17 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
             overrides={{
               NavItem: {
                 style: ({ $active }) => {
-                  if (!$active)
-                    return {
-                      color: $theme.colors.primarySideBarA,
-                    };
+                  if (!$active) {
+                      return {
+                          paddingLeft: $theme.sizing.scale600,
+                          color: $theme.colors.primarySideBarA,
+                      };
+                  }
+
                   return {
-                    backgroundImage: $theme.colors.primarySideBarB,
-                    borderLeftColor: $theme.colors.primarySideBarA,
+                    paddingLeft: $theme.sizing.scale600,
+                    backgroundImage: $theme.colors.primarySideBarA,
+                    borderLeftColor: $theme.colors.primaryHeaderA,
                   };
                 },
               },
