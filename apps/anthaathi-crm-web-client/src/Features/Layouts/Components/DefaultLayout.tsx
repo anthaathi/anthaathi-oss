@@ -7,7 +7,6 @@ import { headerOpenAtom } from '../../Core/Components/Header/atom';
 import { Navigation } from 'baseui/side-navigation';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
-import { Header } from '../../Core/Components/Header';
 import { MiniActionbar } from '../../MiniActionbar/Components/MiniActionbar';
 import { miniActionbarActiveItemAtom } from '../../MiniActionbar/Atoms/miniActionbar';
 
@@ -34,7 +33,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
         minHeight: '100vh',
       })}
     >
-      {header || <Header />}
+      {header}
 
       <Sidebar
         $style={{
@@ -102,7 +101,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           flexGrow: 1,
           backgroundColor: $theme.colors.primaryB,
           marginTop: '48px',
-          marginLeft: headerOpen ? '320px' : 0,
+          marginLeft: headerOpen ? '280px' : 0,
           marginRight: isActionSidebarMenu ? '320px' : 0,
           transitionProperty: 'margin,width',
           transitionDuration: '100ms',

@@ -12,7 +12,6 @@ export const ToolbarSection = styled('div', ({ $theme }) => ({
   alignContent: 'center',
   placeItems: 'center',
   maxWidth: $theme.sizing.maxAppWidth,
-  margin: '0 auto',
   width: '100%',
   height: '48px',
 }));

@@ -10,9 +10,19 @@ function PageHeader() {
       <Block
         display="flex"
         alignItems="center"
-        marginTop="scale500"
-        marginLeft="scale500"
-        marginBottom="scale500"
+        paddingTop="scale500"
+        paddingLeft="scale500"
+        paddingBottom="scale500"
+        marginBottom="scale600"
+        $style={{
+          borderBottomColor: $theme.colors.borderTransparent,
+          borderBottomStyle: 'solid',
+          borderBottomWidth: '1px',
+          position: 'sticky',
+          top: '48px',
+          backgroundColor: $theme.colors.backgroundPrimary,
+          zIndex: 1,
+        }}
       >
         <span
           style={{
@@ -36,14 +46,6 @@ function PageHeader() {
           Dashboard
         </HeadingSmall>
       </Block>
-      <div
-        style={{
-          paddingBottom: '1px',
-          width: '100%',
-          backgroundColor: $theme.colors.borderTransparent,
-          marginBottom: $theme.sizing.scale400,
-        }}
-      />
     </>
   );
 }

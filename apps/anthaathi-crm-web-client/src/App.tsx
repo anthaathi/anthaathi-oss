@@ -13,21 +13,22 @@ const CustomerPage = React.lazy(() => import('./Pages/CustomerPage'));
 
 function App() {
   return (
-    <DefaultLayout>
-      <Suspense fallback={<p>Loading</p>}>
-        <Header>
-          <HeaderWrapper>
-            <HeaderToggle />
-          </HeaderWrapper>
-        </Header>
-
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="task/:id" element={<TaskPage />} />
-          <Route path="customer" element={<CustomerPage />}></Route>
-        </Routes>
-      </Suspense>
-    </DefaultLayout>
+    <>
+      <Header>
+        <HeaderWrapper>
+          <HeaderToggle />
+        </HeaderWrapper>
+      </Header>
+      <DefaultLayout>
+        <Suspense fallback={<p>Loading</p>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="task/:id" element={<TaskPage />} />
+            <Route path="customer" element={<CustomerPage />}></Route>
+          </Routes>
+        </Suspense>
+      </DefaultLayout>
+    </>
   );
 }
 

@@ -11,14 +11,14 @@ import { useState } from 'react';
 export const Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
   height: '48px',
-  paddingLeft: $theme.sizing.scale400,
-  paddingRight: $theme.sizing.scale400,
+  paddingLeft: $theme.sizing.scale500,
+  paddingRight: $theme.sizing.scale500,
   position: 'fixed',
   top: '0px',
   left: 0,
   right: 0,
   backgroundColor: $theme.colors.primaryHeaderA,
-  zIndex: 1,
+  zIndex: 10,
 }));
 
 export const HeaderWrapper = styled('div', ({ $theme }) => ({
@@ -29,7 +29,6 @@ export const HeaderWrapper = styled('div', ({ $theme }) => ({
   height: '48px',
   maxWidth: $theme.sizing.maxAppWidth,
   width: '100%',
-  margin: '0 auto',
 }));
 
 export function HeaderToggle() {

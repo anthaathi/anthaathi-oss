@@ -54,12 +54,14 @@ export function MiniActionbar() {
         transitionProperty: 'all',
         transitionTimingFunction: $theme.animation.easeInCurve,
         transform: activeMenu ? 'translateX(0)' : 'translateX(320px)',
+        zIndex: 10,
       })}
     >
       <div className={css({ display: 'flex', flexDirection: 'column' })}>
         {sidebarItems.map((item) => {
           return (
             <Button
+              key={item.key}
               isSelected={item.key === activeMenu}
               onClick={() =>
                 setActiveMenu((currentMenu) => {
@@ -71,7 +73,16 @@ export function MiniActionbar() {
               }
               kind={KIND.secondary}
               size={SIZE.default}
-              overrides={{ Root: { style: { borderRadius: 0 } } }}
+              overrides={{
+                Root: {
+                  style: {
+                    borderBottomLeftRadius: 0,
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    borderBottomRightRadius: 0,
+                  },
+                },
+              }}
             >
               <Icon icon={item.icon} />
             </Button>

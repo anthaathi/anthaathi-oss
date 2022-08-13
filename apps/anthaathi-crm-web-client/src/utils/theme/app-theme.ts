@@ -19,7 +19,7 @@ export const appTheme = createLightTheme(
         'Kanit, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
     sizing: {
-      maxAppWidth: 'none',
+      maxAppWidth: '1200px',
     },
     colors: {
       primaryHeaderA: '#056ac8',
@@ -36,7 +36,8 @@ export const appTheme = createLightTheme(
       notificationH: '#343741',
       notificationI: '#0071c2',
       notificationJ: '#727783',
-      notificationK: '#187ec7'
+      notificationK: '#187ec7',
+      yellowLight: '#FCD86E',
     },
   }
 );
@@ -67,5 +68,6 @@ declare module 'baseui/themes' {
     notificationI: string;
     notificationJ: string;
     notificationK: string;
+    yellowLight: string;
   }
 }
