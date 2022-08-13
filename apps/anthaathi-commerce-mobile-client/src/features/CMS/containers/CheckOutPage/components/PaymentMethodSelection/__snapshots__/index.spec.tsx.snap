@@ -32,6 +32,11 @@ exports[`PaymentMethodSelection should render the item 1`] = `
     collapsable={false}
     style={
       Object {
+        "alignSelf": undefined,
+        "bottom": undefined,
+        "left": undefined,
+        "position": undefined,
+        "right": undefined,
         "shadowColor": "#000",
         "shadowOffset": Object {
           "height": 1,
@@ -39,6 +44,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
         },
         "shadowOpacity": 0.15,
         "shadowRadius": 3,
+        "top": undefined,
       }
     }
   >
