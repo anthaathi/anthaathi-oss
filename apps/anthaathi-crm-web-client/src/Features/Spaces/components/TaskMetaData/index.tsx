@@ -37,6 +37,7 @@ function TaskMetaData({
         <LabelMedium
           $style={{
             fontFamily: $theme.typography.headingFontFamily,
+            marginBottom: '5px',
           }}
         >
           Assign To
@@ -51,6 +52,7 @@ function TaskMetaData({
         <LabelMedium
           $style={{
             fontFamily: $theme.typography.headingFontFamily,
+            marginBottom: '5px',
           }}
         >
           Due on
@@ -62,6 +64,7 @@ function TaskMetaData({
         <LabelMedium
           $style={{
             fontFamily: $theme.typography.headingFontFamily,
+            marginBottom: '5px',
           }}
         >
           Tag
@@ -95,6 +98,7 @@ function TaskMetaData({
         <LabelMedium
           $style={{
             fontFamily: $theme.typography.headingFontFamily,
+            marginBottom: '5px',
           }}
         >
           Followers
