@@ -94,7 +94,10 @@ function SpaceCard({
                   backgroundColor: badgeBackgroundColor,
                   color: badgeTitleColor,
                   fontFamily: $theme.typography.headingFontFamily,
-                  borderRadius: '2px',
+                  borderTopLeftRadius: '2px',
+                  borderTopRightRadius: '2px',
+                  borderBottomLeftRadius: '2px',
+                  borderBottomRightRadius: '2px',
                   ':hover': {
                     backgroundColor: badgeBackgroundColor,
                   },
