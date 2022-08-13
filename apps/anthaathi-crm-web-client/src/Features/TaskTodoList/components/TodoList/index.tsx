@@ -57,7 +57,6 @@ function TodoList({ taskList, status }: TaskDetailsProps) {
           },
         }}
         removable
-        removableByMove
         onChange={console.log}
       />
 
