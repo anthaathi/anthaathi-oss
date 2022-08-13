@@ -5,9 +5,9 @@ import React from 'react';
 export default function HomePage() {
   return (
     <>
-      <Block $style={{ overflow: 'auto', minHeight: 'calc(100vh - 96px)' }}>
-        <KanbanBoard />
-      </Block>
+      <Block
+        $style={{ overflow: 'auto', minHeight: 'calc(100vh - 96px)' }}
+      ></Block>
     </>
   );
 }
