@@ -9,14 +9,14 @@ export interface SpaceTaskHeaderProps {
   title: string;
   subtitle: string;
   onCheckClick?: () => void;
-  onClick2?: () => void;
+  onClickMore?: () => void;
 }
 
 function SpaceTaskHeader({
   title,
   subtitle,
   onCheckClick,
-  onClick2,
+  onClickMore,
 }: SpaceTaskHeaderProps) {
   const [, $theme] = useStyletron();
   return (
@@ -49,7 +49,7 @@ function SpaceTaskHeader({
         </Button>
         {/* TODO: MAKE DROPDOWN MENU */}
         <Button
-          onClick={onClick2}
+          onClick={onClickMore}
           kind={KIND.tertiary}
           overrides={{
             BaseButton: {
