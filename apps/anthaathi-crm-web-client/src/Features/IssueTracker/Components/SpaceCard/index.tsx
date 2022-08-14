@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card, StyledBody } from 'baseui/card';
-import { LabelMedium, LabelXSmall } from 'baseui/typography';
+import { LabelMedium } from 'baseui/typography';
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { Avatar } from 'baseui/avatar';
 import { Button, KIND, SIZE } from 'baseui/button';
+import { Icon } from '../../../Core/Components/Icon';
 
 export interface SpaceCardProps {
   backgroundColor: string;
@@ -57,11 +58,7 @@ function SpaceCard({
               justifyContent: 'center',
             }}
           >
-            <span
-              className="fa fa-check"
-              aria-hidden="true"
-              style={{ color: iconColor }}
-            />
+            <Icon icon="check" />
           </Block>
           <LabelMedium
             $style={{
