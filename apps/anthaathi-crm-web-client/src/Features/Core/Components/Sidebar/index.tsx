@@ -1,7 +1,7 @@
 import { styled } from 'baseui';
 
 export const Sidebar = styled('div', ({ $theme }) => ({
-  width: '320px',
+  width: '280px',
   position: 'fixed',
   left: 0,
   top: '48px',
@@ -12,4 +12,5 @@ export const Sidebar = styled('div', ({ $theme }) => ({
   transitionDuration: '100ms',
   transitionTimingFunction: 'ease',
   zIndex: 1,
+  paddingTop: $theme.sizing.scale200,
 }));
