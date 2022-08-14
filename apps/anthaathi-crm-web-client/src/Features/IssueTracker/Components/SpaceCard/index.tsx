@@ -34,8 +34,6 @@ function SpaceCard({
       overrides={{
         Root: {
           style: () => ({
-            width: '430px',
-            height: '122px',
             borderTopLeftRadius: '2px',
             borderTopRightRadius: '2px',
             borderBottomLeftRadius: '2px',
