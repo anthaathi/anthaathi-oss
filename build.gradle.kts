@@ -51,7 +51,7 @@ val reactNativeApps = listOf(
 val kotlinLibraries = listOf<Project>()
 
 
-val springBoot = listOf(project(":apps:anthaathi-graphql-engine"))
+val springBoot = listOf<Project>()
 
 configure(subprojects.filter { it in springBoot }) {
     apply {

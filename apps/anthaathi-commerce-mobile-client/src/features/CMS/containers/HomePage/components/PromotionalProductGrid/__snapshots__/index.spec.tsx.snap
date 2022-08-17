@@ -227,6 +227,11 @@ exports[`PromotionalProductGrid should render the item 1`] = `
             collapsable={false}
             style={
               Object {
+                "alignSelf": undefined,
+                "bottom": undefined,
+                "left": undefined,
+                "position": undefined,
+                "right": undefined,
                 "shadowColor": "#000",
                 "shadowOffset": Object {
                   "height": 0,
@@ -234,6 +239,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
                 "shadowOpacity": 0,
                 "shadowRadius": 0,
+                "top": undefined,
               }
             }
           >
@@ -575,6 +581,11 @@ exports[`PromotionalProductGrid should render the item 1`] = `
             collapsable={false}
             style={
               Object {
+                "alignSelf": undefined,
+                "bottom": undefined,
+                "left": undefined,
+                "position": undefined,
+                "right": undefined,
                 "shadowColor": "#000",
                 "shadowOffset": Object {
                   "height": 0,
@@ -582,6 +593,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
                 "shadowOpacity": 0,
                 "shadowRadius": 0,
+                "top": undefined,
               }
             }
           >

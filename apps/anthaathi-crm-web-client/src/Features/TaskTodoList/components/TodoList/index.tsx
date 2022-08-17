@@ -50,14 +50,8 @@ function TodoList({ taskList, status }: TaskDetailsProps) {
         }}
         overrides={{
           DragHandle: status ? TaskDragHandle : TaskCompletedDragHandle,
-          Item: {
-            style: ({ $theme }) => ({
-              marginTop: $theme.sizing.scale300,
-            }),
-          },
         }}
         removable
-        removableByMove
         onChange={console.log}
       />
 
