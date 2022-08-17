@@ -38,6 +38,7 @@
     "@babel/runtime": "^7.12.5",
     "@formatjs/cli": "^5.0.1",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@react-navigation/stack": "^6.2.2",
     "@testing-library/jest-native": "^4.0.5",
     "@testing-library/react-native": "^9.1.0",
     "@types/jest": "^26.0.23",
@@ -58,6 +59,7 @@
     "metro-config": "^0.56.0",
     "metro-react-native-babel-preset": "^0.67.0",
     "react-native-dotenv": "^3.3.1",
+    "react-native-gesture-handler": "^2.5.0",
     "react-test-renderer": "17.0.2",
     "relay-compiler": "^14.0.0",
     "typescript": "^4.4.4"
