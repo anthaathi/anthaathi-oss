@@ -2,7 +2,7 @@ import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { HeadingMedium } from 'baseui/typography';
 import React from 'react';
-import SpaceCard from '../../Features/Spaces/components/SpaceCard';
+import SpaceCard from '../../Features/IssueTracker/Components/SpaceCard';
 
 function Spaces() {
   const [, $theme] = useStyletron();

@@ -15,13 +15,13 @@ import { NotificationCustomizationByIssue } from '../../Features/IssueTracker/Co
 import { HeadingMedium, LabelSmall } from 'baseui/typography';
 import { FilesSidebar } from '../../Features/IssueTracker/Components/FilesSidebar';
 import { AddCommentTextbox } from '../../Features/Timeline/Components/AddCommentTextbox';
-import {
-  TimelineWrapper,
-} from '../../Features/Timeline/Components/TimelineStatus';
+import { TimelineWrapper } from '../../Features/Timeline/Components/TimelineStatus';
 import { TaskList } from '../../Features/Tasks/Components/TaskList';
 import { SidebarSelectorText } from '../../Features/IssueTracker/Components/SidebarSelectorText';
 import { SidebarSelectorDate } from '../../Features/IssueTracker/Components/SidebarSelectorDate';
 import CommentBox from '../../Features/Timeline/Components/CommentBox';
+import TaskHeader from '../../Features/IssueTracker/Components/TaskHeader';
+import SpaceCard from '../../Features/IssueTracker/Components/SpaceCard';
 
 export function TaskTimeLine() {
   const [css, $theme] = useStyletron();
@@ -57,12 +57,10 @@ export function TaskTimeLine() {
     >
       <StickyContainer>
         <StickyContainerWrapper>
-          <TimelineWrapper>
-            <HeadingMedium marginTop="scale400" marginBottom="scale800">
-              <LabelSmall>#1234</LabelSmall>
-              Hello world
-            </HeadingMedium>
-          </TimelineWrapper>
+          <TaskHeader
+            title="Find top 5 customer requests"
+            subtitle="Hello world"
+          />
 
           <CommentBox />
           <CommentBox />
@@ -84,7 +82,7 @@ export function TaskTimeLine() {
             <Tab title="Manage" overrides={override}>
               <SidebarSelectorText
                 label="Assigned"
-                inputTitle='Enter username'
+                inputTitle="Enter username"
                 list={[
                   {
                     id: '1',
@@ -104,8 +102,6 @@ export function TaskTimeLine() {
               <StickySidebarDivider />
 
               <SidebarSelectorText label="Label" />
-
-              {/* <LabelRenderer /> */}
 
               <StickySidebarDivider />
 
