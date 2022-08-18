@@ -65,7 +65,6 @@ export function TaskTimeLine() {
           <CommentBox />
           <CommentBox />
           <CommentBox />
-          <AddCommentTextbox />
         </StickyContainerWrapper>
       </StickyContainer>
 

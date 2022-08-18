@@ -1,10 +1,11 @@
-import { createLightTheme } from 'baseui';
+import { createLightTheme } from 'baseui/themes';
 
 export const appTheme = createLightTheme(
   {
     primaryA: '#25282f',
     primaryFontFamily:
       '\'IBM Plex Sans\',system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
+    primary: '#056ac8',
   },
   {
     borders: {

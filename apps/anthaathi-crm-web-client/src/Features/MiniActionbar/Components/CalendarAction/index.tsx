@@ -1,8 +1,7 @@
 import { HeadingXSmall } from 'baseui/typography';
 import { useStyletron } from 'baseui';
 import { expandBorderStyles } from 'baseui/styles';
-import { ORIENTATION, StatefulCalendar } from 'baseui/datepicker';
-import { SIZE } from 'baseui/button';
+import { StatefulCalendar } from 'baseui/datepicker';
 
 export function CalendarAction() {
   const [css, $theme] = useStyletron();

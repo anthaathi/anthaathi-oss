@@ -7,7 +7,7 @@ import { Icon } from '../../../Core/Components/Icon';
 import React from 'react';
 import { DatePicker } from 'baseui/datepicker';
 
-import { SIZE as DATE_SIZE } from "baseui/input";
+import { SIZE as DATE_SIZE } from 'baseui/input';
 
 export interface PeopleSelectorProps {
   label: string;

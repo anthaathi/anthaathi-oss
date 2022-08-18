@@ -1,8 +1,8 @@
+import React from 'react';
 import { useStyletron } from 'baseui';
 import { Avatar } from 'baseui/avatar';
 import { Block } from 'baseui/block';
 import { LabelLarge, LabelMedium } from 'baseui/typography';
-import React from 'react';
 import { expandBorderStyles } from 'baseui/styles';
 
 export interface DashboardCardProps {

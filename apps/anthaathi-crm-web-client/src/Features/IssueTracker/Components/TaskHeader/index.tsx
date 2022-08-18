@@ -7,7 +7,7 @@ import { Icon } from '../../../Core/Components/Icon';
 
 export interface SpaceTaskHeaderProps {
   title: string;
-  subtitle: string;
+  subtitle: React.ReactNode;
   onCheckClick?: () => void;
   onClickMore?: () => void;
 }
