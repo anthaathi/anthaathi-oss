@@ -3,17 +3,13 @@ import { CommentBadge } from '../../Features/Timeline/Components/CommentBadge';
 import React from 'react';
 import SpaceTaskHeader from '../../Features/IssueTracker/Components/TaskHeader';
 import TaskMetaData from '../../Features/IssueTracker/Components/TaskMetaData';
-import { styled, useStyletron } from 'baseui';
+import { useStyletron } from 'baseui';
 import { UserChip } from '../../Features/Authentication/Components/UserChip';
 import { AddCommentTextbox } from '../../Features/Timeline/Components/AddCommentTextbox';
 import { FILL, StatefulTabs, Tab } from 'baseui/tabs-motion';
 import { Icon } from '../../Features/Core/Components/Icon';
 import { TaskDescription } from '../../Features/IssueTracker/Components/TaskDescription';
-
-const IssueContainerWrapper = styled('div', {
-  maxWidth: '900px',
-  margin: '0 auto',
-});
+import { AppWrapper } from '../../Features/Core/Components/AppWrapper';
 
 export function IssueContainer() {
   const [css, $theme] = useStyletron();
@@ -25,7 +21,7 @@ export function IssueContainer() {
           paddingBottom: $theme.sizing.scale600,
         })}
       >
-        <IssueContainerWrapper>
+        <AppWrapper $isDense={true}>
           <SpaceTaskHeader
             title="Find top 5 customer requests"
             subtitle={
@@ -41,9 +37,10 @@ export function IssueContainer() {
             userDetails={{ username: 'User name' }}
             dateOfTask="Tue, Dec 25"
           />
-        </IssueContainerWrapper>
+        </AppWrapper>
       </div>
-      <IssueContainerWrapper>
+
+      <AppWrapper $isDense={true}>
         <StatefulTabs fill={FILL.fixed}>
           <Tab
             title={
@@ -90,7 +87,7 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Tasks
               </>
             }
-          ></Tab>
+          />
 
           <Tab
             title={
@@ -99,7 +96,7 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Files
               </>
             }
-          ></Tab>
+          />
 
           <Tab
             title={
@@ -108,9 +105,9 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Manage
               </>
             }
-          ></Tab>
+          />
         </StatefulTabs>
-      </IssueContainerWrapper>
+      </AppWrapper>
     </>
   );
 }

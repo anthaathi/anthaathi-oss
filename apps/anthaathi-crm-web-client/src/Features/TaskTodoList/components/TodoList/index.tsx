@@ -1,7 +1,6 @@
 import { useStyletron } from 'baseui';
 import { Checkbox } from 'baseui/checkbox';
 import { StatefulList } from 'baseui/dnd-list';
-import { ArrowRight } from 'baseui/icon';
 import { StickySidebarDivider } from '../../../IssueTracker/Components/StickySidebar';
 
 export interface TaskDetailsProps {

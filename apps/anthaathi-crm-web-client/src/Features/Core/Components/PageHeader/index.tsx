@@ -1,6 +1,6 @@
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
-import { HeadingMedium, HeadingSmall, LabelLarge } from 'baseui/typography';
+import { HeadingSmall } from 'baseui/typography';
 import React from 'react';
 import { Tab, Tabs } from 'baseui/tabs-motion';
 

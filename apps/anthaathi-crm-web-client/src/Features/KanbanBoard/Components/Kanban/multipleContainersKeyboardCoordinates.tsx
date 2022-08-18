@@ -1,8 +1,8 @@
 import {
   closestCorners,
+  DroppableContainer,
   getFirstCollision,
   KeyboardCode,
-  DroppableContainer,
   KeyboardCoordinateGetter,
 } from '@dnd-kit/core';
 

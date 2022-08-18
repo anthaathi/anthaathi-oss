@@ -1,4 +1,4 @@
-import { LabelMedium, LabelSmall } from 'baseui/typography';
+import { LabelMedium } from 'baseui/typography';
 import { FlexFill } from '../../../Core/Components/FlexFill';
 import { Button, KIND, SIZE as BUTTON_SIZE } from 'baseui/button';
 import { Block } from 'baseui/block';

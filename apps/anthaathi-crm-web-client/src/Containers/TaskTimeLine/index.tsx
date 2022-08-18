@@ -12,16 +12,12 @@ import { Button, KIND, SIZE } from 'baseui/button';
 import { Block } from 'baseui/block';
 import { Icon } from '../../Features/Core/Components/Icon';
 import { NotificationCustomizationByIssue } from '../../Features/IssueTracker/Components/NotificationCustomizationByIssue';
-import { HeadingMedium, LabelSmall } from 'baseui/typography';
 import { FilesSidebar } from '../../Features/IssueTracker/Components/FilesSidebar';
-import { AddCommentTextbox } from '../../Features/Timeline/Components/AddCommentTextbox';
-import { TimelineWrapper } from '../../Features/Timeline/Components/TimelineStatus';
 import { TaskList } from '../../Features/Tasks/Components/TaskList';
 import { SidebarSelectorText } from '../../Features/IssueTracker/Components/SidebarSelectorText';
 import { SidebarSelectorDate } from '../../Features/IssueTracker/Components/SidebarSelectorDate';
 import CommentBox from '../../Features/Timeline/Components/CommentBox';
 import TaskHeader from '../../Features/IssueTracker/Components/TaskHeader';
-import SpaceCard from '../../Features/IssueTracker/Components/SpaceCard';
 
 export function TaskTimeLine() {
   const [css, $theme] = useStyletron();

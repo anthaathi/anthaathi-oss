@@ -1,4 +1,4 @@
-import React, { forwardRef, CSSProperties } from 'react';
+import React, { CSSProperties, forwardRef } from 'react';
 import classNames from 'classnames';
 
 import styles from './Action.module.css';
