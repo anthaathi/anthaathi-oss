@@ -1,26 +1,47 @@
 import { useStyletron } from 'baseui';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { splitViewAtom } from './atom';
 
+// https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd
+function useCombinedRefs(...refs: any[]) {
+  const targetRef = React.useRef();
+
+  React.useEffect(() => {
+    refs.forEach((ref) => {
+      if (!ref) return;
+
+      if (typeof ref === 'function') {
+        ref(targetRef.current);
+      } else {
+        ref.current = targetRef.current;
+      }
+    });
+  }, [refs]);
+
+  return targetRef;
+}
+
 // TODO: FIX THIS BUGGY COMPONENT
-export function SplitView({
-  left,
-  right,
-  id,
-}: {
-  left: React.ReactNode;
-  right: React.ReactNode;
-  id: string;
-}) {
+export const SplitView = forwardRef<
+  HTMLDivElement,
+  {
+    left: React.ReactNode;
+    right: React.ReactNode;
+    id: string;
+  }
+>(({ left, right, id }, ref) => {
   const [css, $theme] = useStyletron();
+
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const [hovering, setHovering] = useState(false);
 
   const resizerRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
-  const rootRef = useRef<HTMLDivElement>(null);
+
+  useCombinedRefs(ref, rightRef);
 
   const x = useRef(0);
 
@@ -52,7 +73,7 @@ export function SplitView({
 
     const newLeftWidth =
       ((leftWidth.current + dx) * 100) /
-      rootRef.current!!.getBoundingClientRect().width;
+      rootRef?.current!!.getBoundingClientRect().width;
 
     leftRef.current!!.style.width = `${newLeftWidth}%`;
 
@@ -123,4 +144,4 @@ export function SplitView({
       </div>
     </div>
   );
-}
+});

@@ -10,6 +10,9 @@ import { FILL, StatefulTabs, Tab } from 'baseui/tabs-motion';
 import { Icon } from '../../Features/Core/Components/Icon';
 import { TaskDescription } from '../../Features/IssueTracker/Components/TaskDescription';
 import { AppWrapper } from '../../Features/Core/Components/AppWrapper';
+import TodoList from '../../Features/TaskTodoList/components/TodoList';
+import { FileList } from '../../Features/IssueTracker/Components/FileList';
+import { NotificationCustomizationByIssue } from '../../Features/IssueTracker/Components/NotificationCustomizationByIssue';
 
 export function IssueContainer() {
   const [css, $theme] = useStyletron();
@@ -19,6 +22,7 @@ export function IssueContainer() {
       <div
         className={css({
           paddingBottom: $theme.sizing.scale600,
+          paddingTop: $theme.sizing.scale600,
         })}
       >
         <AppWrapper $isDense={true}>
@@ -87,7 +91,9 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Tasks
               </>
             }
-          />
+          >
+            <TodoList taskList={['Something']} status />
+          </Tab>
 
           <Tab
             title={
@@ -96,7 +102,9 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Files
               </>
             }
-          />
+          >
+            <FileList />
+          </Tab>
 
           <Tab
             title={
@@ -105,7 +113,9 @@ export function IssueContainer() {
                 <span className={css({ width: '10px' })}></span> Manage
               </>
             }
-          />
+          >
+            <NotificationCustomizationByIssue />
+          </Tab>
         </StatefulTabs>
       </AppWrapper>
     </>

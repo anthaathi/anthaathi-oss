@@ -40,6 +40,7 @@ export const appTheme = createLightTheme(
       notificationJ: '#727783',
       notificationK: '#187ec7',
       yellowLight: '#FCD86E',
+      blueLight: '#309FDB',
     },
   }
 );
@@ -72,5 +73,6 @@ declare module 'baseui/themes' {
     notificationJ: string;
     notificationK: string;
     yellowLight: string;
+    blueLight: string;
   }
 }
