@@ -1,5 +1,4 @@
 import { styled } from 'baseui';
-import { expandBorderStyles } from 'baseui/styles';
 
 export const TimelineStatus = styled('div', ({ $theme }) => ({
   backgroundColor: $theme.colors.notificationA,

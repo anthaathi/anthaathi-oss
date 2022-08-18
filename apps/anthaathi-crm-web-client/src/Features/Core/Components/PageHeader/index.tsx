@@ -1,28 +1,47 @@
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
-import { HeadingMedium, HeadingSmall, LabelLarge } from 'baseui/typography';
+import { HeadingSmall } from 'baseui/typography';
 import React from 'react';
+import { Tab, Tabs } from 'baseui/tabs-motion';
 
-function PageHeader() {
-  const [, $theme] = useStyletron();
+export interface PageHeaderProps {
+  title: React.ReactNode;
+  icon: string;
+  endContent?: React.ReactNode;
+  tabs?: { title: React.ReactNode; key: number | string }[];
+  activeTab?: string | number;
+  onChangeTab?: (key: string | number) => void;
+}
+
+function PageHeader({
+  title,
+  icon,
+  endContent,
+  tabs,
+  onChangeTab,
+  activeTab,
+}: PageHeaderProps) {
+  const [css, $theme] = useStyletron();
+
   return (
-    <>
+    <div
+      className={css({
+        position: 'sticky',
+        top: '48px',
+        backgroundColor: $theme.colors.backgroundPrimary,
+        zIndex: 100,
+        borderBottomColor: $theme.colors.borderTransparent,
+        borderBottomStyle: 'solid',
+        borderBottomWidth: tabs ? 0 : '1px',
+      })}
+    >
       <Block
         display="flex"
         alignItems="center"
         paddingTop="scale500"
         paddingLeft="scale500"
         paddingBottom="scale500"
-        marginBottom="scale600"
-        $style={{
-          borderBottomColor: $theme.colors.borderTransparent,
-          borderBottomStyle: 'solid',
-          borderBottomWidth: '1px',
-          position: 'sticky',
-          top: '48px',
-          backgroundColor: $theme.colors.backgroundPrimary,
-          zIndex: 1,
-        }}
+        paddingRight="48px"
       >
         <span
           style={{
@@ -31,7 +50,7 @@ function PageHeader() {
             padding: '10px',
             borderRadius: '4px',
           }}
-          className="fa fa-area-chart fa-2x"
+          className={`fa fa-${icon} fa-2x`}
           aria-hidden="true"
         />
         <HeadingSmall
@@ -43,10 +62,48 @@ function PageHeader() {
             marginTop: '0px',
           }}
         >
-          Dashboard
+          {title}
         </HeadingSmall>
+
+        <span className={css({ flexGrow: 1 })} />
+        {endContent}
       </Block>
-    </>
+
+      {tabs && (
+        <Tabs
+          activeKey={activeTab}
+          overrides={{
+            TabBorder: { style: { height: '2px' } },
+            TabHighlight: { style: { height: '2px' } },
+            TabList: { style: { paddingBottom: '2px', marginBottom: '-2px' } },
+          }}
+          onChange={({ activeKey }) => {
+            onChangeTab?.(activeKey);
+          }}
+        >
+          {tabs.map((tab) => {
+            return (
+              <Tab
+                title={tab.title}
+                key={tab.key}
+                overrides={{
+                  TabPanel: { style: { paddingBottom: 0, paddingTop: 0 } },
+                  Tab: {
+                    style: {
+                      paddingTop: '10px',
+                      paddingBottom: '10px',
+                      borderTopLeftRadius: '4px',
+                      borderTopRightRadius: '4px',
+                      fontWeight: 700,
+                    },
+                  },
+                }}
+              />
+            );
+          })}
+        </Tabs>
+      )}
+    </div>
   );
 }
 

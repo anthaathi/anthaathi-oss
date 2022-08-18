@@ -5,8 +5,8 @@ import { Handle, Remove } from '../Item';
 
 import { useStyletron } from 'baseui';
 import { LabelMedium } from 'baseui/typography';
-import { expandBorderStyles } from 'baseui/styles';
 import { FlexFill } from '../../../Core/Components/FlexFill';
+import { expandBorderStyles } from 'baseui/styles';
 
 export interface Props {
   children: React.ReactNode;

@@ -30,7 +30,7 @@ export const StickySidebarDivider = styled('div', ({ $theme }) => ({
   marginBottom: $theme.sizing.scale400,
 }));
 
-export const StickyContainer = styled('div', ({$theme}) => ({
+export const StickyContainer = styled('div', ({ $theme }) => ({
   paddingTop: '12px',
   paddingBottom: '12px',
   [$theme.mediaQuery.small]: {

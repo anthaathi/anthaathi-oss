@@ -54,7 +54,7 @@ export function MiniActionbar() {
         transitionProperty: 'all',
         transitionTimingFunction: $theme.animation.easeInCurve,
         transform: activeMenu ? 'translateX(0)' : 'translateX(320px)',
-        zIndex: 10,
+        zIndex: 101,
       })}
     >
       <div className={css({ display: 'flex', flexDirection: 'column' })}>

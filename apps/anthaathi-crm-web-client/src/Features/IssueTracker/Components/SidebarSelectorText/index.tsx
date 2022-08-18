@@ -4,11 +4,10 @@ import { Button, KIND, SIZE } from 'baseui/button';
 import { Block } from 'baseui/block';
 import { useStyletron } from 'baseui';
 import { Icon } from '../../../Core/Components/Icon';
-import { Search } from 'baseui/icon';
-import { StatefulPopover, PLACEMENT } from 'baseui/popover';
+import { Check, Search } from 'baseui/icon';
+import { PLACEMENT, StatefulPopover } from 'baseui/popover';
 
 import { ListItemLabel } from 'baseui/list';
-import { Check } from 'baseui/icon';
 import React from 'react';
 import { Tag } from 'baseui/tag';
 import { Input, SIZE as INPUT_SIZE } from 'baseui/input';
