@@ -3,34 +3,16 @@ import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { splitViewAtom } from './atom';
 
-// https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd
-function useCombinedRefs(...refs: any[]) {
-  const targetRef = React.useRef();
-
-  React.useEffect(() => {
-    refs.forEach((ref) => {
-      if (!ref) return;
-
-      if (typeof ref === 'function') {
-        ref(targetRef.current);
-      } else {
-        ref.current = targetRef.current;
-      }
-    });
-  }, [refs]);
-
-  return targetRef;
-}
-
 // TODO: FIX THIS BUGGY COMPONENT
-export const SplitView = forwardRef<
-  HTMLDivElement,
-  {
-    left: React.ReactNode;
-    right: React.ReactNode;
-    id: string;
-  }
->(({ left, right, id }, ref) => {
+export const SplitView = ({
+  left,
+  right,
+  id,
+}: {
+  left: React.ReactNode;
+  right: React.ReactNode;
+  id: string;
+}) => {
   const [css, $theme] = useStyletron();
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -40,8 +22,6 @@ export const SplitView = forwardRef<
   const resizerRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
-
-  useCombinedRefs(ref, rightRef);
 
   const x = useRef(0);
 
@@ -116,6 +96,7 @@ export const SplitView = forwardRef<
         })}
         style={{
           width: (swipeMemory[id] || '25') + '%',
+          minWidth: '340px',
         }}
       >
         {left}
@@ -144,4 +125,4 @@ export const SplitView = forwardRef<
       </div>
     </div>
   );
-});
+};

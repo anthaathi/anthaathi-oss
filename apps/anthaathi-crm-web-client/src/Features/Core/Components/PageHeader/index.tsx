@@ -7,7 +7,13 @@ import {
   LabelSmall,
   LabelXSmall,
 } from 'baseui/typography';
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Tab, Tabs } from 'baseui/tabs-motion';
 import { Icon } from '../Icon';
 
@@ -23,7 +29,15 @@ export interface PageHeaderProps {
 
 const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
   (
-    { title, icon, endContent, tabs, onChangeTab, activeTab, scrollBody },
+    {
+      title,
+      icon,
+      endContent,
+      tabs,
+      onChangeTab,
+      activeTab,
+      scrollBody = { current: document.getElementById('main-scroll') },
+    },
     ref
   ) => {
     const [css, $theme] = useStyletron();
@@ -36,6 +50,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
       const ele = scrollBody?.current;
 
       if (!ele) {
+        setExpanded(true);
         return;
       }
 
@@ -43,6 +58,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
         if (timeout.current) {
           clearTimeout(timeout.current as number);
         }
+
         const shouldExpand = (ele?.scrollTop || 0) < 10;
         timeout.current = setTimeout(() => {
           setExpanded(shouldExpand);
@@ -73,13 +89,16 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
         <Block
           display="flex"
           alignItems="center"
-          paddingTop={expanded ? 'scale500' : 'scale200'}
+          paddingTop={expanded ? 'scale500' : '0'}
           paddingLeft="scale500"
           paddingBottom={expanded ? 'scale500' : '0'}
           paddingRight="48px"
           $style={{
             transitionProperty: 'all',
-            transitionDuration: '100ms',
+            transitionDuration: '300ms',
+            maxHeight: expanded ? '120px' : 0,
+            overflow: 'hidden',
+            opacity: expanded ? 1 : 0,
           }}
         >
           <div
@@ -89,7 +108,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               padding: expanded ? '12px' : 0,
               overflow: 'hidden',
               transitionProperty: 'all',
-              transitionDuration: '100ms',
+              transitionDuration: '300ms',
               display: 'flex',
               alignContent: 'center',
               placeContent: 'center',
@@ -103,7 +122,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               className={css({
                 fontSize: expanded ? '24px' : 0,
                 transitionProperty: 'all',
-                transitionDuration: '100ms',
+                transitionDuration: '300ms',
               })}
             />
           </div>
@@ -116,13 +135,22 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
               marginTop: '0px',
               transitionProperty: 'all',
               transitionDuration: '100ms',
+              fontSize: expanded ? '24px' : '10px',
             }}
           >
             {title}
           </HeadingSmall>
 
           <span className={css({ flexGrow: 1 })} />
-          {endContent}
+          <div
+            className={css({
+              position: 'absolute',
+              right: '48px',
+              top: '6px',
+            })}
+          >
+            {endContent}
+          </div>
         </Block>
 
         {tabs && (
@@ -136,8 +164,36 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
                 ? ($theme.borders.border200.borderColor as never)
                 : 'transparent',
               alignItems: 'center',
+              paddingLeft: $theme.sizing.scale500,
             })}
           >
+            <div
+              className={css({
+                width: expanded ? 0 : '12px',
+                height: expanded ? 0 : '12px',
+                padding: expanded ? 0 : '12px',
+                overflow: 'hidden',
+                transitionProperty: 'all',
+                transitionDuration: '100ms',
+                display: 'flex',
+                alignContent: 'center',
+                placeContent: 'center',
+                placeItems: 'center',
+                borderRadius: '12px',
+                backgroundColor: $theme.colors.backgroundLightAccent,
+                marginRight: expanded ? 0 : '6px',
+              })}
+            >
+              <Icon
+                icon={icon}
+                className={css({
+                  fontSize: expanded ? 0 : '18px',
+                  transitionProperty: 'all',
+                  transitionDuration: '100ms',
+                })}
+              />
+            </div>
+
             <Tabs
               activeKey={activeTab}
               overrides={{

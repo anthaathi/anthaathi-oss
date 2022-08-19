@@ -11,6 +11,7 @@ export interface DashboardCardProps {
   numberOfTask: number;
   badgeColor: string;
   backgroundColor: string;
+  onClick?: () => void;
 }
 
 function DashboardCard({
@@ -19,11 +20,13 @@ function DashboardCard({
   numberOfTask,
   badgeColor,
   backgroundColor,
+  onClick,
 }: DashboardCardProps) {
   const [, $theme] = useStyletron();
 
   return (
     <Block
+      onClick={() => onClick?.()}
       width="100%"
       $style={{
         transitionProperty: 'all',

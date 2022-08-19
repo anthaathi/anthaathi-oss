@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import PageHeader from '../Features/Core/Components/PageHeader';
 import { Button, SIZE } from 'baseui/button';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SpaceListViewPage } from './SpaceListViewPage';
 import { useStyletron } from 'baseui';
 import { KanbanBoardPage } from './KanbanBoardPage';
@@ -69,6 +69,8 @@ export default function SpacesPage() {
         icon="layout-header-sidebar-left"
         endContent={
           <Button
+            $as={Link}
+            to="create"
             overrides={{ Root: { style: { marginRight: '12px' } } }}
             size={SIZE.compact}
           >
