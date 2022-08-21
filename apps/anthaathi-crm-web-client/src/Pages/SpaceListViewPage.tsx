@@ -1,10 +1,10 @@
 import { SpaceCard } from '../Features/Space/Components/SpaceCard';
 import { Outlet } from 'react-router';
 import { SplitView } from '../Features/Core/Components/SplitView';
-import React, { useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useState } from 'react';
 import { useStyletron } from 'baseui';
 
-export function SpaceListViewPage() {
+export const SpaceListViewPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [css, $theme] = useStyletron();
 
   const [selected, setSelected] = useState<number>();
@@ -37,7 +37,15 @@ export function SpaceListViewPage() {
           </ul>
         </div>
       }
-      right={<Outlet />}
+      right={
+        <div
+          ref={ref}
+          data-kind="split-view-outlet"
+          className={css({ overflow: 'auto', height: '100%' })}
+        >
+          <Outlet />
+        </div>
+      }
     />
   );
-}
+});

@@ -97,6 +97,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
       </Sidebar>
 
       <main
+        id="main-scroll"
         className={css({
           flexGrow: 1,
           backgroundColor: $theme.colors.primaryB,

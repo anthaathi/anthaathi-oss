@@ -27,7 +27,6 @@ export const HeaderWrapper = styled('div', ({ $theme }) => ({
   alignContent: 'center',
   alignItems: 'center',
   height: '48px',
-  maxWidth: $theme.sizing.maxAppWidth,
   width: '100%',
 }));
 

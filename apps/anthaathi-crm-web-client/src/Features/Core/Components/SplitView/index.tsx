@@ -1,10 +1,10 @@
 import { useStyletron } from 'baseui';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { splitViewAtom } from './atom';
 
 // TODO: FIX THIS BUGGY COMPONENT
-export function SplitView({
+export const SplitView = ({
   left,
   right,
   id,
@@ -12,15 +12,16 @@ export function SplitView({
   left: React.ReactNode;
   right: React.ReactNode;
   id: string;
-}) {
+}) => {
   const [css, $theme] = useStyletron();
+
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const [hovering, setHovering] = useState(false);
 
   const resizerRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
-  const rootRef = useRef<HTMLDivElement>(null);
 
   const x = useRef(0);
 
@@ -52,7 +53,7 @@ export function SplitView({
 
     const newLeftWidth =
       ((leftWidth.current + dx) * 100) /
-      rootRef.current!!.getBoundingClientRect().width;
+      rootRef?.current!!.getBoundingClientRect().width;
 
     leftRef.current!!.style.width = `${newLeftWidth}%`;
 
@@ -95,6 +96,7 @@ export function SplitView({
         })}
         style={{
           width: (swipeMemory[id] || '25') + '%',
+          minWidth: '340px',
         }}
       >
         {left}
@@ -123,4 +125,4 @@ export function SplitView({
       </div>
     </div>
   );
-}
+};

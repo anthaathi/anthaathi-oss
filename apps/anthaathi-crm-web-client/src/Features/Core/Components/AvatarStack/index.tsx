@@ -15,12 +15,14 @@ export interface AvatarStackProps {
   onClick?: (item: AvatarStackItem) => void;
   items: AvatarStackItem[];
   align?: 'end' | 'start';
+  absolute?: boolean;
 }
 
 export function AvatarStack({
   items,
   onClick,
   align = 'end',
+  absolute = true,
 }: AvatarStackProps) {
   const [css, $theme] = useStyletron();
 
@@ -64,7 +66,7 @@ export function AvatarStack({
                 placeContent: 'center',
                 backgroundColor: $theme.colors.backgroundLightAccent,
                 borderRadius: '50%',
-                position: 'absolute',
+                position: absolute ? 'absolute' : 'inherit',
                 [align === 'start' ? 'left' : 'right']:
                   (28 / (hover ? 0.9 : 2.5)) * index + 'px',
                 transitionProperty: align === 'start' ? 'left' : 'right',
