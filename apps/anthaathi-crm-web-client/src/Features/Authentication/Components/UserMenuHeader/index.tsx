@@ -1,6 +1,6 @@
 import { PLACEMENT, StatefulPopover } from 'baseui/popover';
 import { Block } from 'baseui/block';
-import { Button, SIZE } from 'baseui/button';
+import { Button, KIND, SIZE } from 'baseui/button';
 import { Icon } from '../../../Core/Components/Icon';
 import { useStyletron } from 'baseui';
 import { StatefulMenu } from 'baseui/menu';
@@ -24,7 +24,13 @@ export function UserMenuHeader() {
       autoFocus
       placement={PLACEMENT.bottom}
     >
-      <Button size={SIZE.compact}>
+      <Button
+        kind={KIND.primary}
+        size={SIZE.compact}
+        $style={{
+          ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+        }}
+      >
         <Icon icon="user" />
       </Button>
     </StatefulPopover>

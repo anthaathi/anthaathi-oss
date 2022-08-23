@@ -29,6 +29,8 @@ function DashboardCard({
       onClick={() => onClick?.()}
       width="100%"
       $style={{
+        marginTop: '10px',
+        marginBottom: '10px',
         transitionProperty: 'all',
         transitionDuration: $theme.animation.timing100,
         transitionTimingFunction: 'ease-out',

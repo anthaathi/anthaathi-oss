@@ -32,7 +32,32 @@ export function CalendarAction() {
       />
 
       <div className={css({ width: '100%' })}>
-        <StatefulCalendar onChange={({ date }) => console.log(date)} />
+        <StatefulCalendar
+          overrides={{
+            CalendarHeader: {
+              style: () => ({ height: '42px' }),
+            },
+            Day: {
+              style: ({ $theme, $selected, $isHovered, $isHighlighted }) => ({
+                width: '42px',
+                height: '42px',
+                ':after': {
+                  marginTop: '4px',
+                  marginLeft: '1px',
+                  width: '40px',
+                  height: '40px',
+                },
+              }),
+            },
+            WeekdayHeader: {
+              style: () => ({
+                width: '42px',
+                height: '42px',
+              }),
+            },
+          }}
+          onChange={({ date }) => console.log(date)}
+        />
       </div>
 
       <div

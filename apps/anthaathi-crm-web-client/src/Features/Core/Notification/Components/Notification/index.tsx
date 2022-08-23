@@ -33,6 +33,8 @@ export interface NotificationProps {
 }
 
 export function NotificationContainer() {
+  const [, $theme] = useStyletron();
+
   return (
     <>
       <StatefulPopover
@@ -88,7 +90,13 @@ export function NotificationContainer() {
         autoFocus
         placement={PLACEMENT.bottom}
       >
-        <Button kind={KIND.primary} size={SIZE.compact}>
+        <Button
+          kind={KIND.primary}
+          size={SIZE.compact}
+          $style={{
+            ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+          }}
+        >
           <Icon icon="bell-o" />
         </Button>
       </StatefulPopover>
