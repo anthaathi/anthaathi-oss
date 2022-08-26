@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {IntlProvider} from 'react-intl';
 import {NavigationContainer} from '@react-navigation/native';
 import {RelayEnvironmentProvider} from 'react-relay';
 import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
+import RNBootSplash from 'react-native-bootsplash';
+
 import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
@@ -37,6 +39,12 @@ const theme = {
 } as ThemeBase;
 
 const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      RNBootSplash.hide({fade: true});
+    }, 3000);
+  }, []);
+
   return (
     <IntlProvider locale="en-US" messages={enUS}>
       <PaperProvider theme={theme}>
