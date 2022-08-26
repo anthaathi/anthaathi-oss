@@ -66,7 +66,6 @@ export function ProjectSelection() {
         <Button
           $style={{
             width: '100%',
-            borderRadius: 0,
             backgroundColor: $theme.colors.primaryB,
           }}
           kind={KIND.secondary}

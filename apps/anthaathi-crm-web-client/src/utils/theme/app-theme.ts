@@ -1,10 +1,11 @@
-import { createLightTheme } from 'baseui';
+import { createLightTheme } from 'baseui/themes';
 
 export const appTheme = createLightTheme(
   {
     primaryA: '#25282f',
     primaryFontFamily:
       '\'IBM Plex Sans\',system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif',
+    primary: '#056ac8',
   },
   {
     borders: {
@@ -20,6 +21,7 @@ export const appTheme = createLightTheme(
     },
     sizing: {
       maxAppWidth: '1200px',
+      maxAppWidthDense: '1000px',
     },
     colors: {
       primaryHeaderA: '#056ac8',
@@ -38,6 +40,7 @@ export const appTheme = createLightTheme(
       notificationJ: '#727783',
       notificationK: '#187ec7',
       yellowLight: '#FCD86E',
+      blueLight: '#309FDB',
     },
   }
 );
@@ -50,6 +53,7 @@ declare module 'baseui/themes' {
 
   export interface Sizing {
     maxAppWidth: string;
+    maxAppWidthDense: string;
   }
 
   export interface Colors {
@@ -69,5 +73,6 @@ declare module 'baseui/themes' {
     notificationJ: string;
     notificationK: string;
     yellowLight: string;
+    blueLight: string;
   }
 }

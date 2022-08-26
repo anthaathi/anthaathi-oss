@@ -1,13 +1,15 @@
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { Button, KIND } from 'baseui/button';
-import { HeadingLarge, LabelMedium } from 'baseui/typography';
+import { HeadingLarge, LabelMedium, ParagraphSmall } from 'baseui/typography';
 import React from 'react';
 import { Icon } from '../../../Core/Components/Icon';
+import { PLACEMENT, StatefulPopover } from 'baseui/popover';
+import { StatefulMenu } from 'baseui/menu';
 
 export interface SpaceTaskHeaderProps {
   title: string;
-  subtitle: string;
+  subtitle: React.ReactNode;
   onCheckClick?: () => void;
   onClickMore?: () => void;
 }
@@ -18,7 +20,7 @@ function SpaceTaskHeader({
   onCheckClick,
   onClickMore,
 }: SpaceTaskHeaderProps) {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
   return (
     <Block display="flex" justifyContent="space-between" alignItems="center">
       <Block>
@@ -34,34 +36,49 @@ function SpaceTaskHeader({
         <LabelMedium>{subtitle}</LabelMedium>
       </Block>
       <Block>
-        <Button
-          onClick={onCheckClick}
-          kind={KIND.tertiary}
-          overrides={{
-            BaseButton: {
-              style: () => ({
-                backgroundColor: '#EAEAEA',
-              }),
-            },
-          }}
+        <StatefulPopover
+          content={
+            <StatefulMenu
+              overrides={{
+                ListItem: {
+                  style: {
+                    display: 'flex',
+                    placeContent: 'center',
+                    alignItems: 'center',
+                  },
+                },
+              }}
+              items={[
+                {
+                  label: (
+                    <>
+                      <Icon icon="times-circle-o" />
+                      <span className={css({ width: '6px' })} />
+                      CLOSE TASK
+                    </>
+                  ),
+                },
+              ]}
+            />
+          }
+          accessibilityType={'tooltip'}
+          placement={PLACEMENT.bottomRight}
         >
-          <Icon icon="check" />
-        </Button>
-        {/* TODO: MAKE DROPDOWN MENU */}
-        <Button
-          onClick={onClickMore}
-          kind={KIND.tertiary}
-          overrides={{
-            BaseButton: {
-              style: () => ({
-                backgroundColor: '#EAEAEA',
-                marginLeft: '10px',
-              }),
-            },
-          }}
-        >
-          <Icon icon="ellipsis-h"></Icon>
-        </Button>
+          <Button
+            onClick={onClickMore}
+            kind={KIND.tertiary}
+            overrides={{
+              BaseButton: {
+                style: () => ({
+                  backgroundColor: '#EAEAEA',
+                  marginLeft: '10px',
+                }),
+              },
+            }}
+          >
+            <Icon icon="ellipsis-h"></Icon>
+          </Button>
+        </StatefulPopover>
       </Block>
     </Block>
   );

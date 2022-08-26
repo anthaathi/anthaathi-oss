@@ -1,13 +1,10 @@
-import { TimelineBadge, TimelineItem, TimelineItemBody } from '../TimelineItem';
 import {
-  TimelineItemWrapper,
   TimelineStatus,
   TimelineStatusBody,
   TimelineStatusTitleWrapper,
   TimelineWrapper,
 } from '../TimelineStatus';
 import { useStyletron } from 'baseui';
-import { Icon } from '../../../Core/Components/Icon';
 
 export interface CommentBoxProps {
   fullWidth?: boolean;

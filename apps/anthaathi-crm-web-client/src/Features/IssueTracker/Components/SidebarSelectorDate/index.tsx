@@ -1,4 +1,4 @@
-import { LabelMedium, LabelSmall } from 'baseui/typography';
+import { LabelMedium } from 'baseui/typography';
 import { FlexFill } from '../../../Core/Components/FlexFill';
 import { Button, KIND, SIZE as BUTTON_SIZE } from 'baseui/button';
 import { Block } from 'baseui/block';
@@ -7,7 +7,7 @@ import { Icon } from '../../../Core/Components/Icon';
 import React from 'react';
 import { DatePicker } from 'baseui/datepicker';
 
-import { SIZE as DATE_SIZE } from "baseui/input";
+import { SIZE as DATE_SIZE } from 'baseui/input';
 
 export interface PeopleSelectorProps {
   label: string;

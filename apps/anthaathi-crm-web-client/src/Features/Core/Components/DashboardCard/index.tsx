@@ -1,8 +1,8 @@
+import React from 'react';
 import { useStyletron } from 'baseui';
 import { Avatar } from 'baseui/avatar';
 import { Block } from 'baseui/block';
 import { LabelLarge, LabelMedium } from 'baseui/typography';
-import React from 'react';
 import { expandBorderStyles } from 'baseui/styles';
 
 export interface DashboardCardProps {
@@ -11,6 +11,7 @@ export interface DashboardCardProps {
   numberOfTask: number;
   badgeColor: string;
   backgroundColor: string;
+  onClick?: () => void;
 }
 
 function DashboardCard({
@@ -19,13 +20,17 @@ function DashboardCard({
   numberOfTask,
   badgeColor,
   backgroundColor,
+  onClick,
 }: DashboardCardProps) {
   const [, $theme] = useStyletron();
 
   return (
     <Block
+      onClick={() => onClick?.()}
       width="100%"
       $style={{
+        marginTop: '10px',
+        marginBottom: '10px',
         transitionProperty: 'all',
         transitionDuration: $theme.animation.timing100,
         transitionTimingFunction: 'ease-out',

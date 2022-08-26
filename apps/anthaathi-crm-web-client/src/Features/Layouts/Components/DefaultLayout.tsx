@@ -97,6 +97,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
       </Sidebar>
 
       <main
+        id="main-scroll"
         className={css({
           flexGrow: 1,
           backgroundColor: $theme.colors.primaryB,
@@ -106,7 +107,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           transitionProperty: 'margin,width',
           transitionDuration: '100ms',
           transitionTimingFunction: 'ease',
-          width: `calc(100% ${headerOpen ? '- 320px' : ''} ${
+          width: `calc(100% ${headerOpen ? '- 280px' : ''} ${
             isActionSidebarMenu ? '- 320px' : ''
           })`,
           height: '100%',

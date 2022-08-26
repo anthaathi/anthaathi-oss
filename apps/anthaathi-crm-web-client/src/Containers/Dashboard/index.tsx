@@ -13,7 +13,7 @@ function Dashboard() {
 
   return (
     <>
-      <PageHeader />
+      <PageHeader title="Dashboard" icon="area-chart" />
       <AppWrapper className="app-content">
         <Grid gridMaxWidth={0} gridMargins={0} gridGaps={0}>
           <Cell span={[12, 4, 3, 3]}>
