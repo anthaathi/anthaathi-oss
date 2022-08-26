@@ -38,6 +38,7 @@ import { coordinateGetter as multipleContainersCoordinateGetter } from './multip
 import { createRange } from '../../utilities';
 import { Item } from '../Item';
 import { Container, ContainerProps } from '../Container';
+import { useStyletron } from 'baseui';
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) =>
   defaultAnimateLayoutChanges({ ...args, wasDragging: true });
@@ -298,6 +299,8 @@ export function KanbanBoard({
     });
   }, [items]);
 
+  const [css] = useStyletron();
+
   return (
     <DndContext
       sensors={sensors}
@@ -445,12 +448,12 @@ export function KanbanBoard({
       modifiers={modifiers}
     >
       <div
-        style={{
+        className={css({
           display: 'inline-grid',
           boxSizing: 'border-box',
-          padding: 20,
+          padding: '20px',
           gridAutoFlow: vertical ? 'row' : 'column',
-        }}
+        })}
       >
         <SortableContext
           items={[...containers, PLACEHOLDER_ID]}

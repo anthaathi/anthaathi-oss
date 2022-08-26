@@ -3,13 +3,14 @@ import classNames from 'classnames';
 import type { DraggableSyntheticListeners } from '@dnd-kit/core';
 import type { Transform } from '@dnd-kit/utilities';
 
-import { Handle, Remove } from './components';
+import { Handle } from './components';
 
 import styles from './Item.module.css';
 import { useStyletron } from 'baseui';
-import { LabelLarge, LabelMedium } from 'baseui/typography';
+import { LabelLarge } from 'baseui/typography';
 import { Avatar } from 'baseui/avatar';
 import { Block } from 'baseui/block';
+import { SpaceCard } from '../../../Space/Components/SpaceCard';
 
 export interface Props {
   dragOverlay?: boolean;
@@ -82,7 +83,7 @@ export const Item = React.memo(
         };
       }, [dragOverlay]);
 
-      const [css] = useStyletron();
+      const [css, $theme] = useStyletron();
 
       return renderItem ? (
         renderItem({
@@ -104,7 +105,11 @@ export const Item = React.memo(
             styles.Wrapper,
             fadeIn && styles.fadeIn,
             sorting && styles.sorting,
-            dragOverlay && styles.dragOverlay
+            dragOverlay && styles.dragOverlay,
+            css({
+              marginBottom: $theme.sizing.scale200,
+              marginTop: $theme.sizing.scale200,
+            })
           )}
           style={
             {
@@ -131,75 +136,17 @@ export const Item = React.memo(
           ref={ref}
         >
           <div
-            style={{
-              height: '240px',
-              width: '420px',
-              marginTop: '5px',
-              marginBottom: '5px',
-              borderRadius: '2px',
-              padding: '0px',
-              borderWidth: '1px',
-              borderStyle: 'solid',
-              borderColor: 'hsla(0, 0%, 0%, 0.04)',
-            }}
+            className={css({
+              opacity: dragging ? '.4' : '1',
+            })}
+            {...props}
+            tabIndex={!handle ? 0 : undefined}
           >
-            <ItemHeader title="Get things done you got that" name="user name" />
-            <div
-              style={{
-                borderWidth: '1px',
-                borderStyle: 'solid',
-                borderColor: 'hsla(0, 0%, 0%, 0.04)',
-              }}
+            <SpaceCard
+              dragHandler={<Handle {...handleProps} {...listeners} />}
+              noExpand={dragging}
+              url="1"
             />
-            <div
-              className={
-                classNames(
-                  dragging && 'styles.dragging',
-                  handle && 'styles.withHandle',
-                  dragOverlay && 'styles.dragOverlay',
-                  disabled && 'styles.disabled',
-                  color && 'styles.color'
-                ) +
-                ' ' +
-                css({
-                  width: '100%',
-                  // display: 'flex',
-                })
-              }
-              style={style}
-              data-cypress="draggable-item"
-              {...(!handle ? listeners : undefined)}
-              {...props}
-              tabIndex={!handle ? 0 : undefined}
-            >
-              <Block margin="scale500" alignItems="center">
-                <LabelMedium>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Architecto enim eum excepturi, explicabo fuga in inventore
-                  labore maiores nam nostrum odio officiis perspiciatis quaerat
-                  quibusdam sint totam ullam vel vero.
-                </LabelMedium>
-              </Block>
-              <div
-                style={{
-                  borderWidth: '1px',
-                  borderStyle: 'solid',
-                  borderColor: 'hsla(0, 0%, 0%, 0.04)',
-                }}
-              />
-              <Block margin="scale500" alignItems="center">
-                <UserAvatar name="User name" />
-                <UserAvatar name="User name" />
-                <UserAvatar name="User name" />
-                {/* {value} */}
-                <span className={styles.Actions}>
-                  {onRemove ? (
-                    <Remove className={styles.Remove} onClick={onRemove} />
-                  ) : null}
-                  {handle ? <Handle {...handleProps} {...listeners} /> : null}
-                </span>
-              </Block>
-            </div>
           </div>
         </li>
       );

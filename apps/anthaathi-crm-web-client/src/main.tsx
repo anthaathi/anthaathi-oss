@@ -20,7 +20,7 @@ renderRoot.render(
   <React.StrictMode>
     <RecoilRoot>
       <StyletronProvider value={engine}>
-        <BaseProvider theme={appTheme}>
+        <BaseProvider theme={appTheme} zIndex={110}>
           <BrowserRouter>
             <App />
           </BrowserRouter>

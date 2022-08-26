@@ -8,9 +8,10 @@ import { expandBorderStyles } from 'baseui/styles';
 export interface MarkdownEditorProps {
   value: string;
   onChange(value: string): void;
+  id?: string;
 }
 
-export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
+export function MarkdownEditor({ value, onChange, id }: MarkdownEditorProps) {
   const [css, $theme] = useStyletron();
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -134,6 +135,7 @@ export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
 
       <Textarea
         inputRef={textareaRef}
+        id={id}
         onChange={(e) => {
           onChange((e.target as HTMLInputElement).value);
         }}
@@ -150,7 +152,12 @@ export interface ActionButtonProps {
 
 export function ActionButton({ children, onClick }: ActionButtonProps) {
   return (
-    <Button kind={KIND.secondary} size={SIZE.mini} onClick={onClick}>
+    <Button
+      kind={KIND.secondary}
+      size={SIZE.mini}
+      onClick={onClick}
+      type="button"
+    >
       {children}
     </Button>
   );
