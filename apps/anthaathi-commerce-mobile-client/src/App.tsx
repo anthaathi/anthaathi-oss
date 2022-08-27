@@ -6,16 +6,9 @@ import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
 import RNBootSplash from 'react-native-bootsplash';
 
-import {
-  MD3LightTheme as DefaultTheme,
-  Provider as PaperProvider,
-  ThemeBase,
-} from 'react-native-paper';
+import {MD3LightTheme as DefaultTheme, Provider as PaperProvider, ThemeBase,} from 'react-native-paper';
 import CMSRenderer from './features/CMS';
-import {
-  CoreComponentType,
-  HomePageComponentType,
-} from './features/CMS/types/common';
+import {CoreComponentType, HomePageComponentType,} from './features/CMS/types/common';
 import {ScrollView} from 'react-native';
 
 declare global {
@@ -58,6 +51,10 @@ const App = () => {
                     key: '123',
                     title: 'Something',
                     leftIcon: 'menu',
+                  },
+                  {
+                    _component: HomePageComponentType.ChatFloatingButton,
+                    key: "13"
                   },
                   {
                     _component: HomePageComponentType.DeliveringSelection,
