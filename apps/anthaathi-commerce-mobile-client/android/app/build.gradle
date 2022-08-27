@@ -318,6 +318,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation "androidx.core:core-splashscreen:1.0.0"
 }
 
 if (isNewArchitectureEnabled()) {
