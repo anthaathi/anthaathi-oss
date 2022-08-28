@@ -8,6 +8,7 @@ export type CommonPlacement =
 
 export enum CoreComponentType {
   Header = 'core.header',
+  DatePicker = 'core.date-picker',
 }
 
 export enum HomePageComponentType {

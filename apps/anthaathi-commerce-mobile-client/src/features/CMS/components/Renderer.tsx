@@ -7,6 +7,7 @@ import {DeliveryAddressCardCMSInput} from '../containers/CheckOutPage/components
 import {DeliveryDateSelectionCMSInput} from '../containers/CheckOutPage/components/DeliveryDateSelection';
 import {PaymentMethodSelectionCMSInput} from '../containers/CheckOutPage/components/PaymentMethodSelection';
 import {TimeSlotSelectionCMSInput} from '../containers/CheckOutPage/components/TimeSlotSelection';
+import { DatePickerCMSInput } from '../containers/Core/components/DatePicker';
 import {HeaderCMSInput} from '../containers/Header';
 import {BlogPostsCMSInput} from '../containers/HomePage/components/BlogPosts';
 import {CategoriesCardCMSInput} from '../containers/HomePage/components/CategoriesCard';
@@ -31,6 +32,7 @@ export interface RendererProps {
 
 const renderer = [
   HeaderCMSInput,
+  DatePickerCMSInput,
   // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
