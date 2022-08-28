@@ -26,48 +26,6 @@ const ProductPage = props => {
                 props.navigation.navigate('Profile');
               },
             },
-            // {
-            //   _component: ProductListPageComponentType.SubCategories,
-            //   key: '2121',
-            //   subCategoryList: [
-            //     {
-            //       id: '1',
-            //       title: 'Fruits',
-            //     },
-            //     {
-            //       id: '2',
-            //       title: 'Vegitables',
-            //     },
-            //     {
-            //       id: '3',
-            //       title: 'Bulk Buy',
-            //     },
-            //     {
-            //       id: '4',
-            //       title: 'Organic',
-            //     },
-            //     {
-            //       id: '5',
-            //       title: 'Pre-Cut',
-            //     },
-            //     {
-            //       id: '6',
-            //       title: 'Pre-Packed',
-            //     },
-            //     {
-            //       id: '7',
-            //       title: 'Gift Corner',
-            //     },
-            //     {
-            //       id: '8',
-            //       title: 'Juices',
-            //     },
-            //     {
-            //       id: '9',
-            //       title: 'Fresh Blooms',
-            //     },
-            //   ],
-            // },
             {
               _component: HomePageComponentType.FeaturedProduct,
               key: '126',

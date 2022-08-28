@@ -58,10 +58,8 @@ const HomePage = props => {
               items: [
                 {
                   key: dataJson.core.homePage.promotionalGrid.items[0].key,
-                  // subHeading: 'Something',
                   heading:
                     dataJson.core.homePage.promotionalGrid.items[0].heading,
-                  // text: 'test',
                   button1Text:
                     dataJson.core.homePage.promotionalGrid.items[0].button1Text,
                   onPress1: () => {
@@ -73,10 +71,8 @@ const HomePage = props => {
                 },
                 {
                   key: dataJson.core.homePage.promotionalGrid.items[1].key,
-                  // subHeading: 'Something',
                   heading:
                     dataJson.core.homePage.promotionalGrid.items[1].heading,
-                  // text: 'test',
                   button1Text:
                     dataJson.core.homePage.promotionalGrid.items[1].button1Text,
                   onPress1: () => {
@@ -88,10 +84,8 @@ const HomePage = props => {
                 },
                 {
                   key: dataJson.core.homePage.promotionalGrid.items[2].key,
-                  // subHeading: 'Something',
                   heading:
                     dataJson.core.homePage.promotionalGrid.items[2].heading,
-                  // text: 'test',
                   button1Text:
                     dataJson.core.homePage.promotionalGrid.items[2].button1Text,
                   onPress1: () => {

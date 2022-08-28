@@ -21,7 +21,6 @@ const ProfilePage = props => {
               leftOnPress: () => {
                 props.navigation.goBack();
               },
-              //   rightIcon: 'account',
             },
             {
               _component: ProfilePageComponentType.WalletBalance,

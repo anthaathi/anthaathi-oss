@@ -54,10 +54,16 @@ exports[`TextWithImage should render the item 1`] = `
           }
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "uri": "",
+            }
+          }
           style={
             Object {
               "backgroundColor": "rgba(0,0,0,0.1)",
+              "borderRadius": 4,
               "height": 240,
               "marginHorizontal": 5,
               "width": 240,
@@ -131,10 +137,16 @@ exports[`TextWithImage should render the item 1`] = `
           }
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "uri": "",
+            }
+          }
           style={
             Object {
               "backgroundColor": "rgba(0,0,0,0.1)",
+              "borderRadius": 4,
               "height": 240,
               "marginHorizontal": 5,
               "width": 240,
@@ -208,10 +220,16 @@ exports[`TextWithImage should render the item 1`] = `
           }
         }
       >
-        <View
+        <Image
+          source={
+            Object {
+              "uri": "",
+            }
+          }
           style={
             Object {
               "backgroundColor": "rgba(0,0,0,0.1)",
+              "borderRadius": 4,
               "height": 240,
               "marginHorizontal": 5,
               "width": 240,

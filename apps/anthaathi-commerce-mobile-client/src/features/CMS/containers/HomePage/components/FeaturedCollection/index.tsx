@@ -100,7 +100,9 @@ function ItemRenderer({
       }}
       key={item.key}>
       <Card.Content style={{alignItems: 'center'}}>
-        <Pressable onPress={item.onProductPress}>
+        <Pressable
+          style={{alignItems: 'flex-start'}}
+          onPress={item.onProductPress}>
           <Image
             style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
             source={{
