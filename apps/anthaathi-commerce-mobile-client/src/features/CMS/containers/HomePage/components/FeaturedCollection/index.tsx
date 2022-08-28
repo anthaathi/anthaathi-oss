@@ -16,6 +16,7 @@ export interface ProductProps {
   packaging: string;
   key: string;
   notes: string;
+  onProductPress?: () => {};
 }
 
 export interface FeaturedCollectionProps {
@@ -99,46 +100,50 @@ function ItemRenderer({
       }}
       key={item.key}>
       <Card.Content style={{alignItems: 'center'}}>
-        <Image
-          style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
-          source={{
-            uri: item.image,
-          }}
-        />
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <Title style={{fontSize: 14, marginRight: 10, fontWeight: 'bold'}}>
-            {item.name}
-          </Title>
-          <Entypo name="info-with-circle" color="#364A15" size={18} />
-        </View>
-        <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-          Dorne
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 5,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
-            {intl.formatNumber(item.price, {
-              style: 'currency',
-              currency: item.currency,
-            })}
-          </Text>
+        <Pressable
+          style={{alignItems: 'flex-start'}}
+          onPress={item.onProductPress}>
+          <Image
+            style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
+            source={{
+              uri: item.image,
+            }}
+          />
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Title style={{fontSize: 14, marginRight: 10, fontWeight: 'bold'}}>
+              {item.name}
+            </Title>
+            <Entypo name="info-with-circle" color="#364A15" size={18} />
+          </View>
           <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-            {' / ' + item.packaging}
+            Dorne
           </Text>
-        </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: 5,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+              {intl.formatNumber(item.price, {
+                style: 'currency',
+                currency: item.currency,
+              })}
+            </Text>
+            <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+              {' / ' + item.packaging}
+            </Text>
+          </View>
 
-        <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-          {item.notes}
-        </Text>
+          <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            {item.notes}
+          </Text>
+        </Pressable>
       </Card.Content>
     </View>
   );
