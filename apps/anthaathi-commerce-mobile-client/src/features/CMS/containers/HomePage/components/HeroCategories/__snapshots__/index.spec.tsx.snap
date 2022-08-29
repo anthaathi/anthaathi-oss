@@ -6,39 +6,35 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontSize": 22,
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
           "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 28,
         },
-        Object {
+        {
           "textAlign": "left",
         },
-        Object {
-          "writingDirection": "ltr",
-        },
-        Object {
+        {
           "marginBottom": 9,
         },
       ]
     }
+    variant="titleLarge"
   >
     Test
   </Text>
   <View>
     <RCTScrollView
       data={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
               "key": "test",
               "title": "test",
             },
-            Object {
+            {
               "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
               "key": "test2",
               "title": "test",
@@ -60,15 +56,15 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
       onScrollEndDrag={[Function]}
       renderItem={[Function]}
       scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
+      stickyHeaderIndices={[]}
       testID="heroCategoriesList"
     >
       <View>
         <View
           onLayout={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "flexDirection": "row",
               },
               null,
@@ -77,7 +73,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "display": "flex",
                 "flexDirection": "column",
               }
@@ -85,7 +81,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
           >
             <View
               accessibilityState={
-                Object {
+                {
                   "disabled": false,
                 }
               }
@@ -99,9 +95,9 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={
-                Array [
+                [
                   false,
-                  Object {
+                  {
                     "borderRadius": 12,
                     "marginRight": 12,
                     "padding": 4,
@@ -113,35 +109,30 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
               <View>
                 <Image
                   source={
-                    Object {
+                    {
                       "height": 97,
                       "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
                       "width": 97,
                     }
                   }
                   style={
-                    Object {
+                    {
                       "borderRadius": 48.5,
                     }
                   }
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
-                        "fontSize": 12,
-                        "fontWeight": "500",
-                        "letterSpacing": 0.5,
-                        "lineHeight": 16,
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
+                      {
                         "textAlign": "left",
                       },
-                      Object {
-                        "writingDirection": "ltr",
-                      },
-                      Object {
+                      {
                         "fontWeight": "600",
                         "marginBottom": 12,
                         "marginTop": 6,
@@ -149,6 +140,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
                       },
                     ]
                   }
+                  variant="labelMedium"
                 >
                   test
                 </Text>
@@ -156,7 +148,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
             </View>
             <View
               accessibilityState={
-                Object {
+                {
                   "disabled": false,
                 }
               }
@@ -170,9 +162,9 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={
-                Array [
+                [
                   false,
-                  Object {
+                  {
                     "borderRadius": 12,
                     "marginRight": 12,
                     "padding": 4,
@@ -184,35 +176,30 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
               <View>
                 <Image
                   source={
-                    Object {
+                    {
                       "height": 97,
                       "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
                       "width": 97,
                     }
                   }
                   style={
-                    Object {
+                    {
                       "borderRadius": 48.5,
                     }
                   }
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
-                        "fontSize": 12,
-                        "fontWeight": "500",
-                        "letterSpacing": 0.5,
-                        "lineHeight": 16,
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
+                      {
                         "textAlign": "left",
                       },
-                      Object {
-                        "writingDirection": "ltr",
-                      },
-                      Object {
+                      {
                         "fontWeight": "600",
                         "marginBottom": 12,
                         "marginTop": 6,
@@ -220,6 +207,7 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
                       },
                     ]
                   }
+                  variant="labelMedium"
                 >
                   test
                 </Text>
@@ -239,34 +227,30 @@ exports[`HeroCategories should render the item 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontSize": 22,
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
           "fontWeight": "400",
-          "letterSpacing": 0,
-          "lineHeight": 28,
         },
-        Object {
+        {
           "textAlign": "left",
         },
-        Object {
-          "writingDirection": "ltr",
-        },
-        Object {
+        {
           "marginBottom": 9,
         },
       ]
     }
+    variant="titleLarge"
   >
     Test
   </Text>
   <View>
     <RCTScrollView
       data={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
               "key": "test",
               "title": "test",
@@ -288,15 +272,15 @@ exports[`HeroCategories should render the item 1`] = `
       onScrollEndDrag={[Function]}
       renderItem={[Function]}
       scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
+      stickyHeaderIndices={[]}
       testID="heroCategoriesList"
     >
       <View>
         <View
           onLayout={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "flexDirection": "row",
               },
               null,
@@ -305,7 +289,7 @@ exports[`HeroCategories should render the item 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "display": "flex",
                 "flexDirection": "column",
               }
@@ -313,7 +297,7 @@ exports[`HeroCategories should render the item 1`] = `
           >
             <View
               accessibilityState={
-                Object {
+                {
                   "disabled": false,
                 }
               }
@@ -327,9 +311,9 @@ exports[`HeroCategories should render the item 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={
-                Array [
+                [
                   false,
-                  Object {
+                  {
                     "borderRadius": 12,
                     "marginRight": 12,
                     "padding": 4,
@@ -341,35 +325,30 @@ exports[`HeroCategories should render the item 1`] = `
               <View>
                 <Image
                   source={
-                    Object {
+                    {
                       "height": 97,
                       "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
                       "width": 97,
                     }
                   }
                   style={
-                    Object {
+                    {
                       "borderRadius": 48.5,
                     }
                   }
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
-                        "fontSize": 12,
-                        "fontWeight": "500",
-                        "letterSpacing": 0.5,
-                        "lineHeight": 16,
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
+                      {
                         "textAlign": "left",
                       },
-                      Object {
-                        "writingDirection": "ltr",
-                      },
-                      Object {
+                      {
                         "fontWeight": "600",
                         "marginBottom": 12,
                         "marginTop": 6,
@@ -377,6 +356,7 @@ exports[`HeroCategories should render the item 1`] = `
                       },
                     ]
                   }
+                  variant="labelMedium"
                 >
                   test
                 </Text>

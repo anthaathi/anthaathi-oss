@@ -23,7 +23,7 @@ const ProfilePage = props => {
               },
             },
             {
-              _component: CoreComponentType.Avatar,
+              _component: CoreComponentType.CMSAvatar,
               key: '1231',
               userData: {
                 name: 'OY',
@@ -31,6 +31,11 @@ const ProfilePage = props => {
               },
               size: 120,
               type: 'image',
+            },
+            {
+              _component: CoreComponentType.CMSText,
+              key: '1231',
+              title: 'Welcome Omkar Yadav',
             },
             {
               _component: ProfilePageComponentType.WalletBalance,

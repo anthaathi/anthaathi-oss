@@ -16,7 +16,7 @@ const DatePicker = (props: {title: string}) => {
   };
 
   return (
-    <View style={{marginHorizontal: 10, marginVertical: 5}}>
+    <View testID="datePicker" style={{marginHorizontal: 10, marginVertical: 5}}>
       <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
         {props.title}
       </Text>

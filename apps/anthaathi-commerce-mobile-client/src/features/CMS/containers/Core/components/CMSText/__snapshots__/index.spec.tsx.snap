@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CMSText should render the item 1`] = `
+<View
+  testID="CMSText"
+>
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "fontSize": 24,
+          "fontWeight": "700",
+          "marginVertical": 10,
+          "textAlign": "center",
+        },
+      ]
+    }
+    variant="titleLarge"
+  >
+    title
+  </Text>
+</View>
+`;

@@ -3,7 +3,7 @@
 exports[`DeliveryDateSelection should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "marginHorizontal": 10,
     }
   }
@@ -11,7 +11,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -21,14 +21,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Object {
+          {
             "color": "#364A15",
             "fontSize": 16,
             "fontWeight": "600",
@@ -52,7 +54,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "flexDirection": "row",
           "justifyContent": "center",
         }
@@ -61,14 +63,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#364A15",
               "fontSize": 16,
               "fontWeight": "600",
@@ -82,18 +86,18 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#364A15",
               "fontSize": 20,
             },
             undefined,
-            Object {
+            {
               "fontFamily": "Material Design Icons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
@@ -120,7 +124,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -133,14 +137,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -152,14 +158,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -184,7 +192,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -197,14 +205,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -216,14 +226,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -248,7 +260,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -261,14 +273,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -280,14 +294,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -312,7 +328,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -325,14 +341,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -344,14 +362,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -376,7 +396,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -389,14 +409,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -408,14 +430,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -440,7 +464,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -453,14 +477,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -472,14 +498,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -504,7 +532,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -517,14 +545,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -536,14 +566,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -568,7 +600,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -581,14 +613,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -600,14 +634,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -632,7 +668,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -645,14 +681,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -664,14 +702,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -696,7 +736,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -709,14 +749,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -728,14 +770,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -760,7 +804,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -773,14 +817,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -792,14 +838,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -824,7 +872,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -837,14 +885,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -856,14 +906,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -888,7 +940,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -901,14 +953,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -920,14 +974,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -952,7 +1008,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -965,14 +1021,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -984,14 +1042,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1016,7 +1076,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1029,14 +1089,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1048,14 +1110,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1080,7 +1144,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1093,14 +1157,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1112,14 +1178,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1144,7 +1212,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1157,14 +1225,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1176,14 +1246,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1208,7 +1280,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1221,14 +1293,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1240,14 +1314,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1272,7 +1348,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1285,14 +1361,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1304,14 +1382,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1336,7 +1416,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1349,14 +1429,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1368,14 +1450,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1400,7 +1484,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1413,14 +1497,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1432,14 +1518,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1464,7 +1552,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1477,14 +1565,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1496,14 +1586,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1528,7 +1620,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1541,14 +1633,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1560,14 +1654,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1592,7 +1688,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1605,14 +1701,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1624,14 +1722,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1656,7 +1756,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1669,14 +1769,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1688,14 +1790,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1720,7 +1824,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1733,14 +1837,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1752,14 +1858,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1784,7 +1892,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1797,14 +1905,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1816,14 +1926,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1848,7 +1960,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1861,14 +1973,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1880,14 +1994,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1912,7 +2028,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1925,14 +2041,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1944,14 +2062,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -1976,7 +2096,7 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "alignItems": "center",
               "backgroundColor": "#F1F9F4",
               "borderRadius": 2,
@@ -1989,14 +2109,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",
@@ -2008,14 +2130,16 @@ exports[`DeliveryDateSelection should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "color": "#364A15",
                   "fontSize": 14,
                   "fontWeight": "400",

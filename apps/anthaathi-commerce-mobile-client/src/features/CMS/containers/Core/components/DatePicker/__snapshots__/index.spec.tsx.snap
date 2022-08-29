@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker should render the item 1`] = `
+<View
+  style={
+    {
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+    }
+  }
+  testID="datePicker"
+>
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "color": "#364A15",
+          "fontSize": 16,
+          "fontWeight": "600",
+        },
+      ]
+    }
+  >
+    Date
+  </Text>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "transparent",
+        "borderColor": "#E3E2E7",
+        "borderRadius": 4,
+        "borderStyle": "solid",
+        "borderWidth": 0.5,
+        "elevation": 0,
+        "marginVertical": 3,
+        "minWidth": 64,
+        "shadowColor": "#000000",
+        "shadowOffset": {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0,
+        "shadowRadius": 0,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "overflow": "hidden",
+          },
+          {
+            "borderRadius": 4,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "row-reverse",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "marginLeft": -4,
+              "marginRight": 12,
+            }
+          }
+        >
+          <Text
+            accessibilityElementsHidden={true}
+            allowFontScaling={false}
+            importantForAccessibility="no-hide-descendants"
+            pointerEvents="none"
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 16,
+                },
+                [
+                  {
+                    "lineHeight": 16,
+                    "transform": [
+                      {
+                        "scaleX": 1,
+                      },
+                    ],
+                  },
+                  {
+                    "backgroundColor": "transparent",
+                  },
+                ],
+                {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                {},
+              ]
+            }
+          >
+            󰏫
+          </Text>
+        </View>
+        <Text
+          numberOfLines={1}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              [
+                {
+                  "letterSpacing": 1,
+                  "marginHorizontal": 16,
+                  "marginVertical": 9,
+                  "textAlign": "center",
+                },
+                undefined,
+                false,
+                {
+                  "color": "#6200ee",
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                {
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                {
+                  "color": "#364A15",
+                },
+              ],
+            ]
+          }
+        >
+          29/8/2022
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

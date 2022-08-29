@@ -3,7 +3,7 @@
 exports[`OrderDetailsList should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "marginHorizontal": 10,
     }
   }
@@ -12,323 +12,312 @@ exports[`OrderDetailsList should render the item 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
-        "alignSelf": undefined,
-        "bottom": undefined,
-        "left": undefined,
-        "position": undefined,
-        "right": undefined,
-        "shadowColor": "#000",
-        "shadowOffset": Object {
-          "height": 1,
+      {
+        "backgroundColor": "#ffffff",
+        "borderColor": "#E3E2E7",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "elevation": 1,
+        "marginVertical": 5,
+        "shadowColor": "#000000",
+        "shadowOffset": {
+          "height": 0.5,
           "width": 0,
         },
-        "shadowOpacity": 0.15,
-        "shadowRadius": 3,
-        "top": undefined,
+        "shadowOpacity": 0.24,
+        "shadowRadius": 0.75,
       }
     }
   >
     <View
-      collapsable={false}
-      style={
-        Object {
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 1,
+      accessibilityState={
+        {
+          "disabled": true,
         }
       }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flexGrow": 1,
+          "flexShrink": 1,
+        }
+      }
+      testID="personalInformation"
     >
       <View
-        collapsable={false}
         style={
-          Object {
-            "backgroundColor": "rgba(255, 251, 254, 1)",
-            "borderColor": "#E3E2E7",
-            "borderRadius": 4,
-            "borderWidth": 1,
-            "elevation": 1,
-            "marginVertical": 5,
-          }
+          [
+            {
+              "paddingHorizontal": 16,
+            },
+            {
+              "paddingVertical": 16,
+            },
+            undefined,
+          ]
         }
       >
         <View
-          accessibilityState={
-            Object {
-              "disabled": true,
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
             }
           }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Order ID:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            #123456
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Date:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            Tue, 12 Aug 2022
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Order Items:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            5 Items
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Total Bill:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            $0.00
+          </Text>
+        </View>
+        <View
           accessible={true}
-          focusable={false}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "flexGrow": 1,
-              "flexShrink": 1,
-            }
-          }
-          testID="personalInformation"
         >
-          <View
+          <Text
             style={
-              Array [
-                Object {
-                  "paddingHorizontal": 16,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
-                  "paddingVertical": 16,
+                {
+                  "textAlign": "left",
                 },
-                undefined,
+                {
+                  "color": "#008D3E",
+                  "fontSize": 14,
+                  "fontWeight": "700",
+                  "marginRight": 20,
+                  "marginVertical": 10,
+                },
               ]
             }
           >
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Order ID:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                #123456
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Date:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                Tue, 12 Aug 2022
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Order Items:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                5 Items
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Total Bill:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                $0.00
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#008D3E",
-                      "fontSize": 14,
-                      "fontWeight": "700",
-                      "marginRight": 20,
-                      "marginVertical": 10,
-                    },
-                  ]
-                }
-              >
-                Reorder Items
-              </Text>
-            </View>
-          </View>
+            Reorder Items
+          </Text>
         </View>
       </View>
     </View>
@@ -336,323 +325,312 @@ exports[`OrderDetailsList should render the item 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
-        "alignSelf": undefined,
-        "bottom": undefined,
-        "left": undefined,
-        "position": undefined,
-        "right": undefined,
-        "shadowColor": "#000",
-        "shadowOffset": Object {
-          "height": 1,
+      {
+        "backgroundColor": "#ffffff",
+        "borderColor": "#E3E2E7",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "elevation": 1,
+        "marginVertical": 5,
+        "shadowColor": "#000000",
+        "shadowOffset": {
+          "height": 0.5,
           "width": 0,
         },
-        "shadowOpacity": 0.15,
-        "shadowRadius": 3,
-        "top": undefined,
+        "shadowOpacity": 0.24,
+        "shadowRadius": 0.75,
       }
     }
   >
     <View
-      collapsable={false}
-      style={
-        Object {
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 1,
-            "width": 0,
-          },
-          "shadowOpacity": 0.3,
-          "shadowRadius": 1,
+      accessibilityState={
+        {
+          "disabled": true,
         }
       }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flexGrow": 1,
+          "flexShrink": 1,
+        }
+      }
+      testID="personalInformation"
     >
       <View
-        collapsable={false}
         style={
-          Object {
-            "backgroundColor": "rgba(255, 251, 254, 1)",
-            "borderColor": "#E3E2E7",
-            "borderRadius": 4,
-            "borderWidth": 1,
-            "elevation": 1,
-            "marginVertical": 5,
-          }
+          [
+            {
+              "paddingHorizontal": 16,
+            },
+            {
+              "paddingVertical": 16,
+            },
+            undefined,
+          ]
         }
       >
         <View
-          accessibilityState={
-            Object {
-              "disabled": true,
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
             }
           }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Order ID:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            #123456
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Date:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            Tue, 12 Aug 2022
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Order Items:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            5 Items
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 5,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+            testID="labelInfoRendererId"
+          >
+            Total Bill:  
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="nameInfoRendererId"
+          >
+            $0.00
+          </Text>
+        </View>
+        <View
           accessible={true}
-          focusable={false}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "flexGrow": 1,
-              "flexShrink": 1,
-            }
-          }
-          testID="personalInformation"
         >
-          <View
+          <Text
             style={
-              Array [
-                Object {
-                  "paddingHorizontal": 16,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
-                  "paddingVertical": 16,
+                {
+                  "textAlign": "left",
                 },
-                undefined,
+                {
+                  "color": "#008D3E",
+                  "fontSize": 14,
+                  "fontWeight": "700",
+                  "marginRight": 20,
+                  "marginVertical": 10,
+                },
               ]
             }
           >
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Order ID:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                #123456
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Date:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                Tue, 12 Aug 2022
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Order Items:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                5 Items
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                  "marginVertical": 5,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 14,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-                testID="labelInfoRendererId"
-              >
-                Total Bill:  
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#364A15",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="nameInfoRendererId"
-              >
-                $0.00
-              </Text>
-            </View>
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#008D3E",
-                      "fontSize": 14,
-                      "fontWeight": "700",
-                      "marginRight": 20,
-                      "marginVertical": 10,
-                    },
-                  ]
-                }
-              >
-                Reorder Items
-              </Text>
-            </View>
-          </View>
+            Reorder Items
+          </Text>
         </View>
       </View>
     </View>

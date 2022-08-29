@@ -19,6 +19,7 @@ const Notification = ({
 }: NotificationProps) => {
   return (
     <View
+      testID="notification"
       style={{
         // borderBottomWidth: 0.2,
         // borderBottomColor: '#364A15',

@@ -3,7 +3,7 @@
 exports[`PromotionalGrid should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "display": "flex",
       "flexDirection": "row",
       "flexWrap": "wrap",
@@ -13,7 +13,7 @@ exports[`PromotionalGrid should render the item 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "paddingBottom": 12,
         "paddingLeft": 12,
         "paddingRight": 12,
@@ -24,19 +24,19 @@ exports[`PromotionalGrid should render the item 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "height": 240,
         }
       }
     >
       <Image
         source={
-          Object {
+          {
             "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
           }
         }
         style={
-          Object {
+          {
             "height": "100%",
             "position": "absolute",
             "width": "100%",
@@ -45,7 +45,7 @@ exports[`PromotionalGrid should render the item 1`] = `
       />
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "display": "flex",
             "flexGrow": 1,
@@ -55,86 +55,74 @@ exports[`PromotionalGrid should render the item 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 6,
                 "textAlign": "center",
               },
             ]
           }
+          variant="titleSmall"
         >
           Something
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 22,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
                 "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 28,
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 6,
                 "textAlign": "center",
               },
             ]
           }
+          variant="titleLarge"
         >
           Something
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
                 "fontWeight": "400",
-                "letterSpacing": 0.25,
-                "lineHeight": 20,
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 12,
                 "textAlign": "center",
               },
             ]
           }
+          variant="bodyMedium"
         >
           test
         </Text>
       </View>
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
@@ -145,7 +133,7 @@ exports[`PromotionalGrid should render the item 1`] = `
       >
         <View
           accessibilityState={
-            Object {
+            {
               "disabled": true,
             }
           }
@@ -159,7 +147,7 @@ exports[`PromotionalGrid should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
+            [
               false,
               undefined,
             ]
@@ -167,29 +155,24 @@ exports[`PromotionalGrid should render the item 1`] = `
         >
           <View
             style={
-              Object {
-                "backgroundColor": "rgba(255, 251, 254, 1)",
+              {
+                "backgroundColor": "#f6f6f6",
               }
             }
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.5,
-                    "lineHeight": 16,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                  {
+                    "color": undefined,
                     "fontWeight": "bold",
                     "paddingBottom": 8,
                     "paddingLeft": 18,
@@ -198,6 +181,7 @@ exports[`PromotionalGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="labelSmall"
             >
               SHOP NOW
             </Text>
@@ -208,7 +192,7 @@ exports[`PromotionalGrid should render the item 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "paddingBottom": 12,
         "paddingLeft": 12,
         "paddingRight": 12,
@@ -219,19 +203,19 @@ exports[`PromotionalGrid should render the item 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "height": 240,
         }
       }
     >
       <Image
         source={
-          Object {
+          {
             "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
           }
         }
         style={
-          Object {
+          {
             "height": "100%",
             "position": "absolute",
             "width": "100%",
@@ -240,7 +224,7 @@ exports[`PromotionalGrid should render the item 1`] = `
       />
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "display": "flex",
             "flexGrow": 1,
@@ -250,86 +234,74 @@ exports[`PromotionalGrid should render the item 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 6,
                 "textAlign": "center",
               },
             ]
           }
+          variant="titleSmall"
         >
           Something
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 22,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
                 "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 28,
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 6,
                 "textAlign": "center",
               },
             ]
           }
+          variant="titleLarge"
         >
           Something
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
                 "fontWeight": "400",
-                "letterSpacing": 0.25,
-                "lineHeight": 20,
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
-                "color": "rgba(255, 255, 255, 1)",
+              {
+                "color": undefined,
                 "marginBottom": 12,
                 "textAlign": "center",
               },
             ]
           }
+          variant="bodyMedium"
         >
           test
         </Text>
       </View>
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "display": "flex",
             "flexDirection": "row",
@@ -340,7 +312,7 @@ exports[`PromotionalGrid should render the item 1`] = `
       >
         <View
           accessibilityState={
-            Object {
+            {
               "disabled": true,
             }
           }
@@ -354,7 +326,7 @@ exports[`PromotionalGrid should render the item 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
+            [
               false,
               undefined,
             ]
@@ -362,29 +334,24 @@ exports[`PromotionalGrid should render the item 1`] = `
         >
           <View
             style={
-              Object {
-                "backgroundColor": "rgba(255, 251, 254, 1)",
+              {
+                "backgroundColor": "#f6f6f6",
               }
             }
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.5,
-                    "lineHeight": 16,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                  {
+                    "color": undefined,
                     "fontWeight": "bold",
                     "paddingBottom": 8,
                     "paddingLeft": 18,
@@ -393,6 +360,7 @@ exports[`PromotionalGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="labelSmall"
             >
               SHOP NOW
             </Text>

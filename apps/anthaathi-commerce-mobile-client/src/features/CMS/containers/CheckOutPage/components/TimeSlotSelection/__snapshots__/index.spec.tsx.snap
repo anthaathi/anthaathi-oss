@@ -3,7 +3,7 @@
 exports[`TimeSlot should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "marginHorizontal": 10,
     }
   }
@@ -11,7 +11,7 @@ exports[`TimeSlot should render the item 1`] = `
 >
   <Text
     style={
-      Object {
+      {
         "color": "#364A15",
         "fontSize": 16,
         "fontWeight": "600",
@@ -22,7 +22,7 @@ exports[`TimeSlot should render the item 1`] = `
   </Text>
   <View
     style={
-      Object {
+      {
         "flexDirection": "row",
         "flexWrap": "wrap",
         "marginVertical": 5,
@@ -43,7 +43,7 @@ exports[`TimeSlot should render the item 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#F1F9F4",
           "borderRadius": 2,
@@ -57,7 +57,7 @@ exports[`TimeSlot should render the item 1`] = `
     >
       <Text
         style={
-          Object {
+          {
             "color": "#364A15",
             "fontSize": 14,
             "fontWeight": "400",
@@ -81,7 +81,7 @@ exports[`TimeSlot should render the item 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#F1F9F4",
           "borderRadius": 2,
@@ -95,7 +95,7 @@ exports[`TimeSlot should render the item 1`] = `
     >
       <Text
         style={
-          Object {
+          {
             "color": "#364A15",
             "fontSize": 14,
             "fontWeight": "400",
@@ -119,7 +119,7 @@ exports[`TimeSlot should render the item 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#F1F9F4",
           "borderRadius": 2,
@@ -133,7 +133,7 @@ exports[`TimeSlot should render the item 1`] = `
     >
       <Text
         style={
-          Object {
+          {
             "color": "#364A15",
             "fontSize": 14,
             "fontWeight": "400",

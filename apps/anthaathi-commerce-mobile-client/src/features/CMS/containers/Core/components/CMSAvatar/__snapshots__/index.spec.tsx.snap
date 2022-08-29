@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CMSAvatar should render the item 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "marginBottom": 15,
+      "marginTop": 10,
+    }
+  }
+  testID="CMSAvatar"
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "#6200ee",
+          "borderRadius": 60,
+          "height": 120,
+          "width": 120,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "src",
+        }
+      }
+      style={
+        {
+          "borderRadius": 60,
+          "height": 120,
+          "width": 120,
+        }
+      }
+    />
+  </View>
+</View>
+`;

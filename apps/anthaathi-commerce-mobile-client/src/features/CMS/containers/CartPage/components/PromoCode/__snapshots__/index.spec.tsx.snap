@@ -3,7 +3,7 @@
 exports[`PromoCode should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "marginHorizontal": 10,
       "marginVertical": 5,
@@ -25,8 +25,8 @@ exports[`PromoCode should render the item 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "backgroundColor": "rgba(234, 221, 255, 1)",
+      {
+        "backgroundColor": undefined,
         "borderRadius": 4,
         "height": 48,
         "justifyContent": "center",
@@ -37,7 +37,7 @@ exports[`PromoCode should render the item 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "flexDirection": "row",
           "justifyContent": "space-around",
         }
@@ -45,14 +45,16 @@ exports[`PromoCode should render the item 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#737272",
               "fontSize": 14,
               "fontWeight": "500",
@@ -66,18 +68,18 @@ exports[`PromoCode should render the item 1`] = `
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
-              "color": "rgba(103, 80, 164, 1)",
+          [
+            {
+              "color": "#6200ee",
               "fontSize": 20,
             },
             undefined,
-            Object {
+            {
               "fontFamily": "FontAwesome",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >

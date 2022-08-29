@@ -18,18 +18,19 @@ exports[`WalletBalance should render the item 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "flexDirection": "row",
         "height": 60,
         "justifyContent": "space-between",
         "marginHorizontal": 10,
+        "marginVertical": 5,
       }
     }
     testID="handlePress"
   >
     <View
       style={
-        Object {
+        {
           "borderBottomLeftRadius": 2,
           "borderColor": "#008D3E",
           "borderTopLeftRadius": 2,
@@ -41,14 +42,16 @@ exports[`WalletBalance should render the item 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#808080",
               "fontSize": 12,
               "fontWeight": "400",
@@ -61,14 +64,16 @@ exports[`WalletBalance should render the item 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#008D3E",
               "fontSize": 14,
               "fontWeight": "700",
@@ -82,7 +87,7 @@ exports[`WalletBalance should render the item 1`] = `
     </View>
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#008D3E",
           "borderBottomRightRadius": 2,
@@ -98,18 +103,18 @@ exports[`WalletBalance should render the item 1`] = `
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#ffffff",
               "fontSize": 18,
             },
             undefined,
-            Object {
+            {
               "fontFamily": "Material Design Icons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
@@ -117,14 +122,16 @@ exports[`WalletBalance should render the item 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#ffffff",
               "fontSize": 10,
               "fontWeight": "400",
