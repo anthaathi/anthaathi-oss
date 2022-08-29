@@ -1,6 +1,6 @@
 import {Image, Pressable, View} from 'react-native';
 import React from 'react';
-import {Divider, IconButton, Text} from 'react-native-paper';
+import {Divider, IconButton, Text, useTheme} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
