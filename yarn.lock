@@ -7107,7 +7107,7 @@ __metadata:
 
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
-  re,solution: "collapse-white-space@npm:1.0.6"
+  resolution: "collapse-white-space@npm:1.0.6"
   checksum: 9673fb797952c5c888341435596c69388b22cd5560c8cd3f40edb72734a9c820f56a7c9525166bcb7068b5d5805372e6fd0c4b9f2869782ad070cb5d3faf26e7
   languageName: node
   linkType: hard
