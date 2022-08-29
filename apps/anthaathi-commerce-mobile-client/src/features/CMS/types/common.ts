@@ -9,6 +9,8 @@ export type CommonPlacement =
 export enum CoreComponentType {
   Header = 'core.header',
   DatePicker = 'core.date-picker',
+  Avatar = 'avatar',
+  Notification = 'Notification',
 }
 
 export enum HomePageComponentType {

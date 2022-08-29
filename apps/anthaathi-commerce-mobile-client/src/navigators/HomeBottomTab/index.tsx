@@ -1,13 +1,13 @@
 import React from 'react';
-import Cart from '../../Cart';
-import Checkout from '../../Checkout';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TouchableOpacity} from 'react-native';
 import HomePage from '../../pages/HomePage';
 import CartPage from '../../pages/CartPage';
-import CheckoutPage from '../../pages/CheckoutPage';
+// import CheckoutPage from '../../pages/CheckoutPage';
+import ProfilePage from '../../pages/ProfilePage';
+import NotificationPage from '../../pages/NotificationPage';
 
 const Tab = createBottomTabNavigator();
 export function HomeBottomTab() {
@@ -40,7 +40,7 @@ export function HomeBottomTab() {
       />
       <Tab.Screen
         name="Notification"
-        component={CheckoutPage}
+        component={NotificationPage}
         options={{
           tabBarLabel: 'Notification',
           tabBarIcon: ({color}: {color: any}) => (
@@ -62,7 +62,7 @@ export function HomeBottomTab() {
       />
       <Tab.Screen
         name="Profile"
-        component={CheckoutPage}
+        component={ProfilePage}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color}: {color: any}) => (

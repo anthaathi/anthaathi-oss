@@ -23,6 +23,16 @@ const ProfilePage = props => {
               },
             },
             {
+              _component: CoreComponentType.Avatar,
+              key: '1231',
+              userData: {
+                name: 'OY',
+                photo: 'https://reactnative.dev/img/tiny_logo.png',
+              },
+              size: 120,
+              type: 'image',
+            },
+            {
               _component: ProfilePageComponentType.WalletBalance,
               key: '2323',
               title: dataJson.core.profilePage.walletBalance.title,
