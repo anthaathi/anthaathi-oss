@@ -23,6 +23,7 @@ export enum HomePageComponentType {
   Spacer = 'home.spacer',
   SplitOfferCard = 'home.split-offer-card',
   TextWithImage = 'home.text-with-image',
+  ChatFloatingButton = 'home.chat-floating-button',
 }
 
 export enum CartPageComponentType {
