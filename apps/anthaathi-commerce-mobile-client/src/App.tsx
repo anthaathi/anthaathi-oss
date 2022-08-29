@@ -10,11 +10,6 @@ import CMSRenderer from './features/CMS';
 import {CoreComponentType, HomePageComponentType,} from './features/CMS/types/common';
 import {ScrollView} from 'react-native';
 
-import {
-  MD3LightTheme as DefaultTheme,
-  Provider as PaperProvider,
-  ThemeBase,
-} from 'react-native-paper';
 import MyStack from './navigators';
 
 declare global {
