@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {IntlProvider} from 'react-intl';
 import {NavigationContainer} from '@react-navigation/native';
 import {RelayEnvironmentProvider} from 'react-relay';
@@ -29,11 +29,18 @@ const theme = {
 } as ReactNativePaper.Theme;
 
 const App = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      RNBootSplash.hide({fade: true});
+    }, 3000);
+  }, []);
+
   return (
     <IntlProvider locale="en-US" messages={enUS}>
       <PaperProvider theme={theme as never}>
         <NavigationContainer>
           <RelayEnvironmentProvider environment={RelayEnv as never}>
+
             <MyStack />
           </RelayEnvironmentProvider>
         </NavigationContainer>

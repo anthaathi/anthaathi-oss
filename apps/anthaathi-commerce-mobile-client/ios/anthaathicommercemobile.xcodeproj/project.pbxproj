@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		264080C728B8E69600CA5E66 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264080C628B8E69600CA5E66 /* BootSplash.storyboard */; };
 		2BEB6983CB1D04E624264AEA /* libPods-anthaathicommercemobile-anthaathicommercemobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F0C11887AFF86B95AB4F33 /* libPods-anthaathicommercemobile-anthaathicommercemobileTests.a */; };
 		7841B187B94008915C7F358B /* libPods-anthaathicommercemobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3981CEF4F6F73B4322C611 /* libPods-anthaathicommercemobile.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = anthaathicommercemobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = anthaathicommercemobile/main.m; sourceTree = "<group>"; };
 		24F0C11887AFF86B95AB4F33 /* libPods-anthaathicommercemobile-anthaathicommercemobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-anthaathicommercemobile-anthaathicommercemobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		264080C628B8E69600CA5E66 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = anthaathicommercemobile/BootSplash.storyboard; sourceTree = "<group>"; };
 		5F5BAE05E7ED5C2A00560575 /* Pods-anthaathicommercemobile-anthaathicommercemobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-anthaathicommercemobile-anthaathicommercemobileTests.debug.xcconfig"; path = "Target Support Files/Pods-anthaathicommercemobile-anthaathicommercemobileTests/Pods-anthaathicommercemobile-anthaathicommercemobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E3981CEF4F6F73B4322C611 /* libPods-anthaathicommercemobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-anthaathicommercemobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = anthaathicommercemobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				264080C628B8E69600CA5E66 /* BootSplash.storyboard */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264080C728B8E69600CA5E66 /* BootSplash.storyboard in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

@@ -28,6 +28,7 @@ import {SubCategoriesCMSInput} from '../containers/ProductListPage/components/Su
 import {DeliveryAddressesCMSInput} from '../containers/ProfilePage/components/DeliveryAddresses';
 import {PersonalInformationCMSInput} from '../containers/ProfilePage/components/PersonalInformation';
 import {WalletBalanceCMSInput} from '../containers/ProfilePage/components/WalletBalance';
+import ChatFloatingButton, {ChatFloatingButtonCMSInput} from "../containers/HomePage/components/ChatFloatingButton";
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -51,6 +52,7 @@ const renderer = [
   PromotionalProductGridCMSInput,
   SplitOfferCardCMSInput,
   TextWithImageCMSInput,
+  ChatFloatingButtonCMSInput,
   // cart page
   BasketItemCMSInput,
   PricingCardCMSInput,
