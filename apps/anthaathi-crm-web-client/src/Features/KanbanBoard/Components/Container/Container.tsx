@@ -5,8 +5,8 @@ import { Handle, Remove } from '../Item';
 
 import { useStyletron } from 'baseui';
 import { LabelMedium } from 'baseui/typography';
-import { expandBorderStyles } from 'baseui/styles';
 import { FlexFill } from '../../../Core/Components/FlexFill';
+import { expandBorderStyles } from 'baseui/styles';
 
 export interface Props {
   children: React.ReactNode;
@@ -59,7 +59,12 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           } as React.CSSProperties
         }
         className={
-          css({ width: '420px', margin: '0 12px' }) +
+          css({
+            width: '420px',
+            margin: '0 12px',
+            backgroundColor: $theme.colors.backgroundPrimary,
+            border: 'none',
+          }) +
             ' ' +
             classNames(
               unstyled && 'styles.unstyled',

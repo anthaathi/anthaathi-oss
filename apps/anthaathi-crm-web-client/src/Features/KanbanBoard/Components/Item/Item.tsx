@@ -3,10 +3,14 @@ import classNames from 'classnames';
 import type { DraggableSyntheticListeners } from '@dnd-kit/core';
 import type { Transform } from '@dnd-kit/utilities';
 
-import { Handle, Remove } from './components';
+import { Handle } from './components';
 
 import styles from './Item.module.css';
 import { useStyletron } from 'baseui';
+import { LabelLarge } from 'baseui/typography';
+import { Avatar } from 'baseui/avatar';
+import { Block } from 'baseui/block';
+import { SpaceCard } from '../../../Space/Components/SpaceCard';
 
 export interface Props {
   dragOverlay?: boolean;
@@ -79,7 +83,7 @@ export const Item = React.memo(
         };
       }, [dragOverlay]);
 
-      const [css] = useStyletron();
+      const [css, $theme] = useStyletron();
 
       return renderItem ? (
         renderItem({
@@ -101,7 +105,11 @@ export const Item = React.memo(
             styles.Wrapper,
             fadeIn && styles.fadeIn,
             sorting && styles.sorting,
-            dragOverlay && styles.dragOverlay
+            dragOverlay && styles.dragOverlay,
+            css({
+              marginBottom: $theme.sizing.scale200,
+              marginTop: $theme.sizing.scale200,
+            })
           )}
           style={
             {
@@ -128,36 +136,80 @@ export const Item = React.memo(
           ref={ref}
         >
           <div
-            className={
-              classNames(
-                dragging && 'styles.dragging',
-                handle && 'styles.withHandle',
-                dragOverlay && 'styles.dragOverlay',
-                disabled && 'styles.disabled',
-                color && 'styles.color'
-              ) +
-              ' ' +
-              css({
-                width: '100%',
-                display: 'flex',
-              })
-            }
-            style={style}
-            data-cypress="draggable-item"
-            {...(!handle ? listeners : undefined)}
+            className={css({
+              opacity: dragging ? '.4' : '1',
+            })}
             {...props}
             tabIndex={!handle ? 0 : undefined}
           >
-            {value}
-            <span className={styles.Actions}>
-              {onRemove ? (
-                <Remove className={styles.Remove} onClick={onRemove} />
-              ) : null}
-              {handle ? <Handle {...handleProps} {...listeners} /> : null}
-            </span>
+            <SpaceCard
+              dragHandler={<Handle {...handleProps} {...listeners} />}
+              noExpand={dragging}
+              url="1"
+            />
           </div>
         </li>
       );
     }
   )
 );
+
+const UserAvatar = ({ name, imgSrc }: { name: string; imgSrc?: string }) => {
+  return (
+    <Avatar
+      overrides={{
+        Root: {
+          style: () => ({
+            marginRight: '5px',
+          }),
+        },
+      }}
+      src={imgSrc}
+      name={name}
+      size="scale900"
+    />
+  );
+};
+
+const ItemHeader = ({
+  title,
+  name,
+  imgSrc,
+  onClick1,
+  onClick2,
+}: {
+  title: string;
+  name: string;
+  imgSrc?: string;
+  onClick1?(): void;
+  onClick2?(): void;
+}) => {
+  const [, $theme] = useStyletron();
+  return (
+    <Block
+      display="flex"
+      margin="scale500"
+      alignItems="center"
+      justifyContent="space-between"
+      $style={{ cursor: 'pointer' }}
+      onClick={onClick1}
+    >
+      <Block display="flex" alignItems="center">
+        <UserAvatar name={name} imgSrc={imgSrc} />
+        <LabelLarge
+          $style={{
+            fontFamily: $theme.typography.headingFontFamily,
+            marginLeft: '5px',
+          }}
+        >
+          {title}
+        </LabelLarge>
+      </Block>
+      <span
+        className="fa fa-ellipsis-v"
+        aria-hidden="true"
+        onClick={onClick2}
+      />
+    </Block>
+  );
+};

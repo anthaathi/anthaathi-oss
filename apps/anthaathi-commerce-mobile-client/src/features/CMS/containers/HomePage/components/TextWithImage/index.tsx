@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
 import {useDimension} from '../../../../utils/useDimension';
@@ -47,16 +47,22 @@ const TextWithImage = (props: TextWithImageProps) => {
 };
 
 const ColumnCard = ({data}: {data: ColumnProps}) => {
+  console.log(data.image);
   return (
     <View style={{alignItems: 'center', marginVertical: 10}}>
-      <View
+      <Image
+        source={{
+          uri: data.image,
+        }}
         style={{
+          borderRadius: 4,
           height: 240,
           width: 240,
           marginHorizontal: 5,
           backgroundColor: 'rgba(0,0,0,0.1)',
         }}
       />
+
       <Text
         style={{
           textAlign: 'center',

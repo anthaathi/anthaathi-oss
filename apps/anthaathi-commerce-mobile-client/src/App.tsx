@@ -5,11 +5,17 @@ import {RelayEnvironmentProvider} from 'react-relay';
 import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
 import RNBootSplash from 'react-native-bootsplash';
-
 import {MD3LightTheme as DefaultTheme, Provider as PaperProvider, ThemeBase,} from 'react-native-paper';
 import CMSRenderer from './features/CMS';
 import {CoreComponentType, HomePageComponentType,} from './features/CMS/types/common';
 import {ScrollView} from 'react-native';
+
+import {
+  MD3LightTheme as DefaultTheme,
+  Provider as PaperProvider,
+  ThemeBase,
+} from 'react-native-paper';
+import MyStack from './navigators';
 
 declare global {
   namespace ReactNativePaper {
@@ -298,6 +304,7 @@ const App = () => {
                 ]}
               />
             </ScrollView>
+            <MyStack />
           </RelayEnvironmentProvider>
         </NavigationContainer>
       </PaperProvider>

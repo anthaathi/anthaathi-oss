@@ -148,134 +148,105 @@ exports[`FeaturedCollection should render the item 1`] = `
                 ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
-                  }
-                }
-                style={
-                  Object {
-                    "borderRadius": 4,
-                    "height": 250,
-                    "width": 240,
-                  }
-                }
-              />
               <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "alignItems": "flex-start",
                   }
                 }
               >
-                <Text
+                <Image
+                  source={
+                    Object {
+                      "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+                    }
+                  }
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
+                    Object {
+                      "borderRadius": 4,
+                      "height": 250,
+                      "width": 240,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <Text
+                    style={
                       Array [
+                        Object {
+                          "color": "rgba(28, 27, 31, 1)",
+                        },
                         Object {
                           "textAlign": "left",
                         },
-                        Object {
-                          "color": "rgba(28, 27, 31, 0.87)",
-                          "writingDirection": "ltr",
-                        },
                         Array [
                           Object {
-                            "fontSize": 20,
-                            "letterSpacing": 0.15,
-                            "lineHeight": 30,
-                            "marginVertical": 2,
+                            "textAlign": "left",
                           },
                           Object {
-                            "fontSize": 14,
-                            "fontWeight": "bold",
-                            "marginRight": 10,
+                            "color": "rgba(28, 27, 31, 0.87)",
+                            "writingDirection": "ltr",
                           },
+                          Array [
+                            Object {
+                              "fontSize": 20,
+                              "letterSpacing": 0.15,
+                              "lineHeight": 30,
+                              "marginVertical": 2,
+                            },
+                            Object {
+                              "fontSize": 14,
+                              "fontWeight": "bold",
+                              "marginRight": 10,
+                            },
+                          ],
                         ],
-                      ],
-                    ]
-                  }
-                >
-                  test
-                </Text>
-                <Text
-                  allowFontScaling={false}
-                  selectable={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#364A15",
-                        "fontSize": 18,
-                      },
-                      undefined,
-                      Object {
-                        "fontFamily": "Entypo",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 12,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-              >
-                Dorne
-              </Text>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "marginTop": 5,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
-                      Object {
-                        "color": "#008D3E",
-                        "fontSize": 14,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                  $0.00
-                </Text>
+                      ]
+                    }
+                  >
+                    test
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    selectable={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#364A15",
+                          "fontSize": 18,
+                        },
+                        undefined,
+                        Object {
+                          "fontFamily": "Entypo",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
                 <Text
                   style={
                     Array [
@@ -293,28 +264,77 @@ exports[`FeaturedCollection should render the item 1`] = `
                     ]
                   }
                 >
-                   / pack
+                  Dorne
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "rgba(28, 27, 31, 1)",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#008D3E",
+                          "fontSize": 14,
+                          "fontWeight": "400",
+                        },
+                      ]
+                    }
+                  >
+                    $0.00
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "rgba(28, 27, 31, 1)",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Object {
+                          "color": "#808080",
+                          "fontSize": 12,
+                          "fontWeight": "400",
+                        },
+                      ]
+                    }
+                  >
+                     / pack
+                  </Text>
+                </View>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgba(28, 27, 31, 1)",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Object {
+                        "color": "#808080",
+                        "fontSize": 12,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                  pack
                 </Text>
               </View>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#808080",
-                      "fontSize": 12,
-                      "fontWeight": "400",
-                    },
-                  ]
-                }
-              >
-                pack
-              </Text>
             </View>
           </View>
         </View>
