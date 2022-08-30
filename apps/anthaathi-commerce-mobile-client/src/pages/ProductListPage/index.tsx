@@ -7,30 +7,38 @@ import {
 import CMSRenderer from '../../features/CMS';
 import dataJson from '../../config/data.json';
 
-const ProductListPage = props => {
+const ProductListPage = (props: {
+  navigation: {navigate: (arg0: string) => void};
+}) => {
   return (
     <View>
-      <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
-        <CMSRenderer
-          components={[
-            {
-              _component: CoreComponentType.Header,
-              key: '123',
-              title: 'Products',
-              leftIcon: 'menu',
-              rightIcon: 'account',
-              rightOnPress: () => {
-                props.navigation.navigate('Profile');
-              },
+      <CMSRenderer
+        components={[
+          {
+            _component: CoreComponentType.Header,
+            key: '123',
+            title: 'Products',
+            leftIcon: 'menu',
+            rightIcon: 'account',
+            rightOnPress: () => {
+              props.navigation.navigate('Profile');
             },
-            {
-              _component: ProductListPageComponentType.SubCategories,
-              key: '2121',
-              subCategoryList: dataJson.core.productListPage.subCategoryList,
+          },
+          {
+            _component: ProductListPageComponentType.SubCategories,
+            key: '2121',
+            subCategoryList: dataJson.core.productListPage.subCategoryList,
+          },
+          {
+            _component: ProductListPageComponentType.ProductList,
+            key: '1233',
+            handlePress: () => {
+              props.navigation.navigate('ProductPage');
             },
-          ]}
-        />
-      </ScrollView>
+            products: dataJson.core.productPage.featuredCollection.products,
+          },
+        ]}
+      />
     </View>
   );
 };

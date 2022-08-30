@@ -30,6 +30,9 @@ import {PersonalInformationCMSInput} from '../containers/ProfilePage/components/
 import {WalletBalanceCMSInput} from '../containers/ProfilePage/components/WalletBalance';
 import {ChatFloatingButtonCMSInput} from '../containers/HomePage/components/ChatFloatingButton';
 import {CartCardCMSInput} from '../containers/CartPage/components/CartCard';
+import {TextInputCMSInput} from '../containers/Core/components/CMSTextInput';
+import {ButtonCMSInput} from '../containers/Core/components/CMSButton';
+import {ProductListCMSInput} from '../containers/ProductListPage/components/ProductList';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -41,6 +44,8 @@ const renderer = [
   AvatarCMSInput,
   NotificationCMSInput,
   TextCMSInput,
+  TextInputCMSInput,
+  ButtonCMSInput,
   // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
@@ -69,6 +74,7 @@ const renderer = [
   OrderDetailsListCMSInput,
   // product list page
   SubCategoriesCMSInput,
+  ProductListCMSInput,
   // profile page
   DeliveryAddressesCMSInput,
   PersonalInformationCMSInput,

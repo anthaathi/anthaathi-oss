@@ -61,7 +61,7 @@ function PromotionalGridButton(props: {
       <View style={{backgroundColor: (theme.colors as MD3Colors).background}}>
         <Text
           style={{
-            color: (theme.colors as MD3Colors).onBackground,
+            color: (theme.colors as MD3Colors).black,
             paddingLeft: 18,
             paddingRight: 18,
             paddingTop: 8,
