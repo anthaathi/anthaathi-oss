@@ -9,6 +9,7 @@ export interface NotificationProps {
   subtitle1: string;
   subtitle2: string;
   time: string;
+  icon: string;
 }
 
 const Notification = ({
@@ -16,6 +17,7 @@ const Notification = ({
   subtitle1,
   subtitle2,
   time,
+  icon,
 }: NotificationProps) => {
   return (
     <View
@@ -29,7 +31,7 @@ const Notification = ({
       }}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row'}}>
-          <SimpleLineIcons name="bell" size={18} />
+          <SimpleLineIcons name={icon} size={18} />
           <Text
             style={{
               fontSize: 14,

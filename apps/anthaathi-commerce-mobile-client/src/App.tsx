@@ -6,6 +6,7 @@ import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 import MyStack from './navigators';
+import RNBootSplash from 'react-native-bootsplash';
 
 declare global {
   namespace ReactNativePaper {
@@ -40,7 +41,6 @@ const App = () => {
       <PaperProvider theme={theme as never}>
         <NavigationContainer>
           <RelayEnvironmentProvider environment={RelayEnv as never}>
-
             <MyStack />
           </RelayEnvironmentProvider>
         </NavigationContainer>

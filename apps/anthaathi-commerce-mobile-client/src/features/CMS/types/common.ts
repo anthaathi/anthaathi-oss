@@ -35,6 +35,7 @@ export enum CartPageComponentType {
   PricingCard = 'cart-page.pricing-card',
   PromoCode = 'cart-page.promo-code',
   SuggestedItem = 'cart-page.suggested-item',
+  CartCard = 'cart-page.cart-card',
 }
 
 export enum CheckOutPageComponentType {

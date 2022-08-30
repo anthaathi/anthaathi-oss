@@ -1,7 +1,10 @@
 import {View} from 'react-native';
 import React from 'react';
 import dataJson from '../../config/data.json';
-import {CoreComponentType} from '../../features/CMS/types/common';
+import {
+  CartPageComponentType,
+  CoreComponentType,
+} from '../../features/CMS/types/common';
 
 import CMSRenderer from '../../features/CMS';
 
@@ -13,8 +16,8 @@ const NotificationPage = props => {
           {
             _component: CoreComponentType.Header,
             key: '123',
-            title: dataJson.core.profilePage.header.title,
-            leftIcon: dataJson.core.profilePage.header.leftIcon,
+            title: 'Notification',
+            leftIcon: dataJson.core.header.leftIcon,
             leftOnPress: () => {
               props.navigation.goBack();
             },
@@ -26,6 +29,7 @@ const NotificationPage = props => {
             subtitle1: 'subtitle1',
             subtitle2: 'subtitle2',
             time: '1d',
+            icon: 'bell',
           },
           {
             _component: CoreComponentType.Notification,
@@ -34,6 +38,7 @@ const NotificationPage = props => {
             subtitle1: 'subtitle1',
             subtitle2: 'subtitle2',
             time: '1d',
+            icon: 'envelope',
           },
           {
             _component: CoreComponentType.Notification,
@@ -42,6 +47,31 @@ const NotificationPage = props => {
             subtitle1: 'subtitle1',
             subtitle2: 'subtitle2',
             time: '1d',
+            icon: 'basket-loaded',
+          },
+          {
+            _component: CoreComponentType.Notification,
+            key: '2311',
+            title: 'title',
+            subtitle1: 'subtitle1',
+            subtitle2: 'subtitle2',
+            time: '1d',
+            icon: 'drawer',
+          },
+
+          {
+            _component: CartPageComponentType.CartCard,
+            key: '1',
+            title: 'title',
+            statusTitle: 'subtitle1',
+            statusIcon: 'basket',
+            deliveryDate: 'Sun, 17 Jul 2022',
+            deliveryBy: 'Company',
+            noOfItems: '2 Items',
+            imageList: [
+              'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+              'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+            ],
           },
         ]}
       />

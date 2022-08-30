@@ -8,7 +8,7 @@ import {DeliveryDateSelectionCMSInput} from '../containers/CheckOutPage/componen
 import {PaymentMethodSelectionCMSInput} from '../containers/CheckOutPage/components/PaymentMethodSelection';
 import {TimeSlotSelectionCMSInput} from '../containers/CheckOutPage/components/TimeSlotSelection';
 import {AvatarCMSInput} from '../containers/Core/components/CMSAvatar';
-import { TextCMSInput } from '../containers/Core/components/CMSText';
+import {TextCMSInput} from '../containers/Core/components/CMSText';
 import {DatePickerCMSInput} from '../containers/Core/components/DatePicker';
 import {NotificationCMSInput} from '../containers/Core/components/Notification';
 import {HeaderCMSInput} from '../containers/Header';
@@ -28,7 +28,8 @@ import {SubCategoriesCMSInput} from '../containers/ProductListPage/components/Su
 import {DeliveryAddressesCMSInput} from '../containers/ProfilePage/components/DeliveryAddresses';
 import {PersonalInformationCMSInput} from '../containers/ProfilePage/components/PersonalInformation';
 import {WalletBalanceCMSInput} from '../containers/ProfilePage/components/WalletBalance';
-import ChatFloatingButton, {ChatFloatingButtonCMSInput} from "../containers/HomePage/components/ChatFloatingButton";
+import {ChatFloatingButtonCMSInput} from '../containers/HomePage/components/ChatFloatingButton';
+import {CartCardCMSInput} from '../containers/CartPage/components/CartCard';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -58,6 +59,7 @@ const renderer = [
   PricingCardCMSInput,
   PromoCodeCMSInput,
   SuggestedItemCMSInput,
+  CartCardCMSInput,
   // checkout page
   DeliveryAddressCardCMSInput,
   DeliveryDateSelectionCMSInput,
