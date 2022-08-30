@@ -2,203 +2,65 @@
 
 exports[`DeliveringSection should render the item 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    {
-      "marginVertical": 5,
-    }
-  }
   testID="deliveringSelection"
 >
   <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      [
-        {
-          "borderRadius": 12,
-          "display": "flex",
-          "flexDirection": "row",
-          "paddingHorizontal": 6,
-          "paddingVertical": 0,
-        },
-        {
-          "backgroundColor": undefined,
-          "borderColor": "#6200ee",
-          "borderRadius": 4,
-          "borderStyle": "solid",
-          "borderWidth": 1,
-        },
-      ]
+      {
+        "marginVertical": 5,
+      }
     }
   >
     <View
       style={
-        {
-          "alignContent": "center",
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "width": 38,
-        }
-      }
-    >
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          [
-            {
-              "color": "#6200ee",
-              "fontSize": 24,
-            },
-            undefined,
-            {
-              "fontFamily": "Material Design Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            {},
-          ]
-        }
-      >
-        󰍎
-      </Text>
-    </View>
-    <View
-      style={
-        {
-          "display": "flex",
-          "flexDirection": "column",
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          [
-            {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
-            },
-            {
-              "textAlign": "left",
-            },
-            undefined,
-          ]
-        }
-        variant="labelMedium"
-      >
-        Delivering to
-      </Text>
-      <Text
-        style={
-          [
-            {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
-            },
-            {
-              "textAlign": "left",
-            },
-            undefined,
-          ]
-        }
-        variant="labelLarge"
-      >
-        Dubai
-         - 
-        India
-      </Text>
-    </View>
-    <View
-      style={
-        {
-          "flexGrow": 1,
-        }
-      }
-    />
-    <View
-      accessibilityRole="button"
-      accessibilityState={
-        {
-          "disabled": false,
-        }
-      }
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        {
-          "bottom": 6,
-          "left": 6,
-          "right": 6,
-          "top": 6,
-        }
-      }
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
         [
           {
-            "overflow": "hidden",
+            "borderRadius": 12,
+            "display": "flex",
+            "flexDirection": "row",
+            "paddingHorizontal": 6,
+            "paddingVertical": 0,
           },
-          [
-            {
-              "alignItems": "center",
-              "justifyContent": "center",
-              "margin": 6,
-              "overflow": "hidden",
-            },
-            {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            undefined,
-            undefined,
-          ],
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#6200ee",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+          },
         ]
       }
     >
-      <View>
+      <View
+        style={
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "center",
+            "width": 38,
+          }
+        }
+      >
         <Text
-          accessibilityElementsHidden={true}
           allowFontScaling={false}
-          importantForAccessibility="no-hide-descendants"
-          pointerEvents="none"
           selectable={false}
           style={
             [
               {
-                "color": "#000000",
+                "color": "#6200ee",
                 "fontSize": 24,
               },
-              [
-                {
-                  "lineHeight": 24,
-                  "transform": [
-                    {
-                      "scaleX": 1,
-                    },
-                  ],
-                },
-                {
-                  "backgroundColor": "transparent",
-                },
-              ],
+              undefined,
               {
                 "fontFamily": "Material Design Icons",
                 "fontStyle": "normal",
@@ -208,10 +70,158 @@ exports[`DeliveringSection should render the item 1`] = `
             ]
           }
         >
-          󰅂
+          󰍎
         </Text>
+      </View>
+      <View
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              undefined,
+            ]
+          }
+          variant="labelMedium"
+        >
+          Delivering to
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              undefined,
+            ]
+          }
+          variant="labelLarge"
+        >
+          Dubai
+           - 
+          India
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "flexGrow": 1,
+          }
+        }
+      />
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          {
+            "bottom": 6,
+            "left": 6,
+            "right": 6,
+            "top": 6,
+          }
+        }
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "overflow": "hidden",
+            },
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "margin": 6,
+                "overflow": "hidden",
+              },
+              {
+                "borderRadius": 18,
+                "height": 36,
+                "width": 36,
+              },
+              undefined,
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View>
+          <Text
+            accessibilityElementsHidden={true}
+            allowFontScaling={false}
+            importantForAccessibility="no-hide-descendants"
+            pointerEvents="none"
+            selectable={false}
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontSize": 24,
+                },
+                [
+                  {
+                    "lineHeight": 24,
+                    "transform": [
+                      {
+                        "scaleX": 1,
+                      },
+                    ],
+                  },
+                  {
+                    "backgroundColor": "transparent",
+                  },
+                ],
+                {
+                  "fontFamily": "Material Design Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                {},
+              ]
+            }
+          >
+            󰅂
+          </Text>
+        </View>
       </View>
     </View>
   </View>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  />
 </View>
 `;

@@ -1,62 +1,140 @@
 /* eslint-disable react/self-closing-comp */
 import * as React from 'react';
-import {StyleSheet, TouchableHighlight, View} from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useIntl} from 'react-intl';
-import {IconButton, Text, ThemeBase, useTheme} from 'react-native-paper';
+import {
+  Divider,
+  IconButton,
+  Text,
+  ThemeBase,
+  useTheme,
+} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 import {HomePageComponentType} from '../../../../types/common';
+import CMSBottomSheet from '../../../Core/components/CMSBottomSheet';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export interface DeliveringSelectionProps {
   location: string;
   country: string;
   onPress?: () => void;
+  userAddresses?: {key: number; title: string; subtitle: string}[];
 }
 
 export function DeliveringSelection(props: DeliveringSelectionProps) {
   const intl = useIntl();
   const theme: ThemeBase = useTheme();
+  const [isVisible, setVisible] = React.useState(false);
 
   return (
-    <TouchableHighlight
-      style={{marginVertical: 5}}
-      underlayColor={(theme.colors as MD3Colors).primary}
-      onPress={props.onPress}
-      testID="deliveringSelection">
-      <View
-        style={[
-          styles.root,
-          {
-            borderStyle: 'solid',
-            borderWidth: 1,
-            borderColor: (theme.colors as MD3Colors).primary,
-            borderRadius: 4,
-            backgroundColor: (theme.colors as MD3Colors).primaryContainer,
-          },
-        ]}>
-        <View style={{...styles.alignCenter, ...{width: 38}}}>
-          <Icon name="map-marker" color={theme.colors.primary} size={24} />
-        </View>
-        <View style={styles.column}>
-          <Text variant="labelMedium">
-            {intl.formatMessage({defaultMessage: 'Delivering to'})}
-          </Text>
-          <Text variant="labelLarge">
-            {props.location} - {props.country}
-          </Text>
-        </View>
+    <View testID="deliveringSelection">
+      <TouchableHighlight
+        style={{marginVertical: 5}}
+        underlayColor={(theme.colors as MD3Colors).primary}
+        onPress={() => {
+          setVisible(!isVisible);
+        }}>
+        <View
+          style={[
+            styles.root,
+            {
+              borderStyle: 'solid',
+              borderWidth: 1,
+              borderColor: (theme.colors as MD3Colors).primary,
+              borderRadius: 4,
+              backgroundColor: (theme.colors as MD3Colors).primaryContainer,
+            },
+          ]}>
+          <View style={{...styles.alignCenter, ...{width: 38}}}>
+            <Icon name="map-marker" color={theme.colors.primary} size={24} />
+          </View>
+          <View style={styles.column}>
+            <Text variant="labelMedium">
+              {intl.formatMessage({defaultMessage: 'Delivering to'})}
+            </Text>
+            <Text variant="labelLarge">
+              {props.location} - {props.country}
+            </Text>
+          </View>
 
-        <View style={{flexGrow: 1}} />
+          <View style={{flexGrow: 1}} />
 
-        <IconButton
-          onPress={props.onPress}
-          icon="chevron-right"
-          iconColor={theme.colors.primary}
-        />
-      </View>
-    </TouchableHighlight>
+          <IconButton
+            onPress={props.onPress}
+            icon="chevron-right"
+            iconColor={theme.colors.primary}
+          />
+        </View>
+      </TouchableHighlight>
+      <CMSBottomSheet
+        bottomSheetTitle={'Choose delivery location'}
+        bottomSheetIconColor="#0A2463"
+        bottomSheetStyle={{
+          backgroundColor: 'white',
+          maxHeight: '40%',
+          minHeight: '15%',
+        }}
+        bottomSheetTitleStyle={{color: '#0A2463'}}
+        setBottomSheetVisible={setVisible}
+        bottomSheetVisible={isVisible}>
+        <ScrollView>
+          {props.userAddresses &&
+            props.userAddresses.map(
+              (data: {key: number; title: string; subtitle: string}) => (
+                <AddressComponent
+                  title={data.title}
+                  subtitle={data.subtitle}
+                  key={data.key}
+                  setVisible={setVisible}
+                  isVisible={isVisible}
+                />
+              ),
+            )}
+        </ScrollView>
+      </CMSBottomSheet>
+    </View>
   );
 }
+
+const AddressComponent = ({
+  title,
+  subtitle,
+  isVisible,
+  setVisible,
+}: {
+  title: string;
+  subtitle: string;
+  isVisible: boolean;
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        setVisible(!isVisible);
+      }}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <SimpleLineIcons name="location-pin" color={'#000'} size={20} />
+
+        <View style={{marginLeft: 15}}>
+          <Text style={{color: '#262626', fontSize: 14, fontWeight: '600'}}>
+            {title}
+          </Text>
+          <Text style={{color: '#828282', fontSize: 12, marginVertical: 5}}>
+            {subtitle}
+          </Text>
+        </View>
+      </View>
+      <Divider bold={true} style={{marginVertical: 5}} />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   root: {
