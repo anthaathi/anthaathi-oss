@@ -8,6 +8,10 @@ export type CommonPlacement =
 
 export enum CoreComponentType {
   Header = 'core.header',
+  DatePicker = 'core.date-picker',
+  CMSAvatar = 'core.cms-avatar',
+  Notification = 'core.notification',
+  CMSText = 'core.cms-text',
 }
 
 export enum HomePageComponentType {
@@ -31,6 +35,7 @@ export enum CartPageComponentType {
   PricingCard = 'cart-page.pricing-card',
   PromoCode = 'cart-page.promo-code',
   SuggestedItem = 'cart-page.suggested-item',
+  CartCard = 'cart-page.cart-card',
 }
 
 export enum CheckOutPageComponentType {

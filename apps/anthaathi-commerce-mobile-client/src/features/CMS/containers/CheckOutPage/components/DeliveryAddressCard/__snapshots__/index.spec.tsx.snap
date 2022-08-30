@@ -4,221 +4,202 @@ exports[`DeliveryAddressCard should render the item 1`] = `
 <View
   collapsable={false}
   style={
-    Object {
-      "alignSelf": undefined,
-      "bottom": undefined,
-      "left": undefined,
-      "position": undefined,
-      "right": undefined,
-      "shadowColor": "#000",
-      "shadowOffset": Object {
-        "height": 1,
+    {
+      "backgroundColor": "#ffffff",
+      "borderColor": "#E3E2E7",
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "elevation": 1,
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": {
+        "height": 0.5,
         "width": 0,
       },
-      "shadowOpacity": 0.15,
-      "shadowRadius": 3,
-      "top": undefined,
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0.75,
     }
   }
 >
   <View
-    collapsable={false}
-    style={
-      Object {
-        "shadowColor": "#000",
-        "shadowOffset": Object {
-          "height": 1,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 1,
+    accessibilityState={
+      {
+        "disabled": true,
       }
     }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+    testID="deliveryAddressCard"
   >
     <View
-      collapsable={false}
       style={
-        Object {
-          "backgroundColor": "rgba(255, 251, 254, 1)",
-          "borderColor": "#E3E2E7",
-          "borderRadius": 4,
-          "borderWidth": 1,
-          "elevation": 1,
-          "marginHorizontal": 10,
-          "marginVertical": 5,
-        }
+        [
+          {
+            "paddingHorizontal": 16,
+          },
+          {
+            "paddingVertical": 16,
+          },
+          undefined,
+        ]
       }
     >
-      <View
-        accessibilityState={
-          Object {
-            "disabled": true,
-          }
-        }
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "flexGrow": 1,
-            "flexShrink": 1,
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 16,
+              "fontWeight": "600",
+            },
+          ]
+        }
+      >
+        Delivery Address
+      </Text>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginVertical": 5,
           }
         }
-        testID="deliveryAddressCard"
       >
-        <View
+        <Text
           style={
-            Array [
-              Object {
-                "paddingHorizontal": 16,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
-                "paddingVertical": 16,
+              {
+                "textAlign": "left",
               },
-              undefined,
+              {
+                "color": "#364A15",
+                "fontSize": 14,
+                "width": "85%",
+              },
             ]
           }
         >
+          USA
+        </Text>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "paddingHorizontal": 10,
+            }
+          }
+          testID="changeAddressButton"
+        >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "color": "#364A15",
-                  "fontSize": 16,
-                  "fontWeight": "600",
+                {
+                  "color": "#008D3E",
+                  "fontSize": 14,
+                  "fontWeight": "500",
                 },
               ]
             }
+            testID="deliverAddressButtonTitle"
           >
-            Delivery Address
+            Change
           </Text>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-                "marginVertical": 5,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                  },
-                  Object {
-                    "textAlign": "left",
-                  },
-                  Object {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                    "width": "85%",
-                  },
-                ]
-              }
-            >
-              USA
-            </Text>
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "paddingHorizontal": 10,
-                }
-              }
-              testID="changeAddressButton"
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "rgba(28, 27, 31, 1)",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Object {
-                      "color": "#008D3E",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                    },
-                  ]
-                }
-                testID="deliverAddressButtonTitle"
-              >
-                Change
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-                "marginVertical": 5,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                  },
-                  Object {
-                    "textAlign": "left",
-                  },
-                  Object {
-                    "color": "#808080",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              Mobile
-            </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                  },
-                  Object {
-                    "textAlign": "left",
-                  },
-                  Object {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                  },
-                ]
-              }
-            >
-              : +90909090
-            </Text>
-          </View>
         </View>
+      </View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginVertical": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#808080",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          Mobile
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#364A15",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          : +90909090
+        </Text>
       </View>
     </View>
   </View>

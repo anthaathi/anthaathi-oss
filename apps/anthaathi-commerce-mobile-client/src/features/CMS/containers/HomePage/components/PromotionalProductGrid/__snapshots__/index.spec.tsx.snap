@@ -3,7 +3,7 @@
 exports[`PromotionalProductGrid should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "flexDirection": "row",
       "flexWrap": "wrap",
       "marginVertical": 10,
@@ -14,7 +14,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
   <View>
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "marginHorizontal": 10,
         }
@@ -22,7 +22,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "width": "100%",
           }
@@ -31,7 +31,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         <View
           accessibilityIgnoresInvertColors={true}
           style={
-            Object {
+            {
               "height": 240,
               "width": "99%",
             }
@@ -39,20 +39,20 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         >
           <Image
             source={
-              Object {
+              {
                 "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
               }
             }
             style={
-              Array [
-                Object {
+              [
+                {
                   "bottom": 0,
                   "left": 0,
                   "position": "absolute",
                   "right": 0,
                   "top": 0,
                 },
-                Object {
+                {
                   "height": 240,
                   "width": "99%",
                 },
@@ -62,7 +62,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
           />
           <View
             style={
-              Object {
+              {
                 "alignItems": "flex-end",
                 "height": "100%",
                 "justifyContent": "flex-start",
@@ -72,24 +72,19 @@ exports[`PromotionalProductGrid should render the item 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.1,
-                    "lineHeight": 20,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
+                  {
                     "backgroundColor": "#313652",
                     "borderRadius": 1,
-                    "color": "rgba(255, 251, 254, 1)",
+                    "color": "#f6f6f6",
                     "fontSize": 14,
                     "fontWeight": "200",
                     "marginVertical": 5,
@@ -98,27 +93,23 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="titleSmall"
             >
               New
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.1,
-                    "lineHeight": 20,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
-                    "backgroundColor": "rgba(255, 251, 254, 1)",
+                  {
+                    "backgroundColor": "#f6f6f6",
                     "borderRadius": 1,
                     "color": "#000",
                     "fontSize": 14,
@@ -129,6 +120,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="titleSmall"
             >
               $12.00
             </Text>
@@ -136,7 +128,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         </View>
         <View
           style={
-            Object {
+            {
               "alignItems": "center",
               "marginBottom": 10,
             }
@@ -144,21 +136,16 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 14,
                   "fontWeight": "200",
@@ -166,26 +153,22 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             Heading
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 18,
                   "fontWeight": "200",
@@ -193,26 +176,22 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             Baby Yellow Pepper
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 14,
                   "fontWeight": "200",
@@ -220,144 +199,111 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             100% fresh. Sourced from Netherlands
           </Text>
           <View
             collapsable={false}
             style={
-              Object {
-                "alignSelf": undefined,
-                "bottom": undefined,
-                "left": undefined,
-                "position": undefined,
-                "right": undefined,
-                "shadowColor": "#000",
-                "shadowOffset": Object {
-                  "height": 0,
+              {
+                "backgroundColor": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 1,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "elevation": 2,
+                "marginVertical": 5,
+                "minWidth": 64,
+                "shadowColor": "#000000",
+                "shadowOffset": {
+                  "height": 0.75,
                   "width": 0,
                 },
-                "shadowOpacity": 0,
-                "shadowRadius": 0,
-                "top": undefined,
+                "shadowOpacity": 0.24,
+                "shadowRadius": 1.5,
               }
             }
           >
             <View
-              collapsable={false}
-              style={
-                Object {
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 0,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0,
-                  "shadowRadius": 0,
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "disabled": true,
                 }
+              }
+              accessible={true}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "overflow": "hidden",
+                  },
+                  {
+                    "borderRadius": 1,
+                  },
+                ]
               }
             >
               <View
-                collapsable={false}
                 style={
-                  Object {
-                    "backgroundColor": "#000000",
-                    "borderColor": "transparent",
-                    "borderRadius": 1,
-                    "borderStyle": "solid",
-                    "borderWidth": 0,
-                    "marginVertical": 5,
-                    "minWidth": 64,
-                  }
+                  [
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  accessibilityRole="button"
-                  accessibilityState={
-                    Object {
-                      "disabled": true,
-                    }
-                  }
-                  accessible={true}
-                  focusable={false}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
                   style={
-                    Array [
-                      Object {
-                        "overflow": "hidden",
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
-                        "borderRadius": 1,
+                      {
+                        "textAlign": "left",
                       },
+                      [
+                        {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        {
+                          "textTransform": "uppercase",
+                        },
+                        {
+                          "color": "#ffffff",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        undefined,
+                      ],
                     ]
                   }
                 >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "flexDirection": "row",
-                          "justifyContent": "center",
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      selectable={false}
-                      style={
-                        Array [
-                          Object {
-                            "color": "rgba(28, 27, 31, 1)",
-                            "fontSize": 14,
-                            "fontWeight": "500",
-                            "letterSpacing": 0.1,
-                            "lineHeight": 20,
-                          },
-                          Object {
-                            "textAlign": "left",
-                          },
-                          Object {
-                            "writingDirection": "ltr",
-                          },
-                          Array [
-                            Object {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            Object {
-                              "marginHorizontal": 24,
-                              "marginVertical": 10,
-                            },
-                            undefined,
-                            false,
-                            Object {
-                              "color": "rgba(255, 255, 255, 1)",
-                              "fontFamily": "System",
-                              "fontSize": 14,
-                              "fontWeight": "500",
-                              "letterSpacing": 0.1,
-                              "lineHeight": 20,
-                            },
-                            undefined,
-                          ],
-                        ]
-                      }
-                    >
-                      Shop
-                    </Text>
-                  </View>
-                </View>
+                  Shop
+                </Text>
               </View>
             </View>
           </View>
@@ -368,7 +314,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
   <View>
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "marginHorizontal": 10,
         }
@@ -376,7 +322,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "width": "100%",
           }
@@ -385,7 +331,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         <View
           accessibilityIgnoresInvertColors={true}
           style={
-            Object {
+            {
               "height": 240,
               "width": "99%",
             }
@@ -393,20 +339,20 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         >
           <Image
             source={
-              Object {
+              {
                 "uri": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
               }
             }
             style={
-              Array [
-                Object {
+              [
+                {
                   "bottom": 0,
                   "left": 0,
                   "position": "absolute",
                   "right": 0,
                   "top": 0,
                 },
-                Object {
+                {
                   "height": 240,
                   "width": "99%",
                 },
@@ -416,7 +362,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
           />
           <View
             style={
-              Object {
+              {
                 "alignItems": "flex-end",
                 "height": "100%",
                 "justifyContent": "flex-start",
@@ -426,24 +372,19 @@ exports[`PromotionalProductGrid should render the item 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.1,
-                    "lineHeight": 20,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
+                  {
                     "backgroundColor": "#313652",
                     "borderRadius": 1,
-                    "color": "rgba(255, 251, 254, 1)",
+                    "color": "#f6f6f6",
                     "fontSize": 14,
                     "fontWeight": "200",
                     "marginVertical": 5,
@@ -452,27 +393,23 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="titleSmall"
             >
               New
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 0.1,
-                    "lineHeight": 20,
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
-                    "writingDirection": "ltr",
-                  },
-                  Object {
-                    "backgroundColor": "rgba(255, 251, 254, 1)",
+                  {
+                    "backgroundColor": "#f6f6f6",
                     "borderRadius": 1,
                     "color": "#000",
                     "fontSize": 14,
@@ -483,6 +420,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                   },
                 ]
               }
+              variant="titleSmall"
             >
               $23.00
             </Text>
@@ -490,7 +428,7 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         </View>
         <View
           style={
-            Object {
+            {
               "alignItems": "center",
               "marginBottom": 10,
             }
@@ -498,21 +436,16 @@ exports[`PromotionalProductGrid should render the item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 14,
                   "fontWeight": "200",
@@ -520,26 +453,22 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             Heading
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 18,
                   "fontWeight": "200",
@@ -547,26 +476,22 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             Capsicum mixed
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 0.1,
-                  "lineHeight": 20,
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
-                  "writingDirection": "ltr",
-                },
-                Object {
+                {
                   "color": "#000",
                   "fontSize": 14,
                   "fontWeight": "200",
@@ -574,144 +499,111 @@ exports[`PromotionalProductGrid should render the item 1`] = `
                 },
               ]
             }
+            variant="titleSmall"
           >
             100% fresh. Sourced from Netherlands
           </Text>
           <View
             collapsable={false}
             style={
-              Object {
-                "alignSelf": undefined,
-                "bottom": undefined,
-                "left": undefined,
-                "position": undefined,
-                "right": undefined,
-                "shadowColor": "#000",
-                "shadowOffset": Object {
-                  "height": 0,
+              {
+                "backgroundColor": "#000000",
+                "borderColor": "transparent",
+                "borderRadius": 1,
+                "borderStyle": "solid",
+                "borderWidth": 0,
+                "elevation": 2,
+                "marginVertical": 5,
+                "minWidth": 64,
+                "shadowColor": "#000000",
+                "shadowOffset": {
+                  "height": 0.75,
                   "width": 0,
                 },
-                "shadowOpacity": 0,
-                "shadowRadius": 0,
-                "top": undefined,
+                "shadowOpacity": 0.24,
+                "shadowRadius": 1.5,
               }
             }
           >
             <View
-              collapsable={false}
-              style={
-                Object {
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 0,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0,
-                  "shadowRadius": 0,
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "disabled": true,
                 }
+              }
+              accessible={true}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "overflow": "hidden",
+                  },
+                  {
+                    "borderRadius": 1,
+                  },
+                ]
               }
             >
               <View
-                collapsable={false}
                 style={
-                  Object {
-                    "backgroundColor": "#000000",
-                    "borderColor": "transparent",
-                    "borderRadius": 1,
-                    "borderStyle": "solid",
-                    "borderWidth": 0,
-                    "marginVertical": 5,
-                    "minWidth": 64,
-                  }
+                  [
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  accessibilityRole="button"
-                  accessibilityState={
-                    Object {
-                      "disabled": true,
-                    }
-                  }
-                  accessible={true}
-                  focusable={false}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
                   style={
-                    Array [
-                      Object {
-                        "overflow": "hidden",
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
-                        "borderRadius": 1,
+                      {
+                        "textAlign": "left",
                       },
+                      [
+                        {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        {
+                          "textTransform": "uppercase",
+                        },
+                        {
+                          "color": "#ffffff",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        undefined,
+                      ],
                     ]
                   }
                 >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "flexDirection": "row",
-                          "justifyContent": "center",
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      selectable={false}
-                      style={
-                        Array [
-                          Object {
-                            "color": "rgba(28, 27, 31, 1)",
-                            "fontSize": 14,
-                            "fontWeight": "500",
-                            "letterSpacing": 0.1,
-                            "lineHeight": 20,
-                          },
-                          Object {
-                            "textAlign": "left",
-                          },
-                          Object {
-                            "writingDirection": "ltr",
-                          },
-                          Array [
-                            Object {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            Object {
-                              "marginHorizontal": 24,
-                              "marginVertical": 10,
-                            },
-                            undefined,
-                            false,
-                            Object {
-                              "color": "rgba(255, 255, 255, 1)",
-                              "fontFamily": "System",
-                              "fontSize": 14,
-                              "fontWeight": "500",
-                              "letterSpacing": 0.1,
-                              "lineHeight": 20,
-                            },
-                            undefined,
-                          ],
-                        ]
-                      }
-                    >
-                      Shop
-                    </Text>
-                  </View>
-                </View>
+                  Shop
+                </Text>
               </View>
             </View>
           </View>

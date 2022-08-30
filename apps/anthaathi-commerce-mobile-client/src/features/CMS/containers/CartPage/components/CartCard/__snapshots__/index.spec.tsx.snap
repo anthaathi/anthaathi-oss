@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartCard should render the item 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "borderColor": "#E3E2E7",
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "elevation": 1,
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": {
+        "height": 0.5,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0.75,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": true,
+      }
+    }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+    testID="cartCard"
+  >
+    <View
+      style={
+        [
+          {
+            "paddingHorizontal": 16,
+          },
+          {
+            "paddingVertical": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#364A15",
+              "fontSize": 16,
+              "fontWeight": "600",
+            }
+          }
+        >
+          title
+        </Text>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          testID="handlePressBasketItem"
+        >
+          <Text
+            style={
+              {
+                "color": "#008D3E",
+                "fontSize": 14,
+                "marginBottom": 9,
+                "textDecorationLine": "underline",
+              }
+            }
+            variant="titleMedium"
+          >
+            View Details
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginVertical": 5,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#0f8443",
+                "fontSize": 18,
+              },
+              undefined,
+              {
+                "fontFamily": "simple-line-icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#0f8443",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "marginLeft": 10,
+            }
+          }
+        >
+          subtitle1
+        </Text>
+      </View>
+      <View
+        accessibilityRole="progressbar"
+        accessibilityState={
+          {
+            "busy": true,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": 100,
+            "min": 0,
+            "now": 80,
+          }
+        }
+        accessible={true}
+        onLayout={[Function]}
+      >
+        <View
+          collapsable={false}
+          style={
+            {
+              "backgroundColor": "rgba(15, 132, 67, 0.38)",
+              "height": 4,
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          {
+            "marginVertical": 5,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#364A15",
+                "fontSize": 12,
+                "fontWeight": "400",
+              }
+            }
+          >
+            Delivered on
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#364A15",
+                "fontSize": 12,
+                "fontWeight": "600",
+                "marginLeft": 5,
+              }
+            }
+          >
+            Sun, 17 Jul 2022
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#364A15",
+                "fontSize": 12,
+                "fontWeight": "400",
+              }
+            }
+          >
+            Sold by
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#364A15",
+                "fontSize": 12,
+                "fontWeight": "600",
+                "marginLeft": 5,
+              }
+            }
+          >
+            Company
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "marginVertical": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#364A15",
+              "fontSize": 14,
+              "fontWeight": "600",
+              "marginVertical": 5,
+            }
+          }
+        >
+          2 Items
+        </Text>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970",
+              }
+            }
+            style={
+              {
+                "borderRadius": 2,
+                "height": 35,
+                "marginRight": 5,
+                "width": 25,
+              }
+            }
+          />
+          <Image
+            source={
+              {
+                "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616",
+              }
+            }
+            style={
+              {
+                "borderRadius": 2,
+                "height": 35,
+                "marginRight": 5,
+                "width": 25,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -23,6 +23,7 @@ const WalletBalance = (props: WalletBalanceProps) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginHorizontal: 10,
+          marginVertical: 5,
           height: 60,
         }}
         onPress={props.handlePress}>

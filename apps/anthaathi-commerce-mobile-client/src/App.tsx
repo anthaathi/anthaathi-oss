@@ -4,13 +4,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {RelayEnvironmentProvider} from 'react-relay';
 import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
-import RNBootSplash from 'react-native-bootsplash';
-import {MD3LightTheme as DefaultTheme, Provider as PaperProvider, ThemeBase,} from 'react-native-paper';
-import CMSRenderer from './features/CMS';
-import {CoreComponentType, HomePageComponentType,} from './features/CMS/types/common';
-import {ScrollView} from 'react-native';
-
+import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 import MyStack from './navigators';
+import RNBootSplash from 'react-native-bootsplash';
 
 declare global {
   namespace ReactNativePaper {
@@ -29,8 +25,9 @@ const theme = {
     primary: '#0f8443',
     primaryContainer: '#f4faf7',
     secondary: 'rgb(244, 250, 247)',
+    black: '#000',
   },
-} as ThemeBase;
+} as ReactNativePaper.Theme;
 
 const App = () => {
   useEffect(() => {
@@ -41,10 +38,9 @@ const App = () => {
 
   return (
     <IntlProvider locale="en-US" messages={enUS}>
-      <PaperProvider theme={theme}>
+      <PaperProvider theme={theme as never}>
         <NavigationContainer>
           <RelayEnvironmentProvider environment={RelayEnv as never}>
-
             <MyStack />
           </RelayEnvironmentProvider>
         </NavigationContainer>

@@ -6,7 +6,7 @@ exports[`FeaturedCollection should render the item 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -16,26 +16,22 @@ exports[`FeaturedCollection should render the item 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
             "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
+          {
             "fontSize": 20,
             "marginBottom": 9,
           },
         ]
       }
+      variant="titleLarge"
     >
       test
     </Text>
@@ -56,27 +52,23 @@ exports[`FeaturedCollection should render the item 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
-              "fontSize": 16,
-              "fontWeight": "500",
-              "letterSpacing": 0.15,
-              "lineHeight": 24,
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
-              "writingDirection": "ltr",
-            },
-            Object {
+            {
               "fontSize": 14,
               "marginBottom": 9,
               "textDecorationLine": "underline",
             },
           ]
         }
+        variant="titleMedium"
       >
         View All
       </Text>
@@ -85,8 +77,8 @@ exports[`FeaturedCollection should render the item 1`] = `
   <View>
     <RCTScrollView
       data={
-        Array [
-          Object {
+        [
+          {
             "currency": "USD",
             "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
             "key": "test",
@@ -112,15 +104,15 @@ exports[`FeaturedCollection should render the item 1`] = `
       onScrollEndDrag={[Function]}
       renderItem={[Function]}
       scrollEventThrottle={50}
-      stickyHeaderIndices={Array []}
+      stickyHeaderIndices={[]}
       testID="productList"
     >
       <View>
         <View
           onLayout={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "flexDirection": "row",
               },
               null,
@@ -129,7 +121,7 @@ exports[`FeaturedCollection should render the item 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "marginHorizontal": 10,
                 "marginVertical": 5,
               }
@@ -137,12 +129,12 @@ exports[`FeaturedCollection should render the item 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "paddingHorizontal": 16,
                   },
                   undefined,
-                  Object {
+                  {
                     "alignItems": "center",
                   },
                 ]
@@ -162,19 +154,19 @@ exports[`FeaturedCollection should render the item 1`] = `
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
                 style={
-                  Object {
+                  {
                     "alignItems": "flex-start",
                   }
                 }
               >
                 <Image
                   source={
-                    Object {
+                    {
                       "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
                     }
                   }
                   style={
-                    Object {
+                    {
                       "borderRadius": 4,
                       "height": 250,
                       "width": 240,
@@ -183,7 +175,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                 />
                 <View
                   style={
-                    Object {
+                    {
                       "alignItems": "center",
                       "flexDirection": "row",
                     }
@@ -191,29 +183,33 @@ exports[`FeaturedCollection should render the item 1`] = `
                 >
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "rgba(28, 27, 31, 1)",
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
                         },
-                        Object {
+                        {
                           "textAlign": "left",
                         },
-                        Array [
-                          Object {
+                        [
+                          {
                             "textAlign": "left",
                           },
-                          Object {
-                            "color": "rgba(28, 27, 31, 0.87)",
+                          {
+                            "color": "rgba(0, 0, 0, 0.87)",
+                            "fontFamily": "System",
+                            "fontWeight": "500",
                             "writingDirection": "ltr",
                           },
-                          Array [
-                            Object {
+                          [
+                            {
                               "fontSize": 20,
                               "letterSpacing": 0.15,
                               "lineHeight": 30,
                               "marginVertical": 2,
                             },
-                            Object {
+                            {
                               "fontSize": 14,
                               "fontWeight": "bold",
                               "marginRight": 10,
@@ -229,18 +225,18 @@ exports[`FeaturedCollection should render the item 1`] = `
                     allowFontScaling={false}
                     selectable={false}
                     style={
-                      Array [
-                        Object {
+                      [
+                        {
                           "color": "#364A15",
                           "fontSize": 18,
                         },
                         undefined,
-                        Object {
+                        {
                           "fontFamily": "Entypo",
                           "fontStyle": "normal",
                           "fontWeight": "normal",
                         },
-                        Object {},
+                        {},
                       ]
                     }
                   >
@@ -249,14 +245,16 @@ exports[`FeaturedCollection should render the item 1`] = `
                 </View>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
+                      {
                         "textAlign": "left",
                       },
-                      Object {
+                      {
                         "color": "#808080",
                         "fontSize": 12,
                         "fontWeight": "400",
@@ -268,7 +266,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                 </Text>
                 <View
                   style={
-                    Object {
+                    {
                       "alignItems": "center",
                       "flexDirection": "row",
                       "justifyContent": "center",
@@ -278,14 +276,16 @@ exports[`FeaturedCollection should render the item 1`] = `
                 >
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "rgba(28, 27, 31, 1)",
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
                         },
-                        Object {
+                        {
                           "textAlign": "left",
                         },
-                        Object {
+                        {
                           "color": "#008D3E",
                           "fontSize": 14,
                           "fontWeight": "400",
@@ -297,14 +297,16 @@ exports[`FeaturedCollection should render the item 1`] = `
                   </Text>
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "rgba(28, 27, 31, 1)",
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
                         },
-                        Object {
+                        {
                           "textAlign": "left",
                         },
-                        Object {
+                        {
                           "color": "#808080",
                           "fontSize": 12,
                           "fontWeight": "400",
@@ -317,14 +319,16 @@ exports[`FeaturedCollection should render the item 1`] = `
                 </View>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "rgba(28, 27, 31, 1)",
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
                       },
-                      Object {
+                      {
                         "textAlign": "left",
                       },
-                      Object {
+                      {
                         "color": "#808080",
                         "fontSize": 12,
                         "fontWeight": "400",

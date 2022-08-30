@@ -7,6 +7,10 @@ import {DeliveryAddressCardCMSInput} from '../containers/CheckOutPage/components
 import {DeliveryDateSelectionCMSInput} from '../containers/CheckOutPage/components/DeliveryDateSelection';
 import {PaymentMethodSelectionCMSInput} from '../containers/CheckOutPage/components/PaymentMethodSelection';
 import {TimeSlotSelectionCMSInput} from '../containers/CheckOutPage/components/TimeSlotSelection';
+import {AvatarCMSInput} from '../containers/Core/components/CMSAvatar';
+import {TextCMSInput} from '../containers/Core/components/CMSText';
+import {DatePickerCMSInput} from '../containers/Core/components/DatePicker';
+import {NotificationCMSInput} from '../containers/Core/components/Notification';
 import {HeaderCMSInput} from '../containers/Header';
 import {BlogPostsCMSInput} from '../containers/HomePage/components/BlogPosts';
 import {CategoriesCardCMSInput} from '../containers/HomePage/components/CategoriesCard';
@@ -24,7 +28,8 @@ import {SubCategoriesCMSInput} from '../containers/ProductListPage/components/Su
 import {DeliveryAddressesCMSInput} from '../containers/ProfilePage/components/DeliveryAddresses';
 import {PersonalInformationCMSInput} from '../containers/ProfilePage/components/PersonalInformation';
 import {WalletBalanceCMSInput} from '../containers/ProfilePage/components/WalletBalance';
-import ChatFloatingButton, {ChatFloatingButtonCMSInput} from "../containers/HomePage/components/ChatFloatingButton";
+import {ChatFloatingButtonCMSInput} from '../containers/HomePage/components/ChatFloatingButton';
+import {CartCardCMSInput} from '../containers/CartPage/components/CartCard';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -32,6 +37,10 @@ export interface RendererProps {
 
 const renderer = [
   HeaderCMSInput,
+  DatePickerCMSInput,
+  AvatarCMSInput,
+  NotificationCMSInput,
+  TextCMSInput,
   // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
@@ -50,6 +59,7 @@ const renderer = [
   PricingCardCMSInput,
   PromoCodeCMSInput,
   SuggestedItemCMSInput,
+  CartCardCMSInput,
   // checkout page
   DeliveryAddressCardCMSInput,
   DeliveryDateSelectionCMSInput,

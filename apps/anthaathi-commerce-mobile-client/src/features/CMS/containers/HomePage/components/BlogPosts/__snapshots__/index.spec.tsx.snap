@@ -3,7 +3,7 @@
 exports[`BlogPosts should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "marginHorizontal": 10,
     }
   }
@@ -11,7 +11,7 @@ exports[`BlogPosts should render the item 1`] = `
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -20,26 +20,22 @@ exports[`BlogPosts should render the item 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "rgba(28, 27, 31, 1)",
-            "fontSize": 22,
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
             "fontWeight": "400",
-            "letterSpacing": 0,
-            "lineHeight": 28,
           },
-          Object {
+          {
             "textAlign": "left",
           },
-          Object {
-            "writingDirection": "ltr",
-          },
-          Object {
+          {
             "fontSize": 20,
             "marginBottom": 9,
           },
         ]
       }
+      variant="titleLarge"
     >
       From the journal
     </Text>
@@ -60,27 +56,23 @@ exports[`BlogPosts should render the item 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "rgba(28, 27, 31, 1)",
-              "fontSize": 16,
-              "fontWeight": "500",
-              "letterSpacing": 0.15,
-              "lineHeight": 24,
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
-              "writingDirection": "ltr",
-            },
-            Object {
+            {
               "fontSize": 14,
               "marginBottom": 9,
               "textDecorationLine": "underline",
             },
           ]
         }
+        variant="titleMedium"
       >
         View All
       </Text>
@@ -88,21 +80,21 @@ exports[`BlogPosts should render the item 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "flexDirection": "column",
       }
     }
   >
     <View
       style={
-        Object {
+        {
           "width": "100%",
         }
       }
     >
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": false,
           }
         }
@@ -116,7 +108,7 @@ exports[`BlogPosts should render the item 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
+          [
             false,
             undefined,
           ]
@@ -124,7 +116,7 @@ exports[`BlogPosts should render the item 1`] = `
       >
         <View
           style={
-            Object {
+            {
               "alignItems": "center",
               "marginBottom": 10,
             }
@@ -132,12 +124,12 @@ exports[`BlogPosts should render the item 1`] = `
         >
           <Image
             source={
-              Object {
+              {
                 "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_360x.jpg",
               }
             }
             style={
-              Object {
+              {
                 "height": 320,
                 "width": "100%",
               }
@@ -146,14 +138,16 @@ exports[`BlogPosts should render the item 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "fontSize": 16,
                   "fontWeight": "700",
                   "textAlign": "center",
@@ -167,14 +161,16 @@ exports[`BlogPosts should render the item 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "rgba(28, 27, 31, 1)",
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Object {
+                {
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -189,15 +185,13 @@ exports[`BlogPosts should render the item 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "rgba(231, 224, 236, 1)",
+        [
+          {
+            "backgroundColor": "rgba(0, 0, 0, 0.12)",
             "height": 0.5,
           },
           undefined,
-          false,
-          false,
-          Object {
+          {
             "marginVertical": 5,
           },
         ]
@@ -205,7 +199,7 @@ exports[`BlogPosts should render the item 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "marginHorizontal": 0,
           "width": "100%",
         }
@@ -213,7 +207,7 @@ exports[`BlogPosts should render the item 1`] = `
     >
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": false,
           }
         }
@@ -227,7 +221,7 @@ exports[`BlogPosts should render the item 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
+          [
             false,
             undefined,
           ]
@@ -235,7 +229,7 @@ exports[`BlogPosts should render the item 1`] = `
       >
         <View
           style={
-            Object {
+            {
               "flexDirection": "row",
               "marginBottom": 10,
             }
@@ -243,12 +237,12 @@ exports[`BlogPosts should render the item 1`] = `
         >
           <Image
             source={
-              Object {
+              {
                 "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
               }
             }
             style={
-              Object {
+              {
                 "height": 120,
                 "width": "40%",
               }
@@ -256,7 +250,7 @@ exports[`BlogPosts should render the item 1`] = `
           />
           <View
             style={
-              Object {
+              {
                 "marginHorizontal": "2%",
                 "width": "56%",
               }
@@ -264,14 +258,16 @@ exports[`BlogPosts should render the item 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "fontSize": 16,
                     "fontWeight": "700",
                   },
@@ -282,14 +278,16 @@ exports[`BlogPosts should render the item 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "fontSize": 14,
                     "fontWeight": "400",
                   },
@@ -303,7 +301,7 @@ exports[`BlogPosts should render the item 1`] = `
       </View>
       <View
         accessibilityState={
-          Object {
+          {
             "disabled": false,
           }
         }
@@ -317,7 +315,7 @@ exports[`BlogPosts should render the item 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
+          [
             false,
             undefined,
           ]
@@ -325,7 +323,7 @@ exports[`BlogPosts should render the item 1`] = `
       >
         <View
           style={
-            Object {
+            {
               "flexDirection": "row",
               "marginBottom": 10,
             }
@@ -333,12 +331,12 @@ exports[`BlogPosts should render the item 1`] = `
         >
           <Image
             source={
-              Object {
+              {
                 "uri": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_520x500.jpg",
               }
             }
             style={
-              Object {
+              {
                 "height": 120,
                 "width": "40%",
               }
@@ -346,7 +344,7 @@ exports[`BlogPosts should render the item 1`] = `
           />
           <View
             style={
-              Object {
+              {
                 "marginHorizontal": "2%",
                 "width": "56%",
               }
@@ -354,14 +352,16 @@ exports[`BlogPosts should render the item 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "fontSize": 16,
                     "fontWeight": "700",
                   },
@@ -372,14 +372,16 @@ exports[`BlogPosts should render the item 1`] = `
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Object {
+                  {
                     "fontSize": 14,
                     "fontWeight": "400",
                   },

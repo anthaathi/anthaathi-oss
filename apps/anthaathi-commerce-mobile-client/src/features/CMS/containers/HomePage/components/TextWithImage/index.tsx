@@ -47,7 +47,6 @@ const TextWithImage = (props: TextWithImageProps) => {
 };
 
 const ColumnCard = ({data}: {data: ColumnProps}) => {
-  console.log(data.image);
   return (
     <View style={{alignItems: 'center', marginVertical: 10}}>
       <Image

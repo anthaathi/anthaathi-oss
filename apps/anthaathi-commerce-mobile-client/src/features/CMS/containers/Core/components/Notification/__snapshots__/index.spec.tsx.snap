@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should render the item 1`] = `
+<View
+  style={
+    {
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+      "padding": 5,
+    }
+  }
+  testID="notification"
+>
+  <View
+    style={
+      {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": undefined,
+              "fontSize": 18,
+            },
+            undefined,
+            {
+              "fontFamily": "simple-line-icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+      />
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "marginLeft": 10,
+            },
+          ]
+        }
+      >
+        subtitle1
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#364A15",
+            "fontSize": 14,
+            "fontWeight": "400",
+          },
+        ]
+      }
+    >
+      2d
+    </Text>
+  </View>
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "color": "#364A15",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "marginLeft": 28,
+        },
+      ]
+    }
+  >
+    title
+  </Text>
+  <Text
+    style={
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        {
+          "textAlign": "left",
+        },
+        {
+          "color": "#364A15",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "marginLeft": 28,
+        },
+      ]
+    }
+  >
+    subtitle2
+  </Text>
+  <View
+    bold={true}
+    style={
+      [
+        {
+          "backgroundColor": "rgba(0, 0, 0, 0.12)",
+          "height": 0.5,
+        },
+        undefined,
+        {
+          "marginTop": 10,
+        },
+      ]
+    }
+  />
+</View>
+`;

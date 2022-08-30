@@ -3,7 +3,7 @@
 exports[`TextWithImage should render the item 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
     }
   }
@@ -11,21 +11,16 @@ exports[`TextWithImage should render the item 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "rgba(28, 27, 31, 1)",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 0.1,
-          "lineHeight": 20,
+      [
+        {
+          "color": "#000000",
+          "fontFamily": "System",
+          "fontWeight": "400",
         },
-        Object {
+        {
           "textAlign": "left",
         },
-        Object {
-          "writingDirection": "ltr",
-        },
-        Object {
+        {
           "color": "#000",
           "fontSize": 22,
           "fontWeight": "100",
@@ -34,12 +29,13 @@ exports[`TextWithImage should render the item 1`] = `
         },
       ]
     }
+    variant="titleSmall"
   >
     How It Works
   </Text>
   <View
     style={
-      Object {
+      {
         "flexDirection": "row",
         "flexWrap": "wrap",
       }
@@ -48,7 +44,7 @@ exports[`TextWithImage should render the item 1`] = `
     <View>
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "marginVertical": 10,
           }
@@ -56,12 +52,12 @@ exports[`TextWithImage should render the item 1`] = `
       >
         <Image
           source={
-            Object {
+            {
               "uri": "",
             }
           }
           style={
-            Object {
+            {
               "backgroundColor": "rgba(0,0,0,0.1)",
               "borderRadius": 4,
               "height": 240,
@@ -72,21 +68,16 @@ exports[`TextWithImage should render the item 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 18,
                 "fontWeight": "100",
@@ -95,26 +86,22 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Register
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 16,
                 "fontWeight": "100",
@@ -123,6 +110,7 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Description Register
         </Text>
@@ -131,7 +119,7 @@ exports[`TextWithImage should render the item 1`] = `
     <View>
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "marginVertical": 10,
           }
@@ -139,12 +127,12 @@ exports[`TextWithImage should render the item 1`] = `
       >
         <Image
           source={
-            Object {
+            {
               "uri": "",
             }
           }
           style={
-            Object {
+            {
               "backgroundColor": "rgba(0,0,0,0.1)",
               "borderRadius": 4,
               "height": 240,
@@ -155,21 +143,16 @@ exports[`TextWithImage should render the item 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 18,
                 "fontWeight": "100",
@@ -178,26 +161,22 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Select Products & Place Order
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 16,
                 "fontWeight": "100",
@@ -206,6 +185,7 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Description Select Products & Place Order
         </Text>
@@ -214,7 +194,7 @@ exports[`TextWithImage should render the item 1`] = `
     <View>
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "marginVertical": 10,
           }
@@ -222,12 +202,12 @@ exports[`TextWithImage should render the item 1`] = `
       >
         <Image
           source={
-            Object {
+            {
               "uri": "",
             }
           }
           style={
-            Object {
+            {
               "backgroundColor": "rgba(0,0,0,0.1)",
               "borderRadius": 4,
               "height": 240,
@@ -238,21 +218,16 @@ exports[`TextWithImage should render the item 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 18,
                 "fontWeight": "100",
@@ -261,26 +236,22 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Schedule Delivery
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "rgba(28, 27, 31, 1)",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 0.1,
-                "lineHeight": 20,
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
-              Object {
+              {
                 "textAlign": "left",
               },
-              Object {
-                "writingDirection": "ltr",
-              },
-              Object {
+              {
                 "color": "#000",
                 "fontSize": 16,
                 "fontWeight": "100",
@@ -289,6 +260,7 @@ exports[`TextWithImage should render the item 1`] = `
               },
             ]
           }
+          variant="titleSmall"
         >
           Description Schedule Delivery
         </Text>
