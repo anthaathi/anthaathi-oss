@@ -4,7 +4,7 @@ exports[`HeroSlide should render the item 1`] = `
 <View
   style={
     {
-      "marginVertical": 10,
+      "marginVertical": 5,
     }
   }
   testID="heroSlide"
@@ -101,7 +101,7 @@ exports[`HeroSlide should render the item 1`] = `
               {
                 "color": "#f6f6f6",
                 "fontSize": 16,
-                "fontWeight": "400",
+                "fontWeight": "600",
                 "marginVertical": 10,
               },
             ]

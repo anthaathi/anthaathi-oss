@@ -19,6 +19,7 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
 
   return (
     <TouchableHighlight
+      style={{marginVertical: 5}}
       underlayColor={(theme.colors as MD3Colors).primary}
       onPress={props.onPress}
       testID="deliveringSelection">

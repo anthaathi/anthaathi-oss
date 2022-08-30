@@ -11,6 +11,11 @@ exports[`DeliveringSection should render the item 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "marginVertical": 5,
+    }
+  }
   testID="deliveringSelection"
 >
   <View

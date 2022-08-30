@@ -12,6 +12,8 @@ export enum CoreComponentType {
   CMSAvatar = 'core.cms-avatar',
   Notification = 'core.notification',
   CMSText = 'core.cms-text',
+  CMSTextInput = 'core.cms-text-input',
+  CMSButton = 'core.cms-button',
 }
 
 export enum HomePageComponentType {
@@ -51,6 +53,7 @@ export enum OrderPageComponentType {
 
 export enum ProductListPageComponentType {
   SubCategories = 'product-list.sub-categories',
+  ProductList = 'product-list.product-list',
 }
 
 export enum ProfilePageComponentType {

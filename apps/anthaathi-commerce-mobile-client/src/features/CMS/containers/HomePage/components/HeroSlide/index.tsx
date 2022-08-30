@@ -16,7 +16,7 @@ const HeroSlide = (props: HeroSlideProps) => {
   const theme = useTheme();
 
   return (
-    <View style={{marginVertical: 10}} testID="heroSlide">
+    <View style={{marginVertical: 5}} testID="heroSlide">
       <ImageBackground
         testID="backgroundImage"
         source={{
@@ -57,7 +57,7 @@ const HeroSlide = (props: HeroSlideProps) => {
               style={{
                 color: (theme.colors as MD3Colors).background,
                 fontSize: 16,
-                fontWeight: '400',
+                fontWeight: '600',
                 marginVertical: 10,
               }}
               variant="titleSmall">
@@ -92,7 +92,7 @@ function HeroSlideButton(props: {
         <Text
           testID="buttonTitle"
           style={{
-            color: (theme.colors as MD3Colors).onBackground,
+            color: (theme.colors as MD3Colors).black,
             paddingLeft: 18,
             paddingRight: 18,
             paddingTop: 8,

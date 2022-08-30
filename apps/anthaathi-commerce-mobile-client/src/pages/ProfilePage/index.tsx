@@ -7,21 +7,27 @@ import {
 } from '../../features/CMS/types/common';
 import dataJson from '../../config/data.json';
 
-const ProfilePage = props => {
+const ProfilePage = (props: {
+  navigation: {goBack: () => void; navigate: (arg0: string) => void};
+}) => {
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
+      <CMSRenderer
+        components={[
+          {
+            _component: CoreComponentType.Header,
+            key: '123',
+            title: dataJson.core.profilePage.header.title,
+            leftIcon: 'menu',
+            leftOnPress: () => {
+              props.navigation.goBack();
+            },
+          },
+        ]}
+      />
       <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
         <CMSRenderer
           components={[
-            {
-              _component: CoreComponentType.Header,
-              key: '123',
-              title: dataJson.core.profilePage.header.title,
-              leftIcon: dataJson.core.profilePage.header.leftIcon,
-              leftOnPress: () => {
-                props.navigation.goBack();
-              },
-            },
             {
               _component: CoreComponentType.CMSAvatar,
               key: '1231',
@@ -34,7 +40,7 @@ const ProfilePage = props => {
             },
             {
               _component: CoreComponentType.CMSText,
-              key: '1231',
+              key: '11',
               title: 'Welcome Omkar Yadav',
             },
             {
@@ -51,12 +57,18 @@ const ProfilePage = props => {
               key: 'test12',
               personalInfo:
                 dataJson.core.profilePage.personalInformation.personalInfo,
+              handlePress: () => {
+                props.navigation.navigate('EditProfile');
+              },
             },
             {
               _component: ProfilePageComponentType.DeliveryAddresses,
               key: '3232',
               title: 'Address information',
               userAddress: dataJson.core.profilePage.addressInformation,
+              handlePress: () => {
+                props.navigation.navigate('AddEditAddress');
+              },
             },
           ]}
         />

@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList should render the item 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "paddingBottom": 200,
+    }
+  }
+  data={
+    [
+      [
+        {
+          "currency": "USD",
+          "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+          "key": "test",
+          "name": "test",
+          "notes": "pack",
+          "packaging": "pack",
+          "price": 0,
+          "weight_unit": "KG",
+        },
+      ],
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={[]}
+  testID="productList"
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "marginVertical": 5,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "paddingHorizontal": 16,
+                },
+                undefined,
+                {
+                  "alignItems": "flex-start",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "flex-start",
+                }
+              }
+            >
+              <Image
+                source={
+                  {
+                    "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+                  }
+                }
+                style={
+                  {
+                    "borderRadius": 4,
+                    "height": 200,
+                    "width": 190,
+                  }
+                }
+              />
+              <View
+                style={
+                  {
+                    "alignItems": "flex-start",
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "alignItems": "flex-start",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                      "width": 190,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        {
+                          "textAlign": "left",
+                        },
+                        [
+                          {
+                            "textAlign": "left",
+                          },
+                          {
+                            "color": "rgba(0, 0, 0, 0.87)",
+                            "fontFamily": "System",
+                            "fontWeight": "500",
+                            "writingDirection": "ltr",
+                          },
+                          [
+                            {
+                              "fontSize": 20,
+                              "letterSpacing": 0.15,
+                              "lineHeight": 30,
+                              "marginVertical": 2,
+                            },
+                            {
+                              "fontSize": 12,
+                              "fontWeight": "bold",
+                              "marginRight": 5,
+                            },
+                          ],
+                        ],
+                      ]
+                    }
+                  >
+                    test
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    selectable={false}
+                    style={
+                      [
+                        {
+                          "color": "#364A15",
+                          "fontSize": 18,
+                        },
+                        {
+                          "marginTop": 5,
+                        },
+                        {
+                          "fontFamily": "Entypo",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+                <Text
+                  style={
+                    [
+                      {
+                        "color": "#000000",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                      },
+                      {
+                        "textAlign": "left",
+                      },
+                      {
+                        "color": "#808080",
+                        "fontSize": 12,
+                        "fontWeight": "400",
+                      },
+                    ]
+                  }
+                >
+                  Dorne
+                </Text>
+                <View
+                  style={
+                    {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 5,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#008D3E",
+                          "fontSize": 14,
+                          "fontWeight": "400",
+                        },
+                      ]
+                    }
+                  >
+                    $0.00
+                  </Text>
+                  <Text
+                    style={
+                      [
+                        {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        {
+                          "textAlign": "left",
+                        },
+                        {
+                          "color": "#808080",
+                          "fontSize": 12,
+                          "fontWeight": "400",
+                        },
+                      ]
+                    }
+                  >
+                     / pack
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

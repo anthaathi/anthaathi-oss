@@ -9,22 +9,27 @@ import {
 
 import dataJson from '../../config/data.json';
 
-const HomePage = props => {
+const HomePage = (props: {navigation: {navigate: (arg0: string) => void}}) => {
   return (
     <View>
-      <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
+      <CMSRenderer
+        components={[
+          {
+            _component: CoreComponentType.Header,
+            key: '123',
+            title: dataJson.core.header.title,
+            leftIcon: dataJson.core.header.leftIcon,
+            rightIcon: dataJson.core.header.rightIcon,
+            rightOnPress: () => {
+              props.navigation.navigate('Profile');
+            },
+          },
+        ]}
+      />
+      <ScrollView
+        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80}}>
         <CMSRenderer
           components={[
-            {
-              _component: CoreComponentType.Header,
-              key: '123',
-              title: dataJson.core.header.title,
-              leftIcon: dataJson.core.header.leftIcon,
-              rightIcon: dataJson.core.header.rightIcon,
-              rightOnPress: () => {
-                props.navigation.navigate('Profile');
-              },
-            },
             {
               _component: HomePageComponentType.DeliveringSelection,
               key: '124',
