@@ -43,24 +43,26 @@ export default function ProductList({products, handlePress}: ProductListProps) {
   }, [products]);
 
   return (
-    <VirtualizedList<ProductProps[]>
-      data={productSplitted}
-      contentContainerStyle={{paddingBottom: 200}}
-      testID="productList"
-      // initialNumToRender={4}
-      // horizontal
-      renderItem={({item}) => (
-        <ItemRendererColumn
-          item={item}
-          itemHeight={itemHeight}
-          itemWidth={itemWidth}
-          handlePress={handlePress}
-        />
-      )}
-      getItemCount={() => productSplitted.length}
-      keyExtractor={(item, index) => item?.[0]?.key || index + ''}
-      getItem={(res, index) => res[index]}
-    />
+    <View style={{marginTop: 10, marginHorizontal: 5}}>
+      <VirtualizedList<ProductProps[]>
+        data={productSplitted}
+        contentContainerStyle={{paddingBottom: 100}}
+        testID="productList"
+        // initialNumToRender={4}
+        // horizontal
+        renderItem={({item}) => (
+          <ItemRendererColumn
+            item={item}
+            itemHeight={itemHeight}
+            itemWidth={itemWidth}
+            handlePress={handlePress}
+          />
+        )}
+        getItemCount={() => productSplitted.length}
+        keyExtractor={(item, index) => item?.[0]?.key || index + ''}
+        getItem={(res, index) => res[index]}
+      />
+    </View>
   );
 }
 
@@ -112,17 +114,38 @@ function ItemRenderer({
     <View
       style={{
         marginVertical: 5,
+        width: '48%',
+        borderColor: '#e7e7e7',
+        backgroundColor: '#f0f0f0',
+        borderWidth: 1,
+        borderRadius: 12,
       }}
       key={item.key}>
-      <Card.Content style={{alignItems: 'flex-start'}}>
-        <Pressable style={{alignItems: 'flex-start'}} onPress={handlePress}>
+      <View>
+        <Pressable
+          style={{
+            alignItems: 'center',
+          }}
+          onPress={handlePress}>
           <Image
-            style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
+            style={{
+              height: itemHeight,
+              width: '100%',
+              marginHorizontal: 10,
+              backgroundColor: '#fff',
+              borderRadius: 4,
+            }}
             source={{
               uri: item.image,
             }}
           />
-          <View style={{alignItems: 'flex-start'}}>
+          <View
+            style={{
+              alignItems: 'flex-start',
+              backgroundColor: '#f0f0f0',
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+            }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -166,7 +189,7 @@ function ItemRenderer({
             </Text> */}
           </View>
         </Pressable>
-      </Card.Content>
+      </View>
     </View>
   );
 }

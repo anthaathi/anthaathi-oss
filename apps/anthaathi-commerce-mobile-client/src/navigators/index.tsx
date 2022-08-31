@@ -6,6 +6,7 @@ import ProfilePage from '../pages/ProfilePage';
 import {HomeBottomTab} from './HomeBottomTab';
 import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
+import {ProductTopTab} from './ProductTopTab';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,11 @@ const MyStack = () => {
       <Stack.Screen
         name="ProductListPage"
         component={ProductListPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductListPage1"
+        component={ProductTopTab}
         options={{headerShown: false}}
       />
       <Stack.Screen
