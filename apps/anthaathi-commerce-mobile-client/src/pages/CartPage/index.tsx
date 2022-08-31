@@ -1,13 +1,16 @@
 import {ScrollView, View} from 'react-native';
 import React from 'react';
-
 import CMSRenderer from '../../features/CMS';
 import {
   CartPageComponentType,
   CoreComponentType,
 } from '../../features/CMS/types/common';
+import {RootStackParamList} from '../../types/Route';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-const CartPage = () => {
+const CartPage: React.FC<
+  NativeStackScreenProps<RootStackParamList, 'CartPage'>
+> = props => {
   return (
     <View>
       <CMSRenderer

@@ -5,23 +5,17 @@ import {
   CartPageComponentType,
   CoreComponentType,
 } from '../../features/CMS/types/common';
-
 import CMSRenderer from '../../features/CMS';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/Route';
 
-const NotificationPage = props => {
+const NotificationPage: React.FC<
+  NativeStackScreenProps<RootStackParamList, 'NotificationPage'>
+> = props => {
   return (
     <View>
       <CMSRenderer
         components={[
-          {
-            _component: CoreComponentType.Header,
-            key: '123',
-            title: 'Notification',
-            leftIcon: dataJson.core.header.leftIcon,
-            leftOnPress: () => {
-              props.navigation.goBack();
-            },
-          },
           {
             _component: CoreComponentType.Notification,
             key: '11',

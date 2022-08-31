@@ -5,8 +5,12 @@ import {
   CoreComponentType,
 } from '../../features/CMS/types/common';
 import {ScrollView, View} from 'react-native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/Route';
 
-const CheckoutPage = () => {
+const CheckoutPage: React.FC<
+  NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>
+> = props => {
   return (
     <View>
       <CMSRenderer

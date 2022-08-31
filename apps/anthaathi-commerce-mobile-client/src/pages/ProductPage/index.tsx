@@ -6,26 +6,17 @@ import {
   HomePageComponentType,
 } from '../../features/CMS/types/common';
 import dataJson from '../../config/data.json';
+import {RootStackParamList} from '../../types/Route';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-const ProductPage = props => {
+const ProductPage = (
+  props: NativeStackScreenProps<RootStackParamList, 'ProductPage'>,
+) => {
   return (
-    <View>
+    <>
       <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
         <CMSRenderer
           components={[
-            {
-              _component: CoreComponentType.Header,
-              key: '123',
-              title: 'Product',
-              leftIcon: 'arrow-left',
-              leftOnPress: () => {
-                props.navigation.goBack();
-              },
-              rightIcon: 'account',
-              rightOnPress: () => {
-                props.navigation.navigate('Profile');
-              },
-            },
             {
               _component: HomePageComponentType.FeaturedProduct,
               key: '126',
@@ -47,7 +38,7 @@ const ProductPage = props => {
           ]}
         />
       </ScrollView>
-    </View>
+    </>
   );
 };
 

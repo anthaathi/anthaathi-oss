@@ -1,0 +1,378 @@
+{
+  "core": {
+    "homePage": {
+      "deliveringSection": {
+        "country": "UAE",
+        "location": "Dubai"
+      },
+      "heroSlide": {
+        "backgroundImage": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430",
+        "title": "New Arrivals",
+        "subTitle": "View all new arrivals",
+        "buttonTitle": "View All"
+      },
+      "heroCategories": {
+        "title": "Categories",
+        "items": [
+          {
+            "title": "Fruits",
+            "key": "test51",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+          },
+          {
+            " title": "Vegitables",
+            "key": "test52",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          },
+          {
+            "title": "Bulk Buy",
+            "key": "test53",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+          },
+          {
+            "title": "Organic",
+            "key": "test54",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+          },
+          {
+            "title": "Pre-Cut",
+            "key": "test55",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          },
+          {
+            "title": "Pre-Packed",
+            "key": "test56",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+          },
+          {
+            "title": "Gift Corner",
+            "key": "test57",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+          },
+          {
+            "title": "Juices",
+            "key": "test58",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          },
+          {
+            "title": "Fresh Blooms",
+            "key": "test59",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+          }
+        ]
+      },
+      "promotionalGrid": {
+        "items": [
+          {
+            "key": "12",
+            "heading": "Special Offer",
+            "button1Text": "SHOP NOW",
+            " image": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1"
+          },
+          {
+            "key": "13223",
+            "heading": "Organic",
+            "button1Text": "SHOP NOW",
+            "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1"
+          },
+          {
+            "key": "1234",
+            "heading": "Bulk Buy",
+            "button1Text": "SHOP NOW",
+            "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1"
+          }
+        ]
+      },
+      "featuredProduct": {
+        "productInfo": {
+          "name": "Dabbas Dates",
+          "blockInfo": {
+            "freeShipping": "Free shipping in UAE",
+            "inStock": "In stock, ready to ship",
+            "securePayments": "Secure Payments",
+            "isFresh": "Fresh"
+          },
+          "price": "105.0",
+          "currency": "AED",
+          "image": [
+            "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833",
+            "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+          ]
+        }
+      },
+      "blogPosts": {
+        "mainBlogs": {
+          "title": "How To Make The Perfect Veggie Burger With NRTC Fresh Vegetables",
+          "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Make-perfect-Veggie-burger-with-online-vegetables-Dubai-1200x600_360x.jpg?v=1653585741"
+        },
+        "blogs": [
+          {
+            "id": "2",
+            "title": "5 tips to cook delicious Vegetables from NRTC Fresh",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-tips-to-cook-delicious-vegetable-online-Dubai-1200x600_360x.jpg?v=1653586237",
+            "published_date": "May 26, 2022"
+          },
+          {
+            "id": "3",
+            "title": "5 Fruit and Vegetable preparation tips with NRTC Fresh",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_360x.jpg?v=1653586497",
+            "published_date": "May 28, 2022"
+          }
+        ]
+      },
+      "splitOfferCard": {
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705"
+      },
+      "textWithImage": {
+        "title": "How It Works",
+        "columns": [
+          {
+            "title": "Register",
+            "description": "Description Register",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          },
+          {
+            "title": "Select Products & Place Order",
+            "description": "Description Select Products & Place Order",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          },
+          {
+            "title": "Schedule Delivery",
+            "description": "Description Schedule Delivery",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+          }
+        ]
+      },
+      "featuredCollection": {
+        "products": [
+          {
+            "name": "Fruit Platter Production",
+            "key": "test5",
+            "price": "40.0",
+            "currency": "AED",
+            "weight_unit": "Piece",
+            "packaging": "pack",
+            "notes": "(10 pcs of Sticks)",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-02-17-at-16.47.25_360x.jpg?v=1653585638"
+          },
+          {
+            "name": "Dabbas Dates",
+            "key": "test6",
+            "price": "105.0",
+            "currency": "AED",
+            "weight_unit": "KG",
+            "packaging": "Box",
+            "notes": "Approx 8kg per box.",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+          },
+          {
+            "name": "Sweet Potato Orange (Cut Cube)",
+            "key": "test7",
+            "price": "7.35",
+            "currency": "AED",
+            "weight_unit": "Pack",
+            "packaging": "pack",
+            "notes": "250g",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Sweet_Potato_Orange-1_360x.jpg?v=1653583303"
+          },
+          {
+            "name": "Apricot",
+            "key": "test8",
+            "price": "10.0",
+            "currency": "AED",
+            "weight_unit": "pack",
+            "packaging": "pack",
+            "notes": "approx 1kg to 1.15 kg per pack",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-19-at-5.39.55-PM-removebg-preview_1800x1800.jpg?v=1653585843"
+          },
+          {
+            "name": "Nectarine",
+            "key": "test9",
+            "price": "6.0",
+            "currency": "AED",
+            "weight_unit": "pack",
+            "packaging": "pack",
+            "notes": "Approx. 700g per packet.",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-25-at-12.39.45-PM-removebg-preview-removebg-preview-1_360x.jpg?v=1653585875"
+          },
+          {
+            "name": "Strawberry",
+            "key": "test10",
+            "price": "50.0",
+            "currency": "AED",
+            "weight_unit": "KG",
+            "packaging": "box",
+            "notes": "Approx. 900g to 1 kg per box",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/strawberry-morocco_1800x1800.jpg?v=1653585855"
+          }
+        ]
+      }
+    },
+    "profilePage": {
+      "header": {
+        "leftIcon": "arrow-left",
+        "title": "User info"
+      },
+      "walletBalance": {
+        "title": "Wallet Balance",
+        "balance": "200",
+        "currency": "AED",
+        "buttonTitle": "Add To Wallet"
+      },
+      "personalInformation": {
+        "title": "Personal Information̦",
+        "personalInfo": {
+          "name": "Omkar Yadav",
+          "email": "omkaryadav@gmail.com",
+          "mobile": "+91 9898989898",
+          "alternateMobile": "+91 9898989898"
+        }
+      },
+      "addressInformation": [
+        {
+          "address": "Nagala park",
+          "country": "India",
+          "city": "Kolhapur",
+          "apartment": "13 A-Wing, 3rd floor, The Empire building",
+          "landmark": "Near Pitali ganapati",
+          "postalCode": "9898989898"
+        },
+        {
+          "address": "Nagala park",
+          "country": "India",
+          "city": "Kolhapur",
+          "apartment": "13 A-Wing, 3rd floor, The Empire building",
+          "landmark": "Near Pitali ganapati",
+          "postalCode": "9898989898"
+        }
+      ]
+    },
+    "productPage": {
+      "featuredProduct": {
+        "productInfo": {
+          "name": "Dabbas Dates",
+          "listInfo": {
+            "description": "100% fresh. Sourced from UAE. Benefits: Dates contain vitamins such as B1, B2, B3 and B5, as well as A1 and C. Dates are loaded with potassium and rich in Iron, which is highly recommended for those who suffer from iron deficiency.",
+            "shippingInformation": "Shipping Information"
+          },
+          "blockInfo": {
+            "freeShipping": "Free shipping in UAE",
+            "inStock": "In stock, ready to ship",
+            "securePayments": "Secure Payments",
+            "isFresh": "Fresh"
+          },
+          "price": "105.0",
+          "currency": "AED",
+          "image": [
+            "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833",
+            "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+          ]
+        }
+      },
+      "featuredCollection": {
+        "products": [
+          {
+            "name": "Fruit Platter Production",
+            "key": "test5",
+            "price": "40.0",
+            "currency": "AED",
+            "weight_unit": "Piece",
+            "packaging": "pack",
+            "notes": "(10 pcs of Sticks)",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-02-17-at-16.47.25_360x.jpg?v=1653585638"
+          },
+          {
+            "name": "Dabbas Dates",
+            "key": "test6",
+            "price": "105.0",
+            "currency": "AED",
+            "weight_unit": "KG",
+            "packaging": "Box",
+            "notes": "Approx 8kg per box.",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+          },
+          {
+            "name": "Sweet Potato Orange (Cut Cube)",
+            "key": "test7",
+            "price": "7.35",
+            "currency": "AED",
+            "weight_unit": "Pack",
+            "packaging": "pack",
+            "notes": "250g",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Sweet_Potato_Orange-1_360x.jpg?v=1653583303"
+          },
+          {
+            "name": "Apricot",
+            "key": "test8",
+            "price": "10.0",
+            "currency": "AED",
+            "weight_unit": "pack",
+            "packaging": "pack",
+            "notes": "approx 1kg to 1.15 kg per pack",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-19-at-5.39.55-PM-removebg-preview_1800x1800.jpg?v=1653585843"
+          },
+          {
+            "name": "Nectarine",
+            "key": "test9",
+            "price": "6.0",
+            "currency": "AED",
+            "weight_unit": "pack",
+            "packaging": "pack",
+            "notes": "Approx. 700g per packet.",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-25-at-12.39.45-PM-removebg-preview-removebg-preview-1_360x.jpg?v=1653585875"
+          },
+          {
+            "name": "Strawberry",
+            "key": "test10",
+            "price": "50.0",
+            "currency": "AED",
+            "weight_unit": "KG",
+            "packaging": "box",
+            "notes": "Approx. 900g to 1 kg per box",
+            "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/strawberry-morocco_1800x1800.jpg?v=1653585855"
+          }
+        ]
+      }
+    },
+    "productListPage": {
+      "subCategoryList": [
+        {
+          "id": "1",
+          "title": "Fruits"
+        },
+        {
+          "id": "2",
+          "title": "Vegitables"
+        },
+        {
+          "id": "3",
+          "title": "Bulk Buy"
+        },
+        {
+          "id": "4",
+          "title": "Organic"
+        },
+        {
+          "id": "5",
+          "title": "Pre-Cut"
+        },
+        {
+          "id": "6",
+          "title": "Pre-Packed"
+        },
+        {
+          "id": "7",
+          "title": "Gift Corner"
+        },
+        {
+          "id": "8",
+          "title": "Juices"
+        },
+        {
+          "id": "9",
+          "title": "Fresh Blooms"
+        }
+      ]
+    }
+  }
+}

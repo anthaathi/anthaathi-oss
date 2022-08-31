@@ -12,7 +12,8 @@
     "extract": "formatjs extract \"src/**/*.{ts,tsx,vue}\" --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/locales/en-US.json",
     "compile": "formatjs compile-folder --ast --format simple src/locales src/compiled-locales",
     "i18n": "yarn extract && yarn compile",
-    "relay": "relay-compiler ./relay.json"
+    "relay": "relay-compiler ./relay.json",
+    "gen:logo": "yarn react-native generate-bootsplash ../../assets/logo.png"
   },
   "dependencies": {
     "@chatwoot/react-native-widget": "^0.0.6",

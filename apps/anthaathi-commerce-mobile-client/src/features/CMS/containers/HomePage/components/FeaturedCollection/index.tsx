@@ -31,7 +31,7 @@ export default function FeaturedCollection({
   handlePress,
 }: FeaturedCollectionProps) {
   const intl = useIntl();
-  const itemHeight = useResponsiveValue([160, 250, 290, 330]);
+  const itemHeight = useResponsiveValue([140, 250, 290, 330]);
   const itemWidth = useResponsiveValue([150, 240, 280, 320]);
 
   return (
@@ -41,9 +41,10 @@ export default function FeaturedCollection({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginHorizontal: 10,
+          marginHorizontal: 12,
+          marginVertical: 8,
         }}>
-        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
+        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 16}}>
           {title}
         </Text>
 
@@ -60,7 +61,7 @@ export default function FeaturedCollection({
         </Pressable>
       </View>
 
-      <View>
+      <View style={{marginLeft: 12, marginRight: 12}}>
         <VirtualizedList<ProductProps>
           testID="productList"
           data={products}
@@ -94,34 +95,47 @@ function ItemRenderer({
   const intl = useIntl();
   return (
     <View
-      style={{
-        marginVertical: 5,
-        marginHorizontal: 10,
-      }}
+      style={[
+        {
+          marginVertical: 5,
+          marginRight: 8,
+        },
+      ]}
       key={item.key}>
-      <Card.Content style={{alignItems: 'center'}}>
+      <View style={{alignItems: 'center'}}>
         <Pressable
           style={{alignItems: 'flex-start'}}
           onPress={item.onProductPress}>
           <Image
-            style={{height: itemHeight, width: itemWidth, borderRadius: 4}}
             source={{
               uri: item.image,
+              height: itemHeight,
+              width: itemWidth,
             }}
+            style={{
+              borderRadius: 4,
+            }}
+            resizeMode="cover"
           />
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
+              display: 'flex',
+              width: itemWidth,
+              marginTop: 6,
             }}>
-            <Title style={{fontSize: 14, marginRight: 10, fontWeight: 'bold'}}>
+            <Title
+              style={{
+                fontSize: 14,
+                marginRight: 10,
+                fontWeight: 'bold',
+                lineHeight: 16,
+              }}>
               {item.name}
             </Title>
-            <Entypo name="info-with-circle" color="#364A15" size={18} />
+            <View style={{flex: 1}} />
           </View>
-          <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-            Dorne
-          </Text>
           <View
             style={{
               flexDirection: 'row',
@@ -144,7 +158,7 @@ function ItemRenderer({
             {item.notes}
           </Text>
         </Pressable>
-      </Card.Content>
+      </View>
     </View>
   );
 }
