@@ -8,24 +8,14 @@ import {
 } from '../../features/CMS/types/common';
 
 import dataJson from '../../config/data.json';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/Route';
 
-const HomePage = (props: {navigation: {navigate: (arg0: string) => void}}) => {
+const HomePage = (
+  props: NativeStackScreenProps<RootStackParamList, 'HomePage'>,
+) => {
   return (
     <View>
-      <CMSRenderer
-        components={[
-          {
-            _component: CoreComponentType.Header,
-            key: '123',
-            title: dataJson.core.header.title,
-            leftIcon: dataJson.core.header.leftIcon,
-            rightIcon: dataJson.core.header.rightIcon,
-            rightOnPress: () => {
-              props.navigation.navigate('Profile');
-            },
-          },
-        ]}
-      />
       <ScrollView
         contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80}}>
         <CMSRenderer

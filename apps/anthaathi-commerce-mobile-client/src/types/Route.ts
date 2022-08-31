@@ -9,5 +9,3 @@ export type RootStackParamList = {
   HomePage: {} | undefined;
   MyOrdersPage: {} | undefined;
 };
-
-export type MainStackParamList = {};

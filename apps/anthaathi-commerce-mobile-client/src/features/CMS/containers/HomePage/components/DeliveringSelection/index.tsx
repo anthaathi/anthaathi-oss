@@ -8,15 +8,8 @@ import {
   View,
 } from 'react-native';
 import {useIntl} from 'react-intl';
-import {
-  Divider,
-  IconButton,
-  Text,
-  ThemeBase,
-  useTheme,
-} from 'react-native-paper';
+import {Divider, IconButton, Text, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 import {HomePageComponentType} from '../../../../types/common';
 import CMSBottomSheet from '../../../Core/components/CMSBottomSheet';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -30,14 +23,14 @@ export interface DeliveringSelectionProps {
 
 export function DeliveringSelection(props: DeliveringSelectionProps) {
   const intl = useIntl();
-  const theme: ThemeBase = useTheme();
+  const theme = useTheme();
   const [isVisible, setVisible] = React.useState(false);
 
   return (
     <View testID="deliveringSelection">
       <TouchableHighlight
         style={{marginVertical: 5}}
-        underlayColor={(theme.colors as MD3Colors).primary}
+        underlayColor={theme.colors.primary}
         onPress={() => {
           setVisible(!isVisible);
         }}>
@@ -47,9 +40,9 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
             {
               borderStyle: 'solid',
               borderWidth: 1,
-              borderColor: (theme.colors as MD3Colors).primary,
+              borderColor: theme.colors.primary,
               borderRadius: 4,
-              backgroundColor: (theme.colors as MD3Colors).primaryContainer,
+              backgroundColor: theme.colors.primaryContainer,
             },
           ]}>
           <View style={{...styles.alignCenter, ...{width: 38}}}>
@@ -74,7 +67,9 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
         </View>
       </TouchableHighlight>
       <CMSBottomSheet
-        bottomSheetTitle={'Choose delivery location'}
+        bottomSheetTitle={intl.formatMessage({
+          defaultMessage: 'Choose delivery location',
+        })}
         bottomSheetIconColor="#0A2463"
         bottomSheetStyle={{
           backgroundColor: 'white',
@@ -131,7 +126,7 @@ const AddressComponent = ({
           </Text>
         </View>
       </View>
-      <Divider bold={true} style={{marginVertical: 5}} />
+      <Divider style={{marginVertical: 5}} />
     </TouchableOpacity>
   );
 };

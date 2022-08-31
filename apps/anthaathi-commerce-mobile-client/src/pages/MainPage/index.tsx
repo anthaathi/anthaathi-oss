@@ -11,7 +11,7 @@ import {MyOrdersPage} from '../MyOrdersPage';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
-export function MainPage() {
+export default function MainPage() {
   return (
     <Tab.Navigator
       screenOptions={{

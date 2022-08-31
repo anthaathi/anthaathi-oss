@@ -1,5 +1,11 @@
 {
   "core": {
+    "header": {
+      "leftIcon": "menu",
+      "title": "NRTCFresh",
+      "logoImage": "src",
+      "rightIcon": "account"
+    },
     "homePage": {
       "deliveringSection": {
         "country": "UAE",
@@ -8,7 +14,7 @@
       "heroSlide": {
         "backgroundImage": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430",
         "title": "New Arrivals",
-        "subTitle": "View all new arrivals",
+        "subTitle": "Subtitle",
         "buttonTitle": "View All"
       },
       "heroCategories": {
