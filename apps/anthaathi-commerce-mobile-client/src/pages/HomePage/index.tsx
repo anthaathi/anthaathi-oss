@@ -35,6 +35,28 @@ const HomePage = (props: {navigation: {navigate: (arg0: string) => void}}) => {
               key: '124',
               country: dataJson.core.homePage.deliveringSection.country,
               location: dataJson.core.homePage.deliveringSection.location,
+              userAddresses: [
+                {
+                  key: 1,
+                  title: 'Apartment',
+                  subtitle: '14b street, AI Quoz Industrial Area 4',
+                },
+                {
+                  key: 2,
+                  title: 'Apartment',
+                  subtitle: '1A street, Discovery Gardens',
+                },
+                {
+                  key: 3,
+                  title: 'Building No. 17',
+                  subtitle: '14b street, AI Quoz Industrial Area 4',
+                },
+                {
+                  key: 4,
+                  title: 'Apartment',
+                  subtitle: '1A street, Discovery Gardens',
+                },
+              ],
             },
             {
               _component: HomePageComponentType.HeroSlide,
