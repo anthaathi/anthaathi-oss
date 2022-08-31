@@ -39,8 +39,13 @@ export default function HeroCategories({
   return (
     <View testID="heroCategory">
       <Text
-        variant="titleLarge"
-        style={{marginBottom: 9, fontSize: 16, fontWeight: '600'}}>
+        style={{
+          marginBottom: 9,
+          fontSize: 18,
+          fontWeight: '600',
+          marginHorizontal: 6,
+          marginVertical: 6,
+        }}>
         {title}
       </Text>
 

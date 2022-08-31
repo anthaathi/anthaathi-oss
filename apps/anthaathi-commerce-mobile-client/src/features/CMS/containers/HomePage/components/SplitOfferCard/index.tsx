@@ -1,7 +1,7 @@
 import {View, Image} from 'react-native';
 import React from 'react';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
-import {Button, Text} from 'react-native-paper';
+import {Button, Colors, Text} from 'react-native-paper';
 import {HomePageComponentType} from '../../../../types/common';
 
 export interface SplitCardOfferProps {
@@ -24,6 +24,10 @@ const SplitOfferCard = (props: SplitCardOfferProps) => {
         flexDirection: itemWidth === '90%' ? 'column' : 'row-reverse',
         alignItems: 'center',
         marginVertical: 10,
+        marginTop: 48,
+        paddingTop: 48,
+        paddingBottom: 48,
+        backgroundColor: Colors.green100,
       }}
       testID="splitCardOffer">
       <Image
