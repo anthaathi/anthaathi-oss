@@ -87,6 +87,11 @@ const MyStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="ProductListPage1"
+        component={ProductTopTab}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="ProductPage"
         component={ProductPage}
         options={{headerShown: false}}
