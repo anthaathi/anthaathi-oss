@@ -14,6 +14,7 @@ export enum CoreComponentType {
   CMSText = 'core.cms-text',
   CMSTextInput = 'core.cms-text-input',
   CMSButton = 'core.cms-button',
+  CMSFABButton = 'core.cms-fab-button',
 }
 
 export enum HomePageComponentType {

@@ -30,7 +30,7 @@ const BasketItem = (props: BasketItemProps) => {
   return (
     <View
       style={{
-        marginHorizontal: 10,
+        marginHorizontal: 5,
       }}
       testID="basketItem">
       <View

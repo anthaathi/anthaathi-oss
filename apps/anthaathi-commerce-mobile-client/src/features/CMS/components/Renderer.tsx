@@ -33,6 +33,7 @@ import {CartCardCMSInput} from '../containers/CartPage/components/CartCard';
 import {TextInputCMSInput} from '../containers/Core/components/CMSTextInput';
 import {ButtonCMSInput} from '../containers/Core/components/CMSButton';
 import {ProductListCMSInput} from '../containers/ProductListPage/components/ProductList';
+import {FABButtonCMSInput} from '../containers/Core/components/CMSFABButton';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -46,6 +47,7 @@ const renderer = [
   TextCMSInput,
   TextInputCMSInput,
   ButtonCMSInput,
+  FABButtonCMSInput,
   // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,
