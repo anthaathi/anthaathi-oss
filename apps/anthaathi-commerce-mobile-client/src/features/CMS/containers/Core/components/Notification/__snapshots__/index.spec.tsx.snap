@@ -14,15 +14,16 @@ exports[`Notification should render the item 1`] = `
   <View
     style={
       {
+        "alignItems": "center",
+        "display": "flex",
         "flexDirection": "row",
-        "justifyContent": "space-between",
       }
     }
   >
     <View
       style={
         {
-          "flexDirection": "row",
+          "padding": 12,
         }
       }
     >
@@ -32,7 +33,7 @@ exports[`Notification should render the item 1`] = `
         style={
           [
             {
-              "color": undefined,
+              "color": "#888",
               "fontSize": 18,
             },
             undefined,
@@ -45,6 +46,94 @@ exports[`Notification should render the item 1`] = `
           ]
         }
       />
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#000000",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                },
+              ]
+            }
+          >
+            subtitle1
+          </Text>
+        </View>
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#364A15",
+                "fontSize": 14,
+                "fontWeight": "400",
+              },
+            ]
+          }
+        >
+          2d
+        </Text>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 16,
+              "fontWeight": "600",
+            },
+          ]
+        }
+      >
+        title
+      </Text>
       <Text
         style={
           [
@@ -60,80 +149,14 @@ exports[`Notification should render the item 1`] = `
               "color": "#364A15",
               "fontSize": 14,
               "fontWeight": "400",
-              "marginLeft": 10,
             },
           ]
         }
       >
-        subtitle1
+        subtitle2
       </Text>
     </View>
-    <Text
-      style={
-        [
-          {
-            "color": "#000000",
-            "fontFamily": "System",
-            "fontWeight": "400",
-          },
-          {
-            "textAlign": "left",
-          },
-          {
-            "color": "#364A15",
-            "fontSize": 14,
-            "fontWeight": "400",
-          },
-        ]
-      }
-    >
-      2d
-    </Text>
   </View>
-  <Text
-    style={
-      [
-        {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "color": "#364A15",
-          "fontSize": 16,
-          "fontWeight": "600",
-          "marginLeft": 28,
-        },
-      ]
-    }
-  >
-    title
-  </Text>
-  <Text
-    style={
-      [
-        {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "color": "#364A15",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "marginLeft": 28,
-        },
-      ]
-    }
-  >
-    subtitle2
-  </Text>
   <View
     bold={true}
     style={

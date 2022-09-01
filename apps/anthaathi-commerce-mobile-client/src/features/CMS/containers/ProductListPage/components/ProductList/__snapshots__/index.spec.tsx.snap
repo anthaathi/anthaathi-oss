@@ -4,7 +4,6 @@ exports[`ProductList should render the item 1`] = `
 <View
   style={
     {
-      "marginHorizontal": 5,
       "marginTop": 10,
     }
   }
@@ -58,6 +57,7 @@ exports[`ProductList should render the item 1`] = `
               "flexDirection": "row",
               "justifyContent": "space-between",
               "marginBottom": 15,
+              "marginHorizontal": 10,
             }
           }
         >
@@ -87,34 +87,41 @@ exports[`ProductList should render the item 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={
-                  {
-                    "alignItems": "center",
-                  }
-                }
               >
-                <Image
-                  source={
-                    {
-                      "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
-                    }
-                  }
+                <View
                   style={
                     {
-                      "backgroundColor": "#fff",
-                      "borderRadius": 4,
                       "height": 200,
-                      "marginHorizontal": 10,
                       "width": "100%",
                     }
                   }
-                />
+                >
+                  <Image
+                    source={
+                      {
+                        "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+                      }
+                    }
+                    style={
+                      {
+                        "backgroundColor": "#fff",
+                        "borderTopLeftRadius": 12,
+                        "borderTopRightRadius": 12,
+                        "height": 200,
+                        "paddingHorizontal": "0.1%",
+                        "width": "99.9%",
+                      }
+                    }
+                  />
+                </View>
                 <View
                   style={
                     {
                       "alignItems": "flex-start",
                       "backgroundColor": "#f0f0f0",
-                      "paddingHorizontal": 10,
+                      "borderBottomLeftRadius": 12,
+                      "borderBottomRightRadius": 12,
+                      "paddingHorizontal": 8,
                       "paddingVertical": 5,
                     }
                   }

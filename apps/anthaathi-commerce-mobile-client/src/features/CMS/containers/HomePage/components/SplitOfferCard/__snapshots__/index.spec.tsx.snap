@@ -5,8 +5,12 @@ exports[`SplitOfferCard should render the item 1`] = `
   style={
     {
       "alignItems": "center",
+      "backgroundColor": "#c8e6c9",
       "flexDirection": "row-reverse",
+      "marginTop": 48,
       "marginVertical": 10,
+      "paddingBottom": 48,
+      "paddingTop": 48,
     }
   }
   testID="splitCardOffer"

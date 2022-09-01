@@ -16,13 +16,14 @@ exports[`HeroCategories should fire event when click on the categories 1`] = `
           "textAlign": "left",
         },
         {
-          "fontSize": 16,
+          "fontSize": 18,
           "fontWeight": "600",
           "marginBottom": 9,
+          "marginHorizontal": 6,
+          "marginVertical": 6,
         },
       ]
     }
-    variant="titleLarge"
   >
     Test
   </Text>
@@ -239,13 +240,14 @@ exports[`HeroCategories should render the item 1`] = `
           "textAlign": "left",
         },
         {
-          "fontSize": 16,
+          "fontSize": 18,
           "fontWeight": "600",
           "marginBottom": 9,
+          "marginHorizontal": 6,
+          "marginVertical": 6,
         },
       ]
     }
-    variant="titleLarge"
   >
     Test
   </Text>

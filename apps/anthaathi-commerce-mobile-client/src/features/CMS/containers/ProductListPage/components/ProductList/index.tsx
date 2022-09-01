@@ -1,11 +1,10 @@
 import * as React from 'react';
-import {Card, Text, Title} from 'react-native-paper';
+import {Avatar, Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {ProductListPageComponentType} from '../../../../types/common';
-import {useNavigation} from '@react-navigation/native';
 
 export interface ProductProps {
   name: string;
@@ -43,7 +42,7 @@ export default function ProductList({products, handlePress}: ProductListProps) {
   }, [products]);
 
   return (
-    <View style={{marginTop: 10, marginHorizontal: 5}}>
+    <View style={{marginTop: 10}}>
       <VirtualizedList<ProductProps[]>
         data={productSplitted}
         contentContainerStyle={{paddingBottom: 100}}
@@ -84,6 +83,7 @@ function ItemRendererColumn({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 15,
+        marginHorizontal: 10,
       }}>
       {item.map(element => (
         <ItemRenderer
@@ -115,7 +115,7 @@ function ItemRenderer({
       style={{
         marginVertical: 5,
         width: '48%',
-        borderColor: '#e7e7e7',
+        borderColor: item.name === 'Dabbas Dates' ? '#008D3E' : '#e7e7e7',
         backgroundColor: '#f0f0f0',
         borderWidth: 1,
         borderRadius: 12,
@@ -123,28 +123,65 @@ function ItemRenderer({
       key={item.key}>
       <View>
         <Pressable
-          style={{
-            alignItems: 'center',
-          }}
-          onPress={handlePress}>
-          <Image
-            style={{
-              height: itemHeight,
-              width: '100%',
-              marginHorizontal: 10,
-              backgroundColor: '#fff',
-              borderRadius: 4,
-            }}
-            source={{
-              uri: item.image,
-            }}
-          />
+          onPress={handlePress}
+          onLongPress={() => {
+            console.log('long press product add');
+          }}>
+          <View style={{height: itemHeight, width: '100%'}}>
+            <Image
+              style={{
+                borderTopLeftRadius: 12,
+                borderTopRightRadius: 12,
+                height: itemHeight,
+                width: '99.9%',
+                paddingHorizontal: '0.1%',
+                backgroundColor: '#fff',
+              }}
+              source={{
+                uri: item.image,
+              }}
+            />
+            {item.name === 'Dabbas Dates' && (
+              <>
+                <Pressable
+                  onPress={() => {
+                    console.log('press product minus');
+                  }}
+                  style={{
+                    position: 'absolute',
+                    left: 5,
+                    top: 5,
+                  }}>
+                  <Avatar.Icon
+                    icon="minus"
+                    size={32}
+                    style={{
+                      backgroundColor: 'red',
+                    }}
+                  />
+                </Pressable>
+                <Pressable
+                  onPress={() => {
+                    console.log('press add product');
+                  }}
+                  style={{
+                    position: 'absolute',
+                    right: 5,
+                    top: 5,
+                  }}>
+                  <Avatar.Text label={'1'} size={32} />
+                </Pressable>
+              </>
+            )}
+          </View>
           <View
             style={{
               alignItems: 'flex-start',
               backgroundColor: '#f0f0f0',
-              paddingHorizontal: 10,
               paddingVertical: 5,
+              paddingHorizontal: 8,
+              borderBottomLeftRadius: 12,
+              borderBottomRightRadius: 12,
             }}>
             <View
               style={{

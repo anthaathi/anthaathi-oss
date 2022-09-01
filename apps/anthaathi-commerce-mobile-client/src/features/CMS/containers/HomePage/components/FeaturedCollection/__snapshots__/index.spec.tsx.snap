@@ -10,7 +10,8 @@ exports[`FeaturedCollection should render the item 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "marginHorizontal": 10,
+        "marginHorizontal": 12,
+        "marginVertical": 8,
       }
     }
   >
@@ -26,7 +27,7 @@ exports[`FeaturedCollection should render the item 1`] = `
             "textAlign": "left",
           },
           {
-            "fontSize": 20,
+            "fontSize": 16,
             "marginBottom": 9,
           },
         ]
@@ -74,7 +75,14 @@ exports[`FeaturedCollection should render the item 1`] = `
       </Text>
     </View>
   </View>
-  <View>
+  <View
+    style={
+      {
+        "marginLeft": 12,
+        "marginRight": 12,
+      }
+    }
+  >
     <RCTScrollView
       data={
         [
@@ -121,23 +129,19 @@ exports[`FeaturedCollection should render the item 1`] = `
         >
           <View
             style={
-              {
-                "marginHorizontal": 10,
-                "marginVertical": 5,
-              }
+              [
+                {
+                  "marginRight": 8,
+                  "marginVertical": 5,
+                },
+              ]
             }
           >
             <View
               style={
-                [
-                  {
-                    "paddingHorizontal": 16,
-                  },
-                  undefined,
-                  {
-                    "alignItems": "center",
-                  },
-                ]
+                {
+                  "alignItems": "center",
+                }
               }
             >
               <View
@@ -160,16 +164,17 @@ exports[`FeaturedCollection should render the item 1`] = `
                 }
               >
                 <Image
+                  resizeMode="cover"
                   source={
                     {
+                      "height": 250,
                       "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+                      "width": 240,
                     }
                   }
                   style={
                     {
                       "borderRadius": 4,
-                      "height": 250,
-                      "width": 240,
                     }
                   }
                 />
@@ -177,7 +182,10 @@ exports[`FeaturedCollection should render the item 1`] = `
                   style={
                     {
                       "alignItems": "center",
+                      "display": "flex",
                       "flexDirection": "row",
+                      "marginTop": 6,
+                      "width": 240,
                     }
                   }
                 >
@@ -212,6 +220,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                             {
                               "fontSize": 14,
                               "fontWeight": "bold",
+                              "lineHeight": 16,
                               "marginRight": 10,
                             },
                           ],
@@ -221,49 +230,14 @@ exports[`FeaturedCollection should render the item 1`] = `
                   >
                     test
                   </Text>
-                  <Text
-                    allowFontScaling={false}
-                    selectable={false}
+                  <View
                     style={
-                      [
-                        {
-                          "color": "#364A15",
-                          "fontSize": 18,
-                        },
-                        undefined,
-                        {
-                          "fontFamily": "Entypo",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                        {},
-                      ]
+                      {
+                        "flex": 1,
+                      }
                     }
-                  >
-                    
-                  </Text>
+                  />
                 </View>
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "#808080",
-                        "fontSize": 12,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                  Dorne
-                </Text>
                 <View
                   style={
                     {
