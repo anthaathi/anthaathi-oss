@@ -12,19 +12,6 @@ const ProfilePage = (props: {
 }) => {
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
-      <CMSRenderer
-        components={[
-          {
-            _component: CoreComponentType.Header,
-            key: '123',
-            title: dataJson.core.profilePage.header.title,
-            leftIcon: 'menu',
-            leftOnPress: () => {
-              props.navigation.goBack();
-            },
-          },
-        ]}
-      />
       <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
         <CMSRenderer
           components={[
@@ -33,7 +20,7 @@ const ProfilePage = (props: {
               key: '1231',
               userData: {
                 name: 'OY',
-                photo: 'https://reactnative.dev/img/tiny_logo.png',
+                photo: '',
               },
               size: 120,
               type: 'image',

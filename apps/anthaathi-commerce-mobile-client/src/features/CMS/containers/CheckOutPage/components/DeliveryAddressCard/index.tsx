@@ -1,7 +1,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {Pressable, View} from 'react-native';
-import {Card, Text} from 'react-native-paper';
+import {Card, Text, TouchableRipple} from 'react-native-paper';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressCardProps {
@@ -15,16 +15,16 @@ export interface DeliveryAddressCardProps {
 const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
   const intl = useIntl();
   return (
-    <Card
+    <TouchableRipple
+      onPress={() => {}}
       style={{
-        marginHorizontal: 10,
-        borderColor: '#E3E2E7',
-        borderWidth: 1,
-        borderRadius: 4,
-        marginVertical: 5,
+        borderRadius: 10,
+        margin: 12,
+        backgroundColor: '#FFF',
+        padding: 20,
       }}
       testID="deliveryAddressCard">
-      <Card.Content>
+      <View>
         <Text
           style={{
             color: '#364A15',
@@ -56,8 +56,8 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
             {': ' + props.mobileNumber}
           </Text>
         </View>
-      </Card.Content>
-    </Card>
+      </View>
+    </TouchableRipple>
   );
 };
 

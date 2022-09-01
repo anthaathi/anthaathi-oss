@@ -3,12 +3,14 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import ProductListPage from '../../pages/ProductListPage';
 import dataJson from '../../config/data.json';
 import {Colors} from 'react-native-paper';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/Route';
 
 const Tab = createMaterialTopTabNavigator();
 
-export function ProductTopTab(props: {
-  navigation: {navigate: (arg0: string) => void};
-}) {
+export function ProductTopTab(
+  props: NativeStackScreenProps<RootStackParamList, 'ProductListPage1'>,
+) {
   return (
     <>
       <Tab.Navigator

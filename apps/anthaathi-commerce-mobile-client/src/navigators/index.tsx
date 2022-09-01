@@ -7,10 +7,11 @@ import MainPage from '../pages/MainPage';
 import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
-import {Image, StyleSheet, View} from 'react-native';
+import {I18nManager, Image, StyleSheet, View} from 'react-native';
 import {Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
+import RNRestart from 'react-native-restart';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,9 +21,25 @@ export interface ImageHeaderProps {
 }
 
 function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
+  async function changeLanguage() {
+    if (I18nManager.isRTL) {
+      await I18nManager.forceRTL(false);
+    } else {
+      if (!I18nManager.isRTL) {
+        await I18nManager.forceRTL(true);
+      }
+    }
+    RNRestart.Restart();
+  }
+
   return (
     <View style={styles.wrapper}>
-      <View style={[styles.container, hasBackButton && {paddingLeft: 0}]}>
+      <View
+        style={[
+          styles.container,
+          I18nManager.isRTL ? styles.containerRTL : styles.containerLTR,
+          hasBackButton && {paddingLeft: 0},
+        ]}>
         {hasBackButton && (
           <IconButton color={Colors.grey800} icon="arrow-left" />
         )}
@@ -37,7 +54,11 @@ function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
 
         <View style={{flexGrow: 1}} />
 
-        <IconButton onPress={onCartTap} color={Colors.grey800} icon="phone" />
+        <IconButton
+          onPress={() => changeLanguage()}
+          color={Colors.grey800}
+          icon="translate"
+        />
 
         <IconButton
           onPress={onCartTap}
@@ -45,7 +66,11 @@ function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
           icon="shopping"
         />
       </View>
-      <View style={{paddingRight: 32, paddingLeft: 12, paddingBottom: 12}}>
+      <View
+        style={[
+          I18nManager.isRTL ? styles.containerRTL : styles.containerLTR,
+          {paddingTop: 0, paddingBottom: 12},
+        ]}>
         <TextInput placeholder="Search" dense underlineColor="transparent" />
       </View>
     </View>
@@ -59,13 +84,14 @@ const styles = StyleSheet.create({
     width: '100%',
     marginLeft: -16,
   },
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingTop: 12,
-    paddingBottom: 12,
+  container: {flex: 1, flexDirection: 'row', paddingTop: 12, paddingBottom: 12},
+  containerLTR: {
     paddingRight: 24,
     paddingLeft: 24,
+  },
+  containerRTL: {
+    paddingLeft: 35,
+    paddingRight: 0,
   },
   image: {
     width: 74,

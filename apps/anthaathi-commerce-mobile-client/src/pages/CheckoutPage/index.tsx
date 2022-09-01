@@ -7,6 +7,7 @@ import {
 import {ScrollView, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
+import {Button} from 'react-native-paper';
 
 const CheckoutPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>
@@ -99,6 +100,15 @@ const CheckoutPage: React.FC<
             },
           ]}
         />
+
+        <Button
+          style={{marginTop: 12}}
+          onPress={() => {
+            props.navigation.navigate('HomePage');
+          }}
+          mode="contained">
+          Purchase
+        </Button>
       </ScrollView>
     </View>
   );

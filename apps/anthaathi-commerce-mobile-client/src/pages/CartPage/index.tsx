@@ -125,11 +125,11 @@ const CartPage: React.FC<
             {
               _component: CartPageComponentType.PricingCard,
               key: '1',
-              subtotal: {currency: 'USD', price: 10.1},
-              discount: {currency: 'USD', price: 10.1},
-              promoDiscount: {currency: 'USD', price: 10.1},
-              shippingCharges: {currency: 'USD', price: 0},
-              total: {currency: 'USD', price: 10.1},
+              subtotal: {currency: 'AED', price: 10.1},
+              discount: {currency: 'AED', price: 10.1},
+              promoDiscount: {currency: 'AED', price: 10.1},
+              shippingCharges: {currency: 'AED', price: 0},
+              total: {currency: 'AED', price: 10.1},
             },
           ]}
         />

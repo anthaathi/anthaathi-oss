@@ -49,6 +49,15 @@ const HomePage = (
               ],
             },
             {
+              _component: HomePageComponentType.HeroCategories,
+              key: '127',
+              title: dataJson.core.homePage.heroCategories.title,
+              items: dataJson.core.homePage.heroCategories.items,
+              onPress: () => {
+                props.navigation.navigate('ProductListPage1');
+              },
+            },
+            {
               _component: HomePageComponentType.HeroSlide,
               key: '128',
               backgroundImageSrc:
@@ -61,31 +70,9 @@ const HomePage = (
               },
             },
             {
-              _component: HomePageComponentType.HeroCategories,
-              key: '127',
-              title: dataJson.core.homePage.heroCategories.title,
-              items: dataJson.core.homePage.heroCategories.items,
-              onPress: () => {
-                props.navigation.navigate('ProductListPage1');
-              },
-            },
-            {
               _component: HomePageComponentType.PromotionalGrid,
               key: '129',
               items: [
-                {
-                  key: dataJson.core.homePage.promotionalGrid.items[0].key,
-                  heading:
-                    dataJson.core.homePage.promotionalGrid.items[0].heading,
-                  button1Text:
-                    dataJson.core.homePage.promotionalGrid.items[0].button1Text,
-                  onPress1: () => {
-                    props.navigation.navigate('ProductListPage1');
-                  },
-                  height: [180, 240, 260, 270],
-                  image: dataJson.core.homePage.promotionalGrid.items[0].image,
-                  width: ['100%', '50%', '100%', '100%'],
-                },
                 {
                   key: dataJson.core.homePage.promotionalGrid.items[1].key,
                   heading:
@@ -97,7 +84,7 @@ const HomePage = (
                   },
                   height: [180, 240, 260, 270],
                   image: dataJson.core.homePage.promotionalGrid.items[1].image,
-                  width: ['100%', '50%', '100%', '100%'],
+                  width: ['50%', '50%', '100%', '100%'],
                 },
                 {
                   key: dataJson.core.homePage.promotionalGrid.items[2].key,
@@ -110,7 +97,7 @@ const HomePage = (
                   },
                   height: [180, 240, 260, 270],
                   image: dataJson.core.homePage.promotionalGrid.items[2].image,
-                  width: ['100%', '50%', '100%', '100%'],
+                  width: ['50%', '50%', '100%', '100%'],
                 },
               ],
             },
@@ -194,11 +181,6 @@ const HomePage = (
               },
             },
             {
-              _component: HomePageComponentType.FeaturedProduct,
-              key: '126',
-              productInfo: dataJson.core.homePage.featuredProduct.productInfo,
-            },
-            {
               _component: HomePageComponentType.SplitOfferCard,
               key: '131',
               title: 'Get Exclusive Offers',
@@ -206,24 +188,6 @@ const HomePage = (
                 'Get exclusive offers & more by signing up for our promotional email',
               image: dataJson.core.homePage.splitOfferCard.image,
               buttonTitle: 'View Offers',
-            },
-            {
-              _component: HomePageComponentType.BlogPosts,
-              key: '125',
-              title: 'From the journal',
-              mainBlog: {
-                id: 1,
-                title: dataJson.core.homePage.blogPosts.mainBlogs.title,
-                image: dataJson.core.homePage.blogPosts.mainBlogs.image,
-                published_date: 'May 26, 2022',
-              },
-              blogs: dataJson.core.homePage.blogPosts.blogs,
-            },
-            {
-              _component: HomePageComponentType.TextWithImage,
-              key: '132',
-              title: dataJson.core.homePage.textWithImage.title,
-              columns: dataJson.core.homePage.textWithImage.columns,
             },
           ]}
         />

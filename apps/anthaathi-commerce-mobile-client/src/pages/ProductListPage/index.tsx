@@ -6,10 +6,12 @@ import {
 } from '../../features/CMS/types/common';
 import CMSRenderer from '../../features/CMS';
 import dataJson from '../../config/data.json';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types/Route';
 
-const ProductListPage = (props: {
-  navigation: {navigate: (arg0: string) => void};
-}) => {
+const ProductListPage = (
+  props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
+) => {
   return (
     <View style={{backgroundColor: '#fff'}}>
       <CMSRenderer
@@ -28,7 +30,7 @@ const ProductListPage = (props: {
             title: 'View Basket',
             icon: 'cart',
             handlePress: () => {
-              // props.navigation.navigate()
+              props.navigation.navigate('CartPage');
             },
           },
         ]}

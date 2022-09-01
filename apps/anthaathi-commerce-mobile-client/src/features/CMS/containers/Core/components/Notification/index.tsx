@@ -29,41 +29,47 @@ const Notification = ({
         marginHorizontal: 10,
         padding: 5,
       }}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection: 'row'}}>
-          <SimpleLineIcons name={icon} size={18} />
+      <View
+        style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{padding: 12}}>
+          <SimpleLineIcons name={icon} size={18} color="#888" />
+        </View>
+
+        <View style={{flex: 1}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: '#364A15',
+                  fontWeight: '400',
+                }}>
+                {subtitle1}
+              </Text>
+            </View>
+            <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
+              {time}
+            </Text>
+          </View>
+          <Text
+            style={{
+              color: '#364A15',
+              fontSize: 16,
+              fontWeight: '600',
+            }}>
+            {title}
+          </Text>
           <Text
             style={{
               fontSize: 14,
               color: '#364A15',
               fontWeight: '400',
-              marginLeft: 10,
             }}>
-            {subtitle1}
+            {subtitle2}
           </Text>
         </View>
-        <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
-          {time}
-        </Text>
       </View>
-      <Text
-        style={{
-          color: '#364A15',
-          fontSize: 16,
-          fontWeight: '600',
-          marginLeft: 28,
-        }}>
-        {title}
-      </Text>
-      <Text
-        style={{
-          fontSize: 14,
-          color: '#364A15',
-          fontWeight: '400',
-          marginLeft: 28,
-        }}>
-        {subtitle2}
-      </Text>
+
       <Divider bold={true} style={{marginTop: 10}} />
     </View>
   );

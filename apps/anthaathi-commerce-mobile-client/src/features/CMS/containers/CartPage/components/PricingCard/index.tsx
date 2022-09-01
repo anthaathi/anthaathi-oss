@@ -64,7 +64,7 @@ const PricingCard = (props: PricingCardProps) => {
             style: 'currency',
             currency: props.shippingCharges.currency,
           })}
-          subtitleStyle={{fontWeight: '500', color: '#E94040'}}
+          subtitleStyle={{fontWeight: '500'}}
         />
         <ViewText
           title={intl.formatMessage({defaultMessage: 'Total'})}

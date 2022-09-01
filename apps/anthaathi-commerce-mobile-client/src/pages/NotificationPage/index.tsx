@@ -1,6 +1,5 @@
 import {View} from 'react-native';
 import React from 'react';
-import dataJson from '../../config/data.json';
 import {
   CartPageComponentType,
   CoreComponentType,
@@ -19,48 +18,20 @@ const NotificationPage: React.FC<
           {
             _component: CoreComponentType.Notification,
             key: '11',
-            title: 'title',
-            subtitle1: 'subtitle1',
+            title: 'Back to school promotion',
+            subtitle1: 'Buy now',
             subtitle2: 'subtitle2',
             time: '1d',
             icon: 'bell',
           },
           {
-            _component: CoreComponentType.Notification,
-            key: '12',
-            title: 'title',
-            subtitle1: 'subtitle1',
-            subtitle2: 'subtitle2',
-            time: '1d',
-            icon: 'envelope',
-          },
-          {
-            _component: CoreComponentType.Notification,
-            key: '231',
-            title: 'title',
-            subtitle1: 'subtitle1',
-            subtitle2: 'subtitle2',
-            time: '1d',
-            icon: 'basket-loaded',
-          },
-          {
-            _component: CoreComponentType.Notification,
-            key: '2311',
-            title: 'title',
-            subtitle1: 'subtitle1',
-            subtitle2: 'subtitle2',
-            time: '1d',
-            icon: 'drawer',
-          },
-
-          {
             _component: CartPageComponentType.CartCard,
             key: '1',
-            title: 'title',
-            statusTitle: 'subtitle1',
+            title: 'Order #123',
+            statusTitle: 'In Transit',
             statusIcon: 'basket',
             deliveryDate: 'Sun, 17 Jul 2022',
-            deliveryBy: 'Company',
+            deliveryBy: 'NRTCFresh',
             noOfItems: '2 Items',
             imageList: [
               'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
