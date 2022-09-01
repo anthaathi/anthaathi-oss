@@ -36,7 +36,6 @@ const CMSBottomSheet = (props: BottomSheetProps) => {
             props.setBottomSheetVisible(!props.bottomSheetVisible);
           }}
           style={[StyleSheet.absoluteFill]}
-          testID="RNE__Overlay__backdrop"
         />
 
         <SafeAreaView

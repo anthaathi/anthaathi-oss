@@ -95,7 +95,7 @@ exports[`PricingCard should render the item 1`] = `
           }
           testID="subtitle"
         >
-          $10.10
+          AED 10.10
         </Text>
       </View>
       <View
@@ -135,7 +135,7 @@ exports[`PricingCard should render the item 1`] = `
           }
           testID="subtitle"
         >
-          $10.10
+          AED 10.10
         </Text>
       </View>
       <View
@@ -175,7 +175,7 @@ exports[`PricingCard should render the item 1`] = `
           }
           testID="subtitle"
         >
-          $10.10
+          AED 10.10
         </Text>
       </View>
       <View
@@ -211,14 +211,13 @@ exports[`PricingCard should render the item 1`] = `
                 "fontWeight": "600",
               },
               {
-                "color": "#E94040",
                 "fontWeight": "500",
               },
             ]
           }
           testID="subtitle"
         >
-          $0.00
+          AED 0.00
         </Text>
       </View>
       <View
@@ -266,7 +265,7 @@ exports[`PricingCard should render the item 1`] = `
           }
           testID="subtitle"
         >
-          $10.10
+          AED 10.10
         </Text>
       </View>
     </View>

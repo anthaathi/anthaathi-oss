@@ -2,60 +2,61 @@
 
 exports[`DeliveryAddressCard should render the item 1`] = `
 <View
-  collapsable={false}
-  style={
+  accessibilityState={
     {
-      "backgroundColor": "#ffffff",
-      "borderColor": "#E3E2E7",
-      "borderRadius": 4,
-      "borderWidth": 1,
-      "elevation": 1,
-      "marginHorizontal": 10,
-      "marginVertical": 5,
-      "shadowColor": "#000000",
-      "shadowOffset": {
-        "height": 0.5,
-        "width": 0,
-      },
-      "shadowOpacity": 0.24,
-      "shadowRadius": 0.75,
+      "disabled": false,
     }
   }
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      false,
+      {
+        "backgroundColor": "#FFF",
+        "borderRadius": 10,
+        "margin": 12,
+        "padding": 20,
+      },
+    ]
+  }
+  testID="deliveryAddressCard"
 >
-  <View
-    accessibilityState={
-      {
-        "disabled": true,
-      }
-    }
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      {
-        "flexGrow": 1,
-        "flexShrink": 1,
-      }
-    }
-    testID="deliveryAddressCard"
-  >
-    <View
+  <View>
+    <Text
       style={
         [
           {
-            "paddingHorizontal": 16,
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
           {
-            "paddingVertical": 16,
+            "textAlign": "left",
           },
-          undefined,
+          {
+            "color": "#364A15",
+            "fontSize": 16,
+            "fontWeight": "700",
+          },
         ]
+      }
+    >
+      Delivery Address
+    </Text>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "marginVertical": 5,
+        }
       }
     >
       <Text
@@ -71,21 +72,33 @@ exports[`DeliveryAddressCard should render the item 1`] = `
             },
             {
               "color": "#364A15",
-              "fontSize": 16,
-              "fontWeight": "600",
+              "fontSize": 14,
+              "width": "85%",
             },
           ]
         }
       >
-        Delivery Address
+        USA
       </Text>
       <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           {
-            "flexDirection": "row",
-            "marginVertical": 5,
+            "paddingHorizontal": 10,
           }
         }
+        testID="changeAddressButton"
       >
         <Text
           style={
@@ -99,108 +112,66 @@ exports[`DeliveryAddressCard should render the item 1`] = `
                 "textAlign": "left",
               },
               {
-                "color": "#364A15",
+                "color": "#008D3E",
                 "fontSize": 14,
-                "width": "85%",
+                "fontWeight": "500",
               },
             ]
           }
+          testID="deliverAddressButtonTitle"
         >
-          USA
+          Change
         </Text>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
             {
-              "paddingHorizontal": 10,
-            }
-          }
-          testID="changeAddressButton"
-        >
-          <Text
-            style={
-              [
-                {
-                  "color": "#000000",
-                  "fontFamily": "System",
-                  "fontWeight": "400",
-                },
-                {
-                  "textAlign": "left",
-                },
-                {
-                  "color": "#008D3E",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-              ]
-            }
-            testID="deliverAddressButtonTitle"
-          >
-            Change
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          {
-            "flexDirection": "row",
-            "marginVertical": 5,
-          }
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#808080",
+              "fontSize": 14,
+            },
+          ]
         }
       >
-        <Text
-          style={
-            [
-              {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-              },
-              {
-                "textAlign": "left",
-              },
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          Mobile
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "color": "#000000",
-                "fontFamily": "System",
-                "fontWeight": "400",
-              },
-              {
-                "textAlign": "left",
-              },
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          : +90909090
-        </Text>
-      </View>
+        Mobile
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        : +90909090
+      </Text>
     </View>
   </View>
 </View>
