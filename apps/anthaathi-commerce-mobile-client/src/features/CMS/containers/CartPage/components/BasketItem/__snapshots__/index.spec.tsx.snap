@@ -4,7 +4,7 @@ exports[`BasketItem should render the item 1`] = `
 <View
   style={
     {
-      "marginHorizontal": 10,
+      "marginHorizontal": 5,
     }
   }
   testID="basketItem"

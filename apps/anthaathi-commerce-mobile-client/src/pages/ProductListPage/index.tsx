@@ -1,6 +1,9 @@
 import {View} from 'react-native';
 import React from 'react';
-import {ProductListPageComponentType} from '../../features/CMS/types/common';
+import {
+  CoreComponentType,
+  ProductListPageComponentType,
+} from '../../features/CMS/types/common';
 import CMSRenderer from '../../features/CMS';
 import dataJson from '../../config/data.json';
 
@@ -23,6 +26,15 @@ const ProductListPage = (props: {
               props.navigation.navigate('ProductPage');
             },
             products: dataJson.core.productPage.featuredCollection.products,
+          },
+          {
+            _component: CoreComponentType.CMSFABButton,
+            key: '123',
+            title: 'View Basket',
+            icon: 'cart',
+            handlePress: () => {
+              // props.navigation.navigate()
+            },
           },
         ]}
       />
