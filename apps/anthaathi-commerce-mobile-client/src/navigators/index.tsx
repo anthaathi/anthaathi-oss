@@ -9,6 +9,8 @@ import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
 import {Image, StyleSheet, View} from 'react-native';
 import {Colors, IconButton, TextInput} from 'react-native-paper';
+import CartPage from '../pages/CartPage';
+import CheckoutPage from '../pages/CheckoutPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,8 +22,10 @@ export interface ImageHeaderProps {
 function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.container}>
-        <IconButton color={Colors.grey800} icon="arrow-left" />
+      <View style={[styles.container, hasBackButton && {paddingLeft: 0}]}>
+        {hasBackButton && (
+          <IconButton color={Colors.grey800} icon="arrow-left" />
+        )}
 
         <Image
           style={styles.image}
@@ -76,10 +80,17 @@ const MyStack = () => {
       <Stack.Screen
         name="Dashboard"
         component={MainPage}
-        options={{
+        options={({navigation}) => ({
           headerShown: true,
-          headerTitle: () => <ImageHeader onCartTap={() => {}} />,
-        }}
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={false}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="ProductListPage"
@@ -87,9 +98,30 @@ const MyStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="CartPage"
+        component={CartPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CheckoutPage"
+        component={CheckoutPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="ProductListPage1"
         component={ProductTopTab}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="ProductPage"

@@ -1,10 +1,8 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductListPage from '../../pages/ProductListPage';
-
-import CMSRenderer from '../../features/CMS';
-import {CoreComponentType} from '../../features/CMS/types/common';
 import dataJson from '../../config/data.json';
+import {Colors} from 'react-native-paper';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -13,26 +11,26 @@ export function ProductTopTab(props: {
 }) {
   return (
     <>
-      <CMSRenderer
-        components={[
-          {
-            _component: CoreComponentType.Header,
-            key: '123',
-            title: 'Products',
-            leftIcon: 'menu',
-            rightIcon: 'account',
-            rightOnPress: () => {
-              props.navigation.navigate('Profile');
-            },
-          },
-        ]}
-      />
       <Tab.Navigator
         style={{marginVertical: 5}}
         screenOptions={{
           tabBarScrollEnabled: true,
-          tabBarItemStyle: {width: 120},
-          tabBarIndicatorStyle: {backgroundColor: '#364A15'},
+          tabBarItemStyle: {
+            height: 34,
+            minHeight: 30,
+            backgroundColor: Colors.green400,
+            padding: 0,
+            margin: 6,
+            borderRadius: 50,
+          },
+          tabBarStyle: {
+            padding: 0,
+            margin: 0,
+          },
+          tabBarLabelStyle: {
+            color: '#FFF',
+          },
+          tabBarIndicatorStyle: {backgroundColor: Colors.green900},
         }}>
         {dataJson.core.productListPage.subCategoryList.map(data => (
           <Tab.Screen

@@ -14,11 +14,6 @@ const ProductListPage = (props: {
     <View style={{backgroundColor: '#fff'}}>
       <CMSRenderer
         components={[
-          // {
-          //   _component: ProductListPageComponentType.SubCategories,
-          //   key: '2121',
-          //   subCategoryList: dataJson.core.productListPage.subCategoryList,
-          // },
           {
             _component: ProductListPageComponentType.ProductList,
             key: '1233',

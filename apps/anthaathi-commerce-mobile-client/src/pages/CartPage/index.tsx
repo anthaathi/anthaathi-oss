@@ -7,6 +7,7 @@ import {
 } from '../../features/CMS/types/common';
 import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Button} from 'react-native-paper';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
@@ -25,6 +26,7 @@ const CartPage: React.FC<
       />
       <ScrollView
         contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 100}}>
+        <View style={{marginTop: 14}} />
         <CMSRenderer
           components={[
             {
@@ -131,6 +133,15 @@ const CartPage: React.FC<
             },
           ]}
         />
+
+        <Button
+          style={{marginTop: 12, padding: 10, marginHorizontal: 10}}
+          mode="contained"
+          onPress={() => {
+            props.navigation.navigate('CheckoutPage');
+          }}>
+          Continue to Checkout
+        </Button>
       </ScrollView>
     </View>
   );
