@@ -48,6 +48,7 @@ const HomePage = (
                 },
               ],
             },
+
             {
               _component: HomePageComponentType.HeroCategories,
               key: '127',
@@ -56,50 +57,6 @@ const HomePage = (
               onPress: () => {
                 props.navigation.navigate('ProductListPage1');
               },
-            },
-            {
-              _component: HomePageComponentType.HeroSlide,
-              key: '128',
-              backgroundImageSrc:
-                dataJson.core.homePage.heroSlide.backgroundImage,
-              title: dataJson.core.homePage.heroSlide.title,
-              subTitle: dataJson.core.homePage.heroSlide.subTitle,
-              buttonTitle: dataJson.core.homePage.heroSlide.buttonTitle,
-              handlePress: () => {
-                props.navigation.navigate('ProductListPage1');
-              },
-            },
-            {
-              _component: HomePageComponentType.PromotionalGrid,
-              key: '129',
-              items: [
-                {
-                  key: dataJson.core.homePage.promotionalGrid.items[1].key,
-                  heading:
-                    dataJson.core.homePage.promotionalGrid.items[1].heading,
-                  button1Text:
-                    dataJson.core.homePage.promotionalGrid.items[1].button1Text,
-                  onPress1: () => {
-                    props.navigation.navigate('ProductListPage1');
-                  },
-                  height: [180, 240, 260, 270],
-                  image: dataJson.core.homePage.promotionalGrid.items[1].image,
-                  width: ['50%', '50%', '100%', '100%'],
-                },
-                {
-                  key: dataJson.core.homePage.promotionalGrid.items[2].key,
-                  heading:
-                    dataJson.core.homePage.promotionalGrid.items[2].heading,
-                  button1Text:
-                    dataJson.core.homePage.promotionalGrid.items[2].button1Text,
-                  onPress1: () => {
-                    props.navigation.navigate('ProductListPage1');
-                  },
-                  height: [180, 240, 260, 270],
-                  image: dataJson.core.homePage.promotionalGrid.items[2].image,
-                  width: ['50%', '50%', '100%', '100%'],
-                },
-              ],
             },
             {
               _component: HomePageComponentType.FeaturedCollection,
@@ -179,6 +136,52 @@ const HomePage = (
               handlePress: () => {
                 props.navigation.navigate('ProductListPage1');
               },
+            },
+
+            {
+              _component: HomePageComponentType.HeroSlide,
+              key: '128',
+              backgroundImageSrc:
+                dataJson.core.homePage.heroSlide.backgroundImage,
+              title: dataJson.core.homePage.heroSlide.title,
+              subTitle: dataJson.core.homePage.heroSlide.subTitle,
+              buttonTitle: dataJson.core.homePage.heroSlide.buttonTitle,
+              handlePress: () => {
+                props.navigation.navigate('ProductListPage1');
+              },
+            },
+
+            {
+              _component: HomePageComponentType.PromotionalGrid,
+              key: '129',
+              items: [
+                {
+                  key: dataJson.core.homePage.promotionalGrid.items[1].key,
+                  heading:
+                    dataJson.core.homePage.promotionalGrid.items[1].heading,
+                  button1Text:
+                    dataJson.core.homePage.promotionalGrid.items[1].button1Text,
+                  onPress1: () => {
+                    props.navigation.navigate('ProductListPage1');
+                  },
+                  height: [180, 240, 260, 270],
+                  image: dataJson.core.homePage.promotionalGrid.items[1].image,
+                  width: ['50%', '50%', '100%', '100%'],
+                },
+                {
+                  key: dataJson.core.homePage.promotionalGrid.items[2].key,
+                  heading:
+                    dataJson.core.homePage.promotionalGrid.items[2].heading,
+                  button1Text:
+                    dataJson.core.homePage.promotionalGrid.items[2].button1Text,
+                  onPress1: () => {
+                    props.navigation.navigate('ProductListPage1');
+                  },
+                  height: [180, 240, 260, 270],
+                  image: dataJson.core.homePage.promotionalGrid.items[2].image,
+                  width: ['50%', '50%', '100%', '100%'],
+                },
+              ],
             },
             {
               _component: HomePageComponentType.SplitOfferCard,

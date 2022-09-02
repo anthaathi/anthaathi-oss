@@ -96,6 +96,10 @@ const CheckoutPage: React.FC<
                   key: '3',
                   name: 'Wallet',
                 },
+                {
+                  key: '4',
+                  name: 'Card on delivery',
+                },
               ],
             },
           ]}
