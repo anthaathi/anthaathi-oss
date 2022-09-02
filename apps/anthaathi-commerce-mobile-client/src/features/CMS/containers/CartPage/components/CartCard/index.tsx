@@ -2,7 +2,7 @@ import {View, Text, Pressable, Image} from 'react-native';
 import React from 'react';
 import {CartPageComponentType} from '../../../../types/common';
 import {useIntl} from 'react-intl';
-import {Card, ProgressBar} from 'react-native-paper';
+import {Button, Card, ProgressBar} from 'react-native-paper';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export interface CartCardProps {
@@ -10,6 +10,7 @@ export interface CartCardProps {
   handlePress?: () => void;
   statusIcon: string;
   statusTitle: string;
+  orderStatus: boolean; // if delivered true
   deliveryDate: string;
   deliveryBy: string;
   noOfItems: string;
@@ -22,6 +23,7 @@ const CartCard = ({
   statusIcon,
   statusTitle,
   deliveryDate,
+  orderStatus,
   deliveryBy,
   noOfItems,
   imageList,
@@ -73,7 +75,7 @@ const CartCard = ({
             {statusTitle}
           </Text>
         </View>
-        <ProgressBar progress={0.8} color="#0f8443" />
+        <ProgressBar progress={orderStatus ? 1 : 0.5} color="#0f8443" />
         <View style={{marginVertical: 5}}>
           <TextData
             title={intl.formatMessage({defaultMessage: 'Delivered on'})}
@@ -104,6 +106,15 @@ const CartCard = ({
             ))}
           </View>
         </View>
+
+        {orderStatus && (
+          <Button
+            style={{marginTop: 8, borderRadius: 4}}
+            onPress={() => {}}
+            mode="contained">
+            {intl.formatMessage({defaultMessage: 'Buy Again'})}
+          </Button>
+        )}
       </Card.Content>
     </Card>
   );
