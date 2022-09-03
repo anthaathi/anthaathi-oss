@@ -1,0 +1,61 @@
+{
+  "heroCategories": {
+    "title": "Categories",
+    "items": [
+      {
+        "id": 1,
+        "title": "Fruits",
+        "key": "fruits",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+      },
+      {
+        "id": 2,
+        "title": "Vegetables",
+        "key": "vegetables",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+      },
+      {
+        "id": 3,
+        "title": "Bulk Buy",
+        "key": "bulkbuy",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+      },
+      {
+        "id": 4,
+        "title": "Organic",
+        "key": "organic",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+      },
+      {
+        "id": 5,
+        "title": "Pre-Cut",
+        "key": "precut",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+      },
+      {
+        "id": 6,
+        "title": "Pre-Packed",
+        "key": "prepacked",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+      },
+      {
+        "id": 7,
+        "title": "Gift Corner",
+        "key": "giftcorner",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970"
+      },
+      {
+        "id": 8,
+        "title": "Juices",
+        "key": "juices",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616"
+      },
+      {
+        "id": 9,
+        "title": "Fresh Blooms",
+        "key": "freshblooms",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+      }
+    ]
+  }
+}

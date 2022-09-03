@@ -121,7 +121,17 @@ const MyStack = () => {
       <Stack.Screen
         name="ProductListPage"
         component={ProductListPage}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={false}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="CartPage"

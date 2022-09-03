@@ -1,0 +1,72 @@
+{
+  "featuredCollection": {
+    "products": [
+      {
+        "name": "Fruit Platter Production",
+        "key": "test5",
+        "category": "fruits",
+        "price": "40.0",
+        "currency": "AED",
+        "weight_unit": "Piece",
+        "packaging": "pack",
+        "notes": "(10 pcs of Sticks)",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-02-17-at-16.47.25_360x.jpg?v=1653585638"
+      },
+      {
+        "name": "Dabbas Dates",
+        "key": "test6",
+        "category": "vegetables",
+        "price": "105.0",
+        "currency": "AED",
+        "weight_unit": "KG",
+        "packaging": "Box",
+        "notes": "Approx 8kg per box.",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+      },
+      {
+        "name": "Sweet Potato Orange (Cut Cube)",
+        "category": "vegetables",
+        "key": "test7",
+        "price": "7.35",
+        "currency": "AED",
+        "weight_unit": "Pack",
+        "packaging": "pack",
+        "notes": "250g",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Sweet_Potato_Orange-1_360x.jpg?v=1653583303"
+      },
+      {
+        "name": "Apricot",
+        "category": "vegetables",
+        "key": "test8",
+        "price": "10.0",
+        "currency": "AED",
+        "weight_unit": "pack",
+        "packaging": "pack",
+        "notes": "approx 1kg to 1.15 kg per pack",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-19-at-5.39.55-PM-removebg-preview_1800x1800.jpg?v=1653585843"
+      },
+      {
+        "name": "Nectarine",
+        "category": "organic",
+        "key": "test9",
+        "price": "6.0",
+        "currency": "AED",
+        "weight_unit": "pack",
+        "packaging": "pack",
+        "notes": "Approx. 700g per packet.",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-25-at-12.39.45-PM-removebg-preview-removebg-preview-1_360x.jpg?v=1653585875"
+      },
+      {
+        "name": "Strawberry",
+        "key": "test10",
+        "category": "organic",
+        "price": "50.0",
+        "currency": "AED",
+        "weight_unit": "KG",
+        "packaging": "box",
+        "notes": "Approx. 900g to 1 kg per box",
+        "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/strawberry-morocco_1800x1800.jpg?v=1653585855"
+      }
+    ]
+  }
+}

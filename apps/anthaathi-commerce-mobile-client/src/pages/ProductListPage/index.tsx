@@ -5,15 +5,21 @@ import {
   ProductListPageComponentType,
 } from '../../features/CMS/types/common';
 import CMSRenderer from '../../features/CMS';
-import dataJson from '../../config/data.json';
+import productJson from '../../config/product.json';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
 ) => {
+  const productList = productJson.featuredCollection.products;
+ 
+  const productFilter = React.useMemo(() => {
+    return productList.filter(item => item.category === props.route.name);
+  }, [productList, props.route.name]);
+
   return (
-    <View style={{backgroundColor: '#fff'}}>
+    <View style={{backgroundColor: '#fff', flex: 1}}>
       <CMSRenderer
         components={[
           {
@@ -22,7 +28,7 @@ const ProductListPage = (
             handlePress: () => {
               props.navigation.navigate('ProductPage');
             },
-            products: dataJson.core.productPage.featuredCollection.products,
+            products: productFilter,
           },
           {
             _component: CoreComponentType.CMSFABButton,

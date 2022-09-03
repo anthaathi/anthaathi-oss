@@ -2,12 +2,10 @@ import {ScrollView, View} from 'react-native';
 import React from 'react';
 
 import CMSRenderer from '../../features/CMS';
-import {
-  CoreComponentType,
-  HomePageComponentType,
-} from '../../features/CMS/types/common';
+import {HomePageComponentType} from '../../features/CMS/types/common';
 
 import dataJson from '../../config/data.json';
+import categoryJson from '../../config/category.json';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
 
@@ -51,10 +49,12 @@ const HomePage = (
             {
               _component: HomePageComponentType.HeroCategories,
               key: '127',
-              title: dataJson.core.homePage.heroCategories.title,
-              items: dataJson.core.homePage.heroCategories.items,
-              onPress: () => {
-                props.navigation.navigate('ProductListPage1');
+              title: categoryJson.heroCategories.title,
+              items: categoryJson.heroCategories.items,
+              onPress: (value: string) => {
+                props.navigation.navigate('ProductListPage1', {
+                  categoryName: value,
+                });
               },
             },
             {
