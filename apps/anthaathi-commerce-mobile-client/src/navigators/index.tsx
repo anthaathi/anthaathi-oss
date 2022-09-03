@@ -12,15 +12,21 @@ import {Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
 import RNRestart from 'react-native-restart';
+import {useState} from 'react';
 
 const Stack = createNativeStackNavigator();
 
 export interface ImageHeaderProps {
   onCartTap: () => void;
   hasBackButton?: boolean;
+  inlineSearch?: boolean;
 }
 
-function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
+function ImageHeader({
+  onCartTap,
+  hasBackButton,
+  inlineSearch = false,
+}: ImageHeaderProps) {
   async function changeLanguage() {
     if (I18nManager.isRTL) {
       await I18nManager.forceRTL(false);
@@ -31,6 +37,8 @@ function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
     }
     RNRestart.Restart();
   }
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <View style={styles.wrapper}>
@@ -44,6 +52,14 @@ function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
           <IconButton color={Colors.grey800} icon="arrow-left" />
         )}
 
+        <IconButton
+          onPress={() => changeLanguage()}
+          color={Colors.grey800}
+          icon="translate"
+        />
+
+        <View style={{flexGrow: 1}} />
+
         <Image
           style={styles.image}
           source={{
@@ -55,24 +71,28 @@ function ImageHeader({onCartTap, hasBackButton}: ImageHeaderProps) {
         <View style={{flexGrow: 1}} />
 
         <IconButton
-          onPress={() => changeLanguage()}
-          color={Colors.grey800}
-          icon="translate"
-        />
-
-        <IconButton
           onPress={onCartTap}
           color={Colors.grey800}
           icon="shopping"
         />
+
+        {inlineSearch && (
+          <IconButton
+            onPress={() => setIsSearchOpen(true)}
+            color={Colors.grey800}
+            icon="magnify"
+          />
+        )}
       </View>
-      <View
-        style={[
-          I18nManager.isRTL ? styles.containerRTL : styles.containerLTR,
-          {paddingTop: 0, paddingBottom: 12},
-        ]}>
-        <TextInput placeholder="Search" dense underlineColor="transparent" />
-      </View>
+      {(!inlineSearch || isSearchOpen) && (
+        <View
+          style={[
+            I18nManager.isRTL ? styles.containerRTL : styles.containerLTR,
+            {paddingTop: 0, paddingBottom: 12},
+          ]}>
+          <TextInput placeholder="Search" dense underlineColor="transparent" />
+        </View>
+      )}
     </View>
   );
 }
@@ -87,10 +107,10 @@ const styles = StyleSheet.create({
   container: {flex: 1, flexDirection: 'row', paddingTop: 12, paddingBottom: 12},
   containerLTR: {
     paddingRight: 24,
-    paddingLeft: 24,
+    paddingLeft: 8,
   },
   containerRTL: {
-    paddingLeft: 35,
+    paddingLeft: 48,
     paddingRight: 0,
   },
   image: {
@@ -152,6 +172,7 @@ const MyStack = () => {
           headerTitle: () => (
             <ImageHeader
               hasBackButton={true}
+              inlineSearch={true}
               onCartTap={() => {
                 navigation.navigate('CartPage');
               }}
