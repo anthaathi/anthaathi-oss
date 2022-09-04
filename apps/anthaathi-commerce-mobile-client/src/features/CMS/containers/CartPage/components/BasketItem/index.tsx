@@ -172,7 +172,7 @@ const ProductCountButton = ({
           borderRadius: 0,
           height: 42,
         }}
-        icon="minus"
+        icon={numberOfItems > 1 ? 'minus' : 'delete'}
         iconColor="#008D3E"
         size={20}
         onPress={() => {
