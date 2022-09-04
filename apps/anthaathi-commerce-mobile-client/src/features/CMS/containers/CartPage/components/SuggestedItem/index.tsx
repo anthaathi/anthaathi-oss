@@ -84,6 +84,9 @@ function ItemRenderer({item}: {item: ProductProps}) {
           marginBottom: 5,
           marginRight: 20,
           alignItems: 'center',
+          borderColor: '#e7e7e7',
+          borderWidth: 1,
+          borderRadius: 6,
         }}
         key={item.key}>
         <Image

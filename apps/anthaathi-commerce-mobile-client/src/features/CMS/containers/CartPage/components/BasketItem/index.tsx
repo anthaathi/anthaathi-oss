@@ -88,7 +88,7 @@ const ItemRenderer = ({
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', width: '80%'}}>
           <Image
             testID="basketProductImage"
             source={{uri: item.image}}
@@ -105,7 +105,11 @@ const ItemRenderer = ({
               <Text
                 testID="productName"
                 variant="titleLarge"
-                style={{fontSize: 14, color: '#364A15', fontWeight: '900'}}>
+                style={{
+                  fontSize: 14,
+                  color: '#364A15',
+                  fontWeight: '900',
+                }}>
                 {item.name}
               </Text>
               <Text

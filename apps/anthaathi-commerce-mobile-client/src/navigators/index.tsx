@@ -92,7 +92,7 @@ function ImageHeader({
 
         {inlineSearch && (
           <IconButton
-            onPress={() => setIsSearchOpen(true)}
+            onPress={() => setIsSearchOpen(!isSearchOpen)}
             color={Colors.grey800}
             icon="magnify"
           />

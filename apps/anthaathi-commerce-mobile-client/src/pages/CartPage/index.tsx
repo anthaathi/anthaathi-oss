@@ -8,13 +8,13 @@ import {
 import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button} from 'react-native-paper';
-import {useRecoilValue} from 'recoil';
+import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
 > = props => {
-  const cartItem = useRecoilValue(CartItemData);
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
   const productTotalPrice = React.useMemo(() => {
     return cartItem.reduce((accumulator, object) => {
@@ -92,6 +92,9 @@ const CartPage: React.FC<
               key: '1213',
               title: 'Items',
               items: cartItem,
+              handlePress: () => {
+                setCartItem([]);
+              },
             },
             {
               _component: CartPageComponentType.PromoCode,
