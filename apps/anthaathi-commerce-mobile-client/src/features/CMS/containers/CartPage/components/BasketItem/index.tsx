@@ -4,6 +4,8 @@ import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../../../context/CartItemContext';
 
 export interface ItemProps {
   name: string;
@@ -113,7 +115,10 @@ const ItemRenderer = ({
                 {item.packaging}
               </Text>
             </View>
-            <ProductCountButton numberOfItems={item.numberOfItems} />
+            <ProductCountButton
+              name={item.name}
+              numberOfItems={item.numberOfItems}
+            />
           </View>
         </View>
         <View
@@ -131,7 +136,7 @@ const ItemRenderer = ({
               fontWeight: '700',
               marginLeft: 5,
             }}>
-            {intl.formatNumber(item.price, {
+            {intl.formatNumber(item.price * item.numberOfItems, {
               style: 'currency',
               currency: item.currency,
             })}
@@ -143,7 +148,15 @@ const ItemRenderer = ({
   );
 };
 
-const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
+const ProductCountButton = ({
+  name,
+  numberOfItems,
+}: {
+  name: string;
+  numberOfItems: number;
+}) => {
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
+
   return (
     <View
       style={{
@@ -162,7 +175,26 @@ const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
         icon="minus"
         iconColor="#008D3E"
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => {
+          if (numberOfItems > 1) {
+            const newState = cartItem.map(obj => {
+              if (obj.name === name) {
+                return {
+                  ...obj,
+                  numberOfItems: obj.numberOfItems - 1,
+                };
+              }
+              return obj;
+            });
+            setCartItem(newState);
+          } else {
+            setCartItem(current =>
+              current.filter(obj => {
+                return obj.name !== name;
+              }),
+            );
+          }
+        }}
       />
       <Text
         style={{
@@ -181,7 +213,15 @@ const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
         icon="plus"
         iconColor="#008D3E"
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => {
+          const newState = cartItem.map(obj => {
+            if (obj.name === name) {
+              return {...obj, numberOfItems: obj.numberOfItems + 1};
+            }
+            return obj;
+          });
+          setCartItem(newState);
+        }}
       />
     </View>
   );

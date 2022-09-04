@@ -10,10 +10,15 @@ import productJson from '../../config/product.json';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
 import {Snackbar} from 'react-native-paper';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import {ItemProps} from '../../features/CMS/containers/CartPage/components/BasketItem';
+import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
 ) => {
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
   const [visible, setVisible] = React.useState(false);
 
   const onToggleSnackBar = () => setVisible(!visible);
@@ -31,6 +36,7 @@ const ProductListPage = (
       <Snackbar
         visible={visible}
         onDismiss={onDismissSnackBar}
+        duration={500}
         action={{
           label: 'Undo',
           onPress: () => {
@@ -93,7 +99,30 @@ const ProductListPage = (
           {
             _component: ProductListPageComponentType.ProductList,
             key: '1233',
-            handlePress: () => {
+            handlePress: (item: ProductProps) => {
+              if (cartItem.some(el => el.name === item.name)) {
+                const newState = cartItem.map(obj => {
+                  if (obj.name === item.name) {
+                    return {...obj, numberOfItems: obj.numberOfItems + 1};
+                  }
+                  return obj;
+                });
+                setCartItem(newState);
+              } else {
+                const copyCartItem: ItemProps[] = [...cartItem];
+
+                copyCartItem.push({
+                  name: item.name,
+                  image: item.image,
+                  price: item.price,
+                  currency: item.currency,
+                  numberOfItems: 1,
+                  packaging: item.packaging,
+                  weight_unit: item.weight_unit,
+                  key: item.key,
+                });
+                setCartItem(copyCartItem);
+              }
               onToggleSnackBar();
             },
             handleLongPress: () => {
@@ -104,7 +133,7 @@ const ProductListPage = (
           {
             _component: CoreComponentType.CMSFABButton,
             key: '123',
-            title: 'View Basket',
+            title: 'View Basket ' + `(${cartItem.length})`,
             icon: 'cart',
             handlePress: () => {
               props.navigation.navigate('CartPage');

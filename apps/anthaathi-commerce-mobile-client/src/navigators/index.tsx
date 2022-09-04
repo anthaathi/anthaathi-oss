@@ -8,11 +8,13 @@ import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
 import {I18nManager, Image, StyleSheet, View} from 'react-native';
-import {Colors, IconButton, TextInput} from 'react-native-paper';
+import {Badge, Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
 import RNRestart from 'react-native-restart';
 import {useState} from 'react';
+import {useRecoilValue} from 'recoil';
+import {CartItemData} from '../features/CMS/context/CartItemContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +39,7 @@ function ImageHeader({
     }
     RNRestart.Restart();
   }
-
+  const cartItem = useRecoilValue(CartItemData);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
@@ -70,11 +72,23 @@ function ImageHeader({
 
         <View style={{flexGrow: 1}} />
 
-        <IconButton
-          onPress={onCartTap}
-          color={Colors.grey800}
-          icon="shopping"
-        />
+        <View>
+          <IconButton
+            onPress={onCartTap}
+            color={Colors.grey800}
+            icon="shopping"
+          />
+          {cartItem.length > 0 && (
+            <Badge
+              style={{
+                backgroundColor: Colors.grey800,
+                position: 'absolute',
+                top: 6,
+              }}>
+              {cartItem.length}
+            </Badge>
+          )}
+        </View>
 
         {inlineSearch && (
           <IconButton

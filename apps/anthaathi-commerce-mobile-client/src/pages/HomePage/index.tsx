@@ -192,6 +192,10 @@ const HomePage = (
               image: dataJson.core.homePage.splitOfferCard.image,
               buttonTitle: 'View Offers',
             },
+            {
+              _component: HomePageComponentType.ChatFloatingButton,
+              key: '1312',
+            },
           ]}
         />
       </ScrollView>

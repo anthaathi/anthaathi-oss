@@ -8,10 +8,20 @@ import {
 import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button} from 'react-native-paper';
+import {useRecoilValue} from 'recoil';
+import {CartItemData} from '../../features/CMS/context/CartItemContext';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
 > = props => {
+  const cartItem = useRecoilValue(CartItemData);
+
+  const productTotalPrice = React.useMemo(() => {
+    return cartItem.reduce((accumulator, object) => {
+      return accumulator + object.numberOfItems * object.price;
+    }, 0);
+  }, [cartItem]);
+
   return (
     <View>
       <CMSRenderer
@@ -81,41 +91,7 @@ const CartPage: React.FC<
               _component: CartPageComponentType.BasketItem,
               key: '1213',
               title: 'Items',
-              items: [
-                {
-                  name: 'Baby Yellow Pepper',
-                  image:
-                    'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-                  key: '123',
-                  price: 12,
-                  numberOfItems: 2,
-                  currency: 'USD',
-                  weight_unit: 'KG',
-                  packaging: '500 gms',
-                },
-                {
-                  name: 'Baby Yellow Pepper',
-                  image:
-                    'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-                  key: '12',
-                  price: 12,
-                  numberOfItems: 2,
-                  currency: 'USD',
-                  weight_unit: 'KG',
-                  packaging: '500 gms',
-                },
-                {
-                  name: 'Capsicum mixed',
-                  image:
-                    'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
-                  key: '23',
-                  price: 23,
-                  numberOfItems: 2,
-                  currency: 'USD',
-                  weight_unit: 'KG',
-                  packaging: '500 gms',
-                },
-              ],
+              items: cartItem,
             },
             {
               _component: CartPageComponentType.PromoCode,
@@ -125,11 +101,11 @@ const CartPage: React.FC<
             {
               _component: CartPageComponentType.PricingCard,
               key: '1',
-              subtotal: {currency: 'AED', price: 10.1},
-              discount: {currency: 'AED', price: 10.1},
-              promoDiscount: {currency: 'AED', price: 10.1},
+              subtotal: {currency: 'AED', price: productTotalPrice},
+              discount: {currency: 'AED', price: 0},
+              promoDiscount: {currency: 'AED', price: 0},
               shippingCharges: {currency: 'AED', price: 0},
-              total: {currency: 'AED', price: 10.1},
+              total: {currency: 'AED', price: productTotalPrice},
             },
           ]}
         />

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Card, Text} from 'react-native-paper';
+import {Text} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
@@ -33,7 +33,7 @@ export default function SuggestedItem({
   return (
     <View
       testID="suggestedItem"
-      style={{marginHorizontal: 5, marginVertical: 5}}>
+      style={{marginHorizontal: 10, marginVertical: 5}}>
       <View
         style={{
           flexDirection: 'row',
