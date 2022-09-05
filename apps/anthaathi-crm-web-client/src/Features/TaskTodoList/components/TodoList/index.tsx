@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useStyletron } from 'baseui';
 import { Checkbox } from 'baseui/checkbox';
 import { StatefulList } from 'baseui/dnd-list';

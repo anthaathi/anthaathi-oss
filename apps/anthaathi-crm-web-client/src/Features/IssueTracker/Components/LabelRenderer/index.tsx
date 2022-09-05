@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { KIND, Tag } from 'baseui/tag';
 
 export function LabelRenderer() {

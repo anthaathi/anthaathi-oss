@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import type { DraggableSyntheticListeners } from '@dnd-kit/core';

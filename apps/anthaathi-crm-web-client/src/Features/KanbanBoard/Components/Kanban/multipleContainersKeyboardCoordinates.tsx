@@ -82,7 +82,7 @@ export const coordinateGetter: KeyboardCoordinateGetter = (
     });
     const closestId = getFirstCollision(collisions, 'id');
 
-    if (closestId != null) {
+    if (closestId !== null) {
       const newDroppable = droppableContainers.get(closestId);
       const newNode = newDroppable?.node.current;
       const newRect = newDroppable?.rect.current;

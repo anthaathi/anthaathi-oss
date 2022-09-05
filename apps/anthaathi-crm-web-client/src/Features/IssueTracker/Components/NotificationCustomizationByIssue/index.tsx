@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { LabelMedium, LabelSmall } from 'baseui/typography';
 import { useStyletron } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';

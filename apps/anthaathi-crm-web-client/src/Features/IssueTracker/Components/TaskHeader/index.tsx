@@ -1,7 +1,7 @@
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { Button, KIND } from 'baseui/button';
-import { HeadingLarge, LabelMedium, ParagraphSmall } from 'baseui/typography';
+import { HeadingLarge, LabelMedium } from 'baseui/typography';
 import React from 'react';
 import { Icon } from '../../../Core/Components/Icon';
 import { PLACEMENT, StatefulPopover } from 'baseui/popover';
@@ -10,14 +10,12 @@ import { StatefulMenu } from 'baseui/menu';
 export interface SpaceTaskHeaderProps {
   title: string;
   subtitle: React.ReactNode;
-  onCheckClick?: () => void;
   onClickMore?: () => void;
 }
 
 function SpaceTaskHeader({
   title,
   subtitle,
-  onCheckClick,
   onClickMore,
 }: SpaceTaskHeaderProps) {
   const [css, $theme] = useStyletron();
@@ -76,7 +74,7 @@ function SpaceTaskHeader({
               },
             }}
           >
-            <Icon icon="ellipsis-h"></Icon>
+            <Icon icon="ellipsis-h" />
           </Button>
         </StatefulPopover>
       </Block>

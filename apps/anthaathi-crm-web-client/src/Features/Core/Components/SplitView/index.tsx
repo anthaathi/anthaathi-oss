@@ -1,5 +1,5 @@
 import { useStyletron } from 'baseui';
-import React, { forwardRef, useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { splitViewAtom } from './atom';
 
@@ -31,14 +31,14 @@ export const SplitView = ({
   const leftWidth = useRef(0);
 
   const mouseUpHandler = useCallback(() => {
-    resizerRef.current!!.style.removeProperty('cursor');
+    resizerRef.current!.style.removeProperty('cursor');
     document.body.style.removeProperty('cursor');
 
-    leftRef.current!!.style.removeProperty('user-select');
-    leftRef.current!!.style.removeProperty('pointer-events');
+    leftRef.current!.style.removeProperty('user-select');
+    leftRef.current!.style.removeProperty('pointer-events');
 
-    rightRef.current!!.style.removeProperty('user-select');
-    rightRef.current!!.style.removeProperty('pointer-events');
+    rightRef.current!.style.removeProperty('user-select');
+    rightRef.current!.style.removeProperty('pointer-events');
 
     setHovering(false);
 
@@ -53,29 +53,29 @@ export const SplitView = ({
 
     const newLeftWidth =
       ((leftWidth.current + dx) * 100) /
-      rootRef?.current!!.getBoundingClientRect().width;
+      rootRef?.current!.getBoundingClientRect().width;
 
-    leftRef.current!!.style.width = `${newLeftWidth}%`;
+    leftRef.current!.style.width = `${newLeftWidth}%`;
 
     setSwipeMemory((prev) => ({ ...prev, [id]: newLeftWidth }));
 
     setHovering(true);
 
-    resizerRef.current!!.style.cursor = 'col-resize';
+    resizerRef.current!.style.cursor = 'col-resize';
     document.body.style.cursor = 'col-resize';
 
-    leftRef.current!!.style.userSelect = 'none';
-    leftRef.current!!.style.pointerEvents = 'none';
+    leftRef.current!.style.userSelect = 'none';
+    leftRef.current!.style.pointerEvents = 'none';
 
-    rightRef.current!!.style.userSelect = 'none';
-    rightRef.current!!.style.pointerEvents = 'none';
+    rightRef.current!.style.userSelect = 'none';
+    rightRef.current!.style.pointerEvents = 'none';
   }, []);
 
   const mouseDownHandler = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       // Get the current mouse position
       x.current = e.clientX;
-      leftWidth.current = leftRef.current!!.getBoundingClientRect().width;
+      leftWidth.current = leftRef.current!.getBoundingClientRect().width;
 
       // Attach the listeners to `document`
       document.addEventListener('mousemove', mouseMoveHandler);
@@ -114,7 +114,7 @@ export const SplitView = ({
           boxShadow: hovering ? $theme.lighting.shadow400 : 'none',
         })}
         onMouseDown={mouseDownHandler}
-      ></div>
+      />
       <div
         ref={rightRef}
         className={css({

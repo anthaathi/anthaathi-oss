@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useStyletron } from 'baseui';
 import { Avatar } from 'baseui/avatar';
 import { Button } from 'baseui/button';

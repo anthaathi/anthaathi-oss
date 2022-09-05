@@ -19,7 +19,7 @@ export const SpaceListViewPage = forwardRef<HTMLDivElement>((_, ref) => {
       left={
         <div className={css({ paddingBottom: $theme.sizing.scale800 })}>
           <ul>
-            {items.map((item, index) => (
+            {items.map((__, index) => (
               <li
                 key={index}
                 className={css({
@@ -49,3 +49,5 @@ export const SpaceListViewPage = forwardRef<HTMLDivElement>((_, ref) => {
     />
   );
 });
+
+SpaceListViewPage.displayName = 'SpaceListViewPage';

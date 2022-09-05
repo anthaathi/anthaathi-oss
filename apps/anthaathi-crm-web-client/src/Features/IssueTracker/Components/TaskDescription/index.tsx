@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { LabelMedium } from 'baseui/typography';
 
 export function TaskDescription() {

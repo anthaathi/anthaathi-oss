@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { HeadingXSmall } from 'baseui/typography';
 import { useStyletron } from 'baseui';
 import { expandBorderStyles } from 'baseui/styles';

@@ -1,9 +1,8 @@
+import * as React from 'react';
 import { Checkbox } from 'baseui/checkbox';
-import { styled, useStyletron } from 'baseui';
+import { styled } from 'baseui';
 
 export function TaskList() {
-  const [css] = useStyletron();
-
   return (
     <ul>
       <TaskListItem>

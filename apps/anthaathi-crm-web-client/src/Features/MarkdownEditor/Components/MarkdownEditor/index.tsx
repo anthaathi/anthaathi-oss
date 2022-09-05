@@ -7,7 +7,8 @@ import { expandBorderStyles } from 'baseui/styles';
 
 export interface MarkdownEditorProps {
   value: string;
-  onChange(value: string): void;
+  // eslint-disable-next-line no-unused-vars
+  onChange(_value: string): void;
   id?: string;
 }
 
@@ -17,7 +18,7 @@ export function MarkdownEditor({ value, onChange, id }: MarkdownEditorProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const insertText = useCallback(
-    (start: string, end: string = '') => {
+    (start: string, end = '') => {
       if (!textareaRef.current) {
         return;
       }
@@ -71,6 +72,8 @@ export function MarkdownEditor({ value, onChange, id }: MarkdownEditorProps) {
       if (!textareaRef.current) {
         return;
       }
+
+      console.log(contentToInsert);
     },
     [textareaRef]
   );

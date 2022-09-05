@@ -61,7 +61,7 @@ export function NotificationContainer() {
             <Notification
               id=""
               title="Something amazing"
-              buttonIcon={<Icon icon="home"></Icon>}
+              buttonIcon={<Icon icon="home" />}
               isRead={false}
               messages={['Something ']}
               time={new Date().toDateString()}
@@ -129,7 +129,7 @@ function Notification({
       $style={{
         boxShadow: noShadow
           ? 'none'
-          : `rgba(0, 0, 0, 0.08) 0px 0.9px 4px, rgba(0, 0, 0, 0.06) 0px 2.6px 8px, rgba(0, 0, 0, 0.05) 0px 5.7px 12px, rgba(0, 0, 0, 0.04) 0px 15px 15px`,
+          : 'rgba(0, 0, 0, 0.08) 0px 0.9px 4px, rgba(0, 0, 0, 0.06) 0px 2.6px 8px, rgba(0, 0, 0, 0.05) 0px 5.7px 12px, rgba(0, 0, 0, 0.04) 0px 15px 15px',
         borderTopLeftRadius:
           position === undefined || position === 'start' ? '8px' : '0',
         borderTopRightRadius:

@@ -77,7 +77,7 @@ export function TaskCreateContainer() {
               <Button onClick={() => setCurrent((prev) => prev - 1)}>
                 Previous
               </Button>
-              <span className={css({ width: '8px' })}></span>
+              <span className={css({ width: '8px' })} />
               <Button>Create</Button>
             </div>
           </NumberedStep>

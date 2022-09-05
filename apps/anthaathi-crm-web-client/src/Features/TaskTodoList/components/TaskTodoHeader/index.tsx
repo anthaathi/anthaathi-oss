@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { LabelLarge } from 'baseui/typography';
@@ -16,7 +17,7 @@ function TaskTodoHeader({ title }: { title: string }) {
         $style={{ cursor: 'pointer' }}
         onClick={() => {}}
       >
-        <span className="fa fa-check-circle" aria-hidden="true"></span>
+        <span className="fa fa-check-circle" aria-hidden="true" />
         <LabelLarge
           $style={{
             fontFamily: $theme.typography.headingFontFamily,

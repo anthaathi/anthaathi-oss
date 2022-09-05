@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal, unstable_batchedUpdates } from 'react-dom';
 import {
@@ -32,6 +33,7 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+// eslint-disable-next-line node/no-extraneous-import
 import { CSS } from '@dnd-kit/utilities';
 import { coordinateGetter as multipleContainersCoordinateGetter } from './multipleContainersKeyboardCoordinates';
 
@@ -129,6 +131,7 @@ interface Props {
     isSorting: boolean;
     isDragOverlay: boolean;
   }): React.CSSProperties;
+  // eslint-disable-next-line no-unused-vars
   wrapperStyle?(args: { index: number }): React.CSSProperties;
   itemCount?: number;
   items?: Items;
