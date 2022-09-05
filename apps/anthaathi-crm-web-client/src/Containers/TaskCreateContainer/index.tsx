@@ -36,8 +36,9 @@ export function TaskCreateContainer() {
               </div>
 
               <Grid gridMaxWidth={0} gridMargins={0}>
-                {Array.from({ length: 10 }).map(() => (
+                {Array.from({ length: 10 }).map((_, index) => (
                   <Cell
+                    key={index}
                     span={3}
                     overrides={{ Cell: { style: { paddingBottom: '24px' } } }}
                   >

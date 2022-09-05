@@ -105,8 +105,6 @@ export function NotificationContainer() {
 }
 
 function Notification({
-  id,
-  isLoading,
   time,
   type,
   severity,

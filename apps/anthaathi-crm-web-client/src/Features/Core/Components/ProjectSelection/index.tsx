@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { styled, useStyletron } from 'baseui';
 import { StatefulPanel } from 'baseui/accordion';
 import { Button, KIND } from 'baseui/button';

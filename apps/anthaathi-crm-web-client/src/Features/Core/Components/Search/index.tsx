@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Input, SIZE } from 'baseui/input';
 import { useStyletron } from 'baseui';
 

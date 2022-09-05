@@ -1,19 +1,7 @@
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
-import {
-  HeadingSmall,
-  HeadingXSmall,
-  LabelMedium,
-  LabelSmall,
-  LabelXSmall,
-} from 'baseui/typography';
-import React, {
-  forwardRef,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { HeadingSmall } from 'baseui/typography';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { Tab, Tabs } from 'baseui/tabs-motion';
 import { Icon } from '../Icon';
 
@@ -23,6 +11,7 @@ export interface PageHeaderProps {
   endContent?: React.ReactNode;
   tabs?: { title: React.ReactNode; key: number | string }[];
   activeTab?: string | number;
+  // eslint-disable-next-line
   onChangeTab?: (key: string | number) => void;
   scrollBody?: React.RefObject<HTMLDivElement>;
 }
@@ -236,5 +225,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
     );
   }
 );
+
+PageHeader.displayName = 'PageHeader';
 
 export default PageHeader;

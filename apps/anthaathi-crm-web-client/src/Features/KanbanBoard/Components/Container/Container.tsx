@@ -15,6 +15,7 @@ export interface Props {
   style?: React.CSSProperties;
   horizontal?: boolean;
   hover?: boolean;
+  // eslint-disable-next-line
   handleProps?: React.HTMLAttributes<any>;
   scrollable?: boolean;
   shadow?: boolean;
@@ -96,7 +97,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
             <FlexFill />
 
             <div className={css({ display: 'flex' })}>
-              {onRemove ? <Remove onClick={onRemove} /> : undefined}
+              {onRemove && <Remove onClick={onRemove} />}
               <Handle {...handleProps} />
             </div>
           </div>
@@ -106,3 +107,5 @@ export const Container = forwardRef<HTMLDivElement, Props>(
     );
   }
 );
+
+Container.displayName = 'Container';

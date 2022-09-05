@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { styled, useStyletron } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';
 import { Delete, Menu } from 'baseui/icon';
@@ -21,7 +22,7 @@ export const Header = styled('header', ({ $theme }) => ({
   zIndex: 10,
 }));
 
-export const HeaderWrapper = styled('div', ({ $theme }) => ({
+export const HeaderWrapper = styled('div', () => ({
   display: 'flex',
   flexDirection: 'row',
   alignContent: 'center',

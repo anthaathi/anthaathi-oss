@@ -22,7 +22,6 @@ function SpaceCard({
   backgroundColor,
   title,
   iconBackgroundColor,
-  iconColor,
   badgeTitle,
   badgeBackgroundColor,
   badgeTitleColor,

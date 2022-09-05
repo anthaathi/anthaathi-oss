@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { PLACEMENT, StatefulPopover } from 'baseui/popover';
 import { Block } from 'baseui/block';
 import { Button, KIND, SIZE } from 'baseui/button';
