@@ -6,6 +6,7 @@ import {IntlProvider} from 'react-intl';
 
 import locale from '../../../../../../compiled-locales/en-US.json';
 import {ThemeProvider} from 'react-native-paper';
+jest.useFakeTimers();
 
 describe('CartCard', () => {
   it('should render the item', function () {

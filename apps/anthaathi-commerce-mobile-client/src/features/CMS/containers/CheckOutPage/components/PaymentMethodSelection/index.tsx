@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Pressable, View} from 'react-native';
-import {Card, Divider, Text} from 'react-native-paper';
+import {Pressable, Text, View} from 'react-native';
+import {Card, Divider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
@@ -26,7 +26,7 @@ const PaymentMethodSelection = (props: PaymentMethodProps) => {
         style={{
           borderColor: '#E3E2E7',
           borderWidth: 1,
-          borderRadius: 4,
+          borderRadius: 10,
           marginVertical: 5,
         }}>
         <Card.Content>

@@ -1,4 +1,4 @@
-import {View, Text, Pressable, GestureResponderEvent} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import React from 'react';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
@@ -13,6 +13,7 @@ export interface TimeSlotProps {
 }
 
 const TimeSlotSelection = (props: TimeSlotProps) => {
+  const [selectedKey, setSelectKey] = React.useState('');
   return (
     <View style={{marginHorizontal: 10}} testID="timeSlot">
       <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
@@ -25,7 +26,14 @@ const TimeSlotSelection = (props: TimeSlotProps) => {
           marginVertical: 5,
         }}>
         {props.timeSlots.map(slot => {
-          return <Slot key={slot.key} slot={slot} />;
+          return (
+            <Slot
+              key={slot.key}
+              slot={slot}
+              selectedKey={selectedKey}
+              setSelectKey={setSelectKey}
+            />
+          );
         })}
       </View>
     </View>
@@ -34,24 +42,32 @@ const TimeSlotSelection = (props: TimeSlotProps) => {
 
 const Slot = ({
   slot,
-  onPress,
+  selectedKey,
+  setSelectKey,
 }: {
   slot: SlotProps;
-  onPress?: ((e: GestureResponderEvent) => void) | undefined;
+  selectedKey: string;
+  setSelectKey: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
     <Pressable
       style={{
-        backgroundColor: '#F1F9F4',
+        backgroundColor: selectedKey === slot.key ? '#B8E0C7' : '#E2F3E9',
         height: 38,
         width: 108,
-        borderRadius: 2,
+        borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
         marginRight: 10,
         marginBottom: 10,
       }}
-      onPress={onPress}>
+      onPress={() => {
+        if (selectedKey === slot.key) {
+          setSelectKey('');
+        } else {
+          setSelectKey(slot.key);
+        }
+      }}>
       <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
         {slot.name}
       </Text>

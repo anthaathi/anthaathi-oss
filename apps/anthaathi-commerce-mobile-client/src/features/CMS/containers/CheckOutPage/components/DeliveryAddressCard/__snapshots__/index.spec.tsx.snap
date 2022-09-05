@@ -22,8 +22,8 @@ exports[`DeliveryAddressCard should render the item 1`] = `
       {
         "backgroundColor": "#FFF",
         "borderRadius": 10,
-        "margin": 12,
-        "padding": 20,
+        "margin": 10,
+        "padding": 15,
       },
     ]
   }

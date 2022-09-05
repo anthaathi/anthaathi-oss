@@ -189,8 +189,9 @@ function ItemRenderer({
                   }}
                   style={{
                     position: 'absolute',
-                    left: 5,
-                    top: 5,
+                    left: 3,
+                    top: 3,
+                    padding: 5,
                   }}>
                   <Avatar.Icon
                     icon="minus"
@@ -212,8 +213,9 @@ function ItemRenderer({
                   }}
                   style={{
                     position: 'absolute',
-                    right: 5,
-                    top: 5,
+                    right: 3,
+                    top: 3,
+                    padding: 5,
                   }}>
                   <Avatar.Text
                     label={cartProductData.numberOfItems.toString()}

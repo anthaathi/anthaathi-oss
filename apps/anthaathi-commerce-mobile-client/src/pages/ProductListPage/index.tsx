@@ -33,7 +33,6 @@ const ProductListPage = (
             key: '14',
             title: 'Suggested',
             handlePress2: (item: ProductProps) => {
-              console.log(item);
               if (cartItem.some(el => el.id === item.id)) {
                 const newState = cartItem.map(obj => {
                   if (obj.id === item.id) {
@@ -171,7 +170,9 @@ const ProductListPage = (
           {
             _component: CoreComponentType.CMSFABButton,
             key: '123',
-            title: 'View Basket ' + `(${cartItem.length})`,
+            title:
+              'View Basket ' +
+              (cartItem.length > 0 ? `(${cartItem.length})` : ''),
             icon: 'cart',
             handlePress: () => {
               props.navigation.navigate('CartPage');

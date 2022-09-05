@@ -32,6 +32,9 @@ const CartPage: React.FC<
             key: '142',
             title: 'Basket',
             leftIcon: 'close',
+            leftOnPress: () => {
+              props.navigation.goBack();
+            },
           },
         ]}
       />
