@@ -8,11 +8,14 @@ import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
 import {I18nManager, Image, StyleSheet, View} from 'react-native';
-import {Colors, IconButton, TextInput} from 'react-native-paper';
+import {Badge, Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
 import RNRestart from 'react-native-restart';
 import {useState} from 'react';
+import {useRecoilValue} from 'recoil';
+import {CartItemData} from '../features/CMS/context/CartItemContext';
+import {useNavigation} from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,8 +40,9 @@ function ImageHeader({
     }
     RNRestart.Restart();
   }
-
+  const cartItem = useRecoilValue(CartItemData);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.wrapper}>
@@ -49,7 +53,13 @@ function ImageHeader({
           hasBackButton && {paddingLeft: 0},
         ]}>
         {hasBackButton && (
-          <IconButton color={Colors.grey800} icon="arrow-left" />
+          <IconButton
+            color={Colors.grey800}
+            icon="arrow-left"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
         )}
 
         <IconButton
@@ -70,15 +80,27 @@ function ImageHeader({
 
         <View style={{flexGrow: 1}} />
 
-        <IconButton
-          onPress={onCartTap}
-          color={Colors.grey800}
-          icon="shopping"
-        />
+        <View>
+          <IconButton
+            onPress={onCartTap}
+            color={Colors.grey800}
+            icon="shopping"
+          />
+          {cartItem.length > 0 && (
+            <Badge
+              style={{
+                backgroundColor: Colors.grey800,
+                position: 'absolute',
+                top: 6,
+              }}>
+              {cartItem.length}
+            </Badge>
+          )}
+        </View>
 
         {inlineSearch && (
           <IconButton
-            onPress={() => setIsSearchOpen(true)}
+            onPress={() => setIsSearchOpen(!isSearchOpen)}
             color={Colors.grey800}
             icon="magnify"
           />
@@ -141,7 +163,17 @@ const MyStack = () => {
       <Stack.Screen
         name="ProductListPage"
         component={ProductListPage}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={false}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="CartPage"
@@ -173,7 +205,19 @@ const MyStack = () => {
       <Stack.Screen
         name="ProductPage"
         component={ProductPage}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              inlineSearch={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="Profile"

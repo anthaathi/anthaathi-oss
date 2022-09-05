@@ -1,19 +1,23 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductListPage from '../../pages/ProductListPage';
-import dataJson from '../../config/data.json';
-import {Colors} from 'react-native-paper';
+// import dataJson from '../../config/data.json';
+import categoryJson from '../../config/category.json';
+import {Colors, useTheme} from 'react-native-paper';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
+import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 
 const Tab = createMaterialTopTabNavigator();
 
 export function ProductTopTab(
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage1'>,
 ) {
+  const theme = useTheme();
   return (
     <>
       <Tab.Navigator
+        initialRouteName={props?.route?.params?.categoryName}
         style={{marginVertical: 5}}
         screenOptions={{
           tabBarScrollEnabled: true,
@@ -22,23 +26,29 @@ export function ProductTopTab(
             minHeight: 30,
             backgroundColor: Colors.green400,
             padding: 0,
-            margin: 6,
+            marginVertical: 4,
+            marginHorizontal: 6,
             borderRadius: 50,
           },
           tabBarStyle: {
             padding: 0,
             margin: 0,
+            height: 42,
           },
           tabBarLabelStyle: {
             color: '#FFF',
           },
-          tabBarIndicatorStyle: {backgroundColor: Colors.green900},
+          tabBarIndicatorStyle: {
+            backgroundColor: (theme.colors as MD3Colors).background,
+          },
+          lazy: true,
         }}>
-        {dataJson.core.productListPage.subCategoryList.map(data => (
+        {categoryJson.heroCategories.items.map(data => (
           <Tab.Screen
-            name={data.title}
+            name={data.key}
             component={ProductListPage}
             key={data.id}
+            options={{tabBarLabel: data.title}}
           />
         ))}
       </Tab.Navigator>

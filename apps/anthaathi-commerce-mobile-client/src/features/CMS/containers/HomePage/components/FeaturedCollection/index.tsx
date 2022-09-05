@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Card, Text, Title} from 'react-native-paper';
+import {Text, Title} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {HomePageComponentType} from '../../../../types/common';
 
 export interface ProductProps {
+  id: number;
   name: string;
   description?: string;
   price: number;
@@ -16,19 +16,20 @@ export interface ProductProps {
   packaging: string;
   key: string;
   notes: string;
-  onProductPress?: () => {};
 }
 
 export interface FeaturedCollectionProps {
   title: string;
   products: ProductProps[];
-  handlePress?: () => {}; // view all product link
+  handlePress?: () => void; // view all product link
+  onProductPress: (item: ProductProps) => void;
 }
 
 export default function FeaturedCollection({
   title,
   products,
   handlePress,
+  onProductPress,
 }: FeaturedCollectionProps) {
   const intl = useIntl();
   const itemHeight = useResponsiveValue([140, 250, 290, 330]);
@@ -41,10 +42,10 @@ export default function FeaturedCollection({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginHorizontal: 12,
-          marginVertical: 8,
+          marginHorizontal: 10,
+          marginVertical: 10,
         }}>
-        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 16}}>
+        <Text variant="titleLarge" style={{fontSize: 16}}>
           {title}
         </Text>
 
@@ -52,7 +53,6 @@ export default function FeaturedCollection({
           <Text
             variant="titleMedium"
             style={{
-              marginBottom: 9,
               textDecorationLine: 'underline',
               fontSize: 14,
             }}>
@@ -61,7 +61,7 @@ export default function FeaturedCollection({
         </Pressable>
       </View>
 
-      <View style={{marginLeft: 12, marginRight: 12}}>
+      <View style={{marginHorizontal: 10}}>
         <VirtualizedList<ProductProps>
           testID="productList"
           data={products}
@@ -72,6 +72,7 @@ export default function FeaturedCollection({
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
+              onProductPress={() => onProductPress(item)}
             />
           )}
           getItemCount={() => products.length}
@@ -87,10 +88,12 @@ function ItemRenderer({
   item,
   itemHeight,
   itemWidth,
+  onProductPress,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
+  onProductPress: () => void;
 }) {
   const intl = useIntl();
   return (
@@ -98,14 +101,12 @@ function ItemRenderer({
       style={[
         {
           marginVertical: 5,
-          marginRight: 8,
+          marginRight: 10,
         },
       ]}
       key={item.key}>
       <View style={{alignItems: 'center'}}>
-        <Pressable
-          style={{alignItems: 'flex-start'}}
-          onPress={item.onProductPress}>
+        <Pressable style={{alignItems: 'flex-start'}} onPress={onProductPress}>
           <Image
             source={{
               uri: item.image,

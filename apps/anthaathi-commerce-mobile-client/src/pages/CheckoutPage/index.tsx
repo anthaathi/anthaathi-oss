@@ -21,6 +21,9 @@ const CheckoutPage: React.FC<
             key: '142',
             title: 'Checkout',
             leftIcon: 'close',
+            leftOnPress: () => {
+              props.navigation.goBack();
+            },
           },
         ]}
       />

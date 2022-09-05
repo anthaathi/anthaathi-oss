@@ -1,7 +1,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {Pressable, View} from 'react-native';
-import {Card, Text, TouchableRipple} from 'react-native-paper';
+import {Text, TouchableRipple} from 'react-native-paper';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressCardProps {
@@ -19,9 +19,9 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
       onPress={() => {}}
       style={{
         borderRadius: 10,
-        margin: 12,
+        margin: 10,
         backgroundColor: '#FFF',
-        padding: 20,
+        padding: 15,
       }}
       testID="deliveryAddressCard">
       <View>

@@ -5,8 +5,12 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {ProductListPageComponentType} from '../../../../types/common';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../../../context/CartItemContext';
+import {ItemProps} from '../../../CartPage/components/BasketItem';
 
 export interface ProductProps {
+  id: number;
   name: string;
   description?: string;
   price: number;
@@ -20,10 +24,15 @@ export interface ProductProps {
 
 export interface ProductListProps {
   products: ProductProps[];
-  handlePress: () => void;
+  handlePress?: (item: ProductProps) => void;
+  handleLongPress?: (item: ProductProps) => void;
 }
 
-export default function ProductList({products, handlePress}: ProductListProps) {
+export default function ProductList({
+  products,
+  handlePress,
+  handleLongPress,
+}: ProductListProps) {
   const itemHeight = useResponsiveValue([160, 200, 220, 280]);
   const itemWidth = useResponsiveValue([170, 190, 210, 270]);
   const productSplitted: ProductProps[][] = React.useMemo(() => {
@@ -42,11 +51,11 @@ export default function ProductList({products, handlePress}: ProductListProps) {
   }, [products]);
 
   return (
-    <View style={{marginTop: 10}}>
+    <View style={{marginTop: 10}} testID="productList">
       <VirtualizedList<ProductProps[]>
         data={productSplitted}
         contentContainerStyle={{paddingBottom: 100}}
-        testID="productList"
+        testID="productListData"
         // initialNumToRender={4}
         // horizontal
         renderItem={({item}) => (
@@ -54,7 +63,8 @@ export default function ProductList({products, handlePress}: ProductListProps) {
             item={item}
             itemHeight={itemHeight}
             itemWidth={itemWidth}
-            handlePress={handlePress}
+            handlePress={handlePress || (() => {})}
+            handleLongPress={handleLongPress || (() => {})}
           />
         )}
         getItemCount={() => productSplitted.length}
@@ -70,11 +80,13 @@ function ItemRendererColumn({
   itemHeight,
   itemWidth,
   handlePress,
+  handleLongPress,
 }: {
   item: ProductProps[];
   itemHeight: number;
   itemWidth: number;
-  handlePress: () => void;
+  handlePress: (item: ProductProps) => void;
+  handleLongPress: (item: ProductProps) => void;
 }) {
   return (
     <View
@@ -91,7 +103,8 @@ function ItemRendererColumn({
           item={element}
           itemHeight={itemHeight}
           itemWidth={itemWidth}
-          handlePress={handlePress}
+          handlePress={() => handlePress(element)}
+          handleLongPress={() => handleLongPress(element)}
         />
       ))}
     </View>
@@ -103,30 +116,40 @@ function ItemRenderer({
   itemHeight,
   itemWidth,
   handlePress,
+  handleLongPress,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
   handlePress: () => void;
+  handleLongPress: () => void;
 }) {
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
+
+  const cartProductData: ItemProps | undefined = React.useMemo(() => {
+    if (cartItem.some(el => el.id === item.id)) {
+      let cartObj = cartItem.find(el => el.id === item.id);
+      return cartObj;
+    }
+  }, [cartItem, item.id]);
+
   const intl = useIntl();
   return (
     <View
       style={{
         marginVertical: 5,
         width: '48%',
-        borderColor: item.name === 'Dabbas Dates' ? '#008D3E' : '#e7e7e7',
+        borderColor:
+          cartProductData && cartProductData.id === item.id
+            ? '#008D3E'
+            : '#e7e7e7',
         backgroundColor: '#f0f0f0',
         borderWidth: 1,
         borderRadius: 12,
       }}
       key={item.key}>
       <View>
-        <Pressable
-          onPress={handlePress}
-          onLongPress={() => {
-            console.log('long press product add');
-          }}>
+        <Pressable onPress={handlePress} onLongPress={handleLongPress}>
           <View style={{height: itemHeight, width: '100%'}}>
             <Image
               style={{
@@ -141,16 +164,34 @@ function ItemRenderer({
                 uri: item.image,
               }}
             />
-            {item.name === 'Dabbas Dates' && (
+            {cartProductData && cartProductData.id === item.id && (
               <>
                 <Pressable
                   onPress={() => {
-                    console.log('press product minus');
+                    if (cartProductData.numberOfItems > 1) {
+                      const newState = cartItem.map(obj => {
+                        if (obj.id === item.id) {
+                          return {
+                            ...obj,
+                            numberOfItems: obj.numberOfItems - 1,
+                          };
+                        }
+                        return obj;
+                      });
+                      setCartItem(newState);
+                    } else {
+                      setCartItem(current =>
+                        current.filter(obj => {
+                          return obj.id !== item.id;
+                        }),
+                      );
+                    }
                   }}
                   style={{
                     position: 'absolute',
-                    left: 5,
-                    top: 5,
+                    left: 3,
+                    top: 3,
+                    padding: 5,
                   }}>
                   <Avatar.Icon
                     icon="minus"
@@ -162,14 +203,24 @@ function ItemRenderer({
                 </Pressable>
                 <Pressable
                   onPress={() => {
-                    console.log('press add product');
+                    const newState = cartItem.map(obj => {
+                      if (obj.id === item.id) {
+                        return {...obj, numberOfItems: obj.numberOfItems + 1};
+                      }
+                      return obj;
+                    });
+                    setCartItem(newState);
                   }}
                   style={{
                     position: 'absolute',
-                    right: 5,
-                    top: 5,
+                    right: 3,
+                    top: 3,
+                    padding: 5,
                   }}>
-                  <Avatar.Text label={'1'} size={32} />
+                  <Avatar.Text
+                    label={cartProductData.numberOfItems.toString()}
+                    size={32}
+                  />
                 </Pressable>
               </>
             )}

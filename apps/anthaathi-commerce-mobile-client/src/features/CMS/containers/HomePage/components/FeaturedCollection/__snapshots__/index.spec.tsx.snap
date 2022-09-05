@@ -10,8 +10,8 @@ exports[`FeaturedCollection should render the item 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "marginHorizontal": 12,
-        "marginVertical": 8,
+        "marginHorizontal": 10,
+        "marginVertical": 10,
       }
     }
   >
@@ -28,7 +28,6 @@ exports[`FeaturedCollection should render the item 1`] = `
           },
           {
             "fontSize": 16,
-            "marginBottom": 9,
           },
         ]
       }
@@ -64,7 +63,6 @@ exports[`FeaturedCollection should render the item 1`] = `
             },
             {
               "fontSize": 14,
-              "marginBottom": 9,
               "textDecorationLine": "underline",
             },
           ]
@@ -78,8 +76,7 @@ exports[`FeaturedCollection should render the item 1`] = `
   <View
     style={
       {
-        "marginLeft": 12,
-        "marginRight": 12,
+        "marginHorizontal": 10,
       }
     }
   >
@@ -131,7 +128,7 @@ exports[`FeaturedCollection should render the item 1`] = `
             style={
               [
                 {
-                  "marginRight": 8,
+                  "marginRight": 10,
                   "marginVertical": 5,
                 },
               ]

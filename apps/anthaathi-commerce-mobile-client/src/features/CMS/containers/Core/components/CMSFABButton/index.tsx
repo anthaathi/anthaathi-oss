@@ -14,6 +14,9 @@ const CMSFABButton = ({title, icon, handlePress}: CMSFABButtonProps) => {
     <View
       style={{
         alignItems: 'center',
+        bottom: 0,
+        position: 'absolute',
+        width: '100%',
       }}>
       <FAB icon={icon} label={title} style={styles.fab} onPress={handlePress} />
     </View>
@@ -29,10 +32,8 @@ export const FABButtonCMSInput = {
 
 const styles = StyleSheet.create({
   fab: {
-    position: 'absolute',
     margin: 16,
     width: '90%',
-    bottom: 0,
     backgroundColor: '#0f8443',
   },
 });

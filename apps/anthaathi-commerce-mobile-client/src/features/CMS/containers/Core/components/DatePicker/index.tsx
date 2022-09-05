@@ -1,8 +1,8 @@
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {Button, Text} from 'react-native-paper';
+import {Button} from 'react-native-paper';
 import {CoreComponentType} from '../../../../types/common';
 
 const DatePicker = (props: {title: string}) => {

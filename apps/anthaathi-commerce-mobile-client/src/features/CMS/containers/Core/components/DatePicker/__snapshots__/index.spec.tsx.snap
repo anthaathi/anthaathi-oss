@@ -12,21 +12,11 @@ exports[`DatePicker should render the item 1`] = `
 >
   <Text
     style={
-      [
-        {
-          "color": "#000000",
-          "fontFamily": "System",
-          "fontWeight": "400",
-        },
-        {
-          "textAlign": "left",
-        },
-        {
-          "color": "#364A15",
-          "fontSize": 16,
-          "fontWeight": "600",
-        },
-      ]
+      {
+        "color": "#364A15",
+        "fontSize": 16,
+        "fontWeight": "600",
+      }
     }
   >
     Date
@@ -178,7 +168,7 @@ exports[`DatePicker should render the item 1`] = `
             ]
           }
         >
-          1/9/2022
+          5/9/2022
         </Text>
       </View>
     </View>

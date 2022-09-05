@@ -125,7 +125,7 @@ describe('SuggestedItem', () => {
         <IntlProvider locale="en-US" messages={locale}>
           <SuggestedItem
             title="Suggested"
-            handlePress={onpress}
+            handlePress1={onpress}
             products={[
               {
                 name: 'Capsicum mixed',

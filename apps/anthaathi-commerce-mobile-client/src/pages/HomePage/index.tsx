@@ -2,14 +2,13 @@ import {ScrollView, View} from 'react-native';
 import React from 'react';
 
 import CMSRenderer from '../../features/CMS';
-import {
-  CoreComponentType,
-  HomePageComponentType,
-} from '../../features/CMS/types/common';
+import {HomePageComponentType} from '../../features/CMS/types/common';
 
 import dataJson from '../../config/data.json';
+import categoryJson from '../../config/category.json';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
+import {ProductProps} from '../../features/CMS/containers/HomePage/components/FeaturedCollection';
 
 const HomePage = (
   props: NativeStackScreenProps<RootStackParamList, 'HomePage'>,
@@ -52,10 +51,12 @@ const HomePage = (
             {
               _component: HomePageComponentType.HeroCategories,
               key: '127',
-              title: dataJson.core.homePage.heroCategories.title,
-              items: dataJson.core.homePage.heroCategories.items,
-              onPress: () => {
-                props.navigation.navigate('ProductListPage1');
+              title: categoryJson.heroCategories.title,
+              items: categoryJson.heroCategories.items,
+              onPress: (value: string) => {
+                props.navigation.navigate('ProductListPage1', {
+                  categoryName: value,
+                });
               },
             },
             {
@@ -82,9 +83,6 @@ const HomePage = (
                     dataJson.core.homePage.featuredCollection.products[0].notes,
                   image:
                     dataJson.core.homePage.featuredCollection.products[0].image,
-                  onProductPress: () => {
-                    props.navigation.navigate('ProductPage');
-                  },
                 },
                 {
                   name: dataJson.core.homePage.featuredCollection.products[1]
@@ -105,9 +103,6 @@ const HomePage = (
                     dataJson.core.homePage.featuredCollection.products[1].notes,
                   image:
                     dataJson.core.homePage.featuredCollection.products[1].image,
-                  onProductPress: () => {
-                    props.navigation.navigate('ProductPage');
-                  },
                 },
                 {
                   name: dataJson.core.homePage.featuredCollection.products[2]
@@ -128,13 +123,37 @@ const HomePage = (
                     dataJson.core.homePage.featuredCollection.products[2].notes,
                   image:
                     dataJson.core.homePage.featuredCollection.products[2].image,
-                  onProductPress: () => {
-                    props.navigation.navigate('ProductPage');
-                  },
                 },
               ],
               handlePress: () => {
                 props.navigation.navigate('ProductListPage1');
+              },
+              onProductPress: (item: ProductProps) => {
+                props.navigation.navigate('ProductPage', {
+                  productDetails: {
+                    id: item.id,
+                    description: item.description,
+                    weight_unit: item.weight_unit,
+                    packaging: item.packaging,
+                    key: item.key,
+                    notes: item.notes,
+                    name: item.name,
+                    listInfo: {
+                      description:
+                        '100% fresh. Sourced from UAE. Benefits: Dates contain vitamins such as B1, B2, B3 and B5, as well as A1 and C. Dates are loaded with potassium and rich in Iron, which is highly recommended for those who suffer from iron deficiency.',
+                      shippingInformation: 'Shipping Information',
+                    },
+                    blockInfo: {
+                      freeShipping: 'Free shipping in UAE',
+                      inStock: 'In stock, ready to ship',
+                      securePayments: 'Secure Payments',
+                      isFresh: 'Fresh',
+                    },
+                    price: item.price,
+                    currency: item.currency,
+                    image: [item.image],
+                  },
+                });
               },
             },
 
@@ -192,6 +211,10 @@ const HomePage = (
               image: dataJson.core.homePage.splitOfferCard.image,
               buttonTitle: 'View Offers',
             },
+            // {
+            //   _component: HomePageComponentType.ChatFloatingButton,
+            //   key: '1312',
+            // },
           ]}
         />
       </ScrollView>

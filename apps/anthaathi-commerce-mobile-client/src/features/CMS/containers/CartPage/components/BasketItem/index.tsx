@@ -4,8 +4,11 @@ import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../../../context/CartItemContext';
 
 export interface ItemProps {
+  id: number;
   name: string;
   image: string;
   price: number;
@@ -86,7 +89,7 @@ const ItemRenderer = ({
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', width: '80%'}}>
           <Image
             testID="basketProductImage"
             source={{uri: item.image}}
@@ -103,7 +106,11 @@ const ItemRenderer = ({
               <Text
                 testID="productName"
                 variant="titleLarge"
-                style={{fontSize: 14, color: '#364A15', fontWeight: '900'}}>
+                style={{
+                  fontSize: 14,
+                  color: '#364A15',
+                  fontWeight: '900',
+                }}>
                 {item.name}
               </Text>
               <Text
@@ -113,7 +120,10 @@ const ItemRenderer = ({
                 {item.packaging}
               </Text>
             </View>
-            <ProductCountButton numberOfItems={item.numberOfItems} />
+            <ProductCountButton
+              name={item.name}
+              numberOfItems={item.numberOfItems}
+            />
           </View>
         </View>
         <View
@@ -131,7 +141,7 @@ const ItemRenderer = ({
               fontWeight: '700',
               marginLeft: 5,
             }}>
-            {intl.formatNumber(item.price, {
+            {intl.formatNumber(item.price * item.numberOfItems, {
               style: 'currency',
               currency: item.currency,
             })}
@@ -143,7 +153,15 @@ const ItemRenderer = ({
   );
 };
 
-const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
+const ProductCountButton = ({
+  name,
+  numberOfItems,
+}: {
+  name: string;
+  numberOfItems: number;
+}) => {
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
+
   return (
     <View
       style={{
@@ -159,10 +177,29 @@ const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
           borderRadius: 0,
           height: 42,
         }}
-        icon="minus"
+        icon={numberOfItems > 1 ? 'minus' : 'delete'}
         iconColor="#008D3E"
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => {
+          if (numberOfItems > 1) {
+            const newState = cartItem.map(obj => {
+              if (obj.name === name) {
+                return {
+                  ...obj,
+                  numberOfItems: obj.numberOfItems - 1,
+                };
+              }
+              return obj;
+            });
+            setCartItem(newState);
+          } else {
+            setCartItem(current =>
+              current.filter(obj => {
+                return obj.name !== name;
+              }),
+            );
+          }
+        }}
       />
       <Text
         style={{
@@ -181,7 +218,15 @@ const ProductCountButton = ({numberOfItems}: {numberOfItems: number}) => {
         icon="plus"
         iconColor="#008D3E"
         size={20}
-        onPress={() => console.log('Pressed')}
+        onPress={() => {
+          const newState = cartItem.map(obj => {
+            if (obj.name === name) {
+              return {...obj, numberOfItems: obj.numberOfItems + 1};
+            }
+            return obj;
+          });
+          setCartItem(newState);
+        }}
       />
     </View>
   );

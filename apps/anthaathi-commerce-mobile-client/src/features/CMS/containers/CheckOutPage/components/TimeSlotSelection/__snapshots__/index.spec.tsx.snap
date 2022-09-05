@@ -45,8 +45,8 @@ exports[`TimeSlot should render the item 1`] = `
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#F1F9F4",
-          "borderRadius": 2,
+          "backgroundColor": "#E2F3E9",
+          "borderRadius": 50,
           "height": 38,
           "justifyContent": "center",
           "marginBottom": 10,
@@ -83,8 +83,8 @@ exports[`TimeSlot should render the item 1`] = `
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#F1F9F4",
-          "borderRadius": 2,
+          "backgroundColor": "#E2F3E9",
+          "borderRadius": 50,
           "height": 38,
           "justifyContent": "center",
           "marginBottom": 10,
@@ -121,8 +121,8 @@ exports[`TimeSlot should render the item 1`] = `
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#F1F9F4",
-          "borderRadius": 2,
+          "backgroundColor": "#E2F3E9",
+          "borderRadius": 50,
           "height": 38,
           "justifyContent": "center",
           "marginBottom": 10,
