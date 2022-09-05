@@ -10,6 +10,7 @@ import {CartItemData} from '../../../../context/CartItemContext';
 import {ItemProps} from '../../../CartPage/components/BasketItem';
 
 export interface ProductProps {
+  id: number;
   name: string;
   description?: string;
   price: number;
@@ -23,8 +24,8 @@ export interface ProductProps {
 
 export interface ProductListProps {
   products: ProductProps[];
-  handlePress: (item: ProductProps) => void;
-  handleLongPress: () => void;
+  handlePress?: (item: ProductProps) => void;
+  handleLongPress?: (item: ProductProps) => void;
 }
 
 export default function ProductList({
@@ -50,11 +51,11 @@ export default function ProductList({
   }, [products]);
 
   return (
-    <View style={{marginTop: 10}}>
+    <View style={{marginTop: 10}} testID="productList">
       <VirtualizedList<ProductProps[]>
         data={productSplitted}
         contentContainerStyle={{paddingBottom: 100}}
-        testID="productList"
+        testID="productListData"
         // initialNumToRender={4}
         // horizontal
         renderItem={({item}) => (
@@ -63,7 +64,7 @@ export default function ProductList({
             itemHeight={itemHeight}
             itemWidth={itemWidth}
             handlePress={handlePress || (() => {})}
-            handleLongPress={handleLongPress}
+            handleLongPress={handleLongPress || (() => {})}
           />
         )}
         getItemCount={() => productSplitted.length}
@@ -85,7 +86,7 @@ function ItemRendererColumn({
   itemHeight: number;
   itemWidth: number;
   handlePress: (item: ProductProps) => void;
-  handleLongPress: () => void;
+  handleLongPress: (item: ProductProps) => void;
 }) {
   return (
     <View
@@ -103,7 +104,7 @@ function ItemRendererColumn({
           itemHeight={itemHeight}
           itemWidth={itemWidth}
           handlePress={() => handlePress(element)}
-          handleLongPress={handleLongPress}
+          handleLongPress={() => handleLongPress(element)}
         />
       ))}
     </View>
@@ -126,11 +127,11 @@ function ItemRenderer({
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
   const cartProductData: ItemProps | undefined = React.useMemo(() => {
-    if (cartItem.some(el => el.name === item.name)) {
-      let cartObj = cartItem.find(el => el.name === item.name);
+    if (cartItem.some(el => el.id === item.id)) {
+      let cartObj = cartItem.find(el => el.id === item.id);
       return cartObj;
     }
-  }, [cartItem, item.name]);
+  }, [cartItem, item.id]);
 
   const intl = useIntl();
   return (
@@ -139,7 +140,7 @@ function ItemRenderer({
         marginVertical: 5,
         width: '48%',
         borderColor:
-          cartProductData && cartProductData.name === item.name
+          cartProductData && cartProductData.id === item.id
             ? '#008D3E'
             : '#e7e7e7',
         backgroundColor: '#f0f0f0',
@@ -163,13 +164,13 @@ function ItemRenderer({
                 uri: item.image,
               }}
             />
-            {cartProductData && cartProductData.name === item.name && (
+            {cartProductData && cartProductData.id === item.id && (
               <>
                 <Pressable
                   onPress={() => {
                     if (cartProductData.numberOfItems > 1) {
                       const newState = cartItem.map(obj => {
-                        if (obj.name === item.name) {
+                        if (obj.id === item.id) {
                           return {
                             ...obj,
                             numberOfItems: obj.numberOfItems - 1,
@@ -181,7 +182,7 @@ function ItemRenderer({
                     } else {
                       setCartItem(current =>
                         current.filter(obj => {
-                          return obj.name !== item.name;
+                          return obj.id !== item.id;
                         }),
                       );
                     }
@@ -202,7 +203,7 @@ function ItemRenderer({
                 <Pressable
                   onPress={() => {
                     const newState = cartItem.map(obj => {
-                      if (obj.name === item.name) {
+                      if (obj.id === item.id) {
                         return {...obj, numberOfItems: obj.numberOfItems + 1};
                       }
                       return obj;

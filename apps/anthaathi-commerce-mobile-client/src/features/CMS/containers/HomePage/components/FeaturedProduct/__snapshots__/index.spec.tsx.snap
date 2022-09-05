@@ -44,57 +44,10 @@ exports[`FeaturedProduct should render the item 1`] = `
       <View
         style={
           {
-            "alignItems": "center",
-            "flexDirection": "row",
+            "paddingVertical": 15,
           }
         }
-      >
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "paddingHorizontal": 10,
-              "paddingVertical": 15,
-            }
-          }
-        >
-          <Text
-            collapsable={false}
-            numberOfLines={1}
-            style={
-              {
-                "alignSelf": "flex-end",
-                "backgroundColor": "#000000",
-                "borderRadius": 6,
-                "color": "#ffffff",
-                "fontFamily": "System",
-                "fontSize": 6,
-                "fontWeight": "400",
-                "height": 12,
-                "lineHeight": 6,
-                "minWidth": 12,
-                "opacity": 1,
-                "overflow": "hidden",
-                "paddingHorizontal": 4,
-                "textAlign": "center",
-                "textAlignVertical": "center",
-              }
-            }
-            testID="badgeSelectImage"
-          />
-        </View>
-      </View>
+      />
     </View>
     <View
       style={
@@ -600,7 +553,9 @@ exports[`FeaturedProduct should render the item 1`] = `
         {
           "marginVertical": 8,
         },
-        undefined,
+        {
+          "marginBottom": 15,
+        },
       ]
     }
     theme={
@@ -811,7 +766,7 @@ exports[`FeaturedProduct should render the item 1`] = `
           accessibilityState={
             {
               "disabled": false,
-              "expanded": true,
+              "expanded": false,
             }
           }
           accessible={true}
@@ -877,7 +832,7 @@ exports[`FeaturedProduct should render the item 1`] = `
                         "fontSize": 16,
                       },
                       {
-                        "color": "#6200ee",
+                        "color": "rgba(0, 0, 0, 0.87)",
                       },
                       {
                         "color": "#000000",
@@ -933,31 +888,12 @@ exports[`FeaturedProduct should render the item 1`] = `
                   ]
                 }
               >
-                󰅃
+                󰅀
               </Text>
             </View>
           </View>
         </View>
       </View>
-      <Text
-        style={
-          [
-            {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
-            },
-            {
-              "textAlign": "left",
-            },
-            {
-              "marginHorizontal": 20,
-            },
-          ]
-        }
-      >
-        Shipping Information
-      </Text>
     </View>
     <View
       style={

@@ -41,10 +41,10 @@ export default function FeaturedCollection({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginHorizontal: 12,
-          marginVertical: 8,
+          marginHorizontal: 10,
+          marginVertical: 10,
         }}>
-        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 16}}>
+        <Text variant="titleLarge" style={{fontSize: 16}}>
           {title}
         </Text>
 
@@ -52,7 +52,6 @@ export default function FeaturedCollection({
           <Text
             variant="titleMedium"
             style={{
-              marginBottom: 9,
               textDecorationLine: 'underline',
               fontSize: 14,
             }}>
@@ -61,7 +60,7 @@ export default function FeaturedCollection({
         </Pressable>
       </View>
 
-      <View style={{marginLeft: 12, marginRight: 12}}>
+      <View style={{marginHorizontal: 10}}>
         <VirtualizedList<ProductProps>
           testID="productList"
           data={products}
@@ -98,7 +97,7 @@ function ItemRenderer({
       style={[
         {
           marginVertical: 5,
-          marginRight: 8,
+          marginRight: 10,
         },
       ]}
       key={item.key}>

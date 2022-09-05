@@ -24,7 +24,6 @@ const SplitOfferCard = (props: SplitCardOfferProps) => {
         flexDirection: itemWidth === '90%' ? 'column' : 'row-reverse',
         alignItems: 'center',
         marginVertical: 10,
-        marginTop: 48,
         paddingTop: 48,
         paddingBottom: 48,
         backgroundColor: Colors.green100,

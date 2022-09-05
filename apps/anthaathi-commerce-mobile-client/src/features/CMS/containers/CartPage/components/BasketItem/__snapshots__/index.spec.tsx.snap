@@ -93,6 +93,7 @@ exports[`BasketItem should render the item 1`] = `
           style={
             {
               "flexDirection": "row",
+              "width": "80%",
             }
           }
         >
@@ -413,7 +414,7 @@ exports[`BasketItem should render the item 1`] = `
             testID="productPrice"
             variant="titleLarge"
           >
-            $12.00
+            $24.00
           </Text>
         </View>
       </View>
@@ -445,6 +446,7 @@ exports[`BasketItem should render the item 1`] = `
           style={
             {
               "flexDirection": "row",
+              "width": "80%",
             }
           }
         >
@@ -765,7 +767,7 @@ exports[`BasketItem should render the item 1`] = `
             testID="productPrice"
             variant="titleLarge"
           >
-            $23.00
+            $46.00
           </Text>
         </View>
       </View>

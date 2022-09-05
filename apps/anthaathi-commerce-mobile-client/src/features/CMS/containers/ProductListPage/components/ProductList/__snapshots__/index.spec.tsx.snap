@@ -7,6 +7,7 @@ exports[`ProductList should render the item 1`] = `
       "marginTop": 10,
     }
   }
+  testID="productList"
 >
   <RCTScrollView
     contentContainerStyle={
@@ -19,6 +20,7 @@ exports[`ProductList should render the item 1`] = `
         [
           {
             "currency": "USD",
+            "id": 1,
             "image": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
             "key": "test",
             "name": "test",
@@ -43,7 +45,7 @@ exports[`ProductList should render the item 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={[]}
-    testID="productList"
+    testID="productListData"
   >
     <View>
       <View

@@ -120,7 +120,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
           <Text
             style={{
               textAlign: item.textAlignment ?? 'center',
-              color: (theme.colors as MD3Colors).onPrimary,
+              color: (theme.colors as MD3Colors).background,
               marginBottom: 6,
             }}
             variant="titleSmall">
@@ -129,7 +129,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
           <Text
             style={{
               textAlign: item.textAlignment ?? 'center',
-              color: (theme.colors as MD3Colors).onPrimary,
+              color: (theme.colors as MD3Colors).background,
               marginBottom: 6,
             }}
             variant="titleLarge">
@@ -138,7 +138,7 @@ function PromotionalGridItemRenderer({item}: {item: PromotionalGridItem}) {
           <Text
             style={{
               textAlign: item.textAlignment ?? 'center',
-              color: (theme.colors as MD3Colors).onPrimary,
+              color: (theme.colors as MD3Colors).background,
               marginBottom: 12,
             }}
             variant="bodyMedium">

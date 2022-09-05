@@ -1,11 +1,17 @@
 import * as React from 'react';
 import {Text} from 'react-native-paper';
-import {Image, Pressable, View, VirtualizedList} from 'react-native';
+import {
+  Image,
+  Pressable,
+  View,
+  VirtualizedList,
+  TouchableOpacity,
+} from 'react-native';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export interface ProductProps {
+  id: number;
   name: string;
   description?: string;
   price: number;
@@ -20,13 +26,15 @@ export interface ProductProps {
 export interface FeaturedCollectionProps {
   title: string;
   products: ProductProps[];
-  handlePress?: () => void; // view all product link
+  handlePress1?: () => void; // view all product link
+  handlePress2: (item: ProductProps) => void; // product link
 }
 
 export default function SuggestedItem({
   title,
   products,
-  handlePress,
+  handlePress1,
+  handlePress2,
 }: FeaturedCollectionProps) {
   const intl = useIntl();
 
@@ -43,7 +51,7 @@ export default function SuggestedItem({
         <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 18}}>
           {title}
         </Text>
-        <Pressable onPress={handlePress} testID="handlePressSuggestedItem">
+        <Pressable onPress={handlePress1} testID="handlePressSuggestedItem">
           <Text
             variant="titleMedium"
             style={{
@@ -63,7 +71,9 @@ export default function SuggestedItem({
           data={products}
           initialNumToRender={4}
           horizontal
-          renderItem={({item}) => <ItemRenderer item={item} />}
+          renderItem={({item}) => (
+            <ItemRenderer item={item} handlePress2={handlePress2} />
+          )}
           getItemCount={() => products.length}
           keyExtractor={item => item.key}
           getItem={(res, index) => res[index]}
@@ -73,11 +83,17 @@ export default function SuggestedItem({
   );
 }
 
-function ItemRenderer({item}: {item: ProductProps}) {
+function ItemRenderer({
+  item,
+  handlePress2,
+}: {
+  item: ProductProps;
+  handlePress2: (item: ProductProps) => void;
+}) {
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log('onPressed');
+        handlePress2(item);
       }}>
       <View
         style={{

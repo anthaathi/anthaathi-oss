@@ -2,6 +2,12 @@
 
 exports[`SuggestedItem should render the item 1`] = `
 <View
+  style={
+    {
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+    }
+  }
   testID="suggestedItem"
 >
   <View
@@ -10,7 +16,6 @@ exports[`SuggestedItem should render the item 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "marginHorizontal": 10,
       }
     }
   >
@@ -26,7 +31,6 @@ exports[`SuggestedItem should render the item 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "#808080",
             "fontSize": 18,
             "marginBottom": 9,
           },
@@ -63,6 +67,7 @@ exports[`SuggestedItem should render the item 1`] = `
               "textAlign": "left",
             },
             {
+              "color": "#008D3E",
               "fontSize": 14,
               "marginBottom": 9,
               "textDecorationLine": "underline",
@@ -129,24 +134,32 @@ exports[`SuggestedItem should render the item 1`] = `
           }
         >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginHorizontal": 10,
-                "marginVertical": 5,
+                "opacity": 1,
               }
             }
           >
             <View
               style={
-                [
-                  {
-                    "paddingHorizontal": 16,
-                  },
-                  undefined,
-                  {
-                    "alignItems": "center",
-                  },
-                ]
+                {
+                  "alignItems": "center",
+                  "borderColor": "#e7e7e7",
+                  "borderRadius": 6,
+                  "borderWidth": 1,
+                  "marginBottom": 5,
+                  "marginRight": 20,
+                }
               }
             >
               <Image
@@ -157,135 +170,13 @@ exports[`SuggestedItem should render the item 1`] = `
                 }
                 style={
                   {
-                    "borderRadius": 4,
-                    "height": 180,
-                    "width": 170,
+                    "borderTopLeftRadius": 6,
+                    "borderTopRightRadius": 6,
+                    "height": 64,
+                    "width": 58,
                   }
                 }
               />
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      [
-                        {
-                          "textAlign": "left",
-                        },
-                        {
-                          "color": "rgba(0, 0, 0, 0.87)",
-                          "fontFamily": "System",
-                          "fontWeight": "500",
-                          "writingDirection": "ltr",
-                        },
-                        [
-                          {
-                            "fontSize": 20,
-                            "letterSpacing": 0.15,
-                            "lineHeight": 30,
-                            "marginVertical": 2,
-                          },
-                          {
-                            "fontSize": 14,
-                            "fontWeight": "bold",
-                            "marginRight": 10,
-                          },
-                        ],
-                      ],
-                    ]
-                  }
-                >
-                  Baby Yellow Pepper
-                </Text>
-                <Text
-                  allowFontScaling={false}
-                  selectable={false}
-                  style={
-                    [
-                      {
-                        "color": "#364A15",
-                        "fontSize": 18,
-                      },
-                      undefined,
-                      {
-                        "fontFamily": "Entypo",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "marginTop": 5,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "#008D3E",
-                        "fontSize": 14,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                  $12.00
-                </Text>
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "#808080",
-                        "fontSize": 12,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                   / pack
-                </Text>
-              </View>
               <Text
                 style={
                   [
@@ -298,119 +189,21 @@ exports[`SuggestedItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#808080",
-                      "fontSize": 12,
-                      "fontWeight": "400",
+                      "backgroundColor": "#F1F9F4",
+                      "borderBottomLeftRadius": 6,
+                      "borderBottomRightRadius": 6,
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "paddingVertical": 5,
+                      "textAlign": "center",
+                      "width": 58,
                     },
                   ]
                 }
-              />
-              <View
-                collapsable={false}
-                style={
-                  {
-                    "backgroundColor": "#F1F9F4",
-                    "borderColor": "transparent",
-                    "borderRadius": 0,
-                    "borderStyle": "solid",
-                    "borderWidth": 0,
-                    "elevation": 2,
-                    "minWidth": 64,
-                    "shadowColor": "#000000",
-                    "shadowOffset": {
-                      "height": 0.75,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.24,
-                    "shadowRadius": 1.5,
-                    "width": "100%",
-                  }
-                }
               >
-                <View
-                  accessibilityRole="button"
-                  accessibilityState={
-                    {
-                      "disabled": false,
-                    }
-                  }
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    [
-                      {
-                        "overflow": "hidden",
-                      },
-                      {
-                        "borderRadius": 4,
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    style={
-                      [
-                        {
-                          "alignItems": "center",
-                          "flexDirection": "row",
-                          "justifyContent": "center",
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      selectable={false}
-                      style={
-                        [
-                          {
-                            "color": "#000000",
-                            "fontFamily": "System",
-                            "fontWeight": "400",
-                          },
-                          {
-                            "textAlign": "left",
-                          },
-                          [
-                            {
-                              "letterSpacing": 1,
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            undefined,
-                            {
-                              "textTransform": "uppercase",
-                            },
-                            {
-                              "color": "#ffffff",
-                              "fontFamily": "System",
-                              "fontWeight": "500",
-                            },
-                            {
-                              "fontFamily": "System",
-                              "fontWeight": "500",
-                            },
-                            {
-                              "color": "#008D3E",
-                            },
-                          ],
-                        ]
-                      }
-                    >
-                      Add
-                    </Text>
-                  </View>
-                </View>
-              </View>
+                Add
+              </Text>
             </View>
           </View>
         </View>
@@ -426,24 +219,32 @@ exports[`SuggestedItem should render the item 1`] = `
           }
         >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginHorizontal": 10,
-                "marginVertical": 5,
+                "opacity": 1,
               }
             }
           >
             <View
               style={
-                [
-                  {
-                    "paddingHorizontal": 16,
-                  },
-                  undefined,
-                  {
-                    "alignItems": "center",
-                  },
-                ]
+                {
+                  "alignItems": "center",
+                  "borderColor": "#e7e7e7",
+                  "borderRadius": 6,
+                  "borderWidth": 1,
+                  "marginBottom": 5,
+                  "marginRight": 20,
+                }
               }
             >
               <Image
@@ -454,135 +255,13 @@ exports[`SuggestedItem should render the item 1`] = `
                 }
                 style={
                   {
-                    "borderRadius": 4,
-                    "height": 180,
-                    "width": 170,
+                    "borderTopLeftRadius": 6,
+                    "borderTopRightRadius": 6,
+                    "height": 64,
+                    "width": 58,
                   }
                 }
               />
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      [
-                        {
-                          "textAlign": "left",
-                        },
-                        {
-                          "color": "rgba(0, 0, 0, 0.87)",
-                          "fontFamily": "System",
-                          "fontWeight": "500",
-                          "writingDirection": "ltr",
-                        },
-                        [
-                          {
-                            "fontSize": 20,
-                            "letterSpacing": 0.15,
-                            "lineHeight": 30,
-                            "marginVertical": 2,
-                          },
-                          {
-                            "fontSize": 14,
-                            "fontWeight": "bold",
-                            "marginRight": 10,
-                          },
-                        ],
-                      ],
-                    ]
-                  }
-                >
-                  Capsicum mixed
-                </Text>
-                <Text
-                  allowFontScaling={false}
-                  selectable={false}
-                  style={
-                    [
-                      {
-                        "color": "#364A15",
-                        "fontSize": 18,
-                      },
-                      undefined,
-                      {
-                        "fontFamily": "Entypo",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <View
-                style={
-                  {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "marginTop": 5,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "#008D3E",
-                        "fontSize": 14,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                  $23.00
-                </Text>
-                <Text
-                  style={
-                    [
-                      {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      {
-                        "textAlign": "left",
-                      },
-                      {
-                        "color": "#808080",
-                        "fontSize": 12,
-                        "fontWeight": "400",
-                      },
-                    ]
-                  }
-                >
-                   / pack
-                </Text>
-              </View>
               <Text
                 style={
                   [
@@ -595,119 +274,21 @@ exports[`SuggestedItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#808080",
-                      "fontSize": 12,
-                      "fontWeight": "400",
+                      "backgroundColor": "#F1F9F4",
+                      "borderBottomLeftRadius": 6,
+                      "borderBottomRightRadius": 6,
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "paddingVertical": 5,
+                      "textAlign": "center",
+                      "width": 58,
                     },
                   ]
                 }
-              />
-              <View
-                collapsable={false}
-                style={
-                  {
-                    "backgroundColor": "#F1F9F4",
-                    "borderColor": "transparent",
-                    "borderRadius": 0,
-                    "borderStyle": "solid",
-                    "borderWidth": 0,
-                    "elevation": 2,
-                    "minWidth": 64,
-                    "shadowColor": "#000000",
-                    "shadowOffset": {
-                      "height": 0.75,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.24,
-                    "shadowRadius": 1.5,
-                    "width": "100%",
-                  }
-                }
               >
-                <View
-                  accessibilityRole="button"
-                  accessibilityState={
-                    {
-                      "disabled": false,
-                    }
-                  }
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    [
-                      {
-                        "overflow": "hidden",
-                      },
-                      {
-                        "borderRadius": 4,
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    style={
-                      [
-                        {
-                          "alignItems": "center",
-                          "flexDirection": "row",
-                          "justifyContent": "center",
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      selectable={false}
-                      style={
-                        [
-                          {
-                            "color": "#000000",
-                            "fontFamily": "System",
-                            "fontWeight": "400",
-                          },
-                          {
-                            "textAlign": "left",
-                          },
-                          [
-                            {
-                              "letterSpacing": 1,
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            undefined,
-                            {
-                              "textTransform": "uppercase",
-                            },
-                            {
-                              "color": "#ffffff",
-                              "fontFamily": "System",
-                              "fontWeight": "500",
-                            },
-                            {
-                              "fontFamily": "System",
-                              "fontWeight": "500",
-                            },
-                            {
-                              "color": "#008D3E",
-                            },
-                          ],
-                        ]
-                      }
-                    >
-                      Add
-                    </Text>
-                  </View>
-                </View>
-              </View>
+                Add
+              </Text>
             </View>
           </View>
         </View>

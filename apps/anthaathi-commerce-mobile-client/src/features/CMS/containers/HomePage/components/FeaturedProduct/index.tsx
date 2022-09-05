@@ -76,11 +76,15 @@ function FeaturedProduct(props: ProductDetailsProps) {
             }}
           />
 
-          <ImageSelection
-            id={imageIndex}
-            onChange={setImageIndex}
-            imageLength={props.productInfo.image.length}
-          />
+          {props.productInfo.image.length > 1 ? (
+            <ImageSelection
+              id={imageIndex}
+              onChange={setImageIndex}
+              imageLength={props.productInfo.image.length}
+            />
+          ) : (
+            <View style={{paddingVertical: 15}} />
+          )}
         </View>
         <View style={[itemWidth !== '80%' && {width: '50%'}]}>
           {itemWidth !== '80%' && (
@@ -125,7 +129,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
       </View>
       <>
         {props.productInfo.listInfo && (
-          <List.Section>
+          <List.Section style={{marginBottom: 15}}>
             <List.Accordion
               titleStyle={{
                 color: '#000000',
@@ -141,7 +145,6 @@ function FeaturedProduct(props: ProductDetailsProps) {
               title={intl.formatMessage({
                 defaultMessage: 'Shipping information',
               })}
-              expanded={expanded}
               onPress={handlePress}>
               <Text style={{marginHorizontal: 20}}>
                 {props.productInfo.listInfo?.shippingInformation}

@@ -8,6 +8,7 @@ import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../../../context/CartItemContext';
 
 export interface ItemProps {
+  id: number;
   name: string;
   image: string;
   price: number;

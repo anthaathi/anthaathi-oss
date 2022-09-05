@@ -15,6 +15,7 @@ import RNRestart from 'react-native-restart';
 import {useState} from 'react';
 import {useRecoilValue} from 'recoil';
 import {CartItemData} from '../features/CMS/context/CartItemContext';
+import {useNavigation} from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ function ImageHeader({
   }
   const cartItem = useRecoilValue(CartItemData);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.wrapper}>
@@ -51,7 +53,13 @@ function ImageHeader({
           hasBackButton && {paddingLeft: 0},
         ]}>
         {hasBackButton && (
-          <IconButton color={Colors.grey800} icon="arrow-left" />
+          <IconButton
+            color={Colors.grey800}
+            icon="arrow-left"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
         )}
 
         <IconButton
@@ -197,7 +205,19 @@ const MyStack = () => {
       <Stack.Screen
         name="ProductPage"
         component={ProductPage}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              inlineSearch={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="Profile"

@@ -10,6 +10,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button} from 'react-native-paper';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import {ProductProps} from '../../features/CMS/containers/CartPage/components/SuggestedItem';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
@@ -43,47 +44,80 @@ const CartPage: React.FC<
               _component: CartPageComponentType.SuggestedItem,
               key: '14',
               title: 'Suggested',
+              handlePress2: (item: ProductProps) => {
+                if (cartItem.some(el => el.id === item.id)) {
+                  const newState = cartItem.map(obj => {
+                    if (obj.id === item.id) {
+                      return {...obj, numberOfItems: obj.numberOfItems + 1};
+                    }
+                    return obj;
+                  });
+                  setCartItem(newState);
+                } else {
+                  setCartItem(oldCartItem => [
+                    ...oldCartItem,
+                    {
+                      id: item.id,
+                      name: item.name,
+                      image: item.image,
+                      price: item.price,
+                      currency: item.currency,
+                      numberOfItems: 1,
+                      packaging: item.packaging,
+                      weight_unit: item.weight_unit,
+                      key: item.key,
+                    },
+                  ]);
+                }
+              },
               products: [
                 {
-                  name: 'Baby Yellow Pepper',
-                  image:
-                    'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-                  key: '12',
-                  price: 12,
-                  currency: 'USD',
-                  weight_unit: 'KG',
+                  id: 1,
+                  name: 'Fruit Platter Production',
+                  key: 'test5',
+                  price: '40.0',
+                  currency: 'AED',
+                  weight_unit: 'Piece',
                   packaging: 'pack',
+                  notes: '(10 pcs of Sticks)',
+                  image:
+                    'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-02-17-at-16.47.25_360x.jpg?v=1653585638',
                 },
                 {
-                  name: 'Capsicum mixed',
-                  image:
-                    'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
-                  key: '23',
-                  price: 23,
-                  currency: 'USD',
-                  weight_unit: 'KG',
-                  packaging: 'pack',
-                },
-                {
+                  id: 2,
                   name: 'Dabbas Dates',
-                  key: 'test2',
-                  price: 105.0,
+                  key: 'test6',
+                  price: '105.0',
                   currency: 'AED',
                   weight_unit: 'KG',
                   packaging: 'Box',
+                  notes: 'Approx 8kg per box.',
                   image:
-                    'https://www.nrtcfresh.com/wp-content/uploads/2021/10/dabbas-500g-pkt-box-500x500.jpg',
+                    'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833',
                 },
                 {
+                  id: 3,
                   name: 'Sweet Potato Orange (Cut Cube)',
-                  key: 'test3',
-                  price: 7.35,
+                  key: 'test7',
+                  price: '7.35',
                   currency: 'AED',
                   weight_unit: 'Pack',
                   packaging: 'pack',
                   notes: '250g',
                   image:
-                    'https://www.nrtcfresh.com/wp-content/uploads/2020/11/Sweet_Potato_Orange-1.jpg',
+                    'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Sweet_Potato_Orange-1_360x.jpg?v=1653583303',
+                },
+                {
+                  id: 4,
+                  name: 'Apricot',
+                  key: 'test8',
+                  price: '10.0',
+                  currency: 'AED',
+                  weight_unit: 'pack',
+                  packaging: 'pack',
+                  notes: 'approx 1kg to 1.15 kg per pack',
+                  image:
+                    'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-19-at-5.39.55-PM-removebg-preview_1800x1800.jpg?v=1653585843',
                 },
               ],
             },
