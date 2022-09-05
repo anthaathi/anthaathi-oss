@@ -63,7 +63,7 @@ const OptionItem = ({
         }}>
         <View
           style={{
-            marginVertical: 7,
+            marginVertical: 10,
             flexDirection: 'row',
           }}>
           <Icon

@@ -104,7 +104,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               style={
                 {
                   "flexDirection": "row",
-                  "marginVertical": 7,
+                  "marginVertical": 10,
                 }
               }
             >
@@ -188,7 +188,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               style={
                 {
                   "flexDirection": "row",
-                  "marginVertical": 7,
+                  "marginVertical": 10,
                 }
               }
             >
@@ -272,7 +272,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               style={
                 {
                   "flexDirection": "row",
-                  "marginVertical": 7,
+                  "marginVertical": 10,
                 }
               }
             >

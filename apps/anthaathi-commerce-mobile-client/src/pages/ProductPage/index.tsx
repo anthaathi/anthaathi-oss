@@ -7,6 +7,7 @@ import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import {ProductProps} from '../../features/CMS/containers/HomePage/components/FeaturedCollection';
 
 const ProductPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductPage'>,
@@ -81,12 +82,66 @@ const ProductPage = (
               key: '1251',
               title: 'Related Products',
               products: dataJson.core.productPage.featuredCollection.products,
+              onProductPress: (item: ProductProps) => {
+                props.navigation.push('ProductPage', {
+                  productDetails: {
+                    id: item.id,
+                    description: item.description,
+                    weight_unit: item.weight_unit,
+                    packaging: item.packaging,
+                    key: item.key,
+                    notes: item.notes,
+                    name: item.name,
+                    listInfo: {
+                      description:
+                        '100% fresh. Sourced from UAE. Benefits: Dates contain vitamins such as B1, B2, B3 and B5, as well as A1 and C. Dates are loaded with potassium and rich in Iron, which is highly recommended for those who suffer from iron deficiency.',
+                      shippingInformation: 'Shipping Information',
+                    },
+                    blockInfo: {
+                      freeShipping: 'Free shipping in UAE',
+                      inStock: 'In stock, ready to ship',
+                      securePayments: 'Secure Payments',
+                      isFresh: 'Fresh',
+                    },
+                    price: item.price,
+                    currency: item.currency,
+                    image: [item.image],
+                  },
+                });
+              },
             },
             {
               _component: HomePageComponentType.FeaturedCollection,
               key: '1250',
               title: 'Recently viewed',
               products: dataJson.core.productPage.featuredCollection.products,
+              onProductPress: (item: ProductProps) => {
+                props.navigation.push('ProductPage', {
+                  productDetails: {
+                    id: item.id,
+                    description: item.description,
+                    weight_unit: item.weight_unit,
+                    packaging: item.packaging,
+                    key: item.key,
+                    notes: item.notes,
+                    name: item.name,
+                    listInfo: {
+                      description:
+                        '100% fresh. Sourced from UAE. Benefits: Dates contain vitamins such as B1, B2, B3 and B5, as well as A1 and C. Dates are loaded with potassium and rich in Iron, which is highly recommended for those who suffer from iron deficiency.',
+                      shippingInformation: 'Shipping Information',
+                    },
+                    blockInfo: {
+                      freeShipping: 'Free shipping in UAE',
+                      inStock: 'In stock, ready to ship',
+                      securePayments: 'Secure Payments',
+                      isFresh: 'Fresh',
+                    },
+                    price: item.price,
+                    currency: item.currency,
+                    image: [item.image],
+                  },
+                });
+              },
             },
           ]}
         />
