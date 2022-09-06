@@ -33,7 +33,7 @@ export interface NotificationProps {
 }
 
 export function NotificationContainer() {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <>
@@ -93,9 +93,9 @@ export function NotificationContainer() {
         <Button
           kind={KIND.primary}
           size={SIZE.compact}
-          $style={{
+          className={css({
             ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-          }}
+          })}
         >
           <Icon icon="bell-o" />
         </Button>
@@ -145,7 +145,7 @@ function Notification({
               <Button
                 kind={KIND.secondary}
                 size={SIZE.compact}
-                $style={{
+                className={css({
                   width: '24px',
                   height: '24px',
                   paddingLeft: '0px',
@@ -158,7 +158,7 @@ function Notification({
                   borderBottomRightRadius: '4px',
                   backgroundColor: '#fff',
                   ':hover': { backgroundColor: $theme.colors.notificationA },
-                }}
+                })}
                 onClick={onClick1}
               >
                 <span
@@ -214,7 +214,7 @@ function Notification({
             <Button
               kind={KIND.secondary}
               size={SIZE.compact}
-              $style={{
+              className={css({
                 width: '24px',
                 height: '24px',
                 paddingLeft: '0px',
@@ -228,7 +228,7 @@ function Notification({
                 backgroundColor: '#fff',
                 marginLeft: '5px',
                 ':hover': { backgroundColor: $theme.colors.notificationA },
-              }}
+              })}
               onClick={() => {}}
             >
               <span
@@ -268,7 +268,7 @@ function Notification({
             startEnhancer={buttonIcon}
             kind={KIND.tertiary}
             size={SIZE.compact}
-            $style={{
+            className={css({
               paddingLeft: '0px',
               paddingRight: '0px',
               paddingTop: '0px',
@@ -287,7 +287,7 @@ function Notification({
                 backgroundColor: '#fff',
                 textDecoration: 'underline',
               },
-            }}
+            })}
             onClick={onClick2}
           >
             {buttonTitle}

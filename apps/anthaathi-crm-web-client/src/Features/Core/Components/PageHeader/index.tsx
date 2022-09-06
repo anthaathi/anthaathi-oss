@@ -69,7 +69,7 @@ const PageHeader = forwardRef<HTMLDivElement, PageHeaderProps>(
           top: '48px',
           backgroundColor: $theme.colors.backgroundPrimary,
           zIndex: 100,
-          borderBottomColor: $theme.colors.borderTransparent,
+          borderBottomColor: $theme.colors.borderTransparent as never,
           borderBottomStyle: 'solid',
           borderBottomWidth: tabs ? 0 : '1px',
           boxShadow: expanded ? 'none' : $theme.lighting.shadow400,

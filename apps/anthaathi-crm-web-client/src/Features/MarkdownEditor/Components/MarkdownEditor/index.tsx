@@ -140,7 +140,7 @@ export function MarkdownEditor({ value, onChange, id }: MarkdownEditorProps) {
         inputRef={textareaRef}
         id={id}
         onChange={(e) => {
-          onChange((e.target as HTMLInputElement).value);
+          onChange((e.target as never as HTMLInputElement).value);
         }}
         value={value}
       />

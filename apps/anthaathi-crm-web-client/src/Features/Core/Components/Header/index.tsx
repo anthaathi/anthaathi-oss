@@ -33,7 +33,7 @@ export const HeaderWrapper = styled('div', () => ({
 
 export function HeaderToggle() {
   const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   const [isHovering, setIsHovering] = useState(false);
 
@@ -48,7 +48,7 @@ export function HeaderToggle() {
         onMouseOut={() => {
           setIsHovering(false);
         }}
-        $style={{
+        className={css({
           width: '36px',
           height: '36px',
           paddingLeft: '0px',
@@ -57,7 +57,7 @@ export function HeaderToggle() {
           paddingBottom: '0px',
           backgroundColor: $theme.colors.primaryHeaderB,
           ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-        }}
+        })}
         onClick={() => setHeaderOpen((prev) => !prev)}
       >
         {headerOpen && isHovering ? (

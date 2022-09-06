@@ -7,7 +7,7 @@ import { useStyletron } from 'baseui';
 import { StatefulMenu } from 'baseui/menu';
 
 export function UserMenuHeader() {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <StatefulPopover
@@ -28,9 +28,9 @@ export function UserMenuHeader() {
       <Button
         kind={KIND.primary}
         size={SIZE.compact}
-        $style={{
+        className={css({
           ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-        }}
+        })}
       >
         <Icon icon="user" />
       </Button>

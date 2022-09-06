@@ -149,7 +149,7 @@ const CardType = ({
             size={INPUT_SIZE.compact}
             startEnhancer={<Search size="18px" />}
             placeholder="Enter text"
-            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+            onChange={(e) => {
               const keyword = e.currentTarget.value;
               if (keyword !== '') {
                 const results = listData?.filter((user) => {

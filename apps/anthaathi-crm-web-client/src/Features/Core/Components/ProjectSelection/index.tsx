@@ -65,10 +65,10 @@ export function ProjectSelection() {
         }
       >
         <Button
-          $style={{
+          className={css({
             width: '100%',
             backgroundColor: $theme.colors.primaryB,
-          }}
+          })}
           kind={KIND.secondary}
         >
           Ajinkyatara

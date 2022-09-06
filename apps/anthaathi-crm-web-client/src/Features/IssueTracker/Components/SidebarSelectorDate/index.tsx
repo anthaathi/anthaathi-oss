@@ -15,7 +15,7 @@ export interface PeopleSelectorProps {
 
 export function SidebarSelectorDate({ label }: PeopleSelectorProps) {
   const [, $theme] = useStyletron();
-  const [value, setValue] = React.useState([new Date()]);
+  const [value, setValue] = React.useState<(Date | null)[]>([new Date()]);
 
   return (
     <div>
@@ -43,7 +43,9 @@ export function SidebarSelectorDate({ label }: PeopleSelectorProps) {
       <DatePicker
         size={DATE_SIZE.compact}
         value={value}
-        onChange={({ date }) => setValue(Array.isArray(date) ? date : [date])}
+        onChange={({ date }) => {
+          setValue(Array.isArray(date) ? (date as never) : [date as never]);
+        }}
         clearable
       />
     </div>
