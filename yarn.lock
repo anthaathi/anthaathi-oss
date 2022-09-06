@@ -5787,7 +5787,10 @@ __metadata:
     baseui: ^12.1.0
     classnames: ^2.3.1
     eslint: 8.22.0
+    eslint-config-prettier: ^8.5.0
     eslint-plugin-baseui: ^12.1.0
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: ^7.31.6
     gts: ^3.1.0
     node-scss: ^7.0.3

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DashboardCard from '../../Features/Core/Components/DashboardCard';
 import PageHeader from '../../Features/Core/Components/PageHeader';
 import { Cell, Grid } from 'baseui/layout-grid';
