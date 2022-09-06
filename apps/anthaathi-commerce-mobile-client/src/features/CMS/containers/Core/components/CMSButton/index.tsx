@@ -14,10 +14,13 @@ const CMSButton = ({title, handlePress}: CMSButtonProps) => {
       style={{
         marginVertical: 10,
         marginHorizontal: '4%',
-        borderRadius: 32,
+        borderRadius: 4,
         width: '96%',
         position: 'absolute',
         bottom: 0,
+      }}
+      labelStyle={{
+        paddingVertical: 5,
       }}
       onPress={handlePress}>
       {title}

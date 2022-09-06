@@ -16,8 +16,12 @@ import {useState} from 'react';
 import {useRecoilValue} from 'recoil';
 import {CartItemData} from '../features/CMS/context/CartItemContext';
 import {useNavigation} from '@react-navigation/native';
+import SignInPage from '../pages/Authentication/SignInPage';
+import SignUpPage from '../pages/Authentication/SignUpPage';
+import ResetPasswordPage from '../pages/Authentication/ResetPasswordPage';
+import {RootStackParamList} from '../types/Route';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export interface ImageHeaderProps {
   onCartTap: () => void;
@@ -156,10 +160,35 @@ const MyStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="SignIn"
+        component={SignInPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="SignUp"
+        component={SignUpPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="ResetPassword"
+        component={ResetPasswordPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
         name="Dashboard"
         component={MainPage}
         options={({navigation}) => ({
           headerShown: true,
+          headerBackVisible: false,
           headerTitle: () => (
             <ImageHeader
               hasBackButton={false}

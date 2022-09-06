@@ -10,11 +10,12 @@ export interface CMSTextInputProps
 
 const CMSTextInput = ({label}: CMSTextInputProps) => {
   return (
-    <View style={{marginHorizontal: 5, marginVertical: 5}}>
+    <View style={{marginHorizontal: 5, marginVertical: 10}}>
       <TextInput
+        mode="flat"
         label={label}
-        style={{backgroundColor: '#fff'}}
-        activeUnderlineColor="#858585"
+        style={{backgroundColor: '#fff', fontSize: 14, height: 56}}
+        activeUnderlineColor="#0f8443"
       />
     </View>
   );
