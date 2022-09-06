@@ -4,8 +4,6 @@ import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
-import {useRecoilState} from 'recoil';
-import {CartItemData} from '../../../../context/CartItemContext';
 
 export interface ItemProps {
   id: number;
@@ -23,6 +21,8 @@ export interface BasketItemProps {
   title: string;
   items: ItemProps[];
   handlePress?: () => void;
+  addProductPress?: (id: number) => void;
+  removeProductPress?: (id: number, numberOfItems: number) => void;
 }
 
 const BasketItem = (props: BasketItemProps) => {
@@ -68,6 +68,8 @@ const BasketItem = (props: BasketItemProps) => {
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
+              addProductPress={props.addProductPress || (() => {})}
+              removeProductPress={props.removeProductPress || (() => {})}
             />
           );
         })}
@@ -80,10 +82,14 @@ const ItemRenderer = ({
   item,
   itemHeight,
   itemWidth,
+  addProductPress,
+  removeProductPress,
 }: {
   item: ItemProps;
   itemHeight: number;
   itemWidth: number;
+  addProductPress: (id: number) => void;
+  removeProductPress: (id: number, numberOfItems: number) => void;
 }) => {
   const intl = useIntl();
   return (
@@ -121,8 +127,11 @@ const ItemRenderer = ({
               </Text>
             </View>
             <ProductCountButton
-              name={item.name}
               numberOfItems={item.numberOfItems}
+              addProductPress={() => addProductPress(item.id)}
+              removeProductPress={() =>
+                removeProductPress(item.id, item.numberOfItems)
+              }
             />
           </View>
         </View>
@@ -154,14 +163,14 @@ const ItemRenderer = ({
 };
 
 const ProductCountButton = ({
-  name,
   numberOfItems,
+  addProductPress,
+  removeProductPress,
 }: {
-  name: string;
   numberOfItems: number;
+  addProductPress: () => void;
+  removeProductPress: () => void;
 }) => {
-  const [cartItem, setCartItem] = useRecoilState(CartItemData);
-
   return (
     <View
       style={{
@@ -180,26 +189,7 @@ const ProductCountButton = ({
         icon={numberOfItems > 1 ? 'minus' : 'delete'}
         iconColor="#008D3E"
         size={20}
-        onPress={() => {
-          if (numberOfItems > 1) {
-            const newState = cartItem.map(obj => {
-              if (obj.name === name) {
-                return {
-                  ...obj,
-                  numberOfItems: obj.numberOfItems - 1,
-                };
-              }
-              return obj;
-            });
-            setCartItem(newState);
-          } else {
-            setCartItem(current =>
-              current.filter(obj => {
-                return obj.name !== name;
-              }),
-            );
-          }
-        }}
+        onPress={removeProductPress}
       />
       <Text
         style={{
@@ -218,15 +208,7 @@ const ProductCountButton = ({
         icon="plus"
         iconColor="#008D3E"
         size={20}
-        onPress={() => {
-          const newState = cartItem.map(obj => {
-            if (obj.name === name) {
-              return {...obj, numberOfItems: obj.numberOfItems + 1};
-            }
-            return obj;
-          });
-          setCartItem(newState);
-        }}
+        onPress={addProductPress}
       />
     </View>
   );

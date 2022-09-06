@@ -191,7 +191,10 @@ function ItemRenderer({
                     position: 'absolute',
                     left: 3,
                     top: 3,
-                    padding: 5,
+                    paddingTop: 5,
+                    paddingLeft: 5,
+                    paddingRight: 10,
+                    paddingBottom: 10,
                   }}>
                   <Avatar.Icon
                     icon="minus"
@@ -215,7 +218,10 @@ function ItemRenderer({
                     position: 'absolute',
                     right: 3,
                     top: 3,
-                    padding: 5,
+                    paddingTop: 5,
+                    paddingLeft: 10,
+                    paddingRight: 5,
+                    paddingBottom: 10,
                   }}>
                   <Avatar.Text
                     label={cartProductData.numberOfItems.toString()}

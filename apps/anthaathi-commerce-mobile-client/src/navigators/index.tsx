@@ -7,7 +7,7 @@ import MainPage from '../pages/MainPage';
 import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
-import {I18nManager, Image, StyleSheet, View} from 'react-native';
+import {I18nManager, Image, Linking, StyleSheet, View} from 'react-native';
 import {Badge, Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
@@ -21,11 +21,13 @@ const Stack = createNativeStackNavigator();
 
 export interface ImageHeaderProps {
   onCartTap: () => void;
+  mailTo?: boolean;
   hasBackButton?: boolean;
   inlineSearch?: boolean;
 }
 
 function ImageHeader({
+  mailTo = false,
   onCartTap,
   hasBackButton,
   inlineSearch = false,
@@ -79,6 +81,14 @@ function ImageHeader({
         />
 
         <View style={{flexGrow: 1}} />
+
+        {mailTo && (
+          <IconButton
+            onPress={() => Linking.openURL('mailto:customercare@nrtcfresh.com')}
+            color={Colors.grey800}
+            icon="email-outline"
+          />
+        )}
 
         <View>
           <IconButton
@@ -156,6 +166,7 @@ const MyStack = () => {
               onCartTap={() => {
                 navigation.navigate('CartPage');
               }}
+              mailTo={true}
             />
           ),
         })}
