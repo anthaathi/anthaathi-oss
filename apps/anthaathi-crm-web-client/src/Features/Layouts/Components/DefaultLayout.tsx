@@ -73,7 +73,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
           onChange={({ event, item }) => {
             // prevent page reload
             event.preventDefault();
-            navigate(item.itemId);
+            navigate(item.itemId as never);
           }}
           overrides={{
             NavItem: {

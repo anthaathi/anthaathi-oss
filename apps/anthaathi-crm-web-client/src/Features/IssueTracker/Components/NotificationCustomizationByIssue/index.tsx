@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { LabelMedium, LabelSmall } from 'baseui/typography';
 import { useStyletron } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';
@@ -5,7 +6,7 @@ import { Block } from 'baseui/block';
 import { FlexFill } from '../../../Core/Components/FlexFill';
 
 export function NotificationCustomizationByIssue() {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <div>
@@ -30,7 +31,7 @@ export function NotificationCustomizationByIssue() {
       </Block>
 
       <Button
-        $style={{ width: '100%' }}
+        className={css({ width: '100%' })}
         size={SIZE.compact}
         kind={KIND.secondary}
       >

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useStyletron } from 'baseui';
 import { Block } from 'baseui/block';
 import { LabelMedium } from 'baseui/typography';
@@ -28,7 +29,7 @@ function TaskHeader({ title, iconName }: TaskHeaderProps) {
         >
           {title}
         </LabelMedium>
-        <span className={iconName} aria-hidden="true"></span>
+        <span className={iconName} aria-hidden="true" />
       </Block>
     </div>
   );

@@ -25,7 +25,7 @@ export const StickySidebarContent = styled('div', ({ $theme }) => ({
 export const StickySidebarDivider = styled('div', ({ $theme }) => ({
   paddingBottom: '1px',
   width: '100%',
-  backgroundColor: $theme.colors.borderTransparent,
+  backgroundColor: $theme.colors.borderTransparent as never,
   marginTop: $theme.sizing.scale400,
   marginBottom: $theme.sizing.scale400,
 }));

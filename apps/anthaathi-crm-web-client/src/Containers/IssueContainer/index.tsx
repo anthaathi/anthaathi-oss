@@ -50,7 +50,7 @@ export function IssueContainer() {
             title={
               <>
                 <Icon icon="info-circle-o" />{' '}
-                <span className={css({ width: '10px' })}></span> Overview
+                <span className={css({ width: '10px' })} /> Overview
               </>
             }
           >
@@ -88,7 +88,7 @@ export function IssueContainer() {
             title={
               <>
                 <Icon icon="tasks" />{' '}
-                <span className={css({ width: '10px' })}></span> Tasks
+                <span className={css({ width: '10px' })} /> Tasks
               </>
             }
           >
@@ -99,7 +99,7 @@ export function IssueContainer() {
             title={
               <>
                 <Icon icon="window-file" />{' '}
-                <span className={css({ width: '10px' })}></span> Files
+                <span className={css({ width: '10px' })} /> Files
               </>
             }
           >
@@ -109,8 +109,8 @@ export function IssueContainer() {
           <Tab
             title={
               <>
-                <Icon icon="gear" />{' '}
-                <span className={css({ width: '10px' })}></span> Manage
+                <Icon icon="gear" /> <span className={css({ width: '10px' })} />{' '}
+                Manage
               </>
             }
           >

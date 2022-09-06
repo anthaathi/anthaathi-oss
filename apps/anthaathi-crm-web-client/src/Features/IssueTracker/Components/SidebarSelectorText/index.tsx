@@ -75,7 +75,7 @@ export function SidebarSelectorText({
             key={index}
             onActionClick={() => {
               if (value.some((obj) => obj.id === data.id)) {
-                let copyArray = [...value];
+                const copyArray = [...value];
                 copyArray.splice(
                   copyArray.findIndex((obj) => obj.id === data.id),
                   1
@@ -149,7 +149,7 @@ const CardType = ({
             size={INPUT_SIZE.compact}
             startEnhancer={<Search size="18px" />}
             placeholder="Enter text"
-            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+            onChange={(e) => {
               const keyword = e.currentTarget.value;
               if (keyword !== '') {
                 const results = listData?.filter((user) => {
@@ -189,7 +189,7 @@ const CardType = ({
               key={data.id}
               onClick={() => {
                 if (value.some((obj) => obj.id === data.id)) {
-                  let copyArray = [...value];
+                  const copyArray = [...value];
                   copyArray.splice(
                     copyArray.findIndex((obj) => obj.id === data.id),
                     1
@@ -197,7 +197,7 @@ const CardType = ({
                   console.log(copyArray);
                   setValue(copyArray);
                 } else {
-                  let copyArray = [...value];
+                  const copyArray = [...value];
                   copyArray.push(data);
                   setValue(copyArray);
                 }

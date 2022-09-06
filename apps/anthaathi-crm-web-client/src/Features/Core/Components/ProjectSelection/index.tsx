@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { styled, useStyletron } from 'baseui';
 import { StatefulPanel } from 'baseui/accordion';
 import { Button, KIND } from 'baseui/button';
@@ -64,10 +65,10 @@ export function ProjectSelection() {
         }
       >
         <Button
-          $style={{
+          className={css({
             width: '100%',
             backgroundColor: $theme.colors.primaryB,
-          }}
+          })}
           kind={KIND.secondary}
         >
           Ajinkyatara

@@ -1,5 +1,4 @@
 import { useStyletron } from 'baseui';
-import { Avatar } from 'baseui/avatar';
 import { Block } from 'baseui/block';
 import { Button, KIND, SIZE } from 'baseui/button';
 import { LabelMedium } from 'baseui/typography';
@@ -124,20 +123,5 @@ function TaskMetaData({
     </Block>
   );
 }
-
-const UserData = ({
-  username,
-  userImage,
-}: {
-  username: string;
-  userImage?: string;
-}) => {
-  return (
-    <Block display="flex" justifyContent="center" alignItems="center">
-      <Avatar name={username} size="scale800" src={userImage} />
-      <LabelMedium $style={{ marginLeft: '5px' }}>{username}</LabelMedium>
-    </Block>
-  );
-};
 
 export default TaskMetaData;

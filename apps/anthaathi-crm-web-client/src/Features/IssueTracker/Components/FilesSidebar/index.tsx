@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Tag } from 'baseui/tag';
 import { useStyletron } from 'baseui';
 import { PhotoGrid } from '../PhotoGrid';

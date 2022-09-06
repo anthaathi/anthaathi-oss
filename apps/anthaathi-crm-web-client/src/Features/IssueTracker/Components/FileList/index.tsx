@@ -1,10 +1,11 @@
+import * as React from 'react';
 import { ListItem, ListItemLabel } from 'baseui/list';
 import { useStyletron } from 'baseui';
 import { Icon } from '../../../Core/Components/Icon';
 import { Block } from 'baseui/block';
 
 export function FileList() {
-  const [css, $theme] = useStyletron();
+  const [css] = useStyletron();
 
   return (
     <ul
@@ -36,7 +37,7 @@ export function FileItemRenderer() {
           $style={{ fontFamily: $theme.typography.headingFontFamily }}
         >
           <Icon icon="file-word-o" />
-          <span className={css({ width: '6px', display: 'block' })}></span>
+          <span className={css({ width: '6px', display: 'block' })} />
           <span>docuemnt.docs</span>
         </Block>
       </ListItemLabel>

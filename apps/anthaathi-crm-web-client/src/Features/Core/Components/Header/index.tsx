@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { styled, useStyletron } from 'baseui';
 import { Button, KIND, SIZE } from 'baseui/button';
 import { Delete, Menu } from 'baseui/icon';
@@ -21,7 +22,7 @@ export const Header = styled('header', ({ $theme }) => ({
   zIndex: 10,
 }));
 
-export const HeaderWrapper = styled('div', ({ $theme }) => ({
+export const HeaderWrapper = styled('div', () => ({
   display: 'flex',
   flexDirection: 'row',
   alignContent: 'center',
@@ -32,7 +33,7 @@ export const HeaderWrapper = styled('div', ({ $theme }) => ({
 
 export function HeaderToggle() {
   const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   const [isHovering, setIsHovering] = useState(false);
 
@@ -47,7 +48,7 @@ export function HeaderToggle() {
         onMouseOut={() => {
           setIsHovering(false);
         }}
-        $style={{
+        className={css({
           width: '36px',
           height: '36px',
           paddingLeft: '0px',
@@ -56,7 +57,7 @@ export function HeaderToggle() {
           paddingBottom: '0px',
           backgroundColor: $theme.colors.primaryHeaderB,
           ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-        }}
+        })}
         onClick={() => setHeaderOpen((prev) => !prev)}
       >
         {headerOpen && isHovering ? (

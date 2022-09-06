@@ -36,8 +36,9 @@ export function TaskCreateContainer() {
               </div>
 
               <Grid gridMaxWidth={0} gridMargins={0}>
-                {Array.from({ length: 10 }).map(() => (
+                {Array.from({ length: 10 }).map((_, index) => (
                   <Cell
+                    key={index}
                     span={3}
                     overrides={{ Cell: { style: { paddingBottom: '24px' } } }}
                   >
@@ -77,7 +78,7 @@ export function TaskCreateContainer() {
               <Button onClick={() => setCurrent((prev) => prev - 1)}>
                 Previous
               </Button>
-              <span className={css({ width: '8px' })}></span>
+              <span className={css({ width: '8px' })} />
               <Button>Create</Button>
             </div>
           </NumberedStep>

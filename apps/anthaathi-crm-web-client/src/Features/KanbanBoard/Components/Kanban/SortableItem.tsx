@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
+// eslint-disable-next-line node/no-extraneous-import
 import { CSS } from '@dnd-kit/utilities';
 
 import Item from './Item';

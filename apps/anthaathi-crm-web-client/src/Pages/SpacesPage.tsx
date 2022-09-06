@@ -20,11 +20,11 @@ export default function SpacesPage() {
 
   const view = useMemo(() => {
     switch (params.get('view')) {
+      case 'list':
+        return <SpaceListViewPage ref={pageBody} />;
       case 'board':
       default:
         return <KanbanBoardPage />;
-      case 'list':
-        return <SpaceListViewPage ref={pageBody} />;
     }
   }, [params.get('view'), pageBody]);
 
@@ -37,21 +37,13 @@ export default function SpacesPage() {
   }, [ref.current]);
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.contentBoxSize) {
-          // Firefox implements `contentBoxSize` as a single content rect, rather than an array
-          const contentBoxSize = Array.isArray(entry.contentBoxSize)
-            ? entry.contentBoxSize[0]
-            : entry.contentBoxSize;
-        } else {
-        }
-      }
-
+    const resizeObserver = new ResizeObserver(() => {
       setHeight(ref.current?.clientHeight || 0);
     });
 
-    resizeObserver.observe(ref?.current!!);
+    if (ref?.current) {
+      resizeObserver.observe(ref?.current);
+    }
 
     return () => {
       if (ref?.current) {

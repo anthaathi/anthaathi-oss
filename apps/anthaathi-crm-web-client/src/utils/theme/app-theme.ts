@@ -56,7 +56,7 @@ declare module 'baseui/themes' {
     maxAppWidthDense: string;
   }
 
-  export interface Colors {
+  export interface ColorTokens {
     primaryHeaderA: string;
     primaryHeaderB: string;
     primarySideBarA: string;

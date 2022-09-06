@@ -12,6 +12,7 @@ interface AvatarStackItem {
 }
 
 export interface AvatarStackProps {
+  // eslint-disable-next-line no-unused-vars
   onClick?: (item: AvatarStackItem) => void;
   items: AvatarStackItem[];
   align?: 'end' | 'start';

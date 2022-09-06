@@ -8,7 +8,9 @@ import { MarkdownEditor } from '../../../MarkdownEditor';
 export interface FormField {
   type: 'checkboxes' | 'dropdown' | 'input' | 'markdown' | 'textarea';
   id: string;
+  // eslint-disable-next-line
   attributes?: Record<string, any>;
+  // eslint-disable-next-line
   validations?: Record<string, any>;
   span?: Responsive<number>;
 }
@@ -56,6 +58,7 @@ export interface CheckboxFormField {
 
 export interface DefaultFormField {
   type: 'hidden';
+  // eslint-disable-next-line
   defaultValue: any;
 }
 
@@ -86,7 +89,11 @@ export function RenderForm({ body }: RenderFormProps) {
               component = <RenderMarkdownField {...field} />;
           }
 
-          return <Cell span={field.span || 12}>{component}</Cell>;
+          return (
+            <Cell key={field.id} span={field.span || 12}>
+              {component}
+            </Cell>
+          );
         })}
       </Grid>
     </form>

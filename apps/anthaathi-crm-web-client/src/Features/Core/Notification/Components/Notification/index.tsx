@@ -33,7 +33,7 @@ export interface NotificationProps {
 }
 
 export function NotificationContainer() {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <>
@@ -61,7 +61,7 @@ export function NotificationContainer() {
             <Notification
               id=""
               title="Something amazing"
-              buttonIcon={<Icon icon="home"></Icon>}
+              buttonIcon={<Icon icon="home" />}
               isRead={false}
               messages={['Something ']}
               time={new Date().toDateString()}
@@ -93,9 +93,9 @@ export function NotificationContainer() {
         <Button
           kind={KIND.primary}
           size={SIZE.compact}
-          $style={{
+          className={css({
             ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-          }}
+          })}
         >
           <Icon icon="bell-o" />
         </Button>
@@ -105,8 +105,6 @@ export function NotificationContainer() {
 }
 
 function Notification({
-  id,
-  isLoading,
   time,
   type,
   severity,
@@ -129,7 +127,7 @@ function Notification({
       $style={{
         boxShadow: noShadow
           ? 'none'
-          : `rgba(0, 0, 0, 0.08) 0px 0.9px 4px, rgba(0, 0, 0, 0.06) 0px 2.6px 8px, rgba(0, 0, 0, 0.05) 0px 5.7px 12px, rgba(0, 0, 0, 0.04) 0px 15px 15px`,
+          : 'rgba(0, 0, 0, 0.08) 0px 0.9px 4px, rgba(0, 0, 0, 0.06) 0px 2.6px 8px, rgba(0, 0, 0, 0.05) 0px 5.7px 12px, rgba(0, 0, 0, 0.04) 0px 15px 15px',
         borderTopLeftRadius:
           position === undefined || position === 'start' ? '8px' : '0',
         borderTopRightRadius:
@@ -147,7 +145,7 @@ function Notification({
               <Button
                 kind={KIND.secondary}
                 size={SIZE.compact}
-                $style={{
+                className={css({
                   width: '24px',
                   height: '24px',
                   paddingLeft: '0px',
@@ -160,7 +158,7 @@ function Notification({
                   borderBottomRightRadius: '4px',
                   backgroundColor: '#fff',
                   ':hover': { backgroundColor: $theme.colors.notificationA },
-                }}
+                })}
                 onClick={onClick1}
               >
                 <span
@@ -216,7 +214,7 @@ function Notification({
             <Button
               kind={KIND.secondary}
               size={SIZE.compact}
-              $style={{
+              className={css({
                 width: '24px',
                 height: '24px',
                 paddingLeft: '0px',
@@ -230,7 +228,7 @@ function Notification({
                 backgroundColor: '#fff',
                 marginLeft: '5px',
                 ':hover': { backgroundColor: $theme.colors.notificationA },
-              }}
+              })}
               onClick={() => {}}
             >
               <span
@@ -270,7 +268,7 @@ function Notification({
             startEnhancer={buttonIcon}
             kind={KIND.tertiary}
             size={SIZE.compact}
-            $style={{
+            className={css({
               paddingLeft: '0px',
               paddingRight: '0px',
               paddingTop: '0px',
@@ -289,7 +287,7 @@ function Notification({
                 backgroundColor: '#fff',
                 textDecoration: 'underline',
               },
-            }}
+            })}
             onClick={onClick2}
           >
             {buttonTitle}
