@@ -5787,7 +5787,10 @@ __metadata:
     baseui: ^12.1.0
     classnames: ^2.3.1
     eslint: 8.22.0
+    eslint-config-prettier: ^8.5.0
     eslint-plugin-baseui: ^12.1.0
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: ^7.31.6
     gts: ^3.1.0
     node-scss: ^7.0.3
@@ -5859,7 +5862,7 @@ __metadata:
     react-native-screens: ^3.17.0
     react-native-tab-view: ^3.1.1
     react-native-vector-icons: ^9.2.0
-    react-native-webview: ^11.23.0
+    react-native-webview: ^11.23.1
     react-relay: ^14.1.0
     react-test-renderer: 18.2.0
     recoil: ^0.7.5
@@ -17245,16 +17248,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-webview@npm:^11.23.0":
-  version: 11.23.0
-  resolution: "react-native-webview@npm:11.23.0"
+"react-native-webview@npm:^11.23.1":
+  version: 11.23.1
+  resolution: "react-native-webview@npm:11.23.1"
   dependencies:
     escape-string-regexp: 2.0.0
     invariant: 2.2.4
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 2db9fabd79a604436e8cac22cd6ceb62a790e4db71bc65baa23f5e1499b4d781c867fec41c6d7983da46ed5689e2241360025c97522d191332092df08e384e12
+  checksum: 58367276b4457a12c0ecb24084c237048a31a8b4d49f53615634052c2dfcb318824e9239909b6bfb80cc8abacab658d278f480f7ff96267d10d5ff84a8ff1373
   languageName: node
   linkType: hard
 

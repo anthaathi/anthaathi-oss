@@ -1,0 +1,145 @@
+diff --git a/styles/types.d.ts b/styles/types.d.ts
+index 40ee5cc33a5bd3a70603352cbe86629d888f1983..c99a77e10134cdb81bfe5c1f26fe48d148c4f40c 100644
+--- a/styles/types.d.ts
++++ b/styles/types.d.ts
+@@ -3,7 +3,7 @@ import type { IconProps } from '../icon';
+ import type { ColorTokens, ComponentColorTokens, SemanticColorTokens, Animation, Breakpoints, Border, Borders, Font, Grid, Lighting, MediaQuery, Sizing, Typography, ZIndex } from '../themes';
+ export type { Animation, Breakpoints, Border, Borders, Font, Grid, Lighting, MediaQuery, Sizing, Typography, ZIndex, };
+ export declare type Colors = {} & ColorTokens & ComponentColorTokens & SemanticColorTokens;
+-export declare type Theme = {
++export declare interface Theme {
+     name: string;
+     animation: Animation;
+     borders: Borders;
+diff --git a/themes/types.d.ts b/themes/types.d.ts
+index b3df1eefbb5b1ad13776c2c67cbb8da269b593b0..5a91f81f1392bbcadc3f2ab3e5c86fbe95b376f7 100644
+--- a/themes/types.d.ts
++++ b/themes/types.d.ts
+@@ -2,7 +2,7 @@ import type { Properties } from 'csstype';
+ import type { Responsive, CSSLengthUnit } from '../layout-grid';
+ export declare type Globals = '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'unset';
+ export declare type LineStyle = 'dashed' | 'dotted' | 'double' | 'groove' | 'hidden' | 'inset' | 'none' | 'outset' | 'ridge' | 'solid';
+-export declare type ColorTokens = {
++export declare interface ColorTokens {
+     primaryA: string;
+     primaryB: string;
+     primary: string;
+@@ -65,7 +65,7 @@ export declare type ColorTokens = {
+     ratingInactiveFill: string;
+     ratingStroke: string;
+ };
+-export declare type CoreSemanticColorTokens = {
++export declare interface CoreSemanticColorTokens {
+     backgroundPrimary: string;
+     backgroundSecondary: string;
+     backgroundTertiary: string;
+@@ -84,7 +84,7 @@ export declare type CoreSemanticColorTokens = {
+     borderInverseTransparent: string | undefined | null;
+     borderInverseSelected: string;
+ };
+-export declare type CoreExtensionSemanticColorTokens = {
++export declare interface CoreExtensionSemanticColorTokens {
+     backgroundStateDisabled: string;
+     backgroundOverlayDark: string | undefined | null;
+     backgroundOverlayLight: string | undefined | null;
+@@ -123,7 +123,7 @@ export declare type CoreExtensionSemanticColorTokens = {
+     membership: string;
+ };
+ export declare type SemanticColorTokens = {} & CoreSemanticColorTokens & CoreExtensionSemanticColorTokens;
+-export declare type ComponentColorTokens = {
++export declare interface ComponentColorTokens {
+     bannerActionLowInfo: string;
+     bannerActionLowNegative: string;
+     bannerActionLowPositive: string;
+@@ -416,17 +416,17 @@ export declare type ComponentColorTokens = {
+     tooltipBackground: string;
+     tooltipText: string;
+ };
+-export declare type FontTokens = {
++export declare interface FontTokens {
+     primaryFontFamily: string;
+ };
+ export declare type Primitives = {} & ColorTokens & FontTokens;
+-export declare type Font = {
++export declare interface Font {
+     fontFamily: string;
+     fontWeight: Globals | 'bold' | 'normal' | 'bolder' | 'lighter' | number;
+     fontSize: string;
+     lineHeight: string | number;
+ };
+-export declare type Typography = {
++export declare interface Typography {
+     font100: Font;
+     font150: Font;
+     font200: Font;
+@@ -482,7 +482,7 @@ export declare type Typography = {
+     MonoDisplayMedium: Font;
+     MonoDisplayLarge: Font;
+ };
+-export declare type Sizing = {
++export declare interface Sizing {
+     scale0: string;
+     scale100: string;
+     scale200: string;
+@@ -506,17 +506,17 @@ export declare type Sizing = {
+     scale3200: string;
+     scale4800: string;
+ };
+-export declare type Breakpoints = {
++export declare interface Breakpoints {
+     small: number;
+     medium: number;
+     large: number;
+ };
+-export declare type MediaQuery = {
++export declare interface MediaQuery {
+     small: string;
+     medium: string;
+     large: string;
+ };
+-export declare type Lighting = {
++export declare interface Lighting {
+     shadow400: string;
+     shadow500: string;
+     shadow600: string;
+@@ -533,7 +533,7 @@ export declare type Lighting = {
+     deepAbove: string;
+     deepBelow: string;
+ };
+-export declare type Animation = {
++export declare interface Animation {
+     timing100: string;
+     timing200: string;
+     timing300: string;
+@@ -552,12 +552,12 @@ export declare type Animation = {
+     easeInOutQuinticCurve: string;
+     linearCurve: string;
+ };
+-export declare type Border = {
++export declare interface Border {
+     borderColor: Properties['borderColor'];
+     borderStyle: Properties['borderLeftStyle'];
+     borderWidth: Properties['borderWidth'];
+ };
+-export declare type Borders = {
++export declare interface Borders {
+     border100: Border;
+     border200: Border;
+     border300: Border;
+@@ -579,7 +579,7 @@ export declare type Borders = {
+     popoverBorderRadius: string;
+     tagBorderRadius: string;
+ };
+-export declare type Grid = {
++export declare interface Grid {
+     columns: Responsive<number>;
+     gutters: Responsive<number>;
+     margins: Responsive<number>;
+@@ -587,6 +587,6 @@ export declare type Grid = {
+     maxWidth: number;
+     unit: CSSLengthUnit;
+ };
+-export declare type ZIndex = {
++export declare interface ZIndex {
+     modal: number;
+ };
