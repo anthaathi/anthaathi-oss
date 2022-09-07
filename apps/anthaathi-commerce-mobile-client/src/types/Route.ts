@@ -15,4 +15,5 @@ export type RootStackParamList = {
   NotificationPage: undefined | {};
   HomePage: {} | undefined;
   MyOrdersPage: {} | undefined;
+  AddressInfo: {} | undefined;
 };

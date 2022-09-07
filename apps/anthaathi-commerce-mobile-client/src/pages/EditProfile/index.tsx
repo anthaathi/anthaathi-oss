@@ -6,19 +6,6 @@ import {CoreComponentType} from '../../features/CMS/types/common';
 const EditProfile = (props: {navigation: {goBack: () => void}}) => {
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
-      <CMSRenderer
-        components={[
-          {
-            _component: CoreComponentType.Header,
-            key: '123',
-            title: 'Profile',
-            leftIcon: 'arrow-left',
-            leftOnPress: () => {
-              props.navigation.goBack();
-            },
-          },
-        ]}
-      />
       <ScrollView contentContainerStyle={{paddingHorizontal: 5, flex: 1}}>
         <CMSRenderer
           components={[
