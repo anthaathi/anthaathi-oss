@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {IntlProvider} from 'react-intl';
 import {NavigationContainer} from '@react-navigation/native';
 import {RelayEnvironmentProvider} from 'react-relay';
 import RelayEnv from './config/relay-env';
 import enUS from './compiled-locales/en-US.json';
 import arAE from './compiled-locales/ar-AE.json';
-import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import AppRootNavStack from './navigators';
-import RNBootSplash from 'react-native-bootsplash';
 import {I18nManager} from 'react-native';
 import {RecoilRoot} from 'recoil';
 
@@ -33,12 +32,6 @@ const theme = {
 } as ReactNativePaper.Theme;
 
 const App = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      RNBootSplash.hide({fade: true});
-    }, 3000);
-  }, []);
-
   return (
     <RecoilRoot>
       <IntlProvider
