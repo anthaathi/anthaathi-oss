@@ -46,6 +46,9 @@ const EditProfile = (props: {navigation: {goBack: () => void}}) => {
               _component: CoreComponentType.CMSButton,
               key: '1241',
               title: 'Save',
+              handlePress: () => {
+                props.navigation.goBack();
+              },
             },
           ]}
         />

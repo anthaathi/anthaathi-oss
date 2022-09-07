@@ -24,7 +24,7 @@ const CartPage: React.FC<
   }, [cartItem]);
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <CMSRenderer
         components={[
           {
@@ -39,7 +39,11 @@ const CartPage: React.FC<
         ]}
       />
       <ScrollView
-        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 100}}>
+        contentContainerStyle={{
+          flex: 1,
+          paddingHorizontal: 5,
+          paddingBottom: 100,
+        }}>
         <View style={{marginTop: 14}} />
         <CMSRenderer
           components={[
@@ -132,6 +136,35 @@ const CartPage: React.FC<
               handlePress: () => {
                 setCartItem([]);
               },
+              removeProductPress: (id: number, numberOfItems: number) => {
+                if (numberOfItems > 1) {
+                  const newState = cartItem.map(obj => {
+                    if (obj.id === id) {
+                      return {
+                        ...obj,
+                        numberOfItems: obj.numberOfItems - 1,
+                      };
+                    }
+                    return obj;
+                  });
+                  setCartItem(newState);
+                } else {
+                  setCartItem(current =>
+                    current.filter(obj => {
+                      return obj.id !== id;
+                    }),
+                  );
+                }
+              },
+              addProductPress: (id: number) => {
+                const newState = cartItem.map(obj => {
+                  if (obj.id === id) {
+                    return {...obj, numberOfItems: obj.numberOfItems + 1};
+                  }
+                  return obj;
+                });
+                setCartItem(newState);
+              },
             },
             {
               _component: CartPageComponentType.PromoCode,
@@ -147,17 +180,16 @@ const CartPage: React.FC<
               shippingCharges: {currency: 'AED', price: 0},
               total: {currency: 'AED', price: productTotalPrice},
             },
+            {
+              _component: CoreComponentType.CMSButton,
+              key: '1241',
+              title: 'Continue to Checkout',
+              handlePress: () => {
+                props.navigation.navigate('CheckoutPage');
+              },
+            },
           ]}
         />
-
-        <Button
-          style={{marginTop: 12, padding: 10, marginHorizontal: 10}}
-          mode="contained"
-          onPress={() => {
-            props.navigation.navigate('CheckoutPage');
-          }}>
-          Continue to Checkout
-        </Button>
       </ScrollView>
     </View>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductListPage from '../../pages/ProductListPage';
-// import dataJson from '../../config/data.json';
 import categoryJson from '../../config/category.json';
 import {Colors, useTheme} from 'react-native-paper';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';

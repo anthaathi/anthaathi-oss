@@ -1,0 +1,129 @@
+import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {Button, Text, TextInput} from 'react-native-paper';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../types/Route';
+
+const SignInPage = (
+  props: NativeStackScreenProps<RootStackParamList, 'SignIn'>,
+) => {
+  const [passwordShow, setPasswordShow] = React.useState(true);
+  return (
+    <View
+      style={{
+        backgroundColor: '#fff',
+        flex: 1,
+      }}>
+      <ScrollView style={{paddingHorizontal: 25}}>
+        <View
+          style={{
+            paddingTop: '40%',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image
+            style={{
+              width: 84,
+              height: 52,
+              zIndex: 999,
+            }}
+            source={{
+              uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_140x.png?v=1653569545',
+            }}
+            resizeMode="contain"
+          />
+        </View>
+        <View style={{marginVertical: 15}}>
+          <TextInput
+            mode="flat"
+            label={'Username or email address'}
+            style={{
+              backgroundColor: '#fff',
+              fontSize: 14,
+              height: 56,
+              marginHorizontal: 5,
+              marginVertical: 10,
+            }}
+            activeUnderlineColor="#0f8443"
+          />
+          <TextInput
+            mode="flat"
+            label={'Password'}
+            style={{
+              backgroundColor: '#fff',
+              fontSize: 14,
+              height: 56,
+              marginHorizontal: 5,
+              marginVertical: 10,
+            }}
+            activeUnderlineColor="#0f8443"
+            secureTextEntry={passwordShow}
+            right={
+              <TextInput.Icon
+                icon={passwordShow ? 'eye' : 'eye-off'}
+                onPress={() => {
+                  setPasswordShow(!passwordShow);
+                }}
+              />
+            }
+          />
+        </View>
+
+        <View style={{justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('ResetPassword');
+            }}>
+            <Text
+              style={{
+                textDecorationLine: 'underline',
+                color: '#0f8443',
+                fontWeight: '600',
+                fontSize: 13,
+              }}>
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Button
+          mode="contained"
+          uppercase={false}
+          style={{
+            marginVertical: 15,
+            marginHorizontal: 30,
+            borderRadius: 32,
+          }}
+          labelStyle={{paddingVertical: 5}}
+          onPress={() => {
+            props.navigation.navigate('Dashboard');
+          }}>
+          Sign In
+        </Button>
+
+        <View
+          style={{
+            paddingBottom: '10%',
+            marginTop: 50,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text style={{fontWeight: '500', fontSize: 14}}>
+            Don't have an account?
+          </Text>
+          <TouchableOpacity
+            style={{paddingHorizontal: 10, paddingVertical: 10}}
+            onPress={() => {
+              props.navigation.navigate('SignUp');
+            }}>
+            <Text style={{color: '#0f8443', fontWeight: '700', fontSize: 13}}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+export default SignInPage;

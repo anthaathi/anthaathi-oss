@@ -7,13 +7,12 @@ import {
 import {ScrollView, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
-import {Button} from 'react-native-paper';
 
 const CheckoutPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>
 > = props => {
   return (
-    <View>
+    <View style={{flex: 1}}>
       <CMSRenderer
         components={[
           {
@@ -27,7 +26,7 @@ const CheckoutPage: React.FC<
           },
         ]}
       />
-      <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
+      <ScrollView contentContainerStyle={{paddingHorizontal: 5, flex: 1}}>
         <CMSRenderer
           components={[
             {
@@ -105,17 +104,16 @@ const CheckoutPage: React.FC<
                 },
               ],
             },
+            {
+              _component: CoreComponentType.CMSButton,
+              key: '1241',
+              title: 'Purchase',
+              handlePress: () => {
+                props.navigation.navigate('HomePage');
+              },
+            },
           ]}
         />
-
-        <Button
-          style={{marginTop: 12}}
-          onPress={() => {
-            props.navigation.navigate('HomePage');
-          }}
-          mode="contained">
-          Purchase
-        </Button>
       </ScrollView>
     </View>
   );
