@@ -29,6 +29,7 @@ function DashboardCard({
       onClick={() => onClick?.()}
       width="100%"
       $style={{
+        textDecoration: 'none',
         marginTop: '10px',
         marginBottom: '10px',
         transitionProperty: 'all',

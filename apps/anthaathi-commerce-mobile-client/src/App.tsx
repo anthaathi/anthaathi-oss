@@ -41,7 +41,9 @@ const App = () => {
 
   return (
     <RecoilRoot>
-      <IntlProvider locale="en-US" messages={I18nManager.isRTL ? arAE : enUS}>
+      <IntlProvider
+        locale={I18nManager.isRTL ? 'ar-AE' : 'en-US'}
+        messages={I18nManager.isRTL ? arAE : enUS}>
         <PaperProvider theme={theme as never}>
           <NavigationContainer>
             <RelayEnvironmentProvider environment={RelayEnv as never}>

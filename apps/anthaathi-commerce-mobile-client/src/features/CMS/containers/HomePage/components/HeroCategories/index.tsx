@@ -3,9 +3,11 @@ import {useMemo} from 'react';
 import {Text, TouchableRipple} from 'react-native-paper';
 import {Image, View, VirtualizedList} from 'react-native';
 import {HomePageComponentType} from '../../../../types/common';
+import {useIntl} from 'react-intl';
 
 export interface Item {
   title: string;
+  title_ar: string;
   image: string;
   key: string;
 }
@@ -95,6 +97,9 @@ function ItemRenderer({
   onPress?: () => void;
 }) {
   const dimension = 97;
+  const intl = useIntl();
+
+  console.log(intl.locale);
 
   return (
     <TouchableRipple
@@ -118,7 +123,9 @@ function ItemRenderer({
             fontWeight: '600',
           }}
           variant="labelMedium">
-          {element.title}
+          {intl.locale.startsWith('ar')
+            ? element.title_ar ?? element.title
+            : element.title}
         </Text>
       </View>
     </TouchableRipple>

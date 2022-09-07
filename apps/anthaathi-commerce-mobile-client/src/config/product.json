@@ -4,6 +4,7 @@
       {
         "id": 1,
         "name": "Fruit Platter Production",
+        "name_ar": "إنتاج طبق فواكه",
         "key": "test5",
         "categoryId": 1,
         "category": "fruits",
@@ -17,6 +18,7 @@
       {
         "id": 2,
         "name": "Dabbas Dates",
+        "name_ar": "تمور دباس",
         "key": "test6",
         "categoryId": 1,
         "category": "fruits",
@@ -30,6 +32,7 @@
       {
         "id": 3,
         "name": "Sweet Potato Orange (Cut Cube)",
+        "name_ar": "بطاطا حلوة بالبرتقال (مقطعة مكعب)",
         "categoryId": 2,
         "category": "vegetables",
         "key": "test7",
@@ -43,6 +46,7 @@
       {
         "id": 4,
         "name": "Apricot",
+        "name_ar": "مشمش",
         "categoryId": 3,
         "category": "bulkbuy",
         "key": "test8",
@@ -56,6 +60,7 @@
       {
         "id": 5,
         "name": "Nectarine",
+        "name_ar": "زليقة",
         "categoryId": 4,
         "category": "organic",
         "key": "test9",
@@ -69,6 +74,7 @@
       {
         "id": 6,
         "name": "Strawberry",
+        "name_ar": "الفراولة",
         "key": "test10",
         "categoryId": 7,
         "category": "giftcorner",
@@ -82,6 +88,7 @@
       {
         "id": 7,
         "name": "Apple Pink Lady",
+        "name_ar": "التفاح الوردي سيدة",
         "key": "test101",
         "categoryId": 1,
         "category": "fruits",
@@ -95,6 +102,7 @@
       {
         "id": 8,
         "name": "Green Grapes (Seedless)",
+        "name_ar": "العنب الأخضر (بدون بذور)",
         "key": "test10",
         "categoryId": 1,
         "category": "fruits",
@@ -108,6 +116,7 @@
       {
         "id": 9,
         "name": "Orange Navel Cara Cara",
+        "name_ar": "أورانج سرة كارا كارا",
         "key": "test102",
         "categoryId": 1,
         "category": "fruits",
@@ -121,6 +130,7 @@
       {
         "id": 29,
         "name": "Figs",
+        "name_ar": "تين",
         "key": "test103",
         "categoryId": 1,
         "category": "fruits",
@@ -134,6 +144,7 @@
       {
         "id": 10,
         "name": "Watermelon Seedless",
+        "name_ar": "بطيخ بدون بذور",
         "key": "test104",
         "categoryId": 1,
         "category": "fruits",
@@ -147,6 +158,7 @@
       {
         "id": 111,
         "name": "Red Plum",
+        "name_ar": "البرقوق الأحمر",
         "key": "test1041",
         "categoryId": 1,
         "category": "fruits",
@@ -160,6 +172,7 @@
       {
         "id": 112,
         "name": "Watermelon Yellow",
+        "name_ar": "البطيخ الأصفر",
         "key": "test1042",
         "categoryId": 1,
         "category": "fruits",
@@ -173,6 +186,7 @@
       {
         "id": 11,
         "name": "Pomegranate",
+        "name_ar": "رمان",
         "key": "test105",
         "categoryId": 1,
         "category": "fruits",
@@ -186,6 +200,7 @@
       {
         "id": 12,
         "name": "Rock Melon",
+        "name_ar": "صخرة البطيخ",
         "key": "test106",
         "categoryId": 1,
         "category": "fruits",
@@ -199,6 +214,7 @@
       {
         "id": 13,
         "name": "Lychee",
+        "name_ar": "ليتشي",
         "key": "test107",
         "categoryId": 1,
         "category": "fruits",
@@ -212,6 +228,7 @@
       {
         "id": 1432938,
         "name": "Peaches",
+        "name_ar": "خوخ",
         "key": "test108",
         "categoryId": 1,
         "category": "fruits",
@@ -225,6 +242,7 @@
       {
         "id": 14,
         "name": "Grapefruit",
+        "name_ar": "جريب فروت",
         "key": "test109",
         "categoryId": 1,
         "category": "fruits",
@@ -238,6 +256,7 @@
       {
         "id": 1590,
         "name": "Sakura Mix",
+        "name_ar": "ميكس ساكورا",
         "categoryId": 2,
         "category": "vegetables",
         "key": "test71",
@@ -251,6 +270,7 @@
       {
         "id": 15,
         "name": "Red Cabbage",
+        "name_ar": "كرنب أحمر",
         "categoryId": 2,
         "category": "vegetables",
         "key": "test72",
@@ -264,6 +284,7 @@
       {
         "id": 16,
         "name": "Snack Cucumber",
+        "name_ar": "سناك خيار",
         "categoryId": 2,
         "category": "vegetables",
         "key": "test73",
@@ -277,6 +298,7 @@
       {
         "id": 17,
         "name": "Baby Potato",
+        "name_ar": "Baby Potato",
         "categoryId": 2,
         "category": "vegetables",
         "key": "test74",

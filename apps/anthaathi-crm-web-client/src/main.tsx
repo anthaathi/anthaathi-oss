@@ -6,7 +6,7 @@ import { Provider as StyletronProvider } from 'styletron-react';
 import { BaseProvider } from 'baseui';
 import './index.css';
 
-import { appTheme } from './utils/theme/app-theme';
+import { appTheme } from './Utils/theme/app-theme';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 

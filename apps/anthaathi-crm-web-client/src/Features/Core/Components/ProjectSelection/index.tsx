@@ -65,10 +65,14 @@ export function ProjectSelection() {
         }
       >
         <Button
-          className={css({
-            width: '100%',
-            backgroundColor: $theme.colors.primaryB,
-          })}
+          overrides={{
+            Root: {
+              style: {
+                width: '100%',
+                backgroundColor: $theme.colors.primaryB,
+              },
+            },
+          }}
           kind={KIND.secondary}
         >
           Ajinkyatara

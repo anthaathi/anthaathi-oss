@@ -48,16 +48,20 @@ export function HeaderToggle() {
         onMouseOut={() => {
           setIsHovering(false);
         }}
-        className={css({
-          width: '36px',
-          height: '36px',
-          paddingLeft: '0px',
-          paddingRight: '0px',
-          paddingTop: '0px',
-          paddingBottom: '0px',
-          backgroundColor: $theme.colors.primaryHeaderB,
-          ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-        })}
+        overrides={{
+          Root: {
+            style: {
+              width: '36px',
+              height: '36px',
+              paddingLeft: '0px',
+              paddingRight: '0px',
+              paddingTop: '0px',
+              paddingBottom: '0px',
+              backgroundColor: $theme.colors.primaryHeaderB,
+              ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+            },
+          },
+        }}
         onClick={() => setHeaderOpen((prev) => !prev)}
       >
         {headerOpen && isHovering ? (

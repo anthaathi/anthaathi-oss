@@ -5862,7 +5862,7 @@ __metadata:
     react-native-screens: ^3.17.0
     react-native-tab-view: ^3.1.1
     react-native-vector-icons: ^9.2.0
-    react-native-webview: ^11.23.1
+    react-native-webview: ^11.23.0
     react-relay: ^14.1.0
     react-test-renderer: 18.2.0
     recoil: ^0.7.5
@@ -17248,7 +17248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-webview@npm:^11.23.1":
+"react-native-webview@npm:^11.23.0":
   version: 11.23.1
   resolution: "react-native-webview@npm:11.23.1"
   dependencies:

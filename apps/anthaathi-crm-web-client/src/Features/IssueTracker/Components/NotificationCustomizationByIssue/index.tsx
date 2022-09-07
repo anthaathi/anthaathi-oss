@@ -31,7 +31,11 @@ export function NotificationCustomizationByIssue() {
       </Block>
 
       <Button
-        className={css({ width: '100%' })}
+        overrides={{
+          Root: {
+            style: { width: '100%' },
+          },
+        }}
         size={SIZE.compact}
         kind={KIND.secondary}
       >

@@ -93,9 +93,13 @@ export function NotificationContainer() {
         <Button
           kind={KIND.primary}
           size={SIZE.compact}
-          className={css({
-            ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
-          })}
+          overrides={{
+            Root: {
+              style: {
+                ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+              },
+            },
+          }}
         >
           <Icon icon="bell-o" />
         </Button>

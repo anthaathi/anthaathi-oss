@@ -44,6 +44,7 @@ export const appTheme = createLightTheme(
     },
   }
 );
+console.log(appTheme);
 
 declare module 'baseui/themes' {
   export interface Typography {

@@ -7,6 +7,7 @@ import { AppWrapper } from '../../Features/Core/Components/AppWrapper';
 import CommentBox from '../../Features/Timeline/Components/CommentBox';
 import { CommentBadge } from '../../Features/Timeline/Components/CommentBadge';
 import { HeadingMedium } from 'baseui/typography';
+import { Link } from 'react-router-dom';
 
 function Dashboard() {
   const [css, $theme] = useStyletron();
@@ -17,13 +18,18 @@ function Dashboard() {
       <AppWrapper className="app-content">
         <Grid gridMaxWidth={0} gridMargins={0} gridGaps={0}>
           <Cell span={[12, 4, 3, 3]}>
-            <DashboardCard
-              badgeColor="#2B8FC5"
-              backgroundColor="#309FDB"
-              numberOfTask={12}
-              title="Your Tasks"
-              subTitle="Your pending tasks"
-            />
+            <Link
+              to="/spaces?view=my-tasks"
+              className={css({ textDecoration: 'none' })}
+            >
+              <DashboardCard
+                badgeColor="#2B8FC5"
+                backgroundColor="#309FDB"
+                numberOfTask={12}
+                title="Your Tasks"
+                subTitle="Your pending tasks"
+              />
+            </Link>
           </Cell>
           <Cell span={[12, 4, 3, 3]}>
             <DashboardCard

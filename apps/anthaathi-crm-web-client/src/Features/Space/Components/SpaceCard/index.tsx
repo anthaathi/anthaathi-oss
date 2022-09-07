@@ -18,7 +18,6 @@ export function SpaceCard({
 }) {
   const [css, $theme] = useStyletron();
   const [params] = useSearchParams();
-
   const [hover, setHover] = useState(false);
 
   const expanded = (hover || isSelected) && !noExpand;

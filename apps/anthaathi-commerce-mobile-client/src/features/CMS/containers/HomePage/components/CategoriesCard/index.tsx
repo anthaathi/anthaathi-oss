@@ -3,10 +3,12 @@ import React from 'react';
 import {Text, TouchableRipple} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {HomePageComponentType} from '../../../../types/common';
+import {useIntl} from 'react-intl';
 
 export interface CategoryProps {
   key: string;
   title: string;
+  title_ar: string;
   image: string;
 }
 
@@ -39,6 +41,7 @@ const CategoriesCard = (props: CategoriesCardProps) => {
 function CategoryItemRenderer({item}: {item: CategoryProps}) {
   const itemHeight = useResponsiveValue([180, 240, 360, 360]);
   const itemWidth = useResponsiveValue(['98%', '48%', '31%', '23%']);
+  const intl = useIntl();
 
   return (
     <TouchableRipple onPress={() => {}}>
@@ -66,7 +69,9 @@ function CategoryItemRenderer({item}: {item: CategoryProps}) {
               fontWeight: '600',
             }}
             variant="labelMedium">
-            {item.title}
+            {intl.locale.startsWith('ar')
+              ? item.title_ar ?? item.title
+              : item.title}
           </Text>
         </View>
       </View>

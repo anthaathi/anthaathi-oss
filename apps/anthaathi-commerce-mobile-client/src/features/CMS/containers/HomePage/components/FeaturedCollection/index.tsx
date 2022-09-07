@@ -8,6 +8,7 @@ import {HomePageComponentType} from '../../../../types/common';
 export interface ProductProps {
   id: number;
   name: string;
+  name_ar: string;
   description?: string;
   price: number;
   currency: string;
@@ -20,6 +21,7 @@ export interface ProductProps {
 
 export interface FeaturedCollectionProps {
   title: string;
+  title_ar?: string;
   products: ProductProps[];
   handlePress?: () => void; // view all product link
   onProductPress: (item: ProductProps) => void;
@@ -27,6 +29,7 @@ export interface FeaturedCollectionProps {
 
 export default function FeaturedCollection({
   title,
+  title_ar: titleAr,
   products,
   handlePress,
   onProductPress,
@@ -46,7 +49,7 @@ export default function FeaturedCollection({
           marginVertical: 10,
         }}>
         <Text variant="titleLarge" style={{fontSize: 16}}>
-          {title}
+          {intl.locale.startsWith('ar') ? titleAr ?? title : title}
         </Text>
 
         <Pressable onPress={handlePress} testID="onPressCollection">
@@ -120,7 +123,6 @@ function ItemRenderer({
           />
           <View
             style={{
-              flexDirection: 'row',
               alignItems: 'center',
               display: 'flex',
               width: itemWidth,
@@ -133,13 +135,17 @@ function ItemRenderer({
                 fontWeight: 'bold',
                 lineHeight: 16,
               }}>
-              {item.name}
+              {intl.locale.startsWith('ar')
+                ? item.name_ar ?? item.name
+                : item.name}
             </Title>
             <View style={{flex: 1}} />
           </View>
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection: intl.locale.startsWith('ar')
+                ? 'row-reverse'
+                : 'row',
               marginTop: 5,
               alignItems: 'center',
               justifyContent: 'center',
