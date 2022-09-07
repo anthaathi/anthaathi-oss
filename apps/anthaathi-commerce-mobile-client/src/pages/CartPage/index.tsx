@@ -7,7 +7,6 @@ import {
 } from '../../features/CMS/types/common';
 import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {Button} from 'react-native-paper';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {ProductProps} from '../../features/CMS/containers/CartPage/components/SuggestedItem';
