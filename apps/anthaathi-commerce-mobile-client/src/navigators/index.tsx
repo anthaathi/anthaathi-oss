@@ -79,7 +79,7 @@ function ImageHeader({
         <Image
           style={styles.image}
           source={{
-            uri: 'https://www.nrtcfresh.com/wp-content/uploads/elementor/thumbs/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk.png',
+            uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180',
           }}
           resizeMode="contain"
         />
@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
     paddingRight: 0,
   },
   image: {
-    width: 74,
-    height: 42,
+    width: 72,
+    height: 48,
     zIndex: 999,
   },
 });

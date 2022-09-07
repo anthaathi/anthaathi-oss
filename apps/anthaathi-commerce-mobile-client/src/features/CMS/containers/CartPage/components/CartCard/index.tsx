@@ -8,6 +8,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 export interface CartCardProps {
   title: string;
   handlePress?: () => void;
+  buyAgainPress?: () => void;
   statusIcon: string;
   statusTitle: string;
   orderStatus: boolean; // if delivered true
@@ -20,6 +21,7 @@ export interface CartCardProps {
 const CartCard = ({
   title,
   handlePress,
+  buyAgainPress,
   statusIcon,
   statusTitle,
   deliveryDate,
@@ -110,7 +112,7 @@ const CartCard = ({
         {orderStatus && (
           <Button
             style={{marginTop: 8, borderRadius: 4}}
-            onPress={() => {}}
+            onPress={buyAgainPress}
             mode="contained">
             {intl.formatMessage({defaultMessage: 'Buy Again'})}
           </Button>
