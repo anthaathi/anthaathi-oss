@@ -7,7 +7,7 @@ import MainPage from '../pages/MainPage';
 import EditProfile from '../pages/EditProfile';
 import AddEditAddress from '../pages/AddEditAddress';
 import {ProductTopTab} from './ProductTopTab';
-import {I18nManager, Image, Linking, StyleSheet, View} from 'react-native';
+import {I18nManager, Image, StyleSheet, View} from 'react-native';
 import {Badge, Colors, IconButton, TextInput} from 'react-native-paper';
 import CartPage from '../pages/CartPage';
 import CheckoutPage from '../pages/CheckoutPage';
@@ -20,12 +20,13 @@ import SignInPage from '../pages/Authentication/SignInPage';
 import SignUpPage from '../pages/Authentication/SignUpPage';
 import ResetPasswordPage from '../pages/Authentication/ResetPasswordPage';
 import {RootStackParamList} from '../types/Route';
+import ChatWootWidget from '@chatwoot/react-native-widget';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export interface ImageHeaderProps {
   onCartTap: () => void;
-  mailTo?: boolean;
+  chatWidgetShow?: boolean;
   hasBackButton?: boolean;
   inlineSearch?: boolean;
 }
@@ -48,7 +49,25 @@ function ImageHeader({
   }
   const cartItem = useRecoilValue(CartItemData);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [showWidget, toggleWidget] = useState(false);
   const navigation = useNavigation();
+
+  const user = {
+    identifier: 'john@gmail.com',
+    name: 'John Samuel',
+    avatar_url: '',
+    email: 'john@gmail.com',
+    identifier_hash: '',
+  };
+  const customAttributes = {
+    accountId: 1,
+    pricingPlan: 'paid',
+    status: 'active',
+  };
+
+  const websiteToken = 'bsUQcgVTRZ7JGiuXZbeTCGGE';
+  const baseUrl = 'https://app.chatwoot.com';
+  const locale = 'en';
 
   return (
     <View style={styles.wrapper}>
@@ -86,13 +105,24 @@ function ImageHeader({
 
         <View style={{flexGrow: 1}} />
 
-        {mailTo && (
+        {(
           <IconButton
-            onPress={() => Linking.openURL('mailto:customercare@nrtcfresh.com')}
+            onPress={() => toggleWidget(true)}
             color={Colors.grey800}
             icon="email-outline"
           />
         )}
+        {
+            <ChatWootWidget
+                websiteToken={websiteToken}
+                locale={locale}
+                baseUrl={baseUrl}
+                closeModal={() => toggleWidget(false)}
+                isModalVisible={showWidget}
+                user={user}
+                customAttributes={customAttributes}
+            />
+        }
 
         <View>
           <IconButton
