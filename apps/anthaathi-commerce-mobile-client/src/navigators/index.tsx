@@ -20,6 +20,7 @@ import SignInPage from '../pages/Authentication/SignInPage';
 import SignUpPage from '../pages/Authentication/SignUpPage';
 import ResetPasswordPage from '../pages/Authentication/ResetPasswordPage';
 import {RootStackParamList} from '../types/Route';
+import AddressInfoPage from '../pages/AddressDetails/AddressInfoPage';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -262,12 +263,53 @@ const MyStack = () => {
       <Stack.Screen
         name="Profile"
         component={ProfilePage}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              inlineSearch={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="EditProfile"
         component={EditProfile}
-        options={{headerShown: false}}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              inlineSearch={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="AddressInfo"
+        component={AddressInfoPage}
+        options={({navigation}) => ({
+          headerShown: true,
+          headerBackVisible: false,
+          headerTitle: () => (
+            <ImageHeader
+              hasBackButton={true}
+              inlineSearch={true}
+              onCartTap={() => {
+                navigation.navigate('CartPage');
+              }}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name="AddEditAddress"

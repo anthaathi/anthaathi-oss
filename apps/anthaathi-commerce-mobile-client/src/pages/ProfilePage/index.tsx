@@ -1,18 +1,37 @@
-import {View, ScrollView} from 'react-native';
+/* eslint-disable react/no-unstable-nested-components */
+import {View} from 'react-native';
 import React from 'react';
-import CMSRenderer from '../../features/CMS';
-import {
-  CoreComponentType,
-  ProfilePageComponentType,
-} from '../../features/CMS/types/common';
-import dataJson from '../../config/data.json';
+import {Divider, List} from 'react-native-paper';
+import {RootStackParamList} from '../../types/Route';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-const ProfilePage = (props: {
-  navigation: {goBack: () => void; navigate: (arg0: string) => void};
-}) => {
+const ProfilePage = (
+  props: NativeStackScreenProps<RootStackParamList, 'Profile'>,
+) => {
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
-      <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
+    <View style={{backgroundColor: 'white', flex: 1, paddingHorizontal: 5}}>
+      <ListItemData
+        title="Personal details"
+        iconName="account"
+        onPress={() => {
+          props.navigation.navigate('EditProfile');
+        }}
+      />
+      <ListItemData
+        title="Delivery addresses"
+        iconName="map-marker"
+        onPress={() => {
+          props.navigation.navigate('AddressInfo');
+        }}
+      />
+      <ListItemData
+        title="Payment details"
+        iconName="credit-card-edit-outline"
+      />
+      <ListItemData title="Gift cards" iconName="wallet-giftcard" />
+      <ListItemData title="My reviews" iconName="star" />
+      <ListItemData title="Settings" iconName="cog" />
+      {/* <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
         <CMSRenderer
           components={[
             {
@@ -38,30 +57,35 @@ const ProfilePage = (props: {
               currency: dataJson.core.profilePage.walletBalance.currency,
               buttonTitle: dataJson.core.profilePage.walletBalance.buttonTitle,
             },
-            {
-              _component: ProfilePageComponentType.PersonalInformation,
-              title: dataJson.core.profilePage.personalInformation.title,
-              key: 'test12',
-              personalInfo:
-                dataJson.core.profilePage.personalInformation.personalInfo,
-              handlePress: () => {
-                props.navigation.navigate('EditProfile');
-              },
-            },
-            {
-              _component: ProfilePageComponentType.DeliveryAddresses,
-              key: '3232',
-              title: 'Address information',
-              userAddress: dataJson.core.profilePage.addressInformation,
-              handlePress: () => {
-                props.navigation.navigate('AddEditAddress');
-              },
-            },
-          ]}
         />
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 };
 
+const ListItemData = ({
+  title,
+  subtitle,
+  iconName,
+  onPress,
+}: {
+  title: string;
+  subtitle?: string;
+  iconName: string;
+  onPress?: () => void;
+}) => {
+  return (
+    <>
+      <List.Item
+        onPress={onPress}
+        style={{paddingVertical: 15}}
+        title={title}
+        description={subtitle}
+        left={props => <List.Icon {...props} icon={iconName} />}
+        right={props => <List.Icon {...props} icon="chevron-right" />}
+      />
+      <Divider />
+    </>
+  );
+};
 export default ProfilePage;
