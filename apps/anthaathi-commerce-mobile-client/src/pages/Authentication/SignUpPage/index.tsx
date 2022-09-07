@@ -25,12 +25,12 @@ const SignUpPage = (
           }}>
           <Image
             style={{
-              width: 84,
-              height: 52,
+              width: 138,
+              height: 128,
               zIndex: 999,
             }}
             source={{
-              uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_140x.png?v=1653569545',
+              uri: 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180',
             }}
             resizeMode="contain"
           />
