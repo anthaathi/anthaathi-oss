@@ -57,3 +57,6 @@ _deps
 cmake-build-debug
 /local.properties
 /apps/anthaathi-crm-engine/local.properties
+/apps/anthaathi-commerce-mobile-client/android/app/src/main/assets/index.android.bundle
+/.jpb/jpb-settings.xml
+/.jpb/persistence-units.xml
