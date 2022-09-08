@@ -12,12 +12,26 @@ import { NotificationContainer } from './Features/Core/Notification/Components/N
 import { FlexFill } from './Features/Core/Components/FlexFill';
 import { UserMenuHeader } from './Features/Authentication/Components/UserMenuHeader';
 import { CreateTaskPage } from './Pages/CreateTaskPage';
+import { graphql, useLazyLoadQuery } from 'react-relay';
+import { AppInfoQuery } from './__generated__/AppInfoQuery.graphql';
 
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 const CustomerPage = React.lazy(() => import('./Pages/CustomerPage'));
 const SpacePage = React.lazy(() => import('./Pages/SpacesPage'));
 
+const query = graphql`
+  query AppInfoQuery {
+    me {
+      id
+    }
+  }
+`;
+
 function App() {
+  const data = useLazyLoadQuery<AppInfoQuery>(query, {});
+
+  console.log(data.me?.id);
+
   return (
     <>
       <Header>
