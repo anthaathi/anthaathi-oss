@@ -3,11 +3,34 @@ import { Outlet } from 'react-router';
 import { SplitView } from '../Features/Core/Components/SplitView';
 import React, { forwardRef, useMemo, useState } from 'react';
 import { useStyletron } from 'baseui';
+import { graphql, useFragment } from 'react-relay';
+import { SpaceListViewPage$key } from '../__generated__/SpaceListViewPage.graphql';
 
-export const SpaceListViewPage = forwardRef<HTMLDivElement>((_, ref) => {
+export const SpaceListViewPage = forwardRef<
+  HTMLDivElement,
+  {
+    $ref: SpaceListViewPage$key;
+  }
+>(({ $ref }, ref) => {
   const [css, $theme] = useStyletron();
 
   const [selected, setSelected] = useState<number>();
+
+  const { tasks } = useFragment(
+    graphql`
+      fragment SpaceListViewPage on Space {
+        name
+        tasks {
+          edges {
+            node {
+              id
+            }
+          }
+        }
+      }
+    `,
+    $ref
+  );
 
   const items = useMemo(() => {
     return Array.from({ length: 10 });

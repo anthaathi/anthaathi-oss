@@ -3,7 +3,7 @@ import type { FetchFunction } from 'relay-runtime/lib/network/RelayNetworkTypes'
 
 const fetchRelay: FetchFunction = async (params, variables) => {
   const response = await fetch(
-    process.env.VITE_API_ENDPOINT || 'http://localhost:8080/graphql',
+    import.meta.env.VITE_API_ENDPOINT || '/graphql',
     {
       method: 'POST',
       headers: {

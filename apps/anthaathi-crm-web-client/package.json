@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint:types": "tsc",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "relay": "relay-compiler ./relay.json"
+    "relay": "mkdir -p src/__generated__ && relay-compiler ./relay.json"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.0.5",
