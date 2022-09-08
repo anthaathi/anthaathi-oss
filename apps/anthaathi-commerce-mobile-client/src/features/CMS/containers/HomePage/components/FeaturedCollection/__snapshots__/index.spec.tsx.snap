@@ -180,7 +180,6 @@ exports[`FeaturedCollection should render the item 1`] = `
                     {
                       "alignItems": "center",
                       "display": "flex",
-                      "flexDirection": "row",
                       "marginTop": 6,
                       "width": 240,
                     }
