@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:14.1
+    networks:
+      crm_default:
+    ports:
+      - "5432:5432"
+    env_file: ../.env
+
+networks:
+  crm_default:

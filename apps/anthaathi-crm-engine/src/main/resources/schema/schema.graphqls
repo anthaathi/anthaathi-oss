@@ -1,0 +1,184 @@
+interface Node {
+    id: ID!
+}
+
+type Query {
+    node(id: ID!): Node
+    me: User
+}
+
+type Organization implements Node @connection {
+    id: ID!
+    name: String!
+    projects(first: Int, last: Int, before: String, after: String): ProjectConnection
+    teams(first: Int, last: Int, before: String, after: String): TeamConnection
+}
+
+type Team implements Node @connection {
+    id: ID!
+    name: String!
+    description: String
+    teams(first: Int, last: Int, before: String, after: String): TeamConnection
+    members(first: Int, last: Int, before: String, after: String): TeamMemberConnection
+}
+
+type User implements Node @connection {
+    id: ID!
+    displayName: String
+    email: String
+    phoneNumber: MobileNumber
+    defaultOrganization: Organization
+    organizations: OrganizationConnection
+}
+
+type TeamMember implements Node @connection {
+    id: ID!
+    role: String
+    user: User!
+}
+
+type Project implements Node @connection {
+    id: ID!
+    name: String!
+    description: String
+    spaces(first: Int, last: Int, before: String, after: String): SpaceConnection
+}
+
+type Space implements Node @connection {
+    id: ID!
+    name: String!
+    spaces(first: Int, last: Int, before: String, after: String): SpaceConnection
+    tasks(first: Int, last: Int, before: String, after: String): TaskConnection
+    templates(first: Int, last: Int, before: String, after: String): TemplateConnection
+}
+
+interface BaseTask implements Node {
+    id: ID!
+    title: String!
+    description: String
+    dueDate: DateTime
+    priority: Int
+}
+
+type Task implements Node & BaseTask @connection {
+    id: ID!
+    title: String!
+    description: String
+    dueDate: DateTime
+    priority: Int
+    icon: String
+    background: String
+    reportedBy: User
+    status: Status
+    assigned: UserConnection
+    taskStages: TaskStageConnection
+    tag: TaskTagConnection
+}
+
+type TaskTag implements Node @connection {
+    id: ID!
+    title: String
+    color: String
+}
+
+type TaskStage implements Node @connection {
+    id: ID!
+    title: String!
+    icon: String
+    completed: Boolean
+    documents: DocumentConnection
+    comments(first: Int, last: Int, before: String, after: String): TaskCommentConnection
+}
+
+type TaskComment implements Node @connection {
+    id: ID!
+    content: String!
+    replyTo: TaskComment
+}
+
+type Document implements Node @connection {
+    id: ID!
+    title: String!
+    expiry: DateTime
+    url: String
+}
+
+type Status implements Node @connection {
+    id: ID!
+    name: String!
+    color: String
+}
+
+type Template implements Node & BaseTask @connection {
+    id: ID!
+    title: String!
+    priority: Int
+    dueDate: DateTime
+    description: String
+    icon: String
+    background: String
+}
+
+type Customer implements Node @connection {
+    id: ID!
+    firstName: String
+    lastName: String
+    middleName: String
+    mobileNumber1: MobileNumber
+    mobileNumber2: MobileNumber
+    gender: String
+    dateOfBirth: DateTime
+    jobTitle: String
+    priority: Int
+    profilePicture: ProfilePicture
+    organizations: CustomerOrganizationConnection
+    email: String
+    qualification: String
+    user: User
+    documents(first: Int, last: Int, before: String, after: String): DocumentConnection
+    addresses(first: Int, last: Int, before: String, after: String): AddressConnection
+}
+
+type Address implements Node @connection {
+    id: ID!
+    type: String
+    addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    city: String
+    state: String
+    country: String
+    postalCode: String
+}
+
+type ProfilePicture implements Node {
+    id: ID!
+    picture: String
+}
+
+type CustomerMeta implements Node @connection {
+    id: ID!
+    key: String!
+    value: JSON
+}
+
+type CustomerOrganization implements Node @connection {
+    id: ID!
+    role: String
+    organization: CustomerOrganizationInfo
+}
+
+type CustomerOrganizationInfo implements Node @connection {
+    id: ID!
+    name: String
+    logo: String
+    address(first: Int, last: Int, before: String, after: String): AddressConnection
+}
+
+type MobileNumber {
+    countryCode: Int
+    mobileNumber: String
+}
+
+scalar DateTime
+scalar JSON
