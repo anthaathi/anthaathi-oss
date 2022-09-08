@@ -1,36 +1,44 @@
-# Gradle
-.gradle/
+HELP.md
+.gradle
 build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# Eclipse
-.project
+### STS ###
+.apt_generated
 .classpath
-.settings/
-bin/
-
-# IntelliJ
-.idea
-*.ipr
-*.iml
-*.iws
-
-# NetBeans
-nb-configuration.xml
-
-# Visual Studio Code
-.vscode
 .factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-# OSX
-.DS_Store
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# Vim
-*.swp
-*.swo
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-# patch
-*.orig
-*.rej
+### VS Code ###
+.vscode/
 
-# Local environment
+### ENV Variables ###
 .env
+
+### Temp Data ###
+/data.tmp.mv.db
+/data.tmp.trace.db

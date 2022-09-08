@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint:types": "tsc",
-    "lint": "eslint \"src/**/*.{ts,tsx}\""
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "relay": "relay-compiler ./relay.json"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.0.5",
@@ -19,9 +20,11 @@
     "node-scss": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-relay": "^14.1.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.5",
+    "relay-runtime": "^14.1.0",
     "sass": "^1.54.5",
     "styletron-engine-atomic": "^1.5.0",
     "styletron-react": "^6.1.0"
@@ -30,16 +33,21 @@
     "@types/node": "^18.7.13",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-relay": "^14.1.1",
+    "@types/relay-runtime": "^14.1.2",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "@vitejs/plugin-react": "^2.0.1",
+    "babel-plugin-relay": "^14.1.0",
     "eslint": "8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-baseui": "^12.1.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "graphql": "^16.6.0",
     "gts": "^3.1.0",
     "prettier": "^2.7.1",
+    "relay-compiler": "^14.1.0",
     "typescript": "^4.8.2",
     "vite": "^3.0.9"
   }
