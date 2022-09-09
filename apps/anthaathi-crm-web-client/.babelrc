@@ -1,5 +1,8 @@
 {
   "plugins": [
-    "relay"
+    ["relay", {
+      "eagerEsModules": true,
+      "artifactDirectory": "./src/__generated__"
+    }]
   ]
 }
