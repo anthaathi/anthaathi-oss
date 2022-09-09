@@ -5,26 +5,45 @@ import { LabelMedium } from 'baseui/typography';
 import React from 'react';
 import { AvatarStack } from '../../../Core/Components/AvatarStack';
 import { Cell, Grid } from 'baseui/layout-grid';
+import { graphql, useFragment } from 'react-relay';
+import { TaskMetaData$key } from '../../../../__generated__/TaskMetaData.graphql';
+import { RelativeTimeRenderer } from '../../../Core/Components/RelativeTimeRenderer';
 
 export interface TaskMetaDataProps {
-  userDetails: {
-    username: string;
-    userImage?: string;
-  };
-  dateOfTask: string;
-  badgeTitle: string;
-  badgeTitleColor: string;
-  badgeBackgroundColor: string;
+  $ref: TaskMetaData$key;
 }
 
-function TaskMetaData({
-  userDetails,
-  dateOfTask,
-  badgeTitle,
-  badgeBackgroundColor,
-  badgeTitleColor,
-}: TaskMetaDataProps) {
+function TaskMetaData({ $ref }: TaskMetaDataProps) {
   const [, $theme] = useStyletron();
+
+  const taskMetaData = useFragment(
+    graphql`
+      fragment TaskMetaData on Task {
+        id
+
+        assigned {
+          ...AvatarStack
+        }
+
+        followers {
+          ...AvatarStack
+        }
+
+        dueDate
+
+        tag {
+          edges {
+            node {
+              id
+              title
+              color
+            }
+          }
+        }
+      }
+    `,
+    $ref
+  );
 
   return (
     <Block marginTop="20px" maxWidth="775px" width="100%">
@@ -39,16 +58,7 @@ function TaskMetaData({
             Assign To
           </LabelMedium>
 
-          <AvatarStack
-            align="start"
-            items={[
-              {
-                title: userDetails.username,
-                key: 'user',
-                img: userDetails.userImage,
-              },
-            ]}
-          />
+          <AvatarStack align="start" $ref={taskMetaData.assigned!} />
         </Cell>
 
         <Cell span={3}>
@@ -60,7 +70,9 @@ function TaskMetaData({
           >
             Due on
           </LabelMedium>
-          <LabelMedium>{dateOfTask}</LabelMedium>
+          <LabelMedium>
+            <RelativeTimeRenderer time={taskMetaData.dueDate} to="from" />
+          </LabelMedium>
         </Cell>
 
         <Cell span={3}>
@@ -72,28 +84,29 @@ function TaskMetaData({
           >
             Tag
           </LabelMedium>
-          <Button
-            kind={KIND.tertiary}
-            size={SIZE.mini}
-            overrides={{
-              BaseButton: {
-                style: () => ({
-                  backgroundColor: badgeBackgroundColor,
-                  color: badgeTitleColor,
-                  fontFamily: $theme.typography.headingFontFamily,
-                  borderTopLeftRadius: '2px',
-                  borderTopRightRadius: '2px',
-                  borderBottomLeftRadius: '2px',
-                  borderBottomRightRadius: '2px',
-                  ':hover': {
-                    backgroundColor: badgeBackgroundColor,
+          {taskMetaData.tag?.edges?.map((node, index) => {
+            return (
+              <Button
+                kind={KIND.tertiary}
+                size={SIZE.mini}
+                key={node?.node?.id || index}
+                overrides={{
+                  BaseButton: {
+                    style: () => ({
+                      fontFamily: $theme.typography.headingFontFamily,
+                      borderTopLeftRadius: '2px',
+                      borderTopRightRadius: '2px',
+                      borderBottomLeftRadius: '2px',
+                      borderBottomRightRadius: '2px',
+                      ':hover': {},
+                    }),
                   },
-                }),
-              },
-            }}
-          >
-            {badgeTitle}
-          </Button>
+                }}
+              >
+                {node?.node?.title}
+              </Button>
+            );
+          })}
         </Cell>
 
         <Cell span={3}>
@@ -105,19 +118,7 @@ function TaskMetaData({
           >
             Followers
           </LabelMedium>
-          <AvatarStack
-            align="start"
-            items={[
-              {
-                key: 'Aditya',
-                title: 'Aditya Chauhan',
-              },
-              {
-                key: 'Aditya2',
-                title: 'Aditya Chauhan',
-              },
-            ]}
-          />
+          <AvatarStack align="start" $ref={taskMetaData.followers!} />
         </Cell>
       </Grid>
     </Block>

@@ -13,7 +13,7 @@ class MeDataFetcher {
     @DgsQuery(field = DgsConstants.QUERY.Me)
     fun me(
          dfe: DgsDataFetchingEnvironment
-    ): User {
-        return createUser(dfe, organization = createOrganization(dfe)).edges[0].node
+    ): User? {
+        return createUser(dfe, organization = createOrganization(dfe))?.edges?.get(0)?.node
     }
 }

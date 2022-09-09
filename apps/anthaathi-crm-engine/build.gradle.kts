@@ -82,6 +82,8 @@ tasks.withType<GenerateJavaTask> {
         "CustomerOrganizationInfoConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.CustomerOrganizationInfo>",
         "TaskTagConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskTag>",
         "TaskCommentConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskComment>",
+        "TaskActivityConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskActivity>",
+        "TaskByStatusConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskByStatus>",
         "JSON" to "Any",
     )
 }

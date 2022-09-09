@@ -1,4 +1,5 @@
 import React, {
+  Suspense,
   useEffect,
   useLayoutEffect,
   useMemo,

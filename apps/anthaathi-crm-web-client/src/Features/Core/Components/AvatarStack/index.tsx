@@ -4,32 +4,46 @@ import { LabelXSmall } from 'baseui/typography';
 import { StatefulTooltip } from 'baseui/tooltip';
 import { PLACEMENT } from 'baseui/popover';
 import { expandBorderStyles } from 'baseui/styles';
-
-interface AvatarStackItem {
-  title: string;
-  img?: string;
-  key: string;
-}
+import { graphql, useFragment } from 'react-relay';
+import { AvatarStack$key } from '../../../../__generated__/AvatarStack.graphql';
 
 export interface AvatarStackProps {
   // eslint-disable-next-line no-unused-vars
-  onClick?: (item: AvatarStackItem) => void;
-  items: AvatarStackItem[];
+  onClick?: (item: string | undefined) => void;
   align?: 'end' | 'start';
   absolute?: boolean;
+  $ref: AvatarStack$key;
 }
 
 export function AvatarStack({
-  items,
   onClick,
   align = 'end',
   absolute = true,
+  $ref,
 }: AvatarStackProps) {
+  const userInfo = useFragment(
+    graphql`
+      fragment AvatarStack on UserConnection {
+        edges {
+          node {
+            displayName
+            id
+          }
+        }
+      }
+    `,
+    $ref
+  );
+
   const [css, $theme] = useStyletron();
 
   const [hover, setHover] = useState(false);
 
   const prevClear = useRef<number | undefined>(undefined);
+
+  if (!userInfo) {
+    return null;
+  }
 
   return (
     <div
@@ -39,8 +53,8 @@ export function AvatarStack({
         height: '28px',
       })}
     >
-      {items.map((item, index) => {
-        const initial = item.title
+      {userInfo.edges?.map((item, index) => {
+        const initial = (item?.node?.displayName || '')
           .split(' ')
           .map((res) => res[0])
           .join('')
@@ -49,14 +63,14 @@ export function AvatarStack({
 
         return (
           <StatefulTooltip
-            content={() => item.title}
+            content={() => item?.node?.displayName}
             returnFocus
             autoFocus
             popoverMargin={8}
             showArrow
             onMouseEnterDelay={500}
             placement={PLACEMENT.bottom}
-            key={item.key}
+            key={item?.node?.id || index}
           >
             <div
               className={css({
@@ -74,7 +88,7 @@ export function AvatarStack({
                 transitionDuration: '200ms',
                 transitionTimingFunction: 'ease',
                 cursor: 'pointer',
-                zIndex: items.length - index,
+                zIndex: (userInfo?.edges?.length || 0) - index,
                 ...expandBorderStyles($theme.borders.border100),
               })}
               onMouseOver={() => {
@@ -87,7 +101,7 @@ export function AvatarStack({
                 }, 50) as never as number;
               }}
               onClick={() => {
-                onClick?.(item);
+                onClick?.(item?.node?.id);
               }}
             >
               <LabelXSmall $style={{ fontWeight: 600, wordSpacing: '0' }}>

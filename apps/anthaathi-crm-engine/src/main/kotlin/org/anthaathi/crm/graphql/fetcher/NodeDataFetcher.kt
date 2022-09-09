@@ -17,13 +17,13 @@ class NodeDataFetcher {
         val globalId = IdGenerator.fromGlobalId(id)
 
         when (globalId.type) {
-            "Organization" -> return Generator.createOrganization(dfe).edges[0].node
-            "Space" -> return Generator.createSpace(dfe).edges[0].node
-            "Task" -> return Generator.createTask(dfe).edges[0].node
-            "TaskStage" -> return Generator.createTaskStages(dfe).edges[0].node
-            "TaskComment" -> return Generator.createComments(dfe).edges[0].node
-            "User" -> return Generator.createUser(dfe).edges[0].node
-            "Project" -> return Generator.createProject(dfe).edges[0].node
+            "Organization" -> return Generator.createOrganization(dfe)?.edges?.get(0)?.node
+            "Space" -> return Generator.createSpace(dfe)?.edges?.get(0)?.node
+            "Task" -> return Generator.createTask(dfe)?.edges?.get(0)?.node
+            "TaskStage" -> return Generator.createTaskStages(dfe)?.edges?.get(0)?.node
+            "TaskComment" -> return Generator.createComments(dfe)?.edges?.get(0)?.node
+            "User" -> return Generator.createUser(dfe)?.edges?.get(0)?.node
+            "Project" -> return Generator.createProject(dfe)?.edges?.get(0)?.node
         }
 
         return null

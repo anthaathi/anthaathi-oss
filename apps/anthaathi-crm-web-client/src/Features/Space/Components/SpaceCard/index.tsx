@@ -4,21 +4,41 @@ import { AvatarStack } from '../../../Core/Components/AvatarStack';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ProgressBar } from 'baseui/progress-bar';
 import React, { useState } from 'react';
+import { graphql, useFragment } from 'react-relay';
+import { SpaceCardFragment$key } from '../../../../__generated__/SpaceCardFragment.graphql';
+import { RelativeTimeRenderer } from '../../../Core/Components/RelativeTimeRenderer';
 
 export function SpaceCard({
   isSelected,
   url,
   noExpand = false,
   dragHandler,
+  $ref,
 }: {
   isSelected?: boolean;
   noExpand?: boolean;
   url: string;
   dragHandler?: React.ReactNode;
+  $ref: SpaceCardFragment$key;
 }) {
   const [css, $theme] = useStyletron();
   const [params] = useSearchParams();
   const [hover, setHover] = useState(false);
+
+  const spaceInfo = useFragment(
+    graphql`
+      fragment SpaceCardFragment on Task {
+        id
+        title
+        description
+        dueDate
+        assigned {
+          ...AvatarStack
+        }
+      }
+    `,
+    $ref
+  );
 
   const expanded = (hover || isSelected) && !noExpand;
 
@@ -71,7 +91,7 @@ export function SpaceCard({
                 marginBottom: '6px',
               }}
             >
-              I wanna know have you ever seen
+              {spaceInfo.title}
             </LabelMedium>
 
             <div
@@ -96,10 +116,7 @@ export function SpaceCard({
                 transitionTimingFunction: 'ease',
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum,
-              ea omnis. Asperiores iusto necessitatibus nesciunt numquam
-              voluptate! Ab autem dolorum molestias mollitia necessitatibus,
-              nulla obcaecati provident quia repellat repudiandae veniam.
+              {spaceInfo.description}
             </LabelMedium>
           </div>
 
@@ -116,7 +133,7 @@ export function SpaceCard({
                 borderRadius: '12px',
               })}
             >
-              {new Date().toDateString()}
+              <RelativeTimeRenderer time={spaceInfo.dueDate} to="from" />
             </span>
           </LabelXSmall>
 
@@ -159,13 +176,7 @@ export function SpaceCard({
         >
           {dragHandler}
           <span className={css({ flexGrow: 1 })} />
-          <AvatarStack
-            items={[
-              { title: 'Omkar Yadav', key: '123' },
-              { title: 'Omkar Yadav', key: '1231' },
-              { title: 'Omkar Yadav', key: '12312' },
-            ]}
-          />
+          <AvatarStack $ref={spaceInfo.assigned!} />
         </div>
       </div>
     </Link>

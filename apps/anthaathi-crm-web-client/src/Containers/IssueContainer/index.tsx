@@ -13,9 +13,27 @@ import { AppWrapper } from '../../Features/Core/Components/AppWrapper';
 import TodoList from '../../Features/TaskTodoList/components/TodoList';
 import { FileList } from '../../Features/IssueTracker/Components/FileList';
 import { NotificationCustomizationByIssue } from '../../Features/IssueTracker/Components/NotificationCustomizationByIssue';
+import { graphql, useFragment } from 'react-relay';
+import { IssueContainerFragment$key } from '../../__generated__/IssueContainerFragment.graphql';
+import dayjs from 'dayjs';
+import { RelativeTimeRenderer } from '../../Features/Core/Components/RelativeTimeRenderer';
 
-export function IssueContainer() {
+const IssueContainerFragment = graphql`
+  fragment IssueContainerFragment on Task {
+    id
+    title
+    createdAt
+    dueDate
+    ...TaskMetaData
+    reportedBy {
+      ...UserChip
+    }
+  }
+`;
+
+export function IssueContainer({ $ref }: { $ref: IssueContainerFragment$key }) {
   const [css, $theme] = useStyletron();
+  const issue = useFragment(IssueContainerFragment, $ref);
 
   return (
     <>
@@ -27,20 +45,19 @@ export function IssueContainer() {
       >
         <AppWrapper $isDense={true}>
           <SpaceTaskHeader
-            title="Find top 5 customer requests"
+            title={issue.title}
             subtitle={
               <>
-                Reported by <UserChip />. yesterday at 12:41pm
+                {issue.reportedBy && (
+                  <>
+                    Reported by <UserChip $ref={issue.reportedBy} />
+                  </>
+                )}{' '}
+                <RelativeTimeRenderer time={issue.createdAt} to="from" />
               </>
             }
           />
-          <TaskMetaData
-            badgeBackgroundColor="#F5F0FF"
-            badgeTitle="MARKETING"
-            badgeTitleColor="#764CED"
-            userDetails={{ username: 'User name' }}
-            dateOfTask="Tue, Dec 25"
-          />
+          <TaskMetaData $ref={issue} />
         </AppWrapper>
       </div>
 

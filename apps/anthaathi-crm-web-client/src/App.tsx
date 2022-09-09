@@ -21,8 +21,14 @@ const SpacePage = React.lazy(() => import('./Pages/SpacesPage'));
 
 const query = graphql`
   query AppInfoQuery {
-    me {
+    me @required(action: NONE) {
       id
+      defaultOrganization @required(action: NONE) {
+        id
+        defaultProject @required(action: NONE) {
+          ...DefaultLayoutFragment
+        }
+      }
     }
   }
 `;
@@ -30,7 +36,9 @@ const query = graphql`
 function App() {
   const data = useLazyLoadQuery<AppInfoQuery>(query, {});
 
-  console.log(data.me?.id);
+  if (!data) {
+    return <></>;
+  }
 
   return (
     <>
@@ -42,7 +50,7 @@ function App() {
           <UserMenuHeader />
         </HeaderWrapper>
       </Header>
-      <DefaultLayout>
+      <DefaultLayout $ref={data.me.defaultOrganization.defaultProject}>
         <Suspense fallback={<p>Loading</p>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -53,7 +61,14 @@ function App() {
                 <Route path="create" element={<CreateTaskPage />} />
                 <Route element={<SpacePage />}>
                   <Route index element={<SpacesPageNoItemSelected />} />
-                  <Route path=":issue" element={<IssueViewPage />} />
+                  <Route
+                    path=":issue"
+                    element={
+                      <Suspense fallback={<></>}>
+                        <IssueViewPage />
+                      </Suspense>
+                    }
+                  />
                 </Route>
               </Route>
             </Route>

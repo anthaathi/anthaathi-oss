@@ -1,6 +1,8 @@
 package org.anthaathi.crm.database.entity
 
 import org.hibernate.annotations.Type
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDate
 import java.time.OffsetDateTime
 import java.util.*
@@ -61,8 +63,13 @@ open class Task {
     @Column(name = "background", nullable = false, length = 50)
     open var background: String? = null
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreatedDate
     open var createdAt: OffsetDateTime? = null
+
+    @Column(name = "updated_at")
+    @LastModifiedDate
+    open var updatedAt: OffsetDateTime? = null
 
     @Column(name = "created_by", nullable = false)
     open var createdBy: UUID? = null
