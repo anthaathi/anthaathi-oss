@@ -1,5 +1,6 @@
 package org.anthaathi.crm.database.entity
 
+import org.anthaathi.crm.database.interfaces.PagableEntity
 import org.hibernate.annotations.Type
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
@@ -9,9 +10,10 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "customer_organization", schema = "crm")
-open class CustomerOrganizationEntity {
+open class CustomerOrganizationEntity : PagableEntity {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     open var id: UUID? = null
 
     @Type(type = "org.hibernate.type.TextType")
@@ -20,7 +22,7 @@ open class CustomerOrganizationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
-    open var project: org.anthaathi.crm.database.entity.ProjectEntity? = null
+    open var project: ProjectEntity? = null
 
     @Type(type = "org.hibernate.type.TextType")
     @Column(name = "logo", nullable = false)
@@ -28,7 +30,7 @@ open class CustomerOrganizationEntity {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
-    open var createdAt: OffsetDateTime? = null
+    override var createdAt: OffsetDateTime? = null
 
     @Column(name = "updated_at")
     @LastModifiedDate
@@ -36,4 +38,8 @@ open class CustomerOrganizationEntity {
 
     @Column(name = "created_by", nullable = false)
     open var createdBy: UUID? = null
+
+    @Column(name = "cursorId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    override var cursorId: Long? = null
 }

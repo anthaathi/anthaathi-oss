@@ -1,8 +1,8 @@
 package org.anthaathi.crm.database.repository;
 
 import org.anthaathi.crm.database.entity.TaskPreRequisiteEntity
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 import java.util.*
 
-interface TaskPreRequisiteEntityRepository : CrudRepository<TaskPreRequisiteEntity, UUID> {
+interface TaskPreRequisiteEntityRepository : PagingAndSortingRepository<TaskPreRequisiteEntity, UUID> {
 }

@@ -19,21 +19,22 @@ export interface DefaultLayoutProps {
 }
 
 export function DefaultLayout({ children, header, $ref }: DefaultLayoutProps) {
-  const spaces = useFragment<DefaultLayoutFragment$key>(
-    graphql`
-      fragment DefaultLayoutFragment on Project {
-        spaces {
-          edges {
-            node {
-              id
-              name
+  const spaces =
+    useFragment(
+      graphql`
+        fragment DefaultLayoutFragment on Project {
+          spaces {
+            edges {
+              node {
+                id
+                name
+              }
             }
           }
         }
-      }
-    `,
-    $ref
-  );
+      `,
+      $ref
+    ) || [];
 
   const [css, $theme] = useStyletron();
 

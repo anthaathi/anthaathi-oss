@@ -176,14 +176,14 @@ CREATE TABLE crm.document_type
     CONSTRAINT pk_document_type PRIMARY KEY (id)
 );
 
-CREATE TABLE crm.organizarion_addresses
+CREATE TABLE crm.organization_addresses
 (
     id              UUID                     NOT NULL,
     organization_id UUID                     NOT NULL,
     address_id      UUID                     NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
-    CONSTRAINT pk_organizarion_addresses PRIMARY KEY (id)
+    CONSTRAINT pk_organization_addresses PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.pre_requisite
@@ -429,11 +429,11 @@ ALTER TABLE crm.document
 ALTER TABLE crm.document
     ADD CONSTRAINT FK_DOCUMENT_ON_PROJECT FOREIGN KEY (project_id) REFERENCES project.project (id);
 
-ALTER TABLE crm.organizarion_addresses
-    ADD CONSTRAINT FK_ORGANIZARION_ADDRESSES_ON_ADDRESS FOREIGN KEY (address_id) REFERENCES crm.address (id);
+ALTER TABLE crm.organization_addresses
+    ADD CONSTRAINT FK_organization_addresses_ON_ADDRESS FOREIGN KEY (address_id) REFERENCES crm.address (id);
 
-ALTER TABLE crm.organizarion_addresses
-    ADD CONSTRAINT FK_ORGANIZARION_ADDRESSES_ON_ORGANIZATION FOREIGN KEY (organization_id) REFERENCES crm.customer_organization (id);
+ALTER TABLE crm.organization_addresses
+    ADD CONSTRAINT FK_organization_addresses_ON_ORGANIZATION FOREIGN KEY (organization_id) REFERENCES crm.customer_organization (id);
 
 ALTER TABLE crm.space_folder
     ADD CONSTRAINT FK_SPACE_FOLDER_ON_PARENT FOREIGN KEY (parent_id) REFERENCES crm.space_folder (id);
