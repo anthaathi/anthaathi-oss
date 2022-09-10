@@ -12,17 +12,25 @@ import {RootStackParamList} from '../../types/Route';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
+import { useIntl } from 'react-intl';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
 ) => {
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
+  const intl = useIntl();
 
   const productList = productJson.featuredCollection.products;
 
   const productFilter = React.useMemo(() => {
     return productList.filter(item => item.category === props.route.name);
   }, [productList, props.route.name]);
+
+  const productTotalPrice = React.useMemo(() => {
+    return cartItem.reduce((accumulator, object) => {
+      return accumulator + object.numberOfItems * object.price;
+    }, 0);
+  }, [cartItem]);
 
   return (
     <View style={{backgroundColor: '#fff', flex: 1}}>
@@ -172,7 +180,10 @@ const ProductListPage = (
             key: '123',
             title:
               'View Basket ' +
-              (cartItem.length > 0 ? `(${cartItem.length})` : ''),
+              (cartItem.length > 0 ? `(${cartItem.length} Items) (${intl.formatNumber(productTotalPrice, {
+                style: 'currency',
+                currency: 'AED',
+              })})` : ''),
             icon: 'cart',
             handlePress: () => {
               props.navigation.navigate('CartPage');

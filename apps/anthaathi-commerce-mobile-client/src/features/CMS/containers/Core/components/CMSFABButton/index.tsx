@@ -18,7 +18,7 @@ const CMSFABButton = ({title, icon, handlePress}: CMSFABButtonProps) => {
         position: 'absolute',
         width: '100%',
       }}>
-      <FAB icon={icon} label={title} style={styles.fab} onPress={handlePress} />
+      <FAB icon={icon} label={title} uppercase={false} style={styles.fab} onPress={handlePress} />
     </View>
   );
 };

@@ -4,13 +4,18 @@ import {
   CheckOutPageComponentType,
   CoreComponentType,
 } from '../../features/CMS/types/common';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
+import {OptionDataProps} from '../../features/CMS/containers/Core/components/CMSSelectOption';
+import {TextInput} from 'react-native-paper';
+import {useSetRecoilState} from 'recoil';
+import {CartItemData} from '../../features/CMS/context/CartItemContext';
 
 const CheckoutPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>
 > = props => {
+  const setCartItem = useSetRecoilState(CartItemData);
   return (
     <View style={{flex: 1}}>
       <CMSRenderer
@@ -26,60 +31,81 @@ const CheckoutPage: React.FC<
           },
         ]}
       />
-      <ScrollView contentContainerStyle={{paddingHorizontal: 5, flex: 1}}>
+      <ScrollView
+        style={{
+          paddingHorizontal: 10,
+          flex: 1,
+          marginBottom: 60,
+        }}>
         <CMSRenderer
           components={[
+            // {
+            //   _component: CheckOutPageComponentType.DeliveryAddressCard,
+            //   key: '1',
+            //   deliveryTitle: 'Delivery Address',
+            //   deliveryAddress:
+            //     'Flat 13B, Prestine Towers, Downtown Town, Dubai, UAE - 72001',
+            //   buttonTitle: 'Change',
+            //   mobileNumber: '+90909090',
+            // },
             {
-              _component: CheckOutPageComponentType.DeliveryAddressCard,
-              key: '1',
-              deliveryTitle: 'Delivery Address',
-              deliveryAddress:
-                'Flat 13B, Prestine Towers, Downtown Town, Dubai, UAE - 72001',
-              buttonTitle: 'Change',
-              mobileNumber: '+90909090',
-            },
-            {
-              _component: CoreComponentType.DatePicker,
-              key: '1412',
-              title: 'Date',
-            },
-            {
-              _component: CheckOutPageComponentType.TimeSlotSelection,
-              key: '123',
-              title: 'Timeslot',
-              timeSlots: [
+              _component: CoreComponentType.CMSSelectOption,
+              key: '21',
+              title: 'Delivery Address',
+              options: [
                 {
-                  key: '1',
-                  name: '09am - 12pm',
+                  id: 1,
+                  key: 1,
+                  title: 'Apartment',
+                  subtitle: '14b street, AI Quoz Industrial Area 4',
+                  leftIconName: 'map-marker',
                 },
                 {
-                  key: '2',
-                  name: '01pm - 05pm',
+                  id: 2,
+                  key: 2,
+                  title: 'Apartment',
+                  subtitle: '1A street, Discovery Gardens',
+                  leftIconName: 'map-marker',
                 },
                 {
-                  key: '3',
-                  name: '05pm - 10pm',
+                  id: 3,
+                  key: 3,
+                  title: 'Building No. 17',
+                  subtitle: '14b street, AI Quoz Industrial Area 4',
+                  leftIconName: 'map-marker',
+                },
+                {
+                  id: 4,
+                  key: 4,
+                  title: 'Apartment',
+                  subtitle: '1A street, Discovery Gardens',
+                  leftIconName: 'map-marker',
                 },
               ],
             },
             {
-              _component: CheckOutPageComponentType.TimeSlotSelection,
-              key: '12311',
-              title: 'Frequency',
-              timeSlots: [
+              _component: CoreComponentType.CMSSelectOption,
+              key: '211',
+              title: 'Delivery',
+              options: [
                 {
-                  key: '1',
-                  name: 'One time',
+                  id: 1,
+                  key: 1,
+                  title: 'Order now',
+                  leftIconName: 'clock-time-nine-outline',
                 },
                 {
-                  key: '2',
-                  name: 'Weekly',
-                },
-                {
-                  key: '3',
-                  name: 'Monthly',
+                  id: 2,
+                  key: 2,
+                  title: 'Schedue order',
+                  leftIconName: 'calendar-month-outline',
                 },
               ],
+              optionOnPress: (data: OptionDataProps) => {
+                if (data.id === 2) {
+                  props.navigation.navigate('SelectDate');
+                }
+              },
             },
             {
               _component: CheckOutPageComponentType.PaymentMethodSelection,
@@ -104,17 +130,40 @@ const CheckoutPage: React.FC<
                 },
               ],
             },
-            {
-              _component: CoreComponentType.CMSButton,
-              key: '1241',
-              title: 'Purchase',
-              handlePress: () => {
-                props.navigation.navigate('HomePage');
-              },
-            },
           ]}
         />
+        <View style={{marginHorizontal: 10}}>
+          <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+            Comments
+          </Text>
+
+          <TextInput
+            mode="flat"
+            label={'Add a note to your order'}
+            style={{
+              backgroundColor: '#fff',
+              fontSize: 14,
+              height: 120,
+              marginVertical: 10,
+            }}
+            multiline={true}
+            activeUnderlineColor="#0f8443"
+          />
+        </View>
       </ScrollView>
+      <CMSRenderer
+        components={[
+          {
+            _component: CoreComponentType.CMSButton,
+            key: '1241',
+            title: 'Purchase',
+            handlePress: () => {
+              setCartItem([]);
+              props.navigation.navigate('HomePage');
+            },
+          },
+        ]}
+      />
     </View>
   );
 };

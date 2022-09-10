@@ -25,8 +25,10 @@ const DatePicker = (props: {title: string}) => {
         style={{
           marginVertical: 3,
           borderColor: '#E3E2E7',
+          backgroundColor: '#fff',
         }}
         contentStyle={{
+          paddingVertical: 5,
           flexDirection: 'row-reverse',
           justifyContent: 'space-between',
         }}
