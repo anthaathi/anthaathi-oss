@@ -123,7 +123,7 @@ function ItemRenderer({
           />
           <View
             style={{
-              alignItems: 'center',
+              alignItems: 'flex-start',
               display: 'flex',
               width: itemWidth,
               marginTop: 6,

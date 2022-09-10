@@ -178,7 +178,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                 <View
                   style={
                     {
-                      "alignItems": "center",
+                      "alignItems": "flex-start",
                       "display": "flex",
                       "marginTop": 6,
                       "width": 240,

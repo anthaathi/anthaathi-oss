@@ -34,6 +34,7 @@ import {TextInputCMSInput} from '../containers/Core/components/CMSTextInput';
 import {ButtonCMSInput} from '../containers/Core/components/CMSButton';
 import {ProductListCMSInput} from '../containers/ProductListPage/components/ProductList';
 import {FABButtonCMSInput} from '../containers/Core/components/CMSFABButton';
+import { SelectOptionCMSInput } from '../containers/Core/components/CMSSelectOption';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -48,6 +49,7 @@ const renderer = [
   TextInputCMSInput,
   ButtonCMSInput,
   FABButtonCMSInput,
+  SelectOptionCMSInput,
   // home page
   DeliveringSelectionCMSInput,
   BlogPostsCMSInput,

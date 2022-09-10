@@ -16,4 +16,5 @@ export type RootStackParamList = {
   HomePage: {} | undefined;
   MyOrdersPage: {} | undefined;
   AddressInfo: {} | undefined;
+  SelectDate: {} | undefined;
 };

@@ -14,87 +14,94 @@ import SignUpPage from '../pages/Authentication/SignUpPage';
 import ResetPasswordPage from '../pages/Authentication/ResetPasswordPage';
 import {RootStackParamList} from '../types/Route';
 import AddressInfoPage from '../pages/AddressDetails/AddressInfoPage';
+import SelectDatePage from '../pages/SelectDatePage';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const MyStack = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="SignIn"
-                component={SignInPage}
-                options={{
-                    headerShown: false,
-                }}
-            />
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="SignIn"
+        component={SignInPage}
+        options={{
+          headerShown: false,
+        }}
+      />
 
-            <Stack.Screen
-                name="SignUp"
-                component={SignUpPage}
-                options={{
-                    headerShown: false,
-                }}
-            />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUpPage}
+        options={{
+          headerShown: false,
+        }}
+      />
 
-            <Stack.Screen
-                name="ResetPassword"
-                component={ResetPasswordPage}
-                options={{
-                    headerShown: false,
-                }}
-            />
+      <Stack.Screen
+        name="ResetPassword"
+        component={ResetPasswordPage}
+        options={{
+          headerShown: false,
+        }}
+      />
 
-            <Stack.Screen
-                name="Dashboard"
-                component={MainPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="ProductListPage"
-                component={ProductListPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="CartPage"
-                component={CartPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="CheckoutPage"
-                component={CheckoutPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="ProductListPage1"
-                component={ProductTopTab}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="ProductPage"
-                component={ProductPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="Profile"
-                component={ProfilePage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="EditProfile"
-                component={EditProfile}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="AddressInfo"
-                component={AddressInfoPage}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="AddEditAddress"
-                component={AddEditAddress}
-                options={{headerShown: false}}
-            />
-        </Stack.Navigator>
-    );
+      <Stack.Screen
+        name="Dashboard"
+        component={MainPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductListPage"
+        component={ProductListPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CartPage"
+        component={CartPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CheckoutPage"
+        component={CheckoutPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductListPage1"
+        component={ProductTopTab}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductPage"
+        component={ProductPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={ProfilePage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="AddressInfo"
+        component={AddressInfoPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="AddEditAddress"
+        component={AddEditAddress}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="SelectDate"
+        component={SelectDatePage}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
 };
 export default MyStack;

@@ -15,16 +15,15 @@ import CMSBottomSheet from '../../../Core/components/CMSBottomSheet';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export interface DeliveringSelectionProps {
-  location: string;
-  country: string;
   onPress?: () => void;
-  userAddresses?: {key: number; title: string; subtitle: string}[];
+  userAddresses: {key: number; title: string; subtitle: string}[];
 }
 
 export function DeliveringSelection(props: DeliveringSelectionProps) {
   const intl = useIntl();
   const theme = useTheme();
   const [isVisible, setVisible] = React.useState(false);
+  const [selectedOption, setSelectedOption] = React.useState(0);
 
   return (
     <View testID="deliveringSelection">
@@ -53,7 +52,10 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
               {intl.formatMessage({defaultMessage: 'Delivering to'})}
             </Text>
             <Text variant="labelLarge">
-              {props.location} - {props.country}
+              {props.userAddresses[selectedOption]['title']}
+            </Text>
+            <Text variant="labelLarge" style={{fontSize: 12}}>
+              {props.userAddresses[selectedOption]['subtitle']}
             </Text>
           </View>
 
@@ -82,13 +84,18 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
         <ScrollView>
           {props.userAddresses &&
             props.userAddresses.map(
-              (data: {key: number; title: string; subtitle: string}) => (
+              (
+                data: {key: number; title: string; subtitle: string},
+                index: number,
+              ) => (
                 <AddressComponent
                   title={data.title}
                   subtitle={data.subtitle}
                   key={data.key}
-                  setVisible={setVisible}
-                  isVisible={isVisible}
+                  onPress={() => {
+                    setSelectedOption(index);
+                    setVisible(!isVisible);
+                  }}
                 />
               ),
             )}
@@ -101,19 +108,14 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
 const AddressComponent = ({
   title,
   subtitle,
-  isVisible,
-  setVisible,
+  onPress,
 }: {
   title: string;
   subtitle: string;
-  isVisible: boolean;
-  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  onPress: () => void;
 }) => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        setVisible(!isVisible);
-      }}>
+    <TouchableOpacity onPress={onPress}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <SimpleLineIcons name="location-pin" color={'#000'} size={20} />
 
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     paddingHorizontal: 6,
-    paddingVertical: 0,
+    paddingVertical: 5,
     borderRadius: 12,
   },
   column: {
