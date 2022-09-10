@@ -1,8 +1,8 @@
 package org.anthaathi.crm.database.repository;
 
 import org.anthaathi.crm.database.entity.CustomerEntity
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 import java.util.*
 
-interface CustomerEntityRepository : CrudRepository<CustomerEntity, UUID> {
+interface CustomerEntityRepository : PagingAndSortingRepository<CustomerEntity, UUID> {
 }

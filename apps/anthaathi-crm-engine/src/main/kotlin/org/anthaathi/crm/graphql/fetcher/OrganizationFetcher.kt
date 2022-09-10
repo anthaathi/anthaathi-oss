@@ -16,7 +16,6 @@ class OrganizationFetcher(
     @DgsData(parentType = DgsConstants.USER.TYPE_NAME, field = DgsConstants.USER.DefaultOrganization)
     fun getOrganization(dfe: DataFetchingEnvironment): Organization? {
         val user = dfe.getSource<User>()
-        println(user.id)
         return this.organizationService.findById("YW50aGFhdGhpOi8vT3JnYW5pemF0aW9uLzM1YTI3NGNiLWMzNzUtNDYwNC1iNzhhLWM3ZGY1NDM5YjZjNA==")
     }
 }

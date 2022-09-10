@@ -1,5 +1,6 @@
 package org.anthaathi.crm.database.entity
 
+import org.anthaathi.crm.database.interfaces.PagableEntity
 import org.hibernate.annotations.Type
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
@@ -16,7 +17,7 @@ import javax.persistence.*
         UniqueConstraint(name = "uc_organizationentity", columnNames = ["tenant_id"])
     ]
 )
-open class OrganizationEntity {
+open class OrganizationEntity : PagableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -38,7 +39,7 @@ open class OrganizationEntity {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
-    open var createdAt: OffsetDateTime? = null
+    override var createdAt: OffsetDateTime? = null
 
     @Column(name = "updated_at")
     @LastModifiedDate
@@ -46,4 +47,8 @@ open class OrganizationEntity {
 
     @Column(name = "created_by", nullable = false)
     open var createdBy: UUID? = null
+
+    @Column(name = "cursorId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    override var cursorId: Long? = null
 }

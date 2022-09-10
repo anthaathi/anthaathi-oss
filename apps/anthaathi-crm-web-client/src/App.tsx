@@ -36,10 +36,6 @@ const query = graphql`
 function App() {
   const data = useLazyLoadQuery<AppInfoQuery>(query, {});
 
-  if (!data) {
-    return <></>;
-  }
-
   return (
     <>
       <Header>
@@ -50,7 +46,7 @@ function App() {
           <UserMenuHeader />
         </HeaderWrapper>
       </Header>
-      <DefaultLayout $ref={data.me.defaultOrganization.defaultProject}>
+      <DefaultLayout $ref={data?.me?.defaultOrganization?.defaultProject}>
         <Suspense fallback={<p>Loading</p>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
