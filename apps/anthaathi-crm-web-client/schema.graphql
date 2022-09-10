@@ -14,28 +14,43 @@ directive @provides(fields: _FieldSet!) on FIELD_DEFINITION
 
 directive @requires(fields: _FieldSet!) on FIELD_DEFINITION
 
+interface AuditTable {
+    createdAt: DateTime!
+    updatedAt: DateTime
+}
+
 interface BaseTask {
+    createdAt: DateTime!
     description: String
     dueDate: DateTime
     id: ID!
     priority: Int
     title: String!
+    updatedAt: DateTime
 }
 
 interface Node {
     id: ID!
 }
 
-type Address implements Node {
+interface TaskActivity {
+    createdAt: DateTime!
+    id: ID!
+    updatedAt: DateTime
+}
+
+type Address implements AuditTable & Node {
     addressLine1: String
     addressLine2: String
     addressLine3: String
     city: String
     country: String
+    createdAt: DateTime!
     id: ID!
     postalCode: String
     state: String
     type: String
+    updatedAt: DateTime
 }
 
 "Address Connection"
@@ -54,8 +69,9 @@ type AddressEdge {
     node: Address
 }
 
-type Customer implements Node {
+type Customer implements AuditTable & Node {
     addresses(after: String, before: String, first: Int, last: Int): AddressConnection
+    createdAt: DateTime!
     dateOfBirth: DateTime
     documents(after: String, before: String, first: Int, last: Int): DocumentConnection
     email: String
@@ -71,6 +87,7 @@ type Customer implements Node {
     priority: Int
     profilePicture: ProfilePicture
     qualification: String
+    updatedAt: DateTime
     user: User
 }
 
@@ -90,9 +107,11 @@ type CustomerEdge {
     node: Customer
 }
 
-type CustomerMeta implements Node {
+type CustomerMeta implements AuditTable & Node {
+    createdAt: DateTime!
     id: ID!
     key: String!
+    updatedAt: DateTime
     value: JSON
 }
 
@@ -112,10 +131,12 @@ type CustomerMetaEdge {
     node: CustomerMeta
 }
 
-type CustomerOrganization implements Node {
+type CustomerOrganization implements AuditTable & Node {
+    createdAt: DateTime!
     id: ID!
     organization: CustomerOrganizationInfo
     role: String
+    updatedAt: DateTime
 }
 
 "CustomerOrganization Connection"
@@ -134,11 +155,13 @@ type CustomerOrganizationEdge {
     node: CustomerOrganization
 }
 
-type CustomerOrganizationInfo implements Node {
+type CustomerOrganizationInfo implements AuditTable & Node {
     address(after: String, before: String, first: Int, last: Int): AddressConnection
+    createdAt: DateTime!
     id: ID!
     logo: String
     name: String
+    updatedAt: DateTime
 }
 
 "CustomerOrganizationInfo Connection"
@@ -157,10 +180,12 @@ type CustomerOrganizationInfoEdge {
     node: CustomerOrganizationInfo
 }
 
-type Document implements Node {
+type Document implements AuditTable & Node {
+    createdAt: DateTime!
     expiry: DateTime
     id: ID!
     title: String!
+    updatedAt: DateTime
     url: String
 }
 
@@ -185,11 +210,14 @@ type MobileNumber {
     mobileNumber: String
 }
 
-type Organization implements Node {
+type Organization implements AuditTable & Node {
+    createdAt: DateTime!
+    defaultProject: Project
     id: ID!
     name: String!
     projects(after: String, before: String, first: Int, last: Int): ProjectConnection
     teams(after: String, before: String, first: Int, last: Int): TeamConnection
+    updatedAt: DateTime
 }
 
 "Organization Connection"
@@ -220,16 +248,20 @@ type PageInfo {
     startCursor: String
 }
 
-type ProfilePicture implements Node {
+type ProfilePicture implements AuditTable & Node {
+    createdAt: DateTime!
     id: ID!
     picture: String
+    updatedAt: DateTime
 }
 
-type Project implements Node {
+type Project implements AuditTable & Node {
+    createdAt: DateTime!
     description: String
     id: ID!
     name: String!
     spaces(after: String, before: String, first: Int, last: Int): SpaceConnection
+    updatedAt: DateTime
 }
 
 "Project Connection"
@@ -254,12 +286,15 @@ type Query {
     node(id: ID!): Node
 }
 
-type Space implements Node {
+type Space implements AuditTable & Node {
+    createdAt: DateTime!
     id: ID!
     name: String!
     spaces(after: String, before: String, first: Int, last: Int): SpaceConnection
     tasks(after: String, before: String, first: Int, last: Int): TaskConnection
+    tasksByStatuses(after: String, before: String, first: Int, last: Int): TaskByStatusConnection
     templates(after: String, before: String, first: Int, last: Int): TemplateConnection
+    updatedAt: DateTime
 }
 
 "Space Connection"
@@ -278,10 +313,12 @@ type SpaceEdge {
     node: Space
 }
 
-type Status implements Node {
+type Status implements AuditTable & Node {
     color: String
+    createdAt: DateTime!
     id: ID!
     name: String!
+    updatedAt: DateTime
 }
 
 "Status Connection"
@@ -300,18 +337,84 @@ type StatusEdge {
     node: Status
 }
 
-type Task implements BaseTask & Node {
+type Task implements AuditTable & BaseTask & Node {
     assigned: UserConnection
     background: String
+    createdAt: DateTime!
     description: String
     dueDate: DateTime
+    followers: UserConnection
     icon: String
     id: ID!
     priority: Int
     reportedBy: User
     status: Status
+    tag: TaskTagConnection
     taskStages: TaskStageConnection
     title: String!
+    updatedAt: DateTime
+}
+
+"TaskActivity Connection"
+type TaskActivityConnection {
+    "Field edges"
+    edges: [TaskActivityEdge]
+    "Field pageInfo"
+    pageInfo: PageInfo
+}
+
+"TaskActivity Edge"
+type TaskActivityEdge {
+    "Field cursor"
+    cursor: String
+    "Field node"
+    node: TaskActivity
+}
+
+type TaskByStatus implements Node {
+    id: ID!
+    status: Status
+    tasks(after: String, before: String, first: Int, last: Int): TaskConnection
+}
+
+"TaskByStatus Connection"
+type TaskByStatusConnection {
+    "Field edges"
+    edges: [TaskByStatusEdge]
+    "Field pageInfo"
+    pageInfo: PageInfo
+}
+
+"TaskByStatus Edge"
+type TaskByStatusEdge {
+    "Field cursor"
+    cursor: String
+    "Field node"
+    node: TaskByStatus
+}
+
+type TaskComment implements AuditTable & Node & TaskActivity {
+    content: String!
+    createdAt: DateTime!
+    id: ID!
+    replyTo: TaskComment
+    updatedAt: DateTime
+}
+
+"TaskComment Connection"
+type TaskCommentConnection {
+    "Field edges"
+    edges: [TaskCommentEdge]
+    "Field pageInfo"
+    pageInfo: PageInfo
+}
+
+"TaskComment Edge"
+type TaskCommentEdge {
+    "Field cursor"
+    cursor: String
+    "Field node"
+    node: TaskComment
 }
 
 "Task Connection"
@@ -330,12 +433,16 @@ type TaskEdge {
     node: Task
 }
 
-type TaskStage implements Node {
+type TaskStage implements AuditTable & Node {
+    activity(after: String, before: String, first: Int, last: Int): TaskActivityConnection
+    comments(after: String, before: String, first: Int, last: Int): TaskCommentConnection
     completed: Boolean
+    createdAt: DateTime!
     documents: DocumentConnection
     icon: String
     id: ID!
     title: String!
+    updatedAt: DateTime
 }
 
 "TaskStage Connection"
@@ -354,12 +461,38 @@ type TaskStageEdge {
     node: TaskStage
 }
 
-type Team implements Node {
+type TaskTag implements AuditTable & Node {
+    color: String
+    createdAt: DateTime!
+    id: ID!
+    title: String
+    updatedAt: DateTime
+}
+
+"TaskTag Connection"
+type TaskTagConnection {
+    "Field edges"
+    edges: [TaskTagEdge]
+    "Field pageInfo"
+    pageInfo: PageInfo
+}
+
+"TaskTag Edge"
+type TaskTagEdge {
+    "Field cursor"
+    cursor: String
+    "Field node"
+    node: TaskTag
+}
+
+type Team implements AuditTable & Node {
+    createdAt: DateTime!
     description: String
     id: ID!
-    members(after: String, before: String, first: Int, last: Int): TeamMembersConnection
+    members(after: String, before: String, first: Int, last: Int): TeamMemberConnection
     name: String!
     teams(after: String, before: String, first: Int, last: Int): TeamConnection
+    updatedAt: DateTime
 }
 
 "Team Connection"
@@ -378,35 +511,40 @@ type TeamEdge {
     node: Team
 }
 
-type TeamMembers implements Node {
+type TeamMember implements AuditTable & Node {
+    createdAt: DateTime!
     id: ID!
+    role: String
+    updatedAt: DateTime
     user: User!
 }
 
-"TeamMembers Connection"
-type TeamMembersConnection {
+"TeamMember Connection"
+type TeamMemberConnection {
     "Field edges"
-    edges: [TeamMembersEdge]
+    edges: [TeamMemberEdge]
     "Field pageInfo"
     pageInfo: PageInfo
 }
 
-"TeamMembers Edge"
-type TeamMembersEdge {
+"TeamMember Edge"
+type TeamMemberEdge {
     "Field cursor"
     cursor: String
     "Field node"
-    node: TeamMembers
+    node: TeamMember
 }
 
-type Template implements BaseTask & Node {
+type Template implements AuditTable & BaseTask & Node {
     background: String
+    createdAt: DateTime!
     description: String
     dueDate: DateTime
     icon: String
     id: ID!
     priority: Int
     title: String!
+    updatedAt: DateTime
 }
 
 "Template Connection"
@@ -425,13 +563,15 @@ type TemplateEdge {
     node: Template
 }
 
-type User implements Node {
+type User implements AuditTable & Node {
+    createdAt: DateTime!
     defaultOrganization: Organization
     displayName: String
     email: String
     id: ID!
     organizations: OrganizationConnection
-    phoneNumber: String
+    phoneNumber: MobileNumber
+    updatedAt: DateTime
 }
 
 "User Connection"

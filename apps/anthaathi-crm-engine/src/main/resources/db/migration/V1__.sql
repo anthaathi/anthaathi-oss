@@ -2,17 +2,83 @@ CREATE SCHEMA crm;
 CREATE SCHEMA auth;
 CREATE SCHEMA project;
 
+CREATE TABLE auth.organization
+(
+    id          UUID                     NOT NULL,
+    name        VARCHAR(1000)            NOT NULL,
+    tenant_id   VARCHAR(1000)            NOT NULL,
+    description TEXT                     NOT NULL,
+    created_at  TIMESTAMP with time zone NOT NULL,
+    updated_at  TIMESTAMP with time zone,
+    created_by  UUID                     NOT NULL,
+    CONSTRAINT pk_organization PRIMARY KEY (id)
+);
+
+CREATE TABLE auth.team
+(
+    id             UUID                     NOT NULL,
+    name           TEXT                     NOT NULL,
+    description    TEXT                     NOT NULL,
+    parent_team_id UUID,
+    created_at     TIMESTAMP with time zone NOT NULL,
+    updated_at     TIMESTAMP with time zone,
+    created_by     UUID                     NOT NULL,
+    CONSTRAINT pk_team PRIMARY KEY (id)
+);
+
+CREATE TABLE auth.team_members
+(
+    id         UUID                     NOT NULL,
+    user_id    UUID                     NOT NULL,
+    team_id    UUID                     NOT NULL,
+    created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
+    CONSTRAINT pk_team_members PRIMARY KEY (id)
+);
+
+CREATE TABLE auth."user"
+(
+    id              UUID                     NOT NULL,
+    first_name      TEXT                     NOT NULL,
+    middle_name     TEXT,
+    last_name       TEXT                     NOT NULL,
+    mobile_number_1 TEXT,
+    mobile_number_2 TEXT,
+    gender          VARCHAR(20),
+    date_of_birth   TIMESTAMP with time zone,
+    email           TEXT                     NOT NULL,
+    qualification   TEXT,
+    employee_id     TEXT,
+    created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
+    created_by      UUID                     NOT NULL,
+    CONSTRAINT pk_user PRIMARY KEY (id)
+);
+
+CREATE TABLE auth.user_organization_entity
+(
+    id              UUID                     NOT NULL,
+    user_id         UUID                     NOT NULL,
+    organization_id UUID                     NOT NULL,
+    created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
+    created_by      UUID                     NOT NULL,
+    CONSTRAINT pk_user_organization_entity PRIMARY KEY (id)
+);
+
 CREATE TABLE crm.address
 (
-    id             UUID NOT NULL,
-    type           TEXT NOT NULL,
-    address_line_1 TEXT NOT NULL,
-    address_line2  TEXT NOT NULL,
-    address_line_3 TEXT NOT NULL,
-    city           TEXT NOT NULL,
-    state          TEXT NOT NULL,
-    country        TEXT NOT NULL,
-    postal_code    TEXT NOT NULL,
+    id             UUID                     NOT NULL,
+    type           TEXT                     NOT NULL,
+    address_line_1 TEXT                     NOT NULL,
+    address_line2  TEXT                     NOT NULL,
+    address_line_3 TEXT                     NOT NULL,
+    city           TEXT                     NOT NULL,
+    state          TEXT                     NOT NULL,
+    country        TEXT                     NOT NULL,
+    postal_code    TEXT                     NOT NULL,
+    created_at     TIMESTAMP with time zone NOT NULL,
+    updated_at     TIMESTAMP with time zone,
     CONSTRAINT pk_address PRIMARY KEY (id)
 );
 
@@ -35,34 +101,41 @@ CREATE TABLE crm.customer
     email             TEXT                     NOT NULL,
     qualification     TEXT                     NOT NULL,
     user_id           UUID,
-    created_at        TIMESTAMP with time zone NOT NULL,
     created_by        UUID                     NOT NULL,
+    created_at        TIMESTAMP with time zone NOT NULL,
+    updated_at        TIMESTAMP with time zone,
     CONSTRAINT pk_customer PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.customer_addresses
 (
-    id          UUID NOT NULL,
-    customer_id UUID NOT NULL,
-    address_id  UUID NOT NULL,
+    id          UUID                     NOT NULL,
+    customer_id UUID                     NOT NULL,
+    address_id  UUID                     NOT NULL,
+    created_at  TIMESTAMP with time zone NOT NULL,
+    updated_at  TIMESTAMP with time zone,
     CONSTRAINT pk_customer_addresses PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.customer_documents
 (
-    id          UUID NOT NULL,
-    document_id UUID NOT NULL,
-    project_id  UUID NOT NULL,
-    customer_id UUID NOT NULL,
+    id          UUID                     NOT NULL,
+    document_id UUID                     NOT NULL,
+    project_id  UUID                     NOT NULL,
+    customer_id UUID                     NOT NULL,
+    created_at  TIMESTAMP with time zone NOT NULL,
+    updated_at  TIMESTAMP with time zone,
     CONSTRAINT pk_customer_documents PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.customer_meta
 (
-    id          UUID        NOT NULL,
-    key         VARCHAR(50) NOT NULL,
-    customer_id UUID        NOT NULL,
-    value       JSON        NOT NULL,
+    id          UUID                     NOT NULL,
+    key         VARCHAR(50)              NOT NULL,
+    customer_id UUID                     NOT NULL,
+    value       JSON                     NOT NULL,
+    created_at  TIMESTAMP with time zone NOT NULL,
+    updated_at  TIMESTAMP with time zone,
     CONSTRAINT pk_customer_meta PRIMARY KEY (id)
 );
 
@@ -73,6 +146,7 @@ CREATE TABLE crm.customer_organization
     project_id UUID,
     logo       TEXT                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
     CONSTRAINT pk_customer_organization PRIMARY KEY (id)
 );
@@ -86,6 +160,7 @@ CREATE TABLE crm.document
     expiry           date                     NOT NULL,
     document         TEXT                     NOT NULL,
     created_at       TIMESTAMP with time zone NOT NULL,
+    updated_at       TIMESTAMP with time zone,
     created_by       UUID                     NOT NULL,
     CONSTRAINT pk_document PRIMARY KEY (id)
 );
@@ -96,15 +171,18 @@ CREATE TABLE crm.document_type
     title       TEXT                     NOT NULL,
     description TEXT                     NOT NULL,
     created_at  TIMESTAMP with time zone NOT NULL,
+    updated_at  TIMESTAMP with time zone,
     created_by  UUID                     NOT NULL,
     CONSTRAINT pk_document_type PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.organizarion_addresses
 (
-    id              UUID NOT NULL,
-    organization_id UUID NOT NULL,
-    address_id      UUID NOT NULL,
+    id              UUID                     NOT NULL,
+    organization_id UUID                     NOT NULL,
+    address_id      UUID                     NOT NULL,
+    created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
     CONSTRAINT pk_organizarion_addresses PRIMARY KEY (id)
 );
 
@@ -113,25 +191,17 @@ CREATE TABLE crm.pre_requisite
     id         UUID                     NOT NULL,
     requirment TEXT                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
     CONSTRAINT pk_pre_requisite PRIMARY KEY (id)
 );
 
-CREATE TABLE project.project
-(
-    id              UUID                     NOT NULL,
-    title           VARCHAR(150)             NOT NULL,
-    description     TEXT                     NOT NULL,
-    organization_id UUID                     NOT NULL,
-    created_at      TIMESTAMP with time zone NOT NULL,
-    created_by      UUID                     NOT NULL,
-    CONSTRAINT pk_project PRIMARY KEY (id)
-);
-
 CREATE TABLE crm.reaction
 (
-    id   UUID NOT NULL,
-    icon TEXT NOT NULL,
+    id         UUID                     NOT NULL,
+    icon       TEXT                     NOT NULL,
+    created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     CONSTRAINT pk_reaction PRIMARY KEY (id)
 );
 
@@ -143,6 +213,7 @@ CREATE TABLE crm.space_folder
     type       VARCHAR(50)              NOT NULL,
     icon       VARCHAR(100)             NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
     CONSTRAINT pk_space_folder PRIMARY KEY (id)
 );
@@ -153,6 +224,7 @@ CREATE TABLE crm.status
     name       TEXT                     NOT NULL,
     color      TEXT                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
     CONSTRAINT pk_status PRIMARY KEY (id)
 );
@@ -163,6 +235,7 @@ CREATE TABLE crm.tag
     title      TEXT                     NOT NULL,
     color      TEXT                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
     CONSTRAINT pk_tag PRIMARY KEY (id)
 );
@@ -184,16 +257,19 @@ CREATE TABLE crm.task
     icon            TEXT                     NOT NULL,
     background      VARCHAR(50)              NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
     CONSTRAINT pk_task PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_assigned_users
 (
-    id         UUID NOT NULL,
-    task_id    UUID NOT NULL,
-    project_id UUID NOT NULL,
-    user_id    UUID NOT NULL,
+    id         UUID                     NOT NULL,
+    task_id    UUID                     NOT NULL,
+    project_id UUID                     NOT NULL,
+    user_id    UUID                     NOT NULL,
+    created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     CONSTRAINT pk_task_assigned_users PRIMARY KEY (id)
 );
 
@@ -206,41 +282,50 @@ CREATE TABLE crm.task_comment
     task_stage_id UUID,
     reply_to      UUID                     NOT NULL,
     created_at    TIMESTAMP with time zone NOT NULL,
+    updated_at    TIMESTAMP with time zone,
     created_by    UUID                     NOT NULL,
     CONSTRAINT pk_task_comment PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_comment_attachments
 (
-    id              UUID NOT NULL,
-    task_comment_id UUID NOT NULL,
-    attachment_id   UUID NOT NULL,
+    id              UUID                     NOT NULL,
+    task_comment_id UUID                     NOT NULL,
+    attachment_id   UUID                     NOT NULL,
+    created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
     CONSTRAINT pk_task_comment_attachments PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_commnet_reactions
 (
-    id              UUID NOT NULL,
-    task_comment_id UUID NOT NULL,
-    reaction_id     UUID NOT NULL,
+    id              UUID                     NOT NULL,
+    task_comment_id UUID                     NOT NULL,
+    reaction_id     UUID                     NOT NULL,
+    created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
     CONSTRAINT pk_task_commnet_reactions PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_file_attachments
 (
-    id            UUID NOT NULL,
-    task_id       UUID NOT NULL,
-    project_id    UUID NOT NULL,
-    attachment_id UUID NOT NULL,
+    id            UUID                     NOT NULL,
+    task_id       UUID                     NOT NULL,
+    project_id    UUID                     NOT NULL,
+    attachment_id UUID                     NOT NULL,
+    created_at    TIMESTAMP with time zone NOT NULL,
+    updated_at    TIMESTAMP with time zone,
     CONSTRAINT pk_task_file_attachments PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_pre_requisites
 (
-    id               UUID NOT NULL,
-    task_id          UUID NOT NULL,
-    project_id       UUID NOT NULL,
-    pre_requisite_id UUID NOT NULL,
+    id               UUID                     NOT NULL,
+    task_id          UUID                     NOT NULL,
+    project_id       UUID                     NOT NULL,
+    pre_requisite_id UUID                     NOT NULL,
+    created_at       TIMESTAMP with time zone NOT NULL,
+    updated_at       TIMESTAMP with time zone,
     CONSTRAINT pk_task_pre_requisites PRIMARY KEY (id)
 );
 
@@ -257,64 +342,62 @@ CREATE TABLE crm.task_stages
     completed_by      UUID,
     is_mandatory      BOOLEAN                  NOT NULL,
     created_at        TIMESTAMP with time zone NOT NULL,
+    updated_at        TIMESTAMP with time zone,
     created_by        UUID                     NOT NULL,
     CONSTRAINT pk_task_stages PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_stages_documents
 (
-    id            UUID NOT NULL,
-    task_stage_id UUID NOT NULL,
-    document_id   UUID NOT NULL,
+    id            UUID                     NOT NULL,
+    task_stage_id UUID                     NOT NULL,
+    document_id   UUID                     NOT NULL,
+    created_at    TIMESTAMP with time zone NOT NULL,
+    updated_at    TIMESTAMP with time zone,
     CONSTRAINT pk_task_stages_documents PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.task_tags
 (
-    id         UUID NOT NULL,
-    task_id    UUID NOT NULL,
-    project_id UUID NOT NULL,
-    tag_id     UUID NOT NULL,
+    id         UUID                     NOT NULL,
+    task_id    UUID                     NOT NULL,
+    project_id UUID                     NOT NULL,
+    tag_id     UUID                     NOT NULL,
+    created_at TIMESTAMP with time zone NOT NULL,
+    updated_at TIMESTAMP with time zone,
     CONSTRAINT pk_task_tags PRIMARY KEY (id)
 );
 
-CREATE TABLE auth.team
-(
-    id             UUID                     NOT NULL,
-    name           TEXT                     NOT NULL,
-    description    TEXT                     NOT NULL,
-    parent_team_id UUID,
-    created_at     TIMESTAMP with time zone NOT NULL,
-    created_by     UUID                     NOT NULL,
-    CONSTRAINT pk_team PRIMARY KEY (id)
-);
-
-CREATE TABLE auth.team_members
-(
-    id      UUID NOT NULL,
-    user_id UUID NOT NULL,
-    team_id UUID NOT NULL,
-    CONSTRAINT pk_team_members PRIMARY KEY (id)
-);
-
-CREATE TABLE auth."user"
+CREATE TABLE project.project
 (
     id              UUID                     NOT NULL,
-    first_name      TEXT                     NOT NULL,
-    project_id      UUID                     NOT NULL,
-    middle_name     TEXT                     NOT NULL,
-    last_name       TEXT                     NOT NULL,
-    mobile_number_1 TEXT                     NOT NULL,
-    mobile_number_2 TEXT                     NOT NULL,
-    gender          VARCHAR(20)              NOT NULL,
-    date_of_birth   date                     NOT NULL,
-    email           TEXT                     NOT NULL,
-    qualification   TEXT                     NOT NULL,
-    employee_id     TEXT                     NOT NULL,
+    title           VARCHAR(150)             NOT NULL,
+    description     TEXT                     NOT NULL,
+    organization_id UUID                     NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
+    updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
-    CONSTRAINT pk_user PRIMARY KEY (id)
+    CONSTRAINT pk_project PRIMARY KEY (id)
 );
+
+ALTER TABLE auth.organization
+    ADD CONSTRAINT uc_organizationentity UNIQUE (tenant_id);
+
+CREATE INDEX idx_organizationentity ON auth.organization (tenant_id);
+
+CREATE INDEX idx_organizationentity_name ON auth.organization (name);
+
+ALTER TABLE auth.team_members
+    ADD CONSTRAINT FK_TEAM_MEMBERS_ON_TEAM FOREIGN KEY (team_id) REFERENCES auth.team (id);
+
+ALTER TABLE auth.team_members
+    ADD CONSTRAINT FK_TEAM_MEMBERS_ON_USER FOREIGN KEY (user_id) REFERENCES auth."user" (id);
+
+ALTER TABLE auth.user_organization_entity
+    ADD CONSTRAINT FK_USER_ORGANIZATION_ENTITY_ON_ORGANIZATION FOREIGN KEY (organization_id) REFERENCES auth.organization (id);
+
+ALTER TABLE auth.user_organization_entity
+    ADD CONSTRAINT FK_USER_ORGANIZATION_ENTITY_ON_USER FOREIGN KEY (user_id) REFERENCES auth."user" (id);
 
 ALTER TABLE crm.customer_addresses
     ADD CONSTRAINT FK_CUSTOMER_ADDRESSES_ON_ADDRESS FOREIGN KEY (address_id) REFERENCES crm.address (id);
@@ -441,12 +524,3 @@ ALTER TABLE crm.task_tags
 
 ALTER TABLE crm.task_tags
     ADD CONSTRAINT FK_TASK_TAGS_ON_TASK FOREIGN KEY (task_id) REFERENCES crm.task (id);
-
-ALTER TABLE auth.team_members
-    ADD CONSTRAINT FK_TEAM_MEMBERS_ON_TEAM FOREIGN KEY (team_id) REFERENCES auth.team (id);
-
-ALTER TABLE auth.team_members
-    ADD CONSTRAINT FK_TEAM_MEMBERS_ON_USER FOREIGN KEY (user_id) REFERENCES auth."user" (id);
-
-ALTER TABLE auth."user"
-    ADD CONSTRAINT FK_USER_ON_PROJECT FOREIGN KEY (project_id) REFERENCES project.project (id);

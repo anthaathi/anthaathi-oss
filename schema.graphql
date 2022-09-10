@@ -13,7 +13,7 @@ directive @cmsObject on OBJECT
 
 directive @tenantScoped on OBJECT
 
-directive @connection on OBJECT
+directive @connection on OBJECT | INTERFACE
 
 directive @extends on OBJECT | INTERFACE
 

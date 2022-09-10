@@ -1,3 +1,5 @@
+directive @connection on OBJECT | INTERFACE
+
 interface Node {
     id: ID!
 }
@@ -7,60 +9,96 @@ type Query {
     me: User
 }
 
-type Organization implements Node @connection {
+interface AuditTable {
+    createdAt: DateTime!
+    updatedAt: DateTime
+}
+
+type Organization implements Node & AuditTable @connection {
     id: ID!
     name: String!
     projects(first: Int, last: Int, before: String, after: String): ProjectConnection
     teams(first: Int, last: Int, before: String, after: String): TeamConnection
+    defaultProject: Project
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Team implements Node @connection {
+type Team implements Node & AuditTable @connection {
     id: ID!
     name: String!
     description: String
     teams(first: Int, last: Int, before: String, after: String): TeamConnection
     members(first: Int, last: Int, before: String, after: String): TeamMemberConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type User implements Node @connection {
+type User implements Node & AuditTable @connection {
     id: ID!
     displayName: String
     email: String
     phoneNumber: MobileNumber
+    phoneNumber2: MobileNumber
+    gender: String
+    dateOfBirth: DateTime
+    qualification: String
+    employeeId: String
+    firstName: String
+    middleName: String
+    lastName: String
     defaultOrganization: Organization
     organizations: OrganizationConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type TeamMember implements Node @connection {
+type TeamMember implements Node & AuditTable @connection {
     id: ID!
     role: String
     user: User!
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Project implements Node @connection {
+type Project implements Node & AuditTable @connection {
     id: ID!
     name: String!
     description: String
     spaces(first: Int, last: Int, before: String, after: String): SpaceConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
+    template: TemplateConnection
 }
 
-type Space implements Node @connection {
+type Space implements Node & AuditTable @connection {
     id: ID!
     name: String!
     spaces(first: Int, last: Int, before: String, after: String): SpaceConnection
     tasks(first: Int, last: Int, before: String, after: String): TaskConnection
     templates(first: Int, last: Int, before: String, after: String): TemplateConnection
+    tasksByStatuses(first: Int, last: Int, before: String, after: String): TaskByStatusConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-interface BaseTask implements Node {
+type TaskByStatus implements Node @connection {
+    id: ID!
+    status: Status
+    tasks(first: Int, last: Int, before: String, after: String): TaskConnection
+}
+
+interface BaseTask implements Node & AuditTable {
     id: ID!
     title: String!
     description: String
     dueDate: DateTime
     priority: Int
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Task implements Node & BaseTask @connection {
+type Task implements Node & BaseTask & AuditTable @connection {
     id: ID!
     title: String!
     description: String
@@ -71,45 +109,65 @@ type Task implements Node & BaseTask @connection {
     reportedBy: User
     status: Status
     assigned: UserConnection
+    followers: UserConnection
     taskStages: TaskStageConnection
     tag: TaskTagConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type TaskTag implements Node @connection {
+type TaskTag implements Node & AuditTable @connection {
     id: ID!
     title: String
     color: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type TaskStage implements Node @connection {
+type TaskStage implements Node & AuditTable @connection {
     id: ID!
     title: String!
     icon: String
     completed: Boolean
     documents: DocumentConnection
     comments(first: Int, last: Int, before: String, after: String): TaskCommentConnection
+    activity(first: Int, last: Int, before: String, after: String): TaskActivityConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type TaskComment implements Node @connection {
+interface TaskActivity implements Node & AuditTable @connection {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime
+}
+
+type TaskComment implements Node & TaskActivity & AuditTable @connection {
     id: ID!
     content: String!
     replyTo: TaskComment
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Document implements Node @connection {
+type Document implements Node & AuditTable @connection {
     id: ID!
     title: String!
     expiry: DateTime
     url: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Status implements Node @connection {
+type Status implements Node & AuditTable @connection {
     id: ID!
     name: String!
     color: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Template implements Node & BaseTask @connection {
+type Template implements Node & BaseTask & AuditTable @connection {
     id: ID!
     title: String!
     priority: Int
@@ -117,9 +175,11 @@ type Template implements Node & BaseTask @connection {
     description: String
     icon: String
     background: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Customer implements Node @connection {
+type Customer implements Node & AuditTable @connection {
     id: ID!
     firstName: String
     lastName: String
@@ -137,9 +197,11 @@ type Customer implements Node @connection {
     user: User
     documents(first: Int, last: Int, before: String, after: String): DocumentConnection
     addresses(first: Int, last: Int, before: String, after: String): AddressConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type Address implements Node @connection {
+type Address implements Node & AuditTable @connection {
     id: ID!
     type: String
     addressLine1: String
@@ -149,34 +211,45 @@ type Address implements Node @connection {
     state: String
     country: String
     postalCode: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type ProfilePicture implements Node {
+type ProfilePicture implements Node & AuditTable {
     id: ID!
     picture: String
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type CustomerMeta implements Node @connection {
+type CustomerMeta implements Node & AuditTable @connection {
     id: ID!
     key: String!
     value: JSON
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
-type CustomerOrganization implements Node @connection {
+type CustomerOrganization implements Node & AuditTable @connection {
     id: ID!
     role: String
+    createdAt: DateTime!
+    updatedAt: DateTime
     organization: CustomerOrganizationInfo
 }
 
-type CustomerOrganizationInfo implements Node @connection {
+type CustomerOrganizationInfo implements Node & AuditTable @connection {
     id: ID!
     name: String
     logo: String
     address(first: Int, last: Int, before: String, after: String): AddressConnection
+    createdAt: DateTime!
+    updatedAt: DateTime
 }
 
 type MobileNumber {
     countryCode: Int
+
     mobileNumber: String
 }
 

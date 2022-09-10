@@ -9,13 +9,32 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '../../Core/Components/Icon';
 import { MiniActionbar } from '../../MiniActionbar/Components/MiniActionbar';
 import { miniActionbarActiveItemAtom } from '../../MiniActionbar/Atoms/miniActionbar';
+import { graphql, useFragment } from 'react-relay';
+import { DefaultLayoutFragment$key } from '../../../__generated__/DefaultLayoutFragment.graphql';
 
 export interface DefaultLayoutProps {
   children: React.ReactNode;
   header?: React.ReactNode;
+  $ref: DefaultLayoutFragment$key;
 }
 
-export function DefaultLayout({ children, header }: DefaultLayoutProps) {
+export function DefaultLayout({ children, header, $ref }: DefaultLayoutProps) {
+  const spaces = useFragment<DefaultLayoutFragment$key>(
+    graphql`
+      fragment DefaultLayoutFragment on Project {
+        spaces {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
+      }
+    `,
+    $ref
+  );
+
   const [css, $theme] = useStyletron();
 
   const headerOpen = useRecoilValue(headerOpenAtom);
@@ -51,6 +70,12 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
                 <SidebarItem icon="layout-header-sidebar-left" title="Spaces" />
               ),
               itemId: '/spaces',
+              subNav: spaces.spaces?.edges
+                ?.filter((res) => res?.node)
+                .map((res) => ({
+                  itemId: `/spaces/${res?.node?.id}`,
+                  title: <SidebarItem title={res?.node?.name || ''} />,
+                })),
             },
             {
               title: <SidebarItem icon="users" title="Customers" />,
@@ -122,7 +147,7 @@ export function DefaultLayout({ children, header }: DefaultLayoutProps) {
   );
 }
 
-export function SidebarItem({ icon, title }: { icon: string; title: string }) {
+export function SidebarItem({ icon, title }: { icon?: string; title: string }) {
   const [css, $theme] = useStyletron();
 
   return (
@@ -134,8 +159,12 @@ export function SidebarItem({ icon, title }: { icon: string; title: string }) {
         color: '#fff',
       })}
     >
-      <Icon icon={icon} />
-      <span className={css({ width: '10px' })} />
+      {icon && (
+        <>
+          <Icon icon={icon} />
+          <span className={css({ width: '10px' })} />
+        </>
+      )}
       {title}
     </div>
   );

@@ -40,6 +40,8 @@ dependencies {
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
     implementation("com.netflix.graphql.dgs:graphql-dgs-pagination")
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
+    implementation("com.googlecode.libphonenumber:libphonenumber:8.12.55")
+    implementation("com.google.code.gson:gson")
 }
 
 dependencyManagement {
@@ -82,6 +84,8 @@ tasks.withType<GenerateJavaTask> {
         "CustomerOrganizationInfoConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.CustomerOrganizationInfo>",
         "TaskTagConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskTag>",
         "TaskCommentConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskComment>",
+        "TaskActivityConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskActivity>",
+        "TaskByStatusConnection" to "graphql.relay.Connection<org.anthaathi.crm.types.TaskByStatus>",
         "JSON" to "Any",
     )
 }

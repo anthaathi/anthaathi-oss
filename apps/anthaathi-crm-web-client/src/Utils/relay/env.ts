@@ -1,28 +1,38 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 import type { FetchFunction } from 'relay-runtime/lib/network/RelayNetworkTypes';
 
-const fetchRelay: FetchFunction = async (params, variables) => {
-  const response = await fetch(
-    import.meta.env.VITE_API_ENDPOINT || '/graphql',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: params.text,
-        variables,
-      }),
-    }
-  );
+const fetchRelay = (token: () => string | null) => {
+  const returnValue: FetchFunction = async (params, variables) => {
+    const tkn = token();
 
-  // Get the response as JSON
-  return response.json();
+    const response = await fetch(
+      import.meta.env.VITE_API_ENDPOINT ||
+        `/graphql?id=${encodeURIComponent(
+          (params as never as { cacheID: string }).cacheID || ''
+        )}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(tkn ? { Authorization: tkn } : {}),
+        },
+        body: JSON.stringify({
+          query: params.text,
+          variables,
+        }),
+      }
+    );
+
+    // Get the response as JSON
+    return response.json();
+  };
+
+  return returnValue;
 };
 
 // Export a singleton instance of Relay Environment configured with our network function:
-export default new Environment({
-  network: Network.create(fetchRelay),
-  store: new Store(new RecordSource()),
-});
+export default (token: () => string | null) =>
+  new Environment({
+    network: Network.create(fetchRelay(token)),
+    store: new Store(new RecordSource()),
+  });

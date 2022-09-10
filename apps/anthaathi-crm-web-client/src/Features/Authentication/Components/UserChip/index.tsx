@@ -1,8 +1,24 @@
 import * as React from 'react';
 import { useStyletron } from 'baseui';
+import { graphql, useFragment } from 'react-relay';
+import { UserChip$key } from '../../../../__generated__/UserChip.graphql';
 
-export function UserChip() {
+export interface UserChipProps {
+  $ref: UserChip$key;
+}
+
+export function UserChip({ $ref }: UserChipProps) {
   const [css, $theme] = useStyletron();
+
+  const data = useFragment(
+    graphql`
+      fragment UserChip on User {
+        id
+        displayName
+      }
+    `,
+    $ref
+  );
 
   return (
     <span
@@ -19,7 +35,7 @@ export function UserChip() {
         fontFamily: $theme.typography.headingFontFamily,
       })}
     >
-      Omkar Yadav
+      {data.displayName}
     </span>
   );
 }
