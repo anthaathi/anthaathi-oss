@@ -3,7 +3,6 @@ package org.anthaathi.crm.database.entity
 import org.hibernate.annotations.Type
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
-import java.time.LocalDate
 import java.time.OffsetDateTime
 import java.util.*
 import javax.persistence.*
@@ -20,12 +19,8 @@ open class UserEntity {
     @Column(name = "first_name", nullable = false)
     open var firstName: String? = null
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "project_id", nullable = true, referencedColumnName = "id")
-    open var project: ProjectEntity? = null
-
     @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "middle_name", nullable = false)
+    @Column(name = "middle_name", nullable = true)
     open var middleName: String? = null
 
     @Type(type = "org.hibernate.type.TextType")
@@ -33,29 +28,29 @@ open class UserEntity {
     open var lastName: String? = null
 
     @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "mobile_number_1", nullable = false)
+    @Column(name = "mobile_number_1", nullable = true)
     open var mobileNumber1: String? = null
 
     @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "mobile_number_2", nullable = false)
+    @Column(name = "mobile_number_2", nullable = true)
     open var mobileNumber2: String? = null
 
-    @Column(name = "gender", nullable = false, length = 20)
+    @Column(name = "gender", nullable = true, length = 20)
     open var gender: String? = null
 
-    @Column(name = "date_of_birth", nullable = false)
-    open var dateOfBirth: LocalDate? = null
+    @Column(name = "date_of_birth", nullable = true)
+    open var dateOfBirth: OffsetDateTime? = null
 
     @Type(type = "org.hibernate.type.TextType")
     @Column(name = "email", nullable = false)
     open var email: String? = null
 
     @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "qualification", nullable = false)
+    @Column(name = "qualification", nullable = true)
     open var qualification: String? = null
 
     @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "employee_id", nullable = false)
+    @Column(name = "employee_id", nullable = true)
     open var employeeId: String? = null
 
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -68,4 +63,8 @@ open class UserEntity {
 
     @Column(name = "created_by", nullable = false)
     open var createdBy: UUID? = null
+
+    @OrderBy("createdAt")
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    open var userOrganization: MutableList<UserOrganizationEntity> = mutableListOf()
 }

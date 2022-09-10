@@ -12,6 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired
 class UserFetcher(@Autowired val userService: UserService) {
     @DgsData(parentType = DgsConstants.QUERY_TYPE, field = DgsConstants.QUERY.Me)
     fun me(): User {
-        return userService.findById("YW50aGFhdGhpOi8vVXNlci8wNzVmYmFhMC02MGUwLTQwZjctODJjMi0xZGI1ZWFhODJmM2U=")!!
+        return userService.findById("YW50aGFhdGhpOi8vVXNlci8zNWEyNzRjYi1jMzc1LTQ2MDQtYjc4YS1jN2RmNTQzOWI2YzQ=")!!
     }
 }

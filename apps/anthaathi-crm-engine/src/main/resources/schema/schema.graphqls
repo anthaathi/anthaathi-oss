@@ -39,6 +39,14 @@ type User implements Node & AuditTable @connection {
     displayName: String
     email: String
     phoneNumber: MobileNumber
+    phoneNumber2: MobileNumber
+    gender: String
+    dateOfBirth: DateTime
+    qualification: String
+    employeeId: String
+    firstName: String
+    middleName: String
+    lastName: String
     defaultOrganization: Organization
     organizations: OrganizationConnection
     createdAt: DateTime!
