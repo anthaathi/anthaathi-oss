@@ -28,7 +28,7 @@ exports[`DeliveringSection should render the item 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "paddingHorizontal": 6,
-            "paddingVertical": 0,
+            "paddingVertical": 5,
           },
           {
             "backgroundColor": undefined,
@@ -116,9 +116,27 @@ exports[`DeliveringSection should render the item 1`] = `
           }
           variant="labelLarge"
         >
-          Dubai
-           - 
-          India
+          Apartment
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "fontSize": 12,
+              },
+            ]
+          }
+          variant="labelLarge"
+        >
+          14b street, AI Quoz Industrial Area 4
         </Text>
       </View>
       <View

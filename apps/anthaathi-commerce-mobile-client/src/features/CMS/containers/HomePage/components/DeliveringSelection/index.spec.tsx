@@ -14,8 +14,18 @@ describe('DeliveringSection', () => {
         <IntlProvider locale="en-US" messages={locale}>
           <DeliveringSelection
             onPress={() => {}}
-            country="India"
-            location="Dubai"
+            userAddresses={[
+              {
+                key: 1,
+                title: 'Apartment',
+                subtitle: '14b street, AI Quoz Industrial Area 4',
+              },
+              {
+                key: 2,
+                title: 'Apartment',
+                subtitle: '1A street, Discovery Gardens',
+              },
+            ]}
           />
         </IntlProvider>
       </ThemeProvider>,
@@ -33,8 +43,18 @@ describe('DeliveringSection', () => {
         <IntlProvider locale="en-US" messages={locale}>
           <DeliveringSelection
             onPress={onpress}
-            country="India"
-            location="Dubai"
+            userAddresses={[
+              {
+                key: 1,
+                title: 'Apartment',
+                subtitle: '14b street, AI Quoz Industrial Area 4',
+              },
+              {
+                key: 2,
+                title: 'Apartment',
+                subtitle: '1A street, Discovery Gardens',
+              },
+            ]}
           />
         </IntlProvider>
       </ThemeProvider>,
@@ -48,12 +68,24 @@ describe('DeliveringSection', () => {
     const temp = render(
       <ThemeProvider>
         <IntlProvider locale="en-US" messages={locale}>
-          <DeliveringSelection country="India" location="Dubai" />
+          <DeliveringSelection
+            userAddresses={[
+              {
+                key: 1,
+                title: 'Apartment',
+                subtitle: '14b street, AI Quoz Industrial Area 4',
+              },
+              {
+                key: 2,
+                title: 'Apartment',
+                subtitle: '1A street, Discovery Gardens',
+              },
+            ]}
+          />
         </IntlProvider>
       </ThemeProvider>,
     );
 
-    expect(temp.queryByText('Dubai - India')).toBeTruthy();
     expect(temp.queryByText('Delivering to')).toBeTruthy();
   });
 });
