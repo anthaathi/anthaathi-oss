@@ -5,8 +5,7 @@ import com.netflix.graphql.dgs.DgsData
 import com.netflix.graphql.dgs.DgsDataFetchingEnvironment
 import graphql.relay.Connection
 import org.anthaathi.crm.DgsConstants
-import org.anthaathi.crm.database.entity.OrganizationEntity
-import org.anthaathi.crm.database.entity.UserEntity
+import org.anthaathi.crm.database.entity.ProjectEntity
 import org.anthaathi.crm.graphql.relay.EntityConnection
 import org.anthaathi.crm.services.ProjectService
 import org.anthaathi.crm.types.Project
@@ -29,6 +28,6 @@ class ProjectFetcher(
     fun getProjectsForOrganization(
         dfe: DgsDataFetchingEnvironment
     ): Connection<Project> {
-        return EntityConnection<Project>(em, OrganizationEntity::class.java).get(dfe)
+        return EntityConnection(em, ProjectEntity::class.java, projectService.factory).get(dfe)
     }
 }

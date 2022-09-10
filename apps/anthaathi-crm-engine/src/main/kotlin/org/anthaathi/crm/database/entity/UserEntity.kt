@@ -69,7 +69,7 @@ open class UserEntity : PagableEntity {
     @OneToMany(mappedBy = "user", orphanRemoval = true)
     open var userOrganization: MutableList<UserOrganizationEntity> = mutableListOf()
 
-    @Column(name = "cursorId", nullable = false)
+    @Column(name = "cursor_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     override var cursorId: Long? = null
 }

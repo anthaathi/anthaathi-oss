@@ -40,7 +40,7 @@ open class SpaceFolderEntity : PagableEntity {
     @Column(name = "created_by", nullable = false)
     open var createdBy: UUID? = null
 
-    @Column(name = "cursorId", nullable = false)
+    @Column(name = "cursor_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     override var cursorId: Long? = null
 }

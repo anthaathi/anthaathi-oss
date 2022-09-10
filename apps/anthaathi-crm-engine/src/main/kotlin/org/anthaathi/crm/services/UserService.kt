@@ -1,6 +1,7 @@
 package org.anthaathi.crm.services
 
 import graphql.relay.Relay.ResolvedGlobalId
+import org.anthaathi.crm.database.converter.UserFactory
 import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.UserEntityRepository
@@ -12,13 +13,15 @@ import java.util.*
 
 @Component
 class UserService(@Autowired val userEntityRepository: UserEntityRepository) {
+    val userFactory = UserFactory()
+
     fun findById(id: String): User? {
         val userId = IdGenerator.fromGlobalId(id)
         return findById(userId)
     }
 
     fun findById(id: ResolvedGlobalId): User? {
-        if (User.type() != id.type) {
+        if (userFactory.type != id.type) {
             return null
         }
 
@@ -29,6 +32,6 @@ class UserService(@Autowired val userEntityRepository: UserEntityRepository) {
             return null
         }
 
-        return User.fromEntity(entity.get())
+        return userFactory.fromEntity(entity.get())
     }
 }

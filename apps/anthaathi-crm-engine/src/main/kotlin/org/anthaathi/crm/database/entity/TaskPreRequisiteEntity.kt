@@ -34,7 +34,7 @@ open class TaskPreRequisiteEntity : PagableEntity {
     @LastModifiedDate
     open var updatedAt: OffsetDateTime? = null
 
-    @Column(name = "cursorId", nullable = false)
+    @Column(name = "cursor_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     override var cursorId: Long? = null
 }

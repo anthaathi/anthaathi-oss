@@ -5,7 +5,7 @@ import java.time.OffsetDateTime
 
 data class CursorData(
     @JsonProperty
-    val offset: Int,
+    val id: Long,
     @JsonProperty
     val lastCreatedAt: OffsetDateTime,
 )

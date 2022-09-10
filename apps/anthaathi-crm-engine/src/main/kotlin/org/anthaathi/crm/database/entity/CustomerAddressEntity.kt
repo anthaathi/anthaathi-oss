@@ -14,7 +14,7 @@ open class CustomerAddressEntity : PagableEntity {
     @Column(name = "id", nullable = false)
     open var id: UUID? = null
 
-    @Column(name = "cursorId", nullable = false)
+    @Column(name = "cursor_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     override var cursorId: Long? = null
 

@@ -11,6 +11,7 @@ CREATE TABLE auth.organization
     created_at  TIMESTAMP with time zone NOT NULL,
     updated_at  TIMESTAMP with time zone,
     created_by  UUID                     NOT NULL,
+    cursor_id   BIGINT                   NOT NULL,
     CONSTRAINT pk_organization PRIMARY KEY (id)
 );
 
@@ -23,6 +24,7 @@ CREATE TABLE auth.team
     created_at     TIMESTAMP with time zone NOT NULL,
     updated_at     TIMESTAMP with time zone,
     created_by     UUID                     NOT NULL,
+    cursor_id      BIGINT                   NOT NULL,
     CONSTRAINT pk_team PRIMARY KEY (id)
 );
 
@@ -33,6 +35,7 @@ CREATE TABLE auth.team_members
     team_id    UUID                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_team_members PRIMARY KEY (id)
 );
 
@@ -52,6 +55,7 @@ CREATE TABLE auth."user"
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_user PRIMARY KEY (id)
 );
 
@@ -63,12 +67,14 @@ CREATE TABLE auth.user_organization_entity
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_user_organization_entity PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.address
 (
     id             UUID                     NOT NULL,
+    cursor_id      BIGINT                   NOT NULL,
     type           TEXT                     NOT NULL,
     address_line_1 TEXT                     NOT NULL,
     address_line2  TEXT                     NOT NULL,
@@ -104,12 +110,14 @@ CREATE TABLE crm.customer
     created_by        UUID                     NOT NULL,
     created_at        TIMESTAMP with time zone NOT NULL,
     updated_at        TIMESTAMP with time zone,
+    cursor_id         BIGINT                   NOT NULL,
     CONSTRAINT pk_customer PRIMARY KEY (id)
 );
 
 CREATE TABLE crm.customer_addresses
 (
     id          UUID                     NOT NULL,
+    cursor_id   BIGINT                   NOT NULL,
     customer_id UUID                     NOT NULL,
     address_id  UUID                     NOT NULL,
     created_at  TIMESTAMP with time zone NOT NULL,
@@ -124,6 +132,7 @@ CREATE TABLE crm.customer_documents
     project_id  UUID                     NOT NULL,
     customer_id UUID                     NOT NULL,
     created_at  TIMESTAMP with time zone NOT NULL,
+    cursor_id   BIGINT                   NOT NULL,
     updated_at  TIMESTAMP with time zone,
     CONSTRAINT pk_customer_documents PRIMARY KEY (id)
 );
@@ -136,6 +145,7 @@ CREATE TABLE crm.customer_meta
     value       JSON                     NOT NULL,
     created_at  TIMESTAMP with time zone NOT NULL,
     updated_at  TIMESTAMP with time zone,
+    cursor_id   BIGINT                   NOT NULL,
     CONSTRAINT pk_customer_meta PRIMARY KEY (id)
 );
 
@@ -148,6 +158,7 @@ CREATE TABLE crm.customer_organization
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_customer_organization PRIMARY KEY (id)
 );
 
@@ -162,6 +173,7 @@ CREATE TABLE crm.document
     created_at       TIMESTAMP with time zone NOT NULL,
     updated_at       TIMESTAMP with time zone,
     created_by       UUID                     NOT NULL,
+    cursor_id        BIGINT                   NOT NULL,
     CONSTRAINT pk_document PRIMARY KEY (id)
 );
 
@@ -173,6 +185,7 @@ CREATE TABLE crm.document_type
     created_at  TIMESTAMP with time zone NOT NULL,
     updated_at  TIMESTAMP with time zone,
     created_by  UUID                     NOT NULL,
+    cursor_id   BIGINT                   NOT NULL,
     CONSTRAINT pk_document_type PRIMARY KEY (id)
 );
 
@@ -183,6 +196,7 @@ CREATE TABLE crm.organization_addresses
     address_id      UUID                     NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_organization_addresses PRIMARY KEY (id)
 );
 
@@ -193,6 +207,7 @@ CREATE TABLE crm.pre_requisite
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_pre_requisite PRIMARY KEY (id)
 );
 
@@ -202,6 +217,7 @@ CREATE TABLE crm.reaction
     icon       TEXT                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_reaction PRIMARY KEY (id)
 );
 
@@ -215,6 +231,7 @@ CREATE TABLE crm.space_folder
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_space_folder PRIMARY KEY (id)
 );
 
@@ -226,6 +243,7 @@ CREATE TABLE crm.status
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_status PRIMARY KEY (id)
 );
 
@@ -237,6 +255,7 @@ CREATE TABLE crm.tag
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
     created_by UUID                     NOT NULL,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_tag PRIMARY KEY (id)
 );
 
@@ -259,6 +278,7 @@ CREATE TABLE crm.task
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_task PRIMARY KEY (id)
 );
 
@@ -270,6 +290,7 @@ CREATE TABLE crm.task_assigned_users
     user_id    UUID                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_task_assigned_users PRIMARY KEY (id)
 );
 
@@ -284,6 +305,7 @@ CREATE TABLE crm.task_comment
     created_at    TIMESTAMP with time zone NOT NULL,
     updated_at    TIMESTAMP with time zone,
     created_by    UUID                     NOT NULL,
+    cursor_id     BIGINT                   NOT NULL,
     CONSTRAINT pk_task_comment PRIMARY KEY (id)
 );
 
@@ -294,6 +316,7 @@ CREATE TABLE crm.task_comment_attachments
     attachment_id   UUID                     NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_task_comment_attachments PRIMARY KEY (id)
 );
 
@@ -304,6 +327,7 @@ CREATE TABLE crm.task_commnet_reactions
     reaction_id     UUID                     NOT NULL,
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_task_commnet_reactions PRIMARY KEY (id)
 );
 
@@ -315,6 +339,7 @@ CREATE TABLE crm.task_file_attachments
     attachment_id UUID                     NOT NULL,
     created_at    TIMESTAMP with time zone NOT NULL,
     updated_at    TIMESTAMP with time zone,
+    cursor_id     BIGINT                   NOT NULL,
     CONSTRAINT pk_task_file_attachments PRIMARY KEY (id)
 );
 
@@ -326,6 +351,7 @@ CREATE TABLE crm.task_pre_requisites
     pre_requisite_id UUID                     NOT NULL,
     created_at       TIMESTAMP with time zone NOT NULL,
     updated_at       TIMESTAMP with time zone,
+    cursor_id        BIGINT                   NOT NULL,
     CONSTRAINT pk_task_pre_requisites PRIMARY KEY (id)
 );
 
@@ -344,6 +370,7 @@ CREATE TABLE crm.task_stages
     created_at        TIMESTAMP with time zone NOT NULL,
     updated_at        TIMESTAMP with time zone,
     created_by        UUID                     NOT NULL,
+    cursor_id         BIGINT                   NOT NULL,
     CONSTRAINT pk_task_stages PRIMARY KEY (id)
 );
 
@@ -354,6 +381,7 @@ CREATE TABLE crm.task_stages_documents
     document_id   UUID                     NOT NULL,
     created_at    TIMESTAMP with time zone NOT NULL,
     updated_at    TIMESTAMP with time zone,
+    cursor_id     BIGINT                   NOT NULL,
     CONSTRAINT pk_task_stages_documents PRIMARY KEY (id)
 );
 
@@ -365,6 +393,7 @@ CREATE TABLE crm.task_tags
     tag_id     UUID                     NOT NULL,
     created_at TIMESTAMP with time zone NOT NULL,
     updated_at TIMESTAMP with time zone,
+    cursor_id  BIGINT                   NOT NULL,
     CONSTRAINT pk_task_tags PRIMARY KEY (id)
 );
 
@@ -377,6 +406,7 @@ CREATE TABLE project.project
     created_at      TIMESTAMP with time zone NOT NULL,
     updated_at      TIMESTAMP with time zone,
     created_by      UUID                     NOT NULL,
+    cursor_id       BIGINT                   NOT NULL,
     CONSTRAINT pk_project PRIMARY KEY (id)
 );
 
@@ -430,10 +460,10 @@ ALTER TABLE crm.document
     ADD CONSTRAINT FK_DOCUMENT_ON_PROJECT FOREIGN KEY (project_id) REFERENCES project.project (id);
 
 ALTER TABLE crm.organization_addresses
-    ADD CONSTRAINT FK_organization_addresses_ON_ADDRESS FOREIGN KEY (address_id) REFERENCES crm.address (id);
+    ADD CONSTRAINT FK_ORGANIZATION_ADDRESSES_ON_ADDRESS FOREIGN KEY (address_id) REFERENCES crm.address (id);
 
 ALTER TABLE crm.organization_addresses
-    ADD CONSTRAINT FK_organization_addresses_ON_ORGANIZATION FOREIGN KEY (organization_id) REFERENCES crm.customer_organization (id);
+    ADD CONSTRAINT FK_ORGANIZATION_ADDRESSES_ON_ORGANIZATION FOREIGN KEY (organization_id) REFERENCES crm.customer_organization (id);
 
 ALTER TABLE crm.space_folder
     ADD CONSTRAINT FK_SPACE_FOLDER_ON_PARENT FOREIGN KEY (parent_id) REFERENCES crm.space_folder (id);
