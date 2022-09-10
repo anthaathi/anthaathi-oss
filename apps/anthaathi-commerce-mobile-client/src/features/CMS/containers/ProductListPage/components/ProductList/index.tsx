@@ -54,7 +54,7 @@ export default function ProductList({
     <View style={{marginTop: 10}} testID="productList">
       <VirtualizedList<ProductProps[]>
         data={productSplitted}
-        contentContainerStyle={{paddingBottom: 100}}
+        contentContainerStyle={{paddingBottom: itemHeight * 1.5}}
         testID="productListData"
         // initialNumToRender={4}
         // horizontal
@@ -245,9 +245,15 @@ function ItemRenderer({
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'space-between',
-                width: itemWidth,
+                width: itemWidth * 0.9,
               }}>
-              <Title style={{fontSize: 12, marginRight: 5, fontWeight: 'bold'}}>
+              <Title
+                style={{
+                  fontSize: 12,
+                  marginRight: 5,
+                  fontWeight: 'bold',
+                  flexShrink: 1,
+                }}>
                 {item.name}
               </Title>
               <Entypo

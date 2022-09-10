@@ -74,7 +74,7 @@ const Header = ({
                 barStyle={theme.dark || Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
             />
             <Appbar.Header
-                statusBarHeight={Platform.OS === 'ios' ? 20 : 0}
+                statusBarHeight={Platform.OS === 'ios' ? 35 : 0}
                 style={{
                     height: 56,
                     backgroundColor: '#fff',// theme.colors.background,
