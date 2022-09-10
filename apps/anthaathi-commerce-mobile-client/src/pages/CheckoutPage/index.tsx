@@ -84,28 +84,47 @@ const CheckoutPage: React.FC<
               ],
             },
             {
-              _component: CoreComponentType.CMSSelectOption,
-              key: '211',
-              title: 'Delivery',
-              options: [
+              _component: CoreComponentType.DatePicker,
+              key: '1412',
+              title: 'Date',
+            },
+            {
+              _component: CheckOutPageComponentType.TimeSlotSelection,
+              key: '123',
+              title: 'Timeslot',
+              timeSlots: [
                 {
-                  id: 1,
-                  key: 1,
-                  title: 'Order now',
-                  leftIconName: 'clock-time-nine-outline',
+                  key: '1',
+                  name: '09am - 12pm',
                 },
                 {
-                  id: 2,
-                  key: 2,
-                  title: 'Schedue order',
-                  leftIconName: 'calendar-month-outline',
+                  key: '2',
+                  name: '01pm - 05pm',
+                },
+                {
+                  key: '3',
+                  name: '05pm - 10pm',
                 },
               ],
-              optionOnPress: (data: OptionDataProps) => {
-                if (data.id === 2) {
-                  props.navigation.navigate('SelectDate');
-                }
-              },
+            },
+            {
+              _component: CheckOutPageComponentType.TimeSlotSelection,
+              key: '12311',
+              title: 'Frequency',
+              timeSlots: [
+                {
+                  key: '1',
+                  name: 'One time',
+                },
+                {
+                  key: '2',
+                  name: 'Weekly',
+                },
+                {
+                  key: '3',
+                  name: 'Monthly',
+                },
+              ],
             },
             {
               _component: CheckOutPageComponentType.PaymentMethodSelection,
