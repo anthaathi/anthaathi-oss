@@ -17,9 +17,9 @@ interface AuditTable {
 type Organization implements Node & AuditTable @connection {
     id: ID!
     name: String!
-    projects(first: Int, last: Int, before: String, after: String): ProjectConnection
     teams(first: Int, last: Int, before: String, after: String): TeamConnection
     defaultProject: Project
+    projects(first: Int, last: Int, before: String, after: String): ProjectConnection
     createdAt: DateTime!
     updatedAt: DateTime
 }

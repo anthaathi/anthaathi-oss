@@ -56,13 +56,13 @@ class EntityConnection<T, U : PagableEntity>(
 
         val order = if ((first != null && last == null)) {
             listOf(
-                cb.asc(rootEntry.get<PagableEntity>("title")),
                 cb.asc(rootEntry.get<PagableEntity>("createdAt")),
+                cb.asc(rootEntry.get<PagableEntity>("cursorId")),
             )
         } else if (first == null && last != null) {
             listOf(
-                cb.desc(rootEntry.get<PagableEntity>("title")),
                 cb.desc(rootEntry.get<PagableEntity>("createdAt")),
+                cb.desc(rootEntry.get<PagableEntity>("cursorId")),
             )
         } else {
             throw Error("You have to choose first or last not both")
