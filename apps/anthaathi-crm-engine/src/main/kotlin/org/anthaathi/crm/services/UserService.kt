@@ -24,8 +24,11 @@ class UserService(@Autowired val userEntityRepository: UserEntityRepository) {
 
         val entity = userEntityRepository
             .findById(UUID.fromString(id.id))
-            .get()
 
-        return User.fromEntity(entity)
+        if (!entity.isPresent) {
+            return null
+        }
+
+        return User.fromEntity(entity.get())
     }
 }

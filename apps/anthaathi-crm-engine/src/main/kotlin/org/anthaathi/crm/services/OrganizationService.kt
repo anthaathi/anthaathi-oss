@@ -27,8 +27,11 @@ class OrganizationService(
 
         val entity = organizationEntityRepository
             .findById(UUID.fromString(resolvedGlobalId.id))
-            .get()
 
-        return Organization.fromEntity(entity)
+        if (!entity.isPresent) {
+            return null
+        }
+
+        return Organization.fromEntity(entity.get())
     }
 }
