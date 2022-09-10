@@ -41,6 +41,7 @@ dependencies {
     implementation("com.netflix.graphql.dgs:graphql-dgs-pagination")
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.55")
+    implementation("com.google.code.gson:gson")
 }
 
 dependencyManagement {
