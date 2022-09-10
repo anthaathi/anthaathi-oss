@@ -5,18 +5,20 @@ import com.netflix.graphql.dgs.DgsQuery
 import com.netflix.graphql.dgs.InputArgument
 import graphql.schema.DataFetchingEnvironment
 import org.anthaathi.crm.DgsConstants
-import org.anthaathi.crm.mock.Generator
-import org.anthaathi.crm.services.OrganizationService
-import org.anthaathi.crm.services.UserService
+import org.anthaathi.crm.services.*
 import org.anthaathi.crm.types.Node
-import org.anthaathi.crm.types.User
 import org.anthaathi.crm.utils.IdGenerator
 import org.springframework.beans.factory.annotation.Autowired
 
 @DgsComponent
 class NodeDataFetcher(
-    @Autowired val userService: UserService,
     @Autowired val organizationService: OrganizationService,
+    @Autowired val spaceService: SpaceService,
+    @Autowired val taskService: TaskService,
+    @Autowired val taskStageService: TaskStageService,
+    @Autowired val taskCommentService: TaskCommentService,
+    @Autowired val userService: UserService,
+    @Autowired val projectService: ProjectService
 ) {
 
     @DgsQuery(field = DgsConstants.QUERY.Node)
@@ -25,12 +27,12 @@ class NodeDataFetcher(
 
         when (globalId.type) {
             "Organization" -> return organizationService.findById(globalId)
-            "Space" -> return Generator.createSpace(dfe)?.edges?.get(0)?.node
-            "Task" -> return Generator.createTask(dfe)?.edges?.get(0)?.node
-            "TaskStage" -> return Generator.createTaskStages(dfe)?.edges?.get(0)?.node
-            "TaskComment" -> return Generator.createComments(dfe)?.edges?.get(0)?.node
+            "Space" -> return spaceService.findById(globalId)
+            "Task" -> return taskService.findById(globalId)
+            "TaskStage" -> return taskStageService.findById(globalId)
+            "TaskComment" -> return taskCommentService.findById(globalId)
             "User" -> return userService.findById(globalId)
-            "Project" -> return Generator.createProject(dfe)?.edges?.get(0)?.node
+            "Project" -> return projectService.findById(globalId)
         }
 
         return null
