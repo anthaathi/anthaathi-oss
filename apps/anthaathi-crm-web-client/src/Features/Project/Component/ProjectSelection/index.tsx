@@ -92,7 +92,7 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
           kind={KIND.secondary}
           onClick={() => loadNext(10)}
         >
-          Load more
+          LOAD MORE
         </Button>
       )}
     </AppWrapper>

@@ -2,6 +2,7 @@
 
 schema {
     query: Query
+    mutation: Mutation
 }
 
 directive @extends on OBJECT | INTERFACE
@@ -27,6 +28,11 @@ interface BaseTask {
     priority: Int
     title: String!
     updatedAt: DateTime
+}
+
+interface FormFieldError {
+    field: String!
+    message: String!
 }
 
 interface Node {
@@ -67,6 +73,16 @@ type AddressEdge {
     cursor: String
     "Field node"
     node: Address
+}
+
+type CreateTaskError implements FormFieldError {
+    field: String!
+    message: String!
+}
+
+type CreateTaskResponse {
+    errors: [FormFieldError!]
+    response: Task
 }
 
 type Customer implements AuditTable & Node {
@@ -210,6 +226,10 @@ type MobileNumber {
     mobileNumber: String
 }
 
+type Mutation {
+    createTask(input: CreateTaskInput): CreateTaskResponse
+}
+
 type Organization implements AuditTable & Node {
     createdAt: DateTime!
     defaultProject: Project
@@ -288,6 +308,7 @@ type Query {
     node(id: ID!): Node
     projectByHandle(handle: String!): Project
     projects(after: String, before: String, first: Int, last: Int): ProjectConnection
+    taskTemplates(after: String, before: String, first: Int, last: Int): TemplateConnection
 }
 
 type Space implements AuditTable & Node {
@@ -851,3 +872,11 @@ scalar DateTime
 scalar JSON
 
 scalar _FieldSet
+
+input CreateTaskInput {
+    description: String!
+    form: JSON
+    space: ID!
+    template: ID
+    title: String!
+}

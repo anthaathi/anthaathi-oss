@@ -29,6 +29,10 @@ open class SpaceFolderEntity : PagableEntity {
     @Column(name = "icon", nullable = false, length = 100)
     open var icon: String? = null
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    open var project: ProjectEntity? = null
+
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
     override var createdAt: OffsetDateTime? = null

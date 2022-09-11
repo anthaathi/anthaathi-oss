@@ -10,6 +10,8 @@ plugins {
     id("com.netflix.dgs.codegen") version "5.1.17"
 }
 
+val camelVersion = "3.18.2"
+
 group = "org.anthaathi"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
@@ -42,6 +44,10 @@ dependencies {
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
     implementation("com.googlecode.libphonenumber:libphonenumber:8.12.55")
     implementation("com.google.code.gson:gson")
+
+    implementation("org.apache.camel.springboot:camel-spring-boot-bom:${camelVersion}")
+    implementation("org.apache.camel.springboot:camel-spring-boot-starter:${camelVersion}")
+    implementation("org.apache.camel:camel-kafka:${camelVersion}")
 }
 
 dependencyManagement {

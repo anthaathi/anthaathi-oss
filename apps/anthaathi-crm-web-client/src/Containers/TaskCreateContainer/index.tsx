@@ -1,7 +1,6 @@
 import { AppWrapper } from '../../Features/Core/Components/AppWrapper';
 import { NumberedStep, ProgressSteps } from 'baseui/progress-steps';
 import React, { useRef, useState } from 'react';
-import { Cell, Grid } from 'baseui/layout-grid';
 import DashboardCard from '../../Features/Core/Components/DashboardCard';
 import { useStyletron } from 'baseui';
 import PageHeader from '../../Features/Core/Components/PageHeader';
@@ -13,7 +12,7 @@ import { RenderForm } from '../../Features/FormRender/Components/RenderForm';
 export function TaskCreateContainer() {
   const [current, setCurrent] = useState(0);
 
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,14 +34,44 @@ export function TaskCreateContainer() {
                 />
               </div>
 
-              <Grid gridMaxWidth={0} gridMargins={0}>
-                {Array.from({ length: 10 }).map((_, index) => (
-                  <Cell
-                    key={index}
-                    span={3}
-                    overrides={{ Cell: { style: { paddingBottom: '24px' } } }}
-                  >
+              <div
+                className={css({
+                  width: '100%',
+                  marginLeft: '0',
+                  marginRight: 0,
+                })}
+              >
+                <div
+                  className={css({
+                    display: 'grid',
+                    gridColumnGap: '12px',
+                    gridRowGap: 0,
+                    marginRight: '12px',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    [$theme.mediaQuery.small]: {
+                      gridTemplateColumns: 'repeat(1, 1fr)',
+                    },
+                    [$theme.mediaQuery.medium]: {
+                      gridTemplateColumns: 'repeat(2, 1fr)',
+                    },
+                    [$theme.mediaQuery.large]: {
+                      gridTemplateColumns: 'repeat(4, 1fr)',
+                    },
+                  })}
+                >
+                  <DashboardCard
+                    onClick={() => {
+                      setCurrent((prev) => prev + 1);
+                    }}
+                    badgeColor={$theme.colors.primaryHeaderA}
+                    backgroundColor={$theme.colors.primaryHeaderB}
+                    numberOfTask={<Icon icon="layout-blank" />}
+                    title="Blank Task"
+                    subTitle="Start empty task"
+                  />
+                  {Array.from({ length: 1 }).map((_, index) => (
                     <DashboardCard
+                      key={index}
                       onClick={() => {
                         setCurrent((prev) => prev + 1);
                       }}
@@ -52,9 +81,9 @@ export function TaskCreateContainer() {
                       title="Your Tasks"
                       subTitle="Your pending tasks"
                     />
-                  </Cell>
-                ))}
-              </Grid>
+                  ))}
+                </div>
+              </div>
             </div>
           </NumberedStep>
           <NumberedStep title="Form">

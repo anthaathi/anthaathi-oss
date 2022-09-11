@@ -8,7 +8,7 @@ import { expandBorderStyles } from 'baseui/styles';
 export interface DashboardCardProps {
   title: string;
   subTitle: string;
-  numberOfTask: number;
+  numberOfTask: React.ReactNode;
   badgeColor: string;
   backgroundColor: string;
   onClick?: () => void;
@@ -22,7 +22,7 @@ function DashboardCard({
   backgroundColor,
   onClick,
 }: DashboardCardProps) {
-  const [, $theme] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <Block
@@ -58,22 +58,22 @@ function DashboardCard({
           borderTopRightRadius: '4px',
         }}
       >
-        <Avatar
-          name={numberOfTask.toString().split('').join(' ')}
-          size={'scale1200'}
-          overrides={{
-            Root: {
-              style: () => ({
-                backgroundColor: badgeColor,
-              }),
-            },
-            Initials: {
-              style: () => ({
-                fontSize: '20px',
-              }),
-            },
-          }}
-        />
+        <div
+          className={css({
+            backgroundColor: badgeColor,
+            width: $theme.sizing.scale1200,
+            height: $theme.sizing.scale1200,
+            display: 'flex',
+            alignItems: 'center',
+            placeContent: 'center',
+            borderRadius: '50%',
+            color: 'white',
+            ...$theme.typography.LabelMedium,
+            fontWeight: 600,
+          })}
+        >
+          {numberOfTask}
+        </div>
       </Block>
 
       <Block

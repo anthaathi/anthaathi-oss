@@ -4,11 +4,39 @@ interface Node {
     id: ID!
 }
 
+type Mutation {
+    createTask(input: CreateTaskInput): CreateTaskResponse
+}
+
+input CreateTaskInput {
+    template: ID
+    title: String!
+    space: ID!
+    description: String!
+    form: JSON
+}
+
+type CreateTaskResponse {
+    response: Task
+    errors: [FormFieldError!]
+}
+
+type CreateTaskError implements FormFieldError {
+    field: String!
+    message: String!
+}
+
+interface FormFieldError {
+    field: String!
+    message: String!
+}
+
 type Query {
     node(id: ID!): Node
     me: User
     projectByHandle(handle: String!): Project
     projects(first: Int, last: Int, before: String, after: String): ProjectConnection
+    taskTemplates(first: Int, last: Int, before: String, after: String): TemplateConnection
 }
 
 interface AuditTable {
