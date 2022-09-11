@@ -261,6 +261,7 @@ type Project implements AuditTable & Node {
     id: ID!
     name: String!
     spaces(after: String, before: String, first: Int, last: Int): SpaceConnection
+    template: TemplateConnection
     updatedAt: DateTime
 }
 
@@ -284,6 +285,7 @@ type Query {
     _service: _Service
     me: User
     node(id: ID!): Node
+    projects(after: String, before: String, first: Int, last: Int): ProjectConnection
 }
 
 type Space implements AuditTable & Node {
@@ -565,12 +567,20 @@ type TemplateEdge {
 
 type User implements AuditTable & Node {
     createdAt: DateTime!
+    dateOfBirth: DateTime
     defaultOrganization: Organization
     displayName: String
     email: String
+    employeeId: String
+    firstName: String
+    gender: String
     id: ID!
+    lastName: String
+    middleName: String
     organizations: OrganizationConnection
     phoneNumber: MobileNumber
+    phoneNumber2: MobileNumber
+    qualification: String
     updatedAt: DateTime
 }
 

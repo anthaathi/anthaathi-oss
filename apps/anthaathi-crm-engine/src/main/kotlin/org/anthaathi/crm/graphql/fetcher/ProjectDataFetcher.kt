@@ -30,4 +30,11 @@ class ProjectDataFetcher(
     ): Connection<Project> {
         return EntityConnection(em, ProjectEntity::class.java, projectService.factory).get(dfe)
     }
+
+    @DgsData(parentType = DgsConstants.QUERY_TYPE, field = DgsConstants.QUERY.Projects)
+    fun getProjectsForOrganization2(
+        dfe: DgsDataFetchingEnvironment
+    ): Connection<Project> {
+        return EntityConnection(em, ProjectEntity::class.java, projectService.factory).get(dfe)
+    }
 }
