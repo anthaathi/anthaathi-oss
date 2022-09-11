@@ -2,7 +2,6 @@ package org.anthaathi.crm.database.converter
 
 import org.anthaathi.crm.database.entity.CustomerOrganizationEntity
 import org.anthaathi.crm.types.CustomerOrganization
-import org.anthaathi.crm.types.CustomerOrganizationInfo
 import org.anthaathi.crm.utils.IdGenerator
 
 class CustomerOrganizationFactory: ConverterFactory<CustomerOrganization, CustomerOrganizationEntity> {

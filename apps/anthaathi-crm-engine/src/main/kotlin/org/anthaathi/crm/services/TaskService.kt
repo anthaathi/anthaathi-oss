@@ -2,8 +2,6 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay
 import org.anthaathi.crm.database.converter.TaskFactory
-import org.anthaathi.crm.database.converter.fromEntity
-import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TaskEntityRepository
 import org.anthaathi.crm.types.Task
 import org.anthaathi.crm.utils.IdGenerator
@@ -22,7 +20,7 @@ class TaskService(
     }
 
     fun findById(resolvedGlobalId: Relay.ResolvedGlobalId): Task? {
-        if (Task.type() != resolvedGlobalId.type) {
+        if (factory.type != resolvedGlobalId.type) {
             return null
         }
 
@@ -33,6 +31,6 @@ class TaskService(
             return null
         }
 
-        return Task.fromEntity(entity.get())
+        return factory.fromEntity(entity.get())
     }
 }
