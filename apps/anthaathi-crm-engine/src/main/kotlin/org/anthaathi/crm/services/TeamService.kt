@@ -12,7 +12,7 @@ import java.util.*
 @Component
 class TeamService(
     @Autowired val
-     teamEntityRepository: TeamEntityRepository
+    teamEntityRepository: TeamEntityRepository
 ) {
     val teamFactory = TeamFactory()
 

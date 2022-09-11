@@ -4,7 +4,7 @@ import org.anthaathi.crm.database.entity.AddressEntity
 import org.anthaathi.crm.types.Address
 import org.anthaathi.crm.utils.IdGenerator
 
-class AddressFactory: ConverterFactory<Address, AddressEntity> {
+class AddressFactory : ConverterFactory<Address, AddressEntity> {
     override val type: String
         get() = "Address"
 

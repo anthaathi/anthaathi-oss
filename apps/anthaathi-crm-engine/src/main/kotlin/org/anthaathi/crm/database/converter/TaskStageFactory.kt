@@ -4,7 +4,7 @@ import org.anthaathi.crm.database.entity.TaskStageEntity
 import org.anthaathi.crm.types.TaskStage
 import org.anthaathi.crm.utils.IdGenerator
 
-class TaskStageFactory: ConverterFactory<TaskStage, TaskStageEntity> {
+class TaskStageFactory : ConverterFactory<TaskStage, TaskStageEntity> {
     override val type: String
         get() = "TaskStage"
 

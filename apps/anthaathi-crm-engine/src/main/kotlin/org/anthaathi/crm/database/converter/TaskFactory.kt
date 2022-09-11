@@ -8,7 +8,7 @@ import org.anthaathi.crm.utils.IdGenerator
 import java.time.OffsetTime
 import kotlin.random.Random
 
-class TaskFactory: ConverterFactory<Task, TaskEntity> {
+class TaskFactory : ConverterFactory<Task, TaskEntity> {
     override val type: String
         get() = "Task"
 

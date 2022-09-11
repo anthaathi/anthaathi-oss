@@ -33,4 +33,10 @@ class ProjectService(
 
         return factory.fromEntity(result.get())
     }
+
+    fun findByHandle(handle: String): Project? {
+        val result = projectEntityRepository.findByHandle(handle) ?: return null
+
+        return factory.fromEntity(result)
+    }
 }

@@ -13,7 +13,14 @@ class IdGenerator {
         @JvmStatic
         fun toGlobalId(type: String, id: String): String {
             val encoder: Base64.Encoder = Base64.getEncoder()
-            return encoder.encodeToString("anthaathi://${ type }/${ java.net.URLEncoder.encode(id, "utf-8") }".toByteArray())
+            return encoder.encodeToString(
+                "anthaathi://${type}/${
+                    java.net.URLEncoder.encode(
+                        id,
+                        "utf-8"
+                    )
+                }".toByteArray()
+            )
         }
 
         /**
@@ -30,7 +37,7 @@ class IdGenerator {
             return Relay.ResolvedGlobalId(
                 path.host,
                 java.net.URLDecoder.decode(path.path.replaceFirst("/", ""), "utf-8")
-            );
+            )
         }
     }
 }

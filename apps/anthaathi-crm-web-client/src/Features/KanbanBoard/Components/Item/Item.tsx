@@ -143,11 +143,7 @@ export const Item = React.memo(
             {...props}
             tabIndex={!handle ? 0 : undefined}
           >
-            <SpaceCard
-              dragHandler={<Handle {...handleProps} {...listeners} />}
-              noExpand={dragging}
-              url="1"
-            />
+            {value}
           </div>
         </li>
       );

@@ -29,7 +29,7 @@ open class TaskCommentEntity : PagableEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_stage_id")
-    open var taskStage: org.anthaathi.crm.database.entity.TaskStageEntity? = null
+    open var taskStage: TaskStageEntity? = null
 
     @Column(name = "reply_to", nullable = false)
     open var replyTo: UUID? = null

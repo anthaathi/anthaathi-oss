@@ -2,6 +2,7 @@ package org.anthaathi.crm.graphql.fetcher
 
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsData
+import com.netflix.graphql.dgs.DgsDataFetchingEnvironment
 import graphql.relay.Connection
 import graphql.schema.DataFetchingEnvironment
 import org.anthaathi.crm.DgsConstants

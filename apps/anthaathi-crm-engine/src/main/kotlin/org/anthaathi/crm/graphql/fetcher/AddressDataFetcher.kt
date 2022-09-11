@@ -19,7 +19,10 @@ class AddressDataFetcher(
     @Autowired val addressService: AddressService,
     @PersistenceContext private val em: EntityManager
 ) {
-    @DgsData(parentType = DgsConstants.CUSTOMERORGANIZATIONINFO.TYPE_NAME, field = DgsConstants.CUSTOMERORGANIZATIONINFO.Address)
+    @DgsData(
+        parentType = DgsConstants.CUSTOMERORGANIZATIONINFO.TYPE_NAME,
+        field = DgsConstants.CUSTOMERORGANIZATIONINFO.Address
+    )
     fun customerOrganizationInfoAddress(dfe: DataFetchingEnvironment): Connection<Address> {
         return EntityConnection(em, AddressEntity::class.java, addressService.factory)
             .get(dfe)

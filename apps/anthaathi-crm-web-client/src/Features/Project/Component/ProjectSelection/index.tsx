@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { graphql, usePaginationFragment } from 'react-relay';
 import { ProjectSelection_projects$key } from '../../../../__generated__/ProjectSelection_projects.graphql';
-import { Button } from 'baseui/button';
+import { Button, KIND } from 'baseui/button';
 import { AppWrapper } from '../../../Core/Components/AppWrapper';
 import { useStyletron } from 'baseui';
 import { expandBorderStyles } from 'baseui/styles';
-import { LabelMedium, LabelSmall, LabelXSmall } from 'baseui/typography';
+import { LabelMedium, LabelSmall } from 'baseui/typography';
 import { Link } from 'react-router-dom';
 
 const query = graphql`
@@ -64,7 +64,7 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
             })}
           >
             <Link
-              to={`/${res?.node?.handle}`}
+              to={`/${res?.node?.handle}/`}
               className={css({ textDecoration: 'none' })}
             >
               <div className={css({ marginBottom: $theme.sizing.scale200 })}>
@@ -80,7 +80,18 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
         ))}
       </ul>
       {hasNext && (
-        <Button isLoading={isLoadingNext} onClick={() => loadNext(10)}>
+        <Button
+          isLoading={isLoadingNext}
+          overrides={{
+            Root: {
+              style: {
+                width: '100%',
+              },
+            },
+          }}
+          kind={KIND.secondary}
+          onClick={() => loadNext(10)}
+        >
           Load more
         </Button>
       )}

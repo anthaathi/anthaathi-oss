@@ -9,7 +9,6 @@ import org.anthaathi.crm.database.entity.TaskEntity
 import org.anthaathi.crm.graphql.relay.EntityConnection
 import org.anthaathi.crm.services.TaskService
 import org.anthaathi.crm.types.Task
-import org.anthaathi.crm.types.TaskByStatus
 import org.springframework.beans.factory.annotation.Autowired
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
@@ -20,10 +19,8 @@ class TaskDataFetcher(
     @Autowired val taskService: TaskService,
     @PersistenceContext private val em: EntityManager
 ) {
-    @DgsData(parentType = DgsConstants.TASKBYSTATUS.TYPE_NAME, field = DgsConstants.TASKBYSTATUS.Tasks)
-    fun taskForTaskByStatus(dfe: DataFetchingEnvironment): Connection<Task> {
-        val taskByStatus: TaskByStatus = dfe.getSource<TaskByStatus>()
-
+    @DgsData(parentType = DgsConstants.STATUS.TYPE_NAME, field = DgsConstants.STATUS.Tasks)
+    fun tasks(dfe: DataFetchingEnvironment): Connection<Task> {
         return EntityConnection(em, TaskEntity::class.java, taskService.factory)
             .get(dfe)
     }

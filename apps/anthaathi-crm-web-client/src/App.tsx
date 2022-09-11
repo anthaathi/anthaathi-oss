@@ -50,7 +50,6 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="customer" element={<CustomerPage />} />
               <Route path="spaces">
-                <Route index element={<Link to="123">Hello world</Link>} />
                 <Route path=":space">
                   <Route path="create" element={<CreateTaskPage />} />
                   <Route element={<SpacePage />}>

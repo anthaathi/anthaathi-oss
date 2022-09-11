@@ -22,11 +22,11 @@ open class DocumentEntity : PagableEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
-    open var project: org.anthaathi.crm.database.entity.ProjectEntity? = null
+    open var project: ProjectEntity? = null
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "document_type_id", nullable = false)
-    open var documentType: org.anthaathi.crm.database.entity.DocumentTypeEntity? = null
+    open var documentType: DocumentTypeEntity? = null
 
     @Column(name = "expiry", nullable = false)
     open var expiry: LocalDate? = null

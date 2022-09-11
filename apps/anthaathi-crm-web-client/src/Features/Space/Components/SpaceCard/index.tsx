@@ -42,6 +42,10 @@ export function SpaceCard({
 
   const expanded = (hover || isSelected) && !noExpand;
 
+  if (!spaceInfo) {
+    return null;
+  }
+
   return (
     <Link
       to={{

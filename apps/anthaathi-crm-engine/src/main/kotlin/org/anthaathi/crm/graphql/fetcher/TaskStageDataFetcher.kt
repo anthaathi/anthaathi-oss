@@ -15,7 +15,7 @@ import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
 
 @DgsComponent
-class wTaskStageDataFetcher(
+class TaskStageDataFetcher(
     @Autowired val taskStageService: TaskStageService,
     @PersistenceContext private val em: EntityManager
 ) {

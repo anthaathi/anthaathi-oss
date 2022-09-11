@@ -1,9 +1,9 @@
 package org.anthaathi.crm.json.serializer
 
 import com.google.gson.*
+import java.lang.reflect.Type
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
-import java.lang.reflect.Type
 
 class OffsetDateTimeConverter : JsonSerializer<OffsetDateTime?>, JsonDeserializer<OffsetDateTime?> {
     override fun serialize(src: OffsetDateTime?, typeOfSrc: Type?, context: JsonSerializationContext?): JsonElement {
@@ -12,6 +12,6 @@ class OffsetDateTimeConverter : JsonSerializer<OffsetDateTime?>, JsonDeserialize
 
     @Throws(JsonParseException::class)
     override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext?): OffsetDateTime {
-        return OffsetDateTime.parse(json.getAsString())
+        return OffsetDateTime.parse(json.asString)
     }
 }

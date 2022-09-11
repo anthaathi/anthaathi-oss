@@ -4,7 +4,7 @@ import org.anthaathi.crm.database.entity.SpaceFolderEntity
 import org.anthaathi.crm.types.Space
 import org.anthaathi.crm.utils.IdGenerator
 
-class SpaceFactory: ConverterFactory<Space, SpaceFolderEntity> {
+class SpaceFactory : ConverterFactory<Space, SpaceFolderEntity> {
     override val type: String
         get() = "Space"
 

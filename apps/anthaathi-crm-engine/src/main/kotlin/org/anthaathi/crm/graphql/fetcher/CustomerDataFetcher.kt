@@ -10,6 +10,4 @@ import javax.persistence.PersistenceContext
 class CustomerDataFetcher(
     @Autowired val customerService: CustomerService,
     @PersistenceContext private val em: EntityManager
-) {
-
-}
+)

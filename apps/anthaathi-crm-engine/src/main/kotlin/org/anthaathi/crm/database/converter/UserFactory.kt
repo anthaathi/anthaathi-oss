@@ -13,7 +13,7 @@ class UserFactory : ConverterFactory<User, UserEntity> {
     override fun fromEntity(entity: UserEntity): User {
         val phoneNumber = Phonenumber.PhoneNumber()
         if (entity.mobileNumber1 != null) {
-            phoneNumber.rawInput =entity.mobileNumber1
+            phoneNumber.rawInput = entity.mobileNumber1
         }
         val phoneNumber2 = Phonenumber.PhoneNumber()
         if (entity.mobileNumber2 != null) {

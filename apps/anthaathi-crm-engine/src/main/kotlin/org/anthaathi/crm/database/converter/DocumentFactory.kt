@@ -6,7 +6,7 @@ import org.anthaathi.crm.utils.IdGenerator
 import java.time.OffsetTime
 import org.anthaathi.crm.database.entity.DocumentEntity as DocumentEntity1
 
-class DocumentFactory: ConverterFactory<Document, DocumentEntity1> {
+class DocumentFactory : ConverterFactory<Document, DocumentEntity1> {
     override val type: String
         get() = "Document"
 

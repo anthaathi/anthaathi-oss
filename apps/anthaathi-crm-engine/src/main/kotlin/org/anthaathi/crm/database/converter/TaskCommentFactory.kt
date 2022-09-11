@@ -5,7 +5,7 @@ import org.anthaathi.crm.types.TaskComment
 import org.anthaathi.crm.utils.IdGenerator
 import org.anthaathi.crm.database.entity.TaskCommentEntity as TaskCommentEntity1
 
-class TaskCommentFactory: ConverterFactory<TaskComment, TaskCommentEntity1> {
+class TaskCommentFactory : ConverterFactory<TaskComment, TaskCommentEntity1> {
     override val type: String
         get() = "TaskComment"
 

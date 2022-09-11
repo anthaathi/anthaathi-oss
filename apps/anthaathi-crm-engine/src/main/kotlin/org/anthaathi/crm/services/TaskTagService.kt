@@ -6,8 +6,10 @@ import org.anthaathi.crm.database.repository.TaskTagEntityRepository
 import org.anthaathi.crm.types.TaskTag
 import org.anthaathi.crm.utils.IdGenerator
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+@Component
 class TaskTagService(
     @Autowired val taskTagEntityRepository: TaskTagEntityRepository
 ) {

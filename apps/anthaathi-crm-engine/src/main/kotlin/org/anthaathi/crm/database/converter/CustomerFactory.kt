@@ -10,7 +10,7 @@ import org.anthaathi.crm.utils.IdGenerator
 import java.time.OffsetTime
 import java.util.*
 
-class CustomerFactory: ConverterFactory<Customer, CustomerEntity>{
+class CustomerFactory : ConverterFactory<Customer, CustomerEntity> {
     override val type: String
         get() = "Customer"
 
@@ -22,11 +22,13 @@ class CustomerFactory: ConverterFactory<Customer, CustomerEntity>{
             middleName = entity.middleName,
             mobileNumber1 = MobileNumber(
                 countryCode = entity.mobileNumber1?.split(" ")?.get(0)?.removePrefix("+")?.toInt(),
-                mobileNumber = entity.mobileNumber1?.split(" ")?.filterIndexed { index, it -> index != 0 }?.joinToString(separator = "")
+                mobileNumber = entity.mobileNumber1?.split(" ")?.filterIndexed { index, it -> index != 0 }
+                    ?.joinToString(separator = "")
             ),
             mobileNumber2 = MobileNumber(
                 countryCode = entity.mobileNumber2?.split(" ")?.get(0)?.removePrefix("+")?.toInt(),
-                mobileNumber = entity.mobileNumber2?.split(" ")?.filterIndexed { index, it -> index != 0 }?.joinToString(separator = "")
+                mobileNumber = entity.mobileNumber2?.split(" ")?.filterIndexed { index, it -> index != 0 }
+                    ?.joinToString(separator = "")
             ),
             gender = entity.gender,
             dateOfBirth = entity.dateOfBirth?.atTime(OffsetTime.now()),

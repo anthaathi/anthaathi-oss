@@ -27,74 +27,7 @@ class Generator {
             }
             return SimpleListConnection(space.map {
                 it.copy(
-                    tasks = createTask(dfe, depth = depth + 1), tasksByStatuses = SimpleListConnection(
-                        listOf(
-                            TaskByStatus(
-                                status = Status(
-                                    IdGenerator.toGlobalId("TaskStatus", "1234"),
-                                    name = "In Progress",
-                                    createdAt = OffsetDateTime.now()
-                                ),
-                                tasks = SimpleListConnection(
-                                    listOf(
-                                        Task(
-                                            id = IdGenerator.toGlobalId("Task", "12412"),
-                                            title = "Task 1",
-                                            description = "lorem ipsum",
-                                            dueDate = OffsetDateTime.now().plusDays(2),
-                                            priority = 1,
-                                            createdAt = OffsetDateTime.now()
-                                        ),
-                                        Task(
-                                            id = IdGenerator.toGlobalId("Task", "124112"),
-                                            title = "Task 2",
-                                            description = "lorem ipsum",
-                                            dueDate = OffsetDateTime.now().plusDays(2),
-                                            priority = 1,
-                                            createdAt = OffsetDateTime.now()
-                                        ),
-                                    )
-                                ).get(dfe),
-                                id = IdGenerator.toGlobalId("TaskByStatus", "1234"),
-                            ),
-                            TaskByStatus(
-                                status = Status(
-                                    IdGenerator.toGlobalId("TaskStatus", "12312"),
-                                    name = "In Progress",
-                                    createdAt = OffsetDateTime.now()
-                                ),
-                                tasks = createTask(dfe, 30),
-                                id = IdGenerator.toGlobalId("TaskByStatus", "12312"),
-                            ),
-                            TaskByStatus(
-                                status = Status(
-                                    IdGenerator.toGlobalId("TaskStatus", "121212312"),
-                                    name = "In Progress",
-                                    createdAt = OffsetDateTime.now()
-                                ),
-                                tasks = createTask(dfe, 30),
-                                id = IdGenerator.toGlobalId("TaskByStatus", "121212312"),
-                            ),
-                            TaskByStatus(
-                                status = Status(
-                                    IdGenerator.toGlobalId("TaskStatus", "12121234312"),
-                                    name = "In Progress",
-                                    createdAt = OffsetDateTime.now()
-                                ),
-                                tasks = createTask(dfe, 30),
-                                id = IdGenerator.toGlobalId("TaskByStatus", "12121234312"),
-                            ),
-                            TaskByStatus(
-                                status = Status(
-                                    IdGenerator.toGlobalId("TaskStatus", "126312"),
-                                    name = "In Progress",
-                                    createdAt = OffsetDateTime.now()
-                                ),
-                                tasks = createTask(dfe, 30),
-                                id = IdGenerator.toGlobalId("TaskByStatus", "126312"),
-                            ),
-                        )
-                    ).get(dfe)
+                    tasks = createTask(dfe, depth = depth + 1),
                 )
             }).get(dfe)
         }

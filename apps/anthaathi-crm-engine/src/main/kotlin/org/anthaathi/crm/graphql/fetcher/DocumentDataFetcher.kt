@@ -27,6 +27,7 @@ class DocumentDataFetcher(
         return EntityConnection(em, DocumentEntity::class.java, documentService.factory)
             .get(dfe)
     }
+
     @DgsData(parentType = DgsConstants.TASKSTAGE.TYPE_NAME, field = DgsConstants.TASKSTAGE.Documents)
     fun taskStageDocuments(dfe: DataFetchingEnvironment): Connection<Document> {
         val taskStage: TaskStage = dfe.getSource<TaskStage>()

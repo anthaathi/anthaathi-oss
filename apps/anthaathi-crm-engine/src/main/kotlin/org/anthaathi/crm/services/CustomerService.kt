@@ -6,8 +6,10 @@ import org.anthaathi.crm.database.repository.CustomerEntityRepository
 import org.anthaathi.crm.types.Customer
 import org.anthaathi.crm.utils.IdGenerator
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
+@Component
 class CustomerService(
     @Autowired val customerEntityRepository: CustomerEntityRepository
 ) {

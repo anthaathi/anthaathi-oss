@@ -16,11 +16,11 @@ open class CustomerDocumentEntity : PagableEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "document_id", nullable = false)
-    open var document: org.anthaathi.crm.database.entity.DocumentEntity? = null
+    open var document: DocumentEntity? = null
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "project_id", nullable = false)
-    open var project: org.anthaathi.crm.database.entity.ProjectEntity? = null
+    open var project: ProjectEntity? = null
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customer_id", nullable = false)

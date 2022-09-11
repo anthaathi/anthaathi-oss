@@ -2,7 +2,6 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay.ResolvedGlobalId
 import org.anthaathi.crm.database.converter.OrganizationFactory
-import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.repository.OrganizationEntityRepository
 import org.anthaathi.crm.types.Organization
 import org.anthaathi.crm.utils.IdGenerator
@@ -21,7 +20,7 @@ class OrganizationService(
         return findById(organizationId)
     }
 
-        fun findById(resolvedGlobalId: ResolvedGlobalId): Organization? {
+    fun findById(resolvedGlobalId: ResolvedGlobalId): Organization? {
         if (factory.type != resolvedGlobalId.type) {
             return null
         }
@@ -33,6 +32,6 @@ class OrganizationService(
             return null
         }
 
-        return Organization.fromEntity(entity.get())
+        return factory.fromEntity(entity.get())
     }
 }

@@ -30,7 +30,7 @@ open class TaskEntity : PagableEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "organization_id", nullable = false)
-    open var organization: CustomerOrganizationEntity? = null
+    open var organization: OrganizationEntity? = null
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "status_id", nullable = false)

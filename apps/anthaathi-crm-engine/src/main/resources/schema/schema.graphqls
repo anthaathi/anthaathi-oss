@@ -80,15 +80,9 @@ type Space implements Node & AuditTable @connection {
     spaces(first: Int, last: Int, before: String, after: String): SpaceConnection
     tasks(first: Int, last: Int, before: String, after: String): TaskConnection
     templates(first: Int, last: Int, before: String, after: String): TemplateConnection
-    tasksByStatuses(first: Int, last: Int, before: String, after: String): TaskByStatusConnection
+    tasksByStatuses(first: Int, last: Int, before: String, after: String): StatusConnection
     createdAt: DateTime!
     updatedAt: DateTime
-}
-
-type TaskByStatus implements Node @connection {
-    id: ID!
-    status: Status
-    tasks(first: Int, last: Int, before: String, after: String): TaskConnection
 }
 
 interface BaseTask implements Node & AuditTable {
@@ -168,6 +162,7 @@ type Status implements Node & AuditTable @connection {
     color: String
     createdAt: DateTime!
     updatedAt: DateTime
+    tasks(first: Int, last: Int, before: String, after: String): TaskConnection
 }
 
 type Template implements Node & BaseTask & AuditTable @connection {

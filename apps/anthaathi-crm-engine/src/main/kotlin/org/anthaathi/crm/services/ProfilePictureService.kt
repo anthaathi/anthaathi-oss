@@ -1,6 +1,3 @@
 package org.anthaathi.crm.services
 
-class ProfilePictureService(
-
-) {
-}
+class ProfilePictureService
