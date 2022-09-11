@@ -16,6 +16,8 @@ import java.util.*
 class OrganizationService(
     @Autowired val organizationEntityRepository: OrganizationEntityRepository,
 ) {
+
+    val factory = OrganizationFactory()
     val organizationFactory = OrganizationFactory()
 
     fun findById(id: String): Organization? {

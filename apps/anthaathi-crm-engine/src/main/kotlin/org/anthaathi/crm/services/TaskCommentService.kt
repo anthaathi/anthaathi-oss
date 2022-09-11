@@ -1,6 +1,7 @@
 package org.anthaathi.crm.services
 
 import graphql.relay.Relay
+import org.anthaathi.crm.database.converter.TaskCommentFactory
 import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TaskCommentEntityRepository
@@ -14,6 +15,7 @@ import java.util.*
 class TaskCommentService(
     @Autowired val taskCommentEntityRepository: TaskCommentEntityRepository
 ) {
+    val factory = TaskCommentFactory()
     fun findById(id: String): TaskComment? {
         val taskCommentId = IdGenerator.fromGlobalId(id)
         return findById(taskCommentId)

@@ -4,7 +4,7 @@ import org.anthaathi.crm.database.entity.OrganizationEntity
 import org.anthaathi.crm.types.Organization
 import org.anthaathi.crm.utils.IdGenerator
 
-class OrganizationFactory : ConverterFactory<Organization, OrganizationEntity> {
+class OrganizationFactory: ConverterFactory<Organization, OrganizationEntity> {
     override val type: String
         get() = "Organization"
 
