@@ -16,6 +16,7 @@ class ProjectFactory : ConverterFactory<Project, ProjectEntity> {
             template = null,
             createdAt = entity.createdAt!!,
             updatedAt = entity.updatedAt,
+            handle = entity.handle!!,
         )
     }
 }

@@ -8,6 +8,7 @@ import { ToolbarTitle } from '../Toolbar/styled';
 import { Link } from 'react-router-dom';
 import { Toolbar } from '../Toolbar';
 import { useState } from 'react';
+import { ProjectSelectionButton } from '../../../Project/Component/ProjectSelectionButton';
 
 export const Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
@@ -70,9 +71,14 @@ export function HeaderToggle() {
           <Menu color="#fff" size={20} />
         )}
       </Button>
+
       <ToolbarTitle $as={Link} to="/">
         Anthaathi CRM
       </ToolbarTitle>
+
+      <span className={css({ width: '12px' })} />
+
+      <ProjectSelectionButton />
     </Toolbar>
   );
 }

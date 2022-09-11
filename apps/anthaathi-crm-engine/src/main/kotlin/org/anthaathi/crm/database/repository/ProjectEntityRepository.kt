@@ -9,4 +9,6 @@ import java.util.*
 
 interface ProjectEntityRepository : PagingAndSortingRepository<ProjectEntity, UUID> {
     fun findByOrganizationIdAndCreatedAtGreaterThan(organizationId: UUID, createdAt: OffsetDateTime, paging: Pageable): Slice<ProjectEntity>
+
+    fun findByHandle(handle: String): ProjectEntity?
 }
