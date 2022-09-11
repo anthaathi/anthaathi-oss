@@ -18,12 +18,12 @@ class NodeDataFetcher(
     @Autowired val taskCommentService: TaskCommentService,
     @Autowired val userService: UserService,
     @Autowired val projectService: ProjectService,
-    val addressService: AddressService,
-    val customerOrganizationService: CustomerOrganizationService,
-    val customerService: CustomerService,
-    val documentService: DocumentService,
-    val taskTagService: TaskTagService,
-    val teamService: TeamService
+    @Autowired val addressService: AddressService,
+    @Autowired val customerOrganizationService: CustomerOrganizationService,
+    @Autowired val customerService: CustomerService,
+    @Autowired val documentService: DocumentService,
+    @Autowired val taskTagService: TaskTagService,
+    @Autowired val teamService: TeamService
 ) {
 
     @DgsQuery
