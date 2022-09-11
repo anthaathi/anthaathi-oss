@@ -10,12 +10,11 @@ import org.anthaathi.crm.types.User
 import org.springframework.beans.factory.annotation.Autowired
 
 @DgsComponent
-class OrganizationFetcher(
+class OrganizationDataFetcher(
     @Autowired val organizationService: OrganizationService
 ) {
     @DgsData(parentType = DgsConstants.USER.TYPE_NAME, field = DgsConstants.USER.DefaultOrganization)
     fun getOrganization(dfe: DataFetchingEnvironment): Organization? {
-        val user = dfe.getSource<User>()
         return this.organizationService.findById("YW50aGFhdGhpOi8vT3JnYW5pemF0aW9uLzM1YTI3NGNiLWMzNzUtNDYwNC1iNzhhLWM3ZGY1NDM5YjZjNA==")
     }
 }

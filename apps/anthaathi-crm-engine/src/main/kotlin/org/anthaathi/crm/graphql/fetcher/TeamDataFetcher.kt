@@ -23,4 +23,10 @@ class TeamDataFetcher(
         return EntityConnection(em, TeamEntity::class.java, teamService.teamFactory)
             .get(dfe)
     }
+
+    @DgsData(parentType = DgsConstants.TEAM.TYPE_NAME, field = DgsConstants.TEAM.Teams)
+    fun teams(dfe: DataFetchingEnvironment): Connection<Team> {
+        return EntityConnection(em, TeamEntity::class.java, teamService.teamFactory)
+            .get(dfe)
+    }
 }
