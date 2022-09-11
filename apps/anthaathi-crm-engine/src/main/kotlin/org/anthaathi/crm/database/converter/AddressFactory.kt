@@ -9,10 +9,18 @@ class AddressFactory: ConverterFactory<Address, AddressEntity> {
         get() = "Address"
 
     override fun fromEntity(entity: AddressEntity): Address {
-        // TODO: Create proper mapping
         return Address(
             id = IdGenerator.toGlobalId(type, entity.id.toString()),
+            type = entity.type,
+            addressLine1 = entity.addressLine1,
+            addressLine2 = entity.addressLine2,
+            addressLine3 = entity.addressLine3,
+            city = entity.city,
+            state = entity.state,
+            country = entity.country,
+            postalCode = entity.postalCode,
             createdAt = entity.createdAt!!,
+            updatedAt = entity.updatedAt
         )
     }
 }

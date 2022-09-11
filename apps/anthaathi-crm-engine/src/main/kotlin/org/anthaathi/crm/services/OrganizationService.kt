@@ -1,6 +1,7 @@
 package org.anthaathi.crm.services
 
 import graphql.relay.Relay.ResolvedGlobalId
+import org.anthaathi.crm.database.converter.OrganizationFactory
 import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.OrganizationEntityRepository
@@ -15,6 +16,7 @@ import java.util.*
 class OrganizationService(
     @Autowired val organizationEntityRepository: OrganizationEntityRepository,
 ) {
+    val factory = OrganizationFactory()
     fun findById(id: String): Organization? {
         val organizationId = IdGenerator.fromGlobalId(id)
         return findById(organizationId)

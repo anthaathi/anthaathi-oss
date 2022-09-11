@@ -11,7 +11,9 @@ class ProjectFactory : ConverterFactory<Project, ProjectEntity> {
         return Project(
             id = IdGenerator.toGlobalId(type, entity.id.toString()),
             name = entity.title!!,
+            spaces = null,
             description = entity.description,
+            template = null,
             createdAt = entity.createdAt!!,
             updatedAt = entity.updatedAt,
         )

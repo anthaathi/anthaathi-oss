@@ -1,6 +1,7 @@
 package org.anthaathi.crm.services
 
 import graphql.relay.Relay
+import org.anthaathi.crm.database.converter.SpaceFactory
 import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.SpaceFolderEntityRepository
@@ -14,6 +15,7 @@ import java.util.*
 class SpaceService(
     @Autowired val spaceFolderEntityRepository: SpaceFolderEntityRepository
 ) {
+    val factory = SpaceFactory()
     fun findById(id: String): Space? {
         val spaceFolderId = IdGenerator.fromGlobalId(id)
         return findById(spaceFolderId)

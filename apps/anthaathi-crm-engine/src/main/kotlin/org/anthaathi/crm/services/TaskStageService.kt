@@ -1,6 +1,7 @@
 package org.anthaathi.crm.services
 
 import graphql.relay.Relay
+import org.anthaathi.crm.database.converter.TaskStageFactory
 import org.anthaathi.crm.database.converter.fromEntity
 import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TaskStageEntityRepository
@@ -14,6 +15,7 @@ import java.util.*
 class TaskStageService(
     @Autowired val taskStageEntityRepository: TaskStageEntityRepository
 ) {
+    val factory = TaskStageFactory()
     fun findById(id: String): TaskStage? {
         val taskStageId = IdGenerator.fromGlobalId(id)
         return findById(taskStageId)

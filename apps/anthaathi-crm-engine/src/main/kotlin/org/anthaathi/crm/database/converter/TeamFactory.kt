@@ -12,6 +12,8 @@ class TeamFactory : ConverterFactory<Team, TeamEntity> {
             id = IdGenerator.toGlobalId(type, entity.id.toString()),
             name = entity.name!!,
             description = entity.description,
+            teams = null,
+            members = null,
             createdAt = entity.createdAt!!,
             updatedAt = entity.updatedAt,
         )
