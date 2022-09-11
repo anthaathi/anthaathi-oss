@@ -4,9 +4,13 @@ import org.anthaathi.crm.database.entity.CustomerOrganizationEntity
 import org.anthaathi.crm.types.CustomerOrganization
 import org.anthaathi.crm.utils.IdGenerator
 
-class CustomerOrganizationFactory : ConverterFactory<CustomerOrganization, CustomerOrganizationEntity> {
+class CustomerOrganizationFactory : ConverterFactory<CustomerOrganization, CustomerOrganizationEntity, Any> {
     override val type: String
         get() = "CustomerOrganization"
+
+    override fun toEntity(input: Any): CustomerOrganizationEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: CustomerOrganizationEntity): CustomerOrganization {
         return CustomerOrganization(

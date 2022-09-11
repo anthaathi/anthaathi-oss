@@ -10,9 +10,13 @@ import org.anthaathi.crm.utils.IdGenerator
 import java.time.OffsetTime
 import java.util.*
 
-class CustomerFactory : ConverterFactory<Customer, CustomerEntity> {
+class CustomerFactory : ConverterFactory<Customer, CustomerEntity, Any> {
     override val type: String
         get() = "Customer"
+
+    override fun toEntity(input: Any): CustomerEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: CustomerEntity): Customer {
         return Customer(

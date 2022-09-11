@@ -7,6 +7,7 @@ import org.apache.camel.builder.RouteBuilder;
 class CreateTask : RouteBuilder() {
     override fun configure() {
         from("direct:createTask")
+            .tracing()
             .routeId("direct-createTask")
             .process {
                 println(it.created)

@@ -8,6 +8,7 @@ import { Button } from 'baseui/button';
 import { Input, SIZE } from 'baseui/input';
 import { Icon } from '../../Features/Core/Components/Icon';
 import { RenderForm } from '../../Features/FormRender/Components/RenderForm';
+import { StandardGrid } from '../../Features/Core/Components/Grid';
 
 export function TaskCreateContainer() {
   const [current, setCurrent] = useState(0);
@@ -41,24 +42,7 @@ export function TaskCreateContainer() {
                   marginRight: 0,
                 })}
               >
-                <div
-                  className={css({
-                    display: 'grid',
-                    gridColumnGap: '12px',
-                    gridRowGap: 0,
-                    marginRight: '12px',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    [$theme.mediaQuery.small]: {
-                      gridTemplateColumns: 'repeat(1, 1fr)',
-                    },
-                    [$theme.mediaQuery.medium]: {
-                      gridTemplateColumns: 'repeat(2, 1fr)',
-                    },
-                    [$theme.mediaQuery.large]: {
-                      gridTemplateColumns: 'repeat(4, 1fr)',
-                    },
-                  })}
-                >
+                <StandardGrid className={css({})}>
                   <DashboardCard
                     onClick={() => {
                       setCurrent((prev) => prev + 1);
@@ -82,7 +66,7 @@ export function TaskCreateContainer() {
                       subTitle="Your pending tasks"
                     />
                   ))}
-                </div>
+                </StandardGrid>
               </div>
             </div>
           </NumberedStep>

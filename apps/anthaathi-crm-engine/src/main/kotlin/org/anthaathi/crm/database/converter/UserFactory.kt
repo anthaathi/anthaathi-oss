@@ -6,9 +6,13 @@ import org.anthaathi.crm.types.MobileNumber
 import org.anthaathi.crm.types.User
 import org.anthaathi.crm.utils.IdGenerator
 
-class UserFactory : ConverterFactory<User, UserEntity> {
+class UserFactory : ConverterFactory<User, UserEntity, Any> {
     override val type: String
         get() = "User"
+
+    override fun toEntity(input: Any): UserEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: UserEntity): User {
         val phoneNumber = Phonenumber.PhoneNumber()

@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { graphql, usePaginationFragment } from 'react-relay';
 import { ProjectSelection_projects$key } from '../../../../__generated__/ProjectSelection_projects.graphql';
-import { Button, KIND } from 'baseui/button';
+import { Button, KIND, SIZE } from 'baseui/button';
 import { AppWrapper } from '../../../Core/Components/AppWrapper';
 import { useStyletron } from 'baseui';
 import { expandBorderStyles } from 'baseui/styles';
 import { LabelMedium, LabelSmall } from 'baseui/typography';
 import { Link } from 'react-router-dom';
+import DashboardCard from '../../../Core/Components/DashboardCard';
+import { StandardGrid } from '../../../Core/Components/Grid';
+import { Icon } from '../../../Core/Components/Icon';
 
 const query = graphql`
   fragment ProjectSelection_projects on Query
@@ -39,46 +42,30 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
     $ref
   );
 
-  const [css, $theme] = useStyletron();
+  const [css] = useStyletron();
 
   return (
-    <AppWrapper $isDense={true}>
-      <ul className={css({ marginLeft: 0, marginRight: 0, listStyle: 'none' })}>
+    <>
+      <StandardGrid>
         {data.projects?.edges?.map((res, index) => (
-          <li
-            key={res?.node?.id || index}
-            className={css({
-              paddingTop: $theme.sizing.scale600,
-              paddingBottom: $theme.sizing.scale600,
-              paddingLeft: $theme.sizing.scale700,
-              paddingRight: $theme.sizing.scale700,
-              cursor: 'pointer',
-              marginBottom: $theme.sizing.scale400,
-              borderRadius: '10px',
-              transition: 'all ease .1s',
-              ':hover': {
-                backgroundColor: $theme.colors.backgroundLightAccent,
-              },
-              userSelect: 'none',
-              ...expandBorderStyles($theme.borders.border200),
-            })}
-          >
+          <div key={res?.node?.id || index}>
             <Link
-              to={`/${res?.node?.handle}/`}
-              className={css({ textDecoration: 'none' })}
+              to={`/project/${res?.node?.handle}/`}
+              className={css({
+                textDecoration: 'none',
+              })}
             >
-              <div className={css({ marginBottom: $theme.sizing.scale200 })}>
-                <LabelMedium $style={{ fontWeight: 600 }}>
-                  {res?.node?.name}
-                </LabelMedium>
-              </div>
-              <div>
-                <LabelSmall>{res?.node?.description}</LabelSmall>
-              </div>
+              <DashboardCard
+                title={res?.node?.name || ''}
+                subTitle={res?.node?.description || ''}
+                numberOfTask={<Icon icon="home" />}
+                badgeColor="#2B8FC5"
+                backgroundColor="#309FDB"
+              />
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </StandardGrid>
       {hasNext && (
         <Button
           isLoading={isLoadingNext}
@@ -89,12 +76,13 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
               },
             },
           }}
+          size={SIZE.compact}
           kind={KIND.secondary}
           onClick={() => loadNext(10)}
         >
           LOAD MORE
         </Button>
       )}
-    </AppWrapper>
+    </>
   );
 }

@@ -6,29 +6,23 @@ import com.netflix.graphql.dgs.InputArgument
 import org.anthaathi.crm.DgsConstants
 import org.anthaathi.crm.types.CreateTaskInput
 import org.anthaathi.crm.types.CreateTaskResponse
+import org.apache.camel.Produce
 import org.apache.camel.ProducerTemplate
-
 import org.springframework.beans.factory.annotation.Autowired
-
-
 
 
 @DgsComponent
 class TaskMutators(
     @Autowired
+    @Produce("direct:createTask")
     private val producerTemplate: ProducerTemplate
 ) {
     @DgsMutation(field = DgsConstants.MUTATION.CreateTask)
     fun createTask(
         @InputArgument input: CreateTaskInput
     ): CreateTaskResponse {
-        producerTemplate.start()
-
-        producerTemplate
-            .requestBody("direct:createTask", mapOf<String, String>())
-
-        producerTemplate.stop()
-
+        val result = producerTemplate
+            .requestBody(mapOf<String, String>(), List::class.java)
         return CreateTaskResponse()
     }
 }

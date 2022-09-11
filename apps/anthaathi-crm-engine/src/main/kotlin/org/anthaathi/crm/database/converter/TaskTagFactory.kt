@@ -4,9 +4,13 @@ import org.anthaathi.crm.database.entity.TaskTagEntity
 import org.anthaathi.crm.types.TaskTag
 import org.anthaathi.crm.utils.IdGenerator
 
-class TaskTagFactory : ConverterFactory<TaskTag, TaskTagEntity> {
+class TaskTagFactory : ConverterFactory<TaskTag, TaskTagEntity, Any> {
     override val type: String
         get() = "TaskTag"
+
+    override fun toEntity(input: Any): TaskTagEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: TaskTagEntity): TaskTag {
         return TaskTag(

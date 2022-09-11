@@ -1,6 +1,6 @@
 import { DefaultLayout } from './Features/Layouts/Components/DefaultLayout';
 import React, { Suspense } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import {
   Header,
   HeaderToggle,
@@ -12,41 +12,50 @@ import { NotificationContainer } from './Features/Core/Notification/Components/N
 import { FlexFill } from './Features/Core/Components/FlexFill';
 import { UserMenuHeader } from './Features/Authentication/Components/UserMenuHeader';
 import { CreateTaskPage } from './Pages/CreateTaskPage';
-import { graphql, useLazyLoadQuery } from 'react-relay';
-import { AppInfoQuery } from './__generated__/AppInfoQuery.graphql';
 import { ProjectSelectionPage } from './Pages/ProjectSelectionPage';
 import { ProjectViewPage } from './Pages/ProjectViewPage';
+import { Outlet } from 'react-router';
 
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 const CustomerPage = React.lazy(() => import('./Pages/CustomerPage'));
 const SpacePage = React.lazy(() => import('./Pages/SpacesPage'));
 
-const query = graphql`
-  query AppInfoQuery {
-    me @required(action: NONE) {
-      id
-    }
-  }
-`;
-
 function App() {
-  const data = useLazyLoadQuery<AppInfoQuery>(query, {});
-
   return (
     <>
-      <Header>
-        <HeaderWrapper>
-          <HeaderToggle />
-          <FlexFill />
-          <NotificationContainer />
-          <UserMenuHeader />
-        </HeaderWrapper>
-      </Header>
       <DefaultLayout>
-        <Suspense fallback={<p>Loading</p>}>
-          <Routes>
-            <Route index element={<ProjectSelectionPage />} />
-            <Route path=":project" element={<ProjectViewPage />}>
+        <Routes>
+          <Route
+            element={
+              <>
+                <Header>
+                  <HeaderWrapper>
+                    <HeaderToggle />
+                    <FlexFill />
+                    <NotificationContainer />
+                    <UserMenuHeader />
+                  </HeaderWrapper>
+                </Header>
+                <Outlet />
+              </>
+            }
+          >
+            <Route
+              index
+              element={
+                <Suspense fallback={<></>}>
+                  <ProjectSelectionPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="project/:project"
+              element={
+                <Suspense fallback={<></>}>
+                  <ProjectViewPage />
+                </Suspense>
+              }
+            >
               <Route index element={<HomePage />} />
               <Route path="customer" element={<CustomerPage />} />
               <Route path="spaces">
@@ -66,8 +75,8 @@ function App() {
                 </Route>
               </Route>
             </Route>
-          </Routes>
-        </Suspense>
+          </Route>
+        </Routes>
       </DefaultLayout>
     </>
   );

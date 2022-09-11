@@ -4,9 +4,13 @@ import org.anthaathi.crm.database.entity.StatusEntity
 import org.anthaathi.crm.types.Status
 import org.anthaathi.crm.utils.IdGenerator
 
-class StatusFactory : ConverterFactory<Status, StatusEntity> {
+class StatusFactory : ConverterFactory<Status, StatusEntity, Any> {
     override val type: String
         get() = "TaskStatus"
+
+    override fun toEntity(input: Any): StatusEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: StatusEntity): Status {
         return Status(

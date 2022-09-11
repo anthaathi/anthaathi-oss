@@ -59,7 +59,9 @@ export function DefaultLayoutContainer({
       spaces.spaces?.edges
         ?.filter((res) => res?.node)
         .map((res) => ({
-          itemId: `/${project}/spaces/${idDecoder(res?.node?.id || '')?.id}`,
+          itemId: `/project/${project}/spaces/${
+            idDecoder(res?.node?.id || '')?.id
+          }`,
           title: <SidebarItem title={res?.node?.name || ''} />,
         })) || []
     ).concat(
@@ -100,21 +102,21 @@ export function DefaultLayoutContainer({
         items={[
           {
             title: <SidebarItem icon="dashboard" title="Dashboard" />,
-            itemId: `/${project}/`,
+            itemId: `/project/${project}/`,
           },
           {
             title: <SidebarItem icon="plus-square-o" title="Raise Ticket" />,
-            itemId: `/${project}/raise-ticket`,
+            itemId: `/project/${project}/raise-ticket`,
           },
           {
             title: <SidebarItem header title="Spaces" />,
-            itemId: `/${project}/spaces`,
+            itemId: `/project/${project}/spaces`,
             subNav: spacesSubnav,
             ...{ header: true },
           },
           {
             title: <SidebarItem icon="users" title="Customers" />,
-            itemId: `/${project}/customer`,
+            itemId: `/project/${project}/customer`,
           },
         ]}
         activeItemId={pathname}
