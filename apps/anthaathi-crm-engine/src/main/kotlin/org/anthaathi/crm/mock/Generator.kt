@@ -199,7 +199,8 @@ class Generator {
                         name = "Something amazing Space name",
                         description = "Something amazing",
                         spaces = createSpace(dfe, depth = depth + 1),
-                        createdAt = OffsetDateTime.now()
+                        createdAt = OffsetDateTime.now(),
+                        handle = "as"
                     )
                 )
             ).get(dfe)
@@ -209,7 +210,8 @@ class Generator {
             Project(
                 id = IdGenerator.toGlobalId("Project", "1"),
                 name = "Project 1",
-                createdAt = OffsetDateTime.now()
+                createdAt = OffsetDateTime.now(),
+                handle = "something"
             ),
         )
 

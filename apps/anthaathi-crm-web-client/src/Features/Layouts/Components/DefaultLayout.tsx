@@ -15,35 +15,13 @@ import { DefaultLayoutFragment$key } from '../../../__generated__/DefaultLayoutF
 export interface DefaultLayoutProps {
   children: React.ReactNode;
   header?: React.ReactNode;
-  $ref: DefaultLayoutFragment$key;
 }
 
-export function DefaultLayout({ children, header, $ref }: DefaultLayoutProps) {
-  const spaces =
-    useFragment(
-      graphql`
-        fragment DefaultLayoutFragment on Project {
-          spaces {
-            edges {
-              node {
-                id
-                name
-              }
-            }
-          }
-        }
-      `,
-      $ref
-    ) || [];
-
+export function DefaultLayout({ children, header }: DefaultLayoutProps) {
   const [css, $theme] = useStyletron();
 
   const headerOpen = useRecoilValue(headerOpenAtom);
   const isActionSidebarMenu = useRecoilValue(miniActionbarActiveItemAtom);
-
-  const { pathname } = useLocation();
-
-  const navigate = useNavigate();
 
   return (
     <div
@@ -54,73 +32,6 @@ export function DefaultLayout({ children, header, $ref }: DefaultLayoutProps) {
       })}
     >
       {header}
-
-      <Sidebar
-        $style={{
-          transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
-        }}
-      >
-        <Navigation
-          items={[
-            {
-              title: <SidebarItem icon="dashboard" title="Dashboard" />,
-              itemId: '/',
-            },
-            {
-              title: (
-                <SidebarItem icon="layout-header-sidebar-left" title="Spaces" />
-              ),
-              itemId: '/spaces',
-              subNav: spaces.spaces?.edges
-                ?.filter((res) => res?.node)
-                .map((res) => ({
-                  itemId: `/spaces/${res?.node?.id}`,
-                  title: <SidebarItem title={res?.node?.name || ''} />,
-                })),
-            },
-            {
-              title: <SidebarItem icon="users" title="Customers" />,
-              itemId: '/customer',
-            },
-            {
-              title: <SidebarItem icon="check-circle-o" title="Todos" />,
-              itemId: '/todos',
-            },
-            {
-              title: <SidebarItem icon="calendar" title="Calendar" />,
-              itemId: '/calendar',
-            },
-            {
-              title: <SidebarItem icon="bell-o" title="Notifications" />,
-              itemId: '/notification',
-            },
-          ]}
-          activeItemId={pathname}
-          onChange={({ event, item }) => {
-            // prevent page reload
-            event.preventDefault();
-            navigate(item.itemId as never);
-          }}
-          overrides={{
-            NavItem: {
-              style: ({ $active }) => {
-                if (!$active) {
-                  return {
-                    paddingLeft: $theme.sizing.scale600,
-                    color: $theme.colors.primarySideBarA,
-                  };
-                }
-
-                return {
-                  paddingLeft: $theme.sizing.scale600,
-                  backgroundImage: $theme.colors.primarySideBarA,
-                  borderLeftColor: $theme.colors.primaryHeaderA,
-                };
-              },
-            },
-          }}
-        />
-      </Sidebar>
 
       <main
         id="main-scroll"
@@ -145,6 +56,98 @@ export function DefaultLayout({ children, header, $ref }: DefaultLayoutProps) {
 
       <Footer />
     </div>
+  );
+}
+
+export function DefaultLayoutContain({
+  $ref,
+}: {
+  $ref: DefaultLayoutFragment$key;
+}) {
+  const [, $theme] = useStyletron();
+
+  const { pathname } = useLocation();
+
+  const navigate = useNavigate();
+
+  const headerOpen = useRecoilValue(headerOpenAtom);
+
+  const spaces =
+    useFragment(
+      graphql`
+        fragment DefaultLayoutFragment on Project {
+          spaces {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+        }
+      `,
+      $ref
+    ) || [];
+
+  return (
+    <Sidebar
+      $style={{
+        transform: headerOpen ? 'translateX(0)' : 'translateX(-100%)',
+      }}
+    >
+      <Navigation
+        items={[
+          {
+            title: <SidebarItem icon="dashboard" title="Dashboard" />,
+            itemId: '/',
+          },
+          {
+            title: <SidebarItem icon="plus-square-o" title="Raise Ticket" />,
+            itemId: '/raise-ticket',
+          },
+          {
+            title: (
+              <SidebarItem icon="layout-header-sidebar-left" title="Spaces" />
+            ),
+            itemId: '/spaces',
+            subNav: spaces.spaces?.edges
+              ?.filter((res) => res?.node)
+              .map((res) => ({
+                itemId: `/spaces/${res?.node?.id}`,
+                title: <SidebarItem title={res?.node?.name || ''} />,
+              })),
+          },
+          {
+            title: <SidebarItem icon="users" title="Customers" />,
+            itemId: '/customer',
+          },
+        ]}
+        activeItemId={pathname}
+        onChange={({ event, item }) => {
+          // prevent page reload
+          event.preventDefault();
+          navigate(item.itemId as never);
+        }}
+        overrides={{
+          NavItem: {
+            style: ({ $active }) => {
+              if (!$active) {
+                return {
+                  paddingLeft: $theme.sizing.scale600,
+                  color: $theme.colors.primarySideBarA,
+                };
+              }
+
+              return {
+                paddingLeft: $theme.sizing.scale600,
+                backgroundImage: $theme.colors.primarySideBarA,
+                borderLeftColor: $theme.colors.primaryHeaderA,
+              };
+            },
+          },
+        }}
+      />
+    </Sidebar>
   );
 }
 

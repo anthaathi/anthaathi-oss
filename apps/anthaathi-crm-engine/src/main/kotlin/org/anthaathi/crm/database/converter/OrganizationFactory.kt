@@ -12,11 +12,8 @@ class OrganizationFactory: ConverterFactory<Organization, OrganizationEntity> {
         return Organization(
             id = IdGenerator.toGlobalId(type, entity.id.toString()),
             name = entity.name!!,
-            projects = null,
-            teams = null,
-            defaultProject = null,
             createdAt = entity.createdAt!!,
-            updatedAt = entity.updatedAt
+            updatedAt = entity.updatedAt,
         )
     }
 }
