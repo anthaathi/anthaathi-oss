@@ -30,7 +30,7 @@ class AddressDataFetcher(
 
     @DgsData(parentType = DgsConstants.CUSTOMER.TYPE_NAME, field = DgsConstants.CUSTOMER.Addresses)
     fun customerAddress(dfe: DataFetchingEnvironment): Connection<Address> {
-        val customer: Customer = dfe.getSource<Customer>()
+        val customer: Customer = dfe.getSource()
 
         return EntityConnection(em, AddressEntity::class.java, addressService.factory)
             .get(dfe)

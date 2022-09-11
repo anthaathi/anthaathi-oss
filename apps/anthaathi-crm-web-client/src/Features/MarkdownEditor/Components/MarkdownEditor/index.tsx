@@ -72,8 +72,6 @@ export function MarkdownEditor({ value, onChange, id }: MarkdownEditorProps) {
       if (!textareaRef.current) {
         return;
       }
-
-      console.log(contentToInsert);
     },
     [textareaRef]
   );

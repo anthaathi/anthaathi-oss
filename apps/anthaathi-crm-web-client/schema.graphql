@@ -296,7 +296,7 @@ type Space implements AuditTable & Node {
     name: String!
     spaces(after: String, before: String, first: Int, last: Int): SpaceConnection
     tasks(after: String, before: String, first: Int, last: Int): TaskConnection
-    tasksByStatuses(after: String, before: String, first: Int, last: Int): TaskByStatusConnection
+    tasksByStatuses(after: String, before: String, first: Int, last: Int): StatusConnection
     templates(after: String, before: String, first: Int, last: Int): TemplateConnection
     updatedAt: DateTime
 }
@@ -322,6 +322,7 @@ type Status implements AuditTable & Node {
     createdAt: DateTime!
     id: ID!
     name: String!
+    tasks(after: String, before: String, first: Int, last: Int): TaskConnection
     updatedAt: DateTime
 }
 
@@ -373,28 +374,6 @@ type TaskActivityEdge {
     cursor: String
     "Field node"
     node: TaskActivity
-}
-
-type TaskByStatus implements Node {
-    id: ID!
-    status: Status
-    tasks(after: String, before: String, first: Int, last: Int): TaskConnection
-}
-
-"TaskByStatus Connection"
-type TaskByStatusConnection {
-    "Field edges"
-    edges: [TaskByStatusEdge]
-    "Field pageInfo"
-    pageInfo: PageInfo
-}
-
-"TaskByStatus Edge"
-type TaskByStatusEdge {
-    "Field cursor"
-    cursor: String
-    "Field node"
-    node: TaskByStatus
 }
 
 type TaskComment implements AuditTable & Node & TaskActivity {

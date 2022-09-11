@@ -69,10 +69,8 @@ export const ListViewByStatuses = ({
           edges {
             node {
               id
-              status {
-                name
-                color
-              }
+              name
+              color
 
               ...SpaceListViewPageViewComponentTaskView_spaces
             }
@@ -91,7 +89,7 @@ export const ListViewByStatuses = ({
         }
 
         return (
-          <>
+          <React.Fragment key={task.node.id}>
             <div
               className={css({
                 padding: $theme.sizing.scale400,
@@ -105,12 +103,12 @@ export const ListViewByStatuses = ({
                   fontWeight: 600,
                 }}
               >
-                {task.node.status?.name}
+                {task.node.name}
               </LabelMedium>
             </div>
             <ListView key={task.node.id} $ref={task.node} />
             <div className={css({ paddingBottom: '12px' })} />
-          </>
+          </React.Fragment>
         );
       })}
 
@@ -133,7 +131,7 @@ const ListView = ({
 
   const { hasNext, isLoadingNext, loadNext, data } = usePaginationFragment(
     graphql`
-      fragment SpaceListViewPageViewComponentTaskView_spaces on TaskByStatus
+      fragment SpaceListViewPageViewComponentTaskView_spaces on Status
       @argumentDefinitions(
         cursor: { type: "String" }
         count: { type: "Int", defaultValue: 5 }

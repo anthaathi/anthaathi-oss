@@ -22,7 +22,7 @@ class DocumentDataFetcher(
 ) {
     @DgsData(parentType = DgsConstants.CUSTOMER.TYPE_NAME, field = DgsConstants.CUSTOMER.Documents)
     fun customerDocuments(dfe: DataFetchingEnvironment): Connection<Document> {
-        val customer: Customer = dfe.getSource<Customer>()
+        val customer: Customer = dfe.getSource()
 
         return EntityConnection(em, DocumentEntity::class.java, documentService.factory)
             .get(dfe)
@@ -30,7 +30,7 @@ class DocumentDataFetcher(
 
     @DgsData(parentType = DgsConstants.TASKSTAGE.TYPE_NAME, field = DgsConstants.TASKSTAGE.Documents)
     fun taskStageDocuments(dfe: DataFetchingEnvironment): Connection<Document> {
-        val taskStage: TaskStage = dfe.getSource<TaskStage>()
+        val taskStage: TaskStage = dfe.getSource()
 
         return EntityConnection(em, DocumentEntity::class.java, documentService.factory)
             .get(dfe)
