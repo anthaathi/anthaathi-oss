@@ -8,6 +8,7 @@ import org.anthaathi.crm.DgsConstants
 import org.anthaathi.crm.database.entity.TeamEntity
 import org.anthaathi.crm.graphql.relay.EntityConnection
 import org.anthaathi.crm.services.TeamService
+import org.anthaathi.crm.types.Organization
 import org.anthaathi.crm.types.Team
 import org.springframework.beans.factory.annotation.Autowired
 import javax.persistence.EntityManager
@@ -20,12 +21,16 @@ class TeamDataFetcher(
 ) {
     @DgsData(parentType = DgsConstants.ORGANIZATION.TYPE_NAME, field = DgsConstants.ORGANIZATION.Teams)
     fun teamsForOrganization(dfe: DataFetchingEnvironment): Connection<Team> {
+        val organization: Organization = dfe.getSource<Organization>()
+
         return EntityConnection(em, TeamEntity::class.java, teamService.teamFactory)
             .get(dfe)
     }
 
     @DgsData(parentType = DgsConstants.TEAM.TYPE_NAME, field = DgsConstants.TEAM.Teams)
-    fun teams(dfe: DataFetchingEnvironment): Connection<Team> {
+    fun teamsForTeam(dfe: DataFetchingEnvironment): Connection<Team> {
+        val team: Team = dfe.getSource<Team>()
+
         return EntityConnection(em, TeamEntity::class.java, teamService.teamFactory)
             .get(dfe)
     }

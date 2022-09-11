@@ -4,7 +4,6 @@ import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsQuery
 import com.netflix.graphql.dgs.InputArgument
 import graphql.schema.DataFetchingEnvironment
-import org.anthaathi.crm.DgsConstants
 import org.anthaathi.crm.services.*
 import org.anthaathi.crm.types.Node
 import org.anthaathi.crm.utils.IdGenerator
@@ -18,10 +17,16 @@ class NodeDataFetcher(
     @Autowired val taskStageService: TaskStageService,
     @Autowired val taskCommentService: TaskCommentService,
     @Autowired val userService: UserService,
-    @Autowired val projectService: ProjectService
+    @Autowired val projectService: ProjectService,
+    val addressService: AddressService,
+    val customerOrganizationService: CustomerOrganizationService,
+    val customerService: CustomerService,
+    val documentService: DocumentService,
+    val taskTagService: TaskTagService,
+    val teamService: TeamService
 ) {
 
-    @DgsQuery(field = DgsConstants.QUERY.Node)
+    @DgsQuery
     fun node(@InputArgument id: String, dfe: DataFetchingEnvironment): Node? {
         val globalId = IdGenerator.fromGlobalId(id)
 
@@ -33,6 +38,12 @@ class NodeDataFetcher(
             "TaskComment" -> return taskCommentService.findById(globalId)
             "User" -> return userService.findById(globalId)
             "Project" -> return projectService.findById(globalId)
+            "Address" -> return addressService.findById(globalId)
+            "CustomerOrganization" -> return customerOrganizationService.findById(globalId)
+            "Customer" -> return customerService.findById(globalId)
+            "Document" -> return documentService.findById(globalId)
+            "TaskTag" -> return taskTagService.findById(globalId)
+            "Team" -> return teamService.findById(globalId)
         }
 
         return null

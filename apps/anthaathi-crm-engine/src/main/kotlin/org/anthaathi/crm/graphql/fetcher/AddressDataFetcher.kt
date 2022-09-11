@@ -27,8 +27,8 @@ class AddressDataFetcher(
 
     @DgsData(parentType = DgsConstants.CUSTOMER.TYPE_NAME, field = DgsConstants.CUSTOMER.Addresses)
     fun customerAddress(dfe: DataFetchingEnvironment): Connection<Address> {
-        // TODO: add where condition
         val customer: Customer = dfe.getSource<Customer>()
+
         return EntityConnection(em, AddressEntity::class.java, addressService.factory)
             .get(dfe)
     }
