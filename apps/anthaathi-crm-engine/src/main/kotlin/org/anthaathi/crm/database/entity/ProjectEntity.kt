@@ -22,6 +22,9 @@ open class ProjectEntity : PagableEntity {
     @Column(name = "description", nullable = false)
     open var description: String? = null
 
+    @Column(name = "handle", nullable = false, length = 50, unique = true)
+    open var handle: String? = null
+
     @Column(name = "organization_id", nullable = false)
     open var organizationId: UUID? = null
 

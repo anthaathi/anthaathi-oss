@@ -14,6 +14,7 @@ class ProjectFactory : ConverterFactory<Project, ProjectEntity> {
             description = entity.description,
             createdAt = entity.createdAt!!,
             updatedAt = entity.updatedAt,
+            handle = entity.handle!!,
         )
     }
 }

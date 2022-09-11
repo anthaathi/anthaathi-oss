@@ -21,6 +21,8 @@ class ProjectService(
             return null
         }
 
+        println(id.id)
+
         val result = projectEntityRepository.findById(UUID.fromString(id.id))
 
         if (!result.isPresent) {
@@ -32,5 +34,10 @@ class ProjectService(
 
     fun findById(id: String): Project? {
         return findById(IdGenerator.fromGlobalId(id))
+    }
+
+    fun findByHandle(handle: String): Project? {
+        val result = projectEntityRepository.findByHandle(handle) ?: return null
+        return factory.fromEntity(result)
     }
 }

@@ -22,6 +22,7 @@ const query = graphql`
           id
           name
           description
+          handle
         }
       }
     }
@@ -63,7 +64,7 @@ export function ProjectSelection({ $ref }: ProjectSelectionProps) {
             })}
           >
             <Link
-              to={`/${res?.node?.id}`}
+              to={`/${res?.node?.handle}`}
               className={css({ textDecoration: 'none' })}
             >
               <div className={css({ marginBottom: $theme.sizing.scale200 })}>
