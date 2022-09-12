@@ -18,7 +18,9 @@ title: Anthaathi Private Limited
 <body>
 {% renderFile './src/_includes/components/announcement.11ty.js' %}
 {% renderFile './src/_includes/components/navigate.11ty.js' %}
-{{ content | safe }}
+<div class="root">
+    {{ content | safe }}
+</div>
 {% renderFile './src/_includes/style.11ty.js' %}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>

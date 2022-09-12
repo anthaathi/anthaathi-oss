@@ -181,23 +181,27 @@ function renderClients() {
 
 module.exports = () => {
   return `
+    <div data-aos="zoom-out-up">
     ${components.hero(
       `
-      <div class="${style.renderStyle({ width: '1344px', maxWidth: '100%' })}">
-        <h1 class="${style.renderStyle({
-          margin: '0',
-          width: '100%',
-          fontSize: '3rem',
-          maxWidth: '60%',
-        })}">
-          Development, Cybersecurity, AI, and more.
-        </h1>
-        <h3 class="${style.renderStyle({ marginBottom: '2.5rem' })}">
-          See how we escalate technology and security for the digital age.
-        </h3>
-        ${components.largeButton('Get Started', '/get-started')}      
-      </div>
-  `,
+          <div class="${style.renderStyle({
+            width: '1344px',
+            maxWidth: '100%',
+          })}">
+            <h1 class="${style.renderStyle({
+              margin: '0',
+              width: '100%',
+              fontSize: '3rem',
+              maxWidth: '60%',
+            })}">
+              Development, Cybersecurity, AI, and more.
+            </h1>
+            <h3 class="${style.renderStyle({ marginBottom: '2.5rem' })}">
+              See how we escalate technology and security for the digital age.
+            </h3>
+            ${components.largeButton('Get Started', '/get-started')}      
+          </div>
+      `,
       {
         minHeight: '90vh',
         [theme.mediaQuery.medium]: {
@@ -205,16 +209,14 @@ module.exports = () => {
         },
       },
     )}
-  <div data-aos="fade-up">
+    </div>
+  <div data-aos="zoom-out-up">
     ${renderProductHeader()}
   </div>
 
     ${renderProduct()}
-           
-        ${renderProductHeader('About Us')}
-
-
-  ${renderClientHero()}
+    ${renderProductHeader('About Us')}
+    ${renderClientHero()}
   `;
 };
 
