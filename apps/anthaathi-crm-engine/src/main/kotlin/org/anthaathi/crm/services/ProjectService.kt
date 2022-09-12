@@ -15,15 +15,17 @@ class ProjectService(
     @Autowired val projectEntityRepository: ProjectEntityRepository,
 ) {
     val factory = ProjectFactory()
+    fun findById(id: String): Project? {
+        val projectId = IdGenerator.fromGlobalId(id)
+        return findById(projectId)
+    }
 
-    fun findById(id: ResolvedGlobalId): Project? {
-        if (factory.type != id.type) {
+    fun findById(resolvedGlobalId: ResolvedGlobalId): Project? {
+        if (factory.type != resolvedGlobalId.type) {
             return null
         }
 
-        println(id.id)
-
-        val result = projectEntityRepository.findById(UUID.fromString(id.id))
+        val result = projectEntityRepository.findById(UUID.fromString(resolvedGlobalId.id))
 
         if (!result.isPresent) {
             return null
@@ -32,12 +34,9 @@ class ProjectService(
         return factory.fromEntity(result.get())
     }
 
-    fun findById(id: String): Project? {
-        return findById(IdGenerator.fromGlobalId(id))
-    }
-
     fun findByHandle(handle: String): Project? {
         val result = projectEntityRepository.findByHandle(handle) ?: return null
+
         return factory.fromEntity(result)
     }
 }

@@ -7,7 +7,6 @@ import graphql.schema.DataFetchingEnvironment
 import org.anthaathi.crm.DgsConstants
 import org.anthaathi.crm.database.entity.CustomerOrganizationEntity
 import org.anthaathi.crm.graphql.relay.EntityConnection
-import org.anthaathi.crm.services.AddressService
 import org.anthaathi.crm.services.CustomerOrganizationService
 import org.anthaathi.crm.types.Customer
 import org.anthaathi.crm.types.CustomerOrganization

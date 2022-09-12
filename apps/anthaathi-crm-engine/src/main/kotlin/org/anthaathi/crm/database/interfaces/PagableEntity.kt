@@ -1,7 +1,6 @@
 package org.anthaathi.crm.database.interfaces
 
 import java.time.OffsetDateTime
-import javax.persistence.Column
 
 interface PagableEntity {
     var createdAt: OffsetDateTime?
@@ -10,7 +9,7 @@ interface PagableEntity {
 
     companion object {
         fun gqlType(): String {
-            return "";
+            return ""
         }
     }
 }

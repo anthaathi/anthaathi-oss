@@ -80,7 +80,6 @@ export function SidebarSelectorText({
                   copyArray.findIndex((obj) => obj.id === data.id),
                   1
                 );
-                console.log(copyArray);
                 setValue(copyArray);
               }
             }}
@@ -194,7 +193,6 @@ const CardType = ({
                     copyArray.findIndex((obj) => obj.id === data.id),
                     1
                   );
-                  console.log(copyArray);
                   setValue(copyArray);
                 } else {
                   const copyArray = [...value];

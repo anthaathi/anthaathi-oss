@@ -4,8 +4,11 @@ import org.anthaathi.crm.database.entity.ProjectEntity
 import org.anthaathi.crm.types.Project
 import org.anthaathi.crm.utils.IdGenerator
 
-class ProjectFactory : ConverterFactory<Project, ProjectEntity> {
+class ProjectFactory : ConverterFactory<Project, ProjectEntity, Any> {
     override val type = "Project"
+    override fun toEntity(input: Any): ProjectEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: ProjectEntity): Project {
         return Project(

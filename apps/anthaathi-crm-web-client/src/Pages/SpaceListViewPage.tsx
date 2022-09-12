@@ -7,7 +7,7 @@ import { graphql, useFragment, usePaginationFragment } from 'react-relay';
 import { SpaceListViewPage$key } from '../__generated__/SpaceListViewPage.graphql';
 import { SpaceListViewPageViewComponentTaskView_spaces$key } from '../__generated__/SpaceListViewPageViewComponentTaskView_spaces.graphql';
 import { SpaceListViewPageViewComponent_spaces$key } from '../__generated__/SpaceListViewPageViewComponent_spaces.graphql';
-import { Button } from 'baseui/button';
+import { Button, KIND, SIZE } from 'baseui/button';
 import { LabelMedium, LabelSmall } from 'baseui/typography';
 
 export const SpaceListViewPage = forwardRef<
@@ -69,10 +69,8 @@ export const ListViewByStatuses = ({
           edges {
             node {
               id
-              status {
-                name
-                color
-              }
+              name
+              color
 
               ...SpaceListViewPageViewComponentTaskView_spaces
             }
@@ -91,7 +89,7 @@ export const ListViewByStatuses = ({
         }
 
         return (
-          <>
+          <React.Fragment key={task.node.id}>
             <div
               className={css({
                 padding: $theme.sizing.scale400,
@@ -105,18 +103,32 @@ export const ListViewByStatuses = ({
                   fontWeight: 600,
                 }}
               >
-                {task.node.status?.name}
+                {task.node.name}
               </LabelMedium>
             </div>
             <ListView key={task.node.id} $ref={task.node} />
             <div className={css({ paddingBottom: '12px' })} />
-          </>
+          </React.Fragment>
         );
       })}
 
       {hasNext && (
-        <Button onClick={() => loadNext(10)} isLoading={isLoadingNext}>
-          Load more
+        <Button
+          onClick={() => loadNext(10)}
+          isLoading={isLoadingNext}
+          size={SIZE.compact}
+          kind={KIND.secondary}
+          overrides={{
+            Root: {
+              style: {
+                width: 'calc(100% - 24px)',
+                marginLeft: '12px',
+                marginRight: '12px',
+              },
+            },
+          }}
+        >
+          LOAD MORE
         </Button>
       )}
     </>
@@ -133,7 +145,7 @@ const ListView = ({
 
   const { hasNext, isLoadingNext, loadNext, data } = usePaginationFragment(
     graphql`
-      fragment SpaceListViewPageViewComponentTaskView_spaces on TaskByStatus
+      fragment SpaceListViewPageViewComponentTaskView_spaces on Status
       @argumentDefinitions(
         cursor: { type: "String" }
         count: { type: "Int", defaultValue: 5 }
@@ -182,7 +194,17 @@ const ListView = ({
         );
       })}
       {hasNext && (
-        <Button onClick={() => loadNext(10)} isLoading={isLoadingNext}>
+        <Button
+          onClick={() => loadNext(10)}
+          isLoading={isLoadingNext}
+          overrides={{
+            Root: {
+              style: {
+                width: '100%',
+              },
+            },
+          }}
+        >
           Load more
         </Button>
       )}

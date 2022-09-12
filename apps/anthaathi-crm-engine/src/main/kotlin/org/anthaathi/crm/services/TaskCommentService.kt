@@ -2,8 +2,6 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay
 import org.anthaathi.crm.database.converter.TaskCommentFactory
-import org.anthaathi.crm.database.converter.fromEntity
-import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TaskCommentEntityRepository
 import org.anthaathi.crm.types.TaskComment
 import org.anthaathi.crm.utils.IdGenerator
@@ -22,7 +20,7 @@ class TaskCommentService(
     }
 
     fun findById(resolvedGlobalId: Relay.ResolvedGlobalId): TaskComment? {
-        if (TaskComment.type() != resolvedGlobalId.type) {
+        if (factory.type != resolvedGlobalId.type) {
             return null
         }
 
@@ -33,6 +31,6 @@ class TaskCommentService(
             return null
         }
 
-        return TaskComment.fromEntity(entity.get())
+        return factory.fromEntity(entity.get())
     }
 }

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { Toolbar } from '../Toolbar';
 import { useState } from 'react';
 import { ProjectSelectionButton } from '../../../Project/Component/ProjectSelectionButton';
+import { useLocation } from 'react-router';
 
 export const Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
@@ -35,42 +36,45 @@ export const HeaderWrapper = styled('div', () => ({
 export function HeaderToggle() {
   const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
   const [css, $theme] = useStyletron();
+  const { pathname } = useLocation();
 
   const [isHovering, setIsHovering] = useState(false);
 
   return (
     <Toolbar>
-      <Button
-        kind={KIND.secondary}
-        size={SIZE.compact}
-        onMouseOver={() => {
-          setIsHovering(true);
-        }}
-        onMouseOut={() => {
-          setIsHovering(false);
-        }}
-        overrides={{
-          Root: {
-            style: {
-              width: '36px',
-              height: '36px',
-              paddingLeft: '0px',
-              paddingRight: '0px',
-              paddingTop: '0px',
-              paddingBottom: '0px',
-              backgroundColor: $theme.colors.primaryHeaderB,
-              ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+      {pathname !== '/' && (
+        <Button
+          kind={KIND.secondary}
+          size={SIZE.compact}
+          onMouseOver={() => {
+            setIsHovering(true);
+          }}
+          onMouseOut={() => {
+            setIsHovering(false);
+          }}
+          overrides={{
+            Root: {
+              style: {
+                width: '36px',
+                height: '36px',
+                paddingLeft: '0px',
+                paddingRight: '0px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+                backgroundColor: $theme.colors.primaryHeaderB,
+                ':hover': { backgroundColor: $theme.colors.primaryHeaderB },
+              },
             },
-          },
-        }}
-        onClick={() => setHeaderOpen((prev) => !prev)}
-      >
-        {headerOpen && isHovering ? (
-          <Delete color="#fff" size={20} />
-        ) : (
-          <Menu color="#fff" size={20} />
-        )}
-      </Button>
+          }}
+          onClick={() => setHeaderOpen((prev) => !prev)}
+        >
+          {headerOpen && isHovering ? (
+            <Delete color="#fff" size={20} />
+          ) : (
+            <Menu color="#fff" size={20} />
+          )}
+        </Button>
+      )}
 
       <ToolbarTitle $as={Link} to="/">
         Anthaathi CRM

@@ -1,16 +1,37 @@
 package org.anthaathi.crm.database.converter
 
 import org.anthaathi.crm.DgsConstants
+import org.anthaathi.crm.database.entity.SpaceFolderEntity
 import org.anthaathi.crm.database.entity.TaskEntity
+import org.anthaathi.crm.types.CreateTaskInput
 import org.anthaathi.crm.types.Status
 import org.anthaathi.crm.types.Task
 import org.anthaathi.crm.utils.IdGenerator
 import java.time.OffsetTime
+import java.util.UUID
 import kotlin.random.Random
 
-class TaskFactory: ConverterFactory<Task, TaskEntity> {
+class TaskFactory : ConverterFactory<Task, TaskEntity, CreateTaskInput> {
     override val type: String
         get() = "Task"
+
+    override fun toEntity(input: CreateTaskInput): TaskEntity {
+        val entity = TaskEntity()
+
+        entity.spaceFolder = SpaceFolderEntity()
+
+        val spaceId = IdGenerator.fromGlobalId(input.space).let {
+            if (it.type != "Space") {
+                throw Error("Invalid type")
+            }
+
+            UUID.fromString(it.id)
+        }
+
+        entity.spaceFolder!!.id = spaceId
+
+        return entity
+    }
 
     override fun fromEntity(entity: TaskEntity): Task {
         return Task(

@@ -4,8 +4,12 @@ import org.anthaathi.crm.database.entity.TeamEntity
 import org.anthaathi.crm.types.Team
 import org.anthaathi.crm.utils.IdGenerator
 
-class TeamFactory : ConverterFactory<Team, TeamEntity> {
+class TeamFactory : ConverterFactory<Team, TeamEntity, Any> {
     override val type = "Team"
+
+    override fun toEntity(input: Any): TeamEntity {
+        TODO("Not yet implemented")
+    }
 
     override fun fromEntity(entity: TeamEntity): Team {
         return Team(

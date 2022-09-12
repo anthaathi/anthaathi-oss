@@ -2,9 +2,9 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay
 import org.anthaathi.crm.database.converter.TaskFactory
-import org.anthaathi.crm.database.converter.fromEntity
-import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TaskEntityRepository
+import org.anthaathi.crm.types.CreateTaskInput
+import org.anthaathi.crm.types.CreateTaskResponse
 import org.anthaathi.crm.types.Task
 import org.anthaathi.crm.utils.IdGenerator
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,13 +16,14 @@ class TaskService(
     @Autowired val taskEntityRepository: TaskEntityRepository
 ) {
     val factory = TaskFactory()
+
     fun findById(id: String): Task? {
         val taskId = IdGenerator.fromGlobalId(id)
         return findById(taskId)
     }
 
     fun findById(resolvedGlobalId: Relay.ResolvedGlobalId): Task? {
-        if (Task.type() != resolvedGlobalId.type) {
+        if (factory.type != resolvedGlobalId.type) {
             return null
         }
 
@@ -33,6 +34,11 @@ class TaskService(
             return null
         }
 
-        return Task.fromEntity(entity.get())
+        return factory.fromEntity(entity.get())
+    }
+
+    fun createTask(input: CreateTaskInput): CreateTaskResponse {
+        val result = taskEntityRepository.save(factory.toEntity(input))
+        return CreateTaskResponse(response = factory.fromEntity(result))
     }
 }

@@ -2,8 +2,6 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay.ResolvedGlobalId
 import org.anthaathi.crm.database.converter.UserFactory
-import org.anthaathi.crm.database.converter.fromEntity
-import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.UserEntityRepository
 import org.anthaathi.crm.types.User
 import org.anthaathi.crm.utils.IdGenerator

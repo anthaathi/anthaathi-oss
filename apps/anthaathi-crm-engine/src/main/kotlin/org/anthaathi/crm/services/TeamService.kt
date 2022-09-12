@@ -2,9 +2,7 @@ package org.anthaathi.crm.services
 
 import graphql.relay.Relay
 import org.anthaathi.crm.database.converter.TeamFactory
-import org.anthaathi.crm.database.converter.type
 import org.anthaathi.crm.database.repository.TeamEntityRepository
-import org.anthaathi.crm.types.TaskStage
 import org.anthaathi.crm.types.Team
 import org.anthaathi.crm.utils.IdGenerator
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,7 +12,7 @@ import java.util.*
 @Component
 class TeamService(
     @Autowired val
-     teamEntityRepository: TeamEntityRepository
+    teamEntityRepository: TeamEntityRepository
 ) {
     val teamFactory = TeamFactory()
 
@@ -24,7 +22,7 @@ class TeamService(
     }
 
     fun findById(resolvedGlobalId: Relay.ResolvedGlobalId): Team? {
-        if (TaskStage.type() != resolvedGlobalId.type) {
+        if (teamFactory.type != resolvedGlobalId.type) {
             return null
         }
 
