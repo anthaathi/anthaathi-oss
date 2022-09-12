@@ -19,7 +19,7 @@ import javax.persistence.criteria.CriteriaQuery
 class EntityConnection<T, U : PagableEntity>(
     private val entityManager: EntityManager,
     private val entity: Class<U>,
-    private val factory: ConverterFactory<T, U>,
+    private val factory: ConverterFactory<T, U, *>,
 ) : DataFetcher<Connection<T>> {
     override fun get(environment: DataFetchingEnvironment?): Connection<T> {
         val edges = buildEdges(environment)
