@@ -1,0 +1,19 @@
+{
+  "name": "@anthaathi/website",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "eleventy --serve --input src",
+    "build": "eleventy --input src"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "clean-css": "^5.3.1",
+    "html-minifier": "^4.0.0",
+    "lit": "^2.3.1",
+    "styletron-engine-atomic": "^1.5.0",
+    "terser": "^5.15.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-navigation": "^0.3.5"
+  }
+}

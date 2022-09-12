@@ -60,3 +60,6 @@ cmake-build-debug
 /apps/anthaathi-commerce-mobile-client/android/app/src/main/assets/index.android.bundle
 /.jpb/jpb-settings.xml
 /.jpb/persistence-units.xml
+
+## WEBSITE OUTPUT ##
+/website/_site/
