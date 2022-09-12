@@ -115,7 +115,7 @@ export function DefaultLayoutContainer({
             ...{ header: true },
           },
           {
-            title: <SidebarItem icon="users" title="Customers" />,
+            title: <SidebarItem icon="users" title="Contacts" />,
             itemId: `/project/${project}/customer`,
           },
         ]}

@@ -7,7 +7,8 @@
     "apps/anthaathi-commerce-mobile-client",
     "apps/anthaathi-crm-web-client",
     "tools/node-tooling",
-    "docs"
+    "docs",
+    "website"
   ],
   "dependenciesMeta": {
     "anthaathicommercemobile": {
