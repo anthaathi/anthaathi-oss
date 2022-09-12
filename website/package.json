@@ -2,7 +2,8 @@
   "name": "@anthaathi/website",
   "version": "0.0.0",
   "scripts": {
-    "dev": "eleventy --serve --input src"
+    "dev": "eleventy --serve --input src",
+    "build": "eleventy --input src"
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
