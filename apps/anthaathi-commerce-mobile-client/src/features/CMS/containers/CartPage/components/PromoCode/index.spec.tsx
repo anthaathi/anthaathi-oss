@@ -21,21 +21,6 @@ describe('PromoCode', () => {
     expect(temp.queryByTestId('promoCode')).toBeTruthy();
   });
 
-  it('should call when we call tap handlePress', function () {
-    const onpress = jest.fn();
-
-    const temp = render(
-      <ThemeProvider>
-        <IntlProvider locale="en-US" messages={locale}>
-          <PromoCode title="Add your promo code" handlePress={onpress} />
-        </IntlProvider>
-      </ThemeProvider>,
-    );
-
-    fireEvent.press(temp.queryByTestId('handlePress')!);
-    expect(onpress).toBeCalledTimes(1);
-  });
-
   it('should have PromoCode title', () => {
     const temp = render(
       <ThemeProvider>
