@@ -4,6 +4,7 @@ import {Button, Text, TextInput, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {MD3Colors} from 'react-native-paper/lib/typescript/types';
 import {CartPageComponentType} from '../../../../types/common';
+import {useIntl} from 'react-intl';
 
 export interface PromoCodeProps {
   title: string;
@@ -11,6 +12,7 @@ export interface PromoCodeProps {
 
 const PromoCode = (props: PromoCodeProps) => {
   const theme = useTheme();
+  const intl = useIntl();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View testID="promoCode">
@@ -68,12 +70,12 @@ const PromoCode = (props: PromoCodeProps) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={{color: '#364A15', fontSize: 16, fontWeight: '700'}}>
-              Add New Coupon Code
+              {intl.formatMessage({defaultMessage: 'Add New Coupon Code'})}
             </Text>
 
             <TextInput
               mode="flat"
-              label={'Coupon Code'}
+              label={intl.formatMessage({defaultMessage: 'Coupon Code'})}
               style={{
                 backgroundColor: '#fff',
                 fontSize: 14,
@@ -99,7 +101,7 @@ const PromoCode = (props: PromoCodeProps) => {
                 onPress={() => {
                   setModalVisible(!modalVisible);
                 }}>
-                Cancel
+                {intl.formatMessage({defaultMessage: 'Cancel'})}
               </Button>
               <Button
                 mode="contained"
@@ -109,7 +111,7 @@ const PromoCode = (props: PromoCodeProps) => {
                 onPress={() => {
                   setModalVisible(!modalVisible);
                 }}>
-                Apply
+                {intl.formatMessage({defaultMessage: 'Apply'})}
               </Button>
             </View>
           </View>

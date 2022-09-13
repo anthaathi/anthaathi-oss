@@ -178,9 +178,12 @@ const CartPage: React.FC<
                 key: '1',
                 subtotal: {currency: 'AED', price: productTotalPrice},
                 discount: {currency: 'AED', price: 0},
-                promoDiscount: {currency: 'AED', price: 0},
+                taxAmount: {currency: 'AED', price: productTotalPrice * 0.05},
                 shippingCharges: {currency: 'AED', price: 0},
-                total: {currency: 'AED', price: productTotalPrice},
+                total: {
+                  currency: 'AED',
+                  price: productTotalPrice + productTotalPrice * 0.05,
+                },
               },
             ]}
           />

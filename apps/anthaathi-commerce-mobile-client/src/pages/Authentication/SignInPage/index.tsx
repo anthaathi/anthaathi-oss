@@ -3,10 +3,12 @@ import React from 'react';
 import {Button, Text, TextInput} from 'react-native-paper';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../types/Route';
+import {useIntl} from 'react-intl';
 
 const SignInPage = (
   props: NativeStackScreenProps<RootStackParamList, 'SignIn'>,
 ) => {
+  const intl = useIntl();
   const [passwordShow, setPasswordShow] = React.useState(true);
   return (
     <View
@@ -36,7 +38,9 @@ const SignInPage = (
         <View style={{marginVertical: 15}}>
           <TextInput
             mode="flat"
-            label={'Username or email address'}
+            label={intl.formatMessage({
+              defaultMessage: 'Username or email address',
+            })}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -48,7 +52,7 @@ const SignInPage = (
           />
           <TextInput
             mode="flat"
-            label={'Password'}
+            label={intl.formatMessage({defaultMessage: 'Password'})}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -81,7 +85,7 @@ const SignInPage = (
                 fontWeight: '600',
                 fontSize: 13,
               }}>
-              Forgot Password?
+              {intl.formatMessage({defaultMessage: 'Forgot Password?'})}
             </Text>
           </TouchableOpacity>
         </View>
@@ -97,7 +101,7 @@ const SignInPage = (
           onPress={() => {
             props.navigation.navigate('Dashboard');
           }}>
-          Sign In
+          {intl.formatMessage({defaultMessage: 'Sign In'})}
         </Button>
 
         <View
@@ -109,7 +113,7 @@ const SignInPage = (
             justifyContent: 'center',
           }}>
           <Text style={{fontWeight: '500', fontSize: 14}}>
-            Don't have an account?
+            {intl.formatMessage({defaultMessage: "Don't have an account?"})}
           </Text>
           <TouchableOpacity
             style={{paddingHorizontal: 10, paddingVertical: 10}}
@@ -117,7 +121,7 @@ const SignInPage = (
               props.navigation.navigate('SignUp');
             }}>
             <Text style={{color: '#0f8443', fontWeight: '700', fontSize: 13}}>
-              Sign Up
+              {intl.formatMessage({defaultMessage: 'Sign Up'})}
             </Text>
           </TouchableOpacity>
         </View>

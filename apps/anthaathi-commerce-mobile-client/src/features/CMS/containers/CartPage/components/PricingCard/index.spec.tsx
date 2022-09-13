@@ -15,7 +15,7 @@ describe('PricingCard', () => {
           <PricingCard
             subtotal={{currency: 'AED', price: 10.1}}
             discount={{currency: 'AED', price: 10.1}}
-            promoDiscount={{currency: 'AED', price: 10.1}}
+            taxAmount={{currency: 'AED', price: 10.1}}
             shippingCharges={{currency: 'AED', price: 0}}
             total={{currency: 'AED', price: 10.1}}
           />
@@ -34,7 +34,7 @@ describe('PricingCard', () => {
           <PricingCard
             subtotal={{currency: 'AED', price: 10.1}}
             discount={{currency: 'AED', price: 10.1}}
-            promoDiscount={{currency: 'AED', price: 10.1}}
+            taxAmount={{currency: 'AED', price: 10.1}}
             shippingCharges={{currency: 'AED', price: 0}}
             total={{currency: 'AED', price: 10.1}}
           />
