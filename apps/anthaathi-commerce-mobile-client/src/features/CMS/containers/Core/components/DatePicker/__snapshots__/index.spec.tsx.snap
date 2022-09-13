@@ -169,10 +169,17 @@ exports[`DatePicker should render the item 1`] = `
             ]
           }
         >
-          10/9/2022
+          12/9/2022
         </Text>
       </View>
     </View>
   </View>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    transparent={true}
+    visible={false}
+  />
 </View>
 `;

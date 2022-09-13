@@ -12,7 +12,7 @@ exports[`ProductList should render the item 1`] = `
   <RCTScrollView
     contentContainerStyle={
       {
-        "paddingBottom": 100,
+        "paddingBottom": 300,
       }
     }
     data={
@@ -134,7 +134,7 @@ exports[`ProductList should render the item 1`] = `
                         "alignItems": "flex-start",
                         "flexDirection": "row",
                         "justifyContent": "space-between",
-                        "width": 190,
+                        "width": 171,
                       }
                     }
                   >
@@ -167,6 +167,7 @@ exports[`ProductList should render the item 1`] = `
                                 "marginVertical": 2,
                               },
                               {
+                                "flexShrink": 1,
                                 "fontSize": 12,
                                 "fontWeight": "bold",
                                 "marginRight": 5,
