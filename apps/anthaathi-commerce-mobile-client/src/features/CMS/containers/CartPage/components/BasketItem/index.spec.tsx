@@ -167,7 +167,5 @@ describe('BasketItem', () => {
     expect(temp.queryByTestId('productName')?.children).toContain(
       'Capsicum mixed',
     );
-    expect(temp.queryByTestId('productPacking')?.children).toContain('500 gms');
-    // expect(temp.queryByTestId('productPrice')?.children).toContain(['$46.00']);
   });
 });

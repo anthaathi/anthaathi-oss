@@ -18,7 +18,7 @@ export interface PriceCurrencyProps {
 export interface PricingCardProps {
   subtotal: PriceCurrencyProps;
   discount: PriceCurrencyProps;
-  promoDiscount: PriceCurrencyProps;
+  taxAmount: PriceCurrencyProps;
   shippingCharges: PriceCurrencyProps;
   total: PriceCurrencyProps;
 }
@@ -45,17 +45,17 @@ const PricingCard = (props: PricingCardProps) => {
           })}
         />
         <ViewText
+          title={intl.formatMessage({defaultMessage: 'Tax (5% VAT)'})}
+          subtitle={intl.formatNumber(props.taxAmount.price, {
+            style: 'currency',
+            currency: props.taxAmount.currency,
+          })}
+        />
+        <ViewText
           title={intl.formatMessage({defaultMessage: 'Discount'})}
           subtitle={intl.formatNumber(props.discount.price, {
             style: 'currency',
             currency: props.discount.currency,
-          })}
-        />
-        <ViewText
-          title={intl.formatMessage({defaultMessage: 'Promo Discount'})}
-          subtitle={intl.formatNumber(props.promoDiscount.price, {
-            style: 'currency',
-            currency: props.promoDiscount.currency,
           })}
         />
         <ViewText

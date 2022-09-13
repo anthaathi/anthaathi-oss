@@ -3,10 +3,12 @@ import React from 'react';
 import {Button, Checkbox, Text, TextInput} from 'react-native-paper';
 import {RootStackParamList} from '../../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useIntl} from 'react-intl';
 
 const SignUpPage = (
   props: NativeStackScreenProps<RootStackParamList, 'SignUp'>,
 ) => {
+  const intl = useIntl();
   const [passwordShow, setPasswordShow] = React.useState(true);
   const [checked, setChecked] = React.useState(false);
 
@@ -38,7 +40,7 @@ const SignUpPage = (
         <View style={{marginVertical: 15}}>
           <TextInput
             mode="flat"
-            label={'Username'}
+            label={intl.formatMessage({defaultMessage: 'Username'})}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -50,7 +52,7 @@ const SignUpPage = (
           />
           <TextInput
             mode="flat"
-            label={'Email address'}
+            label={intl.formatMessage({defaultMessage: 'Email address'})}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -62,7 +64,7 @@ const SignUpPage = (
           />
           <TextInput
             mode="flat"
-            label={'Password'}
+            label={intl.formatMessage({defaultMessage: 'Password'})}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -83,7 +85,7 @@ const SignUpPage = (
           />
           <TextInput
             mode="flat"
-            label={'Phone number'}
+            label={intl.formatMessage({defaultMessage: 'Phone number'})}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -110,7 +112,7 @@ const SignUpPage = (
             }}
           />
           <Text style={{fontWeight: '500', fontSize: 14}}>
-            {'I agree with '}
+            {intl.formatMessage({defaultMessage: 'I agree with'}) + ' '}
           </Text>
           <TouchableOpacity onPress={() => console.log('Pressed')}>
             <Text
@@ -120,7 +122,7 @@ const SignUpPage = (
                 fontSize: 13,
                 textDecorationLine: 'underline',
               }}>
-              Terms and Conditions
+              {intl.formatMessage({defaultMessage: 'Terms and Conditions'})}
             </Text>
           </TouchableOpacity>
         </View>
@@ -134,7 +136,7 @@ const SignUpPage = (
             borderRadius: 32,
           }}
           labelStyle={{paddingVertical: 5}}>
-          Create an account
+          {intl.formatMessage({defaultMessage: 'Create an account'})}
         </Button>
 
         <View
@@ -146,14 +148,14 @@ const SignUpPage = (
             justifyContent: 'center',
           }}>
           <Text style={{fontWeight: '500', fontSize: 14, marginRight: 10}}>
-            OR
+            {intl.formatMessage({defaultMessage: 'OR'})}
           </Text>
           <TouchableOpacity
             onPress={() => {
               props.navigation.navigate('SignIn');
             }}>
             <Text style={{color: '#0f8443', fontWeight: '700', fontSize: 13}}>
-              Login to your account
+              {intl.formatMessage({defaultMessage: 'Login to your account'})}
             </Text>
           </TouchableOpacity>
         </View>
