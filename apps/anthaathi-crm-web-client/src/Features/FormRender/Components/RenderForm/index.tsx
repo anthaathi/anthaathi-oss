@@ -1,5 +1,5 @@
 import { Cell, Grid } from 'baseui/layout-grid';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 import { Responsive } from 'baseui/block';
@@ -84,6 +84,22 @@ export interface RenderFormProps {
 }
 
 export function RenderForm({ body, id }: RenderFormProps) {
+  const [, setFormValue] = useRecoilState(formValueAtom);
+
+  useEffect(() => {
+    const result: Record<string, object> = {};
+
+    body.forEach((res) => {
+      // eslint-disable-next-line
+      result[res.id] = (res as any).value;
+    });
+
+    setFormValue((prevValue) => ({
+      ...prevValue,
+      [id]: result,
+    }));
+  }, [id]);
+
   return (
     <FormKeyContext.Provider value={id}>
       <form>
@@ -111,8 +127,9 @@ export function RenderForm({ body, id }: RenderFormProps) {
   );
 }
 
-// eslint-disable-next-line no-unused-vars
-function useFormValue<T>(fieldId: string): [T, (_: T) => void] {
+function useFormValue<T>(
+  fieldId: string // eslint-disable-next-line no-unused-vars
+): [T, (_: T) => void] {
   const formKey = useContext(FormKeyContext);
 
   if (!formKey) {
