@@ -134,7 +134,7 @@ exports[`ProductList should render the item 1`] = `
                         "alignItems": "flex-start",
                         "flexDirection": "row",
                         "justifyContent": "space-between",
-                        "width": 171,
+                        "width": "100%",
                       }
                     }
                   >
@@ -181,6 +181,7 @@ exports[`ProductList should render the item 1`] = `
                     </Text>
                     <Text
                       allowFontScaling={false}
+                      onPress={[Function]}
                       selectable={false}
                       style={
                         [
@@ -189,7 +190,7 @@ exports[`ProductList should render the item 1`] = `
                             "fontSize": 18,
                           },
                           {
-                            "marginTop": 5,
+                            "padding": 8,
                           },
                           {
                             "fontFamily": "Entypo",

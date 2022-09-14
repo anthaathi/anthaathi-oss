@@ -116,32 +116,44 @@ exports[`BasketItem should render the item 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "space-between",
                 "marginHorizontal": 15,
+                "width": "100%",
               }
             }
           >
-            <Text
+            <View
               style={
-                [
-                  {
-                    "color": "#000000",
-                    "fontFamily": "System",
-                    "fontWeight": "400",
-                  },
-                  {
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                    "fontWeight": "900",
-                  },
-                ]
+                {
+                  "flexDirection": "row",
+                  "width": "45%",
+                }
               }
-              testID="productName"
-              variant="titleLarge"
             >
-              Baby Yellow Pepper
-            </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "flex": 1,
+                      "flexWrap": "wrap",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                testID="productName"
+                variant="titleLarge"
+              >
+                Baby Yellow Pepper
+              </Text>
+            </View>
             <View
               style={
                 {
@@ -486,32 +498,44 @@ exports[`BasketItem should render the item 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "space-between",
                 "marginHorizontal": 15,
+                "width": "100%",
               }
             }
           >
-            <Text
+            <View
               style={
-                [
-                  {
-                    "color": "#000000",
-                    "fontFamily": "System",
-                    "fontWeight": "400",
-                  },
-                  {
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                    "fontWeight": "900",
-                  },
-                ]
+                {
+                  "flexDirection": "row",
+                  "width": "45%",
+                }
               }
-              testID="productName"
-              variant="titleLarge"
             >
-              Capsicum mixed
-            </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "flex": 1,
+                      "flexWrap": "wrap",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                testID="productName"
+                variant="titleLarge"
+              >
+                Capsicum mixed
+              </Text>
+            </View>
             <View
               style={
                 {

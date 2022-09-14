@@ -94,7 +94,11 @@ const ItemRenderer = ({
   const intl = useIntl();
   return (
     <View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
         <View style={{flexDirection: 'row'}}>
           <Image
             testID="basketProductImage"
@@ -107,17 +111,22 @@ const ItemRenderer = ({
               marginHorizontal: 15,
               flexDirection: 'column',
               justifyContent: 'space-between',
+              width: '100%',
             }}>
-            <Text
-              testID="productName"
-              variant="titleLarge"
-              style={{
-                fontSize: 14,
-                color: '#364A15',
-                fontWeight: '900',
-              }}>
-              {item.name}
-            </Text>
+            <View style={{flexDirection: 'row', width: '45%'}}>
+              <Text
+                testID="productName"
+                variant="titleLarge"
+                style={{
+                  flex: 1,
+                  fontSize: 14,
+                  color: '#364A15',
+                  fontWeight: '900',
+                  flexWrap: 'wrap',
+                }}>
+                {item.name}
+              </Text>
+            </View>
             <ProductCountButton
               numberOfItems={item.numberOfItems}
               addProductPress={() => addProductPress(item.id)}
@@ -136,7 +145,9 @@ const ItemRenderer = ({
               {intl.formatNumber(item.price, {
                 style: 'currency',
                 currency: item.currency,
-              }) + ' / ' + intl.formatMessage({defaultMessage: 'Piece'})}
+              }) +
+                ' / ' +
+                intl.formatMessage({defaultMessage: 'Piece'})}
             </Text>
 
             <View
