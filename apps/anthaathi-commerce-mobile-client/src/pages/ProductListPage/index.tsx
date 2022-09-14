@@ -12,7 +12,7 @@ import {RootStackParamList} from '../../types/Route';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
-import { useIntl } from 'react-intl';
+import {useIntl} from 'react-intl';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
@@ -146,7 +146,7 @@ const ProductListPage = (
                 ]);
               }
             },
-            handleLongPress: (item: ProductProps) => {
+            handleIconPress: (item: ProductProps) => {
               props.navigation.navigate('ProductPage', {
                 productDetails: {
                   id: item.id,
@@ -180,10 +180,15 @@ const ProductListPage = (
             key: '123',
             title:
               'View Basket ' +
-              (cartItem.length > 0 ? `(${cartItem.length} Items) (${intl.formatNumber(productTotalPrice, {
-                style: 'currency',
-                currency: 'AED',
-              })})` : ''),
+              (cartItem.length > 0
+                ? `(${cartItem.length} Items) (${intl.formatNumber(
+                    productTotalPrice,
+                    {
+                      style: 'currency',
+                      currency: 'AED',
+                    },
+                  )})`
+                : ''),
             icon: 'cart',
             handlePress: () => {
               props.navigation.navigate('CartPage');

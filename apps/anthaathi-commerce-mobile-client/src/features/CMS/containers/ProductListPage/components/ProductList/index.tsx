@@ -25,13 +25,13 @@ export interface ProductProps {
 export interface ProductListProps {
   products: ProductProps[];
   handlePress?: (item: ProductProps) => void;
-  handleLongPress?: (item: ProductProps) => void;
+  handleIconPress?: (item: ProductProps) => void;
 }
 
 export default function ProductList({
   products,
   handlePress,
-  handleLongPress,
+  handleIconPress,
 }: ProductListProps) {
   const itemHeight = useResponsiveValue([160, 200, 220, 280]);
   const itemWidth = useResponsiveValue([170, 190, 210, 270]);
@@ -64,7 +64,7 @@ export default function ProductList({
             itemHeight={itemHeight}
             itemWidth={itemWidth}
             handlePress={handlePress || (() => {})}
-            handleLongPress={handleLongPress || (() => {})}
+            handleIconPress={handleIconPress || (() => {})}
           />
         )}
         getItemCount={() => productSplitted.length}
@@ -80,13 +80,13 @@ function ItemRendererColumn({
   itemHeight,
   itemWidth,
   handlePress,
-  handleLongPress,
+  handleIconPress,
 }: {
   item: ProductProps[];
   itemHeight: number;
   itemWidth: number;
   handlePress: (item: ProductProps) => void;
-  handleLongPress: (item: ProductProps) => void;
+  handleIconPress: (item: ProductProps) => void;
 }) {
   return (
     <View
@@ -104,7 +104,7 @@ function ItemRendererColumn({
           itemHeight={itemHeight}
           itemWidth={itemWidth}
           handlePress={() => handlePress(element)}
-          handleLongPress={() => handleLongPress(element)}
+          handleIconPress={() => handleIconPress(element)}
         />
       ))}
     </View>
@@ -116,13 +116,13 @@ function ItemRenderer({
   itemHeight,
   itemWidth,
   handlePress,
-  handleLongPress,
+  handleIconPress,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
   handlePress: () => void;
-  handleLongPress: () => void;
+  handleIconPress: () => void;
 }) {
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
@@ -149,7 +149,7 @@ function ItemRenderer({
       }}
       key={item.key}>
       <View>
-        <Pressable onPress={handlePress} onLongPress={handleLongPress}>
+        <Pressable onPress={handlePress}>
           <View style={{height: itemHeight, width: '100%'}}>
             <Image
               style={{
@@ -245,7 +245,7 @@ function ItemRenderer({
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'space-between',
-                width: itemWidth * 0.9,
+                width: '100%',
               }}>
               <Title
                 style={{
@@ -260,7 +260,8 @@ function ItemRenderer({
                 name="info-with-circle"
                 color="#364A15"
                 size={18}
-                style={{marginTop: 5}}
+                onPress={handleIconPress}
+                style={{padding: 8}}
               />
             </View>
             <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
