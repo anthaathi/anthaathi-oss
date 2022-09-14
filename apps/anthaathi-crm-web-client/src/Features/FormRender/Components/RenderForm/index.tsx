@@ -1,9 +1,17 @@
 import { Cell, Grid } from 'baseui/layout-grid';
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 import { Responsive } from 'baseui/block';
 import { MarkdownEditor } from '../../../MarkdownEditor';
+import { atom, useRecoilState } from 'recoil';
+
+const formValueAtom = atom<Record<string, Record<string, object>>>({
+  key: '_dynamicFormValues',
+  default: {},
+});
+
+const FormKeyContext = React.createContext<string>(null as never as string);
 
 export interface FormField {
   type: 'checkboxes' | 'dropdown' | 'input' | 'markdown' | 'textarea';
@@ -63,6 +71,7 @@ export interface DefaultFormField {
 }
 
 export interface RenderFormProps {
+  id: string;
   body: (FormField &
     (
       | MarkdownFormField
@@ -74,38 +83,74 @@ export interface RenderFormProps {
     ))[];
 }
 
-export function RenderForm({ body }: RenderFormProps) {
+export function RenderForm({ body, id }: RenderFormProps) {
   return (
-    <form>
-      <Grid gridMaxWidth={0} gridMargins={0}>
-        {body.map((field) => {
-          let component: React.ReactNode;
+    <FormKeyContext.Provider value={id}>
+      <form>
+        <Grid gridMaxWidth={0} gridMargins={0}>
+          {body.map((field) => {
+            let component: React.ReactNode;
 
-          switch (field.type) {
-            case 'input':
-              component = <RenderInputField {...field} />;
-              break;
-            case 'markdown':
-              component = <RenderMarkdownField {...field} />;
-          }
+            switch (field.type) {
+              case 'input':
+                component = <RenderInputField {...field} />;
+                break;
+              case 'markdown':
+                component = <RenderMarkdownField {...field} />;
+            }
 
-          return (
-            <Cell key={field.id} span={field.span || 12}>
-              {component}
-            </Cell>
-          );
-        })}
-      </Grid>
-    </form>
+            return (
+              <Cell key={field.id} span={field.span || 12}>
+                {component}
+              </Cell>
+            );
+          })}
+        </Grid>
+      </form>
+    </FormKeyContext.Provider>
   );
 }
 
+// eslint-disable-next-line no-unused-vars
+function useFormValue<T>(fieldId: string): [T, (_: T) => void] {
+  const formKey = useContext(FormKeyContext);
+
+  if (!formKey) {
+    throw new Error('Requires form key');
+  }
+
+  const [formValue, setFormValue] = useRecoilState(formValueAtom);
+
+  const processedFormValue = formValue[formKey]?.[fieldId] as never as T;
+
+  const onChangeValue = useCallback(
+    (newValue: T) => {
+      setFormValue((prevValue) => ({
+        ...prevValue,
+        [formKey]: {
+          ...(prevValue[fieldId] || {}),
+          [fieldId]: newValue as never,
+        },
+      }));
+    },
+    [formKey, fieldId]
+  );
+
+  return [processedFormValue, onChangeValue];
+}
+
 export function RenderInputField(props: InputFormField & FormField) {
+  const [value, setValue] = useFormValue<string>(props.id);
+
   return (
     <FormControl label={props.label} htmlFor={'form' + props.id}>
       <Input
         placeholder={props.placeholder}
         id={'form' + props.id}
+        value={value}
+        onChange={(prev) => {
+          setValue(prev.target.value);
+        }}
         required={props.validations?.['required']}
       />
     </FormControl>
@@ -113,9 +158,17 @@ export function RenderInputField(props: InputFormField & FormField) {
 }
 
 export function RenderMarkdownField(props: MarkdownFormField & FormField) {
+  const [value, setValue] = useFormValue<string>(props.id);
+
   return (
     <FormControl label={props.label} htmlFor={'form' + props.id}>
-      <MarkdownEditor value="" onChange={() => {}} id={'form' + props.id} />
+      <MarkdownEditor
+        value={value}
+        onChange={(_value) => {
+          setValue(_value);
+        }}
+        id={'form' + props.id}
+      />
     </FormControl>
   );
 }
