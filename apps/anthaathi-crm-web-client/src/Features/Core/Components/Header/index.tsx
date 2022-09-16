@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Toolbar } from '../Toolbar';
 import { useState } from 'react';
 import { ProjectSelectionButton } from '../../../Project/Component/ProjectSelectionButton';
-import { useLocation } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 
 export const Header = styled('header', ({ $theme }) => ({
   boxShadow: $theme.lighting.shadow500,
@@ -36,13 +36,13 @@ export const HeaderWrapper = styled('div', () => ({
 export function HeaderToggle() {
   const [headerOpen, setHeaderOpen] = useRecoilState(headerOpenAtom);
   const [css, $theme] = useStyletron();
-  const { pathname } = useLocation();
+  const { project } = useParams<{ project: string }>();
 
   const [isHovering, setIsHovering] = useState(false);
 
   return (
     <Toolbar>
-      {pathname !== '/' && (
+      {project && (
         <Button
           kind={KIND.secondary}
           size={SIZE.compact}

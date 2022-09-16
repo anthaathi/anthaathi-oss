@@ -15,6 +15,7 @@ import { CreateTaskPage } from './Pages/CreateTaskPage';
 import { ProjectSelectionPage } from './Pages/ProjectSelectionPage';
 import { ProjectViewPage } from './Pages/ProjectViewPage';
 import { Outlet } from 'react-router';
+import { CreateProjectPage } from './Pages/CreateProjectPage';
 
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 const CustomerPage = React.lazy(() => import('./Pages/CustomerPage'));
@@ -48,6 +49,7 @@ function App() {
                 </Suspense>
               }
             />
+            <Route path="create" element={<CreateProjectPage />} />
             <Route
               path="project/:project"
               element={

@@ -72,6 +72,7 @@ export function TaskCreateContainer() {
           </NumberedStep>
           <NumberedStep title="Form">
             <RenderForm
+              id="create-task-container"
               body={[
                 {
                   type: 'input',

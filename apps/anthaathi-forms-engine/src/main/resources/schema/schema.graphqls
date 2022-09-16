@@ -1,0 +1,199 @@
+directive @connection on OBJECT | INTERFACE
+
+type Mutation {
+    submitForm(formID: String): FormSubmitResponse
+    updateForm(formID: String): FormSubmitResponse
+}
+
+input SubmitFormInput {
+    form: ID!
+    values: [FormValueInput!]
+}
+
+input FormValueInput {
+    key: String
+    value: JSON
+}
+
+type Query {
+    dataSourceItems(dataSourceID: ID!, first: Int, last: Int, after: String, before: String): DataSourceConnection
+    node(id: ID!): Node
+}
+
+type DataSource implements Node @connection {
+    id: ID!
+    name: String
+}
+
+interface Node {
+    id: ID!
+}
+
+type Form implements Node {
+    id: ID!
+    title: String
+    fields: [Field!]
+}
+
+interface Validation {
+    kind: String!
+}
+
+type RequiredValidation implements Validation {
+    kind: String!
+    required: Boolean!
+}
+
+type MinDateValidation implements Validation {
+    kind: String!
+    minDate: DateTime!
+}
+
+type MaxDateValidation implements Validation {
+    kind: String!
+    maxDate: DateTime!
+}
+
+type MinValueValidation implements Validation {
+    kind: String!
+    min: Int!
+}
+
+type MaxValueValidation implements Validation {
+    kind: String!
+    max: Int!
+}
+
+interface Field {
+    validations: [Validation!]
+    span: [Int!]
+}
+
+interface DataSourceItem implements Node {
+    id: ID!
+}
+
+type StringDataSourceItem implements DataSourceItem & Node {
+    id: ID!
+    value: String
+}
+
+type DateDataSourceItem implements DataSourceItem & Node {
+    id: ID!
+    value: DateTime
+}
+
+type TimeslotDataSourceItem implements DataSourceItem & Node {
+    id: ID!
+    value: String
+}
+
+type InputFormField implements Field {
+    validations: [Validation!]
+    span: [Int!]
+    label: String!
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+}
+
+type TextareaFormField implements Field {
+    validations: [Validation!]
+    span: [Int!]
+    label: String!
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+}
+
+type DropdownFormField implements Field {
+    span: [Int!]
+    validations: [Validation!]
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+    dataSource: DataSource!
+    kind: DropdownKind!
+}
+
+type CheckboxFormField implements Field {
+    validations: [Validation!]
+    span: [Int!]
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+    dataSource: DataSource!
+}
+
+type MarkdownFormField implements Field {
+    span: [Int!]
+    validations: [Validation!]
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+}
+
+type TimeslotFormField implements Field {
+    validations: [Validation!]
+    span: [Int!]
+    description: String
+    placeholder: String
+    value: TimeslotDataSourceItem
+}
+
+type ButtonGroupFormField implements Field {
+    span: [Int!]
+    validations: [Validation!]
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+}
+
+type MultipleSelectCardField implements Field {
+    validations: [Validation!]
+    span: [Int!]
+    title: String
+    value: StringDataSourceItem
+}
+
+type DataSelectFormField implements Field {
+    span: [Int!]
+    validations: [Validation!]
+    description: String
+    placeholder: String
+    value: StringDataSourceItem
+}
+
+enum DropdownKind {
+    OPTION,
+    SEARCH,
+}
+
+type FormSubmitResponse {
+    response: FormSubmission
+}
+
+type FormSubmission implements Node {
+    id: ID!
+    createdAt: DateTime!
+    values(first: Int, last: Int, after: String, before: String): FormValueConnection!
+}
+
+interface FormValue implements Node @connection {
+    id: ID!
+    key: String!
+}
+
+type StringFormValue implements Node & FormValue {
+    id: ID!
+    key: String!
+    value: String
+}
+
+type DateFormValue implements Node & FormValue {
+    id: ID!
+    key: String!
+    value: DateTime
+}
+
+scalar DateTime
