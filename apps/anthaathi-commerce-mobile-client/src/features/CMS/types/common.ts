@@ -34,6 +34,10 @@ export enum HomePageComponentType {
   ChatFloatingButton = 'home.chat-floating-button',
 }
 
+export enum CategoryPageComponentType {
+  CategoryList = 'category-page.category-list',
+}
+
 export enum CartPageComponentType {
   BasketItem = 'cart-page.basket-item',
   PricingCard = 'cart-page.pricing-card',
