@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeliveryAddressDetailsCard should render the item 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#FFF",
+      "borderRadius": 10,
+      "margin": 10,
+      "padding": 15,
+    }
+  }
+  testID="deliveryAddressDetailsCard"
+>
+  <View>
+    <Text
+      style={
+        [
+          {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          {
+            "textAlign": "left",
+          },
+          {
+            "color": "#364A15",
+            "fontSize": 16,
+            "fontWeight": "700",
+          },
+        ]
+      }
+    >
+      Delivery Address
+    </Text>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 14,
+              "width": "85%",
+            },
+          ]
+        }
+      >
+        USA
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "marginVertical": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#808080",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Mobile
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        : +90909090
+      </Text>
+    </View>
+  </View>
+</View>
+`;

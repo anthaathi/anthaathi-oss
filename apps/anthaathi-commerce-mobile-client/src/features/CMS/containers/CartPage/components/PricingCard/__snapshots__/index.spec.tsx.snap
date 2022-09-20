@@ -2,271 +2,278 @@
 
 exports[`PricingCard should render the item 1`] = `
 <View
-  collapsable={false}
   style={
     {
-      "backgroundColor": "#ffffff",
-      "borderColor": "#E3E2E7",
-      "borderRadius": 4,
-      "borderWidth": 1,
-      "elevation": 1,
       "marginHorizontal": 10,
       "marginVertical": 5,
-      "shadowColor": "#000000",
-      "shadowOffset": {
-        "height": 0.5,
-        "width": 0,
-      },
-      "shadowOpacity": 0.24,
-      "shadowRadius": 0.75,
     }
   }
+  testID="pricingCard"
 >
   <View
-    accessibilityState={
-      {
-        "disabled": true,
-      }
-    }
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+    collapsable={false}
     style={
       {
-        "flexGrow": 1,
-        "flexShrink": 1,
+        "backgroundColor": "#ffffff",
+        "borderColor": "#E3E2E7",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "elevation": 1,
+        "shadowColor": "#000000",
+        "shadowOffset": {
+          "height": 0.5,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 0.75,
       }
     }
-    testID="pricingCard"
   >
     <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        [
-          {
-            "paddingHorizontal": 16,
-          },
-          {
-            "paddingVertical": 16,
-          },
-          undefined,
-        ]
+        {
+          "flexGrow": 1,
+          "flexShrink": 1,
+        }
       }
     >
       <View
         style={
-          {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginHorizontal": 3,
-            "marginVertical": 5,
-          }
+          [
+            {
+              "paddingHorizontal": 16,
+            },
+            {
+              "paddingVertical": 16,
+            },
+            undefined,
+          ]
         }
       >
-        <Text
+        <View
           style={
-            [
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-              undefined,
-            ]
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 3,
+              "marginVertical": 5,
+            }
           }
-          testID="title"
         >
-          Subtotal
-        </Text>
-        <Text
+          <Text
+            style={
+              [
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                },
+                undefined,
+              ]
+            }
+            testID="title"
+          >
+            Subtotal
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                },
+                undefined,
+              ]
+            }
+            testID="subtitle"
+          >
+            AED 10.10
+          </Text>
+        </View>
+        <View
           style={
-            [
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-                "fontWeight": "600",
-              },
-              undefined,
-            ]
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 3,
+              "marginVertical": 5,
+            }
           }
-          testID="subtitle"
         >
-          AED 10.10
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginHorizontal": 3,
-            "marginVertical": 5,
-          }
-        }
-      >
-        <Text
+          <Text
+            style={
+              [
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                },
+                undefined,
+              ]
+            }
+            testID="title"
+          >
+            Tax (5% VAT)
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                },
+                undefined,
+              ]
+            }
+            testID="subtitle"
+          >
+            AED 10.10
+          </Text>
+        </View>
+        <View
           style={
-            [
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-              undefined,
-            ]
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 3,
+              "marginVertical": 5,
+            }
           }
-          testID="title"
         >
-          Tax (5% VAT)
-        </Text>
-        <Text
+          <Text
+            style={
+              [
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                },
+                undefined,
+              ]
+            }
+            testID="title"
+          >
+            Discount
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                },
+                undefined,
+              ]
+            }
+            testID="subtitle"
+          >
+            AED 10.10
+          </Text>
+        </View>
+        <View
           style={
-            [
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-                "fontWeight": "600",
-              },
-              undefined,
-            ]
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 3,
+              "marginVertical": 5,
+            }
           }
-          testID="subtitle"
         >
-          AED 10.10
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginHorizontal": 3,
-            "marginVertical": 5,
-          }
-        }
-      >
-        <Text
+          <Text
+            style={
+              [
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                },
+                undefined,
+              ]
+            }
+            testID="title"
+          >
+            Shipping Charges.
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                },
+                {
+                  "fontWeight": "500",
+                },
+              ]
+            }
+            testID="subtitle"
+          >
+            AED 0.00
+          </Text>
+        </View>
+        <View
           style={
-            [
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-              undefined,
-            ]
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 3,
+              "marginVertical": 5,
+            }
           }
-          testID="title"
         >
-          Discount
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-                "fontWeight": "600",
-              },
-              undefined,
-            ]
-          }
-          testID="subtitle"
-        >
-          AED 10.10
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginHorizontal": 3,
-            "marginVertical": 5,
-          }
-        }
-      >
-        <Text
-          style={
-            [
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-              undefined,
-            ]
-          }
-          testID="title"
-        >
-          Shipping Charges.
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-                "fontWeight": "600",
-              },
-              {
-                "fontWeight": "500",
-              },
-            ]
-          }
-          testID="subtitle"
-        >
-          AED 0.00
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginHorizontal": 3,
-            "marginVertical": 5,
-          }
-        }
-      >
-        <Text
-          style={
-            [
-              {
-                "color": "#808080",
-                "fontSize": 14,
-              },
-              {
-                "color": "#364A15",
-                "fontSize": 16,
-                "fontWeight": "700",
-              },
-            ]
-          }
-          testID="title"
-        >
-          Total
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "color": "#364A15",
-                "fontSize": 14,
-                "fontWeight": "600",
-              },
-              {
-                "color": "#008D3E",
-                "fontSize": 16,
-                "fontWeight": "700",
-              },
-            ]
-          }
-          testID="subtitle"
-        >
-          AED 10.10
-        </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#808080",
+                  "fontSize": 14,
+                },
+                {
+                  "color": "#364A15",
+                  "fontSize": 16,
+                  "fontWeight": "700",
+                },
+              ]
+            }
+            testID="title"
+          >
+            Total
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "color": "#364A15",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                },
+                {
+                  "color": "#008D3E",
+                  "fontSize": 16,
+                  "fontWeight": "700",
+                },
+              ]
+            }
+            testID="subtitle"
+          >
+            AED 10.10
+          </Text>
+        </View>
       </View>
     </View>
   </View>

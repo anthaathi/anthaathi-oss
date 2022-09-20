@@ -15,6 +15,7 @@ import ResetPasswordPage from '../pages/Authentication/ResetPasswordPage';
 import {RootStackParamList} from '../types/Route';
 import AddressInfoPage from '../pages/AddressDetails/AddressInfoPage';
 import SelectDatePage from '../pages/SelectDatePage';
+import OrderDetailsPage from '../pages/OrderDetailsPage';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -28,7 +29,6 @@ const MyStack = () => {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name="SignUp"
         component={SignUpPage}
@@ -36,7 +36,6 @@ const MyStack = () => {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name="ResetPassword"
         component={ResetPasswordPage}
@@ -44,7 +43,6 @@ const MyStack = () => {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name="Dashboard"
         component={MainPage}
@@ -95,11 +93,17 @@ const MyStack = () => {
         component={AddEditAddress}
         options={{headerShown: false}}
       />
-
       <Stack.Screen
         name="SelectDate"
         component={SelectDatePage}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="OrderDetailsPage"
+        component={OrderDetailsPage}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );
