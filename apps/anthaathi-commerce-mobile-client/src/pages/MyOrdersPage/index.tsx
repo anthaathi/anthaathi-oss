@@ -58,6 +58,9 @@ export const MyOrdersPage: React.FC<
                 }
                 props.navigation.navigate('CartPage');
               },
+              handlePress: () => {
+                props.navigation.navigate('OrderDetailsPage');
+              },
             },
             {
               _component: CartPageComponentType.CartCard,
@@ -73,6 +76,9 @@ export const MyOrdersPage: React.FC<
                 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
                 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
               ],
+              handlePress: () => {
+                props.navigation.navigate('OrderDetailsPage');
+              },
             },
             {
               _component: CartPageComponentType.CartCard,
@@ -88,6 +94,9 @@ export const MyOrdersPage: React.FC<
                 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
                 'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
               ],
+              handlePress: () => {
+                props.navigation.navigate('OrderDetailsPage');
+              },
             },
           ]}
         />

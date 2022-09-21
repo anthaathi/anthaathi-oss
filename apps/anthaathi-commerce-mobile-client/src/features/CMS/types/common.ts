@@ -38,6 +38,11 @@ export enum CategoryPageComponentType {
   CategoryList = 'category-page.category-list',
 }
 
+export enum OrderDetailsPageComponentType {
+  DeliveryAddressDetailsCard = 'order-details-page.delivery-address-details-card',
+  OrderedItems = 'order-details-page.ordered-items',
+}
+
 export enum CartPageComponentType {
   BasketItem = 'cart-page.basket-item',
   PricingCard = 'cart-page.pricing-card',

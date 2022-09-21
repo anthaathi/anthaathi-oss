@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderedItems should render the item 1`] = `
+<View
+  style={
+    {
+      "marginHorizontal": 10,
+    }
+  }
+  testID="orderedItems"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#364A15",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Items
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "backgroundColor": "#fff",
+        "borderColor": "#E3E2E7",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "paddingHorizontal": 5,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+              }
+            }
+            style={
+              {
+                "height": 250,
+                "width": 240,
+              }
+            }
+            testID="basketProductImage"
+          />
+          <View
+            style={
+              {
+                "marginHorizontal": 15,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "900",
+                    "marginBottom": 5,
+                  },
+                ]
+              }
+              testID="productName"
+              variant="titleLarge"
+            >
+              Baby Yellow Pepper
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                variant="titleLarge"
+              >
+                Quantity :
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "marginLeft": 5,
+                    },
+                  ]
+                }
+                testID="productPrice"
+                variant="titleLarge"
+              >
+                2
+              </Text>
+            </View>
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#364A15",
+                    "fontSize": 13,
+                    "fontWeight": "600",
+                    "marginBottom": 5,
+                  },
+                ]
+              }
+              variant="titleLarge"
+            >
+              $12.00 / Piece
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                variant="titleLarge"
+              >
+                Total :
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "marginLeft": 5,
+                    },
+                  ]
+                }
+                testID="productPrice"
+                variant="titleLarge"
+              >
+                $24.00
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "rgba(0, 0, 0, 0.12)",
+              "height": 0.5,
+            },
+            undefined,
+            {
+              "marginVertical": 10,
+            },
+          ]
+        }
+      />
+    </View>
+    <View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
+              }
+            }
+            style={
+              {
+                "height": 250,
+                "width": 240,
+              }
+            }
+            testID="basketProductImage"
+          />
+          <View
+            style={
+              {
+                "marginHorizontal": 15,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#364A15",
+                    "fontSize": 14,
+                    "fontWeight": "900",
+                    "marginBottom": 5,
+                  },
+                ]
+              }
+              testID="productName"
+              variant="titleLarge"
+            >
+              Capsicum mixed
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                variant="titleLarge"
+              >
+                Quantity :
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "marginLeft": 5,
+                    },
+                  ]
+                }
+                testID="productPrice"
+                variant="titleLarge"
+              >
+                2
+              </Text>
+            </View>
+            <Text
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  {
+                    "textAlign": "left",
+                  },
+                  {
+                    "color": "#364A15",
+                    "fontSize": 13,
+                    "fontWeight": "600",
+                    "marginBottom": 5,
+                  },
+                ]
+              }
+              variant="titleLarge"
+            >
+              $23.00 / Piece
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#364A15",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                variant="titleLarge"
+              >
+                Total :
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": "#008D3E",
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                      "marginLeft": 5,
+                    },
+                  ]
+                }
+                testID="productPrice"
+                variant="titleLarge"
+              >
+                $46.00
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

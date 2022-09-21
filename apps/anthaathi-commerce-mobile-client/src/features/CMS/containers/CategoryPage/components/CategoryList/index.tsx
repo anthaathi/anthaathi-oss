@@ -4,6 +4,7 @@ import {
   ImageBackground,
   View,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import React from 'react';
 import {CategoryPageComponentType} from '../../../../types/common';
@@ -33,26 +34,31 @@ const ItemRenderer = ({
   return (
     <TouchableOpacity
       onPress={() => onPress(item.key)}
-      style={{width: itemWidth, margin: 10}}>
-      <ImageBackground
+      style={{height: 180, width: itemWidth, margin: 10, borderRadius: 4}}>
+      <Image
         source={{
           uri: item.image,
         }}
         style={{
-          height: 180,
-          width: '100%',
+          position: 'absolute',
+          height: '100%' as never,
+          width: '100%' as never,
+          borderRadius: 4,
+        }}
+      />
+      <Text
+        style={{
+          marginTop: 70,
+          textAlign: 'center',
+          color: '#000',
+          fontSize: 18,
+          fontWeight: '700',
+          backgroundColor: '#fff',
+          paddingVertical: 5,
+          marginHorizontal: 20,
         }}>
-        <Text
-          style={{
-            marginTop: 60,
-            textAlign: 'center',
-            color: '#fff',
-            fontSize: 22,
-            fontWeight: '700',
-          }}>
-          {item.title}
-        </Text>
-      </ImageBackground>
+        {item.title}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -78,35 +78,6 @@ exports[`CartCard should render the item 1`] = `
         >
           title
         </Text>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          testID="handlePressBasketItem"
-        >
-          <Text
-            style={
-              {
-                "color": "#008D3E",
-                "fontSize": 14,
-                "marginBottom": 9,
-                "textDecorationLine": "underline",
-              }
-            }
-            variant="titleMedium"
-          >
-            View Details
-          </Text>
-        </View>
       </View>
       <View
         style={
