@@ -58,6 +58,9 @@ export const MyOrdersPage: React.FC<
                 }
                 props.navigation.navigate('CartPage');
               },
+              handlePress: () => {
+                props.navigation.navigate('OrderDetailsPage');
+              },
             },
             {
               _component: CartPageComponentType.CartCard,
@@ -75,7 +78,7 @@ export const MyOrdersPage: React.FC<
               ],
               handlePress: () => {
                 props.navigation.navigate('OrderDetailsPage');
-              } 
+              },
             },
             {
               _component: CartPageComponentType.CartCard,
@@ -93,7 +96,7 @@ export const MyOrdersPage: React.FC<
               ],
               handlePress: () => {
                 props.navigation.navigate('OrderDetailsPage');
-              } 
+              },
             },
           ]}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
-import {Pressable, View} from 'react-native';
-import {Text} from 'react-native-paper';
+import {View} from 'react-native';
+import {Card, Text} from 'react-native-paper';
 import {OrderDetailsPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressDetailsProps {
@@ -13,12 +13,13 @@ export interface DeliveryAddressDetailsProps {
 const DeliveryAddressDetailsCard = (props: DeliveryAddressDetailsProps) => {
   const intl = useIntl();
   return (
-    <View
+    <Card
       style={{
-        borderRadius: 10,
+        borderRadius: 4,
         margin: 10,
-        backgroundColor: '#FFF',
         padding: 15,
+        borderColor: '#E3E2E7',
+        borderWidth: 1,
       }}
       testID="deliveryAddressDetailsCard">
       <View>
@@ -44,7 +45,7 @@ const DeliveryAddressDetailsCard = (props: DeliveryAddressDetailsProps) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Card>
   );
 };
 

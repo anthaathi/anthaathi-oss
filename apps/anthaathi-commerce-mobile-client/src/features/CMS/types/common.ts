@@ -40,6 +40,7 @@ export enum CategoryPageComponentType {
 
 export enum OrderDetailsPageComponentType {
   DeliveryAddressDetailsCard = 'order-details-page.delivery-address-details-card',
+  OrderedItems = 'order-details-page.ordered-items',
 }
 
 export enum CartPageComponentType {
