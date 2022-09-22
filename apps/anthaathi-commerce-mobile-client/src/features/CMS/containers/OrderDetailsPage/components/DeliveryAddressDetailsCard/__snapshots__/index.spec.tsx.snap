@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeliveryAddressDetailsCard should render the item 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "borderColor": "#E3E2E7",
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "elevation": 1,
+      "margin": 10,
+      "padding": 15,
+      "shadowColor": "#000000",
+      "shadowOffset": {
+        "height": 0.5,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0.75,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": true,
+      }
+    }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+    testID="deliveryAddressDetailsCard"
+  >
+    <View
+      index={0}
+      siblings={
+        [
+          "View",
+        ]
+      }
+      total={1}
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            {
+              "textAlign": "left",
+            },
+            {
+              "color": "#364A15",
+              "fontSize": 16,
+              "fontWeight": "700",
+            },
+          ]
+        }
+      >
+        Delivery Address
+      </Text>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginVertical": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#364A15",
+                "fontSize": 14,
+                "width": "85%",
+              },
+            ]
+          }
+        >
+          USA
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "flexDirection": "row",
+            "marginVertical": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#808080",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          Mobile
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              {
+                "textAlign": "left",
+              },
+              {
+                "color": "#364A15",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          : +90909090
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
