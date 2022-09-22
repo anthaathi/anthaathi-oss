@@ -1,37 +1,24 @@
-import App from './App';
+import {
+  createHandler,
+  renderAsync,
+  StartServer,
+} from 'solid-start/entry-server';
 import { Server } from 'styletron-engine-atomic';
-import { renderToStream, renderToStringAsync } from 'solid-js/web';
+import { StyletronProvider } from '@anthaathi/solid-styletron';
+import { createLightTheme } from '~/utils/createLightTheme';
 
 const client = new Server({
   prefix: '_',
 });
 
-export function render(res: any, hasStream: boolean) {
-  const AppWrapped = () => (
-    <App
-      client={client}
-      head={() => (
-        <>
-          {client?.getStylesheets?.().map((res) => {
-            return (
-              <style
-                innerHTML={res.css}
-                class="styletron-hydrate"
-                media={res.attrs.media}
-                data-hydrate={res.attrs['data-hydrate']}
-              />
-            );
-          })}
-        </>
-      )}
-    />
-  );
+const theme = createLightTheme();
 
-  res.write('<!DOCTYPE html>');
-
-  if (hasStream) {
-    renderToStream(() => <AppWrapped />, {}).pipe(res);
-  } else {
-    return renderToStringAsync(() => <AppWrapped />);
-  }
-}
+export default createHandler(
+  renderAsync((event) => {
+    return (
+      <StyletronProvider theme={theme} client={client}>
+        <StartServer event={event} />
+      </StyletronProvider>
+    );
+  }),
+);

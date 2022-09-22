@@ -14,6 +14,13 @@ export const createLightTheme = (): StyletronTheme => {
     defaultSearchLightTokens,
     defaultSearchboxLightTokens,
     {
+      tokens: {
+        Common: {
+          primary: '#118b44',
+        },
+      } as never,
+    },
+    {
       mediaQuery: createMediaQueries(),
     },
     {

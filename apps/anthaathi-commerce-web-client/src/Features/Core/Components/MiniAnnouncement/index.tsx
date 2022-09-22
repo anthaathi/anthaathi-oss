@@ -4,6 +4,8 @@ import { createEffect, For } from 'solid-js';
 import AngleLeft from '../../../../icons/angle-left.svg';
 import AngleRight from '../../../../icons/angle-right.svg';
 import { useSnapscroll } from '../../Hooks/useSnapscroll';
+import { Button } from '~/Features/Core/Components/Button';
+import { IconGlobeSmall } from '@anthaathi/oracle-apex-solid-icons';
 
 export function MiniAnnouncement() {
   let ref: HTMLDivElement | null = null;
@@ -12,14 +14,9 @@ export function MiniAnnouncement() {
 
   const { scrollLeft, scrollRight } = useSnapscroll(() => ref!);
 
-  createEffect(() => {
-    return () => {
-      console.log('test111');
-    };
-  });
-
   return (
     <div
+      data-type="mini-accountment"
       class={css({
         background: $theme.tokens.MiniAnnouncement.background,
         color: $theme.tokens.MiniAnnouncement.color,
@@ -38,7 +35,15 @@ export function MiniAnnouncement() {
           position: 'relative',
         })}
       >
-        <div class={css({ position: 'absolute' })}>
+        <div
+          class={css({
+            position: 'absolute',
+            display: 'none',
+            [$theme.mediaQuery.md]: {
+              display: 'block',
+            },
+          })}
+        >
           <button
             class={css({
               display: 'flex',
@@ -107,8 +112,11 @@ export function MiniAnnouncement() {
             right: 0,
             top: 0,
             bottom: 0,
-            display: 'flex',
             alignItems: 'center',
+            display: 'none',
+            [$theme.mediaQuery.md]: {
+              display: 'flex',
+            },
           })}
         >
           <button
@@ -140,9 +148,14 @@ export function MiniAnnouncement() {
             [$theme.mediaQuery.md]: {
               display: 'flex',
             },
+            color: '#FFF',
           })}
         >
-          Something
+          <Button
+            $startEnhancer={() => {
+              return <IconGlobeSmall class={css({ fill: '#FFF' })} />;
+            }}
+          ></Button>
         </div>
       </div>
 

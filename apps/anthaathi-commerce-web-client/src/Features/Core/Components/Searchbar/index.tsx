@@ -16,7 +16,8 @@ export function Searchbar() {
         display: 'flex',
         alignItems: 'center',
         backgroundColor: $theme.tokens.Search.backgroundColor,
-        height: '34px',
+        height: '38px',
+        width: '100%',
       })}
     >
       <input
@@ -30,6 +31,7 @@ export function Searchbar() {
           color: $theme.tokens.Search.color,
           backgroundColor: 'transparent',
           ...$theme.typography.LabelMedium,
+          flexGrow: 1,
         })}
         onFocus={() => {
           console.log('focus in');

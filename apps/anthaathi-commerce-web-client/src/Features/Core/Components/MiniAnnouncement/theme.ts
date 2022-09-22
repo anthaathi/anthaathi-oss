@@ -1,4 +1,4 @@
-import { StyletronTheme } from '@anthaathi/solid-styletron';
+import { StyletronTheme, Tokens } from '@anthaathi/solid-styletron';
 
 export interface MiniAnnouncementColorTokens {
   background: string;
@@ -11,5 +11,5 @@ export const defaultSearchLightTokens: Partial<StyletronTheme> = {
       background: '#118b44',
       color: '#FFF',
     },
-  },
+  } as Partial<Tokens> as never,
 };
