@@ -14,6 +14,7 @@ const PromoCode = (props: PromoCodeProps) => {
   const theme = useTheme();
   const intl = useIntl();
   const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View testID="promoCode">
       <View
@@ -75,6 +76,7 @@ const PromoCode = (props: PromoCodeProps) => {
 
             <TextInput
               mode="flat"
+              autoFocus={true}
               label={intl.formatMessage({defaultMessage: 'Coupon Code'})}
               style={{
                 backgroundColor: '#fff',

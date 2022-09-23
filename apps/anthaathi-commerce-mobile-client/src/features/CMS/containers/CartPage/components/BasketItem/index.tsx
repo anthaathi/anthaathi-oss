@@ -4,23 +4,17 @@ import {Divider, IconButton, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
+import {ProductProps} from '../../../ProductListPage/components/ProductList';
 
-export interface ItemProps {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  currency: string;
+export interface ItemProps extends ProductProps {
   numberOfItems: number;
-  packaging: string;
-  weight_unit?: string;
-  key: string;
 }
 
 export interface BasketItemProps {
   title: string;
   items: ItemProps[];
-  handlePress?: () => void;
+  handlePressRemoveAllProduct?: () => void;
+  handlePressViewProduct?: (item: ProductProps) => void;
   addProductPress?: (id: number) => void;
   removeProductPress?: (id: number, numberOfItems: number) => void;
 }
@@ -46,7 +40,9 @@ const BasketItem = (props: BasketItemProps) => {
           {props.title}
         </Text>
 
-        <Pressable onPress={props.handlePress} testID="handlePressBasketItem">
+        <Pressable
+          onPress={props.handlePressRemoveAllProduct}
+          testID="handlePressBasketItem">
           <Text
             variant="titleMedium"
             style={{
@@ -68,6 +64,9 @@ const BasketItem = (props: BasketItemProps) => {
               item={item}
               itemHeight={itemHeight}
               itemWidth={itemWidth}
+              handlePressViewProduct={
+                props.handlePressViewProduct || (() => {})
+              }
               addProductPress={props.addProductPress || (() => {})}
               removeProductPress={props.removeProductPress || (() => {})}
             />
@@ -82,12 +81,14 @@ const ItemRenderer = ({
   item,
   itemHeight,
   itemWidth,
+  handlePressViewProduct,
   addProductPress,
   removeProductPress,
 }: {
   item: ItemProps;
   itemHeight: number;
   itemWidth: number;
+  handlePressViewProduct: (item: ProductProps) => void;
   addProductPress: (id: number) => void;
   removeProductPress: (id: number, numberOfItems: number) => void;
 }) => {
@@ -96,11 +97,13 @@ const ItemRenderer = ({
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row'}}>
-          <Image
-            testID="basketProductImage"
-            source={{uri: item.image}}
-            style={{height: itemHeight, width: itemWidth}}
-          />
+          <Pressable onPress={() => handlePressViewProduct(item)}>
+            <Image
+              testID="basketProductImage"
+              source={{uri: item.image}}
+              style={{height: itemHeight, width: itemWidth}}
+            />
+          </Pressable>
 
           <View
             style={{
@@ -136,7 +139,9 @@ const ItemRenderer = ({
               {intl.formatNumber(item.price, {
                 style: 'currency',
                 currency: item.currency,
-              }) + ' / ' + intl.formatMessage({defaultMessage: 'Piece'})}
+              }) +
+                ' / ' +
+                intl.formatMessage({defaultMessage: 'Piece'})}
             </Text>
 
             <View
