@@ -1,11 +1,12 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Link } from '@solidjs/router';
-import { createEffect, For } from 'solid-js';
+import { For } from 'solid-js';
 import AngleLeft from '../../../../icons/angle-left.svg';
 import AngleRight from '../../../../icons/angle-right.svg';
 import { useSnapscroll } from '../../Hooks/useSnapscroll';
-import { Button } from '~/Features/Core/Components/Button';
+import { Button, Kind } from '~/Features/Core/Components/Button';
 import { IconGlobeSmall } from '@anthaathi/oracle-apex-solid-icons';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export function MiniAnnouncement() {
   let ref: HTMLDivElement | null = null;
@@ -13,13 +14,14 @@ export function MiniAnnouncement() {
   const [css, $theme] = useStyletron();
 
   const { scrollLeft, scrollRight } = useSnapscroll(() => ref!);
+  const cssVar = useCssToken();
 
   return (
     <div
-      data-type="mini-accountment"
+      data-type="mini-announcement"
       class={css({
-        background: $theme.tokens.MiniAnnouncement.background,
-        color: $theme.tokens.MiniAnnouncement.color,
+        color: cssVar('primary-b-color', '#FFF'),
+        background: cssVar('primary-color', '#118b44'),
         paddingTop: $theme.sizing.scale100,
         paddingBottom: $theme.sizing.scale100,
         paddingLeft: '12px',
@@ -155,6 +157,7 @@ export function MiniAnnouncement() {
             $startEnhancer={() => {
               return <IconGlobeSmall class={css({ fill: '#FFF' })} />;
             }}
+            $kind={Kind.Tertiary}
           ></Button>
         </div>
       </div>
