@@ -50,15 +50,9 @@ const ProductPage = (
                   setCartItem(oldCartItem => [
                     ...oldCartItem,
                     {
-                      id: productDetails.id,
-                      name: productDetails.name,
+                      ...productDetails,
                       image: productDetails.image[0],
-                      price: productDetails.price,
-                      currency: productDetails.currency,
                       numberOfItems: 1,
-                      packaging: productDetails.packaging,
-                      weight_unit: productDetails.weight_unit,
-                      key: productDetails.key,
                     },
                   ]);
                 }
@@ -76,16 +70,10 @@ const ProductPage = (
                   setCartItem(oldCartItem => [
                     ...oldCartItem,
                     {
-                      id: productDetails.id,
-                      name: productDetails.name,
+                      ...productDetails,
                       image: productDetails.image[0],
-                      price: productDetails.price,
-                      currency: productDetails.currency,
                       numberOfItems: 1,
-                      packaging: productDetails.packaging,
-                      weight_unit: productDetails.weight_unit,
-                      key: productDetails.key,
-                    },
+                      },
                   ]);
                 }
                 props.navigation.navigate('CartPage');

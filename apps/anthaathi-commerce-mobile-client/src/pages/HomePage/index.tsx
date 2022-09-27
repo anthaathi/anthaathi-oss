@@ -16,7 +16,7 @@ const HomePage = (
   return (
     <View>
       <ScrollView
-        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80}}>
+        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80,}}>
         <CMSRenderer
           components={[
             {

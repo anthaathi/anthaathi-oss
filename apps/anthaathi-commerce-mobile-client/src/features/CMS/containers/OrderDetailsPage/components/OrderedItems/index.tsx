@@ -1,27 +1,20 @@
-import {Image, View, Text as RNText} from 'react-native';
+import {Image, View, Text as RNText, Pressable} from 'react-native';
 import React from 'react';
 import {Divider, Text} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {OrderDetailsPageComponentType} from '../../../../types/common';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ProductProps} from '../../../ProductListPage/components/ProductList';
 
-export interface ItemProps {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  currency: string;
+export interface ItemProps extends ProductProps {
   numberOfItems: number;
-  packaging: string;
-  weight_unit?: string;
-  key: string;
 }
 
 export interface OrderedItemProps {
   title: string;
   items: ItemProps[];
-  handlePress?: (item: ItemProps) => void;
+  handlePress?: (item: ProductProps) => void;
 }
 
 const OrderedItems = (props: OrderedItemProps) => {
@@ -88,14 +81,11 @@ const ItemRenderer = ({
   itemHeight: number;
   itemWidth: number;
   divider: boolean;
-  handlePress: (item: ItemProps) => void;
+  handlePress: (item: ProductProps) => void;
 }) => {
   const intl = useIntl();
   return (
-    <TouchableOpacity
-      onPress={() => {
-        handlePress(item);
-      }}>
+    <Pressable onPress={() => handlePress(item)}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row'}}>
           <Image
@@ -199,7 +189,7 @@ const ItemRenderer = ({
         </View>
       </View>
       {divider && <Divider style={{marginVertical: 10}} />}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

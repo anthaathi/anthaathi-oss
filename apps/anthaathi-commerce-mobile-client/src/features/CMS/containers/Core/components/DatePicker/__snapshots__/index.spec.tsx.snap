@@ -169,7 +169,7 @@ exports[`DatePicker should render the item 1`] = `
             ]
           }
         >
-          12/9/2022
+          23/9/2022
         </Text>
       </View>
     </View>

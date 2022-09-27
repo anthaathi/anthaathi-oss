@@ -9,8 +9,8 @@ import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
-import {ProductProps} from '../../features/CMS/containers/CartPage/components/SuggestedItem';
 import {useIntl} from 'react-intl';
+import { ProductProps } from '../../features/CMS/containers/ProductListPage/components/ProductList';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
@@ -66,15 +66,8 @@ const CartPage: React.FC<
                     setCartItem(oldCartItem => [
                       ...oldCartItem,
                       {
-                        id: item.id,
-                        name: item.name,
-                        image: item.image,
-                        price: item.price,
-                        currency: item.currency,
+                        ...item,
                         numberOfItems: 1,
-                        packaging: item.packaging,
-                        weight_unit: item.weight_unit,
-                        key: item.key,
                       },
                     ]);
                   }
@@ -135,8 +128,35 @@ const CartPage: React.FC<
                 key: '1213',
                 title: 'Items',
                 items: cartItem,
-                handlePress: () => {
+                handlePressRemoveAllProduct: () => {
                   setCartItem([]);
+                },
+                handlePressViewProduct: (item: ProductProps) => {
+                  props.navigation.navigate('ProductPage', {
+                    productDetails: {
+                      id: item.id,
+                      description: item.description,
+                      weight_unit: item.weight_unit,
+                      packaging: item.packaging,
+                      key: item.key,
+                      notes: item.notes,
+                      name: item.name,
+                      listInfo: {
+                        description:
+                          '100% fresh. Sourced from UAE. Benefits: Dates contain vitamins such as B1, B2, B3 and B5, as well as A1 and C. Dates are loaded with potassium and rich in Iron, which is highly recommended for those who suffer from iron deficiency.',
+                        shippingInformation: 'Shipping Information',
+                      },
+                      blockInfo: {
+                        freeShipping: 'Free shipping in UAE',
+                        inStock: 'In stock, ready to ship',
+                        securePayments: 'Secure Payments',
+                        isFresh: 'Fresh',
+                      },
+                      price: item.price,
+                      currency: item.currency,
+                      image: [item.image],
+                    },
+                  });
                 },
                 removeProductPress: (id: number, numberOfItems: number) => {
                   if (numberOfItems > 1) {

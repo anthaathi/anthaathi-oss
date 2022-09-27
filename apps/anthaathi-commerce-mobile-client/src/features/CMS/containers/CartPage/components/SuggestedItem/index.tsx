@@ -9,21 +9,10 @@ import {
 } from 'react-native';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
+import { ProductProps } from '../../../ProductListPage/components/ProductList';
 
-export interface ProductProps {
-  id: number;
-  name: string;
-  description?: string;
-  price: number;
-  currency: string;
-  image: string;
-  weight_unit: string;
-  packaging: string;
-  key: string;
-  notes?: string;
-}
 
-export interface FeaturedCollectionProps {
+export interface SuggestedItemProps {
   title: string;
   products: ProductProps[];
   handlePress1?: () => void; // view all product link
@@ -35,7 +24,7 @@ export default function SuggestedItem({
   products,
   handlePress1,
   handlePress2,
-}: FeaturedCollectionProps) {
+}: SuggestedItemProps) {
   const intl = useIntl();
 
   return (
