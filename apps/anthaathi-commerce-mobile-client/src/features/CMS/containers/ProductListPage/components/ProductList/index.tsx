@@ -1,6 +1,12 @@
 import * as React from 'react';
 import {Avatar, Text, Title} from 'react-native-paper';
-import {Image, Pressable, View, VirtualizedList} from 'react-native';
+import {
+  Image,
+  Pressable,
+  TouchableOpacity,
+  View,
+  VirtualizedList,
+} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
@@ -25,13 +31,13 @@ export interface ProductProps {
 export interface ProductListProps {
   products: ProductProps[];
   handlePress?: (item: ProductProps) => void;
-  handleLongPress?: (item: ProductProps) => void;
+  handleInfoPress?: (item: ProductProps) => void;
 }
 
 export default function ProductList({
   products,
   handlePress,
-  handleLongPress,
+  handleInfoPress,
 }: ProductListProps) {
   const itemHeight = useResponsiveValue([160, 200, 220, 280]);
   const itemWidth = useResponsiveValue([170, 190, 210, 270]);
@@ -64,7 +70,7 @@ export default function ProductList({
             itemHeight={itemHeight}
             itemWidth={itemWidth}
             handlePress={handlePress || (() => {})}
-            handleLongPress={handleLongPress || (() => {})}
+            handleInfoPress={handleInfoPress || (() => {})}
           />
         )}
         getItemCount={() => productSplitted.length}
@@ -80,13 +86,13 @@ function ItemRendererColumn({
   itemHeight,
   itemWidth,
   handlePress,
-  handleLongPress,
+  handleInfoPress,
 }: {
   item: ProductProps[];
   itemHeight: number;
   itemWidth: number;
   handlePress: (item: ProductProps) => void;
-  handleLongPress: (item: ProductProps) => void;
+  handleInfoPress: (item: ProductProps) => void;
 }) {
   return (
     <View
@@ -104,7 +110,7 @@ function ItemRendererColumn({
           itemHeight={itemHeight}
           itemWidth={itemWidth}
           handlePress={() => handlePress(element)}
-          handleLongPress={() => handleLongPress(element)}
+          handleInfoPress={() => handleInfoPress(element)}
         />
       ))}
     </View>
@@ -116,13 +122,13 @@ function ItemRenderer({
   itemHeight,
   itemWidth,
   handlePress,
-  handleLongPress,
+  handleInfoPress,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
   handlePress: () => void;
-  handleLongPress: () => void;
+  handleInfoPress: () => void;
 }) {
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
@@ -149,7 +155,7 @@ function ItemRenderer({
       }}
       key={item.key}>
       <View>
-        <Pressable onPress={handlePress} onLongPress={handleLongPress}>
+        <Pressable onPress={handlePress}>
           <View style={{height: itemHeight, width: '100%'}}>
             <Image
               style={{
@@ -256,12 +262,14 @@ function ItemRenderer({
                 }}>
                 {item.name}
               </Title>
-              <Entypo
-                name="info-with-circle"
-                color="#364A15"
-                size={18}
-                style={{marginTop: 5}}
-              />
+              <TouchableOpacity onPress={handleInfoPress}>
+                <Entypo
+                  name="info-with-circle"
+                  color="#364A15"
+                  size={18}
+                  style={{paddingVertical: 5, paddingLeft: 10}}
+                />
+              </TouchableOpacity>
             </View>
             <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
               Dorne

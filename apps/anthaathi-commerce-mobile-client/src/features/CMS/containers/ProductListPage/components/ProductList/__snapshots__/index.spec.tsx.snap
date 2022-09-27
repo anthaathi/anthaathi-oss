@@ -179,29 +179,48 @@ exports[`ProductList should render the item 1`] = `
                     >
                       test
                     </Text>
-                    <Text
-                      allowFontScaling={false}
-                      selectable={false}
+                    <View
+                      accessible={true}
+                      collapsable={false}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
                       style={
-                        [
-                          {
-                            "color": "#364A15",
-                            "fontSize": 18,
-                          },
-                          {
-                            "marginTop": 5,
-                          },
-                          {
-                            "fontFamily": "Entypo",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
-                          {},
-                        ]
+                        {
+                          "opacity": 1,
+                        }
                       }
                     >
-                      
-                    </Text>
+                      <Text
+                        allowFontScaling={false}
+                        selectable={false}
+                        style={
+                          [
+                            {
+                              "color": "#364A15",
+                              "fontSize": 18,
+                            },
+                            {
+                              "paddingLeft": 10,
+                              "paddingVertical": 5,
+                            },
+                            {
+                              "fontFamily": "Entypo",
+                              "fontStyle": "normal",
+                              "fontWeight": "normal",
+                            },
+                            {},
+                          ]
+                        }
+                      >
+                        
+                      </Text>
+                    </View>
                   </View>
                   <Text
                     style={

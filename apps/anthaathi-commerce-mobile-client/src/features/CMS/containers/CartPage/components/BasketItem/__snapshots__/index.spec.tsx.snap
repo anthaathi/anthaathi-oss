@@ -96,20 +96,35 @@ exports[`BasketItem should render the item 1`] = `
             }
           }
         >
-          <Image
-            source={
-              {
-                "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1",
+                }
               }
-            }
-            style={
-              {
-                "height": 250,
-                "width": 240,
+              style={
+                {
+                  "height": 250,
+                  "width": 240,
+                }
               }
-            }
-            testID="basketProductImage"
-          />
+              testID="basketProductImage"
+            />
+          </View>
           <View
             style={
               {
@@ -466,20 +481,35 @@ exports[`BasketItem should render the item 1`] = `
             }
           }
         >
-          <Image
-            source={
-              {
-                "uri": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1",
+                }
               }
-            }
-            style={
-              {
-                "height": 250,
-                "width": 240,
+              style={
+                {
+                  "height": 250,
+                  "width": 240,
+                }
               }
-            }
-            testID="basketProductImage"
-          />
+              testID="basketProductImage"
+            />
+          </View>
           <View
             style={
               {
