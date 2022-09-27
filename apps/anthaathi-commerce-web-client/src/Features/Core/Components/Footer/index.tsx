@@ -3,10 +3,11 @@ import Facebook from '../../../../icons/facebook.svg';
 import Instagram from '../../../../icons/instagram.svg';
 import Twitter from '../../../../icons/twitter.svg';
 import Tiktok from '../../../../icons/tiktok.svg';
-import { Button } from '../Button';
+import { Button, Kind } from '../Button';
 import { Link } from '@solidjs/router';
 import { IconEnvelopeOSmall } from '@anthaathi/oracle-apex-solid-icons';
 import { For, JSX, Show } from 'solid-js';
+import { Grid } from '~/Features/Core/Components/Grid';
 
 export function Footer() {
   const [css, $theme] = useStyletron();
@@ -26,26 +27,22 @@ export function Footer() {
           paddingBottom: $theme.sizing.scale100,
         })}
       >
-        <div
-          class={css({
-            maxWidth: $theme.sizing.maxWidth,
-            margin: '0 auto',
-            width: '100%',
-            padding: $theme.sizing.scale500,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(1, 1fr)',
-            [$theme.mediaQuery.md]: {
-              gridTemplateColumns: 'repeat(2, 1fr)',
+        <Grid
+          $override={{
+            Root: {
+              style: {
+                maxWidth: $theme.sizing.maxWidth,
+                margin: '0 auto',
+                width: '100%',
+                padding: $theme.sizing.scale500,
+              },
             },
-            [$theme.mediaQuery.lg]: {
-              gridTemplateColumns: 'repeat(4, 1fr)',
-            },
-          })}
+          }}
         >
           <For each={FooterLinksData}>
             {(item) => <FooterSection {...item} />}
           </For>
-        </div>
+        </Grid>
       </footer>
       <div
         class={css({
@@ -65,10 +62,10 @@ export function Footer() {
         })}
       >
         <div class={css({ display: 'flex' })}>
-          <Button $startEnhancer={() => <Facebook />}></Button>
-          <Button $startEnhancer={() => <Instagram />}></Button>
-          <Button $startEnhancer={() => <Twitter />}></Button>
-          <Button $startEnhancer={() => <Tiktok />}></Button>
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Facebook />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Instagram />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Twitter />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Tiktok />} />
         </div>
 
         <span class={css({ flexGrow: 1 })} />

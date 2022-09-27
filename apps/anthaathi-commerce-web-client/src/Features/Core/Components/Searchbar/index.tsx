@@ -1,10 +1,15 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import Search from '../../../../icons/search.svg';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
+import { Input } from '~/Features/Core/Components/Input';
+import { Button, Kind } from '~/Features/Core/Components/Button';
 
 export function Searchbar() {
   const [css, $theme] = useStyletron();
 
   let searchInputRef: HTMLInputElement | null = null;
+
+  const cssVar = useCssToken();
 
   function onSearchTap() {
     searchInputRef?.focus();
@@ -15,45 +20,36 @@ export function Searchbar() {
       class={css({
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: $theme.tokens.Search.backgroundColor,
-        height: '38px',
+        backgroundColor: cssVar('search-background-color', '#EFEFEF'),
+        borderRadius: cssVar(
+          'search-border-radius',
+          cssVar('input-border-radius', '4px'),
+        ),
         width: '100%',
       })}
     >
-      <input
+      <Input
         type="search"
         placeholder="Search..."
         ref={(ref) => (searchInputRef = ref)}
-        class={css({
-          border: 'none',
-          padding: $theme.sizing.scale400,
-          outline: 'none',
-          color: $theme.tokens.Search.color,
-          backgroundColor: 'transparent',
-          ...$theme.typography.LabelMedium,
-          flexGrow: 1,
-        })}
-        onFocus={() => {
-          console.log('focus in');
+        $overrides={{
+          Root: {
+            style: {
+              flexGrow: 1,
+            },
+          },
+          Input: {
+            style: {},
+          },
         }}
       />
 
-      <button
-        class={css({
-          display: 'flex',
-          alignItems: 'center',
-          placeContent: 'center',
-          backgroundColor: 'transparent',
-          border: 'none',
-          width: '36px',
-          height: '100%',
-          cursor: 'pointer',
-        })}
+      <Button
+        $kind={Kind.Tertiary}
         type="button"
         onClick={onSearchTap}
-      >
-        <Search />
-      </button>
+        $startEnhancer={() => <Search />}
+      />
     </form>
   );
 }

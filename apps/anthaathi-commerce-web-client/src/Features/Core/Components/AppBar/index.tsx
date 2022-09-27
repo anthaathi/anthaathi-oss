@@ -1,6 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Searchbar } from '../Searchbar';
-import { Button } from '../Button';
+import { Button, Kind } from '../Button';
 import {
   IconReorderSmall,
   IconShoppingCartLarge,
@@ -21,6 +21,7 @@ export function AppBar() {
         top: 0,
         boxShadow: '0 0 25px rgb(0 0 0 / 10%)',
         backgroundColor: '#FFF',
+        zIndex: 99,
       })}
     >
       <header
@@ -87,6 +88,7 @@ export function AppBar() {
               <Button
                 $as={Link}
                 href="/account"
+                $kind={Kind.Tertiary}
                 $startEnhancer={() => (
                   <IconUserLarge height="18px" width="18px" class={css({})} />
                 )}
@@ -95,6 +97,7 @@ export function AppBar() {
               </Button>
               <Button
                 $as={Link}
+                $kind={Kind.Tertiary}
                 href="/cart"
                 $startEnhancer={() => (
                   <IconShoppingCartLarge
@@ -120,6 +123,7 @@ export function AppBar() {
               })}
             >
               <Button
+                $kind={Kind.Tertiary}
                 $startEnhancer={() => (
                   <IconShoppingCartLarge
                     height="18px"
@@ -132,6 +136,7 @@ export function AppBar() {
                 onClick={() => {
                   setMobileMenuOpen((prev) => !prev);
                 }}
+                $kind={Kind.Tertiary}
                 $startEnhancer={() => (
                   <IconReorderSmall
                     height="18px"
@@ -174,7 +179,7 @@ export function AppBar() {
         <For each={Categories}>
           {(category) => {
             return (
-              <Button $as={Link} href="/">
+              <Button $as={Link} href="/" $kind={Kind.Tab}>
                 {category.title}
               </Button>
             );
@@ -191,26 +196,36 @@ export function AppBar() {
           transition: 'all ease .2s',
         })}
       >
-        <ul
-          class={css({
-            marginLeft: 0,
-            paddingLeft: 0,
-            overflow: 'auto',
-            height: '100%',
-          })}
-        >
-          <For each={Categories}>
-            {(category) => {
-              return (
-                <li class={css({ listStyle: 'none', width: '100%' })}>
-                  <Button $fullWidth={true}>{category.title}</Button>
-                </li>
-              );
-            }}
-          </For>
-        </ul>
+        <MobileMenu />
       </div>
     </nav>
+  );
+}
+
+function MobileMenu() {
+  const [css] = useStyletron();
+
+  return (
+    <ul
+      class={css({
+        marginLeft: 0,
+        paddingLeft: 0,
+        overflow: 'auto',
+        height: '100%',
+      })}
+    >
+      <For each={Categories}>
+        {(category) => {
+          return (
+            <li class={css({ listStyle: 'none', width: '100%' })}>
+              <Button $kind={Kind.Tertiary} $fullWidth={true}>
+                {category.title}
+              </Button>
+            </li>
+          );
+        }}
+      </For>
+    </ul>
   );
 }
 
