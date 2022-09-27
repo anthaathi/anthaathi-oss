@@ -5,9 +5,11 @@
   "version": "0.0.0",
   "workspaces": [
     "apps/anthaathi-commerce-mobile-client",
+    "apps/anthaathi-commerce-web-client",
     "apps/anthaathi-crm-web-client",
     "tools/node-tooling",
-    "docs"
+    "docs",
+    "website"
   ],
   "dependenciesMeta": {
     "anthaathicommercemobile": {

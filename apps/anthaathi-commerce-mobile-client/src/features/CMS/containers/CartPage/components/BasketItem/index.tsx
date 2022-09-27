@@ -95,7 +95,7 @@ const ItemRenderer = ({
   return (
     <View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection: 'row', width: '80%'}}>
+        <View style={{flexDirection: 'row'}}>
           <Image
             testID="basketProductImage"
             source={{uri: item.image}}
@@ -108,24 +108,16 @@ const ItemRenderer = ({
               flexDirection: 'column',
               justifyContent: 'space-between',
             }}>
-            <View>
-              <Text
-                testID="productName"
-                variant="titleLarge"
-                style={{
-                  fontSize: 14,
-                  color: '#364A15',
-                  fontWeight: '900',
-                }}>
-                {item.name}
-              </Text>
-              <Text
-                testID="productPacking"
-                variant="titleLarge"
-                style={{fontSize: 12, color: '#808080', fontWeight: '400'}}>
-                {item.packaging}
-              </Text>
-            </View>
+            <Text
+              testID="productName"
+              variant="titleLarge"
+              style={{
+                fontSize: 14,
+                color: '#364A15',
+                fontWeight: '900',
+              }}>
+              {item.name}
+            </Text>
             <ProductCountButton
               numberOfItems={item.numberOfItems}
               addProductPress={() => addProductPress(item.id)}
@@ -133,28 +125,51 @@ const ItemRenderer = ({
                 removeProductPress(item.id, item.numberOfItems)
               }
             />
+
+            <Text
+              variant="titleLarge"
+              style={{
+                fontSize: 13,
+                color: '#364A15',
+                fontWeight: '600',
+              }}>
+              {intl.formatNumber(item.price, {
+                style: 'currency',
+                currency: item.currency,
+              }) + ' / ' + intl.formatMessage({defaultMessage: 'Piece'})}
+            </Text>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Text
+                variant="titleLarge"
+                style={{
+                  fontSize: 14,
+                  color: '#364A15',
+                  fontWeight: '900',
+                }}>
+                {intl.formatMessage({defaultMessage: 'Total'}) + ' :'}
+              </Text>
+
+              <Text
+                testID="productPrice"
+                variant="titleLarge"
+                style={{
+                  fontSize: 14,
+                  color: '#008D3E',
+                  fontWeight: '700',
+                  marginLeft: 5,
+                }}>
+                {intl.formatNumber(item.price * item.numberOfItems, {
+                  style: 'currency',
+                  currency: item.currency,
+                })}
+              </Text>
+            </View>
           </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'flex-end',
-            alignContent: 'flex-end',
-          }}>
-          <Text
-            testID="productPrice"
-            variant="titleLarge"
-            style={{
-              fontSize: 14,
-              color: '#008D3E',
-              fontWeight: '700',
-              marginLeft: 5,
-            }}>
-            {intl.formatNumber(item.price * item.numberOfItems, {
-              style: 'currency',
-              currency: item.currency,
-            })}
-          </Text>
         </View>
       </View>
       <Divider style={{marginVertical: 10}} />
@@ -196,7 +211,7 @@ const ProductCountButton = ({
           marginHorizontal: 5,
           fontSize: 14,
           color: '#364A15',
-          fontWeight: '600',
+          fontWeight: '700',
         }}>
         {numberOfItems}
       </Text>

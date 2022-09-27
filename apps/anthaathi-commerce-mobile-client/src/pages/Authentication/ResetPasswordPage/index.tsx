@@ -3,10 +3,13 @@ import React from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import {RootStackParamList} from '../../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import { useIntl } from 'react-intl';
 
 const ResetPasswordPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ResetPassword'>,
 ) => {
+  const intl = useIntl();
+
   return (
     <View
       style={{
@@ -27,13 +30,15 @@ const ResetPasswordPage = (
               fontWeight: '700',
               fontSize: 28,
             }}>
-            Reset your password
+            {intl.formatMessage({defaultMessage: 'Reset your password'})}
           </Text>
         </View>
         <View style={{marginVertical: 15}}>
           <TextInput
             mode="flat"
-            label={'Username or email address'}
+            label={intl.formatMessage({
+              defaultMessage: 'Username or email address',
+            })}
             style={{
               backgroundColor: '#fff',
               fontSize: 14,
@@ -57,7 +62,7 @@ const ResetPasswordPage = (
           onPress={() => {
             props.navigation.navigate('SignIn');
           }}>
-          Get password link
+          {intl.formatMessage({defaultMessage: 'Get password link'})}
         </Button>
       </ScrollView>
     </View>
