@@ -60,7 +60,7 @@ const HomePage = (
             {
               _component: HomePageComponentType.FeaturedCollection,
               key: '1251',
-              title: 'In Season Products',
+              title: 'Special Offers',
               products: [
                 {
                   name: dataJson.core.homePage.featuredCollection.products[0]
@@ -214,6 +214,9 @@ const HomePage = (
                 'Get exclusive offers & more by signing up for our promotional email',
               image: dataJson.core.homePage.splitOfferCard.image,
               buttonTitle: 'View Offers',
+              onPress: () => {
+                props.navigation.navigate('ProductListPage1');
+              },
             },
             // {
             //   _component: HomePageComponentType.ChatFloatingButton,

@@ -35,6 +35,9 @@ import {ButtonCMSInput} from '../containers/Core/components/CMSButton';
 import {ProductListCMSInput} from '../containers/ProductListPage/components/ProductList';
 import {FABButtonCMSInput} from '../containers/Core/components/CMSFABButton';
 import { SelectOptionCMSInput } from '../containers/Core/components/CMSSelectOption';
+import { CategoryListCMSInput } from '../containers/CategoryPage/components/CategoryList';
+import { DeliveryAddressDetailsCardCMSInput } from '../containers/OrderDetailsPage/components/DeliveryAddressDetailsCard';
+import { OrderedItemsCMSInput } from '../containers/OrderDetailsPage/components/OrderedItems';
 
 export interface RendererProps {
   components: object & {_component: string; key: string}[];
@@ -74,6 +77,11 @@ const renderer = [
   DeliveryDateSelectionCMSInput,
   PaymentMethodSelectionCMSInput,
   TimeSlotSelectionCMSInput,
+  // category page
+  CategoryListCMSInput,
+  // order details page
+  DeliveryAddressDetailsCardCMSInput,
+  OrderedItemsCMSInput,
   // order page
   OrderDetailsListCMSInput,
   // product list page

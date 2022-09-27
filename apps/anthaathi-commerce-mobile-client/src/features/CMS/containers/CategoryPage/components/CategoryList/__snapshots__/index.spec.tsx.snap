@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryList should render the item 1`] = `
+<RCTScrollView
+  testID="categoryList"
+>
+  <View>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "height": 180,
+            "margin": 10,
+            "opacity": 1,
+            "width": "30%",
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1",
+            }
+          }
+          style={
+            {
+              "borderRadius": 4,
+              "height": "100%",
+              "position": "absolute",
+              "width": "100%",
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "backgroundColor": "#fff",
+              "color": "#000",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "marginHorizontal": 20,
+              "marginTop": 70,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            }
+          }
+        >
+          test
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

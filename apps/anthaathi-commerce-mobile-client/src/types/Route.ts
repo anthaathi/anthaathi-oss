@@ -14,7 +14,9 @@ export type RootStackParamList = {
   CheckoutPage: undefined | {};
   NotificationPage: undefined | {};
   HomePage: {} | undefined;
+  CategoryPage: undefined | {};
   MyOrdersPage: {} | undefined;
   AddressInfo: {} | undefined;
   SelectDate: {} | undefined;
+  OrderDetailsPage: {} | undefined;
 };

@@ -189,7 +189,8 @@ const CartPage: React.FC<
           />
         </ScrollView>
       ) : (
-        <View style={{alignItems: 'center', marginTop: 50}}>
+        <View
+          style={{alignItems: 'center', marginTop: 50, marginHorizontal: 10}}>
           <Text style={{color: '#364A15', fontSize: 22, fontWeight: '700'}}>
             {intl.formatMessage({defaultMessage: 'Your cart is Empty'})}
           </Text>

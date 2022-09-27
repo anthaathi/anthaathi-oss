@@ -52,18 +52,20 @@ const CartCard = ({
             {title}
           </Text>
 
-          <Pressable onPress={handlePress} testID="handlePressBasketItem">
-            <Text
-              variant="titleMedium"
-              style={{
-                marginBottom: 9,
-                textDecorationLine: 'underline',
-                fontSize: 14,
-                color: '#008D3E',
-              }}>
-              {intl.formatMessage({defaultMessage: 'View Details'})}
-            </Text>
-          </Pressable>
+          {handlePress && (
+            <Pressable onPress={handlePress} testID="handlePressBasketItem">
+              <Text
+                variant="titleMedium"
+                style={{
+                  marginBottom: 9,
+                  textDecorationLine: 'underline',
+                  fontSize: 14,
+                  color: '#008D3E',
+                }}>
+                {intl.formatMessage({defaultMessage: 'View Details'})}
+              </Text>
+            </Pressable>
+          )}
         </View>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
           <SimpleLineIcons name={statusIcon} size={18} color="#0f8443" />
