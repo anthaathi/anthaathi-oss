@@ -3,6 +3,7 @@ import {useStyletron} from "@anthaathi/solid-styletron";
 import {
     IconFileSqlLarge,
     IconIdCardOLarge,
+    IconTruckLarge
 } from "@anthaathi/oracle-apex-solid-icons";
 import { JSX } from "solid-js";
 
