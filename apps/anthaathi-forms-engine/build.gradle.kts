@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    id("com.netflix.dgs.codegen") version "5.1.17"
 }
 
 group = "org.anthaathi"

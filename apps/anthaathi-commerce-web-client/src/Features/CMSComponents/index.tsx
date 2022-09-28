@@ -5,6 +5,8 @@ import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { addServerTiming } from '~/utils/add-server-timing';
 import { isServer } from 'solid-js/web';
 import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
+import {AboutUs} from "~/Features/CMSComponents/Components/AboutUs";
+import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -25,6 +27,8 @@ export function RenderCMSComponents() {
       elit. A aperiam, assumenda aut eius eos error ex harum, hic, iusto maxime
       modi nostrum officia perferendis quae quam sequi tempora ullam vitae!
       <EmailSignup />
+      <HowItWorks />
+      <AboutUs />
     </>
   );
 
