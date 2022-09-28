@@ -9,6 +9,9 @@ import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 import { SplitOfferCard } from './Components/SplitOfferCard';
 import { HeroSlide } from './Components/HeroSlide';
+import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
+import {AboutUs} from "~/Features/CMSComponents/Components/AboutUs";
+import {FAQ} from "~/Features/CMSComponents/Components/FAQ";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -47,6 +50,9 @@ export function RenderCMSComponents() {
         subTitle="Perfect for rich lifestyle photography"
         buttonTitle="View All"
       />
+      <HowItWorks />
+      <AboutUs />
+      <FAQ />
     </>
   );
 
