@@ -7,6 +7,7 @@ import { isServer } from 'solid-js/web';
 import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
+import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { SplitOfferCard } from './Components/SplitOfferCard';
 import { HeroSlide } from './Components/HeroSlide';
 import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
@@ -24,15 +25,7 @@ export function RenderCMSComponents() {
       <SplitSlides />
       <PromoGrid />
       <ImageAndText />
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa
-      cum dolor doloremque doloribus ea est fugit illum, in laudantium modi
-      provident quis quos, recusandae soluta sunt ullam, vitae? Accusamus. Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus
-      eius laboriosam voluptas! Ab accusantium aspernatur beatae dignissimos
-      dolorem, eius, eum exercitationem magni, nam officiis recusandae sequi
-      suscipit tempora ut? Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit. A aperiam, assumenda aut eius eos error ex harum, hic, iusto maxime
-      modi nostrum officia perferendis quae quam sequi tempora ullam vitae!
+      <FeaturedCollection />
       <EmailSignup />
       <SplitOfferCard
         title={'Get Exclusive Offers'}
