@@ -7,6 +7,9 @@ import { isServer } from 'solid-js/web';
 import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
+import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
+import {AboutUs} from "~/Features/CMSComponents/Components/AboutUs";
+import {FAQ} from "~/Features/CMSComponents/Components/FAQ";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -29,6 +32,9 @@ export function RenderCMSComponents() {
       elit. A aperiam, assumenda aut eius eos error ex harum, hic, iusto maxime
       modi nostrum officia perferendis quae quam sequi tempora ullam vitae!
       <EmailSignup />
+      <HowItWorks />
+      <AboutUs />
+      <FAQ />
     </>
   );
 

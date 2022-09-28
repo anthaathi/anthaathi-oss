@@ -15,6 +15,7 @@ export function FAQ() {
     return(
         <div
             class={css({
+                margin: '0 auto',
                 maxWidth: $theme.sizing.maxWidth,
                 textAlign: 'center',
             })}
@@ -53,7 +54,11 @@ export function FAQ() {
                                             textAlign: 'left',
                                             borderBottom: '1px solid #d9d9d9',
                                             ":hover": {
-                                                backgroundColor: '#d9d9d9'
+                                                transitionTimingFunction: 'ease',
+                                                transitionDuration: '100ms',
+                                                transitionProperty: 'background-color',
+                                                backgroundColor: '#e9e9e9',
+                                                cursor: 'pointer',
                                             },
                                         })}
                                     >
