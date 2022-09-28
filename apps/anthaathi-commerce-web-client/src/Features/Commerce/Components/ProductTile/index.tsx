@@ -29,9 +29,14 @@ export function ProductTile() {
           width: 'auto',
           position: 'relative',
           cursor: 'pointer',
-          paddingLeft: $theme.sizing.scale800,
-          paddingRight: $theme.sizing.scale800,
-          paddingTop: $theme.sizing.scale800,
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
+          paddingTop: $theme.sizing.scale600,
+          [$theme.mediaQuery.md]: {
+            paddingLeft: $theme.sizing.scale800,
+            paddingRight: $theme.sizing.scale800,
+            paddingTop: $theme.sizing.scale800,
+          },
         })}
         onMouseOver={() => setIsOpen(true)}
         onMouseOut={() => setIsOpen(false)}
@@ -46,6 +51,10 @@ export function ProductTile() {
             transitionDuration: '100ms',
             transitionProperty: 'opacity',
             zIndex: 1,
+            display: 'none',
+            [$theme.mediaQuery.md]: {
+              display: 'block',
+            },
           })}
         >
           <Button
@@ -109,11 +118,14 @@ export function ProductTile() {
             srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
             alt=""
             class={css({
-              width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
+              width: '100%',
               flexGrow: 1,
               objectFit: 'cover',
-              paddingLeft: $theme.sizing.scale400,
-              paddingRight: $theme.sizing.scale400,
+              [$theme.mediaQuery.md]: {
+                width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
+                paddingLeft: $theme.sizing.scale400,
+                paddingRight: $theme.sizing.scale400,
+              },
             })}
           />
 

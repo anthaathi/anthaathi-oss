@@ -18,7 +18,7 @@ export const createLightTheme = (): StyletronTheme => {
     } as never,
     {
       mediaQuery: createMediaQueries(),
-    },
+    } as never,
     {
       sizing: createSizing(),
     },

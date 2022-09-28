@@ -13,13 +13,15 @@ export function FeaturedCollection() {
       class={css({
         margin: '0 auto',
         width: $theme.sizing.maxWidth,
-        maxWidth: '100%',
+        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
       })}
     >
       <div class={css({ display: 'flex', alignItems: 'center' })}>
         <h4
           class={css({
-            ...$theme.typography.DisplaySmall,
+            ...$theme.typography.ParagraphLarge,
           })}
         >
           In Season
@@ -35,11 +37,15 @@ export function FeaturedCollection() {
         $override={{
           Root: {
             style: {
-              gridGap: '28px',
               marginBottom: '12px',
+              gridGap: '8px',
+              [$theme.mediaQuery.md]: {
+                gridGap: '28px',
+              },
             },
           },
         }}
+        columns={[2, 2, 2, 5]}
       >
         <For each={[{}, {}, {}, {}]}>{() => <ProductTile />}</For>
       </Grid>
