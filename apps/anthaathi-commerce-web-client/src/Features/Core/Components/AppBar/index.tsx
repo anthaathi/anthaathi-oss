@@ -21,7 +21,7 @@ export function AppBar() {
         top: 0,
         boxShadow: '0 0 25px rgb(0 0 0 / 10%)',
         backgroundColor: '#FFF',
-        zIndex: 99,
+        zIndex: 1,
       })}
     >
       <header

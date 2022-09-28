@@ -211,13 +211,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@anthaathi/solid-styletron@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@anthaathi/solid-styletron@npm:0.3.0"
+"@anthaathi/solid-styletron@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@anthaathi/solid-styletron@npm:0.3.1"
   peerDependencies:
     solid-js: ^1.5.5
     styletron-engine-atomic: ^1.5.0
-  checksum: 8ba747349b4e532a155c81f7f4c49f0a466dff2d4466691dc6ba6319ebfb19f3359ce09a29036d19589a1ce748fa44a259b5ddef20627fda4c63461ebecab24e
+  checksum: cc4569547728b77615956e7513d9728af19139903940669b4074d88cd486fb0b8a7d27fb5404a050d5a5f1b2ef8ad03ccca61c6f6de807a0e811701839eef9b1
   languageName: node
   linkType: hard
 
@@ -5860,11 +5860,12 @@ __metadata:
   resolution: "anthaathi-commerce-web-client@workspace:apps/anthaathi-commerce-web-client"
   dependencies:
     "@anthaathi/oracle-apex-solid-icons": ^0.0.9
-    "@anthaathi/solid-styletron": ^0.3.0
+    "@anthaathi/solid-styletron": ^0.3.1
     "@solidjs/meta": ^0.28.0
     "@solidjs/router": ^0.4.3
     "@types/compression": ^1.7.2
     prettier: ^2.7.1
+    solid-headless: ^0.13.0
     solid-js: ^1.5.6
     solid-start: 0.1.0
     solid-start-node: 0.1.0
@@ -19266,6 +19267,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"solid-headless@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "solid-headless@npm:0.13.0"
+  dependencies:
+    solid-use: ^0.5.0
+  peerDependencies:
+    solid-js: ^1.2
+  checksum: 7598909d8c2297493c44230eb61c6f592b78511a0c9c3f0b0ddbaee14399c345200653c6a93c517229edb642c2d89206be959f7c81cbe3c06af1503dcba62732
+  languageName: node
+  linkType: hard
+
 "solid-js@npm:^1.5.6":
   version: 1.5.6
   resolution: "solid-js@npm:1.5.6"
@@ -19350,6 +19362,15 @@ __metadata:
     solid: bin.cjs
     solid-start: bin.cjs
   checksum: a74a6a2bcbc21f3e9b23468da6d803bbae806a105293cf9aea49b5d7f8977b9f6e0625bfe6817d89709a7f7bda120925816cb10820accf769d8c833d314dba0b
+  languageName: node
+  linkType: hard
+
+"solid-use@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "solid-use@npm:0.5.0"
+  peerDependencies:
+    solid-js: ^1.2
+  checksum: a4e01f8ca1ffdb94b4a1881909785676efa37631fe510a8a9889a17f1fe1658403f29ce330422f173841d5735d113d041116e221408ee2597249328c91d9966b
   languageName: node
   linkType: hard
 
