@@ -7,6 +7,8 @@ import { isServer } from 'solid-js/web';
 import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
+import { SplitOfferCard } from './Components/SplitOfferCard';
+import { HeroSlide } from './Components/HeroSlide';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -29,6 +31,22 @@ export function RenderCMSComponents() {
       elit. A aperiam, assumenda aut eius eos error ex harum, hic, iusto maxime
       modi nostrum officia perferendis quae quam sequi tempora ullam vitae!
       <EmailSignup />
+      <SplitOfferCard
+        title={'Get Exclusive Offers'}
+        subtitle={
+          'Get exclusive offers & more by signing up for our promotional email'
+        }
+        buttonTitle={'View Offers'}
+        image={
+          'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705'
+        }
+      />
+      <HeroSlide
+        backgroundImageSrc="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430"
+        title="Fresh Juices"
+        subTitle="Perfect for rich lifestyle photography"
+        buttonTitle="View All"
+      />
     </>
   );
 
