@@ -17,9 +17,7 @@ export function useSnapscroll(ref: () => HTMLElement) {
     return children.item(0);
   };
 
-  onCleanup(() => {
-    console.log('test089712');
-  });
+  onCleanup(() => {});
 
   return {
     scrollLeft: () => {},

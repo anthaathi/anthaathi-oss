@@ -5,8 +5,8 @@ import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { addServerTiming } from '~/utils/add-server-timing';
 import { isServer } from 'solid-js/web';
 import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
-import {AboutUs} from "~/Features/CMSComponents/Components/AboutUs";
-import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
+import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
+import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -15,8 +15,10 @@ export function RenderCMSComponents() {
 
   const renderedElements = (
     <>
+      <NewsLetter />
       <SplitSlides />
       <PromoGrid />
+      <ImageAndText />
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa
       cum dolor doloremque doloribus ea est fugit illum, in laudantium modi
       provident quis quos, recusandae soluta sunt ullam, vitae? Accusamus. Lorem
@@ -27,8 +29,6 @@ export function RenderCMSComponents() {
       elit. A aperiam, assumenda aut eius eos error ex harum, hic, iusto maxime
       modi nostrum officia perferendis quae quam sequi tempora ullam vitae!
       <EmailSignup />
-      <HowItWorks />
-      <AboutUs />
     </>
   );
 

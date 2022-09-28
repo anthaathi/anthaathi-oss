@@ -20,6 +20,7 @@ export interface ButtonProps {
       style?: StyleObject;
     };
   };
+  $size?: Size;
 }
 
 export enum Kind {
@@ -27,6 +28,12 @@ export enum Kind {
   Secondary,
   Tertiary,
   Tab,
+}
+
+export enum Size {
+  Large,
+  Default,
+  Mini,
 }
 
 export function Button(
@@ -112,6 +119,37 @@ export function Button(
       };
   }
 
+  let styleSize: StyleObject = {};
+
+  switch (props.$size) {
+    case Size.Large:
+      styleSize = {
+        paddingLeft: $theme.sizing.scale800,
+        paddingRight: $theme.sizing.scale800,
+        paddingTop: $theme.sizing.scale600,
+        paddingBottom: $theme.sizing.scale600,
+        ...$theme.typography.LabelLarge,
+      };
+      break;
+    case Size.Mini:
+      styleSize = {
+        paddingLeft: $theme.sizing.scale600,
+        paddingRight: $theme.sizing.scale800,
+        paddingTop: $theme.sizing.scale800,
+        paddingBottom: $theme.sizing.scale800,
+        ...$theme.typography.LabelXSmall,
+      };
+      break;
+    default:
+      styleSize = {
+        paddingLeft: $theme.sizing.scale600,
+        paddingRight: $theme.sizing.scale600,
+        paddingTop: $theme.sizing.scale500,
+        paddingBottom: $theme.sizing.scale500,
+        ...$theme.typography.LabelSmall,
+      };
+  }
+
   return (
     <Dynamic
       component={props.$as ?? 'button'}
@@ -120,7 +158,6 @@ export function Button(
         {
           cursor: 'pointer',
           display: 'flex',
-          padding: '12px 12px',
           transition: 'background-color ease .1s',
           outline: '2px solid transparent',
           alignItems: 'center',
@@ -160,8 +197,8 @@ export function Button(
             // @ts-ignore
             ...(styleObject[':focus'] || {}),
           },
-          ...$theme.typography.LabelSmall,
         },
+        styleSize,
         props?.$override?.Root?.style,
       ])}
     >

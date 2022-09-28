@@ -27,7 +27,17 @@ export function EmailSignup() {
       >
         Sign up and save
       </h4>
-      <h6 class={css({ ...$theme.typography.LabelLarge, margin: 0 })}>
+      <h6
+        class={css({
+          ...$theme.typography.LabelLarge,
+          width: '70%',
+          textAlign: 'center',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: '24px',
+          marginBottom: '0',
+        })}
+      >
         Subscribe to get special offers, free giveaways, and once-in-a-lifetime
         deals.
       </h6>
@@ -37,8 +47,8 @@ export function EmailSignup() {
         class={css({
           display: 'flex',
           placeContent: 'center',
-          paddingTop: $theme.sizing.scale1400,
-          paddingBottom: $theme.sizing.scale1400,
+          paddingTop: $theme.sizing.scale1000,
+          paddingBottom: $theme.sizing.scale1000,
           maxWidth: '420px',
           width: '100%',
           margin: '0 auto',

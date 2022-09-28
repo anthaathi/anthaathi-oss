@@ -1,4 +1,5 @@
 import type { MediaQuery, Sizing, Typography } from './utils/common';
+import { StyleObject } from 'styletron-standard';
 
 declare module '@anthaathi/solid-styletron' {
   interface CommonColorTokens {
@@ -10,5 +11,17 @@ declare module '@anthaathi/solid-styletron' {
     // @ts-ignore
     mediaQuery: MediaQuery;
     typography: Typography;
+    lighting: Shadow;
+  }
+
+  export interface Shadow {
+    shadow400: string;
+    shadow500: string;
+    shadow600: string;
+    shadow700: string;
+    shallowAbove: string;
+    shallowBelow: string;
+    deepAbove: string;
+    deepBelow: string;
   }
 }
