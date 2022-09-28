@@ -23,25 +23,7 @@ export function Input(
   const [hasFocus, setFocus] = createSignal(false);
 
   return (
-    <div
-      class={css([
-        {
-          height: '100%',
-          display: 'flex',
-        },
-        hasFocus()
-          ? {
-              borderTopRightRadius: cssVar('input-border-top-radius', '4px'),
-              borderTopColor: cssVar(
-                'input-border-top-color',
-                cssVar('primary-color', '#118b44'),
-              ),
-              borderTopWidth: cssVar('input-border-top-width', '2px'),
-            }
-          : {},
-        props?.$overrides?.Root?.style,
-      ])}
-    >
+    <div>
       <input
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}

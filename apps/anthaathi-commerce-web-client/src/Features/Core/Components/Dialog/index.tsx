@@ -7,8 +7,10 @@ import {
 } from 'solid-headless';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
-import { Accessor, children, createEffect, createSignal, JSX } from 'solid-js';
+import { Accessor, children, JSX } from 'solid-js';
 import { StyleObject } from 'styletron-standard';
+import { Button, Kind as ButtonKind } from '../Button';
+import { IconTimesLarge } from '@anthaathi/oracle-apex-solid-icons';
 
 export interface DialogProps {
   isOpen: Accessor<boolean>;
@@ -18,7 +20,21 @@ export interface DialogProps {
     Panel?: {
       $style: StyleObject;
     };
+    Root?: {
+      $style: StyleObject;
+    };
   };
+  $size?: Size | string;
+  $kind?: Kind;
+}
+
+export enum Kind {
+  Dialog,
+  BottomShit,
+}
+
+export enum Size {
+  Mini = 'mini',
 }
 
 export function Dialog(props: DialogProps) {
@@ -32,8 +48,6 @@ export function Dialog(props: DialogProps) {
   function openModal() {
     props.setOpen(true);
   }
-
-  createEffect(() => {});
 
   return (
     <>
@@ -98,7 +112,14 @@ export function Dialog(props: DialogProps) {
             </TransitionChild>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span class="inline-block h-screen align-middle" aria-hidden="true">
+            <span
+              class={css({
+                display: 'inline-block',
+                height: '100vh',
+                alignItems: 'middle',
+              })}
+              aria-hidden="true"
+            >
               &#8203;
             </span>
 
@@ -158,13 +179,47 @@ export function Dialog(props: DialogProps) {
                       'dialog-border-bottom-right-radius',
                       '6px',
                     ),
+                    maxWidth: '80vw',
+                    position: 'relative',
+                  },
+                  props.$size === Size.Mini
+                    ? {
+                        maxWidth: '850px',
+                      }
+                    : {},
+                  typeof props.$size === 'string' && {
+                    maxWidth: props.$size,
                   },
                   props?.$override?.Panel?.$style,
                 ])}
               >
-                {children(() => {
-                  return props.children;
-                })}
+                <Button
+                  $override={{
+                    Root: {
+                      style: {
+                        position: 'absolute',
+                        right: '-20px',
+                        top: '-20px',
+                        borderTopRightRadius: '50%',
+                        borderTopLeftRadius: '50%',
+                        borderBottomRightRadius: '50%',
+                        borderBottomLeftRadius: '50%',
+                        paddingLeft: '12px',
+                        paddingRight: '12px',
+                        paddingBottom: '12px',
+                        paddingTop: '12px',
+                      },
+                    },
+                  }}
+                  onClick={() => {
+                    props.setOpen(false);
+                  }}
+                  $kind={ButtonKind.Secondary}
+                  $startEnhancer={() => {
+                    return <IconTimesLarge />;
+                  }}
+                />
+                {children(() => props.children)}
               </DialogPanel>
             </TransitionChild>
           </div>
