@@ -13,8 +13,15 @@ export function Breadcrumbs({ list }: { list: BreadcrumbsProps[] }) {
   return (
     <div
       class={css({
+        marginTop: $theme.sizing.scale800,
+        marginBottom: $theme.sizing.scale800,
         display: 'flex',
         flexDirection: 'row',
+        margin: '0 auto',
+        width: $theme.sizing.maxWidth,
+        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
       })}
     >
       <For each={list}>
