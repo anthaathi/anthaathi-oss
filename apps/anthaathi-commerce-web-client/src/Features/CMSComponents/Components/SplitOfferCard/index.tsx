@@ -126,6 +126,7 @@ export function SplitOfferCard(props: SplitCardOfferProps) {
           class={css({
             backgroundColor: '#fff',
             objectFit: 'contain',
+            maxWidth: '100%',
             [$theme.mediaQuery?.xl || '']: {
               height: '520px',
               width: '60%',

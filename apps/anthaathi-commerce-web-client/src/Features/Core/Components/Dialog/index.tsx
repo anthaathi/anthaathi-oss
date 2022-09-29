@@ -67,7 +67,7 @@ export function Dialog(props: DialogProps) {
         >
           <div
             class={css({
-              minHeight: '100vh',
+              minHeight: '100vw',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

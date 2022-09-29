@@ -94,6 +94,7 @@ export function ImageAndText() {
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fruit-bowl-with-linnens_360x.jpg?v=1653677718"
             alt=""
             class={css({
+              width: '100%',
               [$theme.mediaQuery.md]: {
                 transform: 'translate(50px,50px)',
               },

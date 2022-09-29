@@ -54,7 +54,10 @@ export const NewsLetter = () => {
 
           <div
             class={css({
-              width: '100vw',
+              width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
+              paddingLeft: $theme.sizing.scale400,
+              paddingRight: $theme.sizing.scale400,
+
               [$theme.mediaQuery?.md || '']: {
                 width: '50%',
                 display: 'flex',
@@ -86,7 +89,7 @@ export const NewsLetter = () => {
             paddingTop: 0,
             paddingBottom: 0,
             paddingRight: 0,
-            maxWidth: '80vh',
+            maxWidth: `calc(100vw - 48px)`,
           },
         },
       }}
