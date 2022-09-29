@@ -18,7 +18,7 @@ import { Footer } from '~/Features/Core/Components/Footer';
 import { MiniAnnouncement } from '~/Features/Core/Components/MiniAnnouncement';
 import { AppBar } from '~/Features/Core/Components/AppBar';
 
-export default function Root(context) {
+export default function Root() {
   const styletron = useContext(StyletronContext) as Server;
 
   return (

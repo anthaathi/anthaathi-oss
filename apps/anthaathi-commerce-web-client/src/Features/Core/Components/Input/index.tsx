@@ -20,10 +20,14 @@ export function Input(
 ) {
   const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
-  const [hasFocus, setFocus] = createSignal(false);
+  const [, setFocus] = createSignal(false);
 
   return (
-    <div>
+    <div
+      class={css({
+        ...(props?.$overrides?.Root?.style || {}),
+      })}
+    >
       <input
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}

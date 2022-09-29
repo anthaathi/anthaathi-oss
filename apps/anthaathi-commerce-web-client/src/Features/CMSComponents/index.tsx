@@ -10,9 +10,9 @@ import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { SplitOfferCard } from './Components/SplitOfferCard';
 import { HeroSlide } from './Components/HeroSlide';
-import {HowItWorks} from "~/Features/CMSComponents/Components/HowItWorks";
-import {AboutUs} from "~/Features/CMSComponents/Components/AboutUs";
-import {FAQ} from "~/Features/CMSComponents/Components/FAQ";
+import { HowItWorks } from '~/Features/CMSComponents/Components/HowItWorks';
+import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
+import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -26,7 +26,6 @@ export function RenderCMSComponents() {
       <PromoGrid />
       <ImageAndText />
       <FeaturedCollection />
-      <EmailSignup />
       <SplitOfferCard
         title={'Get Exclusive Offers'}
         subtitle={
@@ -37,6 +36,7 @@ export function RenderCMSComponents() {
           'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Newsletter_bg_300x.png?v=1653648705'
         }
       />
+      <ProductInfo />
       <HeroSlide
         backgroundImageSrc="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-squeezed-orange-juice_300x.jpg?v=1653584430"
         title="Fresh Juices"
@@ -45,7 +45,7 @@ export function RenderCMSComponents() {
       />
       <HowItWorks />
       <AboutUs />
-      <FAQ />
+      <EmailSignup />
     </>
   );
 

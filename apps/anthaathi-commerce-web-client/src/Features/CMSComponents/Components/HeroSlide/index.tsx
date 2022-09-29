@@ -1,4 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 
 export interface HeroSlideProps {
   backgroundImageSrc: string;
@@ -33,40 +34,45 @@ export function HeroSlide(props: HeroSlideProps) {
         class={css({
           position: 'absolute',
           bottom: '50px',
-          left: '10%',
+          left: 0,
+          width: '100%',
         })}
       >
-        <p
-          class={css({
-            color: '#fff',
-            fontWeight: 'bold',
-            marginBottom: '0px',
-            fontSize: '48px',
-          })}
-        >
-          {props.title}
-        </p>
-        <p
-          class={css({ color: '#fff', fontSize: '24px', fontWeight: 'normal' })}
-        >
-          {props.subTitle}
-        </p>
         <div
-          onclick={props.handlePress}
           class={css({
-            textAlign: 'center',
-            backgroundColor: '#fff',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            color: '#000',
-            width: '160px',
-            fontWeight: 'bold',
-            fontSize: '18px',
-            borderRadius: '4px',
-            ':hover': { cursor: 'pointer' },
+            maxWidth: $theme.sizing.maxWidth,
+            width: '100%',
+            margin: '0 auto',
+            paddingLeft: $theme.sizing.scale500,
+            paddingRight: $theme.sizing.scale500,
           })}
         >
-          {props.buttonTitle}
+          <p
+            class={css({
+              color: '#fff',
+              fontWeight: 'bold',
+              marginBottom: '0px',
+              fontSize: '48px',
+            })}
+          >
+            {props.title}
+          </p>
+          <p
+            class={css({
+              color: '#fff',
+              fontSize: '24px',
+              fontWeight: 'normal',
+            })}
+          >
+            {props.subTitle}
+          </p>
+          <Button
+            onClick={props.handlePress}
+            $kind={Kind.Secondary}
+            $size={Size.Large}
+          >
+            {props.buttonTitle}
+          </Button>
         </div>
       </div>
     </div>

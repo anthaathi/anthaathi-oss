@@ -7,12 +7,48 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For } from 'solid-js';
+import { createSignal, For, onCleanup, onMount } from 'solid-js';
+import { Transition, TransitionChild } from 'solid-headless';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
 
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
+
+  const [isOpen, setIsOpen] = createSignal(true);
+
+  let lastScrollTop: number;
+
+  let timeoutId: string | number | NodeJS.Timeout | undefined;
+
+  function onScroll() {
+    const scrollTop = document.documentElement.scrollTop;
+
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    if (scrollTop > lastScrollTop) {
+      const isOpen = scrollTop < 300;
+
+      timeoutId = setTimeout(() => {
+        setIsOpen(isOpen);
+      }, 50);
+    } else {
+      setIsOpen(true);
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  }
+
+  onMount(() => {
+    document.addEventListener('scroll', onScroll);
+    setIsOpen(window.scrollY < 200);
+  });
+
+  onCleanup(() => {
+    document.removeEventListener('scroll', onScroll);
+  });
 
   return (
     <nav
@@ -54,11 +90,58 @@ export function AppBar() {
                 position: 'absolute',
                 left: 0,
                 display: 'none',
-                [$theme.mediaQuery.md]: {
-                  display: 'block',
+                [$theme.mediaQuery?.md || '']: {
+                  display: 'flex',
                 },
               })}
             >
+              <Transition show={!isOpen()}>
+                <TransitionChild
+                  enter={css({
+                    transitionDuration: '300ms',
+                    transitionTimingFunction: 'ease-in',
+                  })}
+                  enterFrom={css({
+                    opacity: 0,
+                    maxWidth: 0,
+                  })}
+                  enterTo={css({
+                    opacity: 1,
+                    maxWidth: '1200px',
+                  })}
+                  leave={css({
+                    transitionDuration: 'ease-out',
+                    transitionTimingFunction: '200ms',
+                  })}
+                  leaveFrom={css({
+                    opacity: 1,
+                    maxWidth: '1200px',
+                  })}
+                  leaveTo={css({
+                    opacity: 0,
+                    maxWidth: 0,
+                  })}
+                >
+                  <Button
+                    $kind={Kind.Tertiary}
+                    $startEnhancer={() => <IconReorderSmall />}
+                    $override={{
+                      Root: {
+                        style: {
+                          paddingLeft: '12px',
+                          paddingRight: '12px',
+                          paddingTop: '12px',
+                          paddingBottom: '12px',
+                          marginRight: '12px',
+                        },
+                      },
+                    }}
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  />
+                </TransitionChild>
+              </Transition>
               <Searchbar />
             </div>
 
@@ -80,7 +163,7 @@ export function AppBar() {
                 right: 0,
                 alignItems: 'center',
                 display: 'none',
-                [$theme.mediaQuery.md]: {
+                [$theme.mediaQuery?.md || '']: {
                   display: 'flex',
                 },
               })}
@@ -117,7 +200,7 @@ export function AppBar() {
                 alignItems: 'center',
                 display: 'flex',
                 placeContent: 'center',
-                [$theme.mediaQuery.md]: {
+                [$theme.mediaQuery?.md || '']: {
                   display: 'none',
                 },
               })}
@@ -153,7 +236,7 @@ export function AppBar() {
       <div
         class={css({
           padding: $theme.sizing.scale500,
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             display: 'none',
           },
           margin: '0 auto',
@@ -171,10 +254,16 @@ export function AppBar() {
           alignItems: 'center',
           placeContent: 'center',
           display: 'none',
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             display: 'flex',
           },
+          maxHeight: isOpen() ? '100px' : 0,
+          transitionProperty: 'max-height',
+          transitionDuration: '.2s',
+          transitionTimingFunction: 'ease',
+          overflow: 'hidden',
         })}
+        data-type="categories"
       >
         <For each={Categories}>
           {(category) => {
