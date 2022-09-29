@@ -101,7 +101,7 @@ const ProductCell = () => {
           class={css({
             maxWidth: '320px',
 
-            [$theme.mediaQuery.lg]: {
+            [$theme.mediaQuery?.lg || '']: {
               maxWidth: '520px',
             },
             width: '100%',

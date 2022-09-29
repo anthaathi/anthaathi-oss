@@ -18,38 +18,7 @@ export function AppBar() {
 
   const [isOpen, _setIsOpen] = createSignal(true, {});
 
-  let lastScrollTop: number;
-
-  let timeoutId: string | number | NodeJS.Timeout | undefined;
-
   let categoryHTML: HTMLDivElement;
-
-  const setIsOpen = debounce((_isOpen: boolean) => _setIsOpen(_isOpen), 500);
-
-  function onScroll() {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    const scrollTop = document.documentElement.scrollTop;
-
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    if (scrollTop > lastScrollTop) {
-      const isOpen = scrollTop < 300;
-
-      timeoutId = setTimeout(() => {
-        setIsOpen(isOpen);
-      }, 50);
-    } else {
-      setIsOpen(true);
-    }
-
-    if (Math.abs((lastScrollTop || 0) - scrollTop) > 30) {
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-    }
-  }
 
   return (
     <nav
@@ -136,9 +105,6 @@ export function AppBar() {
                           marginRight: '12px',
                         },
                       },
-                    }}
-                    onClick={() => {
-                      setIsOpen(true);
                     }}
                   />
                 </TransitionChild>

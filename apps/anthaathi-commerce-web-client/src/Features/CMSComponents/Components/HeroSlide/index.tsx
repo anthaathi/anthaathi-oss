@@ -41,7 +41,7 @@ export function HeroSlide(props: HeroSlideProps) {
         <div
           class={css({
             maxWidth: $theme.sizing.maxWidth,
-            width: '100%',
+            width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
             margin: '0 auto',
             paddingLeft: $theme.sizing.scale500,
             paddingRight: $theme.sizing.scale500,
