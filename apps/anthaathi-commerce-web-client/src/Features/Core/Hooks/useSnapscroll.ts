@@ -1,4 +1,4 @@
-import { createEffect, onCleanup, onMount } from 'solid-js';
+import { onCleanup } from 'solid-js';
 
 export function useSnapscroll(ref: () => HTMLElement) {
   const calculateWidth = () => {

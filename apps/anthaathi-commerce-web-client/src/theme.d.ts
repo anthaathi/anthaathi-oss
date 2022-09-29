@@ -1,5 +1,4 @@
 import type { MediaQuery, Sizing, Typography } from './utils/common';
-import { StyleObject } from 'styletron-standard';
 
 declare module '@anthaathi/solid-styletron' {
   interface CommonColorTokens {

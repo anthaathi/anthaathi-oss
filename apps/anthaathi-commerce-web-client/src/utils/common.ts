@@ -1,5 +1,3 @@
-import { StyleObject } from 'styletron-standard';
-
 /**
  * Simple object check.
  * @param item

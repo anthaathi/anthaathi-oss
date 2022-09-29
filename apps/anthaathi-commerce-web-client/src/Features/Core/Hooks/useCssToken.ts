@@ -3,7 +3,7 @@ function CSSTokenProvider() {
 }
 
 export function useCssToken() {
-  return (token: string, defaultValue: string | number = null) => {
+  return (token: string, defaultValue?: string | number) => {
     return `var(--${token}` + (defaultValue ? `, ${defaultValue}` : '') + ')';
   };
 }

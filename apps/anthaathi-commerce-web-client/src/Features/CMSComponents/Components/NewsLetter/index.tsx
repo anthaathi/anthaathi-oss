@@ -2,9 +2,6 @@ import { createEffect, createSignal } from 'solid-js';
 import { Dialog, Kind as DialogKind } from '~/Features/Core/Components/Dialog';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { preloadImage } from '~/utils/preload-image';
-import { Input } from '~/Features/Core/Components/Input';
-import { Button, Kind, Size } from '~/Features/Core/Components/Button';
-import { IconAngleDoubleRightLarge } from '@anthaathi/oracle-apex-solid-icons';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 
 export const NewsLetter = () => {
@@ -61,7 +58,8 @@ export const NewsLetter = () => {
               [$theme.mediaQuery.md]: {
                 width: '50%',
                 display: 'flex',
-                height: '30vh',
+                maxHeight: '80vh',
+                height: '520px',
                 paddingLeft: $theme.sizing.scale400,
                 paddingRight: $theme.sizing.scale400,
                 alignItems: 'center',
