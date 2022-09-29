@@ -13,6 +13,7 @@ import { HeroSlide } from './Components/HeroSlide';
 import { HowItWorks } from '~/Features/CMSComponents/Components/HowItWorks';
 import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
+import {BlogPostJournal} from "~/Features/CMSComponents/Components/BlogPostJournal";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -44,6 +45,7 @@ export function RenderCMSComponents() {
         buttonTitle="View All"
       />
       <HowItWorks />
+      <BlogPostJournal />
       <AboutUs />
       <EmailSignup />
     </>
