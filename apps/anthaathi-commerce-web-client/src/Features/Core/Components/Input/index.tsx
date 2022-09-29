@@ -26,6 +26,7 @@ export function Input(
     <div
       class={css({
         ...(props?.$overrides?.Root?.style || {}),
+        display: 'flex',
       })}
     >
       <input

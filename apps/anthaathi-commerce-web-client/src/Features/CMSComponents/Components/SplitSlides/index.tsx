@@ -1,5 +1,10 @@
 import { useResponsiveStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
+import { Button, Kind } from '~/Features/Core/Components/Button';
+import {
+  IconArrowLeftLarge,
+  IconArrowRightLarge,
+} from '@anthaathi/oracle-apex-solid-icons';
 
 export function SplitSlides() {
   const [css, $theme] = useResponsiveStyletron();
@@ -15,6 +20,7 @@ export function SplitSlides() {
         flexDirection: 'row',
         height: ['750px', '750px', '750px', '750px'],
         backgroundColor: '#EEE',
+        position: 'relative',
       })}
     >
       <For each={[{}, {}]}>
@@ -27,7 +33,7 @@ export function SplitSlides() {
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                [$theme.mediaQuery.md]: {
+                [$theme.mediaQuery?.md || '']: {
                   flexDirection: 'row',
                 },
               })}
@@ -36,7 +42,7 @@ export function SplitSlides() {
                 class={css({
                   flexGrow: 1,
                   width: '100%',
-                  [$theme.mediaQuery.md]: {
+                  [$theme.mediaQuery?.md || '']: {
                     width: '60%',
                   },
                 })}
@@ -68,7 +74,7 @@ export function SplitSlides() {
                   width: '100%',
                   paddingLeft: $theme.sizing.scale500,
                   paddingRight: $theme.sizing.scale500,
-                  [$theme.mediaQuery.md]: {
+                  [$theme.mediaQuery?.md || '']: {
                     width: '40%',
                     paddingLeft: $theme.sizing.scale1400,
                     paddingRight: $theme.sizing.scale1400,
@@ -96,6 +102,57 @@ export function SplitSlides() {
           );
         }}
       </For>
+
+      <div
+        class={css({
+          position: 'absolute',
+          right: '36px',
+          bottom: '-22px',
+          zIndex: 1,
+          display: 'flex',
+        })}
+      >
+        <Button
+          $kind={Kind.Secondary}
+          $override={{
+            Root: {
+              style: {
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                borderBottomLeftRadius: '50%',
+                borderBottomRightRadius: '50%',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+              },
+            },
+          }}
+          $startEnhancer={() => (
+            <IconArrowLeftLarge width="21px" height="21px" />
+          )}
+        />
+        <Button
+          $kind={Kind.Secondary}
+          $override={{
+            Root: {
+              style: {
+                borderTopLeftRadius: '50%',
+                borderTopRightRadius: '50%',
+                borderBottomLeftRadius: '50%',
+                borderBottomRightRadius: '50%',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+              },
+            },
+          }}
+          $startEnhancer={() => (
+            <IconArrowRightLarge width="21px" height="21px" />
+          )}
+        />
+      </div>
     </div>
   );
 }

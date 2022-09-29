@@ -32,6 +32,7 @@ export enum Kind {
 
 export enum Size {
   Large,
+  Medium,
   Default,
   Mini,
 }
@@ -140,6 +141,15 @@ export function Button(
         ...$theme.typography.LabelXSmall,
       };
       break;
+    case Size.Medium:
+      styleSize = {
+        paddingLeft: $theme.sizing.scale800,
+        paddingRight: $theme.sizing.scale800,
+        paddingTop: $theme.sizing.scale400,
+        paddingBottom: $theme.sizing.scale400,
+        ...$theme.typography.LabelMedium,
+      };
+      break;
     default:
       styleSize = {
         paddingLeft: $theme.sizing.scale600,
@@ -150,9 +160,11 @@ export function Button(
       };
   }
 
+  const component = props.$as ?? 'button';
+
   return (
     <Dynamic
-      component={props.$as ?? 'button'}
+      component={component}
       {...filterProps(props)}
       class={css([
         {
@@ -173,7 +185,6 @@ export function Button(
           ),
           borderTopRightRadius: cssVar('button-border-top-right-radius', '4px'),
           borderTopLeftRadius: cssVar('button-border-top-left-radius', '4px'),
-          width: props.$fullWidth ? '100%' : undefined,
           ...styleObject,
           ':hover': {
             outlineWidth: '2px',
@@ -198,6 +209,17 @@ export function Button(
             ...(styleObject[':focus'] || {}),
           },
         },
+        props.$fullWidth
+          ? {
+              placeContent: 'center',
+              width:
+                component === 'button'
+                  ? '100%'
+                  : `calc(100% - ${styleSize.paddingLeft || 0} - ${
+                      styleSize.paddingRight || 0
+                    })`,
+            }
+          : {},
         styleSize,
         props?.$override?.Root?.style,
       ])}
