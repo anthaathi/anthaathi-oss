@@ -27,6 +27,9 @@ export function AppBar() {
   const setIsOpen = debounce((_isOpen: boolean) => _setIsOpen(_isOpen), 500);
 
   function onScroll() {
+    if (typeof document === 'undefined') {
+      return;
+    }
     const scrollTop = document.documentElement.scrollTop;
 
     if (timeoutId) {
@@ -49,11 +52,17 @@ export function AppBar() {
   }
 
   onMount(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
     document.addEventListener('scroll', onScroll);
     setIsOpen(window.scrollY < 200);
   });
 
   onCleanup(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
     document.removeEventListener('scroll', onScroll);
   });
 

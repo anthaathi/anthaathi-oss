@@ -1,8 +1,4 @@
-import {
-  createServerAction$,
-  createServerData$,
-  redirect,
-} from 'solid-start/server';
+import { createServerData$, redirect } from 'solid-start/server';
 import { useRouteData } from '@solidjs/router';
 
 export function routeData() {
