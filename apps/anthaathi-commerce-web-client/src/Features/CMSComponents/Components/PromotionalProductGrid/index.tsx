@@ -1,209 +1,158 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
 import { Grid } from '~/Features/Core/Components/Grid';
-
-export interface ProductGridProps {
-  name: string;
-  heading: string;
-  description?: string;
-  price: number;
-  currency: string;
-  image: string;
-  buttonTitle: string;
-  label: string;
-  handlePress?: () => void;
-}
+import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export interface PromotionalProductGridProps {
-  products: ProductGridProps[];
+  products: any[];
 }
 
 export function PromotionalProductGrid(props: PromotionalProductGridProps) {
-  const [, $theme] = useStyletron();
-  return (
-    <Grid
-      $override={{
-        Root: {
-          style: {
-            width: '100%',
-            gridRowGap: '10px',
-            gridColumnGap: '5px',
-          },
-        },
-      }}
-      columns={[1, 1, 2]}
-    >
-      <For each={props.products}>
-        {(product) => <ProductGrid product={product} />}
-      </For>
-    </Grid>
-  );
-}
-
-const ProductGrid = ({ product }: { product: ProductGridProps }) => {
+  const cssVar = useCssToken();
   const [css, $theme] = useStyletron();
 
   return (
-    <div>
+    <div
+      class={css({
+        width: '100%',
+      })}
+    >
+      <Grid
+        $override={{
+          Root: {
+            style: {
+              gridColumnGap: '5px',
+              backgroundColor: cssVar(
+                'promotional-product-grid-background',
+                '#FEFEFE',
+              ),
+            },
+          },
+        }}
+        data-type="promotional-product-grid"
+        columns={[1, 1, 1, 2]}
+      >
+        <For each={props.products || []}>{(product) => <ProductCell />}</For>
+      </Grid>
+    </div>
+  );
+}
+
+const ProductCell = () => {
+  const [css, $theme] = useStyletron();
+  const cssVar = useCssToken();
+
+  return (
+    <div
+      class={css({
+        display: 'flex',
+        paddingTop: $theme.sizing.scale2400,
+        paddingBottom: $theme.sizing.scale2400,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
+      })}
+    >
       <div
         class={css({
-          backgroundColor: '#f8f8f8',
-          width: '100%',
-          height: '380px',
+          width: '50%',
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: 'column',
           placeContent: 'center',
+          justifyContent: 'center',
+          placeItems: 'center',
+        })}
+      >
+        <div class={css({ minWidth: 'min-content' })}>
+          <h4
+            class={css({
+              marginTop: 0,
+              marginBottom: $theme.sizing.scale400,
+              ...$theme.typography.HeadingSmall,
+              fontWeight: 500,
+            })}
+          >
+            Pomegranate Pure Natural Juice
+          </h4>
+          <h4
+            class={css({
+              marginTop: 0,
+              marginBottom: $theme.sizing.scale400,
+              ...$theme.typography.ParagraphLarge,
+            })}
+          >
+            100% fresh. Sourced from Netherlands.
+          </h4>
+          <div>
+            <Button $size={Size.Large} $kind={Kind.Invert}>
+              Shop
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class={css({
+          position: 'relative',
+          width: '50%',
         })}
       >
         <div
           class={css({
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
+            maxWidth: '320px',
+
+            [$theme.mediaQuery.lg]: {
+              maxWidth: '520px',
+            },
+            width: '100%',
+            position: 'relative',
           })}
         >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0648/1303/9842/products/IMG-20220323-WA0072_540x.jpg?v=1653585761"
+            alt=""
+            class={css({
+              width: '100%',
+              height: '100%',
+            })}
+          />
+
           <div
             class={css({
+              position: 'absolute',
+              top: '-12px',
+              right: '-12px',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'flex-start',
-              [$theme.mediaQuery.xl]: {
-                width: '280px',
-              },
-              [$theme.mediaQuery.lg]: {
-                width: '280px',
-              },
-              [$theme.mediaQuery.md]: {
-                width: '200px',
-              },
-              [$theme.mediaQuery.sm]: {
-                width: '280px',
-              },
-              [$theme.mediaQuery.xs]: {
-                width: '200px',
-              },
+              zIndex: 1,
             })}
           >
-            <p
+            <span
               class={css({
-                color: '#000',
-                fontWeight: 'normal',
-                marginBottom: '0px',
-                fontSize: '20px',
+                padding: '8px 12px',
+                backgroundColor: cssVar(
+                  'promotional-product-grid-new-tag-background',
+                  '#EEE',
+                ),
               })}
             >
-              {product.heading}
-            </p>
-            <p
+              New
+            </span>
+            <span
               class={css({
-                color: '#000',
-                fontWeight: 'bold',
-                marginTop: '5px',
-                marginBottom: '0px',
-                fontSize: '24px',
+                padding: '8px 12px',
+                backgroundColor: cssVar(
+                  'promotional-product-grid-new-tag-background',
+                  '#EEE',
+                ),
+                marginTop: '6px',
               })}
             >
-              {product.name}
-            </p>
-            <p
-              class={css({
-                color: '#000',
-                fontWeight: 'normal',
-                marginTop: '5px',
-                marginBottom: '10px',
-                fontSize: '20px',
-              })}
-            >
-              {product.description}
-            </p>
-            <div
-              onclick={product.handlePress}
-              class={css({
-                textAlign: 'center',
-                backgroundColor: '#000',
-                paddingTop: '10px',
-                paddingBottom: '10px',
-                color: '#fff',
-                width: '120px',
-                fontWeight: 'bold',
-                fontSize: '18px',
-                borderRadius: '4px',
-                ':hover': { cursor: 'pointer' },
-              })}
-            >
-              {product.buttonTitle}
-            </div>
-          </div>
-          <div
-            class={css({
-              position: 'relative',
-            })}
-          >
-            <img
-              src={product.image}
-              class={css({
-                objectFit: 'cover',
-                width: '320px',
-                height: '280px',
-                [$theme.mediaQuery.xl]: {
-                  width: '320px',
-                  height: '280px',
-                },
-
-                [$theme.mediaQuery.lg]: {
-                  width: '280px',
-                  height: '240px',
-                },
-                [$theme.mediaQuery.md]: {
-                  width: '240px',
-                  height: '200px',
-                },
-                [$theme.mediaQuery.sm]: {
-                  width: '280px',
-                  height: '240px',
-                },
-
-                [$theme.mediaQuery.xs]: {
-                  width: '200px',
-                  height: '180px',
-                },
-              })}
-            />
-            <p
-              class={css({
-                color: '#fff',
-                backgroundColor: '#313652',
-                fontWeight: 'normal',
-                position: 'absolute',
-                top: '-22px',
-                right: '-10px',
-                paddingTop: '5px',
-                paddingBottom: '5px',
-                paddingLeft: '15px',
-                paddingRight: '15px',
-                borderRadius: '2px',
-              })}
-            >
-              {product.label}
-            </p>
-
-            <p
-              class={css({
-                color: '#000',
-                backgroundColor: '#fff',
-                fontWeight: 'normal',
-                position: 'absolute',
-                top: '12px',
-                right: '-10px',
-                paddingTop: '5px',
-                paddingBottom: '5px',
-                paddingLeft: '15px',
-                paddingRight: '15px',
-                borderRadius: '2px',
-              })}
-            >
-              {'Dhs.' + product.price}
-            </p>
+              {Intl.NumberFormat('en-US', {
+                currency: 'AED',
+                style: 'currency',
+              }).format(12)}
+            </span>
           </div>
         </div>
       </div>

@@ -106,7 +106,8 @@ export function RenderForm({ body, id }: RenderFormProps) {
       <form>
         <Grid>
           {body.map((field) => {
-            let component: JSX.Element;
+            // TODO: Fix type
+            let component: any;
 
             switch (field.type) {
               case 'input':

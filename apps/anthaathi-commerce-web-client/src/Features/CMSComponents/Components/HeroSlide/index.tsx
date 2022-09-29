@@ -15,6 +15,7 @@ export function HeroSlide(props: HeroSlideProps) {
     <div
       class={css({
         position: 'relative',
+        width: '100%',
       })}
     >
       <img
@@ -25,7 +26,7 @@ export function HeroSlide(props: HeroSlideProps) {
           height: '520px',
           objectFit: 'cover',
           objectPosition: 'right bottom',
-          [$theme.mediaQuery.xs]: {
+          [$theme.mediaQuery?.xs || '']: {
             objectPosition: 'left bottom',
           },
         })}

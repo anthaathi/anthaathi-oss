@@ -21,6 +21,9 @@ export function SplitSlides() {
         height: ['750px', '750px', '750px', '750px'],
         backgroundColor: '#EEE',
         position: 'relative',
+        '::-webkit-scrollbar': {
+          display: 'none',
+        },
       })}
     >
       <For each={[{}, {}]}>

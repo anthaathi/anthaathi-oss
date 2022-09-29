@@ -28,6 +28,7 @@ export enum Kind {
   Secondary,
   Tertiary,
   Tab,
+  Invert,
 }
 
 export enum Size {
@@ -98,6 +99,14 @@ export function Button(
         },
       };
       break;
+    case Kind.Invert:
+      styleObject = {
+        background: cssVar('button-invert-background-color', '#000'),
+        color: cssVar('button-invert-color', '#FFF'),
+        border: 'none',
+      };
+      break;
+
     default:
       styleObject = {
         color: cssVar('button-tertiary-color', '#FFF'),
@@ -117,6 +126,7 @@ export function Button(
             cssVar('primary-color', '#118b44'),
           ),
         },
+        border: 'none',
       };
   }
 

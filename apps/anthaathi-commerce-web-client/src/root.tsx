@@ -11,7 +11,6 @@ import {
   Scripts,
   Title,
 } from 'solid-start';
-import './index.css';
 import { StyletronContext } from '@anthaathi/solid-styletron';
 import type { Server } from 'styletron-engine-atomic';
 import { Footer } from '~/Features/Core/Components/Footer';
@@ -28,7 +27,14 @@ export default function Root() {
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Body>
+      <Body
+        class={styletron.renderStyle({
+          margin: 0,
+          fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif`,
+          '-webkit-font-smoothing': 'antialiased',
+          '-moz-osx-font-smoothing': 'grayscale',
+        })}
+      >
         <Suspense>
           <ErrorBoundary>
             <MiniAnnouncement />

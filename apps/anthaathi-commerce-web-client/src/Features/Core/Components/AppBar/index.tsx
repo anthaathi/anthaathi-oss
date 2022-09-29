@@ -7,7 +7,7 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For, onCleanup, onMount } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { debounce } from '@solid-primitives/scheduled';
 
@@ -50,21 +50,6 @@ export function AppBar() {
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     }
   }
-
-  onMount(() => {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    document.addEventListener('scroll', onScroll);
-    setIsOpen(window.scrollY < 200);
-  });
-
-  onCleanup(() => {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    document.removeEventListener('scroll', onScroll);
-  });
 
   return (
     <nav
