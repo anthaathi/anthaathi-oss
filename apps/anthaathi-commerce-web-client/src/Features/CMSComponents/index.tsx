@@ -15,6 +15,7 @@ import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
 import { FAQ } from '~/Features/CMSComponents/Components/FAQ';
 import { PromotionalProductGrid } from './Components/PromotionalProductGrid';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
+import {BlogPostJournal} from "~/Features/CMSComponents/Components/BlogPostJournal";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -72,6 +73,7 @@ export function RenderCMSComponents() {
         ]}
       />
       <HowItWorks />
+      <BlogPostJournal />
       <AboutUs />
       <EmailSignup />
     </>
