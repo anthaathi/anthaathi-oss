@@ -70,7 +70,6 @@ const ProductGrid = ({ product }: { product: ProductGridProps }) => {
               [$theme.mediaQuery.xl]: {
                 width: '280px',
               },
-
               [$theme.mediaQuery.lg]: {
                 width: '280px',
               },
@@ -81,7 +80,7 @@ const ProductGrid = ({ product }: { product: ProductGridProps }) => {
                 width: '280px',
               },
               [$theme.mediaQuery.xs]: {
-                width: '280px',
+                width: '200px',
               },
             })}
           >
@@ -165,8 +164,8 @@ const ProductGrid = ({ product }: { product: ProductGridProps }) => {
                 },
 
                 [$theme.mediaQuery.xs]: {
-                  width: '240px',
-                  height: '200px',
+                  width: '200px',
+                  height: '180px',
                 },
               })}
             />
