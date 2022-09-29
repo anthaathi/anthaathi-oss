@@ -26,7 +26,7 @@ export const NewsLetter = () => {
           class={css({
             display: 'flex',
             flexDirection: 'column',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               flexDirection: 'row',
             },
           })}
@@ -35,7 +35,7 @@ export const NewsLetter = () => {
             class={css({
               width: '100%',
               display: 'none',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 width: '50%',
                 display: 'block',
               },
@@ -55,7 +55,7 @@ export const NewsLetter = () => {
           <div
             class={css({
               width: '100vw',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 width: '50%',
                 display: 'flex',
                 maxHeight: '80vh',

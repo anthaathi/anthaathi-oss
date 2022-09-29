@@ -9,19 +9,27 @@ import {
 import { Link } from '@solidjs/router';
 import { createSignal, For, onCleanup, onMount } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
+import { debounce } from '@solid-primitives/scheduled';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
 
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
-  const [isOpen, setIsOpen] = createSignal(true);
+  const [isOpen, _setIsOpen] = createSignal(true, {});
 
   let lastScrollTop: number;
 
   let timeoutId: string | number | NodeJS.Timeout | undefined;
 
+  let categoryHTML: HTMLDivElement;
+
+  const setIsOpen = debounce((_isOpen: boolean) => _setIsOpen(_isOpen), 500);
+
   function onScroll() {
+    if (typeof document === 'undefined') {
+      return;
+    }
     const scrollTop = document.documentElement.scrollTop;
 
     if (timeoutId) {
@@ -38,15 +46,23 @@ export function AppBar() {
       setIsOpen(true);
     }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    if (Math.abs((lastScrollTop || 0) - scrollTop) > 30) {
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
   }
 
   onMount(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
     document.addEventListener('scroll', onScroll);
     setIsOpen(window.scrollY < 200);
   });
 
   onCleanup(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
     document.removeEventListener('scroll', onScroll);
   });
 
@@ -57,7 +73,7 @@ export function AppBar() {
         top: 0,
         boxShadow: '0 0 25px rgb(0 0 0 / 10%)',
         backgroundColor: '#FFF',
-        zIndex: 1,
+        zIndex: 10,
       })}
     >
       <header
@@ -264,6 +280,7 @@ export function AppBar() {
           overflow: 'hidden',
         })}
         data-type="categories"
+        ref={(pref) => categoryHTML}
       >
         <For each={Categories}>
           {(category) => {
