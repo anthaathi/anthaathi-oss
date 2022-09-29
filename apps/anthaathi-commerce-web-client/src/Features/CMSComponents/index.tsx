@@ -12,6 +12,8 @@ import { SplitOfferCard } from './Components/SplitOfferCard';
 import { HeroSlide } from './Components/HeroSlide';
 import { HowItWorks } from '~/Features/CMSComponents/Components/HowItWorks';
 import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
+import { FAQ } from '~/Features/CMSComponents/Components/FAQ';
+import { PromotionalProductGrid } from './Components/PromotionalProductGrid';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
 
 export function RenderCMSComponents() {
@@ -42,6 +44,32 @@ export function RenderCMSComponents() {
         title="Fresh Juices"
         subTitle="Perfect for rich lifestyle photography"
         buttonTitle="View All"
+      />
+      <PromotionalProductGrid
+        products={[
+          {
+            name: 'Baby Yellow Pepper',
+            image:
+              'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
+            price: 12,
+            currency: 'USD',
+            heading: 'NRTC Fresh',
+            buttonTitle: 'Shop',
+            label: 'New',
+            description: '100% fresh. Sourced from Netherlands',
+          },
+          {
+            name: 'Capsicum mixed',
+            image:
+              'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
+            price: 23,
+            currency: 'USD',
+            heading: 'NRTC Fresh',
+            buttonTitle: 'Shop',
+            label: 'New',
+            description: '100% fresh. Sourced from Netherlands',
+          },
+        ]}
       />
       <HowItWorks />
       <AboutUs />
