@@ -35,7 +35,6 @@ export function HeroSlide(props: HeroSlideProps) {
           position: 'absolute',
           bottom: '50px',
           left: 0,
-          width: '100%',
         })}
       >
         <div

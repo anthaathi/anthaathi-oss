@@ -1,10 +1,11 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
 import { IconAngleRightSmall } from '@anthaathi/oracle-apex-solid-icons';
+import { Link } from '@solidjs/router';
 export interface BreadcrumbsProps {
   key: string;
   title: string;
-  handlePress?: () => void;
+  link?: string;
 }
 
 export function Breadcrumbs({ list }: { list: BreadcrumbsProps[] }) {
@@ -26,9 +27,10 @@ export function Breadcrumbs({ list }: { list: BreadcrumbsProps[] }) {
                 alignItems: 'center',
               })}
             >
-              <div
-                onClick={item.handlePress}
+              <Link
+                href={item.link}
                 class={css({
+                  textDecoration: 'none',
                   textAlign: 'center',
                   paddingTop: '10px',
                   paddingBottom: '10px',
@@ -42,7 +44,7 @@ export function Breadcrumbs({ list }: { list: BreadcrumbsProps[] }) {
                 })}
               >
                 {item.title}
-              </div>
+              </Link>
               {index() !== list.length - 1 && (
                 <IconAngleRightSmall height="40px" width="30px" />
               )}
