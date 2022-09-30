@@ -289,42 +289,42 @@ function MobileMenu() {
 const Categories = [
   {
     title: 'Special Offers',
-    href: '/collections/special-offers',
+    href: '/collection/special-offers',
   },
   {
     title: 'Organic',
-    href: '/collections/organic',
+    href: '/collection/organic',
   },
   {
     title: 'Fruits',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Vegetables',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Bulk Buy',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Precut',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Pre-Packed',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Gift Corner',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Juices',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Fresh blooms',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
 ];

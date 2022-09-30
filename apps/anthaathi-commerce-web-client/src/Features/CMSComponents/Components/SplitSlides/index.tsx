@@ -89,7 +89,7 @@ export function SplitSlides() {
           overflowY: 'hidden',
           scrollbarWidth: 'none',
           flexDirection: 'row',
-          height: ['750px', '750px', '750px', '750px'],
+          height: ['550px', '750px', '750px', '750px'],
           backgroundColor: '#EEE',
           '::-webkit-scrollbar': {
             display: 'none',
