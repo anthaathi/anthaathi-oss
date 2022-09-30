@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense, useContext } from 'solid-js';
+import { children, Suspense, useContext } from 'solid-js';
 import {
   Body,
   ErrorBoundary,
@@ -16,9 +16,26 @@ import type { Server } from 'styletron-engine-atomic';
 import { Footer } from '~/Features/Core/Components/Footer';
 import { MiniAnnouncement } from '~/Features/Core/Components/MiniAnnouncement';
 import { AppBar } from '~/Features/Core/Components/AppBar';
-
+import { Assets } from 'solid-js/web';
 export default function Root() {
   const styletron = useContext(StyletronContext) as Server;
+
+  const Stylesheet = () => {
+    return (
+      <>
+        {styletron.getStylesheets?.().map((res) => {
+          return (
+            <style
+              innerHTML={res.css}
+              class="styletron"
+              data-hydrate={res.attrs['data-hydrate']}
+              media={res.attrs.media}
+            />
+          );
+        })}
+      </>
+    );
+  };
 
   return (
     <Html lang="en">
@@ -26,6 +43,9 @@ export default function Root() {
         <Title>SolidStart - Bare</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Assets>
+          <Stylesheet />
+        </Assets>
       </Head>
       <Body
         class={styletron
@@ -46,17 +66,6 @@ export default function Root() {
             </Routes>
 
             <Footer />
-
-            {styletron.getStylesheets?.().map((res) => {
-              return (
-                <style
-                  innerHTML={res.css}
-                  class="styletron"
-                  data-hydrate={res.attrs['data-hydrate']}
-                  media={res.attrs.media}
-                />
-              );
-            })}
           </ErrorBoundary>
         </Suspense>
         <Scripts />

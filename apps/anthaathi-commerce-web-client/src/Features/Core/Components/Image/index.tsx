@@ -13,7 +13,7 @@ export interface ImageProps {
 }
 
 export function Img(props: JSX.IntrinsicElements['img'] & ImageProps) {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
   const [isLoaded, setIsLoaded] = createSignal(false);
   const [shouldAnimate, setShouldAnimated] = createSignal(false);
 
@@ -22,19 +22,23 @@ export function Img(props: JSX.IntrinsicElements['img'] & ImageProps) {
   let img: HTMLImageElement | null = null;
 
   onMount(() => {
-    let options = {
-      rootMargin: '150px',
-      threshold: 1.0,
-    };
+    if ('IntersectionObserver' in window) {
+      let options = {
+        rootMargin: `${Math.abs((window.screen.height / 100) * 15)}px`,
+        threshold: 1.0,
+      };
 
-    observer = new IntersectionObserver((entries) => {
-      setShouldAnimated((prev) => {
-        return prev || entries?.[0].isIntersecting;
-      });
-    }, options);
+      observer = new IntersectionObserver((entries) => {
+        setShouldAnimated((prev) => {
+          return prev || entries?.[0].isIntersecting;
+        });
+      }, options);
 
-    if (img) {
-      observer.observe(img);
+      if (img) {
+        observer.observe(img);
+      }
+    } else {
+      setShouldAnimated(true);
     }
   });
 
@@ -65,10 +69,16 @@ export function Img(props: JSX.IntrinsicElements['img'] & ImageProps) {
             ? {
                 opacity: 1,
                 transform: 'scale(1)',
+                [$theme.mediaQuery?.md || '']: {
+                  transform: 'scale(1)',
+                },
               }
             : {
                 opacity: 0,
-                transform: 'scale(.95)',
+                transform: 'scale(.1)',
+                [$theme.mediaQuery?.md || '']: {
+                  transform: 'scale(.95)',
+                },
               },
         ]) + (props.class ? ' ' + props.class : '')
       }

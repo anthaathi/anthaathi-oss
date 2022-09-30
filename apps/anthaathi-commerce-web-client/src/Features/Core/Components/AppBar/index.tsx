@@ -236,7 +236,7 @@ export function AppBar() {
         <For each={Categories}>
           {(category) => {
             return (
-              <Button $as={Link} href="/" $kind={Kind.Tab}>
+              <Button $as={Link} href={`${category.href}`} $kind={Kind.Tab}>
                 {category.title}
               </Button>
             );
