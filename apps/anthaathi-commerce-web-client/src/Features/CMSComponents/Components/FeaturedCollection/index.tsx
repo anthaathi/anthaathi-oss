@@ -19,13 +19,7 @@ export function FeaturedCollection() {
       })}
     >
       <div class={css({ display: 'flex', alignItems: 'center' })}>
-        <h4
-          class={css({
-            ...$theme.typography.ParagraphLarge,
-          })}
-        >
-          In Season
-        </h4>
+        <h4 class={css([$theme.typography.ParagraphLarge])}>In Season</h4>
         <span class={css({ flexGrow: 1 })} />
 
         <Button $as={Link} $kind={Kind.Tertiary} href="/view-all">
@@ -39,7 +33,7 @@ export function FeaturedCollection() {
             style: {
               marginBottom: '12px',
               gridGap: '8px',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 gridGap: '28px',
               },
             },

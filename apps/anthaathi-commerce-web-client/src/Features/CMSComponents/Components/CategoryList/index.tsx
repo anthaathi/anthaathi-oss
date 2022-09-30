@@ -2,6 +2,7 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { Link } from '@solidjs/router';
 import { For } from 'solid-js';
 import { Grid } from '~/Features/Core/Components/Grid';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface CategoryDetailsProps {
   id: number;
@@ -30,14 +31,16 @@ export function CategoryList(props: CategoryListProps) {
       })}
     >
       <h5
-        class={css({
-          ...$theme.typography.HeadingMedium,
-          marginTop: $theme.sizing.scale600,
-          marginBottom: $theme.sizing.scale600,
-          marginLeft: $theme.sizing.scale1200,
-          fontWeight: 'bold',
-          color: '#000',
-        })}
+        class={css([
+          $theme.typography.HeadingMedium,
+          {
+            marginTop: $theme.sizing.scale600,
+            marginBottom: $theme.sizing.scale600,
+            marginLeft: $theme.sizing.scale1200,
+            fontWeight: 'bold',
+            color: '#000',
+          },
+        ])}
       >
         {props.title}
       </h5>
@@ -74,7 +77,7 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
         flexDirection: 'column',
       })}
     >
-      <img
+      <Img
         src={item.image}
         class={css({
           margin: '0px',
@@ -91,13 +94,15 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
         })}
       />
       <h5
-        class={css({
-          ...$theme.typography.ParagraphLarge,
-          marginTop: $theme.sizing.scale600,
-          marginBottom: $theme.sizing.scale1000,
-          fontWeight: 'bold',
-          color: '#000',
-        })}
+        class={css([
+          $theme.typography.ParagraphLarge,
+          {
+            marginTop: $theme.sizing.scale600,
+            marginBottom: $theme.sizing.scale1000,
+            fontWeight: 'bold',
+            color: '#000',
+          },
+        ])}
       >
         {item.title}
       </h5>

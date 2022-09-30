@@ -1,6 +1,7 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function ImageAndText() {
   const [css, $theme] = useStyletron();
@@ -44,19 +45,23 @@ export function ImageAndText() {
           })}
         >
           <h3
-            class={css({
-              ...$theme.typography.HeadingMedium,
-              marginTop: 0,
-              marginBottom: 0,
-            })}
+            class={css([
+              $theme.typography.HeadingMedium,
+              {
+                marginTop: 0,
+                marginBottom: 0,
+              },
+            ])}
           >
             About NRTCFresh
           </h3>
           <p
-            class={css({
-              ...$theme.typography.ParagraphLarge,
-              width: '100%',
-            })}
+            class={css([
+              $theme.typography.ParagraphLarge,
+              {
+                width: '100%',
+              },
+            ])}
           >
             For more than 40 years NRTC has been successfully catering to the
             demands of both local and international markets and is one of the
@@ -90,7 +95,7 @@ export function ImageAndText() {
             },
           })}
         >
-          <img
+          <Img
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fruit-bowl-with-linnens_360x.jpg?v=1653677718"
             alt=""
             class={css({
@@ -101,7 +106,7 @@ export function ImageAndText() {
             })}
           />
 
-          <img
+          <Img
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/colorful-fresh-vegetables-flatlay_360x.jpg?v=1653677881"
             alt=""
             class={css({

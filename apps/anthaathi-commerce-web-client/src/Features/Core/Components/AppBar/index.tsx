@@ -9,7 +9,7 @@ import {
 import { Link } from '@solidjs/router';
 import { createSignal, For } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
-import { debounce } from '@solid-primitives/scheduled';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -115,7 +115,7 @@ export function AppBar() {
             <span class={css({ flexGrow: 1 })} />
 
             <Link href="/">
-              <img
+              <Img
                 src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
                 class={css({ height: '38px', width: 'auto' })}

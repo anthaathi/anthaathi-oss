@@ -3,6 +3,7 @@ import { Dialog, Kind as DialogKind } from '~/Features/Core/Components/Dialog';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { preloadImage } from '~/utils/preload-image';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
+import { Img } from '~/Features/Core/Components/Image';
 
 export const NewsLetter = () => {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -44,7 +45,7 @@ export const NewsLetter = () => {
               },
             })}
           >
-            <img
+            <Img
               src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/office-furniture-grey-chairs_1000x_8a2683aa-b3bd-4816-9ae5-3098b868d287_1000x.webp?v=1653582461"
               alt=""
               class={css({

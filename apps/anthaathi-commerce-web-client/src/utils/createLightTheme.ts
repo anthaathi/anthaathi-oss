@@ -7,6 +7,8 @@ import {
 } from './common';
 
 export const createLightTheme = (): StyletronTheme => {
+  const mediaQueries = createMediaQueries();
+
   return mergeDeep<StyletronTheme>(
     {},
     {
@@ -17,13 +19,13 @@ export const createLightTheme = (): StyletronTheme => {
       } as never,
     } as never,
     {
-      mediaQuery: createMediaQueries(),
+      mediaQuery: mediaQueries,
     } as never,
     {
       sizing: createSizing(),
     },
     {
-      typography: createTypography(),
+      typography: createTypography(mediaQueries),
     },
     {
       lighting: {

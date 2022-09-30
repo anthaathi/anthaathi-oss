@@ -1,13 +1,18 @@
-import { useResponsiveStyletron } from '@anthaathi/solid-styletron';
-import { For, onMount } from 'solid-js';
+import {
+  useResponsiveStyletron,
+  useStyletron,
+} from '@anthaathi/solid-styletron';
+import { For } from 'solid-js';
 import { Button, Kind } from '~/Features/Core/Components/Button';
 import {
   IconArrowLeftLarge,
   IconArrowRightLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function SplitSlides() {
   const [css, $theme] = useResponsiveStyletron();
+  const [css$] = useStyletron();
   let divRef: HTMLDivElement | null;
 
   function getCurrentItem() {
@@ -116,7 +121,7 @@ export function SplitSlides() {
                     },
                   })}
                 >
-                  <img
+                  <Img
                     src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_300x.jpg?v=1653569634"
                     data-aspectratio="2.018728437654017"
                     data-sizes="auto"
@@ -151,18 +156,22 @@ export function SplitSlides() {
                   })}
                 >
                   <h1
-                    class={css({
-                      ...$theme.typography.DisplaySmall,
-                      margin: 0,
-                    })}
+                    class={css$([
+                      $theme.typography.DisplaySmall,
+                      {
+                        margin: 0,
+                      },
+                    ])}
                   >
                     Something amazing
                   </h1>
                   <h3
-                    class={css({
-                      ...$theme.typography.LabelLarge,
-                      maxWidth: '80%',
-                    })}
+                    class={css$([
+                      $theme.typography.LabelLarge,
+                      {
+                        maxWidth: '80%',
+                      },
+                    ])}
                   >
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Architecto, consequatur enim error facere id illo laudantium

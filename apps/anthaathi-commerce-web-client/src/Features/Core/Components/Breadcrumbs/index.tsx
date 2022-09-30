@@ -2,6 +2,7 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
 import { IconAngleRightSmall } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
+
 export interface BreadcrumbsProps {
   key: string;
   title: string;

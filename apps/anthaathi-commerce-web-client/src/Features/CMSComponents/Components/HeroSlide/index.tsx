@@ -1,5 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface HeroSlideProps {
   backgroundImageSrc: string;
@@ -18,7 +19,7 @@ export function HeroSlide(props: HeroSlideProps) {
         width: '100%',
       })}
     >
-      <img
+      <Img
         src={props.backgroundImageSrc}
         alt="image"
         class={css({

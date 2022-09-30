@@ -1,6 +1,7 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind } from '~/Features/Core/Components/Button';
 import { Grid } from '~/Features/Core/Components/Grid';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function PromoGrid() {
   const [css, $theme] = useStyletron();
@@ -130,7 +131,7 @@ export function PromoGridCell(props: PromoGridCellProps) {
           right: 0,
         })}
       >
-        <img
+        <Img
           src={props.src}
           class={css({
             objectFit: 'cover',
@@ -156,7 +157,7 @@ export function PromoGridCell(props: PromoGridCellProps) {
           flexDirection: 'column',
         })}
       >
-        <h1 class={css({ color: '#FFF', ...$theme.typography.DisplaySmall })}>
+        <h1 class={css([{ color: '#FFF' }, $theme.typography.DisplaySmall])}>
           {props.title}
         </h1>
         <Button $kind={Kind.Secondary}>Shop this</Button>
