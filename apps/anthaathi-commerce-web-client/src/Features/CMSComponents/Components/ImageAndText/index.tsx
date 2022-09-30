@@ -20,7 +20,7 @@ export function ImageAndText() {
           width: '100%',
           maxWidth: $theme.sizing.maxWidth,
           flexDirection: 'column-reverse',
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
             paddingTop: '6rem',
           },
@@ -36,7 +36,7 @@ export function ImageAndText() {
             width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
             paddingLeft: $theme.sizing.scale500,
             paddingRight: $theme.sizing.scale500,
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               width: '50%',
               paddingLeft: $theme.sizing.scale1200,
               paddingRight: $theme.sizing.scale1200,
@@ -67,7 +67,7 @@ export function ImageAndText() {
           <div
             class={css({
               paddingBottom: '2rem',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 paddingBottom: 0,
               },
             })}
@@ -85,7 +85,7 @@ export function ImageAndText() {
             width: '100%',
             alignItems: 'center',
             placeContent: 'center',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               width: '50%',
             },
           })}
@@ -95,7 +95,7 @@ export function ImageAndText() {
             alt=""
             class={css({
               width: '100%',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 transform: 'translate(50px,50px)',
               },
             })}
@@ -106,7 +106,7 @@ export function ImageAndText() {
             alt=""
             class={css({
               display: 'none',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 display: 'block',
               },
             })}

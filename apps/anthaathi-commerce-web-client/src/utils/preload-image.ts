@@ -6,16 +6,32 @@ function preloadImg(img: string) {
   link.as = 'image';
   link.href = img;
   document.head.appendChild(link);
+
+  return Promise.resolve();
 }
 
-export function preloadImage(url: string | string[]) {
+function preloadImgFromImage(img: string) {
+  const image = new Image();
+  image.src = img;
+
+  return new Promise((resolve, reject) => {
+    image.addEventListener('load', resolve);
+    image.addEventListener('error', reject);
+  });
+}
+
+export function preloadImage(url: string | string[], appendHead = false) {
   if (isServer) {
-    return;
+    return Promise.resolve();
   }
 
   if (Array.isArray(url)) {
-    url.forEach(preloadImg);
+    return Promise.all(url.map(appendHead ? preloadImg : preloadImgFromImage));
   } else {
-    preloadImg(url);
+    if (appendHead) {
+      return preloadImg(url);
+    } else {
+      return preloadImgFromImage(url);
+    }
   }
 }

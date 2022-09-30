@@ -43,7 +43,9 @@ export function Button(
 ) {
   const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
-  const c = children(() => <span>{props.children}</span>);
+  const c = children(() =>
+    props.children ? <span>{props.children}</span> : null,
+  );
 
   let styleObject: StyleObject = {};
 

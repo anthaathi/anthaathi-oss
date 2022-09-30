@@ -1,5 +1,5 @@
 import { useResponsiveStyletron } from '@anthaathi/solid-styletron';
-import { For } from 'solid-js';
+import { For, onMount } from 'solid-js';
 import { Button, Kind } from '~/Features/Core/Components/Button';
 import {
   IconArrowLeftLarge,
@@ -8,104 +8,173 @@ import {
 
 export function SplitSlides() {
   const [css, $theme] = useResponsiveStyletron();
+  let divRef: HTMLDivElement | null;
+
+  function getCurrentItem() {
+    if (!divRef) {
+      return 0;
+    }
+
+    let currentWidth = 0;
+    let index = 0;
+
+    for (let child of divRef.children) {
+      if (divRef.scrollLeft <= currentWidth) {
+        return index;
+      }
+
+      index++;
+      currentWidth += child.clientWidth;
+    }
+
+    return divRef.children.length - 1;
+  }
+
+  function scrollNext() {
+    if (!divRef) {
+      return;
+    }
+
+    const currentItemIndex = getCurrentItem();
+
+    divRef.children
+      .item(
+        currentItemIndex === divRef.children.length - 1
+          ? 0
+          : currentItemIndex + 1,
+      )
+      ?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+  }
+
+  function scrollPrevious() {
+    if (!divRef) {
+      return;
+    }
+
+    const currentItemIndex = getCurrentItem();
+
+    const goToIndex =
+      currentItemIndex === 0
+        ? divRef.children.length - 1
+        : currentItemIndex - 1;
+
+    divRef.children.item(goToIndex)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
+  }
 
   return (
     <div
       class={css({
-        display: 'flex',
-        flexWrap: 'nowrap',
-        scrollSnapType: 'x mandatory',
-        overflowY: 'hidden',
-        scrollbarWidth: 'none',
-        flexDirection: 'row',
-        height: ['750px', '750px', '750px', '750px'],
-        backgroundColor: '#EEE',
         position: 'relative',
-        '::-webkit-scrollbar': {
-          display: 'none',
-        },
       })}
     >
-      <For each={[{}, {}]}>
-        {(value) => {
-          return (
-            <div
-              class={css({
-                scrollSnapAlign: 'center',
-                flexShrink: 0,
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                [$theme.mediaQuery?.md || '']: {
-                  flexDirection: 'row',
-                },
-              })}
-            >
+      <div
+        ref={(ref) => (divRef = ref)}
+        class={css({
+          display: 'flex',
+          flexWrap: 'nowrap',
+          scrollSnapType: 'x mandatory',
+          overflowY: 'hidden',
+          scrollbarWidth: 'none',
+          flexDirection: 'row',
+          height: ['750px', '750px', '750px', '750px'],
+          backgroundColor: '#EEE',
+          '::-webkit-scrollbar': {
+            display: 'none',
+          },
+          scrollBehavior: 'smooth',
+        })}
+      >
+        <For each={[{}, {}]}>
+          {(value) => {
+            return (
               <div
                 class={css({
-                  flexGrow: 1,
+                  scrollSnapAlign: 'center',
+                  flexShrink: 0,
                   width: '100%',
-                  [$theme.mediaQuery?.md || '']: {
-                    width: '60%',
-                  },
-                })}
-              >
-                <img
-                  src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_300x.jpg?v=1653569634"
-                  data-aspectratio="2.018728437654017"
-                  data-sizes="auto"
-                  alt=""
-                  class={css({
-                    objectPosition: 'center center',
-                    height: '100%',
-                    width: '100%',
-                    objectFit: 'cover',
-                  })}
-                  data-srcset="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"
-                  sizes="655px"
-                  srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"
-                />
-              </div>
-              <div
-                class={css({
                   display: 'flex',
                   flexDirection: 'column',
-                  verticalAlign: 'center',
-                  placeContent: 'center',
-                  paddingTop: $theme.sizing.scale1000,
-                  paddingBottom: $theme.sizing.scale1000,
-                  width: '100%',
-                  paddingLeft: $theme.sizing.scale500,
-                  paddingRight: $theme.sizing.scale500,
                   [$theme.mediaQuery?.md || '']: {
-                    width: '40%',
-                    paddingLeft: $theme.sizing.scale1400,
-                    paddingRight: $theme.sizing.scale1400,
+                    flexDirection: 'row',
                   },
                 })}
               >
-                <h1
-                  class={css({ ...$theme.typography.DisplaySmall, margin: 0 })}
-                >
-                  Something amazing
-                </h1>
-                <h3
+                <div
                   class={css({
-                    ...$theme.typography.LabelLarge,
-                    maxWidth: '80%',
+                    flexGrow: 1,
+                    width: '100%',
+                    [$theme.mediaQuery?.md || '']: {
+                      width: '60%',
+                    },
                   })}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Architecto, consequatur enim error facere id illo laudantium
-                  nam possimus quaerat quam quidem quos repudiandae, rerum sed
-                  sint tempore, vitae voluptate voluptatem?
-                </h3>
+                  <img
+                    src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_300x.jpg?v=1653569634"
+                    data-aspectratio="2.018728437654017"
+                    data-sizes="auto"
+                    alt=""
+                    class={css({
+                      objectPosition: 'center center',
+                      height: '100%',
+                      width: '100%',
+                      objectFit: 'cover',
+                    })}
+                    data-srcset="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"
+                    sizes="655px"
+                    srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"
+                  />
+                </div>
+                <div
+                  class={css({
+                    display: 'flex',
+                    flexDirection: 'column',
+                    verticalAlign: 'center',
+                    placeContent: 'center',
+                    paddingTop: $theme.sizing.scale1000,
+                    paddingBottom: $theme.sizing.scale1000,
+                    width: '100%',
+                    paddingLeft: $theme.sizing.scale500,
+                    paddingRight: $theme.sizing.scale500,
+                    [$theme.mediaQuery?.md || '']: {
+                      width: '40%',
+                      paddingLeft: $theme.sizing.scale1400,
+                      paddingRight: $theme.sizing.scale1400,
+                    },
+                  })}
+                >
+                  <h1
+                    class={css({
+                      ...$theme.typography.DisplaySmall,
+                      margin: 0,
+                    })}
+                  >
+                    Something amazing
+                  </h1>
+                  <h3
+                    class={css({
+                      ...$theme.typography.LabelLarge,
+                      maxWidth: '80%',
+                    })}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Architecto, consequatur enim error facere id illo laudantium
+                    nam possimus quaerat quam quidem quos repudiandae, rerum sed
+                    sint tempore, vitae voluptate voluptatem?
+                  </h3>
+                </div>
               </div>
-            </div>
-          );
-        }}
-      </For>
-
+            );
+          }}
+        </For>
+      </div>
       <div
         class={css({
           position: 'absolute',
@@ -128,12 +197,17 @@ export function SplitSlides() {
                 paddingRight: '12px',
                 paddingTop: '12px',
                 paddingBottom: '12px',
+                marginLeft: $theme.sizing.scale200,
+                marginRight: $theme.sizing.scale200,
               },
             },
           }}
           $startEnhancer={() => (
             <IconArrowLeftLarge width="21px" height="21px" />
           )}
+          onClick={() => {
+            scrollPrevious();
+          }}
         />
         <Button
           $kind={Kind.Secondary}
@@ -148,9 +222,12 @@ export function SplitSlides() {
                 paddingRight: '12px',
                 paddingTop: '12px',
                 paddingBottom: '12px',
+                marginLeft: $theme.sizing.scale200,
+                marginRight: $theme.sizing.scale200,
               },
             },
           }}
+          onClick={() => scrollNext()}
           $startEnhancer={() => (
             <IconArrowRightLarge width="21px" height="21px" />
           )}
