@@ -28,10 +28,12 @@ export enum Kind {
   Secondary,
   Tertiary,
   Tab,
+  Invert,
 }
 
 export enum Size {
   Large,
+  Medium,
   Default,
   Mini,
 }
@@ -41,7 +43,9 @@ export function Button(
 ) {
   const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
-  const c = children(() => <span>{props.children}</span>);
+  const c = children(() =>
+    props.children ? <span>{props.children}</span> : null,
+  );
 
   let styleObject: StyleObject = {};
 
@@ -97,6 +101,14 @@ export function Button(
         },
       };
       break;
+    case Kind.Invert:
+      styleObject = {
+        background: cssVar('button-invert-background-color', '#000'),
+        color: cssVar('button-invert-color', '#FFF'),
+        border: 'none',
+      };
+      break;
+
     default:
       styleObject = {
         color: cssVar('button-tertiary-color', '#FFF'),
@@ -116,43 +128,63 @@ export function Button(
             cssVar('primary-color', '#118b44'),
           ),
         },
+        border: 'none',
       };
   }
 
-  let styleSize: StyleObject = {};
+  let styleSize: StyleObject[] = [];
 
   switch (props.$size) {
     case Size.Large:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale800,
-        paddingRight: $theme.sizing.scale800,
-        paddingTop: $theme.sizing.scale600,
-        paddingBottom: $theme.sizing.scale600,
-        ...$theme.typography.LabelLarge,
-      };
+      styleSize = [
+        $theme.typography.LabelLarge,
+        {
+          paddingLeft: $theme.sizing.scale800,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale600,
+          paddingBottom: $theme.sizing.scale600,
+        },
+      ];
       break;
     case Size.Mini:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale600,
-        paddingRight: $theme.sizing.scale800,
-        paddingTop: $theme.sizing.scale800,
-        paddingBottom: $theme.sizing.scale800,
-        ...$theme.typography.LabelXSmall,
-      };
+      styleSize = [
+        $theme.typography.LabelXSmall,
+        {
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale800,
+          paddingBottom: $theme.sizing.scale800,
+        },
+      ];
+      break;
+    case Size.Medium:
+      styleSize = [
+        $theme.typography.LabelMedium,
+        {
+          paddingLeft: $theme.sizing.scale800,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale400,
+          paddingBottom: $theme.sizing.scale400,
+        },
+      ];
       break;
     default:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale600,
-        paddingRight: $theme.sizing.scale600,
-        paddingTop: $theme.sizing.scale500,
-        paddingBottom: $theme.sizing.scale500,
-        ...$theme.typography.LabelSmall,
-      };
+      styleSize = [
+        {
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
+          paddingTop: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale500,
+        },
+        $theme.typography.LabelSmall,
+      ];
   }
+
+  const component = props.$as ?? 'button';
 
   return (
     <Dynamic
-      component={props.$as ?? 'button'}
+      component={component}
       {...filterProps(props)}
       class={css([
         {
@@ -173,7 +205,6 @@ export function Button(
           ),
           borderTopRightRadius: cssVar('button-border-top-right-radius', '4px'),
           borderTopLeftRadius: cssVar('button-border-top-left-radius', '4px'),
-          width: props.$fullWidth ? '100%' : undefined,
           ...styleObject,
           ':hover': {
             outlineWidth: '2px',
@@ -198,7 +229,19 @@ export function Button(
             ...(styleObject[':focus'] || {}),
           },
         },
-        styleSize,
+        props.$fullWidth
+          ? {
+              placeContent: 'center',
+              // TODO:
+              // width:
+              //   component === 'button'
+              //     ? '100%'
+              //     : `calc(100% - ${styleSize.paddingLeft || 0} - ${
+              //         styleSize.paddingRight || 0
+              //       })`,
+            }
+          : {},
+        ...styleSize,
         props?.$override?.Root?.style,
       ])}
     >

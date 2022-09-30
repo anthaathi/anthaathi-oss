@@ -92,12 +92,14 @@ export function MiniAnnouncement() {
                   draggable={false}
                 >
                   <h6
-                    class={css({
-                      ...$theme.typography.LabelMedium,
-                      marginTop: $theme.sizing.scale0,
-                      marginBottom: $theme.sizing.scale0,
-                      fontWeight: 'normal',
-                    })}
+                    class={css([
+                      $theme.typography.LabelMedium,
+                      {
+                        marginTop: $theme.sizing.scale0,
+                        marginBottom: $theme.sizing.scale0,
+                        fontWeight: 'normal',
+                      },
+                    ])}
                   >
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Accusantium ad corporis cumque.

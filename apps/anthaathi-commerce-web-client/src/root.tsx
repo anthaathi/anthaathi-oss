@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense, useContext } from 'solid-js';
+import { children, Suspense, useContext } from 'solid-js';
 import {
   Body,
   ErrorBoundary,
@@ -11,15 +11,31 @@ import {
   Scripts,
   Title,
 } from 'solid-start';
-import './index.css';
 import { StyletronContext } from '@anthaathi/solid-styletron';
 import type { Server } from 'styletron-engine-atomic';
 import { Footer } from '~/Features/Core/Components/Footer';
 import { MiniAnnouncement } from '~/Features/Core/Components/MiniAnnouncement';
 import { AppBar } from '~/Features/Core/Components/AppBar';
-
+import { Assets } from 'solid-js/web';
 export default function Root() {
   const styletron = useContext(StyletronContext) as Server;
+
+  const Stylesheet = () => {
+    return (
+      <>
+        {styletron.getStylesheets?.().map((res) => {
+          return (
+            <style
+              innerHTML={res.css}
+              class="styletron"
+              data-hydrate={res.attrs['data-hydrate']}
+              media={res.attrs.media}
+            />
+          );
+        })}
+      </>
+    );
+  };
 
   return (
     <Html lang="en">
@@ -27,8 +43,20 @@ export default function Root() {
         <Title>SolidStart - Bare</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Assets>
+          <Stylesheet />
+        </Assets>
       </Head>
-      <Body>
+      <Body
+        class={styletron
+          .renderStyle({
+            margin: 0,
+            fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif`,
+            '-webkit-font-smoothing': 'antialiased',
+            '-moz-osx-font-smoothing': 'grayscale',
+          })
+          .trim()}
+      >
         <Suspense>
           <ErrorBoundary>
             <MiniAnnouncement />
@@ -38,17 +66,6 @@ export default function Root() {
             </Routes>
 
             <Footer />
-
-            {styletron.getStylesheets?.().map((res) => {
-              return (
-                <style
-                  innerHTML={res.css}
-                  class="styletron"
-                  data-hydrate={res.attrs['data-hydrate']}
-                  media={res.attrs.media}
-                />
-              );
-            })}
           </ErrorBoundary>
         </Suspense>
         <Scripts />

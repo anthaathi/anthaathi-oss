@@ -26,16 +26,17 @@ export function Input(
     <div
       class={css({
         ...(props?.$overrides?.Root?.style || {}),
+        display: 'flex',
       })}
     >
       <input
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         class={css([
+          $theme.typography.LabelMedium,
           {
             outline: 'none',
             backgroundColor: cssVar('primary-color-b', '#EFEFEF'),
-            ...$theme.typography.LabelMedium,
             flexGrow: 1,
             height: '100%',
             borderTopRightRadius: cssVar(

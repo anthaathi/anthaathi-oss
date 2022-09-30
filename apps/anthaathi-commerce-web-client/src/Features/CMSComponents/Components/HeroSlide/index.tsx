@@ -1,5 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface HeroSlideProps {
   backgroundImageSrc: string;
@@ -15,9 +16,10 @@ export function HeroSlide(props: HeroSlideProps) {
     <div
       class={css({
         position: 'relative',
+        width: '100%',
       })}
     >
-      <img
+      <Img
         src={props.backgroundImageSrc}
         alt="image"
         class={css({
@@ -25,7 +27,7 @@ export function HeroSlide(props: HeroSlideProps) {
           height: '520px',
           objectFit: 'cover',
           objectPosition: 'right bottom',
-          [$theme.mediaQuery.xs]: {
+          [$theme.mediaQuery?.xs || '']: {
             objectPosition: 'left bottom',
           },
         })}
@@ -41,7 +43,7 @@ export function HeroSlide(props: HeroSlideProps) {
         <div
           class={css({
             maxWidth: $theme.sizing.maxWidth,
-            width: '100%',
+            width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
             margin: '0 auto',
             paddingLeft: $theme.sizing.scale500,
             paddingRight: $theme.sizing.scale500,

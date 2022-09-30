@@ -187,9 +187,11 @@ export function Dialog(props: DialogProps) {
                         maxWidth: '850px',
                       }
                     : {},
-                  typeof props.$size === 'string' && {
-                    maxWidth: props.$size,
-                  },
+                  typeof props.$size === 'string'
+                    ? {
+                        maxWidth: props.$size,
+                      }
+                    : {},
                   props?.$override?.Panel?.$style,
                 ])}
               >

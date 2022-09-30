@@ -7,48 +7,18 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For, onCleanup, onMount } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
 
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
-  const [isOpen, setIsOpen] = createSignal(true);
+  const [isOpen, _setIsOpen] = createSignal(true, {});
 
-  let lastScrollTop: number;
-
-  let timeoutId: string | number | NodeJS.Timeout | undefined;
-
-  function onScroll() {
-    const scrollTop = document.documentElement.scrollTop;
-
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-
-    if (scrollTop > lastScrollTop) {
-      const isOpen = scrollTop < 300;
-
-      timeoutId = setTimeout(() => {
-        setIsOpen(isOpen);
-      }, 50);
-    } else {
-      setIsOpen(true);
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-  }
-
-  onMount(() => {
-    document.addEventListener('scroll', onScroll);
-    setIsOpen(window.scrollY < 200);
-  });
-
-  onCleanup(() => {
-    document.removeEventListener('scroll', onScroll);
-  });
+  let categoryHTML: HTMLDivElement;
 
   return (
     <nav
@@ -57,7 +27,7 @@ export function AppBar() {
         top: 0,
         boxShadow: '0 0 25px rgb(0 0 0 / 10%)',
         backgroundColor: '#FFF',
-        zIndex: 1,
+        zIndex: 10,
       })}
     >
       <header
@@ -136,9 +106,6 @@ export function AppBar() {
                         },
                       },
                     }}
-                    onClick={() => {
-                      setIsOpen(true);
-                    }}
                   />
                 </TransitionChild>
               </Transition>
@@ -148,7 +115,7 @@ export function AppBar() {
             <span class={css({ flexGrow: 1 })} />
 
             <Link href="/">
-              <img
+              <Img
                 src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
                 class={css({ height: '38px', width: 'auto' })}
@@ -264,11 +231,12 @@ export function AppBar() {
           overflow: 'hidden',
         })}
         data-type="categories"
+        ref={(pref) => categoryHTML}
       >
         <For each={Categories}>
           {(category) => {
             return (
-              <Button $as={Link} href="/" $kind={Kind.Tab}>
+              <Button $as={Link} href={`${category.href}`} $kind={Kind.Tab}>
                 {category.title}
               </Button>
             );
@@ -321,42 +289,42 @@ function MobileMenu() {
 const Categories = [
   {
     title: 'Special Offers',
-    href: '/collections/special-offers',
+    href: '/collection/special-offers',
   },
   {
     title: 'Organic',
-    href: '/collections/organic',
+    href: '/collection/organic',
   },
   {
     title: 'Fruits',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Vegetables',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Bulk Buy',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Precut',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Pre-Packed',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Gift Corner',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Juices',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
   {
     title: 'Fresh blooms',
-    href: '/collections/fruits',
+    href: '/collection/fruits',
   },
 ];

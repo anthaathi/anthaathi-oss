@@ -1,6 +1,7 @@
 import { Grid } from '~/Features/Core/Components/Grid';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function AboutUs() {
   const [css, $theme] = useStyletron();
@@ -93,7 +94,7 @@ export function AboutUsCell(props: AboutUsCellProps) {
             maxWidth: '70px',
           })}
         >
-          <img
+          <Img
             src={props.src}
             alt="test"
             class={css({

@@ -211,13 +211,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@anthaathi/solid-styletron@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@anthaathi/solid-styletron@npm:0.3.1"
+"@anthaathi/solid-styletron@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@anthaathi/solid-styletron@npm:0.3.2"
   peerDependencies:
     solid-js: ^1.5.5
     styletron-engine-atomic: ^1.5.0
-  checksum: cc4569547728b77615956e7513d9728af19139903940669b4074d88cd486fb0b8a7d27fb5404a050d5a5f1b2ef8ad03ccca61c6f6de807a0e811701839eef9b1
+  checksum: 77a715d8ef86348cd76ab59c51ed26146c190aca9f0a7e8fb8ecff40c8aa11ae4e631c7f4c4fb997dbc7b364f434930b0353589f4d74025b981567ce86d70316
   languageName: node
   linkType: hard
 
@@ -4101,6 +4101,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solid-primitives/scheduled@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@solid-primitives/scheduled@npm:1.0.2"
+  peerDependencies:
+    solid-js: ^1.4.0
+  checksum: ab309811ccbc5dbf7cd252da82890d3016a27e00084e0690e116c81d7f0d3eac588c83c5fa01a30358736e38eb18bacbd408db227258117a3e502caa8077dda8
+  languageName: node
+  linkType: hard
+
 "@solidjs/meta@npm:^0.28.0":
   version: 0.28.0
   resolution: "@solidjs/meta@npm:0.28.0"
@@ -5860,7 +5869,8 @@ __metadata:
   resolution: "anthaathi-commerce-web-client@workspace:apps/anthaathi-commerce-web-client"
   dependencies:
     "@anthaathi/oracle-apex-solid-icons": ^0.0.9
-    "@anthaathi/solid-styletron": ^0.3.1
+    "@anthaathi/solid-styletron": 0.3.2
+    "@solid-primitives/scheduled": ^1.0.2
     "@solidjs/meta": ^0.28.0
     "@solidjs/router": ^0.4.3
     "@types/compression": ^1.7.2
@@ -5869,6 +5879,7 @@ __metadata:
     solid-js: ^1.5.6
     solid-start: 0.1.0
     solid-start-node: 0.1.0
+    solid-start-vercel: next
     ts-node: ^10.9.1
     typescript: ^4.8.3
     undici: ^5.10.0
@@ -19317,6 +19328,22 @@ __metadata:
     undici: ^5.8.0
     vite: "*"
   checksum: 1431a227fc89c721ba79e7c202c44c0396479422f0155ef55274adf8a53d4f6575700936fe714083707332364c26ec1121c5bade664ba9cf28434d9c309f8468
+  languageName: node
+  linkType: hard
+
+"solid-start-vercel@npm:next":
+  version: 0.1.0-alpha.105
+  resolution: "solid-start-vercel@npm:0.1.0-alpha.105"
+  dependencies:
+    "@rollup/plugin-commonjs": ^22.0.2
+    "@rollup/plugin-json": ^4.1.0
+    "@rollup/plugin-node-resolve": ^13.3.0
+    rollup: ^2.79.0
+    terser: ^5.15.0
+  peerDependencies:
+    solid-start: "*"
+    vite: "*"
+  checksum: eb2efac5349ba4c10e0ace868f72aba663a1e84c88e57024632e56cd0c2bfe3c776d5ba0bf9a68d3707f60ba2cfc56e4eb7f99f2e89b80cdaa12f37a56497782
   languageName: node
   linkType: hard
 

@@ -1,6 +1,7 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Link } from '@solidjs/router';
 import { For } from 'solid-js';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function BlogPostJournal() {
   const [css, $theme] = useStyletron();
@@ -54,7 +55,7 @@ export function BlogPostJournal() {
         class={css({
           display: 'flex',
           flexDirection: 'column',
-          [$theme.mediaQuery.md || '']: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },
         })}
@@ -100,7 +101,7 @@ export function BlogPostJournal() {
               fontWeight: 300,
               marginBottom: '20px',
               paddingTop: '40px',
-              [$theme.mediaQuery.md || '']: {
+              [$theme.mediaQuery?.md || '']: {
                 paddingTop: '0px',
               },
             })}
@@ -139,7 +140,7 @@ export function HighlightedPost(props: BlogPostProps) {
         alignItems: 'center',
       })}
     >
-      <img src={props.imgSrc} class={css({ width: '100%' })} />
+      <Img src={props.imgSrc} class={css({ width: '100%' })} />
       <h2>{props.title}</h2>
       <div>{props.date}</div>
     </div>
@@ -163,7 +164,7 @@ export function SmallPost(props: BlogPostProps) {
           alignSelf: 'flex-start',
         })}
       >
-        <img
+        <Img
           src={props.imgSrc}
           class={css({
             top: 0,
