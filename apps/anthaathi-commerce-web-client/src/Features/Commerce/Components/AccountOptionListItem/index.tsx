@@ -1,5 +1,6 @@
 import {useStyletron} from "@anthaathi/solid-styletron";
-import {Button} from "solid-headless";
+import {Link} from "@solidjs/router";
+import { Button } from 'solid-headless';
 
 export interface AccountOptionListItemProps {
   name: string;
@@ -13,18 +14,22 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
     <div
       class={css({
         paddingBottom: $theme.sizing.scale500,
+        width: '100%',
+        height: '100%',
       })}
     >
-      <Button
+      <Link
+        href={'/account/profile/' + props.name.toLocaleLowerCase().replace(" ", "")}
         onClick={props.onClick}
         class={css({
-          width: '100%',
-          height: '100%',
+          display: 'block',
           padding: $theme.sizing.scale400,
           border: '0px solid',
           fontSize: '16px',
+          textDecoration: 'none',
           fontWeight: 500,
           borderBottom: '3px solid transparent',
+          color: 'black',
           ':hover': {
             borderBottom: '3px solid green',
             color: 'green',
@@ -34,7 +39,7 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
         })}
       >
         {props.name}
-      </Button>
+      </Link>
     </div>
   );
 }

@@ -14,7 +14,10 @@ export function AccountDashBoard() {
       <div
         class={css({
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
+          [$theme.mediaQuery.sm || '']: {
+            flexDirection: 'row',
+          },
           borderBottom: '1px solid #d9d9d9',
           paddingLeft: $theme.sizing.scale500,
           paddingBottom: $theme.sizing.scale500,
@@ -47,7 +50,11 @@ export function AccountDashBoard() {
         </div>
         <div
           class={css({
-            alignSelf: 'center',
+            paddingTop: $theme.sizing.scale500,
+            paddingBottom: $theme.sizing.scale100,
+            [$theme.mediaQuery.lg || '']: {
+              alignSelf: 'center',
+            },
             fontSize: $theme.sizing.scale500,
           })}
         >
@@ -57,7 +64,10 @@ export function AccountDashBoard() {
       <div
         class={css({
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
+          [$theme.mediaQuery.md || '']: {
+            flexDirection: 'row',
+          },
           paddingBottom: $theme.sizing.scale500,
           gap: $theme.sizing.scale500,
         })}

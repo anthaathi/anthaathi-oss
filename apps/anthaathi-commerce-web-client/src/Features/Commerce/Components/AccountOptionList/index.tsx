@@ -7,7 +7,10 @@ export function AccountOptionList() {
   return (
     <div
       class={css({
-        display: 'flex',
+        display: 'none',
+        [$theme.mediaQuery.sm || '']: {
+          display: 'flex',
+        },
         flexDirection: 'column',
         minWidth: '150px',
       })}
