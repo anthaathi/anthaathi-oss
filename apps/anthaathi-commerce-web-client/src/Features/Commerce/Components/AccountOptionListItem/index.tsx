@@ -35,7 +35,10 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
             borderBottom: '3px solid green',
             color: 'green',
           },
-          textAlign: 'left',
+          [$theme.mediaQuery.sm || '']: {
+            textAlign: 'left',
+          },
+          textAlign: 'center',
           backgroundColor: 'transparent',
         })}
       >

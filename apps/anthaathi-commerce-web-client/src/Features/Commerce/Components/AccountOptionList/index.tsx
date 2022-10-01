@@ -23,3 +23,27 @@ export function AccountOptionList() {
     </div>
   );
 }
+
+export function AccountOptionMobileList() {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <div
+      class={css({
+        display: 'flex',
+        [$theme.mediaQuery.sm || '']: {
+          display: 'none',
+        },
+        flexDirection: 'column',
+        minWidth: '150px',
+        marginBottom: $theme.sizing.scale800,
+      })}
+    >
+      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
+      <AccountOptionListItem name="Orders" onClick={() => {}} />
+      <AccountOptionListItem name="Address Book" onClick={() => {}} />
+      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
+      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
+    </div>
+  );
+}

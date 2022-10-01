@@ -1,7 +1,12 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Outlet } from '@solidjs/router';
+import { Button } from 'solid-headless';
+import {
+  AccountOptionList,
+  AccountOptionMobileList,
+} from '~/Features/Commerce/Components/AccountOptionList';
 import { createSignal } from 'solid-js';
-import { AccountOptionList } from '~/Features/Commerce/Components/AccountOptionList';
+import { IconReorderSmall } from '@anthaathi/oracle-apex-solid-icons';
 
 export default function Account() {
   return <AccountPage />;
@@ -9,7 +14,7 @@ export default function Account() {
 
 export function AccountPage() {
   const [css, $theme] = useStyletron();
-  const [selectedOption, setSelectedOption] = createSignal('Dashboard');
+  const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
   return (
     <div
@@ -25,14 +30,40 @@ export function AccountPage() {
     >
       <div
         class={css({
+          display: 'flex',
+          flexDirection: 'row',
           fontSize: '36px',
           fontWeight: 700,
           textAlign: 'center',
           paddingBottom: $theme.sizing.scale1000,
         })}
       >
-        My Account
+        <div class={css({ flex: 1 })}>My Account</div>
+        <Button
+          onClick={() => {
+            setMobileMenuOpen(!mobileMenuOpen());
+          }}
+          class={css({
+            display: 'block',
+            border: 'none',
+            margin: 0,
+            paddingBottom: $theme.sizing.scale500,
+            paddingTop: $theme.sizing.scale500,
+            paddingLeft: $theme.sizing.scale600,
+            paddingRight: $theme.sizing.scale600,
+            border: '2px solid transparent',
+            ':hover': {
+              border: '2px solid green',
+            },
+            [$theme.mediaQuery.sm || '']: {
+              display: 'none',
+            },
+          })}
+        >
+          <IconReorderSmall />
+        </Button>
       </div>
+      {mobileMenuOpen() && <AccountOptionMobileList />}
       <div
         class={css({
           display: 'flex',
@@ -55,7 +86,7 @@ export function AccountPage() {
           class={css({
             display: 'none',
             [$theme.mediaQuery.sm || '']: {
-              flex: 0.5,
+              flex: 1,
             },
           })}
         ></div>
@@ -69,11 +100,4 @@ export function AccountPage() {
       </div>
     </div>
   );
-}
-
-export interface AccountOrderItemProp {
-  order: string;
-  date: string;
-  status: string;
-  total: string;
 }
