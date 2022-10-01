@@ -1,7 +1,7 @@
-import {useStyletron} from "@anthaathi/solid-styletron";
-import {For} from "solid-js";
-import {Button} from "solid-headless";
-import {AddressCard} from "~/Features/Commerce/Components/AddressCard";
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { For } from 'solid-js';
+import { Button } from 'solid-headless';
+import { AddressCard } from '~/Features/Commerce/Components/AddressCard';
 
 export interface AddressBookProps {
   defaultAddress: AddressBookItemProps;

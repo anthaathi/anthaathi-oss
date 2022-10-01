@@ -1,6 +1,5 @@
-import {useStyletron} from "@anthaathi/solid-styletron";
-import {Link} from "@solidjs/router";
-import { Button } from 'solid-headless';
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
 
 export interface AccountOptionListItemProps {
   name: string;
@@ -19,7 +18,9 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
       })}
     >
       <Link
-        href={'/account/profile/' + props.name.toLocaleLowerCase().replace(" ", "")}
+        href={
+          '/account/profile/' + props.name.toLocaleLowerCase().replace(' ', '')
+        }
         onClick={props.onClick}
         class={css({
           display: 'block',

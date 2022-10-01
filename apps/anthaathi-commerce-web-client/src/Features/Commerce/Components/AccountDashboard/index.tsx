@@ -1,6 +1,6 @@
-import {useStyletron} from "@anthaathi/solid-styletron";
-import {Link} from "@solidjs/router";
-import {AccountInfoCard} from "~/Features/Commerce/Components/AccountInfoCard";
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
+import { AccountInfoCard } from '~/Features/Commerce/Components/AccountInfoCard';
 
 export function AccountDashBoard() {
   const [css, $theme] = useStyletron();

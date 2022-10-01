@@ -1,5 +1,5 @@
-import {useStyletron} from "@anthaathi/solid-styletron";
-import {Link} from "@solidjs/router";
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
 
 export interface AccountInfoCardProps {
   title: string;

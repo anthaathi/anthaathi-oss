@@ -1,6 +1,6 @@
-import {useStyletron} from "@anthaathi/solid-styletron";
-import {Link} from "@solidjs/router";
-import {AddressBookItemProps} from "~/routes/pages/Account";
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
+import { AddressBookItemProps } from '~/routes/pages/Account';
 
 export function AddressCard(props: AddressBookItemProps) {
   const [css, $theme] = useStyletron();

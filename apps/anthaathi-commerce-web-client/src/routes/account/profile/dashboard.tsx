@@ -1,7 +1,5 @@
-import {AccountDashBoard} from "~/Features/Commerce/Components/AccountDashboard";
+import { AccountDashBoard } from '~/Features/Commerce/Components/AccountDashboard';
 
 export default function DashboardPage() {
-  return (
-    <AccountDashBoard />
-  );
+  return <AccountDashBoard />;
 }
