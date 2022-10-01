@@ -21,6 +21,7 @@ export function Breadcrumbs({ list }: { list: BreadcrumbsProps[] }) {
         maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
         paddingLeft: $theme.sizing.scale500,
         paddingRight: $theme.sizing.scale500,
+        flexWrap: 'wrap',
       })}
     >
       <For each={list}>
