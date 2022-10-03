@@ -12,25 +12,23 @@ function CartPage() {
   return (
     <div
       class={css({
-        maxWidth: $theme.sizing.maxWidth,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        paddingBottom: '40px',
-        paddingLeft: 0,
-        paddingRight: 0,
-        [$theme.mediaQuery?.md || '']: {
-          paddingLeft: $theme.sizing.scale1000,
-          paddingRight: $theme.sizing.scale1000,
-        },
+        margin: '0 auto',
+        width: $theme.sizing.maxWidth,
+        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
+        marginTop: $theme.sizing.scale1000,
+        marginBottom: $theme.sizing.scale1000,
       })}
     >
       <div
         class={css({
+          ...$theme.typography.HeadingLarge,
           fontSize: '36px',
           textAlign: 'center',
           paddingLeft: $theme.sizing.scale1000,
           paddingRight: $theme.sizing.scale1000,
-          paddingTop: $theme.sizing.scale1200,
+          paddingTop: $theme.sizing.scale900,
           paddingBottom: $theme.sizing.scale1200,
         })}
       >

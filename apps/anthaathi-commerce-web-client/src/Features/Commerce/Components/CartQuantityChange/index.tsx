@@ -4,7 +4,7 @@ import { createEffect, createSignal } from 'solid-js';
 export function CartQuantityChange() {
   const [css, $theme] = useStyletron();
 
-  const [quantity, setQuantity] = createSignal(0);
+  const [quantity, setQuantity] = createSignal(1);
 
   createEffect(() => {
     if (quantity() < 0) {
@@ -15,7 +15,7 @@ export function CartQuantityChange() {
   return (
     <div
       class={css({
-        width: '75px',
+        width: '100px',
         height: '35px',
         border: '0.5px solid #d9d9d9',
         display: 'flex',
@@ -33,56 +33,49 @@ export function CartQuantityChange() {
       >
         <button
           class={css({
+            ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            padding: 0,
+            paddingLeft: $theme.sizing.scale500,
+            paddingRight: $theme.sizing.scale500,
             height: '100%',
             width: '100%',
-            backgroundColor: '#ffffff',
+            backgroundColor: '#d6d5d5',
             cursor: 'pointer',
+            ':hover': {
+              backgroundColor: '#cac9c9',
+            },
           })}
           onClick={() => {
-            setQuantity((prev) => prev + 1);
+            setQuantity((prev) => prev - 1);
           }}
         >
-          +
+          -
         </button>
       </div>
       <div
         class={css({
           flex: 1,
           height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          display: 'flex',
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
         })}
       >
-        <input
+        <h4
           class={css([
             {
-              border: '0px solid #000000',
+              ...$theme.typography.ParagraphMedium,
+              fontWeight: 'bold',
               margin: 0,
-              padding: 0,
-              height: '100%',
-              width: '100%',
               backgroundColor: '#ffffff',
-              textAlign: 'center',
-              outline: 'none',
-              '-moz-appearance': 'textfield',
-              '::-webkit-outer-spin-button': {
-                '-webkit-appearance': 'none',
-                margin: 0,
-              },
             },
-            $theme.typography.ParagraphLarge,
           ])}
-          type="number"
-          value={quantity()}
-          onChange={(e) => {
-            if (!isNaN(+(e.target as HTMLInputElement).value)) {
-              setQuantity(+(e.target as HTMLInputElement).valueAsNumber);
-            } else {
-              (e.target as HTMLInputElement).value = quantity() + '';
-            }
-          }}
-        />
+        >
+          {quantity()}
+        </h4>
       </div>
       <div
         class={css({
@@ -92,19 +85,24 @@ export function CartQuantityChange() {
       >
         <button
           class={css({
+            ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            padding: 0,
+            paddingLeft: $theme.sizing.scale500,
+            paddingRight: $theme.sizing.scale500,
             height: '100%',
             width: '100%',
-            backgroundColor: '#ffffff',
+            backgroundColor: '#d6d5d5',
             cursor: 'pointer',
+            ':hover': {
+              backgroundColor: '#cac9c9',
+            },
           })}
           onClick={() => {
-            setQuantity((prev) => prev - 1);
+            setQuantity((prev) => prev + 1);
           }}
         >
-          -
+          +
         </button>
       </div>
     </div>
