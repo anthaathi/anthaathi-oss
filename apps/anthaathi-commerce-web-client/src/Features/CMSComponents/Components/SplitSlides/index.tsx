@@ -90,7 +90,7 @@ export function SplitSlides() {
           scrollbarWidth: 'none',
           flexDirection: 'row',
           maxHeight: '60vh',
-          height: ['550px', '750px', '750px', '750px'],
+          height: ['750px', '750px', '750px', '750px'],
           backgroundColor: '#EEE',
           '::-webkit-scrollbar': {
             display: 'none',
