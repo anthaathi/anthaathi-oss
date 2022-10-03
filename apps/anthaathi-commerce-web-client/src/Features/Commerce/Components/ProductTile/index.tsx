@@ -12,16 +12,16 @@ import { Button as S_Button } from 'solid-headless';
 export interface ProductProps {
   id: number;
   name: string;
-  name_ar: string;
+  name_ar?: string;
   description?: string;
   category?: string;
   price: number;
   currency: string;
   image: string;
-  weight_unit: string;
-  packaging: string;
-  key: string;
-  notes: string;
+  weight_unit?: string;
+  packaging?: string;
+  key?: string;
+  notes?: string;
 }
 
 export function ProductTile(props: ProductProps) {

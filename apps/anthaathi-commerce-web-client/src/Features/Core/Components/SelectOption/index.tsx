@@ -3,7 +3,7 @@ import { For } from 'solid-js';
 import { useCssToken } from '../../Hooks/useCssToken';
 
 export function SelectOption(props: {
-  label: string;
+  label?: string;
   options: { title: string; value: string }[];
 }) {
   const [css, $theme] = useStyletron();
@@ -11,17 +11,19 @@ export function SelectOption(props: {
 
   return (
     <div>
-      <p
-        class={css({
-          ...$theme.typography.LabelMedium,
-          fontWeight: 'bold',
-          color: '#000',
-          marginTop: $theme.sizing.scale500,
-          marginBottom: $theme.sizing.scale300,
-        })}
-      >
-        {props.label}
-      </p>
+      {props.label && (
+        <p
+          class={css({
+            ...$theme.typography.LabelMedium,
+            fontWeight: 'bold',
+            color: '#000',
+            marginTop: $theme.sizing.scale500,
+            marginBottom: $theme.sizing.scale300,
+          })}
+        >
+          {props.label}
+        </p>
+      )}
       <select
         name="reason"
         id="reason"
@@ -88,7 +90,7 @@ export function SelectOption(props: {
                   backgroundColor: 'red',
                 })}
               > */}
-                {item.title}
+              {item.title}
               {/* </p> */}
             </option>
           )}

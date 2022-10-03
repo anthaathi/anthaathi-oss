@@ -9,6 +9,9 @@ import { IconChevronUpLarge } from '@anthaathi/oracle-apex-solid-icons';
 import { ShippingOptions } from '~/Features/Checkout/Components/ShippingOptions';
 import { For } from 'solid-js';
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions';
+import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
+import { Link } from '@solidjs/router';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -39,7 +42,8 @@ export default function Checkout() {
                       display: 'flex',
                       cursor: 'pointer',
                       alignItems: 'center',
-                      backgroundColor: '#EEE',
+                      backgroundColor: '#fff',
+                      border: '1px solid #e0e0e0',
                       paddingLeft: $theme.sizing.scale500,
                       paddingRight: $theme.sizing.scale500,
                     })}
@@ -48,7 +52,7 @@ export default function Checkout() {
                       <>
                         <h4
                           class={css({
-                            ...$theme.typography.LabelLarge,
+                            ...$theme.typography.HeadingXSmall,
                             marginTop: 0,
                             marginBottom: 0,
                             paddingTop: $theme.sizing.scale500,
@@ -91,6 +95,30 @@ export default function Checkout() {
           }}
         </For>
       </Accordion>
+      <Link
+        href="/"
+        class={css({
+          textDecoration: 'none',
+        })}
+      >
+        <div
+          class={css({
+            marginTop: $theme.sizing.scale900,
+            width: '100%',
+            textAlign: 'center',
+            backgroundColor: '#118b44',
+            paddingTop: '12px',
+            paddingBottom: '12px',
+            color: '#fff',
+            fontWeight: 'bold',
+            fontSize: '18px',
+            borderRadius: '4px',
+            ':hover': { cursor: 'pointer' },
+          })}
+        >
+          Purchase
+        </div>
+      </Link>
     </div>
   );
 }
@@ -102,10 +130,10 @@ export const Steps = [
   },
   {
     title: 'Delivery',
-    component: () => <ShippingOptions />,
+    component: () => <DeliveryOptions />,
   },
   {
     title: 'Payment',
-    component: () => <ShippingOptions />,
+    component: () => <PaymentOptions />,
   },
 ];
