@@ -43,7 +43,9 @@ export function Button(
 ) {
   const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
-  const c = children(() => <span>{props.children}</span>);
+  const c = children(() =>
+    props.children ? <span>{props.children}</span> : null,
+  );
 
   let styleObject: StyleObject = {};
 
@@ -130,44 +132,52 @@ export function Button(
       };
   }
 
-  let styleSize: StyleObject = {};
+  let styleSize: StyleObject[] = [];
 
   switch (props.$size) {
     case Size.Large:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale800,
-        paddingRight: $theme.sizing.scale800,
-        paddingTop: $theme.sizing.scale600,
-        paddingBottom: $theme.sizing.scale600,
-        ...$theme.typography.LabelLarge,
-      };
+      styleSize = [
+        $theme.typography.LabelLarge,
+        {
+          paddingLeft: $theme.sizing.scale800,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale600,
+          paddingBottom: $theme.sizing.scale600,
+        },
+      ];
       break;
     case Size.Mini:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale600,
-        paddingRight: $theme.sizing.scale800,
-        paddingTop: $theme.sizing.scale800,
-        paddingBottom: $theme.sizing.scale800,
-        ...$theme.typography.LabelXSmall,
-      };
+      styleSize = [
+        $theme.typography.LabelXSmall,
+        {
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale800,
+          paddingBottom: $theme.sizing.scale800,
+        },
+      ];
       break;
     case Size.Medium:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale800,
-        paddingRight: $theme.sizing.scale800,
-        paddingTop: $theme.sizing.scale400,
-        paddingBottom: $theme.sizing.scale400,
-        ...$theme.typography.LabelMedium,
-      };
+      styleSize = [
+        $theme.typography.LabelMedium,
+        {
+          paddingLeft: $theme.sizing.scale800,
+          paddingRight: $theme.sizing.scale800,
+          paddingTop: $theme.sizing.scale400,
+          paddingBottom: $theme.sizing.scale400,
+        },
+      ];
       break;
     default:
-      styleSize = {
-        paddingLeft: $theme.sizing.scale600,
-        paddingRight: $theme.sizing.scale600,
-        paddingTop: $theme.sizing.scale500,
-        paddingBottom: $theme.sizing.scale500,
-        ...$theme.typography.LabelSmall,
-      };
+      styleSize = [
+        {
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
+          paddingTop: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale500,
+        },
+        $theme.typography.LabelSmall,
+      ];
   }
 
   const component = props.$as ?? 'button';
@@ -222,15 +232,16 @@ export function Button(
         props.$fullWidth
           ? {
               placeContent: 'center',
-              width:
-                component === 'button'
-                  ? '100%'
-                  : `calc(100% - ${styleSize.paddingLeft || 0} - ${
-                      styleSize.paddingRight || 0
-                    })`,
+              // TODO:
+              // width:
+              //   component === 'button'
+              //     ? '100%'
+              //     : `calc(100% - ${styleSize.paddingLeft || 0} - ${
+              //         styleSize.paddingRight || 0
+              //       })`,
             }
           : {},
-        styleSize,
+        ...styleSize,
         props?.$override?.Root?.style,
       ])}
     >

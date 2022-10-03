@@ -211,13 +211,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@anthaathi/solid-styletron@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@anthaathi/solid-styletron@npm:0.3.1"
+"@anthaathi/solid-styletron@npm:0.3.2":
+  version: 0.3.2
+  resolution: "@anthaathi/solid-styletron@npm:0.3.2"
   peerDependencies:
     solid-js: ^1.5.5
     styletron-engine-atomic: ^1.5.0
-  checksum: cc4569547728b77615956e7513d9728af19139903940669b4074d88cd486fb0b8a7d27fb5404a050d5a5f1b2ef8ad03ccca61c6f6de807a0e811701839eef9b1
+  checksum: 77a715d8ef86348cd76ab59c51ed26146c190aca9f0a7e8fb8ecff40c8aa11ae4e631c7f4c4fb997dbc7b364f434930b0353589f4d74025b981567ce86d70316
   languageName: node
   linkType: hard
 
@@ -5869,7 +5869,7 @@ __metadata:
   resolution: "anthaathi-commerce-web-client@workspace:apps/anthaathi-commerce-web-client"
   dependencies:
     "@anthaathi/oracle-apex-solid-icons": ^0.0.9
-    "@anthaathi/solid-styletron": ^0.3.1
+    "@anthaathi/solid-styletron": 0.3.2
     "@solid-primitives/scheduled": ^1.0.2
     "@solidjs/meta": ^0.28.0
     "@solidjs/router": ^0.4.3

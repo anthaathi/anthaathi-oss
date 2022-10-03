@@ -1,4 +1,4 @@
-import type { MediaQuery, Sizing, Typography } from './utils/common';
+import type { Sizing, Typography } from './utils/common';
 
 declare module '@anthaathi/solid-styletron' {
   interface CommonColorTokens {
@@ -7,7 +7,6 @@ declare module '@anthaathi/solid-styletron' {
 
   export interface StyletronTheme {
     sizing: Sizing;
-    // @ts-ignore
     mediaQuery: MediaQuery;
     typography: Typography;
     lighting: Shadow;
@@ -22,5 +21,13 @@ declare module '@anthaathi/solid-styletron' {
     shallowBelow: string;
     deepAbove: string;
     deepBelow: string;
+  }
+
+  export interface MediaQuery {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
   }
 }

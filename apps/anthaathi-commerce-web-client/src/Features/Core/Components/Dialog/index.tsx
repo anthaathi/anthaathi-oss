@@ -67,7 +67,7 @@ export function Dialog(props: DialogProps) {
         >
           <div
             class={css({
-              minHeight: '100vw',
+              minHeight: '100vh',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -187,9 +187,11 @@ export function Dialog(props: DialogProps) {
                         maxWidth: '850px',
                       }
                     : {},
-                  typeof props.$size === 'string' && {
-                    maxWidth: props.$size,
-                  },
+                  typeof props.$size === 'string'
+                    ? {
+                        maxWidth: props.$size,
+                      }
+                    : {},
                   props?.$override?.Panel?.$style,
                 ])}
               >

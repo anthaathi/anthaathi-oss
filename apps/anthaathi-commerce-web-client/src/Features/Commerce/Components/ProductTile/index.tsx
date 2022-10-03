@@ -6,6 +6,7 @@ import {
 } from '@anthaathi/oracle-apex-solid-icons';
 import { createSignal } from 'solid-js';
 import { Link } from '@solidjs/router';
+import { Img } from '~/Features/Core/Components/Image';
 
 export function ProductTile() {
   const [css, $theme] = useStyletron();
@@ -32,7 +33,7 @@ export function ProductTile() {
           paddingLeft: $theme.sizing.scale600,
           paddingRight: $theme.sizing.scale600,
           paddingTop: $theme.sizing.scale600,
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             paddingLeft: $theme.sizing.scale800,
             paddingRight: $theme.sizing.scale800,
             paddingTop: $theme.sizing.scale800,
@@ -52,7 +53,7 @@ export function ProductTile() {
             transitionProperty: 'opacity',
             zIndex: 1,
             display: 'none',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'block',
             },
           })}
@@ -113,7 +114,7 @@ export function ProductTile() {
             flexDirection: 'column',
           })}
         >
-          <img
+          <Img
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Yellow_Baby_Pepper-1_360x.jpg?v=1653583277"
             srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
             alt=""
@@ -121,7 +122,7 @@ export function ProductTile() {
               width: '100%',
               flexGrow: 1,
               objectFit: 'cover',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
                 paddingLeft: $theme.sizing.scale400,
                 paddingRight: $theme.sizing.scale400,
@@ -130,22 +131,26 @@ export function ProductTile() {
           />
 
           <h4
-            class={css({
-              ...$theme.typography.ParagraphLarge,
-              marginBottom: $theme.sizing.scale200,
-              marginTop: $theme.sizing.scale800,
-            })}
+            class={css([
+              $theme.typography.ParagraphLarge,
+              {
+                marginBottom: $theme.sizing.scale200,
+                marginTop: $theme.sizing.scale800,
+              },
+            ])}
           >
             Baby Yellow Pepper
           </h4>
 
           <h5
-            class={css({
-              ...$theme.typography.ParagraphLarge,
-              marginTop: 0,
-              marginBottom: $theme.sizing.scale800,
-              fontWeight: 'bold',
-            })}
+            class={css([
+              $theme.typography.ParagraphLarge,
+              {
+                marginTop: 0,
+                marginBottom: $theme.sizing.scale800,
+                fontWeight: 'bold',
+              },
+            ])}
           >
             {Intl.NumberFormat('en-US', {
               style: 'currency',

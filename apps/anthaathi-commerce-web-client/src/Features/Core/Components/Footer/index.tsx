@@ -56,7 +56,7 @@ export function Footer() {
           paddingRight: $theme.sizing.scale400,
           flexDirection: 'column',
 
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },
         })}
@@ -70,16 +70,18 @@ export function Footer() {
 
         <span class={css({ flexGrow: 1 })} />
         <p
-          class={css({
-            flexGrow: 1,
-            width: '100%',
-            textAlign: 'center',
-            ...$theme.typography.LabelMedium,
-            [$theme.mediaQuery.md]: {
-              flexGrow: 'inherit',
-              width: 'max-content',
+          class={css([
+            $theme.typography.LabelMedium,
+            {
+              flexGrow: 1,
+              width: '100%',
+              textAlign: 'center',
+              [$theme.mediaQuery?.md || '']: {
+                flexGrow: 'inherit',
+                width: 'max-content',
+              },
             },
-          })}
+          ])}
         >
           Copyright &copy; {new Date().getFullYear()} NRTC Fresh. All rights
           reserved.
@@ -103,17 +105,19 @@ function FooterSection(props: FooterSection) {
         paddingBottom: $theme.sizing.scale800,
         margin: 0,
         gridColumn: props.span,
-        [$theme.mediaQuery.md]: { width: 'inherit' },
+        [$theme.mediaQuery?.md || '']: { width: 'inherit' },
       })}
     >
       <Show when={props.title} keyed>
         <li>
           <h6
-            class={css({
-              ...$theme.typography.LabelLarge,
-              marginTop: $theme.sizing.scale200,
-              marginBottom: $theme.sizing.scale200,
-            })}
+            class={css([
+              $theme.typography.LabelLarge,
+              {
+                marginTop: $theme.sizing.scale200,
+                marginBottom: $theme.sizing.scale200,
+              },
+            ])}
           >
             {props.title}
           </h6>
@@ -259,13 +263,15 @@ const FooterLinks = (props: { item: FooterLink }) => {
         })}
       >
         <h6
-          class={css({
-            ...$theme.typography.LabelMedium,
-            marginTop: $theme.sizing.scale200,
-            marginBottom: $theme.sizing.scale200,
-            display: 'flex',
-            alignItems: 'center',
-          })}
+          class={css([
+            $theme.typography.LabelMedium,
+            {
+              marginTop: $theme.sizing.scale200,
+              marginBottom: $theme.sizing.scale200,
+              display: 'flex',
+              alignItems: 'center',
+            },
+          ])}
         >
           {props.item.title}
         </h6>

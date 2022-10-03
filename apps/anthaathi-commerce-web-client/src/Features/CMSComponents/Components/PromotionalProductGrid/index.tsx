@@ -3,6 +3,7 @@ import { For } from 'solid-js';
 import { Grid } from '~/Features/Core/Components/Grid';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface PromotionalProductGridProps {
   products: any[];
@@ -65,21 +66,25 @@ const ProductCell = () => {
       >
         <div class={css({ minWidth: 'min-content' })}>
           <h4
-            class={css({
-              marginTop: 0,
-              marginBottom: $theme.sizing.scale400,
-              ...$theme.typography.HeadingSmall,
-              fontWeight: 500,
-            })}
+            class={css([
+              $theme.typography.HeadingSmall,
+              {
+                marginTop: 0,
+                marginBottom: $theme.sizing.scale400,
+                fontWeight: 500,
+              },
+            ])}
           >
             Pomegranate Pure Natural Juice
           </h4>
           <h4
-            class={css({
-              marginTop: 0,
-              marginBottom: $theme.sizing.scale400,
-              ...$theme.typography.ParagraphLarge,
-            })}
+            class={css([
+              $theme.typography.ParagraphLarge,
+              {
+                marginTop: 0,
+                marginBottom: $theme.sizing.scale400,
+              },
+            ])}
           >
             100% fresh. Sourced from Netherlands.
           </h4>
@@ -108,7 +113,7 @@ const ProductCell = () => {
             position: 'relative',
           })}
         >
-          <img
+          <Img
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/products/IMG-20220323-WA0072_540x.jpg?v=1653585761"
             alt=""
             class={css({

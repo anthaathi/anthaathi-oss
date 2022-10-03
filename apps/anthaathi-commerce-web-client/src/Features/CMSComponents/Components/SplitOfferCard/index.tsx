@@ -1,5 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface SplitCardOfferProps {
   title: string;
@@ -82,20 +83,24 @@ export function SplitOfferCard(props: SplitCardOfferProps) {
             })}
           >
             <h1
-              class={css({
-                ...$theme.typography.DisplaySmall,
-                margin: 0,
-                paddingBottom: $theme.sizing.scale600,
-              })}
+              class={css([
+                $theme.typography.DisplaySmall,
+                {
+                  margin: 0,
+                  paddingBottom: $theme.sizing.scale600,
+                },
+              ])}
             >
               {props.title}
             </h1>
             <h3
-              class={css({
-                ...$theme.typography.LabelLarge,
-                margin: 0,
-                paddingBottom: $theme.sizing.scale800,
-              })}
+              class={css([
+                $theme.typography.LabelLarge,
+                {
+                  margin: 0,
+                  paddingBottom: $theme.sizing.scale800,
+                },
+              ])}
             >
               {props.subtitle}
             </h3>
@@ -120,7 +125,7 @@ export function SplitOfferCard(props: SplitCardOfferProps) {
             </Button>
           </div>
         </div>
-        <img
+        <Img
           src={props.image}
           alt="image"
           class={css({

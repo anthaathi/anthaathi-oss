@@ -19,24 +19,28 @@ export function EmailSignup() {
       })}
     >
       <h4
-        class={css({
-          ...$theme.typography.DisplaySmall,
-          margin: 0,
-          paddingBottom: $theme.sizing.scale400,
-        })}
+        class={css([
+          {
+            margin: 0,
+            paddingBottom: $theme.sizing.scale400,
+          },
+          $theme.typography.DisplaySmall,
+        ])}
       >
         Sign up and save
       </h4>
       <h6
-        class={css({
-          ...$theme.typography.LabelLarge,
-          width: '70%',
-          textAlign: 'center',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginTop: '24px',
-          marginBottom: '0',
-        })}
+        class={css([
+          $theme.typography.LabelLarge,
+          {
+            width: '70%',
+            textAlign: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: '24px',
+            marginBottom: '0',
+          },
+        ])}
       >
         Subscribe to get special offers, free giveaways, and once-in-a-lifetime
         deals.
