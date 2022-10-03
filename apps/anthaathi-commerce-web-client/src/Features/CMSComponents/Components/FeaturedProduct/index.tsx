@@ -69,26 +69,30 @@ export function FeaturedProduct(props: ProductDetailsProps) {
         >
           <Img
             src={props.productInfo.image[1]}
-            class={css({
-              height: '520px',
-              width: '100%',
-              objectFit: 'cover',
-              [$theme.mediaQuery?.xl || '']: {
-                height: '520px',
+            $override={{
+              Root: {
+                $style: {
+                  height: '520px',
+                  width: '100%',
+                  objectFit: 'cover',
+                  [$theme.mediaQuery?.xl || '']: {
+                    height: '520px',
+                  },
+                  [$theme.mediaQuery?.lg || '']: {
+                    height: '420px',
+                  },
+                  [$theme.mediaQuery?.md || '']: {
+                    width: '90%',
+                  },
+                  [$theme.mediaQuery?.sm || '']: {
+                    height: '420px',
+                  },
+                  [$theme.mediaQuery?.xs || '']: {
+                    height: '320px',
+                  },
+                },
               },
-              [$theme.mediaQuery?.lg || '']: {
-                height: '420px',
-              },
-              [$theme.mediaQuery?.md || '']: {
-                width: '90%',
-              },
-              [$theme.mediaQuery?.sm || '']: {
-                height: '420px',
-              },
-              [$theme.mediaQuery?.xs || '']: {
-                height: '320px',
-              },
-            })}
+            }}
           />
         </div>
 

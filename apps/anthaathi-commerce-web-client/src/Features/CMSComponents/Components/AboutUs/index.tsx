@@ -99,10 +99,14 @@ export function AboutUsCell(props: AboutUsCellProps) {
           <Img
             src={props.src}
             alt="test"
-            class={css({
-              width: '100%',
-              paddingBottom: $theme.sizing.scale500,
-            })}
+            $override={{
+              Root: {
+                $style: {
+                  width: '100%',
+                  paddingBottom: $theme.sizing.scale500,
+                },
+              },
+            }}
           />
         </div>
         <h2

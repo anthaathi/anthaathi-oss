@@ -140,11 +140,15 @@ export function PromoGridCell(props: PromoGridCellProps) {
         >
           <Img
             src={props.src}
-            class={css({
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-            })}
+            $override={{
+              Root: {
+                $style: {
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: '100%',
+                },
+              },
+            }}
             alt={props.alt}
             data-srcset={srcSet}
             sizes={props.sizes}

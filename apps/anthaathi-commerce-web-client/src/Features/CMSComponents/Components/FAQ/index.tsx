@@ -40,7 +40,7 @@ export function FAQ(props: { title?: string; list: FAQItem[] }) {
       )}
       <div
         class={css({
-          maxWidth: '600px',
+          width: '100%',
           margin: '0 auto',
         })}
       >
@@ -53,12 +53,11 @@ export function FAQ(props: { title?: string; list: FAQItem[] }) {
                     as="button"
                     class={css({
                       maxWidth: '100%',
-                      width: '600px',
+                      width: '100%',
                       paddingTop: $theme.sizing.scale500,
                       paddingBottom: $theme.sizing.scale500,
                       paddingLeft: $theme.sizing.scale500,
                       paddingRight: $theme.sizing.scale500,
-                      margin: '0',
                       textAlign: 'left',
                       borderBottom: '1px solid #d9d9d9',
                       ':hover': {
@@ -74,7 +73,7 @@ export function FAQ(props: { title?: string; list: FAQItem[] }) {
                       <div
                         class={css({
                           display: 'flex',
-                          width: '600px',
+                          width: '100%',
                           maxWidth: '100%',
                           alignItems: 'center',
                         })}

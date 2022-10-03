@@ -22,15 +22,19 @@ export function HeroSlide(props: HeroSlideProps) {
       <Img
         src={props.backgroundImageSrc}
         alt="image"
-        class={css({
-          width: '100%',
-          height: '520px',
-          objectFit: 'cover',
-          objectPosition: 'right bottom',
-          [$theme.mediaQuery?.xs || '']: {
-            objectPosition: 'left bottom',
+        $override={{
+          Root: {
+            $style: {
+              width: '100%',
+              height: '520px',
+              objectFit: 'cover',
+              objectPosition: 'right bottom',
+              [$theme.mediaQuery?.xs || '']: {
+                objectPosition: 'left bottom',
+              },
+            },
           },
-        })}
+        }}
       />
       <div
         class={css({

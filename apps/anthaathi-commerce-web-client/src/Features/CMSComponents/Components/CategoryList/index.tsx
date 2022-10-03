@@ -77,19 +77,19 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
     >
       <Img
         src={item.image}
-        class={css({
-          margin: '0px',
-          objectFit: 'cover',
-          width: '100%',
-          height: '240px',
-          ':hover': {
-            // transitionDuration: '300ms',
-            // transitionTimingFunction: 'ease-in',
-            //  transition: 'fade-in .5s',
-            transition: 'opacity 300ms ease-in',
-            // animation: 'fade-in .5s cubic-bezier(.29,.65,.58,1) forwards',
+        $override={{
+          Root: {
+            $style: {
+              margin: '0px',
+              objectFit: 'cover',
+              width: '100%',
+              height: '240px',
+              ':hover': {
+                transition: 'opacity 300ms ease-in',
+              },
+            },
           },
-        })}
+        }}
       />
       <h5
         class={css([

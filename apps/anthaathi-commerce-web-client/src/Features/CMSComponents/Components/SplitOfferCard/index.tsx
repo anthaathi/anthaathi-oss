@@ -128,30 +128,34 @@ export function SplitOfferCard(props: SplitCardOfferProps) {
         <Img
           src={props.image}
           alt="image"
-          class={css({
-            backgroundColor: '#fff',
-            objectFit: 'contain',
-            maxWidth: '100%',
-            [$theme.mediaQuery?.xl || '']: {
-              height: '520px',
-              width: '60%',
-              paddingLeft: '10%',
-              paddingRight: '10%',
+          $override={{
+            Root: {
+              $style: {
+                backgroundColor: '#fff',
+                objectFit: 'contain',
+                maxWidth: '100%',
+                [$theme.mediaQuery?.xl || '']: {
+                  height: '520px',
+                  width: '60%',
+                  paddingLeft: '10%',
+                  paddingRight: '10%',
+                },
+                [$theme.mediaQuery?.lg || '']: {
+                  height: '520px',
+                },
+                [$theme.mediaQuery?.md || '']: {
+                  height: '420px',
+                },
+                [$theme.mediaQuery?.sm || '']: {
+                  height: '420px',
+                  width: '100%',
+                },
+                [$theme.mediaQuery?.xs || '']: {
+                  height: '320px',
+                },
+              },
             },
-            [$theme.mediaQuery?.lg || '']: {
-              height: '520px',
-            },
-            [$theme.mediaQuery?.md || '']: {
-              height: '420px',
-            },
-            [$theme.mediaQuery?.sm || '']: {
-              height: '420px',
-              width: '100%',
-            },
-            [$theme.mediaQuery?.xs || '']: {
-              height: '320px',
-            },
-          })}
+          }}
         />
       </div>
     </div>

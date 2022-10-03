@@ -41,7 +41,14 @@ export default function () {
             display: 'flex',
           })}
         >
-          <div class={css({ flexGrow: 1, width: 'calc(100% - 320px)' })}>
+          <div
+            class={css({
+              flexGrow: 1,
+              [$theme.mediaQuery?.md ?? '']: {
+                width: 'calc(100% - 320px)',
+              },
+            })}
+          >
             <Grid
               $override={{
                 Root: {
@@ -50,6 +57,7 @@ export default function () {
                   },
                 },
               }}
+              columns={[2, 2, 2, 4]}
             >
               <ProductTile />
               <ProductTile />

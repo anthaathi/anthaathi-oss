@@ -35,12 +35,16 @@ export function CartItem(props: CartItemProps) {
       >
         <Img
           src={props.imgSrc}
-          class={css({
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            border: '1px solid #e4e4d9',
-          })}
+          $override={{
+              Root: {
+                  $style: {
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      border: '1px solid #e4e4d9',
+                  },
+              },
+          }}
         />
       </div>
       <div

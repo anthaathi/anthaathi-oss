@@ -48,11 +48,15 @@ export const NewsLetter = () => {
             <Img
               src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/office-furniture-grey-chairs_1000x_8a2683aa-b3bd-4816-9ae5-3098b868d287_1000x.webp?v=1653582461"
               alt=""
-              class={css({
-                objectFit: 'cover',
-                width: '100%',
-                height: '100%',
-              })}
+              $override={{
+                Root: {
+                  $style: {
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%',
+                  },
+                },
+              }}
             />
           </div>
 

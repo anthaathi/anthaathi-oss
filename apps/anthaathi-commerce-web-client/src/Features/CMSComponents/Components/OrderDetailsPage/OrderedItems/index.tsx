@@ -1,5 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
+import { Img } from '~/Features/Core/Components/Image';
 
 export interface ItemProps {
   id: number;
@@ -54,13 +55,17 @@ const ItemRenderer = ({ item }: { item: ItemProps }) => {
         display: 'flex',
       })}
     >
-      <img
+      <Img
         src={item.image}
-        class={css({
-          height: '120px',
-          width: '120px',
-          objectFit: 'cover',
-        })}
+        $override={{
+          Root: {
+            $style: {
+              height: '120px',
+              width: '120px',
+              objectFit: 'cover',
+            },
+          },
+        }}
       />
       <div
         class={css({

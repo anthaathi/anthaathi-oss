@@ -118,7 +118,11 @@ export function AppBar() {
               <Img
                 src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
-                class={css({ height: '38px', width: 'auto' })}
+                $override={{
+                  Root: {
+                    $style: { height: '38px', width: 'auto' },
+                  },
+                }}
               />
             </Link>
 

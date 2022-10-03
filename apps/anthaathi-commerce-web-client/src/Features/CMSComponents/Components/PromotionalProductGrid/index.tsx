@@ -116,10 +116,14 @@ const ProductCell = () => {
           <Img
             src="https://cdn.shopify.com/s/files/1/0648/1303/9842/products/IMG-20220323-WA0072_540x.jpg?v=1653585761"
             alt=""
-            class={css({
-              width: '100%',
-              height: '100%',
-            })}
+            $override={{
+              Root: {
+                $style: {
+                  width: '100%',
+                  height: '100%',
+                },
+              },
+            }}
           />
 
           <div

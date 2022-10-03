@@ -127,12 +127,16 @@ export function SplitSlides() {
                     data-aspectratio="2.018728437654017"
                     data-sizes="auto"
                     alt=""
-                    class={css({
-                      objectPosition: 'center center',
-                      height: '100%',
-                      width: '100%',
-                      objectFit: 'cover',
-                    })}
+                    $override={{
+                      Root: {
+                        $style: {
+                          objectPosition: 'center center',
+                          height: '100%',
+                          width: '100%',
+                          objectFit: 'cover',
+                        },
+                      },
+                    }}
                     data-srcset="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"
                     sizes="655px"
                     srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_180x.jpg?v=1653569634 180w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_360x.jpg?v=1653569634 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_540x.jpg?v=1653569634 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_720x.jpg?v=1653569634 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_900x.jpg?v=1653569634 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1080x.jpg?v=1653569634 1080w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1296x.jpg?v=1653569634 1296w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1512x.jpg?v=1653569634 1512w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1728x.jpg?v=1653569634 1728w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_1944x.jpg?v=1653569634 1944w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2160x.jpg?v=1653569634 2160w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2376x.jpg?v=1653569634 2376w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2592x.jpg?v=1653569634 2592w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_2808x.jpg?v=1653569634 2808w, //cdn.shopify.com/s/files/1/0648/1303/9842/files/ripe-red-strawberries-in-a-white-bowl_3024x.jpg?v=1653569634 3024w"

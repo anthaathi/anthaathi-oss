@@ -1,8 +1,11 @@
-import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { FeaturedProduct } from '~/Features/CMSComponents/Components/FeaturedProduct';
 import { Breadcrumbs } from '~/Features/Core/Components/Breadcrumbs';
+import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
+import { useStyletron } from '@anthaathi/solid-styletron';
 
 export default function ProductPage() {
+  const [css] = useStyletron();
+
   return (
     <>
       <Breadcrumbs
@@ -33,8 +36,11 @@ export default function ProductPage() {
           ],
         }}
       />
-      <FeaturedCollection title="Recently Viewed" />
-      <FeaturedCollection title="Related Products" />
+
+      <FeaturedCollection title="Recently viewed product" />
+      <FeaturedCollection title="Recommended Products" />
+
+      <div class={css({ paddingBottom: '12px' })} />
     </>
   );
 }

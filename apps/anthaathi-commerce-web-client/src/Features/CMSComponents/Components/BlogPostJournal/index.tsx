@@ -140,7 +140,14 @@ export function HighlightedPost(props: BlogPostProps) {
         alignItems: 'center',
       })}
     >
-      <Img src={props.imgSrc} class={css({ width: '100%' })} />
+      <Img
+        src={props.imgSrc}
+        $override={{
+          Root: {
+            $style: { width: '100%' },
+          },
+        }}
+      />
       <h2>{props.title}</h2>
       <div>{props.date}</div>
     </div>
@@ -166,13 +173,17 @@ export function SmallPost(props: BlogPostProps) {
       >
         <Img
           src={props.imgSrc}
-          class={css({
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-          })}
+          $override={{
+            Root: {
+              $style: {
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+              },
+            },
+          }}
         />
       </div>
       <div
