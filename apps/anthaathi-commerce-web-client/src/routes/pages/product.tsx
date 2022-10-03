@@ -1,3 +1,4 @@
+import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { FeaturedProduct } from '~/Features/CMSComponents/Components/FeaturedProduct';
 import { Breadcrumbs } from '~/Features/Core/Components/Breadcrumbs';
 
@@ -32,6 +33,8 @@ export default function ProductPage() {
           ],
         }}
       />
+      <FeaturedCollection title="Recently Viewed" />
+      <FeaturedCollection title="Related Products" />
     </>
   );
 }

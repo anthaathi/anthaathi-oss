@@ -69,7 +69,7 @@ const ItemRenderer = ({ item }: { item: ItemProps }) => {
       >
         <p
           class={css({
-            ...$theme.typography.LabelLarge,
+            ...$theme.typography.HeadingXSmall,
             fontWeight: 'bold',
             color: '#364A15',
             marginTop: 0,
@@ -116,7 +116,7 @@ const FlexText = ({
           fontWeight: 'bold',
           color: '#364A15',
           marginTop: 0,
-          marginBottom: $theme.sizing.scale300,
+          marginBottom: $theme.sizing.scale200,
         })}
       >
         {label1 + ': '}
@@ -128,7 +128,7 @@ const FlexText = ({
           fontWeight: 'bold',
           color: '#008D3E',
           marginTop: 0,
-          marginBottom: $theme.sizing.scale300,
+          marginBottom: $theme.sizing.scale200,
         })}
       >
         {label2}

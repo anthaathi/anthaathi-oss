@@ -74,8 +74,14 @@ export function AccountPage() {
             display: 'none',
             [$theme.mediaQuery?.sm || '']: {
               display: 'block',
+              width: '180px',
             },
-            width: '320px',
+            [$theme.mediaQuery?.md || '']: {
+              width: '260px',
+            },
+            [$theme.mediaQuery?.lg || '']: {
+              width: '320px',
+            },
             paddingRight: $theme.sizing.scale500,
           })}
         >

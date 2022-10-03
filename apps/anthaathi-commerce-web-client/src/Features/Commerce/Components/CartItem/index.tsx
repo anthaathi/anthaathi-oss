@@ -39,6 +39,7 @@ export function CartItem(props: CartItemProps) {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            border: '1px solid #e4e4d9',
           })}
         />
       </div>
@@ -46,6 +47,7 @@ export function CartItem(props: CartItemProps) {
         class={css({
           display: 'flex',
           flex: 6,
+          marginLeft: $theme.sizing.scale600,
           flexDirection: 'column',
           justifyContent: 'space-evenly',
           alignItems: 'flex-start',
@@ -53,15 +55,46 @@ export function CartItem(props: CartItemProps) {
           letterSpacing: '0.05em',
         })}
       >
-        <div class={css({ paddingBottom: $theme.sizing.scale400 })}>
+        <div
+          class={css({
+            ...$theme.typography.HeadingXSmall,
+            paddingBottom: $theme.sizing.scale400,
+          })}
+        >
           {props.name}
         </div>
-        <div class={css({ paddingBottom: $theme.sizing.scale400 })}>
-          <CartQuantityChange />
+        <div
+          class={css({
+            ...$theme.typography.LabelMedium,
+            paddingBottom: $theme.sizing.scale400,
+            marginTop: 0,
+            marginBottom: $theme.sizing.scale100,
+          })}
+        >
+          {'Dhs. 12.00 / Piece'}
         </div>
-        <Button $kind={Kind.Tertiary} $size={Size.Medium}>
-          Remove
-        </Button>
+
+        <div
+          class={css({
+            paddingBottom: $theme.sizing.scale400,
+            display: 'flex',
+          })}
+        >
+          <CartQuantityChange />
+          <Button
+            $kind={Kind.Tertiary}
+            $size={Size.Medium}
+            $override={{
+              Root: {
+                style: {
+                  marginLeft: $theme.sizing.scale500,
+                },
+              },
+            }}
+          >
+            Remove
+          </Button>
+        </div>
       </div>
       <div
         class={css({

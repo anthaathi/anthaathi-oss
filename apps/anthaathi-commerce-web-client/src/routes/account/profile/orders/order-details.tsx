@@ -1,6 +1,6 @@
-import OrderDetailsCard from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderDetailsCard';
-import OrderedItems from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems';
-import PaymentAndAddressDetails from '~/Features/CMSComponents/Components/OrderDetailsPage/PaymentAndAddressDetails';
+import OrderDetailsCard from "~/Features/CMSComponents/Components/OrderDetailsPage/OrderDetailsCard";
+import OrderedItems from "~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems";
+import PaymentAndAddressDetails from "~/Features/CMSComponents/Components/OrderDetailsPage/PaymentAndAddressDetails";
 
 export default function OrderDetailsPage() {
   return (

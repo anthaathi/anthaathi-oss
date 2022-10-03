@@ -5,7 +5,7 @@ import { Grid } from '~/Features/Core/Components/Grid';
 import { For } from 'solid-js';
 import { ProductTile } from '~/Features/Commerce/Components/ProductTile';
 
-export function FeaturedCollection() {
+export function FeaturedCollection(props: { title: string }) {
   const [css, $theme] = useStyletron();
 
   return (
@@ -19,10 +19,20 @@ export function FeaturedCollection() {
       })}
     >
       <div class={css({ display: 'flex', alignItems: 'center' })}>
-        <h4 class={css([$theme.typography.DisplayXSmall])}>In Season</h4>
+        <h4
+          class={css([
+            $theme.typography.HeadingMedium,
+            {
+              marginTop: $theme.sizing.scale400,
+              marginBottom: $theme.sizing.scale400,
+            },
+          ])}
+        >
+          {props.title}
+        </h4>
         <span class={css({ flexGrow: 1 })} />
 
-        <Button $as={Link} $kind={Kind.Tertiary} href="/view-all">
+        <Button $as={Link} $kind={Kind.Tertiary} href="/collections/special-offers">
           View all
         </Button>
       </div>
@@ -39,7 +49,7 @@ export function FeaturedCollection() {
             },
           },
         }}
-        columns={[2, 2, 2, 5]}
+        columns={[2, 4, 4, 5]}
       >
         <For each={[{}, {}, {}, {}]}>{() => <ProductTile />}</For>
       </Grid>

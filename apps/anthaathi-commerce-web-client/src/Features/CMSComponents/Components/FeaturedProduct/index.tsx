@@ -6,6 +6,7 @@ import {
   IconLockLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { FAQ } from '../FAQ';
+import { Link } from '@solidjs/router';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -165,28 +166,29 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             Add to cart
           </div>
-          <div
-            onclick={props.handleBuyItNow}
-            class={css({
-              marginTop: '10px',
-              width: '100%',
-              [$theme.mediaQuery.md]: {
-                width: '80%',
-              },
-              textAlign: 'center',
-              border: '1px solid #313652',
-              backgroundColor: '#313652',
-              paddingTop: '12px',
-              paddingBottom: '12px',
-              color: '#fff',
-              fontWeight: 'bold',
-              fontSize: '18px',
-              borderRadius: '2px',
-              ':hover': { cursor: 'pointer' },
-            })}
-          >
-            Buy it now
-          </div>
+          <Link href="/cart" class={css({ textDecoration: 'none' })}>
+            <div
+              class={css({
+                marginTop: '10px',
+                width: '100%',
+                [$theme.mediaQuery.md]: {
+                  width: '80%',
+                },
+                textAlign: 'center',
+                border: '1px solid #313652',
+                backgroundColor: '#313652',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                color: '#fff',
+                fontWeight: 'bold',
+                fontSize: '18px',
+                borderRadius: '2px',
+                ':hover': { cursor: 'pointer' },
+              })}
+            >
+              Buy it now
+            </div>
+          </Link>
         </div>
       </div>
       <FAQ

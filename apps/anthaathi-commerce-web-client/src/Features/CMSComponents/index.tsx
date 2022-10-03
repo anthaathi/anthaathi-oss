@@ -26,7 +26,7 @@ export function RenderCMSComponents() {
     <SplitSlides />,
     <PromoGrid />,
     <ImageAndText />,
-    <FeaturedCollection />,
+    <FeaturedCollection title="In Season" />,
     <SplitOfferCard
       title={'Get Exclusive Offers'}
       subtitle={

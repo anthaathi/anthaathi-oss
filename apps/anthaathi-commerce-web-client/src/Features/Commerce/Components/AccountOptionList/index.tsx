@@ -56,7 +56,7 @@ export const Items = [
   },
   {
     title: 'Orders',
-    href: '/account/profile/orders',
+    href: '/account/profile/orders/my-orders',
   },
   {
     title: 'Address Book',

@@ -1,4 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
 import { Input } from '~/Features/Core/Components/Input';
 import { SelectOption } from '~/Features/Core/Components/SelectOption';
 
@@ -12,7 +13,7 @@ export default function CheckoutPage() {
           width: $theme.sizing.maxWidth,
           maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
           marginTop: $theme.sizing.scale800,
-          marginBottom: $theme.sizing.scale800,
+          marginBottom: $theme.sizing.scale1200,
         })}
       >
         <SelectOption
@@ -153,23 +154,30 @@ export default function CheckoutPage() {
             <RadioButtonLabel label="Wallet" name="wallet" value="wallet" />
           </div>
         </div>
-        <div
+        <Link
+          href="/"
           class={css({
-            marginTop: $theme.sizing.scale700,
-            width: '100%',
-            textAlign: 'center',
-            backgroundColor: '#118b44',
-            paddingTop: '12px',
-            paddingBottom: '12px',
-            color: '#fff',
-            fontWeight: 'bold',
-            fontSize: '18px',
-            borderRadius: '4px',
-            ':hover': { cursor: 'pointer' },
+            textDecoration: 'none',
           })}
         >
-          Purchase
-        </div>
+          <div
+            class={css({
+              marginTop: $theme.sizing.scale900,
+              width: '100%',
+              textAlign: 'center',
+              backgroundColor: '#118b44',
+              paddingTop: '12px',
+              paddingBottom: '12px',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '18px',
+              borderRadius: '4px',
+              ':hover': { cursor: 'pointer' },
+            })}
+          >
+            Purchase
+          </div>
+        </Link>
       </div>
     </div>
   );
