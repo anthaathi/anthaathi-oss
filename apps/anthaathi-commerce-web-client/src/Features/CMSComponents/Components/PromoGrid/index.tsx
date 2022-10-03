@@ -27,7 +27,7 @@ export function PromoGrid() {
           },
         },
       }}
-      columns={[2, 2, 3, 3]}
+      columns={[1, 2, 3, 3]}
     >
       <PromoGridCell
         srsSet={[
