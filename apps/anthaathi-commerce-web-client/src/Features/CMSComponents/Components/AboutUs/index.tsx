@@ -2,9 +2,11 @@ import { Grid } from '~/Features/Core/Components/Grid';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
 import { Img } from '~/Features/Core/Components/Image';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export function AboutUs() {
   const [css, $theme] = useStyletron();
+  useCssToken();
 
   return (
     <div>

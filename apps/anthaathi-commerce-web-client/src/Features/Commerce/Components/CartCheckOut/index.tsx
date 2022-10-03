@@ -1,6 +1,9 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { Button } from 'solid-headless';
 import { CartAddOrderNote } from '~/Features/Commerce/Components/CartAddNote';
 import { CheckOutInfo } from '~/Features/Commerce/Components/CartCheckOutInfo';
+import { Kind } from '~/Features/Core/Components/Button';
+import { Link } from '@solidjs/router';
 
 export interface CartCheckOutProps {
   subTotal: string;
@@ -24,8 +27,8 @@ export function CartCheckOut(props: CartCheckOutProps) {
       </div>
       <div class={css({ marginBottom: '20px' })}>
         <CheckOutInfo name="Subtotal" value="Dhs. 10.52" />
-        <CheckOutInfo name="Tax" value="Dhs. 0.52" />
         <CheckOutInfo name="VAT" value="Dhs. 1.1" />
+        <CheckOutInfo name="Discount" value="Dhs. 0.0" />
       </div>
       <button
         class={css({
@@ -43,10 +46,17 @@ export function CartCheckOut(props: CartCheckOutProps) {
       >
         Check Out
       </button>
-      <button
+      <Button
+        as={Link}
+        href="/collections"
         class={css({
-          width: '100%',
-          padding: '10px',
+          width: 'calc(100% - 20px)',
+          textAlign: 'center',
+          textDecoration: 'none',
+          paddingLeft: '10px',
+          paddingTop: '10px',
+          paddingRight: '10px',
+          paddingBottom: '10px',
           color: 'black',
           backgroundColor: '#ffffff',
           lineHeight: '1.42',
@@ -58,7 +68,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
         })}
       >
         Continue Shopping
-      </button>
+      </Button>
       <p
         class={css({
           marginBottom: $theme.sizing.scale400,
@@ -67,7 +77,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
           fontWeight: 400,
         })}
       >
-        Shipping, taxes, and discount codes calculated at checkout.
+        Terms and condition applied
       </p>
     </div>
   );

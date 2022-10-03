@@ -5,10 +5,12 @@ import {
   IconPencilSquareOLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Button, Kind } from '~/Features/Core/Components/Button';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export function CartAddOrderNote() {
   const [css, $theme] = useStyletron();
   const [isNoteVisible, setNoteVisibility] = createSignal(true);
+  const cssVar = useCssToken();
 
   return (
     <div
@@ -55,24 +57,25 @@ export function CartAddOrderNote() {
         />
       </div>
       <div class={css({})}>
-        <Show
-          when={isNoteVisible()}
-          fallback={
-            <div class={css({ padding: 0, margin: 0, display: 'none' })}></div>
-          }
-          keyed
-        >
+        <Show when={isNoteVisible()} keyed>
           <textarea
-            class={css({
-              width: '100%',
-              boxSizing: 'border-box',
-              minHeight: '100px',
-              paddingLeft: $theme.sizing.scale300,
-              paddingRight: $theme.sizing.scale300,
-              paddingTop: $theme.sizing.scale400,
-              paddingBottom: $theme.sizing.scale400,
-              border: '1px solid #d9d9d9',
-            })}
+            class={css([
+              {
+                width: '100%',
+                boxSizing: 'border-box',
+                minHeight: '100px',
+                paddingLeft: $theme.sizing.scale300,
+                paddingRight: $theme.sizing.scale300,
+                paddingTop: $theme.sizing.scale400,
+                paddingBottom: $theme.sizing.scale400,
+                border: '1px solid #d9d9d9',
+                outline: 'none',
+                ':focus': {
+                  border: `1px solid ${cssVar('primary-color', '#118b44')}`,
+                },
+              },
+              $theme.typography.ParagraphLarge,
+            ])}
           />
         </Show>
       </div>

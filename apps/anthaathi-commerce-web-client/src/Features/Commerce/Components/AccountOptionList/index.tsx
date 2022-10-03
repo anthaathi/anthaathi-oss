@@ -1,5 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { AccountOptionListItem } from '~/Features/Commerce/Components/AccountOptionListItem';
+import { For } from 'solid-js';
 
 export function AccountOptionList() {
   const [css, $theme] = useStyletron();
@@ -15,11 +16,11 @@ export function AccountOptionList() {
         minWidth: '150px',
       })}
     >
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
-      <AccountOptionListItem name="Orders" onClick={() => {}} />
-      <AccountOptionListItem name="Address Book" onClick={() => {}} />
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
+      <For each={Items}>
+        {(value) => (
+          <AccountOptionListItem href={value.href} name={value.title} />
+        )}
+      </For>
     </div>
   );
 }
@@ -31,7 +32,7 @@ export function AccountOptionMobileList() {
     <div
       class={css({
         display: 'flex',
-        [$theme.mediaQuery.sm || '']: {
+        [$theme.mediaQuery?.sm || '']: {
           display: 'none',
         },
         flexDirection: 'column',
@@ -39,11 +40,26 @@ export function AccountOptionMobileList() {
         marginBottom: $theme.sizing.scale800,
       })}
     >
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
-      <AccountOptionListItem name="Orders" onClick={() => {}} />
-      <AccountOptionListItem name="Address Book" onClick={() => {}} />
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
-      <AccountOptionListItem name="Dashboard" onClick={() => {}} />
+      <For each={Items}>
+        {(value) => (
+          <AccountOptionListItem href={value.href} name={value.title} />
+        )}
+      </For>
     </div>
   );
 }
+
+export const Items = [
+  {
+    title: 'Dashboard',
+    href: '/account/profile',
+  },
+  {
+    title: 'Orders',
+    href: '/account/profile/orders',
+  },
+  {
+    title: 'Address Book',
+    href: '/account/profile/address-book',
+  },
+];

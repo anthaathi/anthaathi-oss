@@ -41,7 +41,7 @@ export function MiniAnnouncement() {
           class={css({
             position: 'absolute',
             display: 'none',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'block',
             },
           })}
@@ -118,7 +118,7 @@ export function MiniAnnouncement() {
             bottom: 0,
             alignItems: 'center',
             display: 'none',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'flex',
             },
           })}
@@ -149,7 +149,7 @@ export function MiniAnnouncement() {
             bottom: 0,
             display: 'none',
             alignItems: 'center',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'flex',
             },
             color: '#FFF',

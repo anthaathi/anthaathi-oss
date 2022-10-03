@@ -45,7 +45,6 @@ export function AccountPage() {
           }}
           class={css({
             display: 'block',
-            border: 'none',
             margin: 0,
             paddingBottom: $theme.sizing.scale500,
             paddingTop: $theme.sizing.scale500,
@@ -73,10 +72,10 @@ export function AccountPage() {
         <div
           class={css({
             display: 'none',
-            [$theme.mediaQuery.sm || '']: {
+            [$theme.mediaQuery?.sm || '']: {
               display: 'block',
-              flex: 2,
             },
+            width: '320px',
             paddingRight: $theme.sizing.scale500,
           })}
         >
@@ -84,15 +83,7 @@ export function AccountPage() {
         </div>
         <div
           class={css({
-            display: 'none',
-            [$theme.mediaQuery.sm || '']: {
-              flex: 1,
-            },
-          })}
-        ></div>
-        <div
-          class={css({
-            flex: 9,
+            flex: 1,
           })}
         >
           <Outlet />

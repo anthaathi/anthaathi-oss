@@ -15,6 +15,7 @@ export default function CategoryListPage() {
         items={[
           {
             id: 1,
+            href: '/collections/trest',
             title: 'Fruits',
             title_ar: 'الفاكهة',
             key: 'fruits',
@@ -23,6 +24,7 @@ export default function CategoryListPage() {
           },
           {
             id: 2,
+            href: '/collections/trest',
             title: 'Vegetables',
             title_ar: 'خضروات',
             key: 'vegetables',
@@ -31,6 +33,7 @@ export default function CategoryListPage() {
           },
           {
             id: 3,
+            href: '/collections/trest',
             title: 'Bulk Buy',
             title_ar: 'شراء بالجملة',
             key: 'bulkbuy',
@@ -39,6 +42,7 @@ export default function CategoryListPage() {
           },
           {
             id: 4,
+            href: '/collections/trest',
             title: 'Organic',
             title_ar: 'عضوي',
             key: 'organic',
@@ -47,6 +51,7 @@ export default function CategoryListPage() {
           },
           {
             id: 5,
+            href: '/collections/trest',
             title: 'Pre-Cut',
             title_ar: 'قص مسبق',
             key: 'precut',
@@ -55,6 +60,7 @@ export default function CategoryListPage() {
           },
           {
             id: 6,
+            href: '/collections/trest',
             title: 'Pre-Packed',
             title_ar: 'معبأة مسبقا',
             key: 'prepacked',
@@ -63,6 +69,7 @@ export default function CategoryListPage() {
           },
           {
             id: 7,
+            href: '/collections/trest',
             title: 'Gift Corner',
             title_ar: 'ركن الهدايا',
             key: 'giftcorner',
@@ -71,6 +78,7 @@ export default function CategoryListPage() {
           },
           {
             id: 8,
+            href: '/collections/trest',
             title: 'Juices',
             title_ar: 'عصائر',
             key: 'juices',
@@ -79,6 +87,7 @@ export default function CategoryListPage() {
           },
           {
             id: 9,
+            href: '/collections/trest',
             title: 'Fresh Blooms',
             title_ar: 'أزهار منعشة',
             key: 'freshblooms',

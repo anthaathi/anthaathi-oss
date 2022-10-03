@@ -20,7 +20,10 @@ export function AccountInfoCard(props: AccountInfoCardProps) {
         height: '100%',
         width: '100%',
         minHeight: '120px',
-        padding: $theme.sizing.scale500,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
+        paddingBottom: $theme.sizing.scale500,
+        paddingTop: $theme.sizing.scale800,
         boxSizing: 'border-box',
         border: '1px solid #d9d9d9',
       })}
@@ -62,7 +65,7 @@ export function AccountInfoCard(props: AccountInfoCardProps) {
         >
           <Link
             href={props.url}
-            class={css({ fontSize: $theme.sizing.scale500 })}
+            class={css({ fontSize: $theme.sizing.scale500, color: '#000' })}
           >
             {props.urlTitle}
           </Link>

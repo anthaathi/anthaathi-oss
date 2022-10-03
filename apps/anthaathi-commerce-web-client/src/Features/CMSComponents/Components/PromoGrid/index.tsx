@@ -1,7 +1,11 @@
-import { useStyletron } from '@anthaathi/solid-styletron';
+import {
+  useResponsiveStyletron,
+  useStyletron,
+} from '@anthaathi/solid-styletron';
 import { Button, Kind } from '~/Features/Core/Components/Button';
 import { Grid } from '~/Features/Core/Components/Grid';
 import { Img } from '~/Features/Core/Components/Image';
+import { Link } from '@solidjs/router';
 
 export function PromoGrid() {
   const [css, $theme] = useStyletron();
@@ -23,7 +27,7 @@ export function PromoGrid() {
           },
         },
       }}
-      columns={[1, 1, 3, 3]}
+      columns={[2, 2, 3, 3]}
     >
       <PromoGridCell
         srsSet={[
@@ -108,60 +112,64 @@ export interface PromoGridCellProps {
 
 export function PromoGridCell(props: PromoGridCellProps) {
   const [css, $theme] = useStyletron();
+  const [css$] = useResponsiveStyletron();
   const srcSet = props.srsSet.join(', ');
 
   return (
-    <div
-      class={css({
-        width: '100%',
-        height: '320px',
-        display: 'flex',
-        alignItems: 'center',
-        placeContent: 'center',
-        flexDirection: 'column',
-        position: 'relative',
-      })}
-    >
+    <Link href="/collections/test">
       <div
-        class={css({
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-        })}
-      >
-        <Img
-          src={props.src}
-          class={css({
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-          })}
-          alt={props.alt}
-          data-srcset={srcSet}
-          sizes={props.sizes}
-          srcSet={srcSet}
-        />
-      </div>
-      <div
-        class={css({
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
+        class={css$({
+          width: '100%',
+          height: ['220px', '280px', '320px'],
+          maxHeight: '100%',
           display: 'flex',
           alignItems: 'center',
           placeContent: 'center',
           flexDirection: 'column',
+          position: 'relative',
         })}
       >
-        <h1 class={css([{ color: '#FFF' }, $theme.typography.DisplaySmall])}>
-          {props.title}
-        </h1>
-        <Button $kind={Kind.Secondary}>Shop this</Button>
+        <div
+          class={css({
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          })}
+        >
+          <Img
+            src={props.src}
+            class={css({
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+            })}
+            alt={props.alt}
+            data-srcset={srcSet}
+            sizes={props.sizes}
+            srcSet={srcSet}
+          />
+        </div>
+        <div
+          class={css({
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            display: 'flex',
+            alignItems: 'center',
+            placeContent: 'center',
+            flexDirection: 'column',
+          })}
+        >
+          <h1 class={css([{ color: '#FFF' }, $theme.typography.DisplaySmall])}>
+            {props.title}
+          </h1>
+          <Button $kind={Kind.Secondary}>Shop this</Button>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

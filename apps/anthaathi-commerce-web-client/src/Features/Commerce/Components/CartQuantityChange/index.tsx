@@ -1,7 +1,16 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { createEffect, createSignal } from 'solid-js';
 
 export function CartQuantityChange() {
   const [css, $theme] = useStyletron();
+
+  const [quantity, setQuantity] = createSignal(0);
+
+  createEffect(() => {
+    if (quantity() < 0) {
+      setQuantity(0);
+    }
+  });
 
   return (
     <div
@@ -32,6 +41,9 @@ export function CartQuantityChange() {
             backgroundColor: '#ffffff',
             cursor: 'pointer',
           })}
+          onClick={() => {
+            setQuantity((prev) => prev + 1);
+          }}
         >
           +
         </button>
@@ -43,18 +55,34 @@ export function CartQuantityChange() {
         })}
       >
         <input
-          class={css({
-            border: '0px solid #000000',
-            margin: 0,
-            padding: 0,
-            height: '100%',
-            width: '100%',
-            backgroundColor: '#ffffff',
-            textAlign: 'center',
-          })}
-        >
-          1
-        </input>
+          class={css([
+            {
+              border: '0px solid #000000',
+              margin: 0,
+              padding: 0,
+              height: '100%',
+              width: '100%',
+              backgroundColor: '#ffffff',
+              textAlign: 'center',
+              outline: 'none',
+              '-moz-appearance': 'textfield',
+              '::-webkit-outer-spin-button': {
+                '-webkit-appearance': 'none',
+                margin: 0,
+              },
+            },
+            $theme.typography.ParagraphLarge,
+          ])}
+          type="number"
+          value={quantity()}
+          onChange={(e) => {
+            if (!isNaN(+(e.target as HTMLInputElement).value)) {
+              setQuantity(+(e.target as HTMLInputElement).valueAsNumber);
+            } else {
+              (e.target as HTMLInputElement).value = quantity() + '';
+            }
+          }}
+        />
       </div>
       <div
         class={css({
@@ -72,6 +100,9 @@ export function CartQuantityChange() {
             backgroundColor: '#ffffff',
             cursor: 'pointer',
           })}
+          onClick={() => {
+            setQuantity((prev) => prev - 1);
+          }}
         >
           -
         </button>

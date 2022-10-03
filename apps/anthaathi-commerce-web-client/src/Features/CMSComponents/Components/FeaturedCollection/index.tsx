@@ -19,7 +19,7 @@ export function FeaturedCollection() {
       })}
     >
       <div class={css({ display: 'flex', alignItems: 'center' })}>
-        <h4 class={css([$theme.typography.ParagraphLarge])}>In Season</h4>
+        <h4 class={css([$theme.typography.DisplayXSmall])}>In Season</h4>
         <span class={css({ flexGrow: 1 })} />
 
         <Button $as={Link} $kind={Kind.Tertiary} href="/view-all">

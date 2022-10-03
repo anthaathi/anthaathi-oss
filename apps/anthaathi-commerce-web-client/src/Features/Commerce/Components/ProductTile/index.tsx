@@ -14,7 +14,7 @@ export function ProductTile() {
 
   return (
     <Link
-      href="/"
+      href="/product/handle"
       class={css({
         textDecoration: 'none',
         color: '#000',

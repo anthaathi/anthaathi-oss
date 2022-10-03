@@ -3,7 +3,7 @@ import { Link } from '@solidjs/router';
 
 export interface AccountOptionListItemProps {
   name: string;
-  onClick: () => void;
+  href: string;
 }
 
 export function AccountOptionListItem(props: AccountOptionListItemProps) {
@@ -18,10 +18,7 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
       })}
     >
       <Link
-        href={
-          '/account/profile/' + props.name.toLocaleLowerCase().replace(' ', '')
-        }
-        onClick={props.onClick}
+        href={props.href}
         class={css({
           display: 'block',
           padding: $theme.sizing.scale400,
@@ -35,7 +32,7 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
             borderBottom: '3px solid green',
             color: 'green',
           },
-          [$theme.mediaQuery.sm || '']: {
+          [$theme.mediaQuery?.sm || '']: {
             textAlign: 'left',
           },
           textAlign: 'center',

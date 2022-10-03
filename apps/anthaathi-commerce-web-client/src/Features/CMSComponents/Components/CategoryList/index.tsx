@@ -10,6 +10,7 @@ export interface CategoryDetailsProps {
   title: string;
   image: string;
   key: string;
+  href: string;
 }
 
 export interface CategoryListProps {
@@ -36,7 +37,6 @@ export function CategoryList(props: CategoryListProps) {
           {
             marginTop: $theme.sizing.scale600,
             marginBottom: $theme.sizing.scale600,
-            marginLeft: $theme.sizing.scale1200,
             fontWeight: 'bold',
             color: '#000',
           },
@@ -50,8 +50,6 @@ export function CategoryList(props: CategoryListProps) {
             style: {
               rowGap: '8px',
               gridGap: '15px',
-              marginLeft: $theme.sizing.scale1200,
-              marginRight: $theme.sizing.scale1200,
             },
           },
         }}
@@ -69,7 +67,7 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
   const [css, $theme] = useStyletron();
   return (
     <Link
-      href={'/'}
+      href={item.href}
       class={css({
         textDecoration: 'none',
         alignItems: 'center',

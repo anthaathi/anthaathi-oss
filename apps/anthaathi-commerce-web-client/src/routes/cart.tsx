@@ -18,7 +18,7 @@ function CartPage() {
         paddingBottom: '40px',
         paddingLeft: 0,
         paddingRight: 0,
-        [$theme.mediaQuery.md || '']: {
+        [$theme.mediaQuery?.md || '']: {
           paddingLeft: $theme.sizing.scale1000,
           paddingRight: $theme.sizing.scale1000,
         },
@@ -40,7 +40,7 @@ function CartPage() {
         class={css({
           display: 'flex',
           flexDirection: 'column',
-          [$theme.mediaQuery.md || '']: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },
         })}
@@ -48,7 +48,7 @@ function CartPage() {
         <div
           class={css({
             flex: 6.5,
-            [$theme.mediaQuery.md || '']: {
+            [$theme.mediaQuery?.md || '']: {
               flexDirection: 'row',
             },
           })}

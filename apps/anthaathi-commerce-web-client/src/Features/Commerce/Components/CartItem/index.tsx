@@ -1,5 +1,8 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
+import { Img } from '~/Features/Core/Components/Image';
+import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import { Link } from '@solidjs/router';
 
 interface CartItemProps {
   imgSrc: string;
@@ -30,7 +33,7 @@ export function CartItem(props: CartItemProps) {
           maxWidth: '150px',
         })}
       >
-        <img
+        <Img
           src={props.imgSrc}
           class={css({
             width: '100%',
@@ -56,7 +59,9 @@ export function CartItem(props: CartItemProps) {
         <div class={css({ paddingBottom: $theme.sizing.scale400 })}>
           <CartQuantityChange />
         </div>
-        <div class={css({ paddingBottom: '10px' })}>Remove</div>
+        <Button $kind={Kind.Tertiary} $size={Size.Medium}>
+          Remove
+        </Button>
       </div>
       <div
         class={css({

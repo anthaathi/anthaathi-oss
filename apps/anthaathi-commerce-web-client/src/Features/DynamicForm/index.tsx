@@ -1,5 +1,5 @@
 import type { Responsive } from 'baseui/block';
-import { createContext, createEffect, useContext } from 'solid-js';
+import { createContext, createEffect, For, useContext } from 'solid-js';
 import { FormControl } from '~/Features/Core/Components/FormControl';
 import { Grid } from '~/Features/Core/Components/Grid';
 import { Input } from '~/Features/Core/Components/Input';
@@ -85,7 +85,7 @@ export interface RenderFormProps {
 export function RenderForm({ body, id }: RenderFormProps) {
   const [, setFormValue] = formValueAtom;
 
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   createEffect(() => {
     const result: Record<string, object> = {};
@@ -113,6 +113,9 @@ export function RenderForm({ body, id }: RenderFormProps) {
               case 'input':
                 component = <RenderInputField {...field} />;
                 break;
+              case 'dropdown':
+                component = <RenderDropdown {...field} />;
+                break;
               default:
                 component = () => <div />;
             }
@@ -121,6 +124,8 @@ export function RenderForm({ body, id }: RenderFormProps) {
               <div
                 class={css({
                   gridColumn: '1 / 5',
+                  paddingLeft: $theme.sizing.scale500,
+                  paddingRight: $theme.sizing.scale500,
                 })}
               >
                 {component}
@@ -174,5 +179,30 @@ export function RenderInputField(props: InputFormField & FormField) {
         required={props.validations?.['required']}
       />
     </FormControl>
+  );
+}
+
+export function RenderDropdown(props: FormField & DropdownFormField) {
+  const [value, setValue] = useFormValue<string>(props.id);
+  const [css] = useStyletron();
+
+  console.log(value);
+
+  return (
+    <>
+      <select
+        class={css({ width: '100%' })}
+        value={value}
+        onChange={(value) => {
+          setValue(value.target.value);
+        }}
+      >
+        <For each={props.options}>
+          {(option) => {
+            return <option id={option}>{option}</option>;
+          }}
+        </For>
+      </select>
+    </>
   );
 }

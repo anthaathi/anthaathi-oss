@@ -137,7 +137,7 @@ export function AppBar() {
             >
               <Button
                 $as={Link}
-                href="/account"
+                href="/account/profile"
                 $kind={Kind.Tertiary}
                 $startEnhancer={() => (
                   <IconUserLarge height="18px" width="18px" class={css({})} />
@@ -249,7 +249,7 @@ export function AppBar() {
         class={css({
           paddingBottom: mobileMenuOpen() ? $theme.sizing.scale300 : 0,
           maxHeight: mobileMenuOpen() ? '80vh' : '0',
-          overflow: 'hidden',
+          overflow: mobileMenuOpen() ? 'hidden' : 'auto',
           transition: 'all ease .2s',
         })}
       >
@@ -275,7 +275,11 @@ function MobileMenu() {
         {(category) => {
           return (
             <li class={css({ listStyle: 'none', width: '100%' })}>
-              <Button $kind={Kind.Tertiary} $fullWidth={true}>
+              <Button
+                $kind={Kind.Tertiary}
+                $fullWidth={true}
+                $override={{ Root: { style: { width: '100%' } } }}
+              >
                 {category.title}
               </Button>
             </li>
@@ -289,42 +293,42 @@ function MobileMenu() {
 const Categories = [
   {
     title: 'Special Offers',
-    href: '/collection/special-offers',
+    href: '/collections/special-offers',
   },
   {
     title: 'Organic',
-    href: '/collection/organic',
+    href: '/collections/organic',
   },
   {
     title: 'Fruits',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Vegetables',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Bulk Buy',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Precut',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Pre-Packed',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Gift Corner',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Juices',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
   {
     title: 'Fresh blooms',
-    href: '/collection/fruits',
+    href: '/collections/fruits',
   },
 ];

@@ -359,73 +359,73 @@ export function createTypography(
       },
     },
     LabelMedium: {
-      ...font350,
+      ...font250,
       [mediaQuery.md]: {
         ...font350,
       },
     },
     LabelLarge: {
-      ...font450,
+      ...font350,
       [mediaQuery.md]: {
         ...font450,
       },
     },
     HeadingXSmall: {
-      ...font550,
+      ...font450,
       [mediaQuery.md]: {
         ...font550,
       },
     },
     HeadingSmall: {
-      ...font650,
+      ...font550,
       [mediaQuery.md]: {
         ...font650,
       },
     },
     HeadingMedium: {
-      ...font750,
+      ...font650,
       [mediaQuery.md]: {
         ...font750,
       },
     },
     HeadingLarge: {
-      ...font850,
+      ...font750,
       [mediaQuery.md]: {
         ...font850,
       },
     },
     HeadingXLarge: {
-      ...font950,
+      ...font850,
       [mediaQuery.md]: {
         ...font950,
       },
     },
     HeadingXXLarge: {
-      ...font1050,
+      ...font950,
       [mediaQuery.md]: {
         ...font1050,
       },
     },
     DisplayXSmall: {
-      ...font1150,
+      ...font1050,
       [mediaQuery.md]: {
         ...font1150,
       },
     },
     DisplaySmall: {
-      ...font1250,
+      ...font1050,
       [mediaQuery.md]: {
         ...font1250,
       },
     },
     DisplayMedium: {
-      ...font1350,
+      ...font1250,
       [mediaQuery.md]: {
         ...font1350,
       },
     },
     DisplayLarge: {
-      ...font1450,
+      ...font1350,
       [mediaQuery.md]: {
         ...font1450,
       },

@@ -15,7 +15,7 @@ export function AccountDashBoard() {
         class={css({
           display: 'flex',
           flexDirection: 'column',
-          [$theme.mediaQuery.sm || '']: {
+          [$theme.mediaQuery?.sm || '']: {
             flexDirection: 'row',
           },
           borderBottom: '1px solid #d9d9d9',
@@ -52,20 +52,22 @@ export function AccountDashBoard() {
           class={css({
             paddingTop: $theme.sizing.scale500,
             paddingBottom: $theme.sizing.scale100,
-            [$theme.mediaQuery.lg || '']: {
+            [$theme.mediaQuery?.lg || '']: {
               alignSelf: 'center',
             },
             fontSize: $theme.sizing.scale500,
           })}
         >
-          <Link href={'/'}>Edit account details</Link>
+          <Link href={'/'} class={css({ color: '#000' })}>
+            Edit account details
+          </Link>
         </div>
       </div>
       <div
         class={css({
           display: 'flex',
           flexDirection: 'column',
-          [$theme.mediaQuery.md || '']: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },
           paddingBottom: $theme.sizing.scale500,
