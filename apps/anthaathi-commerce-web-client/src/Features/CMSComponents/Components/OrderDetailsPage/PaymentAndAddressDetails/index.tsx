@@ -18,9 +18,6 @@ export default function PaymentAndAddressDetails(props: {
   return (
     <div
       class={css({
-        margin: '0 auto',
-        width: $theme.sizing.maxWidth,
-        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
         marginTop: $theme.sizing.scale800,
         marginBottom: $theme.sizing.scale800,
       })}

@@ -1,5 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { Link } from '@solidjs/router';
+import { Link, useLocation } from '@solidjs/router';
 
 export interface AccountOptionListItemProps {
   name: string;
@@ -8,6 +8,7 @@ export interface AccountOptionListItemProps {
 
 export function AccountOptionListItem(props: AccountOptionListItemProps) {
   const [css, $theme] = useStyletron();
+  const location = useLocation();
 
   return (
     <div
@@ -26,11 +27,15 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
           fontSize: '16px',
           textDecoration: 'none',
           fontWeight: 500,
-          borderBottom: '3px solid transparent',
-          color: 'black',
+          borderBottom:
+            location.pathname === props.href
+              ? '3px solid green'
+              : '3px solid transparent',
+          color: location.pathname === props.href ? 'green' : 'black',
           ':hover': {
             borderBottom: '3px solid green',
             color: 'green',
+            // backgroundColor: '#EEE',
           },
           [$theme.mediaQuery?.sm || '']: {
             textAlign: 'left',

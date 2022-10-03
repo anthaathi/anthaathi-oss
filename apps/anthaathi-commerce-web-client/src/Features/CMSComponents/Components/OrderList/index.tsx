@@ -1,4 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
 import { For } from 'solid-js';
 import { Grid } from '~/Features/Core/Components/Grid';
 
@@ -20,11 +21,10 @@ export function OrderList(props: {
   return (
     <div
       class={css({
-        margin: '0 auto',
-        width: $theme.sizing.maxWidth,
-        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
-        marginTop: $theme.sizing.scale800,
-        marginBottom: $theme.sizing.scale800,
+        marginTop: $theme.sizing.scale200,
+        marginBottom: $theme.sizing.scale200,
+        marginLeft: $theme.sizing.scale500,
+        marginRight: $theme.sizing.scale500,
       })}
     >
       <p
@@ -77,25 +77,32 @@ const OrderDetailsCard = ({ item }: { item: OrderDetailsCardProps }) => {
       <RowData label1="Shipping" label2={item.shipping} />
       <RowData label1="Total" label2={item.total} />
       <RowData label1="Items" label2={item.numberOfItems} />
-      <div
-        // onclick={props.handlePress}
+
+      <Link
+        href="/account/profile/orders/order-details"
         class={css({
-          textAlign: 'center',
-          marginTop: $theme.sizing.scale600,
-          width: '100%',
-          paddingTop: '12px',
-          paddingBottom: '12px',
-          fontWeight: 'bold',
-          fontSize: '18px',
-          borderRadius: '2px',
-          color: '#0f8443',
-          border: '1px solid #0f8443',
-          marginVertical: 10,
-          ':hover': { cursor: 'pointer' },
+          textDecoration: 'none',
         })}
       >
-        View Details
-      </div>
+        <div
+          class={css({
+            textAlign: 'center',
+            marginTop: $theme.sizing.scale600,
+            width: '100%',
+            paddingTop: '12px',
+            paddingBottom: '12px',
+            fontWeight: 'bold',
+            fontSize: '18px',
+            borderRadius: '2px',
+            color: '#0f8443',
+            border: '1px solid #0f8443',
+            marginVertical: 10,
+            ':hover': { cursor: 'pointer' },
+          })}
+        >
+          View Details
+        </div>
+      </Link>
     </div>
   );
 };
