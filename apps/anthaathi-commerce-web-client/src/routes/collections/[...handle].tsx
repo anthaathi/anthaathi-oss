@@ -1,12 +1,24 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Breadcrumbs } from '~/Features/Core/Components/Breadcrumbs';
-import { RenderForm } from '~/Features/DynamicForm';
-import { ProductTile } from '~/Features/Commerce/Components/ProductTile';
+import {
+  ProductProps,
+  ProductTile,
+} from '~/Features/Commerce/Components/ProductTile';
 import { Grid } from '~/Features/Core/Components/Grid';
 import { Select, SelectOption } from 'solid-headless';
+import productJson from '../../config/products';
+import { createMemo, For } from 'solid-js';
+import { useLocation } from '@solidjs/router';
 
 export default function () {
   const [css, $theme] = useStyletron();
+  const location = useLocation();
+  const productList = productJson.featuredCollection.products;
+
+  const products = createMemo(() => {
+    const path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    return productList.filter((item: ProductProps) => item.category === path);
+  }, [productList, location.pathname]);
 
   return (
     <>
@@ -18,7 +30,7 @@ export default function () {
         <Breadcrumbs
           list={[
             { key: '1', title: 'Home', link: '/' },
-            { key: '2', title: 'Collections', link: '/' },
+            { key: '2', title: 'Collections', link: '/collections' },
           ]}
           extraChild={() => (
             <Select defaultValue="">
@@ -59,11 +71,9 @@ export default function () {
               }}
               columns={[2, 2, 2, 4]}
             >
-              <ProductTile />
-              <ProductTile />
-              <ProductTile />
-              <ProductTile />
-              <ProductTile />
+              <For each={products()}>
+                {(product: ProductProps) => <ProductTile {...product} />}
+              </For>
             </Grid>
           </div>
         </div>

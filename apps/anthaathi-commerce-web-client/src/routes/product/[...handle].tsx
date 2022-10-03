@@ -2,9 +2,14 @@ import { FeaturedProduct } from '~/Features/CMSComponents/Components/FeaturedPro
 import { Breadcrumbs } from '~/Features/Core/Components/Breadcrumbs';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { useStyletron } from '@anthaathi/solid-styletron';
+import productJson from '../../config/products';
+import { useLocation } from '@solidjs/router';
+import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
 
 export default function ProductPage() {
   const [css] = useStyletron();
+  const location = useLocation();
+  const product = location.state;
 
   return (
     <>
@@ -17,7 +22,7 @@ export default function ProductPage() {
       />
       <FeaturedProduct
         productInfo={{
-          name: 'Mango Badami',
+          name: product?.name,
           listInfo: {
             description: 'test',
             shippingInformation: 'Shipping Information',
@@ -28,17 +33,16 @@ export default function ProductPage() {
             securePayments: 'Secure Payments',
             isFresh: 'Fresh',
           },
-          price: 35,
-          currency: 'USD',
+          price: product?.price,
+          currency: product?.currency,
           image: [
-            'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-03-15-at-15.49.36_1800x1800.jpg?v=1653583607',
-            'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
+            product?.image
           ],
         }}
       />
 
-      <FeaturedCollection title="Recently viewed product" />
-      <FeaturedCollection title="Recommended Products" />
+      <FeaturedCollection title="Recently viewed product" products={productJson.featuredCollection.collection1} />
+      <FeaturedCollection title="Recommended Products" products={productJson.featuredCollection.collection2} />
 
       <div class={css({ paddingBottom: '12px' })} />
     </>

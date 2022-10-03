@@ -15,10 +15,10 @@ import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
 import { PromotionalProductGrid } from './Components/PromotionalProductGrid';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
 import { BlogPostJournal } from '~/Features/CMSComponents/Components/BlogPostJournal';
+import productJson from '../../config/products';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
-
   const timeStart = new Date();
 
   const App = () => [
@@ -26,7 +26,7 @@ export function RenderCMSComponents() {
     <SplitSlides />,
     <PromoGrid />,
     <ImageAndText />,
-    <FeaturedCollection title="In Season" />,
+    <FeaturedCollection title="In Season" products={productJson.featuredCollection.collection1} />,
     <SplitOfferCard
       title={'Get Exclusive Offers'}
       subtitle={
