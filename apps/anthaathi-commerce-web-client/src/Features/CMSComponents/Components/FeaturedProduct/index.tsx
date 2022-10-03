@@ -6,7 +6,7 @@ import {
   IconLockLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { FAQ } from '../FAQ';
-import { Link } from '@solidjs/router';
+import { Img } from '~/Features/Core/Components/Image';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -39,7 +39,8 @@ export function FeaturedProduct(props: ProductDetailsProps) {
   return (
     <div
       class={css({
-        margin: '0 auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         width: $theme.sizing.maxWidth,
         maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
         paddingLeft: $theme.sizing.scale500,
@@ -52,21 +53,9 @@ export function FeaturedProduct(props: ProductDetailsProps) {
         class={css({
           marginBottom: $theme.sizing.scale1000,
           display: 'flex',
-          flexDirection: 'row',
-          [$theme.mediaQuery.xl]: {
+          flexDirection: 'column',
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
-          },
-          [$theme.mediaQuery.lg]: {
-            flexDirection: 'row',
-          },
-          [$theme.mediaQuery.md]: {
-            flexDirection: 'row',
-          },
-          [$theme.mediaQuery.sm]: {
-            flexDirection: 'column',
-          },
-          [$theme.mediaQuery.xs]: {
-            flexDirection: 'column',
           },
         })}
       >
@@ -78,25 +67,25 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             placeContent: 'center',
           })}
         >
-          <img
+          <Img
             src={props.productInfo.image[1]}
             class={css({
               height: '520px',
               width: '100%',
               objectFit: 'cover',
-              [$theme.mediaQuery.xl]: {
+              [$theme.mediaQuery?.xl || '']: {
                 height: '520px',
               },
-              [$theme.mediaQuery.lg]: {
+              [$theme.mediaQuery?.lg || '']: {
                 height: '420px',
               },
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 width: '90%',
               },
-              [$theme.mediaQuery.sm]: {
+              [$theme.mediaQuery?.sm || '']: {
                 height: '420px',
               },
-              [$theme.mediaQuery.xs]: {
+              [$theme.mediaQuery?.xs || '']: {
                 height: '320px',
               },
             })}
@@ -145,12 +134,12 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           </p>
           <BlockInfo data={props.productInfo.blockInfo} />
           <div
-            onclick={props.handleAddToCart}
+            onClick={props.handleAddToCart}
             class={css({
               textAlign: 'center',
               marginTop: $theme.sizing.scale600,
               width: '100%',
-              [$theme.mediaQuery.md]: {
+              [$theme.mediaQuery?.md || '']: {
                 width: '80%',
               },
               paddingTop: '12px',
@@ -166,29 +155,28 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             Add to cart
           </div>
-          <Link href="/cart" class={css({ textDecoration: 'none' })}>
-            <div
-              class={css({
-                marginTop: '10px',
-                width: '100%',
-                [$theme.mediaQuery.md]: {
-                  width: '80%',
-                },
-                textAlign: 'center',
-                border: '1px solid #313652',
-                backgroundColor: '#313652',
-                paddingTop: '12px',
-                paddingBottom: '12px',
-                color: '#fff',
-                fontWeight: 'bold',
-                fontSize: '18px',
-                borderRadius: '2px',
-                ':hover': { cursor: 'pointer' },
-              })}
-            >
-              Buy it now
-            </div>
-          </Link>
+          <div
+            onClick={props.handleBuyItNow}
+            class={css({
+              marginTop: '10px',
+              width: '100%',
+              [$theme.mediaQuery?.md || '']: {
+                width: '80%',
+              },
+              textAlign: 'center',
+              border: '1px solid #313652',
+              backgroundColor: '#313652',
+              paddingTop: '12px',
+              paddingBottom: '12px',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '18px',
+              borderRadius: '2px',
+              ':hover': { cursor: 'pointer' },
+            })}
+          >
+            Buy it now
+          </div>
         </div>
       </div>
       <FAQ

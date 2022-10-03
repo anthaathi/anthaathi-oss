@@ -413,7 +413,7 @@ export function createTypography(
       },
     },
     DisplaySmall: {
-      ...font1050,
+      ...font950,
       [mediaQuery.md]: {
         ...font1250,
       },

@@ -1,10 +1,14 @@
-import { useStyletron } from '@anthaathi/solid-styletron';
+import {
+  useResponsiveStyletron,
+  useStyletron,
+} from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 import { Img } from '~/Features/Core/Components/Image';
 
 export function ImageAndText() {
   const [css, $theme] = useStyletron();
+  const [css$] = useResponsiveStyletron();
 
   const cssVar = useCssToken();
 
@@ -45,13 +49,11 @@ export function ImageAndText() {
           })}
         >
           <h3
-            class={css([
-              $theme.typography.HeadingMedium,
-              {
-                marginTop: 0,
-                marginBottom: 0,
-              },
-            ])}
+            class={css$({
+              marginTop: [$theme.sizing.scale1000, $theme.sizing.scale0],
+              marginBottom: 0,
+              ...$theme.typography.HeadingMedium,
+            })}
           >
             About NRTCFresh
           </h3>
@@ -60,6 +62,7 @@ export function ImageAndText() {
               $theme.typography.ParagraphLarge,
               {
                 width: '100%',
+                paddingBottom: $theme.sizing.scale700,
               },
             ])}
           >
@@ -71,7 +74,7 @@ export function ImageAndText() {
 
           <div
             class={css({
-              paddingBottom: '2rem',
+              paddingBottom: '0rem',
               [$theme.mediaQuery?.md || '']: {
                 paddingBottom: 0,
               },

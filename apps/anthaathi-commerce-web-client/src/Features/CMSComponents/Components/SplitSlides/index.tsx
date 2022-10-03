@@ -89,6 +89,7 @@ export function SplitSlides() {
           overflowY: 'hidden',
           scrollbarWidth: 'none',
           flexDirection: 'row',
+          maxHeight: '60vh',
           height: ['550px', '750px', '750px', '750px'],
           backgroundColor: '#EEE',
           '::-webkit-scrollbar': {
@@ -143,8 +144,14 @@ export function SplitSlides() {
                     flexDirection: 'column',
                     verticalAlign: 'center',
                     placeContent: 'center',
-                    paddingTop: $theme.sizing.scale1000,
-                    paddingBottom: $theme.sizing.scale1000,
+                    paddingTop: [
+                      $theme.sizing.scale1000,
+                      $theme.sizing.scale1000,
+                    ],
+                    paddingBottom: [
+                      $theme.sizing.scale1000,
+                      $theme.sizing.scale1000,
+                    ],
                     width: '100%',
                     paddingLeft: $theme.sizing.scale500,
                     paddingRight: $theme.sizing.scale500,
@@ -157,7 +164,7 @@ export function SplitSlides() {
                 >
                   <h1
                     class={css$([
-                      $theme.typography.DisplaySmall,
+                      $theme.typography.HeadingMedium,
                       {
                         margin: 0,
                       },
@@ -170,13 +177,11 @@ export function SplitSlides() {
                       $theme.typography.LabelLarge,
                       {
                         maxWidth: '80%',
+                        fontWeight: 400,
                       },
                     ])}
                   >
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Architecto, consequatur enim error facere id illo laudantium
-                    nam possimus quaerat quam quidem quos repudiandae, rerum sed
-                    sint tempore, vitae voluptate voluptatem?
                   </h3>
                 </div>
               </div>

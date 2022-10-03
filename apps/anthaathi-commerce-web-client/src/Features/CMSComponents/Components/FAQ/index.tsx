@@ -50,9 +50,9 @@ export function FAQ(props: { title?: string; list: FAQItem[] }) {
               <AccordionItem value={faq}>
                 <AccordionHeader>
                   <AccordionButton
-                    as="div"
+                    as="button"
                     class={css({
-                      maxWidth: '600px',
+                      maxWidth: '100%',
                       width: '600px',
                       paddingTop: $theme.sizing.scale500,
                       paddingBottom: $theme.sizing.scale500,
@@ -75,6 +75,7 @@ export function FAQ(props: { title?: string; list: FAQItem[] }) {
                         class={css({
                           display: 'flex',
                           width: '600px',
+                          maxWidth: '100%',
                           alignItems: 'center',
                         })}
                       >

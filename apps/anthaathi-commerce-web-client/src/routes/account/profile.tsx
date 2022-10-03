@@ -54,7 +54,7 @@ export function AccountPage() {
             ':hover': {
               border: '2px solid green',
             },
-            [$theme.mediaQuery.sm || '']: {
+            [$theme.mediaQuery?.sm || '']: {
               display: 'none',
             },
           })}
