@@ -15,6 +15,7 @@ import { Link } from '@solidjs/router';
 import { Input } from '~/Features/Core/Components/Input';
 import { CartItems } from '~/Features/Cart/Components/CartItems';
 import { Button, Kind } from '~/Features/Core/Components/Button';
+import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -125,6 +126,8 @@ export default function Checkout() {
             />
             <Button $kind={Kind.Tertiary}>Apply</Button>
           </div>
+
+          <CartCheckOut subTotal={'10 Dhr'} minimal={true} />
         </div>
       </div>
       <Link
