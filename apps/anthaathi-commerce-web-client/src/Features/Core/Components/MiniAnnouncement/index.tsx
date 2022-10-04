@@ -101,8 +101,7 @@ export function MiniAnnouncement() {
                       },
                     ])}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusantium ad corporis cumque.
+                    FREE DELIVERY | MINIMUM ORDER AED 60/-
                   </h6>
                 </Link>
               );

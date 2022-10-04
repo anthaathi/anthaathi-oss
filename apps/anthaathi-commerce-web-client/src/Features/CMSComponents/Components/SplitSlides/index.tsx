@@ -174,7 +174,7 @@ export function SplitSlides() {
                       },
                     ])}
                   >
-                    Something amazing
+                    NRTC Fresh
                   </h1>
                   <h3
                     class={css$([
@@ -185,7 +185,10 @@ export function SplitSlides() {
                       },
                     ])}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    For more than 40 years NRTC has been successfully catering
+                    to the demands of both local and international markets and
+                    is one of the leading importers and exporters of fresh
+                    fruits and vegetables in the Middle East.
                   </h3>
                 </div>
               </div>

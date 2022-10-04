@@ -35,14 +35,19 @@ export default function ProductPage() {
           },
           price: product?.price,
           currency: product?.currency,
-          image: [
-            product?.image
-          ],
+          image: [product?.image],
         }}
+        handleAddToCart={() => {}}
       />
 
-      <FeaturedCollection title="Recently viewed product" products={productJson.featuredCollection.collection1} />
-      <FeaturedCollection title="Recommended Products" products={productJson.featuredCollection.collection2} />
+      <FeaturedCollection
+        title="Recently viewed product"
+        products={productJson.featuredCollection.collection1}
+      />
+      <FeaturedCollection
+        title="Recommended Products"
+        products={productJson.featuredCollection.collection2}
+      />
 
       <div class={css({ paddingBottom: '12px' })} />
     </>

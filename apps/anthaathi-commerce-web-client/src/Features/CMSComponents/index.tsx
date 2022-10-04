@@ -26,7 +26,10 @@ export function RenderCMSComponents() {
     <SplitSlides />,
     <PromoGrid />,
     <ImageAndText />,
-    <FeaturedCollection title="In Season" products={productJson.featuredCollection.collection1} />,
+    <FeaturedCollection
+      title="In Season"
+      products={productJson.featuredCollection.collection1}
+    />,
     <SplitOfferCard
       title={'Get Exclusive Offers'}
       subtitle={
@@ -51,7 +54,7 @@ export function RenderCMSComponents() {
           image:
             'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
           price: 12,
-          currency: 'USD',
+          currency: 'AED',
           heading: 'NRTC Fresh',
           buttonTitle: 'Shop',
           label: 'New',
@@ -62,7 +65,7 @@ export function RenderCMSComponents() {
           image:
             'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
           price: 23,
-          currency: 'USD',
+          currency: 'AED',
           heading: 'NRTC Fresh',
           buttonTitle: 'Shop',
           label: 'New',

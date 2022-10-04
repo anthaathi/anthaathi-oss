@@ -1,6 +1,6 @@
-import OrderDetailsCard from "~/Features/CMSComponents/Components/OrderDetailsPage/OrderDetailsCard";
-import OrderedItems from "~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems";
-import PaymentAndAddressDetails from "~/Features/CMSComponents/Components/OrderDetailsPage/PaymentAndAddressDetails";
+import OrderDetailsCard from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderDetailsCard';
+import OrderedItems from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems';
+import PaymentAndAddressDetails from '~/Features/CMSComponents/Components/OrderDetailsPage/PaymentAndAddressDetails';
 
 export default function OrderDetailsPage() {
   return (
@@ -26,7 +26,7 @@ export default function OrderDetailsPage() {
             key: '12',
             price: 12,
             numberOfItems: 2,
-            currency: 'USD',
+            currency: 'AED',
             weight_unit: 'KG',
             packaging: '500 gms',
           },
@@ -38,7 +38,7 @@ export default function OrderDetailsPage() {
             key: '23',
             price: 23,
             numberOfItems: 2,
-            currency: 'USD',
+            currency: 'AED',
             weight_unit: 'KG',
             packaging: '500 gms',
           },

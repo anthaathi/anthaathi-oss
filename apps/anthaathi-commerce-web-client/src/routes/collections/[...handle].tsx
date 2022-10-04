@@ -16,7 +16,9 @@ export default function () {
   const productList = productJson.featuredCollection.products;
 
   const products = createMemo(() => {
-    const path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    const path = location.pathname.substring(
+      location.pathname.lastIndexOf('/') + 1,
+    );
     return productList.filter((item: ProductProps) => item.category === path);
   }, [productList, location.pathname]);
 
@@ -32,12 +34,6 @@ export default function () {
             { key: '1', title: 'Home', link: '/' },
             { key: '2', title: 'Collections', link: '/collections' },
           ]}
-          extraChild={() => (
-            <Select defaultValue="">
-              <SelectOption value="">Hello world</SelectOption>
-              <SelectOption value="">Hello worldq</SelectOption>
-            </Select>
-          )}
         />
       </div>
       <div

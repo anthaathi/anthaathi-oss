@@ -7,6 +7,7 @@ import {
 } from '@anthaathi/oracle-apex-solid-icons';
 import { FAQ } from '../FAQ';
 import { Img } from '~/Features/Core/Components/Image';
+import { Button } from 'solid-headless';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -30,8 +31,8 @@ export interface ProductDetails {
 
 export interface ProductDetailsProps {
   productInfo: ProductDetails;
-  handleAddToCart?: () => {};
-  handleBuyItNow?: () => {};
+  handleAddToCart?: () => void;
+  handleBuyItNow?: () => void;
 }
 
 export function FeaturedProduct(props: ProductDetailsProps) {
@@ -140,7 +141,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             }).format(props.productInfo.price)}
           </p>
           <BlockInfo data={props.productInfo.blockInfo} />
-          <div
+          <Button
             onClick={props.handleAddToCart}
             class={css({
               textAlign: 'center',
@@ -161,7 +162,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             })}
           >
             Add to cart
-          </div>
+          </Button>
           <div
             onClick={props.handleBuyItNow}
             class={css({
