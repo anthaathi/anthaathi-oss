@@ -2,6 +2,7 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
 import { For } from 'solid-js';
+import { CartItems } from '~/Features/Cart/Components/CartItems';
 
 export default () => {
   return <CartPage />;
@@ -53,13 +54,13 @@ function CartPage() {
             },
           })}
         >
-          <For each={CartItems}>{(item) => <CartItem {...item} />}</For>
+          <CartItems />
         </div>
         <div
           class={css({
             flex: 0.5,
           })}
-        ></div>
+        />
         <div
           class={css({
             flex: 3.5,
@@ -71,30 +72,3 @@ function CartPage() {
     </div>
   );
 }
-
-const CartItems = [
-  {
-    id: 1,
-    name: 'Baby Yellow Pepper',
-    image:
-      'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-    key: '12',
-    price: 12,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
-  },
-  {
-    id: 2,
-    name: 'Capsicum mixed',
-    image:
-      'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
-    key: '23',
-    price: 23,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
-  },
-];

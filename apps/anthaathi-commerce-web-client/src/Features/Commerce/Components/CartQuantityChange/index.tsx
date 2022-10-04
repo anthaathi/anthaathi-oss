@@ -1,14 +1,22 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { createEffect, createSignal } from 'solid-js';
 
-export function CartQuantityChange() {
+export function CartQuantityChange({
+  initialValue,
+  onChange,
+}: {
+  initialValue: number;
+  onChange: (item: number) => void;
+}) {
   const [css, $theme] = useStyletron();
 
-  const [quantity, setQuantity] = createSignal(1);
+  const [quantity, setQuantity] = createSignal(initialValue);
 
   createEffect(() => {
     if (quantity() < 0) {
       setQuantity(0);
+    } else {
+      onChange(quantity());
     }
   });
 

@@ -2,11 +2,12 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
 import { Img } from '~/Features/Core/Components/Image';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
-import { Link } from '@solidjs/router';
 import { ProductProps } from '../ProductTile';
 
-export interface CartItemProps extends ProductProps {
+export interface CartItemProps {
+  product: ProductProps;
   numberOfItems: number;
+  onChange: (input: number) => void;
 }
 
 export function CartItem(props: CartItemProps) {
@@ -32,7 +33,7 @@ export function CartItem(props: CartItemProps) {
         })}
       >
         <Img
-          src={props.image}
+          src={props.product.image}
           $override={{
             Root: {
               $style: {
@@ -63,7 +64,7 @@ export function CartItem(props: CartItemProps) {
             paddingBottom: $theme.sizing.scale400,
           })}
         >
-          {props.name}
+          {props.product.name}
         </div>
         <div
           class={css({
@@ -75,8 +76,8 @@ export function CartItem(props: CartItemProps) {
         >
           {Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: props.currency,
-          }).format(props.price) + ' / Piece'}
+            currency: props.product.currency,
+          }).format(props.product.price) + ' / Piece'}
         </div>
 
         <div
@@ -85,7 +86,10 @@ export function CartItem(props: CartItemProps) {
             display: 'flex',
           })}
         >
-          <CartQuantityChange />
+          <CartQuantityChange
+            initialValue={props.numberOfItems}
+            onChange={props.onChange}
+          />
           <Button
             $kind={Kind.Tertiary}
             $size={Size.Medium}
@@ -118,8 +122,8 @@ export function CartItem(props: CartItemProps) {
         >
           {Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: props.currency,
-          }).format(props.price)}
+            currency: props.product.currency,
+          }).format(props.product.price)}
         </div>
       </div>
     </div>

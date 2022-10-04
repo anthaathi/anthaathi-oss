@@ -12,8 +12,9 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions';
 import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
 import { Link } from '@solidjs/router';
-import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { Input } from '~/Features/Core/Components/Input';
+import { CartItems } from '~/Features/Cart/Components/CartItems';
+import { Button, Kind } from '~/Features/Core/Components/Button';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -113,11 +114,17 @@ export default function Checkout() {
         </Accordion>
 
         <div
-          class={css({ width: '25%', marginLeft: '12px', marginTop: '12px' })}
+          class={css({ width: '35%', marginLeft: '12px', marginTop: '12px' })}
         >
-          <For each={CartItems}>{(item) => <CartItem {...item} />}</For>
+          <CartItems />
 
-          <Input placeholder="Discount code" />
+          <div class={css({ display: 'flex', alignItems: 'center' })}>
+            <Input
+              placeholder="Discount code"
+              $overrides={{ Root: { style: { flexGrow: 1 } } }}
+            />
+            <Button $kind={Kind.Tertiary}>Apply</Button>
+          </div>
         </div>
       </div>
       <Link
@@ -160,32 +167,5 @@ export const Steps = [
   {
     title: 'Payment',
     component: () => <PaymentOptions />,
-  },
-];
-
-const CartItems = [
-  {
-    id: 1,
-    name: 'Baby Yellow Pepper',
-    image:
-      'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-    key: '12',
-    price: 12,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
-  },
-  {
-    id: 2,
-    name: 'Capsicum mixed',
-    image:
-      'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
-    key: '23',
-    price: 23,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
   },
 ];
