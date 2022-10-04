@@ -98,6 +98,7 @@ export function Input(
           },
           props?.$overrides?.Input?.style,
         ])}
+        style="line-height: 34px"
         {...filterProps(props)}
       />
     </div>

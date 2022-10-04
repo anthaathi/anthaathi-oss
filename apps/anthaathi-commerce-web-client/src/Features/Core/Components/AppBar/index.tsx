@@ -178,6 +178,8 @@ export function AppBar() {
             >
               <Button
                 $kind={Kind.Tertiary}
+                $as={Link}
+                href="/cart"
                 $startEnhancer={() => (
                   <IconShoppingCartLarge
                     height="18px"

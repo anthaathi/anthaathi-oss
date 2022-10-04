@@ -13,6 +13,7 @@ import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions'
 import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
 import { Link } from '@solidjs/router';
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
+import { Input } from '~/Features/Core/Components/Input';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -26,7 +27,16 @@ export default function Checkout() {
         paddingBottom: $theme.sizing.scale1200,
       })}
     >
-      <div class={css({ display: 'flex' })}>
+      <div
+        class={css({
+          display: 'flex',
+          flexDirection: 'column',
+
+          [$theme.mediaQuery?.md || '']: {
+            flexDirection: 'row',
+          },
+        })}
+      >
         <Accordion
           defaultValue={Steps[0].title}
           toggleable
@@ -102,8 +112,12 @@ export default function Checkout() {
           </For>
         </Accordion>
 
-        <div class={css({ width: '25%', marginLeft: '12px' })}>
+        <div
+          class={css({ width: '25%', marginLeft: '12px', marginTop: '12px' })}
+        >
           <For each={CartItems}>{(item) => <CartItem {...item} />}</For>
+
+          <Input placeholder="Discount code" />
         </div>
       </div>
       <Link
