@@ -1,6 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Input } from '~/Features/Core/Components/Input';
-import { Select } from 'solid-headless';
 import { SelectOption } from '~/Features/Core/Components/SelectOption';
 import { FormControl } from '~/Features/Core/Components/FormControl';
 
@@ -13,11 +12,10 @@ export function AddAddress() {
         <div class={css({ display: 'flex', flexDirection: 'column' })}>
           <div
             class={css({
-              display: 'flex',
-              flexDirection: 'column',
               [$theme.mediaQuery?.md || '']: {
-                flexDirection: 'row',
+                display: 'flex',
               },
+              width: '100%',
             })}
           >
             <FormControl
@@ -26,9 +24,9 @@ export function AddAddress() {
               $override={{
                 Root: {
                   $style: {
-                    width: '100%',
                     [$theme.mediaQuery?.md || '']: {
-                      width: '50%',
+                      width: `calc(100% - ${$theme.sizing.scale400})`,
+                      marginRight: $theme.sizing.scale400,
                     },
                   },
                 },
@@ -48,24 +46,23 @@ export function AddAddress() {
                 }}
               />
             </FormControl>
-
             <FormControl
               label="Last name"
               for="lastName"
               $override={{
                 Root: {
                   $style: {
-                    width: '100%',
                     [$theme.mediaQuery?.md || '']: {
-                      width: '50%',
-                    },
+                      width: `calc(100% - ${$theme.sizing.scale400})`,
+                      marginLeft: $theme.sizing.scale400,
+                    },  
                   },
                 },
               }}
             >
               <Input
-                id="lastName"
                 placeholder="Enter last name"
+                id="lastName"
                 $overrides={{
                   Root: {
                     style: {

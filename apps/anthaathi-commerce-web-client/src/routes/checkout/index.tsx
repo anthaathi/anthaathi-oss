@@ -15,7 +15,6 @@ import { Link } from '@solidjs/router';
 import { Input } from '~/Features/Core/Components/Input';
 import { CartItems } from '~/Features/Cart/Components/CartItems';
 import { Button, Kind } from '~/Features/Core/Components/Button';
-import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -118,38 +117,23 @@ export default function Checkout() {
 
         <div
           class={css({
-            width: '100%',
             [$theme.mediaQuery?.md || '']: {
-              marginLeft: '12px',
               width: '35%',
             },
+            width: '100%',
+            marginLeft: '12px',
             marginTop: '12px',
           })}
         >
-          <div
-            class={css({
-              paddingLeft: $theme.sizing.scale500,
-              paddingRight: $theme.sizing.scale500,
-            })}
-          >
-            <CartItems />
-          </div>
+          <CartItems />
 
-          <div
-            class={css({
-              display: 'flex',
-              alignItems: 'center',
-              width: '100%',
-            })}
-          >
+          <div class={css({ display: 'flex', alignItems: 'center' })}>
             <Input
               placeholder="Discount code"
               $overrides={{ Root: { style: { flexGrow: 1 } } }}
             />
             <Button $kind={Kind.Tertiary}>Apply</Button>
           </div>
-
-          <CartCheckOut subTotal={'10 Dhr'} minimal={true} />
         </div>
       </div>
       <Link
