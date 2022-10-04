@@ -11,14 +11,25 @@ export function AddAddress() {
     <div>
       <form action="">
         <div class={css({ display: 'flex', flexDirection: 'column' })}>
-          <div class={css({ display: 'flex' })}>
+          <div
+            class={css({
+              display: 'flex',
+              flexDirection: 'column',
+              [$theme.mediaQuery?.md || '']: {
+                flexDirection: 'row',
+              },
+            })}
+          >
             <FormControl
               label="First name"
               for="firstName"
               $override={{
                 Root: {
                   $style: {
-                    width: '50%',
+                    width: '100%',
+                    [$theme.mediaQuery?.md || '']: {
+                      width: '50%',
+                    },
                   },
                 },
               }}
@@ -41,7 +52,16 @@ export function AddAddress() {
             <FormControl
               label="Last name"
               for="lastName"
-              $override={{ Root: { $style: { width: '50%' } } }}
+              $override={{
+                Root: {
+                  $style: {
+                    width: '100%',
+                    [$theme.mediaQuery?.md || '']: {
+                      width: '50%',
+                    },
+                  },
+                },
+              }}
             >
               <Input
                 id="lastName"

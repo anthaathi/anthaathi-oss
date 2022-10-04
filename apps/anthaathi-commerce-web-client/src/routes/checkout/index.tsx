@@ -115,11 +115,31 @@ export default function Checkout() {
         </Accordion>
 
         <div
-          class={css({ width: '35%', marginLeft: '12px', marginTop: '12px' })}
+          class={css({
+            width: '100%',
+            [$theme.mediaQuery?.md || '']: {
+              marginLeft: '12px',
+              width: '35%',
+            },
+            marginTop: '12px',
+          })}
         >
-          <CartItems />
+          <div
+            class={css({
+              paddingLeft: $theme.sizing.scale500,
+              paddingRight: $theme.sizing.scale500,
+            })}
+          >
+            <CartItems />
+          </div>
 
-          <div class={css({ display: 'flex', alignItems: 'center' })}>
+          <div
+            class={css({
+              display: 'flex',
+              alignItems: 'center',
+              width: '100%',
+            })}
+          >
             <Input
               placeholder="Discount code"
               $overrides={{ Root: { style: { flexGrow: 1 } } }}

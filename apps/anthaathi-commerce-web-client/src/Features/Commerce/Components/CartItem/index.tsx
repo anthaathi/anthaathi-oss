@@ -27,9 +27,7 @@ export function CartItem(props: CartItemProps) {
       <div
         class={css({
           flex: 4,
-          width: '150px',
-          minWidth: '100px',
-          maxWidth: '150px',
+          width: '100%',
         })}
       >
         <Img
