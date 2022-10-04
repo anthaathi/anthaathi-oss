@@ -3,9 +3,15 @@ import { Button, Kind } from '~/Features/Core/Components/Button';
 import { Link } from '@solidjs/router';
 import { Grid } from '~/Features/Core/Components/Grid';
 import { For } from 'solid-js';
-import { ProductTile } from '~/Features/Commerce/Components/ProductTile';
+import {
+  ProductProps,
+  ProductTile,
+} from '~/Features/Commerce/Components/ProductTile';
 
-export function FeaturedCollection(props: { title: string }) {
+export function FeaturedCollection(props: {
+  title: string;
+  products: ProductProps[];
+}) {
   const [css, $theme] = useStyletron();
 
   return (
@@ -32,7 +38,11 @@ export function FeaturedCollection(props: { title: string }) {
         </h4>
         <span class={css({ flexGrow: 1 })} />
 
-        <Button $as={Link} $kind={Kind.Tertiary} href="/collections/special-offers">
+        <Button
+          $as={Link}
+          $kind={Kind.Tertiary}
+          href="/collections/special-offers"
+        >
           View all
         </Button>
       </div>
@@ -51,7 +61,7 @@ export function FeaturedCollection(props: { title: string }) {
         }}
         columns={[2, 4, 4, 5]}
       >
-        <For each={[{}, {}, {}, {}]}>{() => <ProductTile />}</For>
+        <For each={props.products}>{(product) => <ProductTile {...product} />}</For>
       </Grid>
     </div>
   );

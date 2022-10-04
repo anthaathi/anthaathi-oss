@@ -51,6 +51,7 @@ export function PromoGrid() {
         src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_300x.jpg?v=1653586970"
         alt=""
         title="Fruits"
+        key="fruits"
       />
       <PromoGridCell
         src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_300x.jpg?v=1653677616"
@@ -74,9 +75,11 @@ export function PromoGrid() {
         sizes="448px"
         alt=""
         title="Vegetables"
+        key="vegetables"
       />
       <PromoGridCell
         title="Pre-Packed"
+        key="prepacked"
         src="//cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_300x.jpg?v=1653677196"
         srsSet={[
           '//cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_180x.jpg?v=1653677196 180w',
@@ -107,6 +110,7 @@ export interface PromoGridCellProps {
   srsSet: string[];
   sizes: string;
   alt: string;
+  key?: string;
   title: string;
 }
 
@@ -116,7 +120,7 @@ export function PromoGridCell(props: PromoGridCellProps) {
   const srcSet = props.srsSet.join(', ');
 
   return (
-    <Link href="/collections/test">
+    <Link href={`/collections/${props.key}`}>
       <div
         class={css$({
           width: '100%',

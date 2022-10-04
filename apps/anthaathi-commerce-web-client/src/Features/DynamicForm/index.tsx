@@ -186,8 +186,6 @@ export function RenderDropdown(props: FormField & DropdownFormField) {
   const [value, setValue] = useFormValue<string>(props.id);
   const [css] = useStyletron();
 
-  console.log(value);
-
   return (
     <>
       <select

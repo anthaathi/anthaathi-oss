@@ -68,7 +68,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           })}
         >
           <Img
-            src={props.productInfo.image[1]}
+            src={props.productInfo.image[0]}
             $override={{
               Root: {
                 $style: {
@@ -134,7 +134,10 @@ export function FeaturedProduct(props: ProductDetailsProps) {
               color: '#000',
             })}
           >
-            {props.productInfo.price}
+            {Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: props.productInfo.currency,
+            }).format(props.productInfo.price)}
           </p>
           <BlockInfo data={props.productInfo.blockInfo} />
           <div

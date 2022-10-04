@@ -3,12 +3,10 @@ import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityC
 import { Img } from '~/Features/Core/Components/Image';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import { Link } from '@solidjs/router';
+import { ProductProps } from '../ProductTile';
 
-interface CartItemProps {
-  imgSrc: string;
-  name: string;
-  quantity: number;
-  price: string;
+export interface CartItemProps extends ProductProps {
+  numberOfItems: number;
 }
 
 export function CartItem(props: CartItemProps) {
@@ -34,16 +32,16 @@ export function CartItem(props: CartItemProps) {
         })}
       >
         <Img
-          src={props.imgSrc}
+          src={props.image}
           $override={{
-              Root: {
-                  $style: {
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'contain',
-                      border: '1px solid #e4e4d9',
-                  },
+            Root: {
+              $style: {
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                border: '1px solid #e4e4d9',
               },
+            },
           }}
         />
       </div>
@@ -75,7 +73,10 @@ export function CartItem(props: CartItemProps) {
             marginBottom: $theme.sizing.scale100,
           })}
         >
-          {'Dhs. 12.00 / Piece'}
+          {Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: props.currency,
+          }).format(props.price) + ' / Piece'}
         </div>
 
         <div
@@ -115,26 +116,12 @@ export function CartItem(props: CartItemProps) {
             fontWeight: 700,
           })}
         >
-          {props.price}
+          {Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: props.currency,
+          }).format(props.price)}
         </div>
       </div>
     </div>
   );
 }
-
-export const CartItems: CartItemProps[] = [
-  {
-    name: 'Cucumber',
-    imgSrc:
-      'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Cucumber-1_ffc54c42-5ffe-4209-9e55-d9ff2fa729ad_360x.jpg?v=1653583119',
-    quantity: 1,
-    price: 'Dhs. 5.52',
-  },
-  {
-    name: 'Capsicum Mixed - 3 Color',
-    imgSrc:
-      'https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153',
-    quantity: 2,
-    price: 'Dhs. 5.00',
-  },
-];

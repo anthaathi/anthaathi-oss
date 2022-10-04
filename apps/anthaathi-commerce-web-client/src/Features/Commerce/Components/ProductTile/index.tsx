@@ -5,16 +5,50 @@ import {
   IconSearchLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { createSignal } from 'solid-js';
-import { Link } from '@solidjs/router';
+import { Link, useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
+import { Button as S_Button } from 'solid-headless';
 
-export function ProductTile() {
+export interface ProductProps {
+  id: number;
+  name: string;
+  name_ar?: string;
+  description?: string;
+  category?: string;
+  price: number;
+  currency: string;
+  image: string;
+  weight_unit?: string;
+  packaging?: string;
+  key?: string;
+  notes?: string;
+}
+
+export function ProductTile(props: ProductProps) {
   const [css, $theme] = useStyletron();
   const [isOpen, setIsOpen] = createSignal(false);
+  const navigate = useNavigate();
 
   return (
-    <Link
-      href="/pages/product"
+    <div
+      onClick={() => {
+        navigate('/product', {
+          state: {
+            id: props.id,
+            name: props.name,
+            name_ar: props.name_ar,
+            description: props.description,
+            category: props.category,
+            price: props.price,
+            currency: props.currency,
+            image: props.image,
+            weight_unit: props.weight_unit,
+            packaging: props.packaging,
+            key: props.key,
+            notes: props.notes,
+          },
+        });
+      }}
       class={css({
         textDecoration: 'none',
         color: '#000',
@@ -115,8 +149,8 @@ export function ProductTile() {
           })}
         >
           <Img
-            src="https://cdn.shopify.com/s/files/1/0648/1303/9842/products/Yellow_Baby_Pepper-1_360x.jpg?v=1653583277"
-            srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
+            src={props.image}
+            // srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
             alt=""
             $override={{
               Root: {
@@ -143,7 +177,7 @@ export function ProductTile() {
               },
             ])}
           >
-            Baby Yellow Pepper
+            {props.name}
           </h4>
 
           <h5
@@ -158,11 +192,11 @@ export function ProductTile() {
           >
             {Intl.NumberFormat('en-US', {
               style: 'currency',
-              currency: 'AED',
-            }).format(12)}
+              currency: props.currency,
+            }).format(props.price)}
           </h5>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

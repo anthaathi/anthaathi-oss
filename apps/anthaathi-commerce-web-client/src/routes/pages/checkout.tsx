@@ -183,7 +183,7 @@ export default function CheckoutPage() {
   );
 }
 
-const RadioButtonLabel = ({
+export const RadioButtonLabel = ({
   label,
   name,
   value,

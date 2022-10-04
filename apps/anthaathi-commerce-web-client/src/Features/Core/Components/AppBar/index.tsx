@@ -297,7 +297,7 @@ function MobileMenu() {
 const Categories = [
   {
     title: 'Special Offers',
-    href: '/collections/special-offers',
+    href: '/collections/specialoffers',
   },
   {
     title: 'Organic',
@@ -309,30 +309,30 @@ const Categories = [
   },
   {
     title: 'Vegetables',
-    href: '/collections/fruits',
+    href: '/collections/vegetables',
   },
   {
     title: 'Bulk Buy',
-    href: '/collections/fruits',
+    href: '/collections/bulkbuy',
   },
   {
     title: 'Precut',
-    href: '/collections/fruits',
+    href: '/collections/precut',
   },
   {
     title: 'Pre-Packed',
-    href: '/collections/fruits',
+    href: '/collections/prepacked',
   },
   {
     title: 'Gift Corner',
-    href: '/collections/fruits',
+    href: '/collections/giftcorner',
   },
   {
     title: 'Juices',
-    href: '/collections/fruits',
+    href: '/collections/juices',
   },
   {
     title: 'Fresh blooms',
-    href: '/collections/fruits',
+    href: '/collections/freshblooms',
   },
 ];
