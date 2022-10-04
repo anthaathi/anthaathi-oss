@@ -40,8 +40,10 @@ export default function () {
         class={css({
           maxWidth: $theme.sizing.maxWidth,
           margin: '0 auto',
-          width: '100%',
+          width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
           paddingBottom: $theme.sizing.scale1200,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
         })}
       >
         <div
@@ -65,7 +67,7 @@ export default function () {
                   },
                 },
               }}
-              columns={[2, 2, 2, 4]}
+              columns={[2, 2, 4, 4]}
             >
               <For each={products()}>
                 {(product: ProductProps) => <ProductTile {...product} />}
