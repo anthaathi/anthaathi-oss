@@ -27,6 +27,8 @@ export default function Checkout() {
         margin: '0 auto',
         paddingTop: $theme.sizing.scale1200,
         paddingBottom: $theme.sizing.scale1200,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
       })}
     >
       <div
