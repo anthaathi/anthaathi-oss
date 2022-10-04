@@ -13,7 +13,8 @@ function CartPage() {
   return (
     <div
       class={css({
-        margin: '0 auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         width: $theme.sizing.maxWidth,
         maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
         paddingLeft: $theme.sizing.scale500,

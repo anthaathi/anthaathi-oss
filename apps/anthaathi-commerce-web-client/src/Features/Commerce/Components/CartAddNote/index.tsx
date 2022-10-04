@@ -57,7 +57,7 @@ export function CartAddOrderNote() {
         />
       </div>
       <div class={css({})}>
-        <Show when={isNoteVisible()} keyed>
+        <Show when={isNoteVisible()} keyed={false}>
           <textarea
             class={css([
               {

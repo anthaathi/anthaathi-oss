@@ -52,7 +52,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
               color: '#008D3E',
             })}
           >
-            {'Dhs. 11.04'}
+            Dhs. 11.04
           </div>
         </div>
       </div>
