@@ -32,22 +32,7 @@ export function ProductTile(props: ProductProps) {
   return (
     <div
       onClick={() => {
-        navigate('/product', {
-          state: {
-            id: props.id,
-            name: props.name,
-            name_ar: props.name_ar,
-            description: props.description,
-            category: props.category,
-            price: props.price,
-            currency: props.currency,
-            image: props.image,
-            weight_unit: props.weight_unit,
-            packaging: props.packaging,
-            key: props.key,
-            notes: props.notes,
-          },
-        });
+        navigate('/product/' + props.id);
       }}
       class={css({
         textDecoration: 'none',

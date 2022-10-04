@@ -29,7 +29,7 @@ const CartItemsData = [
   },
 ];
 
-const cartItems = createStore(CartItemsData);
+export const cartItems = createStore(CartItemsData);
 
 export function CartItems() {
   return (
