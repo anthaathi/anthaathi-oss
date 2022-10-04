@@ -136,7 +136,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             {Intl.NumberFormat('en-US', {
               style: 'currency',
-              currency: props.productInfo.currency,
+              currency: props.productInfo.currency ?? 'AED',
             }).format(props.productInfo.price)}
           </p>
           <BlockInfo data={props.productInfo.blockInfo} />

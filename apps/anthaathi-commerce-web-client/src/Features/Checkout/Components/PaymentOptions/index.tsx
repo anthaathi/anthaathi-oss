@@ -1,5 +1,52 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { RadioButtonLabel } from '~/routes/pages/checkout';
+
+export const RadioButtonLabel = ({
+  label,
+  name,
+  value,
+}: {
+  label: string;
+  name: string;
+  value: string;
+}) => {
+  const [css, $theme] = useStyletron();
+  return (
+    <div
+      class={css({
+        marginTop: $theme.sizing.scale500,
+        paddingBottom: $theme.sizing.scale500,
+        display: 'flex',
+        alignItems: 'center',
+        border: '0px solid #E3E2E7',
+        borderBottomWidth: '1px',
+      })}
+    >
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        id={name}
+        class={css({
+          ':focus': {
+            color: 'red',
+            backgroundColor: 'green',
+          },
+        })}
+      />
+      <label
+        for={name}
+        class={css({
+          ...$theme.typography.LabelMedium,
+          fontWeight: 'normal',
+          color: '#000',
+          marginLeft: $theme.sizing.scale400,
+        })}
+      >
+        {label}
+      </label>
+    </div>
+  );
+};
 
 export function PaymentOptions() {
   const [css, $theme] = useStyletron();

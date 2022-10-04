@@ -94,6 +94,7 @@ export function Input(
                 cssVar('primary-color', '#118b44'),
               ),
             },
+            fontSize: '16px',
           },
           props?.$overrides?.Input?.style,
         ])}

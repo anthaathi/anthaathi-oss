@@ -12,6 +12,7 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions';
 import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
 import { Link } from '@solidjs/router';
+import { CartItem } from '~/Features/Commerce/Components/CartItem';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
@@ -25,76 +26,86 @@ export default function Checkout() {
         paddingBottom: $theme.sizing.scale1200,
       })}
     >
-      <Accordion defaultValue={Steps[0].title} toggleable>
-        <For each={Steps}>
-          {(step) => {
-            return (
-              <AccordionItem value={step.title} class={css({})}>
-                <AccordionHeader
-                  class={css({
-                    marginTop: 0,
-                    marginBottom: 0,
-                  })}
-                >
-                  <AccordionButton
-                    as="div"
+      <div class={css({ display: 'flex' })}>
+        <Accordion
+          defaultValue={Steps[0].title}
+          toggleable
+          class={css({ flexGrow: 1 })}
+        >
+          <For each={Steps}>
+            {(step) => {
+              return (
+                <AccordionItem value={step.title} class={css({})}>
+                  <AccordionHeader
                     class={css({
-                      display: 'flex',
-                      cursor: 'pointer',
-                      alignItems: 'center',
-                      backgroundColor: '#fff',
-                      border: '1px solid #e0e0e0',
+                      marginTop: 0,
+                      marginBottom: 0,
+                    })}
+                  >
+                    <AccordionButton
+                      as="div"
+                      class={css({
+                        display: 'flex',
+                        cursor: 'pointer',
+                        alignItems: 'center',
+                        backgroundColor: '#fff',
+                        border: '1px solid #e0e0e0',
+                        paddingLeft: $theme.sizing.scale500,
+                        paddingRight: $theme.sizing.scale500,
+                      })}
+                    >
+                      {({ isSelected }) => (
+                        <>
+                          <h4
+                            class={css({
+                              ...$theme.typography.HeadingXSmall,
+                              marginTop: 0,
+                              marginBottom: 0,
+                              paddingTop: $theme.sizing.scale500,
+                              paddingBottom: $theme.sizing.scale500,
+                            })}
+                          >
+                            {step.title}
+                          </h4>
+                          <span class={css({ flexGrow: 1 })} />
+                          <div>
+                            <IconChevronUpLarge
+                              height={20}
+                              class={css({
+                                transform: isSelected()
+                                  ? 'rotate(180deg)'
+                                  : 'rotate(0)',
+                                transitionProperty: 'all',
+                                transitionDuration: '300ms',
+                                transitionTimingFunction: 'ease',
+                              })}
+                            />
+                          </div>
+                        </>
+                      )}
+                    </AccordionButton>
+                  </AccordionHeader>
+                  <AccordionPanel
+                    class={css({
+                      backgroundColor: '#fcfcfc',
+                      paddingTop: $theme.sizing.scale500,
+                      paddingBottom: $theme.sizing.scale500,
                       paddingLeft: $theme.sizing.scale500,
                       paddingRight: $theme.sizing.scale500,
                     })}
                   >
-                    {({ isSelected }) => (
-                      <>
-                        <h4
-                          class={css({
-                            ...$theme.typography.HeadingXSmall,
-                            marginTop: 0,
-                            marginBottom: 0,
-                            paddingTop: $theme.sizing.scale500,
-                            paddingBottom: $theme.sizing.scale500,
-                          })}
-                        >
-                          {step.title}
-                        </h4>
-                        <span class={css({ flexGrow: 1 })} />
-                        <div>
-                          <IconChevronUpLarge
-                            height={20}
-                            class={css({
-                              transform: isSelected()
-                                ? 'rotate(180deg)'
-                                : 'rotate(0)',
-                              transitionProperty: 'all',
-                              transitionDuration: '300ms',
-                              transitionTimingFunction: 'ease',
-                            })}
-                          />
-                        </div>
-                      </>
-                    )}
-                  </AccordionButton>
-                </AccordionHeader>
-                <AccordionPanel
-                  class={css({
-                    backgroundColor: '#fcfcfc',
-                    paddingTop: $theme.sizing.scale500,
-                    paddingBottom: $theme.sizing.scale500,
-                    paddingLeft: $theme.sizing.scale500,
-                    paddingRight: $theme.sizing.scale500,
-                  })}
-                >
-                  {step.component}
-                </AccordionPanel>
-              </AccordionItem>
-            );
-          }}
-        </For>
-      </Accordion>
+                    {step.component}
+                  </AccordionPanel>
+                </AccordionItem>
+              );
+            }}
+          </For>
+        </Accordion>
+
+        <div class={css({ width: '25%', marginLeft: '12px' })}>
+          <For each={CartItems}>{(item) => <CartItem {...item} />}</For>
+        </div>
+      </div>
       <Link
         href="/"
         class={css({
@@ -135,5 +146,32 @@ export const Steps = [
   {
     title: 'Payment',
     component: () => <PaymentOptions />,
+  },
+];
+
+const CartItems = [
+  {
+    id: 1,
+    name: 'Baby Yellow Pepper',
+    image:
+      'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
+    key: '12',
+    price: 12,
+    numberOfItems: 2,
+    currency: 'USD',
+    weight_unit: 'KG',
+    packaging: '500 gms',
+  },
+  {
+    id: 2,
+    name: 'Capsicum mixed',
+    image:
+      'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
+    key: '23',
+    price: 23,
+    numberOfItems: 2,
+    currency: 'USD',
+    weight_unit: 'KG',
+    packaging: '500 gms',
   },
 ];

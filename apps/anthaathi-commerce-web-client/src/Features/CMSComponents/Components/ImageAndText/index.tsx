@@ -50,7 +50,11 @@ export function ImageAndText() {
         >
           <h3
             class={css$({
-              marginTop: [$theme.sizing.scale1000, $theme.sizing.scale0],
+              marginTop: [
+                $theme.sizing.scale1000,
+                $theme.sizing.scale1000,
+                $theme.sizing.scale0,
+              ],
               marginBottom: 0,
               ...$theme.typography.HeadingMedium,
             })}

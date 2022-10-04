@@ -49,7 +49,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
             class={css({
               fontSize: '18px',
               fontWeight: 700,
-              color: '#008D3E'
+              color: '#008D3E',
             })}
           >
             {'Dhs. 11.04'}
@@ -58,7 +58,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
       </div>
       <Button
         as={Link}
-        href="/pages/checkout"
+        href="/checkout"
         class={css({
           textAlign: 'center',
           textDecoration: 'none',

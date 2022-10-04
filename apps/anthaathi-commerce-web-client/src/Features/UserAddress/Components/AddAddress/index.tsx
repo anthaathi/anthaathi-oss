@@ -2,6 +2,7 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { Input } from '~/Features/Core/Components/Input';
 import { Select } from 'solid-headless';
 import { SelectOption } from '~/Features/Core/Components/SelectOption';
+import { FormControl } from '~/Features/Core/Components/FormControl';
 
 export function AddAddress() {
   const [css, $theme] = useStyletron();
@@ -10,56 +11,52 @@ export function AddAddress() {
     <div>
       <form action="">
         <div class={css({ display: 'flex', flexDirection: 'column' })}>
-          <div>
-            <p
-              class={css({
-                ...$theme.typography.LabelMedium,
-                fontWeight: 'bold',
-                color: '#000',
-                marginTop: $theme.sizing.scale300,
-                marginBottom: $theme.sizing.scale500,
-              })}
-            >
-              Firt Name
-            </p>
-            <Input
-              placeholder="Enter first name"
-              $overrides={{
+          <div class={css({ display: 'flex' })}>
+            <FormControl
+              label="First name"
+              for="firstName"
+              $override={{
                 Root: {
-                  style: {
-                    width: '100%',
-                    height: '48px',
-                    marginBottom: $theme.sizing.scale600,
+                  $style: {
+                    width: '50%',
                   },
                 },
               }}
-            />
-          </div>
+            >
+              <Input
+                placeholder="Enter first name"
+                id="firstName"
+                $overrides={{
+                  Root: {
+                    style: {
+                      width: '100%',
+                      height: '48px',
+                      marginBottom: $theme.sizing.scale600,
+                    },
+                  },
+                }}
+              />
+            </FormControl>
 
-          <div>
-            <p
-              class={css({
-                ...$theme.typography.LabelMedium,
-                fontWeight: 'bold',
-                color: '#000',
-                marginTop: $theme.sizing.scale500,
-                marginBottom: $theme.sizing.scale300,
-              })}
+            <FormControl
+              label="Last name"
+              for="lastName"
+              $override={{ Root: { $style: { width: '50%' } } }}
             >
-              Last Name
-            </p>
-            <Input
-              placeholder="Enter last name"
-              $overrides={{
-                Root: {
-                  style: {
-                    width: '100%',
-                    height: '48px',
-                    marginBottom: $theme.sizing.scale600,
+              <Input
+                id="lastName"
+                placeholder="Enter last name"
+                $overrides={{
+                  Root: {
+                    style: {
+                      width: '100%',
+                      height: '48px',
+                      marginBottom: $theme.sizing.scale600,
+                    },
                   },
-                },
-              }}
-            />
+                }}
+              />
+            </FormControl>
           </div>
 
           <div>
@@ -93,10 +90,6 @@ export function AddAddress() {
               {
                 title: 'Address 1',
                 value: '1',
-              },
-              {
-                title: 'Address 2',
-                value: '2',
               },
             ]}
           />

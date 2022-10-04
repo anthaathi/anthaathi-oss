@@ -1,11 +1,17 @@
 import type { JSX } from 'solid-js';
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { StyleObject } from 'styletron-standard';
 
 export interface FormControlProps {
   label: JSX.Element;
   for: string;
   children: JSX.Element;
   extraLabelContent?: JSX.Element;
+  $override?: {
+    Root?: {
+      $style?: StyleObject;
+    };
+  };
 }
 
 export function FormControl(props: FormControlProps) {
@@ -13,11 +19,14 @@ export function FormControl(props: FormControlProps) {
 
   return (
     <div
-      class={css({
-        display: 'flex',
-        flexDirection: 'column',
-        paddingBottom: $theme.sizing.scale600,
-      })}
+      class={css([
+        {
+          display: 'flex',
+          flexDirection: 'column',
+          paddingBottom: $theme.sizing.scale600,
+        },
+        props.$override?.Root?.$style,
+      ])}
     >
       <div class={css({ display: 'flex' })}>
         <label
