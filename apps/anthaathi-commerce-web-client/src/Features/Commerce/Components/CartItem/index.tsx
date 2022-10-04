@@ -26,8 +26,8 @@ export function CartItem(props: CartItemProps) {
     >
       <div
         class={css({
-          flex: 4,
           width: '100%',
+          maxWidth: '120px',
         })}
       >
         <Img
@@ -88,24 +88,10 @@ export function CartItem(props: CartItemProps) {
             initialValue={props.numberOfItems}
             onChange={props.onChange}
           />
-          <Button
-            $kind={Kind.Tertiary}
-            $size={Size.Medium}
-            $override={{
-              Root: {
-                style: {
-                  marginLeft: $theme.sizing.scale500,
-                },
-              },
-            }}
-          >
-            Remove
-          </Button>
         </div>
       </div>
       <div
         class={css({
-          flex: 8,
           display: 'flex',
           justifyContent: 'flex-end',
           alignItems: 'center',
