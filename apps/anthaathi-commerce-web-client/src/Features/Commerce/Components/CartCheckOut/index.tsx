@@ -1,9 +1,9 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button } from 'solid-headless';
 import { CartAddOrderNote } from '~/Features/Commerce/Components/CartAddNote';
-import { Kind } from '~/Features/Core/Components/Button';
 import { Link } from '@solidjs/router';
-import { Show } from 'solid-js';
+import { createEffect, createSignal, Show } from 'solid-js';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
 
 export interface CartCheckOutProps {
   subTotal: string;
@@ -12,6 +12,17 @@ export interface CartCheckOutProps {
 
 export function CartCheckOut(props: CartCheckOutProps) {
   const [css, $theme] = useStyletron();
+  const [cart] = cartItems;
+
+  function getTotalValue() {
+    return cart.reduce((prev, res) => res.numberOfItems * res.price + prev, 0);
+  }
+
+  let [total, setTotal] = createSignal(getTotalValue());
+
+  createEffect(() => {
+    setTotal(getTotalValue());
+  });
 
   return (
     <div
@@ -57,7 +68,10 @@ export function CartCheckOut(props: CartCheckOutProps) {
               color: '#008D3E',
             })}
           >
-            Dhs. 11.04
+            {Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'AED',
+            }).format(total())}
           </div>
         </div>
       </div>
@@ -83,7 +97,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
             border: '1px solid #000000',
           })}
         >
-          Check Out
+          Checkout
         </Button>
         <Button
           as={Link}

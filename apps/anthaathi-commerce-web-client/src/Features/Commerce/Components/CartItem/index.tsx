@@ -121,7 +121,7 @@ export function CartItem(props: CartItemProps) {
           {Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: props.product.currency,
-          }).format(props.product.price)}
+          }).format(props.product.price * props.numberOfItems)}
         </div>
       </div>
     </div>
