@@ -17,8 +17,9 @@ export const RadioButtonLabel = ({
         paddingBottom: $theme.sizing.scale500,
         display: 'flex',
         alignItems: 'center',
-        border: '0px solid #E3E2E7',
         borderBottomWidth: '1px',
+        borderBottomStyle: 'solid',
+        borderBottomColor: '#E3E2E7',
       })}
     >
       <input
