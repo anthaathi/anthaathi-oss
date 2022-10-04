@@ -154,9 +154,10 @@ export function FeaturedProduct(props: ProductDetailsProps) {
               paddingBottom: '12px',
               fontWeight: 'bold',
               fontSize: '18px',
+              outline: 'none',
+              border: 'none',
               borderRadius: '2px',
               color: '#313652',
-              border: '1px solid #313652',
               marginVertical: 10,
               ':hover': { cursor: 'pointer' },
             })}

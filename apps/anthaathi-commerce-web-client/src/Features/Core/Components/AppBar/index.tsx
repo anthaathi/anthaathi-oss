@@ -284,7 +284,8 @@ function MobileMenu() {
               <Button
                 $kind={Kind.Tertiary}
                 $fullWidth={true}
-                $override={{ Root: { style: { width: '100%' } } }}
+                $as={Link}
+                href={category.href}
               >
                 {category.title}
               </Button>

@@ -1,5 +1,5 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { Button } from '~/Features/Core/Components/Button';
+import { Button, Size } from '~/Features/Core/Components/Button';
 import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 import { Input } from '~/Features/Core/Components/Input';
 
@@ -14,7 +14,11 @@ export function EmailSignup() {
         margin: '0 auto',
         width: '100%',
         paddingTop: $theme.sizing.scale1400,
-        paddingBottom: $theme.sizing.scale1400,
+        paddingBottom: $theme.sizing.scale500,
+        [$theme.mediaQuery.md]: {
+          paddingTop: $theme.sizing.scale1400,
+          paddingBottom: $theme.sizing.scale1400,
+        },
         textAlign: 'center',
       })}
     >
@@ -50,7 +54,7 @@ export function EmailSignup() {
         action=""
         class={css({
           display: 'flex',
-          placeContent: 'center',
+          flexDirection: 'column',
           paddingTop: $theme.sizing.scale1000,
           paddingBottom: $theme.sizing.scale1000,
           maxWidth: '420px',
@@ -64,18 +68,24 @@ export function EmailSignup() {
           $overrides={{
             Root: {
               style: {
-                '--input-border-bottom-right-radius': '0',
-                '--input-border-top-right-radius': '0',
+                height: '54px',
+                [$theme.mediaQuery?.md || '']: {
+                  '--input-border-bottom-right-radius': '0',
+                  '--input-border-top-right-radius': '0',
+                },
               },
             },
           }}
         />
         <Button
+          $size={Size.Large}
           $override={{
             Root: {
               style: {
-                borderBottomLeftRadius: '0',
-                borderTopLeftRadius: '0',
+                [$theme.mediaQuery?.md || '']: {
+                  borderBottomLeftRadius: '0',
+                  borderTopLeftRadius: '0',
+                },
               },
             },
           }}
