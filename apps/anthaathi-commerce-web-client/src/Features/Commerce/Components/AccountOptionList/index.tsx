@@ -62,4 +62,8 @@ export const Items = [
     title: 'Address Book',
     href: '/account/profile/address-book',
   },
+  {
+    title: 'Account Details',
+    href: '/account/profile/account-details',
+  },
 ];

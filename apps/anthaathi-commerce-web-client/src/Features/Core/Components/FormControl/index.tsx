@@ -23,7 +23,7 @@ export function FormControl(props: FormControlProps) {
         {
           display: 'flex',
           flexDirection: 'column',
-          paddingBottom: $theme.sizing.scale600,
+          paddingBottom: $theme.sizing.scale300,
         },
         props.$override?.Root?.$style,
       ])}
@@ -32,6 +32,7 @@ export function FormControl(props: FormControlProps) {
         <label
           class={css({
             ...$theme.typography.LabelMedium,
+            fontWeight: 'bold',
           })}
           for={props.for}
         >
