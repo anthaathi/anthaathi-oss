@@ -37,11 +37,15 @@ export function ProductTile(props: ProductProps) {
       class={css({
         textDecoration: 'none',
         color: '#000',
-        backgroundColor: '#f8f8f8',
-        borderBottomLeftRadius: '12px',
-        borderBottomRightRadius: '12px',
-        borderTopRightRadius: '12px',
-        borderTopLeftRadius: '12px',
+        backgroundColor: '#fff',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
+        borderTopRightRadius: '4px',
+        borderTopLeftRadius: '4px',
+        border: '1px solid #e4e4d9',
+        ':hover': {
+          boxShadow: '1px 1px 5px 4px #E5E5EA',
+        },
       })}
     >
       <div
@@ -64,32 +68,33 @@ export function ProductTile(props: ProductProps) {
         <div
           class={css({
             position: 'absolute',
-            right: '-20px',
+            right: '5px',
             top: '14px',
             opacity: isOpen() ? 1 : 0,
             transitionTimingFunction: 'ease',
             transitionDuration: '100ms',
             transitionProperty: 'opacity',
             zIndex: 1,
-            display: 'none',
-            [$theme.mediaQuery?.md || '']: {
-              display: 'block',
-            },
+            display: 'block',
           })}
         >
           <Button
             $override={{
               Root: {
                 style: {
-                  paddingLeft: '12px',
-                  paddingRight: '12px',
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
                   borderTopRightRadius: '50%',
                   borderTopLeftRadius: '50%',
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
                   marginBottom: '12px',
+                  border: '1px solid #e4e4d9',
+                  ':hover': {
+                    backgroundColor: '#E5E5EA',
+                  },
                 },
               },
             }}
@@ -106,14 +111,18 @@ export function ProductTile(props: ProductProps) {
             $override={{
               Root: {
                 style: {
-                  paddingLeft: '12px',
-                  paddingRight: '12px',
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
                   borderTopRightRadius: '50%',
                   borderTopLeftRadius: '50%',
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
+                  border: '1px solid #e4e4d9',
+                  ':hover': {
+                    backgroundColor: '#E5E5EA',
+                  },
                 },
               },
             }}
@@ -133,53 +142,71 @@ export function ProductTile(props: ProductProps) {
             flexDirection: 'column',
           })}
         >
-          <Img
-            src={props.image}
-            // srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
-            alt=""
-            $override={{
-              Root: {
-                $style: {
-                  width: '100%',
-                  flexGrow: 1,
-                  objectFit: 'cover',
-                  [$theme.mediaQuery?.md || '']: {
-                    width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
-                    paddingLeft: $theme.sizing.scale400,
-                    paddingRight: $theme.sizing.scale400,
+          <div>
+            <Img
+              src={props.image}
+              // srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
+              alt=""
+              $override={{
+                Root: {
+                  $style: {
+                    width: '100%',
+                    flexGrow: 1,
+                    objectFit: 'cover',
+                    [$theme.mediaQuery?.md || '']: {
+                      width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
+                      paddingLeft: $theme.sizing.scale400,
+                      paddingRight: $theme.sizing.scale400,
+                    },
                   },
                 },
-              },
-            }}
-          />
+              }}
+            />
+          </div>
+          <div>
+            <h4
+              class={css([
+                $theme.typography.HeadingXSmall,
+                {
+                  marginBottom: $theme.sizing.scale200,
+                  marginTop: $theme.sizing.scale800,
+                },
+              ])}
+            >
+              {props.name}
+            </h4>
 
-          <h4
-            class={css([
-              $theme.typography.ParagraphLarge,
-              {
-                marginBottom: $theme.sizing.scale200,
-                marginTop: $theme.sizing.scale800,
-              },
-            ])}
-          >
-            {props.name}
-          </h4>
+            <h5
+              class={css([
+                $theme.typography.ParagraphSmall,
+                {
+                  marginTop: $theme.sizing.scale100,
+                  marginBottom: 0,
+                  color: '#858585',
+                },
+              ])}
+            >
+              {props.notes}
+            </h5>
 
-          <h5
-            class={css([
-              $theme.typography.ParagraphLarge,
-              {
-                marginTop: 0,
-                marginBottom: $theme.sizing.scale800,
-                fontWeight: 'bold',
-              },
-            ])}
-          >
-            {Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: props.currency,
-            }).format(props.price)}
-          </h5>
+            <h5
+              class={css([
+                $theme.typography.ParagraphLarge,
+                {
+                  marginTop: 0,
+                  marginBottom: $theme.sizing.scale800,
+                  fontWeight: 'bold',
+                },
+              ])}
+            >
+              {Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: props.currency,
+              }).format(props.price) +
+                ' / ' +
+                props.packaging}
+            </h5>
+          </div>
         </div>
       </div>
     </div>

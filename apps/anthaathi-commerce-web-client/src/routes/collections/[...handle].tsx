@@ -63,11 +63,11 @@ export default function () {
               $override={{
                 Root: {
                   style: {
-                    gridGap: '12px',
+                    gridGap: '15px',
                   },
                 },
               }}
-              columns={[2, 2, 4, 4]}
+              columns={[2, 3, 4, 5]}
             >
               <For each={products()}>
                 {(product: ProductProps) => <ProductTile {...product} />}

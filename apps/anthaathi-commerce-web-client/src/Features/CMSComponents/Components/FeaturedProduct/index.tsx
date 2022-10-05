@@ -8,6 +8,7 @@ import {
 import { FAQ } from '../FAQ';
 import { Img } from '~/Features/Core/Components/Image';
 import { Button } from 'solid-headless';
+import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -22,6 +23,7 @@ type ListInfoProps = {
 };
 export interface ProductDetails {
   name: string;
+  notes: string;
   listInfo?: ListInfoProps;
   blockInfo: BlockInfoProps;
   image: string[];
@@ -114,7 +116,20 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             {props.productInfo.name}
           </p>
-          <p
+          <h5
+            class={css([
+              $theme.typography.LabelMedium,
+              {
+                marginTop: $theme.sizing.scale100,
+                marginBottom: 0,
+                color: '#858585',
+              },
+            ])}
+          >
+            {props.productInfo.notes}
+          </h5>
+
+          {/* <p
             class={css({
               ...$theme.typography.LabelLarge,
               marginTop: $theme.sizing.scale600,
@@ -124,7 +139,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             })}
           >
             Price
-          </p>
+          </p> */}
 
           <p
             class={css({
@@ -141,6 +156,18 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             }).format(props.productInfo.price)}
           </p>
           <BlockInfo data={props.productInfo.blockInfo} />
+          <div
+            class={css({
+              marginTop: $theme.sizing.scale400,
+            })}
+          >
+            <CartQuantityChange
+              initialValue={0}
+              onChange={() => {
+                console.log('hi');
+              }}
+            />
+          </div>
           <Button
             onClick={props.handleAddToCart}
             class={css({
@@ -173,15 +200,15 @@ export function FeaturedProduct(props: ProductDetailsProps) {
                 width: '80%',
               },
               textAlign: 'center',
-              border: '1px solid #313652',
-              backgroundColor: '#313652',
+              border: '1px solid #108742',
+              backgroundColor: '#008d3e',
               paddingTop: '12px',
               paddingBottom: '12px',
               color: '#fff',
               fontWeight: 'bold',
               fontSize: '18px',
               borderRadius: '2px',
-              ':hover': { cursor: 'pointer' },
+              ':hover': { cursor: 'pointer', backgroundColor: '#108742' },
             })}
           >
             Buy it now
