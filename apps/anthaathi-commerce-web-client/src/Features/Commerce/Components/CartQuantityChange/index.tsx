@@ -1,25 +1,27 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { createEffect, createSignal } from 'solid-js';
+import { createMemo } from 'solid-js';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
 
 export function CartQuantityChange({
-  initialValue,
-  onChange,
+  id,
+  handleAddProduct,
+  handleRemoveProduct,
 }: {
-  initialValue: number;
-  onChange: (item: number) => void;
+  id: number;
+  handleAddProduct?: () => void;
+  handleRemoveProduct?: () => void;
 }) {
   const [css, $theme] = useStyletron();
+  const [cartItem] = cartItems;
 
-  const [quantity, setQuantity] = createSignal(initialValue);
-
-  createEffect(() => {
-    if (quantity() < 0) {
-      setQuantity(0);
+  const cartProductData = createMemo(() => {
+    if (cartItem.some((item) => item.id === id)) {
+      let cartObj = cartItem.find((item) => item.id === id);
+      return cartObj?.numberOfItems;
     } else {
-      onChange(quantity());
+      return 0
     }
-  });
-
+  }, [cartItem, id]);
   return (
     <div
       class={css({
@@ -54,9 +56,7 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={() => {
-            setQuantity((prev) => prev - 1);
-          }}
+          onClick={handleRemoveProduct}
         >
           -
         </button>
@@ -82,7 +82,7 @@ export function CartQuantityChange({
             },
           ])}
         >
-          {quantity()}
+          {cartProductData()}
         </h4>
       </div>
       <div
@@ -106,9 +106,7 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={() => {
-            setQuantity((prev) => prev + 1);
-          }}
+          onClick={handleAddProduct}
         >
           +
         </button>

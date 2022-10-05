@@ -1,6 +1,7 @@
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { For, Show } from 'solid-js';
 import { createStore, produce } from 'solid-js/store';
+import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
 
 const CartItemsData = [
   {
@@ -28,8 +29,11 @@ const CartItemsData = [
     packaging: '500 gms',
   },
 ];
+export interface ItemProps extends ProductProps {
+  numberOfItems: number;
+}
 
-export const cartItems = createStore(CartItemsData);
+export const cartItems = createStore<ItemProps[]>([]);
 
 export function CartItems() {
   return (

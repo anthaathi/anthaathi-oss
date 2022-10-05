@@ -5,7 +5,6 @@ import {
   ProductTile,
 } from '~/Features/Commerce/Components/ProductTile';
 import { Grid } from '~/Features/Core/Components/Grid';
-import { Select, SelectOption } from 'solid-headless';
 import productJson from '../../config/products';
 import { createMemo, For } from 'solid-js';
 import { useLocation } from '@solidjs/router';

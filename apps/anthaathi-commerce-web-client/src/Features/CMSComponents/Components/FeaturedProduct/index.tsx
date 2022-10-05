@@ -22,6 +22,7 @@ type ListInfoProps = {
   shippingInformation: string;
 };
 export interface ProductDetails {
+  id: number;
   name: string;
   notes: string;
   listInfo?: ListInfoProps;
@@ -35,10 +36,13 @@ export interface ProductDetailsProps {
   productInfo: ProductDetails;
   handleAddToCart?: () => void;
   handleBuyItNow?: () => void;
+  handleAddProduct?: () => void;
+  handleRemoveProduct?: () => void;
 }
 
 export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
+  
   return (
     <div
       class={css({
@@ -162,10 +166,9 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             })}
           >
             <CartQuantityChange
-              initialValue={0}
-              onChange={() => {
-                console.log('hi');
-              }}
+              id={props.productInfo.id}
+              handleAddProduct={props.handleAddProduct}
+              handleRemoveProduct={props.handleRemoveProduct}
             />
           </div>
           <Button
