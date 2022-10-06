@@ -55,7 +55,6 @@ export function Footer() {
           paddingLeft: $theme.sizing.scale400,
           paddingRight: $theme.sizing.scale400,
           flexDirection: 'column',
-
           [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },

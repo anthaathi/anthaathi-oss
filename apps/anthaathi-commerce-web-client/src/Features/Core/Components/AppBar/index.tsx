@@ -7,9 +7,10 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For } from 'solid-js';
+import { createMemo, createSignal, For } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -17,8 +18,13 @@ export function AppBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
   const [isOpen, _setIsOpen] = createSignal(true, {});
+  const [cartItem] = cartItems;
 
   let categoryHTML: HTMLDivElement;
+
+  const cartItemLength = createMemo(() => {
+    return cartItem.length;
+  }, [cartItem]);
 
   return (
     <nav
@@ -154,11 +160,34 @@ export function AppBar() {
                 $kind={Kind.Tertiary}
                 href="/cart"
                 $startEnhancer={() => (
-                  <IconShoppingCartLarge
-                    height="18px"
-                    width="18px"
-                    class={css({})}
-                  />
+                  <>
+                    <IconShoppingCartLarge
+                      height="18px"
+                      width="18px"
+                      class={css({})}
+                    />
+                    <p
+                      class={css({
+                        display: cartItemLength() === 0 ? 'none' : 'block',
+                        fontSize: '12px',
+                        position: 'absolute',
+                        right: '38px',
+                        top: '-12px',
+                        backgroundColor: '#118b44',
+                        paddingLeft: '6px',
+                        paddingRight: '6px',
+                        paddingTop: '1px',
+                        paddingBottom: '1px',
+                        borderTopRightRadius: '40%',
+                        borderTopLeftRadius: '40%',
+                        borderBottomLeftRadius: '40%',
+                        borderBottomRightRadius: '40%',
+                        color: '#fff',
+                      })}
+                    >
+                      {cartItemLength()}
+                    </p>
+                  </>
                 )}
               >
                 Cart

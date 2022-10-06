@@ -114,10 +114,10 @@ export function ProductTile(props: ProductProps) {
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
                   marginBottom: '12px',
-                  // border: '1px solid #ea3323',
-                  backgroundColor: '#ea3323',
+                  border: '1px solid #ea3323',
+                  background: '#ea3323',
                   ':hover': {
-                    backgroundColor: '#ea3323',
+                    background: '#ea3323',
                   },
                 },
               },
@@ -170,7 +170,7 @@ export function ProductTile(props: ProductProps) {
                   marginBottom: '12px',
                   border: '1px solid #e4e4d9',
                   ':hover': {
-                    backgroundColor: '#E5E5EA',
+                    background: '#E5E5EA',
                   },
                 },
               },
@@ -213,7 +213,7 @@ export function ProductTile(props: ProductProps) {
                   marginBottom: '12px',
                   border: '1px solid #e4e4d9',
                   ':hover': {
-                    backgroundColor: '#E5E5EA',
+                    background: '#E5E5EA',
                   },
                 },
               },
@@ -266,9 +266,9 @@ export function ProductTile(props: ProductProps) {
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
                   marginBottom: '12px',
-                  backgroundColor: '#108943',
+                  background: '#108943',
                   ':hover': {
-                    backgroundColor: '#108943',
+                    background: '#108943',
                   },
                 },
               },
@@ -329,7 +329,7 @@ export function ProductTile(props: ProductProps) {
                   marginBottom: '12px',
                   border: '1px solid #e4e4d9',
                   ':hover': {
-                    backgroundColor: '#E5E5EA',
+                    background: '#E5E5EA',
                   },
                 },
               },
