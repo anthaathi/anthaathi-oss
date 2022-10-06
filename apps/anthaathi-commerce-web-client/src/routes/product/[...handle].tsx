@@ -7,7 +7,6 @@ import { useNavigate, useRouteData } from '@solidjs/router';
 import { cartItems } from '~/Features/Cart/Components/CartItems';
 import { RouteDataArgs } from 'solid-start';
 import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
-import { createMemo } from 'solid-js';
 
 export const routeData = ({ location, params }: RouteDataArgs) => {
   const handle = () =>
@@ -23,15 +22,6 @@ export default function ProductPage() {
   const [css] = useStyletron();
   const navigate = useNavigate();
   const [cartItem, setCartItem] = cartItems;
-
-  const numberOfItems = createMemo(() => {
-    if (cartItem.some((item) => item.id === product().id)) {
-      let cartObj = cartItem.find((item) => item.id === product().id);
-      return cartObj?.numberOfItems;
-    } else {
-      return 0
-    }
-  }, [cartItem, product().id]);
 
   return (
     <>

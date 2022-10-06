@@ -1,3 +1,8 @@
+import {
+  IconMinusSmall,
+  IconPlusSmall,
+  IconTrashOSmall,
+} from '@anthaathi/oracle-apex-solid-icons';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { createMemo } from 'solid-js';
 import { cartItems } from '~/Features/Cart/Components/CartItems';
@@ -6,8 +11,10 @@ export function CartQuantityChange({
   id,
   handleAddProduct,
   handleRemoveProduct,
+  trashIcon,
 }: {
   id: number;
+  trashIcon?: boolean;
   handleAddProduct?: () => void;
   handleRemoveProduct?: () => void;
 }) {
@@ -19,13 +26,14 @@ export function CartQuantityChange({
       let cartObj = cartItem.find((item) => item.id === id);
       return cartObj?.numberOfItems;
     } else {
-      return 0
+      return 0;
     }
   }, [cartItem, id]);
+
   return (
     <div
       class={css({
-        width: '100px',
+        width: '110px',
         height: '35px',
         border: '0.5px solid #d9d9d9',
         display: 'flex',
@@ -46,8 +54,8 @@ export function CartQuantityChange({
             ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            paddingLeft: $theme.sizing.scale500,
-            paddingRight: $theme.sizing.scale500,
+            paddingLeft: $theme.sizing.scale400,
+            paddingRight: $theme.sizing.scale400,
             height: '100%',
             width: '100%',
             backgroundColor: '#d6d5d5',
@@ -58,7 +66,11 @@ export function CartQuantityChange({
           })}
           onClick={handleRemoveProduct}
         >
-          -
+          {trashIcon && cartProductData() === 1 ? (
+            <IconTrashOSmall width="14px" height="14px" fill="#000" />
+          ) : (
+            <IconMinusSmall width="14px" height="14px" fill="#000" />
+          )}
         </button>
       </div>
       <div
@@ -68,8 +80,8 @@ export function CartQuantityChange({
           alignItems: 'center',
           justifyContent: 'center',
           display: 'flex',
-          paddingLeft: $theme.sizing.scale500,
-          paddingRight: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
         })}
       >
         <h4
@@ -96,8 +108,8 @@ export function CartQuantityChange({
             ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            paddingLeft: $theme.sizing.scale500,
-            paddingRight: $theme.sizing.scale500,
+            paddingLeft: $theme.sizing.scale400,
+            paddingRight: $theme.sizing.scale400,
             height: '100%',
             width: '100%',
             backgroundColor: '#d6d5d5',
@@ -108,7 +120,7 @@ export function CartQuantityChange({
           })}
           onClick={handleAddProduct}
         >
-          +
+          <IconPlusSmall width="14px" height="14px" fill="#000" />
         </button>
       </div>
     </div>
