@@ -265,7 +265,7 @@ function ItemRenderer({
               <TouchableOpacity onPress={handleInfoPress}>
                 <Entypo
                   name="info-with-circle"
-                  color="#364A15"
+                  color={theme.colors.titleTextColor}
                   size={18}
                   style={{paddingVertical: 5, paddingLeft: 10}}
                 />

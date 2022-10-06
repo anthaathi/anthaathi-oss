@@ -154,7 +154,12 @@ function ItemRenderer({
                 {item.name}
               </Title>
             </View>
-            <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               Dorne
             </Text>
             <View
@@ -164,13 +169,23 @@ function ItemRenderer({
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greenTextColor,
+                  fontSize: 14,
+                  fontWeight: '400',
+                }}>
                 {intl.formatNumber(item.price, {
                   style: 'currency',
                   currency: item.currency,
                 })}
               </Text>
-              <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greyTextColor,
+                  fontSize: 12,
+                  fontWeight: '400',
+                }}>
                 {' / ' + item.packaging}
               </Text>
             </View>

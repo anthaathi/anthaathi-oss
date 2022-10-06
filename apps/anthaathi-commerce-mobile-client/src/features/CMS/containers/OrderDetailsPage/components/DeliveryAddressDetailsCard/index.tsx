@@ -19,7 +19,7 @@ const DeliveryAddressDetailsCard = (props: DeliveryAddressDetailsProps) => {
         borderRadius: 4,
         margin: 10,
         padding: 15,
-        borderColor: '#E3E2E7',
+        borderColor: theme.colors.cardBorderColor,
         borderWidth: 1,
       }}
       testID="deliveryAddressDetailsCard">
