@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, Title} from 'react-native-paper';
+import {Text, Title, useTheme} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
@@ -39,7 +39,7 @@ export default function FeaturedCollection({
   const itemWidth = useResponsiveValue([150, 240, 280, 320]);
 
   return (
-    <View testID="featuredCollection">
+    <View testID="featuredCollection" style={{backgroundColor: '#fff'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -64,7 +64,7 @@ export default function FeaturedCollection({
         </Pressable>
       </View>
 
-      <View style={{marginHorizontal: 10}}>
+      <View style={{marginHorizontal: 5}}>
         <VirtualizedList<ProductProps>
           testID="productList"
           data={products}
@@ -98,72 +98,83 @@ function ItemRenderer({
   itemWidth: number;
   onProductPress: () => void;
 }) {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View
-      style={[
-        {
-          marginVertical: 5,
-          marginRight: 10,
-        },
-      ]}
+      style={{
+        margin: 5,
+        // width: '48%',
+        borderColor: '#e7e7e7',
+        backgroundColor: '#f0f0f0',
+        borderWidth: 1,
+        borderRadius: 12,
+      }}
       key={item.key}>
-      <View style={{alignItems: 'center'}}>
-        <Pressable style={{alignItems: 'flex-start'}} onPress={onProductPress}>
-          <Image
-            source={{
-              uri: item.image,
-              height: itemHeight,
-              width: itemWidth,
-            }}
-            style={{
-              borderRadius: 4,
-            }}
-            resizeMode="cover"
-          />
+      <View>
+        <Pressable onPress={onProductPress}>
+          <View style={{height: itemHeight, width: '100%'}}>
+            <Image
+              style={{
+                borderTopLeftRadius: 12,
+                borderTopRightRadius: 12,
+                height: itemHeight,
+                width: '99.9%',
+                paddingHorizontal: '0.1%',
+                backgroundColor: '#fff',
+              }}
+              source={{
+                uri: item.image,
+              }}
+            />
+          </View>
           <View
             style={{
               alignItems: 'flex-start',
-              display: 'flex',
-              width: itemWidth,
-              marginTop: 6,
+              backgroundColor: '#f0f0f0',
+              paddingVertical: 5,
+              paddingHorizontal: 8,
+              borderBottomLeftRadius: 12,
+              borderBottomRightRadius: 12,
             }}>
-            <Title
+            <View
               style={{
-                fontSize: 14,
-                marginRight: 10,
-                fontWeight: 'bold',
-                lineHeight: 16,
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+                width: itemWidth * 0.9,
               }}>
-              {intl.locale.startsWith('ar')
-                ? item.name_ar ?? item.name
-                : item.name}
-            </Title>
-            <View style={{flex: 1}} />
-          </View>
-          <View
-            style={{
-              flexDirection: intl.locale.startsWith('ar')
-                ? 'row-reverse'
-                : 'row',
-              marginTop: 5,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
-              {intl.formatNumber(item.price, {
-                style: 'currency',
-                currency: item.currency,
-              })}
-            </Text>
+              <Title
+                style={{
+                  fontSize: 12,
+                  marginRight: 5,
+                  fontWeight: 'bold',
+                  flexShrink: 1,
+                }}>
+                {item.name}
+              </Title>
+            </View>
             <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-              {' / ' + item.packaging}
+              Dorne
             </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 5,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+                {intl.formatNumber(item.price, {
+                  style: 'currency',
+                  currency: item.currency,
+                })}
+              </Text>
+              <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+                {' / ' + item.packaging}
+              </Text>
+            </View>
           </View>
-
-          <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
-            {item.notes}
-          </Text>
         </Pressable>
       </View>
     </View>

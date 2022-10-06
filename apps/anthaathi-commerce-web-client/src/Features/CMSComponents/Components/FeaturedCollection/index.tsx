@@ -1,0 +1,68 @@
+import { useStyletron } from '@anthaathi/solid-styletron';
+import { Button, Kind } from '~/Features/Core/Components/Button';
+import { Link } from '@solidjs/router';
+import { Grid } from '~/Features/Core/Components/Grid';
+import { For } from 'solid-js';
+import {
+  ProductProps,
+  ProductTile,
+} from '~/Features/Commerce/Components/ProductTile';
+
+export function FeaturedCollection(props: {
+  title: string;
+  products: ProductProps[];
+}) {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <div
+      class={css({
+        margin: '0 auto',
+        width: $theme.sizing.maxWidth,
+        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        paddingLeft: $theme.sizing.scale500,
+        paddingRight: $theme.sizing.scale500,
+      })}
+    >
+      <div class={css({ display: 'flex', alignItems: 'center' })}>
+        <h4
+          class={css([
+            $theme.typography.HeadingMedium,
+            {
+              marginTop: $theme.sizing.scale400,
+              marginBottom: $theme.sizing.scale400,
+            },
+          ])}
+        >
+          {props.title}
+        </h4>
+        <span class={css({ flexGrow: 1 })} />
+
+        <Button
+          $as={Link}
+          $kind={Kind.Tertiary}
+          href="/collections/special-offers"
+        >
+          View all
+        </Button>
+      </div>
+
+      <Grid
+        $override={{
+          Root: {
+            style: {
+              marginBottom: '12px',
+              gridGap: '8px',
+              [$theme.mediaQuery?.md || '']: {
+                gridGap: '28px',
+              },
+            },
+          },
+        }}
+        columns={[2, 4, 4, 5]}
+      >
+        <For each={props.products}>{(product) => <ProductTile {...product} />}</For>
+      </Grid>
+    </div>
+  );
+}

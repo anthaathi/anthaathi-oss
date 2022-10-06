@@ -1,6 +1,6 @@
 import {View, Pressable} from 'react-native';
 import React from 'react';
-import {Text} from 'react-native-paper';
+import {Text, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useIntl} from 'react-intl';
 import {ProfilePageComponentType} from '../../../../types/common';
@@ -14,6 +14,7 @@ export interface WalletBalanceProps {
 }
 
 const WalletBalance = (props: WalletBalanceProps) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View testID="walletBalance">
@@ -32,14 +33,14 @@ const WalletBalance = (props: WalletBalanceProps) => {
             width: '80%',
             justifyContent: 'center',
             borderWidth: 1,
-            borderColor: '#008D3E',
+            borderColor: theme.colors.greenTextColor,
             borderTopLeftRadius: 2,
             borderBottomLeftRadius: 2,
           }}>
           <Text
             style={{
               fontSize: 12,
-              color: '#808080',
+              color: theme.colors.greyTextColor,
               fontWeight: '400',
               marginLeft: 10,
             }}>
@@ -48,7 +49,7 @@ const WalletBalance = (props: WalletBalanceProps) => {
           <Text
             style={{
               fontSize: 14,
-              color: '#008D3E',
+              color: theme.colors.greenTextColor,
               fontWeight: '700',
               marginLeft: 10,
             }}>
@@ -61,11 +62,11 @@ const WalletBalance = (props: WalletBalanceProps) => {
         <View
           style={{
             width: '20%',
-            backgroundColor: '#008D3E',
+            backgroundColor: theme.colors.greenTextColor,
             alignItems: 'center',
             justifyContent: 'center',
             borderWidth: 1,
-            borderColor: '#008D3E',
+            borderColor: theme.colors.greenTextColor,
             borderTopRightRadius: 2,
             borderBottomRightRadius: 2,
           }}>

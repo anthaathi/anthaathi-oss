@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense, useContext } from 'solid-js';
+import { children, Suspense, useContext } from 'solid-js';
 import {
   Body,
   ErrorBoundary,
@@ -11,25 +11,18 @@ import {
   Scripts,
   Title,
 } from 'solid-start';
-import { createLightTheme } from '~/utils/createLightTheme';
-import './index.css';
 import { StyletronContext } from '@anthaathi/solid-styletron';
 import type { Server } from 'styletron-engine-atomic';
 import { Footer } from '~/Features/Core/Components/Footer';
 import { MiniAnnouncement } from '~/Features/Core/Components/MiniAnnouncement';
 import { AppBar } from '~/Features/Core/Components/AppBar';
-
-const theme = createLightTheme();
-
-export default function Root(context) {
+import { Assets } from 'solid-js/web';
+export default function Root() {
   const styletron = useContext(StyletronContext) as Server;
 
-  return (
-    <Html lang="en">
-      <Head>
-        <Title>SolidStart - Bare</Title>
-        <Meta charset="utf-8" />
-        <Meta name="viewport" content="width=device-width, initial-scale=1" />
+  const Stylesheet = () => {
+    return (
+      <>
         {styletron.getStylesheets?.().map((res) => {
           return (
             <style
@@ -40,8 +33,30 @@ export default function Root(context) {
             />
           );
         })}
+      </>
+    );
+  };
+
+  return (
+    <Html lang="en">
+      <Head>
+        <Title>NRTC Fresh</Title>
+        <Meta charset="utf-8" />
+        <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Assets>
+          <Stylesheet />
+        </Assets>
       </Head>
-      <Body>
+      <Body
+        class={styletron
+          .renderStyle({
+            margin: 0,
+            fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif`,
+            '-webkit-font-smoothing': 'antialiased',
+            '-moz-osx-font-smoothing': 'grayscale',
+          })
+          .trim()}
+      >
         <Suspense>
           <ErrorBoundary>
             <MiniAnnouncement />

@@ -2,7 +2,7 @@ import {View, Text, Pressable, Image} from 'react-native';
 import React from 'react';
 import {CartPageComponentType} from '../../../../types/common';
 import {useIntl} from 'react-intl';
-import {Button, Card, ProgressBar} from 'react-native-paper';
+import {Button, Card, ProgressBar, useTheme} from 'react-native-paper';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export interface CartCardProps {
@@ -31,11 +31,12 @@ const CartCard = ({
   imageList,
 }: CartCardProps) => {
   const intl = useIntl();
+  const theme = useTheme();
   return (
     <Card
       style={{
         marginHorizontal: 10,
-        borderColor: '#E3E2E7',
+        borderColor: theme.colors.cardBorderColor,
         borderWidth: 1,
         borderRadius: 4,
         marginVertical: 5,
@@ -48,7 +49,12 @@ const CartCard = ({
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 16,
+              fontWeight: '600',
+            }}>
             {title}
           </Text>
 
@@ -60,7 +66,7 @@ const CartCard = ({
                   marginBottom: 9,
                   textDecorationLine: 'underline',
                   fontSize: 14,
-                  color: '#008D3E',
+                  color: theme.colors.greenTextColor,
                 }}>
                 {intl.formatMessage({defaultMessage: 'View Details'})}
               </Text>
@@ -68,18 +74,25 @@ const CartCard = ({
           )}
         </View>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
-          <SimpleLineIcons name={statusIcon} size={18} color="#0f8443" />
+          <SimpleLineIcons
+            name={statusIcon}
+            size={18}
+            color={theme.colors.primary}
+          />
           <Text
             style={{
               fontSize: 14,
-              color: '#0f8443',
+              color: theme.colors.primary,
               fontWeight: '400',
               marginLeft: 10,
             }}>
             {statusTitle}
           </Text>
         </View>
-        <ProgressBar progress={orderStatus ? 1 : 0.5} color="#0f8443" />
+        <ProgressBar
+          progress={orderStatus ? 1 : 0.5}
+          color={theme.colors.primary}
+        />
         <View style={{marginVertical: 5}}>
           <TextData
             title={intl.formatMessage({defaultMessage: 'Delivered on'})}
@@ -93,7 +106,7 @@ const CartCard = ({
         <View style={{marginVertical: 5}}>
           <Text
             style={{
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontSize: 14,
               fontWeight: '600',
               marginVertical: 5,
@@ -125,12 +138,13 @@ const CartCard = ({
 };
 
 const TextData = ({title, subtitle}: {title: string; subtitle: string}) => {
+  const theme = useTheme();
   return (
     <View style={{flexDirection: 'row'}}>
       <Text
         style={{
           fontSize: 12,
-          color: '#364A15',
+          color: theme.colors.titleTextColor,
           fontWeight: '400',
         }}>
         {title}
@@ -139,7 +153,7 @@ const TextData = ({title, subtitle}: {title: string; subtitle: string}) => {
       <Text
         style={{
           fontSize: 12,
-          color: '#364A15',
+          color: theme.colors.titleTextColor,
           fontWeight: '600',
           marginLeft: 5,
         }}>

@@ -1,4 +1,4 @@
-import { createEffect, onCleanup, onMount } from 'solid-js';
+import { onCleanup } from 'solid-js';
 
 export function useSnapscroll(ref: () => HTMLElement) {
   const calculateWidth = () => {
@@ -17,9 +17,7 @@ export function useSnapscroll(ref: () => HTMLElement) {
     return children.item(0);
   };
 
-  onCleanup(() => {
-    console.log('test089712');
-  });
+  onCleanup(() => {});
 
   return {
     scrollLeft: () => {},

@@ -1,6 +1,6 @@
 import {Text, View} from 'react-native';
 import React from 'react';
-import {Button, Card} from 'react-native-paper';
+import {Button, Card, useTheme} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {ProfilePageComponentType} from '../../../../types/common';
 
@@ -18,13 +18,14 @@ export interface PersonalInformationProps {
 }
 
 const PersonalInformation = (props: PersonalInformationProps) => {
+  const theme = useTheme();
   const intl = useIntl();
 
   return (
     <Card
       style={{
         marginHorizontal: 10,
-        borderColor: '#E3E2E7',
+        borderColor: theme.colors.cardBorderColor,
         borderWidth: 1,
         borderRadius: 4,
         marginVertical: 5,
@@ -37,13 +38,18 @@ const PersonalInformation = (props: PersonalInformationProps) => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 16,
+              fontWeight: '600',
+            }}>
             {props.title}
           </Text>
           <Button
             testID="editPersonalInfo"
             mode="text"
-            labelStyle={{color: '#008D3E'}}
+            labelStyle={{color: theme.colors.greenTextColor}}
             onPress={props.handlePress}>
             Edit
           </Button>
@@ -70,6 +76,7 @@ const PersonalInformation = (props: PersonalInformationProps) => {
 };
 
 const InformationRenderer = ({label, name}: {label: string; name: string}) => {
+  const theme = useTheme();
   return (
     <View
       testID="infoTextComponentId"
@@ -77,10 +84,20 @@ const InformationRenderer = ({label, name}: {label: string; name: string}) => {
         flexDirection: 'row',
         marginVertical: 5,
       }}>
-      <Text style={{color: '#808080', fontSize: 14, fontWeight: '400'}}>
+      <Text
+        style={{
+          color: theme.colors.greyTextColor,
+          fontSize: 14,
+          fontWeight: '400',
+        }}>
         {label + ':  '}
       </Text>
-      <Text style={{color: '#364A15', fontSize: 14, fontWeight: '600'}}>
+      <Text
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 14,
+          fontWeight: '600',
+        }}>
         {name}
       </Text>
     </View>

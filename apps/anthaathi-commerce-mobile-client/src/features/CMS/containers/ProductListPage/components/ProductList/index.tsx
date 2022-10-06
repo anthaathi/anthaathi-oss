@@ -1,6 +1,12 @@
 import * as React from 'react';
-import {Avatar, Text, Title} from 'react-native-paper';
-import {Image, Pressable, View, VirtualizedList} from 'react-native';
+import {Avatar, Text, Title, useTheme} from 'react-native-paper';
+import {
+  Image,
+  Pressable,
+  TouchableOpacity,
+  View,
+  VirtualizedList,
+} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
@@ -25,13 +31,13 @@ export interface ProductProps {
 export interface ProductListProps {
   products: ProductProps[];
   handlePress?: (item: ProductProps) => void;
-  handleIconPress?: (item: ProductProps) => void;
+  handleInfoPress?: (item: ProductProps) => void;
 }
 
 export default function ProductList({
   products,
   handlePress,
-  handleIconPress,
+  handleInfoPress,
 }: ProductListProps) {
   const itemHeight = useResponsiveValue([160, 200, 220, 280]);
   const itemWidth = useResponsiveValue([170, 190, 210, 270]);
@@ -64,7 +70,7 @@ export default function ProductList({
             itemHeight={itemHeight}
             itemWidth={itemWidth}
             handlePress={handlePress || (() => {})}
-            handleIconPress={handleIconPress || (() => {})}
+            handleInfoPress={handleInfoPress || (() => {})}
           />
         )}
         getItemCount={() => productSplitted.length}
@@ -80,13 +86,13 @@ function ItemRendererColumn({
   itemHeight,
   itemWidth,
   handlePress,
-  handleIconPress,
+  handleInfoPress,
 }: {
   item: ProductProps[];
   itemHeight: number;
   itemWidth: number;
   handlePress: (item: ProductProps) => void;
-  handleIconPress: (item: ProductProps) => void;
+  handleInfoPress: (item: ProductProps) => void;
 }) {
   return (
     <View
@@ -104,7 +110,7 @@ function ItemRendererColumn({
           itemHeight={itemHeight}
           itemWidth={itemWidth}
           handlePress={() => handlePress(element)}
-          handleIconPress={() => handleIconPress(element)}
+          handleInfoPress={() => handleInfoPress(element)}
         />
       ))}
     </View>
@@ -116,13 +122,13 @@ function ItemRenderer({
   itemHeight,
   itemWidth,
   handlePress,
-  handleIconPress,
+  handleInfoPress,
 }: {
   item: ProductProps;
   itemHeight: number;
   itemWidth: number;
   handlePress: () => void;
-  handleIconPress: () => void;
+  handleInfoPress: () => void;
 }) {
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
@@ -132,7 +138,7 @@ function ItemRenderer({
       return cartObj;
     }
   }, [cartItem, item.id]);
-
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View
@@ -141,7 +147,7 @@ function ItemRenderer({
         width: '48%',
         borderColor:
           cartProductData && cartProductData.id === item.id
-            ? '#008D3E'
+            ? theme.colors.greenTextColor
             : '#e7e7e7',
         backgroundColor: '#f0f0f0',
         borderWidth: 1,
@@ -256,15 +262,21 @@ function ItemRenderer({
                 }}>
                 {item.name}
               </Title>
-              <Entypo
-                name="info-with-circle"
-                color="#364A15"
-                size={18}
-                onPress={handleIconPress}
-                style={{padding: 8}}
-              />
+              <TouchableOpacity onPress={handleInfoPress}>
+                <Entypo
+                  name="info-with-circle"
+                  color="#364A15"
+                  size={18}
+                  style={{paddingVertical: 5, paddingLeft: 10}}
+                />
+              </TouchableOpacity>
             </View>
-            <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               Dorne
             </Text>
             <View
@@ -274,18 +286,33 @@ function ItemRenderer({
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greenTextColor,
+                  fontSize: 14,
+                  fontWeight: '400',
+                }}>
                 {intl.formatNumber(item.price, {
                   style: 'currency',
                   currency: item.currency,
                 })}
               </Text>
-              <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greyTextColor,
+                  fontSize: 12,
+                  fontWeight: '400',
+                }}>
                 {' / ' + item.packaging}
               </Text>
             </View>
 
-            {/* <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            {/* <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               {item.notes}
             </Text> */}
           </View>

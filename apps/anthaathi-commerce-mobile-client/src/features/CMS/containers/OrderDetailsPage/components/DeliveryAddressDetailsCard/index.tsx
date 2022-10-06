@@ -1,7 +1,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {View} from 'react-native';
-import {Card, Text} from 'react-native-paper';
+import {Card, Text, useTheme} from 'react-native-paper';
 import {OrderDetailsPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressDetailsProps {
@@ -11,6 +11,7 @@ export interface DeliveryAddressDetailsProps {
 }
 
 const DeliveryAddressDetailsCard = (props: DeliveryAddressDetailsProps) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <Card
@@ -25,22 +26,27 @@ const DeliveryAddressDetailsCard = (props: DeliveryAddressDetailsProps) => {
       <View>
         <Text
           style={{
-            color: '#364A15',
+            color: theme.colors.titleTextColor,
             fontWeight: '700',
             fontSize: 16,
           }}>
           {props.deliveryTitle}
         </Text>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
-          <Text style={{color: '#364A15', fontSize: 14, width: '85%'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 14,
+              width: '85%',
+            }}>
             {props.deliveryAddress}
           </Text>
         </View>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
-          <Text style={{color: '#808080', fontSize: 14}}>
+          <Text style={{color: theme.colors.greyTextColor, fontSize: 14}}>
             {intl.formatMessage({defaultMessage: 'Mobile'})}
           </Text>
-          <Text style={{color: '#364A15', fontSize: 14}}>
+          <Text style={{color: theme.colors.titleTextColor, fontSize: 14}}>
             {': ' + props.mobileNumber}
           </Text>
         </View>

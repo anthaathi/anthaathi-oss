@@ -1,6 +1,6 @@
 import {View, Pressable, ScrollView, GestureResponderEvent} from 'react-native';
 import React from 'react';
-import {Text} from 'react-native-paper';
+import {Text, useTheme} from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CheckOutPageComponentType} from '../../../../types/common';
@@ -11,6 +11,7 @@ export interface DeliveryDateSelectionProps {
 }
 
 const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
+  const theme = useTheme();
   const dates = 30;
   return (
     <View style={{marginHorizontal: 10}} testID="deliveryDateSelection">
@@ -21,7 +22,12 @@ const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
           alignItems: 'center',
           marginBottom: 5,
         }}>
-        <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+        <Text
+          style={{
+            color: theme.colors.titleTextColor,
+            fontSize: 16,
+            fontWeight: '600',
+          }}>
           {props.title}
         </Text>
 
@@ -32,10 +38,19 @@ const DeliveryDateSelection = (props: DeliveryDateSelectionProps) => {
             flexDirection: 'row',
             justifyContent: 'center',
           }}>
-          <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 16,
+              fontWeight: '600',
+            }}>
             August
           </Text>
-          <Icon name="chevron-down" size={20} color="#364A15" />
+          <Icon
+            name="chevron-down"
+            size={20}
+            color={theme.colors.titleTextColor}
+          />
         </Pressable>
       </View>
       <View>
@@ -54,6 +69,7 @@ const SelectDate = ({
 }: {
   onPress?: ((e: GestureResponderEvent) => void) | undefined;
 }) => {
+  const theme = useTheme();
   return (
     <Pressable
       style={{
@@ -66,10 +82,20 @@ const SelectDate = ({
         paddingVertical: 15,
       }}
       onPress={onPress}>
-      <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
+      <Text
+        style={{
+          fontSize: 14,
+          color: theme.colors.titleTextColor,
+          fontWeight: '400',
+        }}>
         Day
       </Text>
-      <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
+      <Text
+        style={{
+          fontSize: 14,
+          color: theme.colors.titleTextColor,
+          fontWeight: '400',
+        }}>
         00
       </Text>
     </Pressable>

@@ -1,22 +1,33 @@
-import type { MiniAnnouncementColorTokens } from './Features/Core/Components/MiniAnnouncement/theme';
-import type { MediaQuery, Sizing, Typography } from './utils/common';
-import { SearchColorTokens } from './Features/Core/Components/Searchbar/theme';
+import type { Sizing, Typography } from './utils/common';
 
 declare module '@anthaathi/solid-styletron' {
   interface CommonColorTokens {
     primary: string;
   }
 
-  type Tokens = {
-    MiniAnnouncement: MiniAnnouncementColorTokens;
-    Search: SearchColorTokens;
-    Common: CommonColorTokens;
-  };
-
   export interface StyletronTheme {
-    tokens: Tokens;
     sizing: Sizing;
     mediaQuery: MediaQuery;
     typography: Typography;
+    lighting: Shadow;
+  }
+
+  export interface Shadow {
+    shadow400: string;
+    shadow500: string;
+    shadow600: string;
+    shadow700: string;
+    shallowAbove: string;
+    shallowBelow: string;
+    deepAbove: string;
+    deepBelow: string;
+  }
+
+  export interface MediaQuery {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
   }
 }

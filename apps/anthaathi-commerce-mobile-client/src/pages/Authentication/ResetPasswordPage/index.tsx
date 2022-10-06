@@ -1,13 +1,14 @@
 import {View, ScrollView, Text} from 'react-native';
 import React from 'react';
-import {Button, TextInput} from 'react-native-paper';
+import {Button, TextInput, useTheme} from 'react-native-paper';
 import {RootStackParamList} from '../../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import { useIntl } from 'react-intl';
+import {useIntl} from 'react-intl';
 
 const ResetPasswordPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ResetPassword'>,
 ) => {
+  const theme = useTheme();
   const intl = useIntl();
 
   return (
@@ -26,7 +27,7 @@ const ResetPasswordPage = (
           }}>
           <Text
             style={{
-              color: '#0f8443',
+              color: theme.colors.primary,
               fontWeight: '700',
               fontSize: 28,
             }}>
@@ -46,7 +47,7 @@ const ResetPasswordPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
         </View>
 

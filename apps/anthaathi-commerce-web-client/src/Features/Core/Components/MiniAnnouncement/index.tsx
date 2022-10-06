@@ -1,11 +1,12 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Link } from '@solidjs/router';
-import { createEffect, For } from 'solid-js';
+import { For } from 'solid-js';
 import AngleLeft from '../../../../icons/angle-left.svg';
 import AngleRight from '../../../../icons/angle-right.svg';
 import { useSnapscroll } from '../../Hooks/useSnapscroll';
-import { Button } from '~/Features/Core/Components/Button';
+import { Button, Kind } from '~/Features/Core/Components/Button';
 import { IconGlobeSmall } from '@anthaathi/oracle-apex-solid-icons';
+import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export function MiniAnnouncement() {
   let ref: HTMLDivElement | null = null;
@@ -13,13 +14,14 @@ export function MiniAnnouncement() {
   const [css, $theme] = useStyletron();
 
   const { scrollLeft, scrollRight } = useSnapscroll(() => ref!);
+  const cssVar = useCssToken();
 
   return (
     <div
-      data-type="mini-accountment"
+      data-type="mini-announcement"
       class={css({
-        background: $theme.tokens.MiniAnnouncement.background,
-        color: $theme.tokens.MiniAnnouncement.color,
+        color: cssVar('primary-b-color', '#FFF'),
+        background: cssVar('primary-color', '#118b44'),
         paddingTop: $theme.sizing.scale100,
         paddingBottom: $theme.sizing.scale100,
         paddingLeft: '12px',
@@ -39,7 +41,7 @@ export function MiniAnnouncement() {
           class={css({
             position: 'absolute',
             display: 'none',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'block',
             },
           })}
@@ -90,15 +92,16 @@ export function MiniAnnouncement() {
                   draggable={false}
                 >
                   <h6
-                    class={css({
-                      ...$theme.typography.LabelMedium,
-                      marginTop: $theme.sizing.scale0,
-                      marginBottom: $theme.sizing.scale0,
-                      fontWeight: 'normal',
-                    })}
+                    class={css([
+                      $theme.typography.LabelMedium,
+                      {
+                        marginTop: $theme.sizing.scale0,
+                        marginBottom: $theme.sizing.scale0,
+                        fontWeight: 'normal',
+                      },
+                    ])}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusantium ad corporis cumque.
+                    FREE DELIVERY | MINIMUM ORDER AED 60/-
                   </h6>
                 </Link>
               );
@@ -114,7 +117,7 @@ export function MiniAnnouncement() {
             bottom: 0,
             alignItems: 'center',
             display: 'none',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'flex',
             },
           })}
@@ -145,7 +148,7 @@ export function MiniAnnouncement() {
             bottom: 0,
             display: 'none',
             alignItems: 'center',
-            [$theme.mediaQuery.md]: {
+            [$theme.mediaQuery?.md || '']: {
               display: 'flex',
             },
             color: '#FFF',
@@ -155,6 +158,7 @@ export function MiniAnnouncement() {
             $startEnhancer={() => {
               return <IconGlobeSmall class={css({ fill: '#FFF' })} />;
             }}
+            $kind={Kind.Tertiary}
           ></Button>
         </div>
       </div>

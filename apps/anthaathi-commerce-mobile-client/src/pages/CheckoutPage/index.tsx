@@ -8,13 +8,14 @@ import {ScrollView, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
 import {OptionDataProps} from '../../features/CMS/containers/Core/components/CMSSelectOption';
-import {TextInput} from 'react-native-paper';
+import {TextInput, useTheme} from 'react-native-paper';
 import {useSetRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 
 const CheckoutPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>
 > = props => {
+  const theme = useTheme();
   const setCartItem = useSetRecoilState(CartItemData);
   return (
     <View style={{flex: 1}}>
@@ -152,7 +153,12 @@ const CheckoutPage: React.FC<
           ]}
         />
         <View style={{marginHorizontal: 10}}>
-          <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 16,
+              fontWeight: '600',
+            }}>
             Comments
           </Text>
 
@@ -166,7 +172,7 @@ const CheckoutPage: React.FC<
               marginVertical: 10,
             }}
             multiline={true}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
         </View>
       </ScrollView>

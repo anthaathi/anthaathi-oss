@@ -1,6 +1,6 @@
 import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Button, Checkbox, Text, TextInput} from 'react-native-paper';
+import {Button, Checkbox, Text, TextInput, useTheme} from 'react-native-paper';
 import {RootStackParamList} from '../../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useIntl} from 'react-intl';
@@ -8,6 +8,7 @@ import {useIntl} from 'react-intl';
 const SignUpPage = (
   props: NativeStackScreenProps<RootStackParamList, 'SignUp'>,
 ) => {
+  const theme = useTheme();
   const intl = useIntl();
   const [passwordShow, setPasswordShow] = React.useState(true);
   const [checked, setChecked] = React.useState(false);
@@ -48,7 +49,7 @@ const SignUpPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
           <TextInput
             mode="flat"
@@ -60,7 +61,7 @@ const SignUpPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
           <TextInput
             mode="flat"
@@ -72,7 +73,7 @@ const SignUpPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
             secureTextEntry={passwordShow}
             right={
               <TextInput.Icon
@@ -93,7 +94,7 @@ const SignUpPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
         </View>
 
@@ -105,7 +106,7 @@ const SignUpPage = (
             justifyContent: 'center',
           }}>
           <Checkbox
-            color="#0f8443"
+            color={theme.colors.primary}
             status={checked ? 'checked' : 'unchecked'}
             onPress={() => {
               setChecked(!checked);
@@ -117,7 +118,7 @@ const SignUpPage = (
           <TouchableOpacity onPress={() => console.log('Pressed')}>
             <Text
               style={{
-                color: '#0f8443',
+                color: theme.colors.primary,
                 fontWeight: '700',
                 fontSize: 13,
                 textDecorationLine: 'underline',
@@ -154,7 +155,12 @@ const SignUpPage = (
             onPress={() => {
               props.navigation.navigate('SignIn');
             }}>
-            <Text style={{color: '#0f8443', fontWeight: '700', fontSize: 13}}>
+            <Text
+              style={{
+                color: theme.colors.primary,
+                fontWeight: '700',
+                fontSize: 13,
+              }}>
               {intl.formatMessage({defaultMessage: 'Login to your account'})}
             </Text>
           </TouchableOpacity>

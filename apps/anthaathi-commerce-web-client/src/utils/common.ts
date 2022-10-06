@@ -1,4 +1,4 @@
-import { StyleObject } from 'styletron-standard';
+import { MediaQuery } from '@anthaathi/solid-styletron';
 
 /**
  * Simple object check.
@@ -34,14 +34,6 @@ export function mergeDeep<T>(target: Partial<T>, ...sources: Partial<T>[]): T {
   }
 
   return mergeDeep(target, ...sources);
-}
-
-export interface MediaQuery {
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-  xl: string;
 }
 
 export function createMediaQueries(): MediaQuery {
@@ -193,8 +185,15 @@ export const defaultFontTokens: FontTokens = {
 };
 
 export function createTypography(
+  mediaQuery: MediaQuery,
   fontTokens: FontTokens = defaultFontTokens,
 ): Typography {
+  const font50: Font = {
+    fontFamily: fontTokens.primaryFontFamily,
+    fontSize: '12px',
+    fontWeight: 'normal',
+    lineHeight: '20px',
+  };
   const font100: Font = {
     fontFamily: fontTokens.primaryFontFamily,
     fontSize: '12px',
@@ -323,25 +322,114 @@ export function createTypography(
     font1250,
     font1350,
     font1450,
-
-    ParagraphXSmall: font100,
-    ParagraphSmall: font200,
-    ParagraphMedium: font300,
-    ParagraphLarge: font400,
-    LabelXSmall: font150,
-    LabelSmall: font250,
-    LabelMedium: font350,
-    LabelLarge: font450,
-    HeadingXSmall: font550,
-    HeadingSmall: font650,
-    HeadingMedium: font750,
-    HeadingLarge: font850,
-    HeadingXLarge: font950,
-    HeadingXXLarge: font1050,
-    DisplayXSmall: font1150,
-    DisplaySmall: font1250,
-    DisplayMedium: font1350,
-    DisplayLarge: font1450,
+    ParagraphXSmall: {
+      ...font50,
+      [mediaQuery.md]: {
+        ...font100,
+      },
+    },
+    ParagraphSmall: {
+      ...font100,
+      [mediaQuery.md]: {
+        ...font200,
+      },
+    },
+    ParagraphMedium: {
+      ...font200,
+      [mediaQuery.md]: {
+        ...font300,
+      },
+    },
+    ParagraphLarge: {
+      ...font300,
+      [mediaQuery.md]: {
+        ...font400,
+      },
+    },
+    LabelXSmall: {
+      ...font100,
+      [mediaQuery.md]: {
+        ...font150,
+      },
+    },
+    LabelSmall: {
+      ...font150,
+      [mediaQuery.md]: {
+        ...font250,
+      },
+    },
+    LabelMedium: {
+      ...font250,
+      [mediaQuery.md]: {
+        ...font350,
+      },
+    },
+    LabelLarge: {
+      ...font350,
+      [mediaQuery.md]: {
+        ...font450,
+      },
+    },
+    HeadingXSmall: {
+      ...font450,
+      [mediaQuery.md]: {
+        ...font550,
+      },
+    },
+    HeadingSmall: {
+      ...font550,
+      [mediaQuery.md]: {
+        ...font650,
+      },
+    },
+    HeadingMedium: {
+      ...font650,
+      [mediaQuery.md]: {
+        ...font750,
+      },
+    },
+    HeadingLarge: {
+      ...font750,
+      [mediaQuery.md]: {
+        ...font850,
+      },
+    },
+    HeadingXLarge: {
+      ...font850,
+      [mediaQuery.md]: {
+        ...font950,
+      },
+    },
+    HeadingXXLarge: {
+      ...font950,
+      [mediaQuery.md]: {
+        ...font1050,
+      },
+    },
+    DisplayXSmall: {
+      ...font1050,
+      [mediaQuery.md]: {
+        ...font1150,
+      },
+    },
+    DisplaySmall: {
+      ...font950,
+      [mediaQuery.md]: {
+        ...font1250,
+      },
+    },
+    DisplayMedium: {
+      ...font1250,
+      [mediaQuery.md]: {
+        ...font1350,
+      },
+    },
+    DisplayLarge: {
+      ...font1350,
+      [mediaQuery.md]: {
+        ...font1450,
+      },
+    },
 
     MonoParagraphXSmall: {
       ...font100,

@@ -14,6 +14,10 @@ declare global {
   namespace ReactNativePaper {
     interface ThemeColors {
       black: string;
+      titleTextColor: string;
+      cardBorderColor: string;
+      greenTextColor: string;
+      greyTextColor: string;
     }
   }
 }
@@ -28,6 +32,10 @@ const theme = {
     primaryContainer: '#f4faf7',
     secondary: 'rgb(244, 250, 247)',
     black: '#000',
+    titleTextColor: '#364A15',
+    cardBorderColor: '#E3E2E7',
+    greenTextColor: '#008D3E',
+    greyTextColor: '#808080',
   },
 } as ReactNativePaper.Theme;
 

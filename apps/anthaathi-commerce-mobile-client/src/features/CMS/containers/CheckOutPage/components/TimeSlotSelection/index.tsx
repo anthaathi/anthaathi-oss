@@ -1,6 +1,7 @@
 import {View, Text, Pressable} from 'react-native';
 import React from 'react';
 import {CheckOutPageComponentType} from '../../../../types/common';
+import {useTheme} from 'react-native-paper';
 
 type SlotProps = {
   key: string;
@@ -13,10 +14,16 @@ export interface TimeSlotProps {
 }
 
 const TimeSlotSelection = (props: TimeSlotProps) => {
+  const theme = useTheme();
   const [selectedKey, setSelectKey] = React.useState('');
   return (
     <View style={{marginHorizontal: 10}} testID="timeSlot">
-      <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+      <Text
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 16,
+          fontWeight: '600',
+        }}>
         {props.title}
       </Text>
       <View
@@ -49,6 +56,7 @@ const Slot = ({
   selectedKey: string;
   setSelectKey: React.Dispatch<React.SetStateAction<string>>;
 }) => {
+  const theme = useTheme();
   return (
     <Pressable
       style={{
@@ -68,7 +76,12 @@ const Slot = ({
           setSelectKey(slot.key);
         }
       }}>
-      <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
+      <Text
+        style={{
+          fontSize: 14,
+          color: theme.colors.titleTextColor,
+          fontWeight: '400',
+        }}>
         {slot.name}
       </Text>
     </Pressable>

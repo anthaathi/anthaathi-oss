@@ -1,6 +1,6 @@
 import {View, Text, ScrollView} from 'react-native';
 import React, {useState} from 'react';
-import {Divider, List} from 'react-native-paper';
+import {Divider, List, useTheme} from 'react-native-paper';
 import {CoreComponentType} from '../../../../types/common';
 import CMSBottomSheet from '../CMSBottomSheet';
 import {useIntl} from 'react-intl';
@@ -24,13 +24,19 @@ const CMSSelectOption = ({
   options,
   optionOnPress,
 }: CMSSelectOptionProps) => {
+  const theme = useTheme();
   const intl = useIntl();
   const [selectedOption, setSelectedOption] = useState(0);
   const [isVisible, setVisible] = React.useState(false);
 
   return (
     <View style={{marginHorizontal: 10}} testID="cmsSelectOption">
-      <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+      <Text
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 16,
+          fontWeight: '600',
+        }}>
         {title}
       </Text>
       <View style={{marginVertical: 5}}>
@@ -54,7 +60,7 @@ const CMSSelectOption = ({
           maxHeight: '40%',
           minHeight: '15%',
         }}
-        bottomSheetTitleStyle={{color: '#364A15'}}
+        bottomSheetTitleStyle={{color: theme.colors.titleTextColor}}
         setBottomSheetVisible={setVisible}
         bottomSheetVisible={isVisible}>
         <ScrollView>

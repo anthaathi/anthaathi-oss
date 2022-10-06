@@ -3,10 +3,11 @@ import Facebook from '../../../../icons/facebook.svg';
 import Instagram from '../../../../icons/instagram.svg';
 import Twitter from '../../../../icons/twitter.svg';
 import Tiktok from '../../../../icons/tiktok.svg';
-import { Button } from '../Button';
+import { Button, Kind } from '../Button';
 import { Link } from '@solidjs/router';
 import { IconEnvelopeOSmall } from '@anthaathi/oracle-apex-solid-icons';
 import { For, JSX, Show } from 'solid-js';
+import { Grid } from '~/Features/Core/Components/Grid';
 
 export function Footer() {
   const [css, $theme] = useStyletron();
@@ -26,26 +27,22 @@ export function Footer() {
           paddingBottom: $theme.sizing.scale100,
         })}
       >
-        <div
-          class={css({
-            maxWidth: $theme.sizing.maxWidth,
-            margin: '0 auto',
-            width: '100%',
-            padding: $theme.sizing.scale500,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(1, 1fr)',
-            [$theme.mediaQuery.md]: {
-              gridTemplateColumns: 'repeat(2, 1fr)',
+        <Grid
+          $override={{
+            Root: {
+              style: {
+                maxWidth: $theme.sizing.maxWidth,
+                margin: '0 auto',
+                width: '100%',
+                padding: $theme.sizing.scale500,
+              },
             },
-            [$theme.mediaQuery.lg]: {
-              gridTemplateColumns: 'repeat(4, 1fr)',
-            },
-          })}
+          }}
         >
           <For each={FooterLinksData}>
             {(item) => <FooterSection {...item} />}
           </For>
-        </div>
+        </Grid>
       </footer>
       <div
         class={css({
@@ -59,30 +56,32 @@ export function Footer() {
           paddingRight: $theme.sizing.scale400,
           flexDirection: 'column',
 
-          [$theme.mediaQuery.md]: {
+          [$theme.mediaQuery?.md || '']: {
             flexDirection: 'row',
           },
         })}
       >
         <div class={css({ display: 'flex' })}>
-          <Button $startEnhancer={() => <Facebook />}></Button>
-          <Button $startEnhancer={() => <Instagram />}></Button>
-          <Button $startEnhancer={() => <Twitter />}></Button>
-          <Button $startEnhancer={() => <Tiktok />}></Button>
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Facebook />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Instagram />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Twitter />} />
+          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Tiktok />} />
         </div>
 
         <span class={css({ flexGrow: 1 })} />
         <p
-          class={css({
-            flexGrow: 1,
-            width: '100%',
-            textAlign: 'center',
-            ...$theme.typography.LabelMedium,
-            [$theme.mediaQuery.md]: {
-              flexGrow: 'inherit',
-              width: 'max-content',
+          class={css([
+            $theme.typography.LabelMedium,
+            {
+              flexGrow: 1,
+              width: '100%',
+              textAlign: 'center',
+              [$theme.mediaQuery?.md || '']: {
+                flexGrow: 'inherit',
+                width: 'max-content',
+              },
             },
-          })}
+          ])}
         >
           Copyright &copy; {new Date().getFullYear()} NRTC Fresh. All rights
           reserved.
@@ -106,17 +105,19 @@ function FooterSection(props: FooterSection) {
         paddingBottom: $theme.sizing.scale800,
         margin: 0,
         gridColumn: props.span,
-        [$theme.mediaQuery.md]: { width: 'inherit' },
+        [$theme.mediaQuery?.md || '']: { width: 'inherit' },
       })}
     >
       <Show when={props.title} keyed>
         <li>
           <h6
-            class={css({
-              ...$theme.typography.LabelLarge,
-              marginTop: $theme.sizing.scale200,
-              marginBottom: $theme.sizing.scale200,
-            })}
+            class={css([
+              $theme.typography.LabelLarge,
+              {
+                marginTop: $theme.sizing.scale200,
+                marginBottom: $theme.sizing.scale200,
+              },
+            ])}
           >
             {props.title}
           </h6>
@@ -262,13 +263,15 @@ const FooterLinks = (props: { item: FooterLink }) => {
         })}
       >
         <h6
-          class={css({
-            ...$theme.typography.LabelMedium,
-            marginTop: $theme.sizing.scale200,
-            marginBottom: $theme.sizing.scale200,
-            display: 'flex',
-            alignItems: 'center',
-          })}
+          class={css([
+            $theme.typography.LabelMedium,
+            {
+              marginTop: $theme.sizing.scale200,
+              marginBottom: $theme.sizing.scale200,
+              display: 'flex',
+              alignItems: 'center',
+            },
+          ])}
         >
           {props.item.title}
         </h6>

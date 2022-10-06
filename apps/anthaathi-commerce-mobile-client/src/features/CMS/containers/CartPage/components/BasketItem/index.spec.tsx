@@ -84,7 +84,7 @@ describe('BasketItem', () => {
         <IntlProvider locale="en-US" messages={locale}>
           <BasketItem
             title="Items"
-            handlePress={onpress}
+            handlePressRemoveAllProduct={onpress}
             items={[
               {
                 id: 1,
@@ -97,6 +97,7 @@ describe('BasketItem', () => {
                 currency: 'USD',
                 weight_unit: 'KG',
                 packaging: '500 gms',
+                notes: 'notes',
               },
             ]}
           />
@@ -125,6 +126,7 @@ describe('BasketItem', () => {
                 currency: 'USD',
                 weight_unit: 'KG',
                 packaging: '500 gms',
+                notes: 'notes',
               },
             ]}
           />
@@ -157,6 +159,7 @@ describe('BasketItem', () => {
                 currency: 'USD',
                 weight_unit: 'KG',
                 packaging: '500 gms',
+                notes: 'notes',
               },
             ]}
           />
