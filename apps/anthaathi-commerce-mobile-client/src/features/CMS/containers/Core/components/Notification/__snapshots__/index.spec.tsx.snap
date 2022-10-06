@@ -81,7 +81,7 @@ exports[`Notification should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -103,7 +103,7 @@ exports[`Notification should render the item 1`] = `
                 "textAlign": "left",
               },
               {
-                "color": "#364A15",
+                "color": undefined,
                 "fontSize": 14,
                 "fontWeight": "400",
               },
@@ -125,7 +125,7 @@ exports[`Notification should render the item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "#364A15",
+              "color": undefined,
               "fontSize": 16,
               "fontWeight": "600",
             },
@@ -146,7 +146,7 @@ exports[`Notification should render the item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "#364A15",
+              "color": undefined,
               "fontSize": 14,
               "fontWeight": "400",
             },

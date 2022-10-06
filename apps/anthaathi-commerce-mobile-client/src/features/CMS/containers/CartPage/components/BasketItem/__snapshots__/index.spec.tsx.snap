@@ -66,7 +66,7 @@ exports[`BasketItem should render the item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "#008D3E",
+              "color": undefined,
               "fontSize": 14,
               "marginBottom": 9,
               "textDecorationLine": "underline",
@@ -155,7 +155,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "flex": 1,
                       "flexWrap": "wrap",
                       "fontSize": 14,
@@ -282,7 +282,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
@@ -394,7 +394,7 @@ exports[`BasketItem should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 13,
                     "fontWeight": "600",
                   },
@@ -424,7 +424,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "900",
                     },
@@ -446,7 +446,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginLeft": 5,
@@ -552,7 +552,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "flex": 1,
                       "flexWrap": "wrap",
                       "fontSize": 14,
@@ -679,7 +679,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
@@ -791,7 +791,7 @@ exports[`BasketItem should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 13,
                     "fontWeight": "600",
                   },
@@ -821,7 +821,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "900",
                     },
@@ -843,7 +843,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginLeft": 5,

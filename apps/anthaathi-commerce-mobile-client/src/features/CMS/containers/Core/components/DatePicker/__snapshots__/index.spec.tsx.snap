@@ -13,7 +13,7 @@ exports[`DatePicker should render the item 1`] = `
   <Text
     style={
       {
-        "color": "#364A15",
+        "color": undefined,
         "fontSize": 16,
         "fontWeight": "600",
       }
@@ -26,7 +26,7 @@ exports[`DatePicker should render the item 1`] = `
     style={
       {
         "backgroundColor": "#fff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 4,
         "borderStyle": "solid",
         "borderWidth": 0.5,
@@ -103,7 +103,7 @@ exports[`DatePicker should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": "#6200ee",
                   "fontSize": 16,
                 },
                 [
@@ -163,13 +163,13 @@ exports[`DatePicker should render the item 1`] = `
                   "fontWeight": "500",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                 },
               ],
             ]
           }
         >
-          14/9/2022
+          6/10/2022
         </Text>
       </View>
     </View>

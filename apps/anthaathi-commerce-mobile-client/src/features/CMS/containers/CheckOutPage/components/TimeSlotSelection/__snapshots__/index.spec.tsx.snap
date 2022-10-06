@@ -12,7 +12,7 @@ exports[`TimeSlot should render the item 1`] = `
   <Text
     style={
       {
-        "color": "#364A15",
+        "color": undefined,
         "fontSize": 16,
         "fontWeight": "600",
       }
@@ -58,7 +58,7 @@ exports[`TimeSlot should render the item 1`] = `
       <Text
         style={
           {
-            "color": "#364A15",
+            "color": undefined,
             "fontSize": 14,
             "fontWeight": "400",
           }
@@ -96,7 +96,7 @@ exports[`TimeSlot should render the item 1`] = `
       <Text
         style={
           {
-            "color": "#364A15",
+            "color": undefined,
             "fontSize": 14,
             "fontWeight": "400",
           }
@@ -134,7 +134,7 @@ exports[`TimeSlot should render the item 1`] = `
       <Text
         style={
           {
-            "color": "#364A15",
+            "color": undefined,
             "fontSize": 14,
             "fontWeight": "400",
           }

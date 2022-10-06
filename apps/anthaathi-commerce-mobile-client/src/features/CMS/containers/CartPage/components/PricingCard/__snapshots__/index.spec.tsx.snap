@@ -15,7 +15,7 @@ exports[`PricingCard should render the item 1`] = `
     style={
       {
         "backgroundColor": "#ffffff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 4,
         "borderWidth": 1,
         "elevation": 1,
@@ -78,7 +78,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                 },
                 undefined,
@@ -92,7 +92,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "600",
                 },
@@ -118,7 +118,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                 },
                 undefined,
@@ -132,7 +132,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "600",
                 },
@@ -158,7 +158,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                 },
                 undefined,
@@ -172,7 +172,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "600",
                 },
@@ -198,7 +198,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                 },
                 undefined,
@@ -212,7 +212,7 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "600",
                 },
@@ -240,11 +240,11 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 16,
                   "fontWeight": "700",
                 },
@@ -258,12 +258,12 @@ exports[`PricingCard should render the item 1`] = `
             style={
               [
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "600",
                 },
                 {
-                  "color": "#008D3E",
+                  "color": undefined,
                   "fontSize": 16,
                   "fontWeight": "700",
                 },
