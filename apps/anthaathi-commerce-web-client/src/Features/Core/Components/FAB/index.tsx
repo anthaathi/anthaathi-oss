@@ -9,7 +9,7 @@ export function FAB() {
     <div>
       <Button
         $kind={Kind.Tertiary}
-        $startEnhancer={() => <IconEnvelopeLarge fill='white' width='58px'/>}
+        $startEnhancer={() => <IconEnvelopeLarge fill='white'/>}
         onClick={() => window.open('https://api.whatsapp.com/send?phone=+971509751445', '_blank')}
         $override={{
           Root: {
@@ -25,6 +25,7 @@ export function FAB() {
                 backgroundColor: 'green',
                 boxShadow: '2px 2px 2px #888888 '
               },
+              justifyContent: 'center'
             }
           }
         }}

@@ -37,8 +37,8 @@ export function Footer() {
             flexDirection: 'column',
             textAlign: 'center',
             [$theme.mediaQuery?.md || '']: {
-              flexDirection: 'row',
               textAlign: 'left',
+              flexDirection: 'row',
             },
             maxWidth: $theme.sizing.maxWidth,
             margin: '0 auto',
@@ -63,7 +63,7 @@ export function Footer() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              [$theme.mediaQuery?.md || '']: {
+              [$theme.mediaQuery?.sm || '']: {
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'space-evenly',
@@ -139,6 +139,9 @@ function FooterSection(props: FooterSection) {
               marginBottom: $theme.sizing.scale200,
               fontSize: $theme.typography.font450.fontSize,
               fontWeight: $theme.typography.font450.fontWeight,
+              [$theme.mediaQuery?.sm || '']: {
+                textAlign: 'left',
+              },
             })}
           >
             {props.title}
@@ -450,12 +453,16 @@ function FooterSocialMediaSection() {
             $override={{
               Root: {
                 style: {
+                  justifyContent: 'center',
                   height: '50px',
                   width: '50px',
                   backgroundColor: 'white',
                   borderRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
+                  ':hover': {
+                    border: '2px solid green'
+                  }
                 },
               },
             }}
@@ -467,12 +474,16 @@ function FooterSocialMediaSection() {
             $override={{
               Root: {
                 style: {
+                  justifyContent: 'center',
                   height: '50px',
                   width: '50px',
                   backgroundColor: 'white',
                   borderRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
+                  ':hover': {
+                    border: '2px solid green'
+                  }
                 },
               },
             }}
@@ -484,12 +495,16 @@ function FooterSocialMediaSection() {
             $override={{
               Root: {
                 style: {
+                  justifyContent: 'center',
                   height: '50px',
                   width: '50px',
                   backgroundColor: 'white',
                   borderRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
+                  ':hover': {
+                    border: '2px solid green'
+                  }
                 },
               },
             }}
@@ -500,12 +515,16 @@ function FooterSocialMediaSection() {
             $override={{
               Root: {
                 style: {
+                  justifyContent: 'center',
                   height: '50px',
                   width: '50px',
                   backgroundColor: 'white',
                   borderRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
+                  ':hover': {
+                    border: '2px solid green'
+                  }
                 },
               },
             }}
@@ -670,7 +689,7 @@ const FooterLinks = (props: { item: FooterLink }) => {
               fontWeight: $theme.typography.LabelLarge.fontWeight,
               display: 'flex',
               justifyContent: 'center',
-              [ $theme.mediaQuery?.md || '' ]: {
+              [ $theme.mediaQuery?.sm || '' ]: {
                 justifyContent: 'flex-start'
               },
             },
