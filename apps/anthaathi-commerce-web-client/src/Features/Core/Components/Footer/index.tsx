@@ -5,9 +5,13 @@ import Twitter from '../../../../icons/twitter.svg';
 import Tiktok from '../../../../icons/tiktok.svg';
 import { Button, Kind } from '../Button';
 import { Link } from '@solidjs/router';
-import { IconEnvelopeOSmall } from '@anthaathi/oracle-apex-solid-icons';
+import {
+  IconEnvelopeOLarge,
+  IconPhoneLarge, IconSendLarge,
+  IconSendOLarge,
+} from '@anthaathi/oracle-apex-solid-icons';
 import { For, JSX, Show } from 'solid-js';
-import { Grid } from '~/Features/Core/Components/Grid';
+import { Input } from '~/Features/Core/Components/Input';
 
 export function Footer() {
   const [css, $theme] = useStyletron();
@@ -27,65 +31,89 @@ export function Footer() {
           paddingBottom: $theme.sizing.scale100,
         })}
       >
-        <Grid
-          $override={{
-            Root: {
-              style: {
-                maxWidth: $theme.sizing.maxWidth,
-                margin: '0 auto',
-                width: '100%',
-                padding: $theme.sizing.scale500,
-              },
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
+            [$theme.mediaQuery?.md || '']: {
+              flexDirection: 'row',
+              textAlign: 'left',
             },
-          }}
+            maxWidth: $theme.sizing.maxWidth,
+            margin: '0 auto',
+            width: '100%',
+            padding: $theme.sizing.scale500,
+          })}
         >
-          <For each={FooterLinksData}>
-            {(item) => <FooterSection {...item} />}
-          </For>
-        </Grid>
-      </footer>
-      <div
-        class={css({
-          display: 'flex',
-          alignItems: 'center',
-          maxWidth: $theme.sizing.maxWidth,
-          margin: '0 auto',
-          width: `calc(100% - ${$theme.sizing.scale400} - ${$theme.sizing.scale400})`,
-          flexWrap: 'wrap',
-          paddingLeft: $theme.sizing.scale400,
-          paddingRight: $theme.sizing.scale400,
-          flexDirection: 'column',
-          [$theme.mediaQuery?.md || '']: {
-            flexDirection: 'row',
-          },
-        })}
-      >
-        <div class={css({ display: 'flex' })}>
-          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Facebook />} />
-          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Instagram />} />
-          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Twitter />} />
-          <Button $kind={Kind.Tertiary} $startEnhancer={() => <Tiktok />} />
-        </div>
-
-        <span class={css({ flexGrow: 1 })} />
-        <p
-          class={css([
-            $theme.typography.LabelMedium,
-            {
-              flexGrow: 1,
-              width: '100%',
-              textAlign: 'center',
+          <div
+            class={css({
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+            })}
+          >
+            <FooterInfoSection />
+          </div>
+          <div
+            class={css({
+              flex: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
               [$theme.mediaQuery?.md || '']: {
-                flexGrow: 'inherit',
-                width: 'max-content',
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                justifyContent: 'space-evenly',
               },
-            },
-          ])}
-        >
-          Copyright &copy; {new Date().getFullYear()} NRTC Fresh. All rights
-          reserved.
-        </p>
-      </div>
+            })}
+          >
+            <div
+              class={css({
+                flex: 0.2,
+              })}
+            ></div>
+            <div
+              class={css({
+                flex: 0.8,
+                display: 'flex',
+                flexDirection: 'column',
+              })}
+            >
+              <FooterSection {...FooterLinksData[0]} />
+              <FooterSection {...FooterLinksData[1]} />
+            </div>
+            <div
+              class={css({
+                flex: 0.1,
+              })}
+            ></div>
+            <div
+              class={css({
+                flex: 0.8,
+                display: 'flex',
+                flexDirection: 'row',
+              })}
+            >
+              <FooterSection {...FooterLinksData[2]} />
+            </div>
+            <div
+              class={css({
+                flex: 0.2,
+              })}
+            ></div>
+          </div>
+          <div
+            class={css({
+              flex: 1,
+            })}
+          >
+            <FooterSocialMediaSection />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -96,27 +124,22 @@ function FooterSection(props: FooterSection) {
   return (
     <ul
       class={css({
-        flexGrow: 1,
         paddingLeft: 0,
         listStyle: 'none',
-        width: '100%',
         paddingTop: 0,
         paddingBottom: $theme.sizing.scale800,
         margin: 0,
-        gridColumn: props.span,
-        [$theme.mediaQuery?.md || '']: { width: 'inherit' },
       })}
     >
       <Show when={props.title} keyed>
         <li>
           <h6
-            class={css([
-              $theme.typography.LabelLarge,
-              {
-                marginTop: $theme.sizing.scale200,
-                marginBottom: $theme.sizing.scale200,
-              },
-            ])}
+            class={css({
+              marginTop: $theme.sizing.scale200,
+              marginBottom: $theme.sizing.scale200,
+              fontSize: $theme.typography.font450.fontSize,
+              fontWeight: $theme.typography.font450.fontWeight,
+            })}
           >
             {props.title}
           </h6>
@@ -137,6 +160,409 @@ interface FooterSection {
   title?: JSX.Element;
   span?: string;
   items: FooterLink[];
+}
+
+function FooterInfoSection() {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <div
+      class={css({
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+      })}
+    >
+      <div
+        class={css({
+          margin: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+        })}
+      >
+        <img src="https://www.nrtcfresh.com/wp-content/uploads/elementor/thumbs/logo-oxvdmbxi3tcpf189vya3e34nmydvnk8z7t3tmr6um0.png" />
+      </div>
+      <div
+        class={css({
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          [$theme.mediaQuery?.md || '']: {
+            justifyContent: 'flex-start',
+          },
+          gap: $theme.sizing.scale100,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale700,
+        })}
+      >
+        <img
+          class={css({ height: '50px' })}
+          src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/logo-img1.png"
+        />
+        <img
+          class={css({ height: '50px' })}
+          src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/logo-img3.png"
+        />
+        <img
+          class={css({ height: '50px' })}
+          src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/logo-img6.png"
+        />
+      </div>
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          fontSize: $theme.typography.font450.fontSize,
+          fontWeight: $theme.typography.font450.fontWeight,
+        })}
+      >
+        Address
+      </div>
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale700,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          fontSize: $theme.typography.LabelLarge.fontSize,
+          fontWeight: $theme.typography.LabelLarge.fontWeight,
+        })}
+      >
+        Al Awir Central Market, P.O. Box 21802, Dubai, UAE
+      </div>
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          fontSize: $theme.typography.font450.fontSize,
+          fontWeight: $theme.typography.font450.fontWeight,
+        })}
+      >
+        Contact Number
+      </div>
+      <div
+        class={css({
+          paddingLeft: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale700,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          [$theme.mediaQuery?.md || '']: {
+            justifyContent: 'flex-start',
+          },
+          columnGap: $theme.sizing.scale500,
+        })}
+      >
+        <Link
+          href="https://api.whatsapp.com/send?phone=+971509751445"
+          target="_blank"
+          class={css({
+            textDecoration: 'none',
+            color: 'black',
+            fontSize: $theme.typography.LabelLarge.fontSize,
+            fontWeight: $theme.typography.LabelLarge.fontWeight,
+          })}
+        >
+          <div
+            class={css({
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+            })}
+          >
+            <IconPhoneLarge
+              class={css({ paddingRight: $theme.sizing.scale200 })}
+              width={$theme.sizing.scale800}
+              height={$theme.sizing.scale800}
+            />
+            0509751445
+          </div>
+        </Link>
+        <Link
+          href="tel:043208889"
+          target="_blank"
+          class={css({
+            textDecoration: 'none',
+            color: 'black',
+            fontSize: $theme.typography.LabelLarge.fontSize,
+            fontWeight: $theme.typography.LabelLarge.fontWeight,
+          })}
+        >
+          <div
+            class={css({
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+            })}
+          >
+            <IconSendOLarge
+              class={css({ paddingRight: $theme.sizing.scale200 })}
+              width={$theme.sizing.scale800}
+              height={$theme.sizing.scale800}
+            />
+            043208889
+          </div>
+        </Link>
+      </div>
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          fontSize: $theme.typography.font450.fontSize,
+          fontWeight: $theme.typography.font450.fontWeight,
+        })}
+      >
+        Email
+      </div>
+      <Link
+        href="mailto:customercare@nrtcfresh.com"
+        target="_blank"
+        class={css({
+          textDecoration: 'none',
+          color: 'black',
+          paddingLeft: $theme.sizing.scale500,
+          marginBottom: $theme.sizing.scale700,
+          fontSize: $theme.typography.LabelLarge.fontSize,
+          fontWeight: $theme.typography.LabelLarge.fontWeight,
+        })}
+      >
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            [$theme.mediaQuery?.md || '']: {
+              justifyContent: 'flex-start',
+            },
+            columnGap: $theme.sizing.scale500,
+            fontSize: $theme.typography.LabelLarge.fontSize,
+            fontWeight: $theme.typography.LabelLarge.fontWeight,
+          })}
+        >
+          <IconEnvelopeOLarge
+            width={$theme.sizing.scale800}
+            height={$theme.sizing.scale800}
+          />
+          customerservice@gmail.com
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+function FooterSocialMediaSection() {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <div
+      class={css({
+        display: 'flex',
+        flexDirection: 'column',
+        paddingRight: $theme.sizing.scale500,
+      })}
+    >
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale700,
+        })}
+      >
+        <div
+          class={css({
+            paddingBottom: $theme.sizing.scale700,
+            fontSize: $theme.typography.HeadingMedium.fontSize,
+            fontWeight: $theme.typography.HeadingMedium.fontWeight,
+          })}
+        >
+          Subscribe to our mailing list
+        </div>
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            paddingBottom: $theme.sizing.scale700,
+          })}
+        >
+          <div class={css({ flex: 8 })}>
+            <Input
+              placeholder="Enter email address"
+              id="email"
+              $overrides={{
+                Root: {
+                  style: {
+                    height: '48px',
+                  },
+                },
+              }}
+            />
+          </div>
+          <div class={css({ flex: 2 })}>
+            <Button
+              $startEnhancer={() => <IconSendLarge fill='white'/>}
+              $override={{
+                Root: {
+                  style: {
+                    flex: 2,
+                    height: '48px',
+                    width: '100%',
+                  },
+                },
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale700,
+        })}
+      >
+        <div
+          class={css({
+            paddingBottom: $theme.sizing.scale500,
+            fontSize: $theme.typography.font550.fontSize,
+          })}
+        >
+          Follow us
+        </div>
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            [ $theme.mediaQuery?.md || '']: {
+              justifyContent: 'flex-start'
+            },
+            flexWrap: 'wrap',
+          })}
+        >
+          <Button
+            $kind={Kind.Tertiary}
+            $startEnhancer={() => <Facebook />}
+            onClick={() => { window.open('https://www.facebook.com/NRTCFRESH', '_blank', 'noopener,noreferrer') }}
+            $override={{
+              Root: {
+                style: {
+                  height: '50px',
+                  width: '50px',
+                  backgroundColor: 'white',
+                  borderRadius: '50px',
+                  marginBottom: $theme.sizing.scale500,
+                  marginRight: $theme.sizing.scale500,
+                },
+              },
+            }}
+          />
+          <Button
+            $kind={Kind.Tertiary}
+            $startEnhancer={() => <Instagram />}
+            onClick={() => { window.open('https://www.instagram.com/nrtcfresh', '_blank', 'noopener,noreferrer') }}
+            $override={{
+              Root: {
+                style: {
+                  height: '50px',
+                  width: '50px',
+                  backgroundColor: 'white',
+                  borderRadius: '50px',
+                  marginBottom: $theme.sizing.scale500,
+                  marginRight: $theme.sizing.scale500,
+                },
+              },
+            }}
+          />
+          <Button
+            $kind={Kind.Tertiary}
+            $startEnhancer={() => <Twitter />}
+            onClick={() => { window.open('https://twitter.com/NRTCGroup', '_blank', 'noopener,noreferrer') }}
+            $override={{
+              Root: {
+                style: {
+                  height: '50px',
+                  width: '50px',
+                  backgroundColor: 'white',
+                  borderRadius: '50px',
+                  marginBottom: $theme.sizing.scale500,
+                  marginRight: $theme.sizing.scale500,
+                },
+              },
+            }}
+          />
+          <Button
+            $kind={Kind.Tertiary}
+            $startEnhancer={() => <Tiktok />}
+            $override={{
+              Root: {
+                style: {
+                  height: '50px',
+                  width: '50px',
+                  backgroundColor: 'white',
+                  borderRadius: '50px',
+                  marginBottom: $theme.sizing.scale500,
+                  marginRight: $theme.sizing.scale500,
+                },
+              },
+            }}
+          />
+        </div>
+      </div>
+
+      <div
+        class={css({
+          paddingBottom: $theme.sizing.scale700,
+        })}
+      >
+        <div
+          class={css({
+            paddingBottom: $theme.sizing.scale500,
+            fontSize: $theme.typography.font550.fontSize,
+          })}
+        >
+          Download our app
+        </div>
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            [$theme.mediaQuery?.md || '']: {
+              alignItems: 'flex-start',
+            },
+            rowGap: $theme.sizing.scale200,
+          })}
+        >
+          <Link href="https://apps.apple.com/us/app/nrtc-fresh/id1441972042?ls=1" target="_blank">
+            <img
+              src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/Apple-badeg.svg"
+              class={css({maxHeight: '70px'})}
+            />
+          </Link>
+          <Link href="https://play.google.com/store/apps/details?id=app.nrtc.com.nrtc" target="_blank">
+            <img
+              src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/Google-badeg.svg"
+              class={css({maxHeight: '70px'})}
+            />
+          </Link>
+        </div>
+      </div>
+      <div
+        class={css({
+          paddingRight: $theme.sizing.scale500,
+          paddingTop: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale500,
+        })}
+      >
+        Copyright &copy; {new Date().getFullYear()} NRTC Fresh. All rights
+        reserved.
+      </div>
+    </div>
+  );
 }
 
 const FooterLinksData: FooterSection[] = [
@@ -210,34 +636,6 @@ const FooterLinksData: FooterSection[] = [
       },
     ],
   },
-  {
-    title: 'Contact Us',
-    items: [
-      {
-        title: () => {
-          const [css] = useStyletron();
-          return (
-            <>
-              <IconEnvelopeOSmall class={css({ marginRight: '12px' })} />{' '}
-              <span class={css({ top: '-1px', position: 'relative' })}>
-                customerservice@gmail.com
-              </span>
-            </>
-          );
-        },
-        href: '/',
-      },
-    ],
-  },
-  {
-    title: 'Office Address',
-    items: [
-      {
-        title: 'Al Awir Central Market, P.O. Box 21802, Dubai, UAE',
-        href: '/',
-      },
-    ],
-  },
 ];
 
 const FooterLinks = (props: { item: FooterLink }) => {
@@ -259,6 +657,7 @@ const FooterLinks = (props: { item: FooterLink }) => {
           ':focus': { textDecoration: 'underline' },
           ':active': { textDecoration: 'underline' },
           outline: 'none',
+
         })}
       >
         <h6
@@ -267,8 +666,13 @@ const FooterLinks = (props: { item: FooterLink }) => {
             {
               marginTop: $theme.sizing.scale200,
               marginBottom: $theme.sizing.scale200,
+              fontSize: $theme.typography.LabelLarge.fontSize,
+              fontWeight: $theme.typography.LabelLarge.fontWeight,
               display: 'flex',
-              alignItems: 'center',
+              justifyContent: 'center',
+              [ $theme.mediaQuery?.md || '' ]: {
+                justifyContent: 'flex-start'
+              },
             },
           ])}
         >
