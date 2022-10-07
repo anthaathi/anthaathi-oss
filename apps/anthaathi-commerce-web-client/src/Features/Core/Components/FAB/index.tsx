@@ -9,8 +9,13 @@ export function FAB() {
     <div>
       <Button
         $kind={Kind.Tertiary}
-        $startEnhancer={() => <IconEnvelopeLarge fill='white'/>}
-        onClick={() => window.open('https://api.whatsapp.com/send?phone=+971509751445', '_blank')}
+        $startEnhancer={() => <IconEnvelopeLarge fill="white" />}
+        onClick={() =>
+          window.open(
+            'https://api.whatsapp.com/send?phone=+971509751445',
+            '_blank',
+          )
+        }
         $override={{
           Root: {
             style: {
@@ -23,11 +28,11 @@ export function FAB() {
               borderRadius: '70px',
               ':hover': {
                 backgroundColor: 'green',
-                boxShadow: '2px 2px 2px #888888 '
+                boxShadow: '2px 2px 2px #888888 ',
               },
-              justifyContent: 'center'
-            }
-          }
+              justifyContent: 'center',
+            },
+          },
         }}
       ></Button>
     </div>
