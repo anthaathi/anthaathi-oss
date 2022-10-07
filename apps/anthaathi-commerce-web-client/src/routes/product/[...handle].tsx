@@ -28,7 +28,7 @@ export default function ProductPage() {
       <Breadcrumbs
         list={[
           { key: '1', title: 'Home', link: '/' },
-          { key: '2', title: 'Collections', link: '/pages/category-list' },
+          { key: '2', title: 'Collections', link: '/collections' },
           { key: '3', title: 'Product', link: '/' },
         ]}
       />

@@ -85,7 +85,8 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
               width: '100%',
               height: '240px',
               ':hover': {
-                transition: 'opacity 300ms ease-in',
+                animation: 'fade-in-show .4s',
+                transform: 'scale(1.03)',
               },
             },
           },
