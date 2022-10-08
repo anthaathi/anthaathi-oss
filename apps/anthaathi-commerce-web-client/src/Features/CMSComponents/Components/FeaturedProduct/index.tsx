@@ -42,7 +42,7 @@ export interface ProductDetailsProps {
 
 export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
-  
+
   return (
     <div
       class={css({
@@ -194,7 +194,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             Add to cart
           </Button>
-          <div
+          <Button
             onClick={props.handleBuyItNow}
             class={css({
               marginTop: '10px',
@@ -215,7 +215,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             })}
           >
             Buy it now
-          </div>
+          </Button>
         </div>
       </div>
       <FAQ

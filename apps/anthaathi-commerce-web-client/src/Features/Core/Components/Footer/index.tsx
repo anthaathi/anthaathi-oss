@@ -7,7 +7,8 @@ import { Button, Kind } from '../Button';
 import { Link } from '@solidjs/router';
 import {
   IconEnvelopeOLarge,
-  IconPhoneLarge, IconSendLarge,
+  IconPhoneLarge,
+  IconSendLarge,
   IconSendOLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { For, JSX, Show } from 'solid-js';
@@ -404,7 +405,7 @@ function FooterSocialMediaSection() {
           </div>
           <div class={css({ flex: 2 })}>
             <Button
-              $startEnhancer={() => <IconSendLarge fill='white'/>}
+              $startEnhancer={() => <IconSendLarge fill="white" />}
               $override={{
                 Root: {
                   style: {
@@ -437,8 +438,8 @@ function FooterSocialMediaSection() {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            [ $theme.mediaQuery?.md || '']: {
-              justifyContent: 'flex-start'
+            [$theme.mediaQuery?.md || '']: {
+              justifyContent: 'flex-start',
             },
             flexWrap: 'wrap',
           })}
@@ -446,14 +447,23 @@ function FooterSocialMediaSection() {
           <Button
             $kind={Kind.Tertiary}
             $startEnhancer={() => <Facebook />}
-            onClick={() => { window.open('https://www.facebook.com/NRTCFRESH', '_blank', 'noopener,noreferrer') }}
+            onClick={() => {
+              window.open(
+                'https://www.facebook.com/NRTCFRESH',
+                '_blank',
+                'noopener,noreferrer',
+              );
+            }}
             $override={{
               Root: {
                 style: {
                   height: '50px',
                   width: '50px',
-                  backgroundColor: 'white',
-                  borderRadius: '50px',
+                  background: 'white',
+                  borderTopLeftRadius: '50px',
+                  borderTopRightRadius: '50px',
+                  borderBottomRightRadius: '50px',
+                  borderBottomLeftRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
                 },
@@ -463,14 +473,23 @@ function FooterSocialMediaSection() {
           <Button
             $kind={Kind.Tertiary}
             $startEnhancer={() => <Instagram />}
-            onClick={() => { window.open('https://www.instagram.com/nrtcfresh', '_blank', 'noopener,noreferrer') }}
+            onClick={() => {
+              window.open(
+                'https://www.instagram.com/nrtcfresh',
+                '_blank',
+                'noopener,noreferrer',
+              );
+            }}
             $override={{
               Root: {
                 style: {
                   height: '50px',
                   width: '50px',
-                  backgroundColor: 'white',
-                  borderRadius: '50px',
+                  background: 'white',
+                  borderTopLeftRadius: '50px',
+                  borderTopRightRadius: '50px',
+                  borderBottomRightRadius: '50px',
+                  borderBottomLeftRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
                 },
@@ -480,14 +499,23 @@ function FooterSocialMediaSection() {
           <Button
             $kind={Kind.Tertiary}
             $startEnhancer={() => <Twitter />}
-            onClick={() => { window.open('https://twitter.com/NRTCGroup', '_blank', 'noopener,noreferrer') }}
+            onClick={() => {
+              window.open(
+                'https://twitter.com/NRTCGroup',
+                '_blank',
+                'noopener,noreferrer',
+              );
+            }}
             $override={{
               Root: {
                 style: {
                   height: '50px',
                   width: '50px',
-                  backgroundColor: 'white',
-                  borderRadius: '50px',
+                  background: 'white',
+                  borderTopLeftRadius: '50px',
+                  borderTopRightRadius: '50px',
+                  borderBottomRightRadius: '50px',
+                  borderBottomLeftRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
                 },
@@ -502,8 +530,11 @@ function FooterSocialMediaSection() {
                 style: {
                   height: '50px',
                   width: '50px',
-                  backgroundColor: 'white',
-                  borderRadius: '50px',
+                  background: 'white',
+                  borderTopLeftRadius: '50px',
+                  borderTopRightRadius: '50px',
+                  borderBottomRightRadius: '50px',
+                  borderBottomLeftRadius: '50px',
                   marginBottom: $theme.sizing.scale500,
                   marginRight: $theme.sizing.scale500,
                 },
@@ -537,16 +568,22 @@ function FooterSocialMediaSection() {
             rowGap: $theme.sizing.scale200,
           })}
         >
-          <Link href="https://apps.apple.com/us/app/nrtc-fresh/id1441972042?ls=1" target="_blank">
+          <Link
+            href="https://apps.apple.com/us/app/nrtc-fresh/id1441972042?ls=1"
+            target="_blank"
+          >
             <img
               src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/Apple-badeg.svg"
-              class={css({maxHeight: '70px'})}
+              class={css({ maxHeight: '70px' })}
             />
           </Link>
-          <Link href="https://play.google.com/store/apps/details?id=app.nrtc.com.nrtc" target="_blank">
+          <Link
+            href="https://play.google.com/store/apps/details?id=app.nrtc.com.nrtc"
+            target="_blank"
+          >
             <img
               src="https://www.nrtcfresh.com/wp-content/uploads/2020/02/Google-badeg.svg"
-              class={css({maxHeight: '70px'})}
+              class={css({ maxHeight: '70px' })}
             />
           </Link>
         </div>
@@ -657,7 +694,6 @@ const FooterLinks = (props: { item: FooterLink }) => {
           ':focus': { textDecoration: 'underline' },
           ':active': { textDecoration: 'underline' },
           outline: 'none',
-
         })}
       >
         <h6
@@ -670,8 +706,8 @@ const FooterLinks = (props: { item: FooterLink }) => {
               fontWeight: $theme.typography.LabelLarge.fontWeight,
               display: 'flex',
               justifyContent: 'center',
-              [ $theme.mediaQuery?.md || '' ]: {
-                justifyContent: 'flex-start'
+              [$theme.mediaQuery?.md || '']: {
+                justifyContent: 'flex-start',
               },
             },
           ])}

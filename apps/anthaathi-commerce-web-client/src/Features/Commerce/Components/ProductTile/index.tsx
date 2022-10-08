@@ -33,16 +33,59 @@ export function ProductTile(props: ProductProps) {
 
   const cartProductData = createMemo(() => {
     if (cartItem.some((el) => el.id === props.id)) {
-      let cartObj = cartItem.find((el) => el.id === props.id);
-      return cartObj;
+      return cartItem.find((el) => el.id === props.id);
     }
   }, [cartItem, props.id]);
 
+  function getReduceQuantity() {
+    return () => {
+      if (cartItem.some((el) => el.id === props.id)) {
+        const newState = cartItem.map((obj) => {
+          if (obj.id === props.id && obj.numberOfItems !== 0) {
+            return { ...obj, numberOfItems: obj.numberOfItems - 1 };
+          }
+          return obj;
+        });
+        setCartItem(newState);
+      }
+    };
+  }
+
+  const ref: HTMLButtonElement | null = null;
+
+  function getOnIncreaseQuantity() {
+    return (e: Event) => {
+      if (
+        (e.target as HTMLDivElement).closest('button')?.dataset['action'] ===
+        'view-product'
+      ) {
+        navigate('/product/' + props.id);
+        return;
+      }
+
+      if (cartItem.some((el) => el.id === props.id)) {
+        const newState = cartItem.map((obj) => {
+          if (obj.id === props.id) {
+            return { ...obj, numberOfItems: obj.numberOfItems + 1 };
+          }
+          return obj;
+        });
+        setCartItem(newState);
+      } else {
+        setCartItem([
+          ...cartItem,
+          {
+            ...props,
+            numberOfItems: 1,
+          },
+        ]);
+      }
+    };
+  }
+
   return (
     <div
-      onClick={() => {
-        // navigate('/product/' + props.id);
-      }}
+      onClick={getOnIncreaseQuantity()}
       class={css({
         textDecoration: 'none',
         color: '#000',
@@ -122,17 +165,8 @@ export function ProductTile(props: ProductProps) {
                 },
               },
             }}
-            onClick={() => {
-              if (cartItem.some((el) => el.id === props.id)) {
-                const newState = cartItem.map((obj) => {
-                  if (obj.id === props.id && obj.numberOfItems !== 0) {
-                    return { ...obj, numberOfItems: obj.numberOfItems - 1 };
-                  }
-                  return obj;
-                });
-                setCartItem(newState);
-              }
-            }}
+            data-action="reduce-quantity"
+            onClick={getReduceQuantity()}
             $size={Size.Mini}
             $kind={Kind.Secondary}
             $startEnhancer={() => (
@@ -157,7 +191,6 @@ export function ProductTile(props: ProductProps) {
             $override={{
               Root: {
                 style: {
-                  // position: 'absolute',
                   opacity: isOpen() ? 1 : 0,
                   paddingLeft: '10px',
                   paddingRight: '10px',
@@ -175,26 +208,9 @@ export function ProductTile(props: ProductProps) {
                 },
               },
             }}
-            onClick={() => {
-              if (cartItem.some((el) => el.id === props.id)) {
-                const newState = cartItem.map((obj) => {
-                  if (obj.id === props.id) {
-                    return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-                  }
-                  return obj;
-                });
-                setCartItem(newState);
-              } else {
-                setCartItem([
-                  ...cartItem,
-                  {
-                    ...props,
-                    numberOfItems: 1,
-                  },
-                ]);
-              }
-            }}
+            onClick={getOnIncreaseQuantity()}
             $size={Size.Mini}
+            data-action="increase-quality"
             $kind={Kind.Secondary}
             $startEnhancer={() => <IconPlusLarge width="20px" height="20px" />}
           />
@@ -223,6 +239,7 @@ export function ProductTile(props: ProductProps) {
             }}
             $size={Size.Mini}
             $kind={Kind.Secondary}
+            data-action="view-product"
             $startEnhancer={() => (
               <IconSearchLarge width="20px" height="20px" />
             )}
@@ -337,6 +354,7 @@ export function ProductTile(props: ProductProps) {
             onClick={() => {
               navigate('/product/' + props.id);
             }}
+            data-action="view-product"
             $size={Size.Mini}
             $kind={Kind.Secondary}
             $startEnhancer={() => (
@@ -352,7 +370,6 @@ export function ProductTile(props: ProductProps) {
         >
           <Img
             src={props.image}
-            // srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
             alt=""
             $override={{
               Root: {

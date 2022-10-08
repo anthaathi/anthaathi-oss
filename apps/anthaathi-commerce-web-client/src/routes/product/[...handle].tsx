@@ -34,8 +34,8 @@ export default function ProductPage() {
       />
       <FeaturedProduct
         productInfo={{
-          id: product()?.id,
-          name: product()?.name,
+          id: product()?.id || 0,
+          name: product()?.name || '',
           listInfo: {
             description: 'test',
             shippingInformation: 'Shipping Information',
@@ -49,12 +49,12 @@ export default function ProductPage() {
           price: +product()?.price!,
           currency: product()?.currency!,
           image: [product()?.image!],
-          notes: product()?.notes,
+          notes: product()?.notes || '',
         }}
         handleAddToCart={() => {
-          if (cartItem.some((el) => el.id === product().id)) {
+          if (cartItem.some((el) => el.id === product()?.id)) {
             const newState = cartItem.map((obj) => {
-              if (obj.id === product().id) {
+              if (obj.id === product()?.id) {
                 return { ...obj, numberOfItems: obj.numberOfItems + 1 };
               }
               return obj;
@@ -66,7 +66,7 @@ export default function ProductPage() {
               {
                 ...product(),
                 numberOfItems: 1,
-              },
+              } as never,
             ]);
           }
           navigate('/cart');
