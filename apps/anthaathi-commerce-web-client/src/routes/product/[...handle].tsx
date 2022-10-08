@@ -29,7 +29,11 @@ export default function ProductPage() {
         list={[
           { key: '1', title: 'Home', link: '/' },
           { key: '2', title: 'Collections', link: '/collections' },
-          { key: '3', title: 'Product', link: '/' },
+          {
+            key: '3',
+            title: product()?.name,
+            link: '/',
+          },
         ]}
       />
       <FeaturedProduct
