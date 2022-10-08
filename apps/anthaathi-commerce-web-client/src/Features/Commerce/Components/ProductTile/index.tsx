@@ -51,8 +51,6 @@ export function ProductTile(props: ProductProps) {
     };
   }
 
-  const ref: HTMLButtonElement | null = null;
-
   function getOnIncreaseQuantity() {
     return (e: Event) => {
       if (

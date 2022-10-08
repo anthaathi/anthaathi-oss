@@ -61,10 +61,27 @@ export function AppBar() {
               position: 'relative',
             })}
           >
+            <Link href="/">
+              <Img
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
+                alt=""
+                $override={{
+                  Root: {
+                    $style: { height: '48px', width: 'auto' },
+                  },
+                }}
+              />
+            </Link>
+
+            <span class={css({ flexGrow: 1 })} />
+
             <div
               class={css({
                 position: 'absolute',
-                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                alignItems: 'center',
                 display: 'none',
                 [$theme.mediaQuery?.md || '']: {
                   display: 'flex',
@@ -116,35 +133,8 @@ export function AppBar() {
                 </TransitionChild>
               </Transition>
               <Searchbar />
-            </div>
+              <span class={css({ flexGrow: 1 })} />
 
-            <span class={css({ flexGrow: 1 })} />
-
-            <Link href="/">
-              <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
-                alt=""
-                $override={{
-                  Root: {
-                    $style: { height: '38px', width: 'auto' },
-                  },
-                }}
-              />
-            </Link>
-
-            <span class={css({ flexGrow: 1 })} />
-
-            <div
-              class={css({
-                position: 'absolute',
-                right: 0,
-                alignItems: 'center',
-                display: 'none',
-                [$theme.mediaQuery?.md || '']: {
-                  display: 'flex',
-                },
-              })}
-            >
               <Button
                 $as={Link}
                 href="/account/profile"
