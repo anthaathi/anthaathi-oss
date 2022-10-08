@@ -53,12 +53,19 @@ export function ProductTile(props: ProductProps) {
 
   function getOnIncreaseQuantity() {
     return (e: Event) => {
-      if (
-        (e.target as HTMLDivElement).closest('button')?.dataset['action'] ===
-        'view-product'
-      ) {
-        navigate('/product/' + props.id);
-        return;
+      const datasetElement = (e.target as HTMLDivElement).closest('button')
+        ?.dataset['action'];
+
+      console.log(datasetElement);
+
+      switch (datasetElement) {
+        case 'view-product':
+          navigate('/product/' + props.id);
+          return;
+        case 'reduce-quantity':
+          return;
+        case '':
+          return;
       }
 
       if (cartItem.some((el) => el.id === props.id)) {
