@@ -1,29 +1,39 @@
+import {
+  IconMinusSmall,
+  IconPlusSmall,
+  IconTrashOSmall,
+} from '@anthaathi/oracle-apex-solid-icons';
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { createEffect, createSignal } from 'solid-js';
+import { createMemo } from 'solid-js';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
 
 export function CartQuantityChange({
-  initialValue,
-  onChange,
+  id,
+  handleAddProduct,
+  handleRemoveProduct,
+  trashIcon,
 }: {
-  initialValue: number;
-  onChange: (item: number) => void;
+  id: number;
+  trashIcon?: boolean;
+  handleAddProduct?: () => void;
+  handleRemoveProduct?: () => void;
 }) {
   const [css, $theme] = useStyletron();
+  const [cartItem] = cartItems;
 
-  const [quantity, setQuantity] = createSignal(initialValue);
-
-  createEffect(() => {
-    if (quantity() < 0) {
-      setQuantity(0);
+  const cartProductData = createMemo(() => {
+    if (cartItem.some((item) => item.id === id)) {
+      let cartObj = cartItem.find((item) => item.id === id);
+      return cartObj?.numberOfItems;
     } else {
-      onChange(quantity());
+      return 0;
     }
-  });
+  }, [cartItem, id]);
 
   return (
     <div
       class={css({
-        width: '100px',
+        width: '110px',
         height: '35px',
         border: '0.5px solid #d9d9d9',
         display: 'flex',
@@ -44,8 +54,8 @@ export function CartQuantityChange({
             ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            paddingLeft: $theme.sizing.scale500,
-            paddingRight: $theme.sizing.scale500,
+            paddingLeft: $theme.sizing.scale400,
+            paddingRight: $theme.sizing.scale400,
             height: '100%',
             width: '100%',
             backgroundColor: '#d6d5d5',
@@ -54,11 +64,13 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={() => {
-            setQuantity((prev) => prev - 1);
-          }}
+          onClick={handleRemoveProduct}
         >
-          -
+          {trashIcon && cartProductData() === 1 ? (
+            <IconTrashOSmall width="14px" height="14px" fill="#000" />
+          ) : (
+            <IconMinusSmall width="14px" height="14px" fill="#000" />
+          )}
         </button>
       </div>
       <div
@@ -68,8 +80,8 @@ export function CartQuantityChange({
           alignItems: 'center',
           justifyContent: 'center',
           display: 'flex',
-          paddingLeft: $theme.sizing.scale500,
-          paddingRight: $theme.sizing.scale500,
+          paddingLeft: $theme.sizing.scale600,
+          paddingRight: $theme.sizing.scale600,
         })}
       >
         <h4
@@ -82,7 +94,7 @@ export function CartQuantityChange({
             },
           ])}
         >
-          {quantity()}
+          {cartProductData()}
         </h4>
       </div>
       <div
@@ -96,8 +108,8 @@ export function CartQuantityChange({
             ...$theme.typography.ParagraphMedium,
             border: '0px solid #000000',
             margin: 0,
-            paddingLeft: $theme.sizing.scale500,
-            paddingRight: $theme.sizing.scale500,
+            paddingLeft: $theme.sizing.scale400,
+            paddingRight: $theme.sizing.scale400,
             height: '100%',
             width: '100%',
             backgroundColor: '#d6d5d5',
@@ -106,11 +118,9 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={() => {
-            setQuantity((prev) => prev + 1);
-          }}
+          onClick={handleAddProduct}
         >
-          +
+          <IconPlusSmall width="14px" height="14px" fill="#000" />
         </button>
       </div>
     </div>
