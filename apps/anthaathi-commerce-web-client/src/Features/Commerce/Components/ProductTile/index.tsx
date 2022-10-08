@@ -1,8 +1,8 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import {
+  IconHeartOLarge,
   IconMinusSmall,
-  IconPlusLarge,
   IconSearchLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { createMemo, createSignal } from 'solid-js';
@@ -55,14 +55,13 @@ export function ProductTile(props: ProductProps) {
     return (e: Event) => {
       const datasetElement = (e.target as HTMLDivElement).closest('button')
         ?.dataset['action'];
-
-      console.log(datasetElement);
-
       switch (datasetElement) {
         case 'view-product':
           navigate('/product/' + props.id);
           return;
         case 'reduce-quantity':
+          return;
+        case 'ratings':
           return;
         case '':
           return;
@@ -130,9 +129,10 @@ export function ProductTile(props: ProductProps) {
             left: '5px',
             top: '14px',
             opacity:
-              cartProductData &&
-              cartProductData()?.id === props.id &&
-              cartProductData()?.numberOfItems !== 0
+              (cartProductData &&
+                cartProductData()?.id === props.id &&
+                cartProductData()?.numberOfItems !== 0) ||
+              isOpen()
                 ? 1
                 : 0,
             transitionTimingFunction: 'ease',
@@ -153,6 +153,12 @@ export function ProductTile(props: ProductProps) {
                     cartProductData()?.numberOfItems !== 0
                       ? 1
                       : 0,
+                  userSelect:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'element'
+                      : 'none',
                   paddingLeft: '10px',
                   paddingRight: '10px',
                   paddingTop: '10px',
@@ -184,81 +190,11 @@ export function ProductTile(props: ProductProps) {
             position: 'absolute',
             right: '5px',
             top: '14px',
-            opacity: isOpen() ? 1 : 0,
-            transitionTimingFunction: 'ease',
-            transitionDuration: '100ms',
-            transitionProperty: 'opacity',
-            zIndex: 1,
-            display: 'block',
-          })}
-        >
-          <Button
-            $override={{
-              Root: {
-                style: {
-                  opacity: isOpen() ? 1 : 0,
-                  paddingLeft: '10px',
-                  paddingRight: '10px',
-                  paddingTop: '10px',
-                  paddingBottom: '10px',
-                  borderTopRightRadius: '50%',
-                  borderTopLeftRadius: '50%',
-                  borderBottomLeftRadius: '50%',
-                  borderBottomRightRadius: '50%',
-                  marginBottom: '12px',
-                  border: '1px solid #e4e4d9',
-                  ':hover': {
-                    background: '#E5E5EA',
-                  },
-                },
-              },
-            }}
-            onClick={getOnIncreaseQuantity()}
-            $size={Size.Mini}
-            data-action="increase-quality"
-            $kind={Kind.Secondary}
-            $startEnhancer={() => <IconPlusLarge width="20px" height="20px" />}
-          />
-          <Button
-            $override={{
-              Root: {
-                style: {
-                  paddingLeft: '10px',
-                  paddingRight: '10px',
-                  paddingTop: '10px',
-                  paddingBottom: '10px',
-                  borderTopRightRadius: '50%',
-                  borderTopLeftRadius: '50%',
-                  borderBottomLeftRadius: '50%',
-                  borderBottomRightRadius: '50%',
-                  marginBottom: '12px',
-                  border: '1px solid #e4e4d9',
-                  ':hover': {
-                    background: '#E5E5EA',
-                  },
-                },
-              },
-            }}
-            onClick={() => {
-              navigate('/product/' + props.id);
-            }}
-            $size={Size.Mini}
-            $kind={Kind.Secondary}
-            data-action="view-product"
-            $startEnhancer={() => (
-              <IconSearchLarge width="20px" height="20px" />
-            )}
-          />
-        </div>
-        <div
-          class={css({
-            position: 'absolute',
-            right: '5px',
-            top: '14px',
             opacity:
-              cartProductData &&
-              cartProductData()?.id === props.id &&
-              cartProductData()?.numberOfItems !== 0
+              (cartProductData &&
+                cartProductData()?.id === props.id &&
+                cartProductData()?.numberOfItems !== 0) ||
+              isOpen()
                 ? 1
                 : 0,
             transitionTimingFunction: 'ease',
@@ -272,13 +208,24 @@ export function ProductTile(props: ProductProps) {
             $override={{
               Root: {
                 style: {
-                  // position: 'absolute',
                   opacity:
                     cartProductData &&
                     cartProductData()?.id === props.id &&
                     cartProductData()?.numberOfItems !== 0
                       ? 1
                       : 0,
+                  userSelect:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'element'
+                      : 'none',
+                  display:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'block'
+                      : 'none',
                   paddingLeft: '10px',
                   paddingRight: '10px',
                   paddingTop: '10px',
@@ -294,25 +241,6 @@ export function ProductTile(props: ProductProps) {
                   },
                 },
               },
-            }}
-            onClick={() => {
-              if (cartItem.some((el) => el.id === props.id)) {
-                const newState = cartItem.map((obj) => {
-                  if (obj.id === props.id) {
-                    return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-                  }
-                  return obj;
-                });
-                setCartItem(newState);
-              } else {
-                setCartItem([
-                  ...cartItem,
-                  {
-                    ...props,
-                    numberOfItems: 1,
-                  },
-                ]);
-              }
             }}
             $size={Size.Mini}
             $kind={Kind.Secondary}
@@ -340,6 +268,13 @@ export function ProductTile(props: ProductProps) {
             $override={{
               Root: {
                 style: {
+                  opacity:
+                    (cartProductData &&
+                      cartProductData()?.id === props.id &&
+                      cartProductData()?.numberOfItems !== 0) ||
+                    isOpen()
+                      ? 1
+                      : 0,
                   paddingLeft: '10px',
                   paddingRight: '10px',
                   paddingTop: '10px',
@@ -364,6 +299,40 @@ export function ProductTile(props: ProductProps) {
             $kind={Kind.Secondary}
             $startEnhancer={() => (
               <IconSearchLarge width="20px" height="20px" />
+            )}
+          />
+          <Button
+            $override={{
+              Root: {
+                style: {
+                  opacity:
+                    (cartProductData &&
+                      cartProductData()?.id === props.id &&
+                      cartProductData()?.numberOfItems !== 0) ||
+                    isOpen()
+                      ? 1
+                      : 0,
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
+                  borderTopRightRadius: '50%',
+                  borderTopLeftRadius: '50%',
+                  borderBottomLeftRadius: '50%',
+                  borderBottomRightRadius: '50%',
+                  marginBottom: '12px',
+                  border: '1px solid #e4e4d9',
+                  ':hover': {
+                    background: '#E5E5EA',
+                  },
+                },
+              },
+            }}
+            $size={Size.Mini}
+            data-action="ratings"
+            $kind={Kind.Secondary}
+            $startEnhancer={() => (
+              <IconHeartOLarge width="20px" height="20px" />
             )}
           />
         </div>
