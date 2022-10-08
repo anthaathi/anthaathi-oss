@@ -1,5 +1,48 @@
 {
   "featuredCollection": {
+    "recentItems": [{
+      "id": 1,
+      "name": "Fruit Platter Production",
+      "name_ar": "إنتاج طبق فواكه",
+      "key": "test5",
+      "categoryId": 1,
+      "category": "fruits",
+      "price": "40.0",
+      "currency": "AED",
+      "weight_unit": "Piece",
+      "packaging": "Pack",
+      "notes": "(10 pcs of Sticks)",
+      "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-02-17-at-16.47.25_360x.jpg?v=1653585638"
+    },
+    {
+      "id": 2,
+      "name": "Dabbas Dates",
+      "name_ar": "تمور دباس",
+      "key": "test6",
+      "categoryId": 1,
+      "category": "fruits",
+      "price": "105.0",
+      "currency": "AED",
+      "weight_unit": "KG",
+      "packaging": "Box",
+      "notes": "Approx 8kg per box.",
+      "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/8kg-dabbas-1kg_1800x1800.jpg?v=1653584833"
+    },
+    {
+      "id": 4,
+      "name": "Apricot",
+      "name_ar": "مشمش",
+      "categoryId": 3,
+      "category": "bulkbuy",
+      "key": "test8",
+      "price": "10.0",
+      "currency": "AED",
+      "weight_unit": "Pack",
+      "packaging": "Pack",
+      "notes": "approx 1kg to 1.15 kg per pack",
+      "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/products/WhatsApp-Image-2022-05-19-at-5.39.55-PM-removebg-preview_1800x1800.jpg?v=1653585843"
+    }
+  ],
     "collection1": [
       {
         "id": 1,

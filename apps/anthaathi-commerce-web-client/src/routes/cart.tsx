@@ -1,8 +1,9 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
-import { For } from 'solid-js';
-import { CartItems } from '~/Features/Cart/Components/CartItems';
+import { For, Show } from 'solid-js';
+import { cartItems, CartItems } from '~/Features/Cart/Components/CartItems';
+import { useNavigate } from '@solidjs/router';
 
 export default () => {
   return <CartPage />;
@@ -10,7 +11,9 @@ export default () => {
 
 function CartPage() {
   const [css, $theme] = useStyletron();
-
+  const [cartItem] = cartItems;
+  const navigate = useNavigate();
+  
   return (
     <div
       class={css({
@@ -37,38 +40,97 @@ function CartPage() {
       >
         Cart
       </div>
-      <div
-        class={css({
-          display: 'flex',
-          flexDirection: 'column',
-          [$theme.mediaQuery?.md || '']: {
-            flexDirection: 'row',
-          },
-        })}
+      <Show
+        when={cartItem.length > 0}
+        fallback={
+          <div
+            class={css({
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            })}
+          >
+            <div
+              class={css({
+                ...$theme.typography.HeadingMedium,
+                color: '#000',
+                paddingBottom: $theme.sizing.scale400,
+              })}
+            >
+              Your cart is empty
+            </div>
+
+            <div
+              class={css({
+                ...$theme.typography.ParagraphLarge,
+                color: '#000',
+                paddingBottom: $theme.sizing.scale400,
+                textAlign: 'center',
+              })}
+            >
+              Looks like you haven't added any items to the cart yet. Start
+              Shopping to fill it in.
+            </div>
+            <div
+              onclick={() => {
+                navigate('/');
+              }}
+              class={css({
+                marginTop: $theme.sizing.scale900,
+                [$theme.mediaQuery?.md || '']: {
+                  width: '240px',
+                },
+                width: '100%',
+                textAlign: 'center',
+                backgroundColor: '#118b44',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                color: '#fff',
+                fontWeight: 'bold',
+                fontSize: '18px',
+                borderRadius: '4px',
+                ':hover': { cursor: 'pointer' },
+              })}
+            >
+              Start Shopping
+            </div>
+          </div>
+        }
       >
         <div
           class={css({
-            flex: 6.5,
+            display: 'flex',
+            flexDirection: 'column',
             [$theme.mediaQuery?.md || '']: {
               flexDirection: 'row',
             },
           })}
         >
-          <CartItems />
+          <div
+            class={css({
+              flex: 6.5,
+              [$theme.mediaQuery?.md || '']: {
+                flexDirection: 'row',
+              },
+            })}
+          >
+            <CartItems />
+          </div>
+          <div
+            class={css({
+              flex: 0.5,
+            })}
+          />
+          <div
+            class={css({
+              flex: 3.5,
+            })}
+          >
+            <CartCheckOut />
+          </div>
         </div>
-        <div
-          class={css({
-            flex: 0.5,
-          })}
-        />
-        <div
-          class={css({
-            flex: 3.5,
-          })}
-        >
-          <CartCheckOut subTotal={'10 Dhr'} />
-        </div>
-      </div>
+      </Show>
     </div>
   );
 }

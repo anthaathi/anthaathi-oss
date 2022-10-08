@@ -75,7 +75,6 @@ export function Input(
               'input-border-top-color',
               cssVar('primary-color-b', '#EFEFEF'),
             ),
-            lineHeight: '34px',
             ':focus': {
               borderTopColor: cssVar(
                 'input-border-focus-top-color',
