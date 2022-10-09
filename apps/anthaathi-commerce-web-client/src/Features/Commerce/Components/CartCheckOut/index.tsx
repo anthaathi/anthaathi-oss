@@ -112,13 +112,13 @@ export function CartCheckOut(props: CartCheckOutProps) {
             paddingRight: '10px',
             paddingBottom: '10px',
             color: '#ffffff',
-            backgroundColor: '#272b42',
+            backgroundColor: '#108a43',
             lineHeight: '1.42',
             fontSize: '18px',
             fontWeight: 700,
             cursor: 'pointer',
             marginBottom: '20px',
-            border: '1px solid #000000',
+            border: '1px solid #108a43',
           })}
         >
           Checkout

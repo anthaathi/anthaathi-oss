@@ -6,14 +6,20 @@ import {
 } from '~/Features/Commerce/Components/ProductTile';
 import { Grid } from '~/Features/Core/Components/Grid';
 import productJson from '../../config/products';
-import { createMemo, For } from 'solid-js';
+import { createMemo, createSignal, For, Show } from 'solid-js';
 import { useLocation } from '@solidjs/router';
 import { SelectOption } from '~/Features/Core/Components/SelectOption';
 import RecentlyViewedItems from '~/Features/Commerce/Components/RecentlyViewedItems';
+import { Button, Kind, Size } from '~/Features/Core/Components/Button';
+import {
+  IconSlidersLarge,
+} from '@anthaathi/oracle-apex-solid-icons';
 
 export default function () {
   const [css, $theme] = useStyletron();
   const location = useLocation();
+  const [showFilter, setShowFilter] = createSignal(false);
+
   const productList = productJson.featuredCollection.products;
 
   const products = createMemo(() => {
@@ -28,6 +34,8 @@ export default function () {
       <div
         class={css({
           display: 'flex',
+          marginTop: $theme.sizing.scale500,
+          marginBottom: $theme.sizing.scale500,
         })}
       >
         <Breadcrumbs
@@ -35,6 +43,37 @@ export default function () {
             { key: '1', title: 'Home', link: '/' },
             { key: '2', title: 'Collections', link: '/collections' },
           ]}
+        />
+        <Button
+          $override={{
+            Root: {
+              style: {
+                [$theme.mediaQuery?.md || '']: {
+                  display: 'none',
+                },
+                display: 'block',
+                paddingLeft: '10px',
+                paddingRight: '10px',
+                paddingTop: '10px',
+                paddingBottom: '10px',
+                borderTopRightRadius: '4px',
+                borderTopLeftRadius: '4px',
+                borderBottomLeftRadius: '4px',
+                borderBottomRightRadius: '4px',
+                marginRight: $theme.sizing.scale500,
+                border: '1px solid #e4e4d9',
+                ':hover': {
+                  background: '#E5E5EA',
+                },
+              },
+            },
+          }}
+          onClick={() => {
+            setShowFilter(!showFilter());
+          }}
+          $size={Size.Mini}
+          $kind={Kind.Secondary}
+          $startEnhancer={() => <IconSlidersLarge width="20px" height="20px" />}
         />
       </div>
       <div
@@ -51,6 +90,10 @@ export default function () {
       >
         <div
           class={css({
+            [$theme.mediaQuery?.md || '']: {
+              display: 'block',
+            },
+            display: 'none',
             borderBottomLeftRadius: '4px',
             borderBottomRightRadius: '4px',
             borderTopRightRadius: '4px',
@@ -80,6 +123,13 @@ export default function () {
             items={productJson.featuredCollection.recentItems}
           />
         </div>
+        <SideBarFilter platform="web" />
+        <Show
+          when={showFilter()}
+          fallback={<></>}
+        >
+          <SideBarFilter platform="mobile" />
+        </Show>
         <div
           class={css({
             flex: 8,
@@ -122,6 +172,53 @@ export default function () {
     </>
   );
 }
+
+const SideBarFilter = (props: { platform: 'mobile' | 'web' }) => {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <div
+      class={css({
+        [$theme.mediaQuery?.md || '']: {
+          display: props.platform === 'web' ? 'block' : 'none',
+        },
+        display: props.platform === 'web' ? 'none' : 'block',
+      })}
+    >
+      <div
+        class={css({
+          borderBottomLeftRadius: '4px',
+          borderBottomRightRadius: '4px',
+          borderTopRightRadius: '4px',
+          borderTopLeftRadius: '4px',
+          border: '1px solid #e4e4d9',
+          maxHeight: '420px',
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
+          paddingTop: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale500,
+          [$theme.mediaQuery?.md || '']: {
+            marginLeft: 0,
+            marginRight: 0,
+          },
+          marginLeft: $theme.sizing.scale400,
+          marginRight: $theme.sizing.scale400,
+          flex: 3,
+          [$theme.mediaQuery?.lg || '']: {
+            flex: 2,
+          },
+          marginBottom: $theme.sizing.scale500,
+        })}
+      >
+        <SelectOption label="Select a category" options={categoryList} />
+        <RecentlyViewedItems
+          title="Recently Viewed Products"
+          items={productJson.featuredCollection.recentItems}
+        />
+      </div>
+    </div>
+  );
+};
 
 const categoryList = [
   {

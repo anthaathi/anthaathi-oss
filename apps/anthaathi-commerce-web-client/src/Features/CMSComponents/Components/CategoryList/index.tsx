@@ -14,7 +14,7 @@ export interface CategoryDetailsProps {
 }
 
 export interface CategoryListProps {
-  title: string;
+  title?: string;
   items: CategoryDetailsProps[];
   handlePress?: (key: string) => void;
 }
@@ -31,19 +31,21 @@ export function CategoryList(props: CategoryListProps) {
         paddingRight: $theme.sizing.scale500,
       })}
     >
-      <h5
-        class={css([
-          $theme.typography.HeadingMedium,
-          {
-            marginTop: $theme.sizing.scale600,
-            marginBottom: $theme.sizing.scale600,
-            fontWeight: 'bold',
-            color: '#000',
-          },
-        ])}
-      >
-        {props.title}
-      </h5>
+      {props.title && (
+        <h5
+          class={css([
+            $theme.typography.HeadingMedium,
+            {
+              marginTop: $theme.sizing.scale600,
+              marginBottom: $theme.sizing.scale600,
+              fontWeight: 'bold',
+              color: '#000',
+            },
+          ])}
+        >
+          {props.title}
+        </h5>
+      )}
       <Grid
         $override={{
           Root: {
@@ -53,7 +55,7 @@ export function CategoryList(props: CategoryListProps) {
             },
           },
         }}
-        columns={[1, 2, 3, 4, 5]}
+        columns={[2, 3, 4, 5, 6]}
       >
         <For each={props.items}>
           {(item) => <CategoryDetails item={item} />}
@@ -82,8 +84,13 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
             $style: {
               margin: '0px',
               objectFit: 'cover',
-              width: '100%',
-              height: '240px',
+              // [$theme.mediaQuery?.md || '']: {
+              width: '180px',
+              height: '180px',
+              // },
+              // width: '120px',
+              // height: '120px',
+              borderRadius: '50%',
               ':hover': {
                 animation: 'fade-in-show .4s',
                 transform: 'scale(1.03)',

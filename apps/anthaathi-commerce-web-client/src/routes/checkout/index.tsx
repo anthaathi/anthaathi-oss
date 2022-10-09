@@ -145,6 +145,9 @@ export default function Checkout() {
         <div
           class={css({
             marginTop: $theme.sizing.scale900,
+            [$theme.mediaQuery?.md || '']: {
+              width: '240px',
+            },
             width: '100%',
             textAlign: 'center',
             backgroundColor: '#118b44',

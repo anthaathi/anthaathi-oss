@@ -29,12 +29,12 @@ export function AccountOptionListItem(props: AccountOptionListItemProps) {
           fontWeight: 500,
           borderBottom:
             location.pathname === props.href
-              ? '3px solid green'
+              ? '3px solid #108842'
               : '3px solid transparent',
-          color: location.pathname === props.href ? 'green' : 'black',
+          color: location.pathname === props.href ? '#108842' : 'black',
           ':hover': {
-            borderBottom: '3px solid green',
-            color: 'green',
+            borderBottom: '3px solid #108842',
+            color: '#108842',
             // backgroundColor: '#EEE',
           },
           [$theme.mediaQuery?.sm || '']: {

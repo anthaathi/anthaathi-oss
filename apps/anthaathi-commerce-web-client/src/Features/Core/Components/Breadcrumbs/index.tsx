@@ -11,7 +11,7 @@ export interface BreadcrumbsProps {
 
 export interface BreadcrumbItem {
   key: string;
-  title: string;
+  title?: string;
   link: string;
 }
 
