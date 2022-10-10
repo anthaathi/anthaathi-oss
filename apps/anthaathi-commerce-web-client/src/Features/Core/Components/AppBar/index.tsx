@@ -41,7 +41,7 @@ export function AppBar() {
         class={css({
           display: 'flex',
           alignItems: 'center',
-          height: '64px',
+          height: '104px',
           padding: '0 12px',
           borderBottom: '1px solid #EEE',
         })}
@@ -63,11 +63,11 @@ export function AppBar() {
           >
             <Link href="/">
               <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180" //"https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
                 $override={{
                   Root: {
-                    $style: { height: '48px', width: 'auto' },
+                    $style: { height: '96px', width: 'auto' },
                   },
                 }}
               />
@@ -137,6 +137,13 @@ export function AppBar() {
 
               <Button
                 $as={Link}
+                $override={{
+                  Root: {
+                    style: {
+                      marginLeft: $theme.sizing.scale200,
+                    },
+                  },
+                }}
                 href="/account/profile"
                 $kind={Kind.Tertiary}
                 $startEnhancer={() => (
@@ -161,8 +168,8 @@ export function AppBar() {
                         display: cartItemLength() === 0 ? 'none' : 'block',
                         fontSize: '12px',
                         position: 'absolute',
-                        right: '38px',
-                        top: '-12px',
+                        right: '40px',
+                        top: true ? '26px' : '5px',
                         backgroundColor: '#118b44',
                         paddingLeft: '6px',
                         paddingRight: '6px',
