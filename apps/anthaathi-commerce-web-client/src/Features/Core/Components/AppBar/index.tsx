@@ -7,7 +7,14 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createMemo, createSignal, For } from 'solid-js';
+import {
+  createEffect,
+  createMemo,
+  createSignal,
+  For,
+  onCleanup,
+  onMount,
+} from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
@@ -26,6 +33,20 @@ export function AppBar() {
     return appData.items.length;
   }, [appData]);
 
+  const [haveBigPicture, setHaveBigPicture] = createSignal(false);
+
+  function onWindowScroll() {
+    setHaveBigPicture((window.pageYOffset || window.scrollY) < 200);
+  }
+
+  onMount(() => {
+    window.addEventListener('scroll', onWindowScroll);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener('scroll', onWindowScroll);
+  });
+
   return (
     <nav
       class={css({
@@ -41,9 +62,12 @@ export function AppBar() {
         class={css({
           display: 'flex',
           alignItems: 'center',
-          height: '104px',
+          height: haveBigPicture() ? '104px' : '64px',
           padding: '0 12px',
           borderBottom: '1px solid #EEE',
+          transitionDuration: '100ms',
+          transitionProperty: 'height',
+          transitionTimingFunction: 'ease',
         })}
       >
         <div
@@ -63,11 +87,17 @@ export function AppBar() {
           >
             <Link href="/">
               <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180" //"https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180"
                 alt=""
                 $override={{
                   Root: {
-                    $style: { height: '96px', width: 'auto' },
+                    $style: {
+                      transitionDuration: '100ms',
+                      transitionProperty: 'height',
+                      transitionTimingFunction: 'ease',
+                      height: haveBigPicture() ? '96px' : '48px',
+                      width: 'auto',
+                    },
                   },
                 }}
               />
