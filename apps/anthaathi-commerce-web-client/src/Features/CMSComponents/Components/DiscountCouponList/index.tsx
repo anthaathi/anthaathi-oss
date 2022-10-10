@@ -47,12 +47,23 @@ export function DiscountCouponList(props: DiscountCouponListProps) {
       />
       <DiscountCoupon
         imgSrc="https://mma.prnewswire.com/media/1699082/Simpl_Logo.jpg?w=200"
-        title="Get up to 10 AED Paytm cashback using Paytm Wallet"
-        subtitle="Valid on total value of items worth 100 AED or more."
-        highlightedSubtitle="You will get up to 10 AED Paytm cashback with this code"
-        couponCode="C O U P O N"
+        title="Get 5% cashback on transactions above 500 AED"
+        subtitle="Valid on total value of items worth 500 AED or more."
+        highlightedSubtitle="You will get flat 5% discount on total price"
+        couponCode="S I M P L"
         onApplyClick={() => {
           props.dialog.setSelectedCoupon('C O U P O N');
+          props.dialog.setOpen(false);
+        }}
+      />
+      <DiscountCoupon
+        imgSrc="https://assets.stickpng.com/images/580b57fcd9996e24bc43c530.png"
+        title="Get up to 10% cashback using PayPal Wallet"
+        subtitle="Valid on total value of items worth 100 AED or more."
+        highlightedSubtitle="You will get up to 10 AED PayPal cashback with this code"
+        couponCode="P A L"
+        onApplyClick={() => {
+          props.dialog.setSelectedCoupon('N E W M E M B E R');
           props.dialog.setOpen(false);
         }}
       />
