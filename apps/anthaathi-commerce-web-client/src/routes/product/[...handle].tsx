@@ -8,10 +8,10 @@ import { cartItems } from '~/Features/Cart/Components/CartItems';
 import { RouteDataArgs } from 'solid-start';
 import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
 
-export const routeData = ({ location, params }: RouteDataArgs) => {
+export const routeData = ({ params }: RouteDataArgs) => {
   const handle = () =>
     productJson.featuredCollection.products.find(
-      (res: ProductProps) => res.id === +params.handle,
+      (res) => res.id === +params.handle,
     );
 
   return { product: handle };
@@ -29,7 +29,11 @@ export default function ProductPage() {
         list={[
           { key: '1', title: 'Home', link: '/' },
           { key: '2', title: 'Collections', link: '/collections' },
-          { key: '3', title: 'Product', link: '/' },
+          {
+            key: '3',
+            title: product()?.name,
+            link: '/',
+          },
         ]}
       />
       <FeaturedProduct
@@ -72,9 +76,9 @@ export default function ProductPage() {
           navigate('/cart');
         }}
         handleAddProduct={() => {
-          if (cartItem.some((el) => el.id === product().id)) {
+          if (cartItem.some((el) => el.id === product()?.id)) {
             const newState = cartItem.map((obj) => {
-              if (obj.id === product().id) {
+              if (obj.id === product()?.id) {
                 return { ...obj, numberOfItems: obj.numberOfItems + 1 };
               }
               return obj;
@@ -91,9 +95,9 @@ export default function ProductPage() {
           }
         }}
         handleRemoveProduct={() => {
-          if (cartItem.some((el) => el.id === product().id)) {
+          if (cartItem.some((el) => el.id === product()?.id)) {
             const newState = cartItem.map((obj) => {
-              if (obj.id === product().id && obj.numberOfItems !== 0) {
+              if (obj.id === product()?.id && obj.numberOfItems !== 0) {
                 return { ...obj, numberOfItems: obj.numberOfItems - 1 };
               }
               return obj;

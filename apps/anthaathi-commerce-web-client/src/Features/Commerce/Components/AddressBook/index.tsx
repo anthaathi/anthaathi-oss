@@ -1,7 +1,8 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
+import { Link } from '@solidjs/router';
 import { For } from 'solid-js';
-import { Button } from 'solid-headless';
 import { AddressCard } from '~/Features/Commerce/Components/AddressCard';
+import { Button } from '~/Features/Core/Components/Button';
 
 export interface AddressBookProps {
   defaultAddress: AddressBookItemProps;
@@ -51,6 +52,8 @@ export function AddressBook(props: AddressBookProps) {
         })}
       >
         <Button
+          $as={Link}
+          href="/account/profile/add-edit-address"
           class={css({
             padding: $theme.sizing.scale500,
             border: 'none',

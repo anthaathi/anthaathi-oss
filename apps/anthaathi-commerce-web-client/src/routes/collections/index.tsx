@@ -11,7 +11,7 @@ export default function CategoryListPage() {
         ]}
       />
       <CategoryList
-        title="Category"
+        // title="Category"
         items={[
           {
             id: 1,
