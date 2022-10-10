@@ -7,9 +7,17 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For } from 'solid-js';
+import {
+  createEffect,
+  createMemo,
+  createSignal,
+  For,
+  onCleanup,
+  onMount,
+} from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
+import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -17,8 +25,27 @@ export function AppBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
   const [isOpen, _setIsOpen] = createSignal(true, {});
+  const [appData] = appStore;
 
   let categoryHTML: HTMLDivElement;
+
+  const cartItemLength = createMemo(() => {
+    return appData.items.length;
+  }, [appData]);
+
+  const [haveBigPicture, setHaveBigPicture] = createSignal(false);
+
+  function onWindowScroll() {
+    setHaveBigPicture((window.pageYOffset || window.scrollY) < 200);
+  }
+
+  onMount(() => {
+    window.addEventListener('scroll', onWindowScroll);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener('scroll', onWindowScroll);
+  });
 
   return (
     <nav
@@ -35,9 +62,12 @@ export function AppBar() {
         class={css({
           display: 'flex',
           alignItems: 'center',
-          height: '64px',
+          height: haveBigPicture() ? '104px' : '64px',
           padding: '0 12px',
           borderBottom: '1px solid #EEE',
+          transitionDuration: '100ms',
+          transitionProperty: 'height',
+          transitionTimingFunction: 'ease',
         })}
       >
         <div
@@ -55,10 +85,33 @@ export function AppBar() {
               position: 'relative',
             })}
           >
+            <Link href="/">
+              <Img
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180"
+                alt=""
+                $override={{
+                  Root: {
+                    $style: {
+                      transitionDuration: '100ms',
+                      transitionProperty: 'height',
+                      transitionTimingFunction: 'ease',
+                      height: haveBigPicture() ? '96px' : '48px',
+                      width: 'auto',
+                    },
+                  },
+                }}
+              />
+            </Link>
+
+            <span class={css({ flexGrow: 1 })} />
+
             <div
               class={css({
                 position: 'absolute',
-                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                alignItems: 'center',
                 display: 'none',
                 [$theme.mediaQuery?.md || '']: {
                   display: 'flex',
@@ -110,37 +163,17 @@ export function AppBar() {
                 </TransitionChild>
               </Transition>
               <Searchbar />
-            </div>
+              <span class={css({ flexGrow: 1 })} />
 
-            <span class={css({ flexGrow: 1 })} />
-
-            <Link href="/">
-              <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
-                alt=""
-                $override={{
-                  Root: {
-                    $style: { height: '38px', width: 'auto' },
-                  },
-                }}
-              />
-            </Link>
-
-            <span class={css({ flexGrow: 1 })} />
-
-            <div
-              class={css({
-                position: 'absolute',
-                right: 0,
-                alignItems: 'center',
-                display: 'none',
-                [$theme.mediaQuery?.md || '']: {
-                  display: 'flex',
-                },
-              })}
-            >
               <Button
                 $as={Link}
+                $override={{
+                  Root: {
+                    style: {
+                      marginLeft: $theme.sizing.scale200,
+                    },
+                  },
+                }}
                 href="/account/profile"
                 $kind={Kind.Tertiary}
                 $startEnhancer={() => (
@@ -154,11 +187,34 @@ export function AppBar() {
                 $kind={Kind.Tertiary}
                 href="/cart"
                 $startEnhancer={() => (
-                  <IconShoppingCartLarge
-                    height="18px"
-                    width="18px"
-                    class={css({})}
-                  />
+                  <>
+                    <IconShoppingCartLarge
+                      height="18px"
+                      width="18px"
+                      class={css({})}
+                    />
+                    <p
+                      class={css({
+                        display: cartItemLength() === 0 ? 'none' : 'block',
+                        fontSize: '12px',
+                        position: 'absolute',
+                        right: '40px',
+                        top: true ? '26px' : '5px',
+                        backgroundColor: '#118b44',
+                        paddingLeft: '6px',
+                        paddingRight: '6px',
+                        paddingTop: '1px',
+                        paddingBottom: '1px',
+                        borderTopRightRadius: '40%',
+                        borderTopLeftRadius: '40%',
+                        borderBottomLeftRadius: '40%',
+                        borderBottomRightRadius: '40%',
+                        color: '#fff',
+                      })}
+                    >
+                      {cartItemLength()}
+                    </p>
+                  </>
                 )}
               >
                 Cart
@@ -205,20 +261,6 @@ export function AppBar() {
           </div>
         </div>
       </header>
-
-      <div
-        class={css({
-          padding: $theme.sizing.scale500,
-          [$theme.mediaQuery?.md || '']: {
-            display: 'none',
-          },
-          margin: '0 auto',
-          maxWidth: '520px',
-        })}
-        data-type="app-bar-search"
-      >
-        <Searchbar />
-      </div>
 
       <div
         class={css({

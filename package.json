@@ -6,6 +6,7 @@
   "workspaces": [
     "apps/anthaathi-commerce-mobile-client",
     "apps/anthaathi-commerce-web-client",
+    "apps/anthaathi-commerce-engine",
     "apps/anthaathi-crm-web-client",
     "tools/node-tooling",
     "docs",

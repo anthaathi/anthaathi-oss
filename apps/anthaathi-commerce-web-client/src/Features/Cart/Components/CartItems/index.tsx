@@ -1,40 +1,22 @@
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { For, Show } from 'solid-js';
 import { createStore, produce } from 'solid-js/store';
+import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
+export interface ItemProps extends ProductProps {
+  numberOfItems: number;
+}
 
-const CartItemsData = [
-  {
-    id: 1,
-    name: 'Baby Yellow Pepper',
-    image:
-      'https://burst.shopifycdn.com/photos/fruit-plate.jpg?width=373&height=373&format=pjpg&exif=1&iptc=1',
-    key: '12',
-    price: 12,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
-  },
-  {
-    id: 2,
-    name: 'Capsicum mixed',
-    image:
-      'https://burst.shopifycdn.com/photos/red-and-green-gooseberries-against-white.jpg?width=373&format=pjpg&exif=1&iptc=1',
-    key: '23',
-    price: 23,
-    numberOfItems: 2,
-    currency: 'AED',
-    weight_unit: 'KG',
-    packaging: '500 gms',
-  },
-];
+export const cartItems = createStore<ItemProps[]>([]);
 
-export const cartItems = createStore(CartItemsData);
+export const appStore = createStore({ items: [] });
 
 export function CartItems() {
+  const [cartItem, setCartItem] = cartItems;
+  const [appData, setAppData] = appStore;
+
   return (
-    <For each={cartItems[0]}>
-      {(item, index) => {
+    <For each={cartItem}>
+      {(item) => {
         return (
           <Show
             when={item.numberOfItems >= 0}
@@ -44,13 +26,64 @@ export function CartItems() {
             <CartItem
               numberOfItems={item.numberOfItems}
               product={item}
-              onChange={(qty) => {
-                cartItems[1](
-                  produce((prev) => {
-                    prev.at(index())!!.numberOfItems = qty;
-                    return prev;
-                  }),
+              handleAddProduct={() => {
+                if (cartItem.some((el) => el.id === item.id)) {
+                  const newState = cartItem.map((obj) => {
+                    if (obj.id === item.id) {
+                      return { ...obj, numberOfItems: obj.numberOfItems + 1 };
+                    }
+                    return obj;
+                  });
+                  setCartItem(newState);
+                } else {
+                  setCartItem([
+                    ...cartItem,
+                    {
+                      ...item,
+                      numberOfItems: 1,
+                    },
+                  ]);
+                  setAppData({
+                    ...appData,
+                    items: [
+                      ...appData.items,
+                      {
+                        id: item.id,
+                        quantity: appData.items.length + 1,
+                      } as never,
+                    ],
+                  });
+                }
+              }}
+              handleRemoveProduct={() => {
+                const cartProduct: ItemProps | undefined = cartItem.find(
+                  (res: ProductProps) => res.id === item.id,
                 );
+                if (cartProduct) {
+                  if (cartProduct.numberOfItems > 1) {
+                    const newState = cartItem.map((obj) => {
+                      if (obj.id === item.id && obj.numberOfItems !== 0) {
+                        return { ...obj, numberOfItems: obj.numberOfItems - 1 };
+                      }
+                      return obj;
+                    });
+                    setCartItem(newState);
+                  } else {
+                    setCartItem((current) =>
+                      current.filter((obj) => {
+                        return obj.id !== item.id;
+                      }),
+                    );
+                    setAppData({
+                      ...appData,
+                      items: appData.items.filter(
+                        (obj: { id: number; quantity: number }) => {
+                          return obj.id !== item.id;
+                        },
+                      ),
+                    });
+                  }
+                }
               }}
             />
           </Show>

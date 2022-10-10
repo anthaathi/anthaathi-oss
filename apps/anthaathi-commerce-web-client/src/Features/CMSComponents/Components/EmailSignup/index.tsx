@@ -54,11 +54,13 @@ export function EmailSignup() {
         action=""
         class={css({
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
           paddingTop: $theme.sizing.scale1000,
           paddingBottom: $theme.sizing.scale1000,
           maxWidth: '420px',
-          width: '100%',
+          width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
           margin: '0 auto',
         })}
       >
@@ -68,24 +70,25 @@ export function EmailSignup() {
           $overrides={{
             Root: {
               style: {
-                height: '54px',
-                [$theme.mediaQuery?.md || '']: {
-                  '--input-border-bottom-right-radius': '0',
-                  '--input-border-top-right-radius': '0',
-                },
+                '--input-border-bottom-right-radius': '0',
+                '--input-border-top-right-radius': '0',
+                flexGrow: 1,
+              },
+            },
+            Input: {
+              style: {
+                height: 'calc(100% - 4px)',
+                lineHeight: '42px',
               },
             },
           }}
         />
         <Button
-          $size={Size.Large}
           $override={{
             Root: {
               style: {
-                [$theme.mediaQuery?.md || '']: {
-                  borderBottomLeftRadius: '0',
-                  borderTopLeftRadius: '0',
-                },
+                borderBottomLeftRadius: '0',
+                borderTopLeftRadius: '0',
               },
             },
           }}

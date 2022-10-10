@@ -1,13 +1,19 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
 import {
-  IconPlusLarge,
+  IconHeartOLarge,
+  IconMinusSmall,
   IconSearchLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
-import { createSignal } from 'solid-js';
-import { Link, useNavigate } from '@solidjs/router';
+import { createMemo, createSignal } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
-import { Button as S_Button } from 'solid-headless';
+import {
+  appStore,
+  cartItems,
+  ItemProps,
+} from '~/Features/Cart/Components/CartItems';
+import debounce from 'lodash.debounce';
 
 export interface ProductProps {
   id: number;
@@ -15,7 +21,7 @@ export interface ProductProps {
   name_ar?: string;
   description?: string;
   category?: string;
-  price: number;
+  price: string;
   currency: string;
   image: string;
   weight_unit?: string;
@@ -28,31 +34,125 @@ export function ProductTile(props: ProductProps) {
   const [css, $theme] = useStyletron();
   const [isOpen, setIsOpen] = createSignal(false);
   const navigate = useNavigate();
+  const [cartItem, setCartItem] = cartItems;
+  const [appData, setAppData] = appStore;
+
+  const cartProductData = createMemo(() => {
+    if (cartItem.some((el) => el.id === props.id)) {
+      return cartItem.find((el) => el.id === props.id);
+    }
+  }, [cartItem, props.id]);
+
+  function getReduceQuantity() {
+    return debounce(() => {
+      const cartProduct: ItemProps | undefined = cartItem.find(
+        (res: ProductProps) => res.id === props.id,
+      );
+      if (cartProduct) {
+        if (cartProduct.numberOfItems > 1) {
+          const newState = cartItem.map((obj) => {
+            if (obj.id === props.id && obj.numberOfItems !== 0) {
+              return { ...obj, numberOfItems: obj.numberOfItems - 1 };
+            }
+            return obj;
+          });
+          setCartItem(newState);
+        } else {
+          setCartItem((current) =>
+            current.filter((obj) => {
+              return obj.id !== props.id;
+            }),
+          );
+          setAppData({
+            ...appData,
+            items: appData.items.filter((obj: { id: number; quantity: number }) => {
+              return obj.id !== props.id;
+            }),
+          });
+        }
+      }
+    }, 200);
+  }
+
+  function getOnIncreaseQuantity() {
+    return debounce((e: Event) => {
+      const datasetElement = (e.target as HTMLDivElement).closest('button')
+        ?.dataset['action'];
+      switch (datasetElement) {
+        case 'view-product':
+          navigate('/product/' + props.id);
+          return;
+        case 'reduce-quantity':
+          return;
+        case 'ratings':
+          return;
+        case '':
+          return;
+      }
+
+      if (cartItem.some((el) => el.id === props.id)) {
+        const newState = cartItem.map((obj) => {
+          if (obj.id === props.id) {
+            return { ...obj, numberOfItems: obj.numberOfItems + 1 };
+          }
+          return obj;
+        });
+        setCartItem(newState);
+      } else {
+        setCartItem([
+          ...cartItem,
+          {
+            ...props,
+            numberOfItems: 1,
+          },
+        ]);
+        setAppData({
+          ...appData,
+          items: [
+            ...appData.items,
+            {
+              id: props.id,
+              quantity: appData.items.length + 1,
+            } as never,
+          ],
+        });
+      }
+    }, 100);
+  }
+
+  const onIncreaseQuantity = getOnIncreaseQuantity();
 
   return (
     <div
-      onClick={() => {
-        navigate('/product/' + props.id);
-      }}
+      onClick={onIncreaseQuantity}
       class={css({
         textDecoration: 'none',
         color: '#000',
-        backgroundColor: '#f8f8f8',
-        borderBottomLeftRadius: '12px',
-        borderBottomRightRadius: '12px',
-        borderTopRightRadius: '12px',
-        borderTopLeftRadius: '12px',
+        backgroundColor: '#fff',
+        borderBottomLeftRadius: '10px',
+        borderBottomRightRadius: '10px',
+        borderTopRightRadius: '10px',
+        borderTopLeftRadius: '10px',
+        userSelect: 'none',
+        border: '1px solid #e4e4d9',
+        ':hover': {
+          boxShadow:
+            '0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16)',
+        },
       })}
+      onTouchEnd={onIncreaseQuantity}
     >
       <div
         class={css({
           width: 'auto',
           position: 'relative',
+          height: `calc(100% - ${$theme.sizing.scale600})`,
           cursor: 'pointer',
           paddingLeft: $theme.sizing.scale600,
           paddingRight: $theme.sizing.scale600,
           paddingTop: $theme.sizing.scale600,
           [$theme.mediaQuery?.md || '']: {
+            height: `calc(100% - ${$theme.sizing.scale800})`,
             paddingLeft: $theme.sizing.scale800,
             paddingRight: $theme.sizing.scale800,
             paddingTop: $theme.sizing.scale800,
@@ -64,38 +164,175 @@ export function ProductTile(props: ProductProps) {
         <div
           class={css({
             position: 'absolute',
-            right: '-20px',
+            left: '5px',
             top: '14px',
-            opacity: isOpen() ? 1 : 0,
+            opacity:
+              (cartProductData &&
+                cartProductData()?.id === props.id &&
+                cartProductData()?.numberOfItems !== 0) ||
+              isOpen()
+                ? 1
+                : 0,
             transitionTimingFunction: 'ease',
             transitionDuration: '100ms',
             transitionProperty: 'opacity',
             zIndex: 1,
-            display: 'none',
-            [$theme.mediaQuery?.md || '']: {
-              display: 'block',
-            },
+            display: 'block',
           })}
         >
           <Button
             $override={{
               Root: {
                 style: {
-                  paddingLeft: '12px',
-                  paddingRight: '12px',
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
+                  position: 'absolute',
+                  opacity:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 1
+                      : 0,
+                  userSelect:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'element'
+                      : 'none',
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
                   borderTopRightRadius: '50%',
                   borderTopLeftRadius: '50%',
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
                   marginBottom: '12px',
+                  border: '1px solid #ea3323',
+                  background: '#ea3323',
+                  ':hover': {
+                    background: '#ea3323',
+                  },
                 },
               },
             }}
-            onClick={(e) => {
-              e.preventDefault();
+            data-action="reduce-quantity"
+            onClick={getReduceQuantity()}
+            $size={Size.Mini}
+            $kind={Kind.Secondary}
+            $startEnhancer={() => (
+              <IconMinusSmall width="20px" height="20px" fill="#fff" />
+            )}
+          />
+        </div>
+        <div
+          class={css({
+            position: 'absolute',
+            right: '5px',
+            top: '14px',
+            opacity:
+              (cartProductData &&
+                cartProductData()?.id === props.id &&
+                cartProductData()?.numberOfItems !== 0) ||
+              isOpen()
+                ? 1
+                : 0,
+            transitionTimingFunction: 'ease',
+            transitionDuration: '100ms',
+            transitionProperty: 'opacity',
+            zIndex: 1,
+            display: 'block',
+          })}
+        >
+          <Button
+            $override={{
+              Root: {
+                style: {
+                  opacity:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 1
+                      : 0,
+                  userSelect:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'element'
+                      : 'none',
+                  display:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'block'
+                      : 'none',
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
+                  borderTopRightRadius: '50%',
+                  borderTopLeftRadius: '50%',
+                  borderBottomLeftRadius: '50%',
+                  borderBottomRightRadius: '50%',
+                  marginBottom: '12px',
+                  background: '#108943',
+                  ':hover': {
+                    background: '#108943',
+                  },
+                },
+              },
             }}
+            $size={Size.Mini}
+            $kind={Kind.Secondary}
+            $startEnhancer={() => (
+              <div
+                class={css([
+                  $theme.typography.LabelLarge,
+                  {
+                    marginTop: 0,
+                    marginBottom: 0,
+                    color: '#fff',
+                    height: '20px',
+                    width: '20px',
+                    alignItems: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  },
+                ])}
+              >
+                {cartProductData()?.numberOfItems}
+              </div>
+            )}
+          />
+          <Button
+            $override={{
+              Root: {
+                style: {
+                  opacity:
+                    (cartProductData &&
+                      cartProductData()?.id === props.id &&
+                      cartProductData()?.numberOfItems !== 0) ||
+                    isOpen()
+                      ? 1
+                      : 0,
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
+                  borderTopRightRadius: '50%',
+                  borderTopLeftRadius: '50%',
+                  borderBottomLeftRadius: '50%',
+                  borderBottomRightRadius: '50%',
+                  marginBottom: '12px',
+                  border: '1px solid #e4e4d9',
+                  ':hover': {
+                    background: '#E5E5EA',
+                  },
+                },
+              },
+            }}
+            onClick={() => {
+              navigate('/product/' + props.id);
+            }}
+            data-action="view-product"
             $size={Size.Mini}
             $kind={Kind.Secondary}
             $startEnhancer={() => (
@@ -106,36 +343,45 @@ export function ProductTile(props: ProductProps) {
             $override={{
               Root: {
                 style: {
-                  paddingLeft: '12px',
-                  paddingRight: '12px',
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
+                  opacity:
+                    (cartProductData &&
+                      cartProductData()?.id === props.id &&
+                      cartProductData()?.numberOfItems !== 0) ||
+                    isOpen()
+                      ? 1
+                      : 0,
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  paddingTop: '10px',
+                  paddingBottom: '10px',
                   borderTopRightRadius: '50%',
                   borderTopLeftRadius: '50%',
                   borderBottomLeftRadius: '50%',
                   borderBottomRightRadius: '50%',
+                  marginBottom: '12px',
+                  border: '1px solid #e4e4d9',
+                  ':hover': {
+                    background: '#E5E5EA',
+                  },
                 },
               },
             }}
-            onClick={(e) => {
-              e.preventDefault();
-            }}
             $size={Size.Mini}
+            data-action="ratings"
             $kind={Kind.Secondary}
-            $startEnhancer={() => <IconPlusLarge width="20px" height="20px" />}
+            $startEnhancer={() => (
+              <IconHeartOLarge width="20px" height="20px" />
+            )}
           />
         </div>
 
         <div
           class={css({
             width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
           })}
         >
           <Img
             src={props.image}
-            // srcSet="//cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_360x.jpg?v=1653582153 360w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_540x.jpg?v=1653582153 540w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_720x.jpg?v=1653582153 720w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_900x.jpg?v=1653582153 900w, //cdn.shopify.com/s/files/1/0648/1303/9842/products/Capsicum_Mixed_-_3_Color-1_1080x.jpg?v=1653582153 1080w"
             alt=""
             $override={{
               Root: {
@@ -152,10 +398,9 @@ export function ProductTile(props: ProductProps) {
               },
             }}
           />
-
           <h4
             class={css([
-              $theme.typography.ParagraphLarge,
+              $theme.typography.HeadingXSmall,
               {
                 marginBottom: $theme.sizing.scale200,
                 marginTop: $theme.sizing.scale800,
@@ -164,6 +409,19 @@ export function ProductTile(props: ProductProps) {
           >
             {props.name}
           </h4>
+
+          <h5
+            class={css([
+              $theme.typography.ParagraphSmall,
+              {
+                marginTop: $theme.sizing.scale100,
+                marginBottom: 0,
+                color: '#858585',
+              },
+            ])}
+          >
+            {props.notes}
+          </h5>
 
           <h5
             class={css([
@@ -178,7 +436,9 @@ export function ProductTile(props: ProductProps) {
             {Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: props.currency,
-            }).format(props.price)}
+            }).format(props.price) +
+              ' / ' +
+              props.packaging}
           </h5>
         </div>
       </div>

@@ -38,7 +38,7 @@ export enum Size {
 }
 
 export function Dialog(props: DialogProps) {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
 
   function closeModal() {
@@ -62,6 +62,7 @@ export function Dialog(props: DialogProps) {
             bottom: 0,
             zIndex: 10,
             overflowY: 'auto',
+            backgroundColor: 'rgba(66, 66, 66, 0.16)',
           })}
           onClose={() => closeModal()}
         >
@@ -179,7 +180,7 @@ export function Dialog(props: DialogProps) {
                       'dialog-border-bottom-right-radius',
                       '6px',
                     ),
-                    maxWidth: '80vw',
+                    maxWidth: '100vw',
                     position: 'relative',
                   },
                   props.$size === Size.Mini
@@ -200,8 +201,6 @@ export function Dialog(props: DialogProps) {
                     Root: {
                       style: {
                         position: 'absolute',
-                        right: '-20px',
-                        top: '-20px',
                         borderTopRightRadius: '50%',
                         borderTopLeftRadius: '50%',
                         borderBottomRightRadius: '50%',
@@ -210,6 +209,12 @@ export function Dialog(props: DialogProps) {
                         paddingRight: '12px',
                         paddingBottom: '12px',
                         paddingTop: '12px',
+                        right: '10px',
+                        top: '10px',
+                        [$theme.mediaQuery?.md || '']: {
+                          right: '-20px',
+                          top: '-20px',
+                        },
                       },
                     },
                   }}

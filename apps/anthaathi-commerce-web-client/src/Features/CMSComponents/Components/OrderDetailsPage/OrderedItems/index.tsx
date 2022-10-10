@@ -28,8 +28,6 @@ function OrderedItems(props: OrderedItemProps) {
     <div
       class={css({
         margin: '0 auto',
-        marginTop: $theme.sizing.scale800,
-        marginBottom: $theme.sizing.scale800,
       })}
     >
       <For each={props.items}>{(item) => <ItemRenderer item={item} />}</For>

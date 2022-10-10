@@ -1,6 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Link } from '@solidjs/router';
-import { AddressBookItemProps } from '~/routes/pages/Account';
+import { AddressBookItemProps } from '../AddressBook';
 
 export function AddressCard(props: AddressBookItemProps) {
   const [css, $theme] = useStyletron();
@@ -29,10 +29,11 @@ export function AddressCard(props: AddressBookItemProps) {
           {props.title}
         </div>
         <Link
-          href={'/'}
+          href={'/account/profile/add-edit-address'}
           class={css({
-            fontSize: $theme.typography.font150.fontSize,
+            fontSize: $theme.typography.font350.fontSize,
             alignSelf: 'center',
+            color: '#008d3e',
           })}
         >
           Edit

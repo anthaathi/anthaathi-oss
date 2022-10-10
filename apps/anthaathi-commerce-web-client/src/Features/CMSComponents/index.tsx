@@ -4,7 +4,10 @@ import { SplitSlides } from '~/Features/CMSComponents/Components/SplitSlides';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { addServerTiming } from '~/utils/add-server-timing';
 import { isServer } from 'solid-js/web';
-import { PromoGrid } from '~/Features/CMSComponents/Components/PromoGrid';
+import {
+  PromoGrid,
+  Shape,
+} from '~/Features/CMSComponents/Components/PromoGrid';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
@@ -25,7 +28,7 @@ export function RenderCMSComponents() {
   const App = () => [
     <NewsLetter />,
     <SplitSlides />,
-    <PromoGrid />,
+    <PromoGrid shape={Shape.Circle} />,
     <ImageAndText />,
     <FeaturedCollection
       title="In Season"

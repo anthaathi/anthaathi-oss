@@ -14,7 +14,7 @@ export interface CategoryDetailsProps {
 }
 
 export interface CategoryListProps {
-  title: string;
+  title?: string;
   items: CategoryDetailsProps[];
   handlePress?: (key: string) => void;
 }
@@ -22,28 +22,22 @@ export interface CategoryListProps {
 export function CategoryList(props: CategoryListProps) {
   const [css, $theme] = useStyletron();
   return (
-    <div
-      class={css({
-        margin: '0 auto',
-        width: $theme.sizing.maxWidth,
-        maxWidth: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
-        paddingLeft: $theme.sizing.scale500,
-        paddingRight: $theme.sizing.scale500,
-      })}
-    >
-      <h5
-        class={css([
-          $theme.typography.HeadingMedium,
-          {
-            marginTop: $theme.sizing.scale600,
-            marginBottom: $theme.sizing.scale600,
-            fontWeight: 'bold',
-            color: '#000',
-          },
-        ])}
-      >
-        {props.title}
-      </h5>
+    <div>
+      {props.title && (
+        <h5
+          class={css([
+            $theme.typography.HeadingMedium,
+            {
+              marginTop: $theme.sizing.scale600,
+              marginBottom: $theme.sizing.scale600,
+              fontWeight: 'bold',
+              color: '#000',
+            },
+          ])}
+        >
+          {props.title}
+        </h5>
+      )}
       <Grid
         $override={{
           Root: {
@@ -53,7 +47,7 @@ export function CategoryList(props: CategoryListProps) {
             },
           },
         }}
-        columns={[1, 2, 3, 4, 5]}
+        columns={[2, 3, 4, 5, 6]}
       >
         <For each={props.items}>
           {(item) => <CategoryDetails item={item} />}
@@ -82,10 +76,16 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
             $style: {
               margin: '0px',
               objectFit: 'cover',
-              width: '100%',
-              height: '240px',
+              // [$theme.mediaQuery?.md || '']: {
+              width: '180px',
+              height: '180px',
+              // },
+              // width: '120px',
+              // height: '120px',
+              borderRadius: '50%',
               ':hover': {
-                transition: 'opacity 300ms ease-in',
+                animation: 'fade-in-show .4s',
+                transform: 'scale(1.03)',
               },
             },
           },

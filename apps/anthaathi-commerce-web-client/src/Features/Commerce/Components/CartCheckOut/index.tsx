@@ -6,8 +6,8 @@ import { createEffect, createSignal, Show } from 'solid-js';
 import { cartItems } from '~/Features/Cart/Components/CartItems';
 
 export interface CartCheckOutProps {
-  subTotal: string;
-  minimal: boolean;
+  subTotal?: string;
+  minimal?: boolean;
 }
 
 export function CartCheckOut(props: CartCheckOutProps) {
@@ -41,10 +41,34 @@ export function CartCheckOut(props: CartCheckOutProps) {
         </div>
       </Show>
       <div class={css({ marginBottom: props.minimal ? '0' : '20px' })}>
-        <CheckOutInfo name="Subtotal" value="Dhs. 10.52" />
-        <CheckOutInfo name="Tax (5% VAT)" value="Dhs. 0.52" />
-        <CheckOutInfo name="Discount" value="Dhs. 0.0" />
-        <CheckOutInfo name="Shipping Charges" value="Dhs. 0.0" />
+        <CheckOutInfo
+          name="Subtotal"
+          value={Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'AED',
+          }).format(total())}
+        />
+        <CheckOutInfo
+          name="Tax (5% VAT)"
+          value={Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'AED',
+          }).format(total() * 0.05)}
+        />
+        <CheckOutInfo
+          name="Discount"
+          value={Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'AED',
+          }).format(0)}
+        />
+        <CheckOutInfo
+          name="Shipping Charges"
+          value={Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'AED',
+          }).format(0)}
+        />
         <div
           class={css({
             display: 'flex',
@@ -71,7 +95,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
             {Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'AED',
-            }).format(total())}
+            }).format(total() + total() * 0.05)}
           </div>
         </div>
       </div>
@@ -88,13 +112,13 @@ export function CartCheckOut(props: CartCheckOutProps) {
             paddingRight: '10px',
             paddingBottom: '10px',
             color: '#ffffff',
-            backgroundColor: '#272b42',
+            backgroundColor: '#108a43',
             lineHeight: '1.42',
             fontSize: '18px',
             fontWeight: 700,
             cursor: 'pointer',
             marginBottom: '20px',
-            border: '1px solid #000000',
+            border: '1px solid #108a43',
           })}
         >
           Checkout

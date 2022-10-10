@@ -1,0 +1,19 @@
+{
+  "name": "anthaathi-commerce-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "CONFIG_PATH=.env.local directus start",
+    "directus": "directus",
+    "dump": "directus schema snapshot > schema.yaml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "directus": "^9.18.1",
+    "pg": "^8.8.0"
+  }
+}
