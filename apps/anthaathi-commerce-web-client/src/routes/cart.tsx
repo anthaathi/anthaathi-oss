@@ -1,9 +1,9 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
-import { For, Show } from 'solid-js';
+import { Show } from 'solid-js';
 import { cartItems, CartItems } from '~/Features/Cart/Components/CartItems';
 import { useNavigate } from '@solidjs/router';
+import { DiscountCouponList } from '~/Features/CMSComponents/Components/DiscountCouponList';
 
 export default () => {
   return <CartPage />;
@@ -13,7 +13,7 @@ function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
   const navigate = useNavigate();
-  
+
   return (
     <div
       class={css({
@@ -116,6 +116,7 @@ function CartPage() {
             })}
           >
             <CartItems />
+            <DiscountCouponList />
           </div>
           <div
             class={css({
