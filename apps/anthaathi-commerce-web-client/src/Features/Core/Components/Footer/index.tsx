@@ -139,7 +139,7 @@ function FooterSection(props: FooterSection) {
               marginTop: $theme.sizing.scale200,
               marginBottom: $theme.sizing.scale200,
               fontSize: $theme.typography.font450.fontSize,
-              fontWeight: $theme.typography.font450.fontWeight,
+              fontWeight: $theme.typography.font550.fontWeight,
             })}
           >
             {props.title}
@@ -213,11 +213,11 @@ function FooterInfoSection() {
       </div>
       <div
         class={css({
-          paddingBottom: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale200,
           paddingLeft: $theme.sizing.scale500,
           paddingRight: $theme.sizing.scale500,
           fontSize: $theme.typography.font450.fontSize,
-          fontWeight: $theme.typography.font450.fontWeight,
+          fontWeight: $theme.typography.font550.fontWeight,
         })}
       >
         Address
@@ -235,11 +235,11 @@ function FooterInfoSection() {
       </div>
       <div
         class={css({
-          paddingBottom: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale200,
           paddingLeft: $theme.sizing.scale500,
           paddingRight: $theme.sizing.scale500,
           fontSize: $theme.typography.font450.fontSize,
-          fontWeight: $theme.typography.font450.fontWeight,
+          fontWeight: $theme.typography.font550.fontWeight,
         })}
       >
         Contact Number
@@ -275,7 +275,7 @@ function FooterInfoSection() {
             })}
           >
             <IconPhoneLarge
-              class={css({ paddingRight: $theme.sizing.scale200 })}
+              class={css({ paddingRight: $theme.sizing.scale100 })}
               width={$theme.sizing.scale800}
               height={$theme.sizing.scale800}
             />
@@ -286,6 +286,7 @@ function FooterInfoSection() {
           href="tel:043208889"
           target="_blank"
           class={css({
+            marginLeft: $theme.sizing.scale400,
             textDecoration: 'none',
             color: 'black',
             fontSize: $theme.typography.LabelLarge.fontSize,
@@ -300,7 +301,7 @@ function FooterInfoSection() {
             })}
           >
             <IconSendOLarge
-              class={css({ paddingRight: $theme.sizing.scale200 })}
+              class={css({ paddingRight: $theme.sizing.scale100 })}
               width={$theme.sizing.scale800}
               height={$theme.sizing.scale800}
             />
@@ -310,11 +311,11 @@ function FooterInfoSection() {
       </div>
       <div
         class={css({
-          paddingBottom: $theme.sizing.scale500,
+          paddingBottom: $theme.sizing.scale200,
           paddingLeft: $theme.sizing.scale500,
           paddingRight: $theme.sizing.scale500,
           fontSize: $theme.typography.font450.fontSize,
-          fontWeight: $theme.typography.font450.fontWeight,
+          fontWeight: $theme.typography.font550.fontWeight,
         })}
       >
         Email
@@ -384,7 +385,7 @@ function FooterSocialMediaSection() {
         <div
           class={css({
             display: 'flex',
-            flexDirection: 'row',
+            justifyContent: 'center',
             alignItems: 'center',
             width: '100%',
             paddingBottom: $theme.sizing.scale700,
@@ -400,17 +401,39 @@ function FooterSocialMediaSection() {
                     height: '48px',
                   },
                 },
+                Input: {
+                  style: {
+                    backgroundColor: 'white',
+                    borderTopRightRadius: 0,
+                    borderBottomRightRadius: 0,
+                    ':hover': {
+                      borderRightWidth: 0,
+                    },
+                  },
+                },
               }}
             />
           </div>
-          <div class={css({ flex: 2 })}>
+
+          <div
+            class={css({
+              flex: 2,
+              alignItems: 'center',
+              display: 'flex',
+              justifyContent: 'center',
+            })}
+          >
             <Button
               $startEnhancer={() => <IconSendLarge fill="white" />}
               $override={{
                 Root: {
                   style: {
                     flex: 2,
-                    height: '48px',
+                    marginTop: '4px',
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                    height: '54px',
+                    justifyContent: 'center',    
                     width: '100%',
                   },
                 },
@@ -460,6 +483,10 @@ function FooterSocialMediaSection() {
                   height: '50px',
                   width: '50px',
                   background: 'white',
+                  ':hover': {
+                    border: '1px solid #E5E5EA',
+                    background: 'white',
+                  },
                   borderTopLeftRadius: '50px',
                   borderTopRightRadius: '50px',
                   borderBottomRightRadius: '50px',
@@ -486,6 +513,10 @@ function FooterSocialMediaSection() {
                   height: '50px',
                   width: '50px',
                   background: 'white',
+                  ':hover': {
+                    border: '1px solid #E5E5EA',
+                    background: 'white',
+                  },
                   borderTopLeftRadius: '50px',
                   borderTopRightRadius: '50px',
                   borderBottomRightRadius: '50px',
@@ -512,6 +543,10 @@ function FooterSocialMediaSection() {
                   height: '50px',
                   width: '50px',
                   background: 'white',
+                  ':hover': {
+                    border: '1px solid #E5E5EA',
+                    background: 'white',
+                  },
                   borderTopLeftRadius: '50px',
                   borderTopRightRadius: '50px',
                   borderBottomRightRadius: '50px',
@@ -531,6 +566,10 @@ function FooterSocialMediaSection() {
                   height: '50px',
                   width: '50px',
                   background: 'white',
+                  ':hover': {
+                    border: '1px solid #E5E5EA',
+                    background: 'white',
+                  },
                   borderTopLeftRadius: '50px',
                   borderTopRightRadius: '50px',
                   borderBottomRightRadius: '50px',
@@ -702,7 +741,7 @@ const FooterLinks = (props: { item: FooterLink }) => {
             {
               marginTop: $theme.sizing.scale200,
               marginBottom: $theme.sizing.scale200,
-              fontSize: $theme.typography.LabelLarge.fontSize,
+              fontSize: $theme.typography.LabelMedium.fontSize,
               fontWeight: $theme.typography.LabelLarge.fontWeight,
               display: 'flex',
               justifyContent: 'center',

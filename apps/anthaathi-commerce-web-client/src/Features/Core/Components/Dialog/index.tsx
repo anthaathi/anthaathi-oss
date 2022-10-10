@@ -62,6 +62,7 @@ export function Dialog(props: DialogProps) {
             bottom: 0,
             zIndex: 10,
             overflowY: 'auto',
+            backgroundColor: 'rgba(66, 66, 66, 0.16)',
           })}
           onClose={() => closeModal()}
         >
