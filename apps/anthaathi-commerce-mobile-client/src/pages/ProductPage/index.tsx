@@ -1,20 +1,33 @@
-import { ScrollView } from 'react-native';
+import {ScrollView} from 'react-native';
 import React from 'react';
 import CMSRenderer from '../../features/CMS';
-import { HomePageComponentType } from '../../features/CMS/types/common';
+import {HomePageComponentType} from '../../features/CMS/types/common';
 import dataJson from '../../config/data.json';
-import { RootStackParamList } from '../../types/Route';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useRecoilState } from 'recoil';
-import { CartItemData } from '../../features/CMS/context/CartItemContext';
-import { ProductProps } from '../../features/CMS/containers/HomePage/components/FeaturedCollection';
+import {RootStackParamList} from '../../types/Route';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import {ProductProps} from '../../features/CMS/containers/HomePage/components/FeaturedCollection';
 import Header from '../../features/CMS/containers/Header';
+import productJson from '../../config/product.json';
+import {ItemProps} from '../../features/CMS/containers/CartPage/components/BasketItem';
 
 const ProductPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductPage'>,
 ) => {
   const productDetails = props.route.params?.productDetails;
+  const productList = productJson.featuredCollection.products;
+  const product = React.useMemo(() => {
+    return productList.find(item => item.id === productDetails?.id);
+  }, [productList, productDetails?.id]);
+
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
+  const cartProductData: ItemProps | undefined = React.useMemo(() => {
+    if (cartItem.some(el => el.id === productDetails?.id)) {
+      let cartObj = cartItem.find(el => el.id === productDetails?.id);
+      return cartObj;
+    }
+  }, [cartItem, productDetails.id]);
   return (
     <>
       <Header
@@ -27,10 +40,12 @@ const ProductPage = (
         }}
         mailIcon={false}
         searchIcon={true}
-        logoImage={'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180'}
+        logoImage={
+          'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180'
+        }
       />
 
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 5 }}>
+      <ScrollView contentContainerStyle={{paddingHorizontal: 5}}>
         <CMSRenderer
           components={[
             {
@@ -41,7 +56,7 @@ const ProductPage = (
                 if (cartItem.some(el => el.id === productDetails.id)) {
                   const newState = cartItem.map(obj => {
                     if (obj.id === productDetails.id) {
-                      return { ...obj, numberOfItems: obj.numberOfItems + 1 };
+                      return {...obj, numberOfItems: obj.numberOfItems + 1};
                     }
                     return obj;
                   });
@@ -61,7 +76,7 @@ const ProductPage = (
                 if (cartItem.some(el => el.id === productDetails.id)) {
                   const newState = cartItem.map(obj => {
                     if (obj.id === productDetails.id) {
-                      return { ...obj, numberOfItems: obj.numberOfItems + 1 };
+                      return {...obj, numberOfItems: obj.numberOfItems + 1};
                     }
                     return obj;
                   });
@@ -73,12 +88,59 @@ const ProductPage = (
                       ...productDetails,
                       image: productDetails.image[0],
                       numberOfItems: 1,
-                      },
+                    },
                   ]);
                 }
                 props.navigation.navigate('CartPage');
               },
+              handleMinusPress: () => {
+                if (
+                  cartProductData &&
+                  cartProductData.numberOfItems !== undefined &&
+                  cartProductData.numberOfItems > 1
+                ) {
+                  const newState = cartItem.map(obj => {
+                    if (obj.id === productDetails.id) {
+                      return {
+                        ...obj,
+                        numberOfItems: obj.numberOfItems - 1,
+                      };
+                    }
+                    return obj;
+                  });
+                  setCartItem(newState);
+                } else {
+                  setCartItem(current =>
+                    current.filter(obj => {
+                      return obj.id !== productDetails.id;
+                    }),
+                  );
+                }
+              },
+              handlePlusPress: () => {
+                console.log(cartItem);
+                // console.log(product[0]);
+                console.log(product);
+                if (cartItem.some(el => el.id === productDetails.id)) {
+                  const newState = cartItem.map(obj => {
+                    if (obj.id === productDetails.id) {
+                      return {...obj, numberOfItems: obj.numberOfItems + 1};
+                    }
+                    return obj;
+                  });
+                  setCartItem(newState);
+                } else {
+                  setCartItem(oldCartItem => [
+                    ...oldCartItem,
+                    {
+                      ...product,
+                      numberOfItems: 1,
+                    } as never,
+                  ]);
+                }
+              },
             },
+
             {
               _component: HomePageComponentType.FeaturedCollection,
               key: '1251',

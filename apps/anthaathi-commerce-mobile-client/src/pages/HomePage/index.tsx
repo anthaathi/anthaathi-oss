@@ -1,8 +1,11 @@
-import {ScrollView, View} from 'react-native';
+import {Linking, ScrollView, View} from 'react-native';
 import React from 'react';
 
 import CMSRenderer from '../../features/CMS';
-import {HomePageComponentType} from '../../features/CMS/types/common';
+import {
+  CoreComponentType,
+  HomePageComponentType,
+} from '../../features/CMS/types/common';
 
 import dataJson from '../../config/data.json';
 import categoryJson from '../../config/category.json';
@@ -16,7 +19,7 @@ const HomePage = (
   return (
     <View>
       <ScrollView
-        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80,}}>
+        contentContainerStyle={{paddingHorizontal: 5, paddingBottom: 80}}>
         <CMSRenderer
           components={[
             {
@@ -225,6 +228,22 @@ const HomePage = (
           ]}
         />
       </ScrollView>
+      <CMSRenderer
+        components={[
+          {
+            _component: CoreComponentType.CMSFABButton,
+            key: '35435345',
+            icon: 'whatsapp',
+            buttonRadius: 50,
+            buttonBackgroundColor: '#0f8443',
+            handlePress: () => {
+              Linking.openURL(
+                'http://api.whatsapp.com/send?phone=971557707314',
+              );
+            },
+          },
+        ]}
+      />
     </View>
   );
 };

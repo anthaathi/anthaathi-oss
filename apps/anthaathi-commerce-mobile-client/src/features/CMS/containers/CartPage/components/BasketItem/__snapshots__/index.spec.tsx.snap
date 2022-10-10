@@ -174,9 +174,10 @@ exports[`BasketItem should render the item 1`] = `
                 {
                   "alignItems": "center",
                   "backgroundColor": "#F1F9F4",
+                  "borderRadius": 50,
                   "flexDirection": "row",
-                  "height": 42,
-                  "justifyContent": "center",
+                  "height": 35,
+                  "justifyContent": "space-between",
                   "width": 120,
                 }
               }
@@ -224,8 +225,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginLeft": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -335,8 +339,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginRight": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -571,9 +578,10 @@ exports[`BasketItem should render the item 1`] = `
                 {
                   "alignItems": "center",
                   "backgroundColor": "#F1F9F4",
+                  "borderRadius": 50,
                   "flexDirection": "row",
-                  "height": 42,
-                  "justifyContent": "center",
+                  "height": 35,
+                  "justifyContent": "space-between",
                   "width": 120,
                 }
               }
@@ -621,8 +629,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginLeft": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -732,8 +743,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginRight": 0,
+                        "width": 35,
                       },
                     ],
                   ]

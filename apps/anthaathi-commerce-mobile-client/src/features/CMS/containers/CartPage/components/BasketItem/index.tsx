@@ -210,13 +210,17 @@ const ProductCountButton = ({
         flexDirection: 'row',
         backgroundColor: '#F1F9F4',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: 42,
+        justifyContent: 'space-between',
+        height: 35,
+        borderRadius: 50,
       }}>
       <IconButton
         style={{
-          borderRadius: 0,
-          height: 42,
+          borderRadius: 50,
+          height: 35,
+          marginLeft: 0,
+          width: 35,
+          backgroundColor: '#D4EDDD',
         }}
         icon={numberOfItems > 1 ? 'minus' : 'delete'}
         iconColor={theme.colors.greenTextColor}
@@ -234,8 +238,11 @@ const ProductCountButton = ({
       </Text>
       <IconButton
         style={{
-          borderRadius: 0,
-          height: 42,
+          borderRadius: 50,
+          height: 35,
+          marginRight: 0,
+          backgroundColor: '#D4EDDD',
+          width: 35,
         }}
         icon="plus"
         iconColor={theme.colors.greenTextColor}

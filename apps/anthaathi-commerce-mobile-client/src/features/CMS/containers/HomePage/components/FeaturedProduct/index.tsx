@@ -1,10 +1,23 @@
 import * as React from 'react';
 import {useIntl} from 'react-intl';
 import {Image, Pressable, View} from 'react-native';
-import {Badge, Button, Divider, List, Text} from 'react-native-paper';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Colors,
+  Divider,
+  IconButton,
+  List,
+  Text,
+  useTheme,
+} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {HomePageComponentType} from '../../../../types/common';
+import {useRecoilState} from 'recoil';
+import {CartItemData} from '../../../../context/CartItemContext';
+import {ItemProps} from '../../../CartPage/components/BasketItem';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -18,6 +31,7 @@ type ListInfoProps = {
   shippingInformation: string;
 };
 export interface ProductDetails {
+  id: number;
   name: string;
   listInfo?: ListInfoProps;
   blockInfo: BlockInfoProps;
@@ -30,6 +44,8 @@ export interface ProductDetailsProps {
   productInfo: ProductDetails;
   handleAddToCart?: () => {};
   handleBuyItNow?: () => {};
+  handleMinusPress?: () => {};
+  handlePlusPress?: () => {};
 }
 
 function FeaturedProduct(props: ProductDetailsProps) {
@@ -38,8 +54,15 @@ function FeaturedProduct(props: ProductDetailsProps) {
   const [expanded, setExpanded] = React.useState(true);
 
   const handlePress = () => setExpanded(!expanded);
-
+  const [cartItem, setCartItem] = useRecoilState(CartItemData);
   const intl = useIntl();
+  const theme = useTheme();
+  const cartProductData: ItemProps | undefined = React.useMemo(() => {
+    if (cartItem.some(el => el.id === props.productInfo.id)) {
+      let cartObj = cartItem.find(el => el.id === props.productInfo.id);
+      return cartObj;
+    }
+  }, [cartItem, props.productInfo.id]);
 
   return (
     <View testID="featuredProduct">
@@ -100,13 +123,119 @@ function FeaturedProduct(props: ProductDetailsProps) {
             currency={props.productInfo.currency}
           />
           <BlockInfo data={props.productInfo.blockInfo} />
+          {/* {cartProductData && cartProductData.id === props.productInfo.id && ( */}
+          <View
+            style={{
+              width: 110,
+              flexDirection: 'row',
+              backgroundColor: '#F1F9F4',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              height: 35,
+              marginVertical: 10,
+              borderRadius: 50,
+            }}>
+            <IconButton
+              style={{
+                borderRadius: 50,
+                height: 35,
+                marginLeft: 0,
+                width: 35,
+                backgroundColor: '#D4EDDD',
+              }}
+              icon={'minus'}
+              iconColor={theme.colors.greenTextColor}
+              size={20}
+              onPress={props.handleMinusPress}
+            />
+            <Text
+              style={{
+                marginHorizontal: 5,
+                fontSize: 14,
+                color: theme.colors.titleTextColor,
+                fontWeight: '700',
+
+                textAlign: 'center',
+              }}>
+              {(cartProductData &&
+                cartProductData.numberOfItems !== undefined &&
+                cartProductData.numberOfItems.toString()) ||
+                '0'}
+            </Text>
+            <IconButton
+              style={{
+                borderRadius: 50,
+                height: 35,
+                marginRight: 0,
+                backgroundColor: '#D4EDDD',
+                width: 35,
+              }}
+              icon="plus"
+              iconColor={theme.colors.greenTextColor}
+              size={20}
+              onPress={props.handlePlusPress}
+            />
+          </View>
+          {/* 
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: 10,
+              marginBottom: 10,
+            }}>
+            <Pressable
+              onPress={props.handleMinusPress}
+              style={{
+                backgroundColor: Colors.grey500,
+              }}>
+              <Avatar.Icon
+                icon="minus"
+                size={30}
+                style={{
+                  backgroundColor: Colors.grey500,
+                }}
+              />
+            </Pressable>
+          
+            <Text
+              style={{
+                margin: 'auto',
+                minWidth: 40,
+                height: '100%',
+                // padding: 5,
+                textAlign: 'center',
+                borderColor: Colors.grey500,
+                borderWidth: 1,
+                color: Colors.grey800,
+                fontWeight: '600',
+                textAlignVertical: 'center',
+              }}>
+              {(cartProductData &&
+                cartProductData.numberOfItems !== undefined &&
+                cartProductData.numberOfItems.toString()) ||
+                '0'}
+            </Text>
+          
+            <Pressable
+              onPress={props.handlePlusPress}
+              style={{
+                backgroundColor: Colors.grey500,
+              }}>
+              <Avatar.Icon
+                icon="plus"
+                size={30}
+                style={{backgroundColor: Colors.grey500}}
+              />
+            </Pressable>
+          </View> */}
+          {/* )} */}
           <Button
             testID="handleAddToCart"
             mode="outlined"
             onPress={props.handleAddToCart}
-            labelStyle={{color: '#313652'}}
+            labelStyle={{color: Colors.grey800}}
             style={{
-              borderColor: '#313652',
+              borderColor: Colors.grey800,
               borderRadius: 1,
               marginVertical: 10,
             }}>
@@ -119,7 +248,7 @@ function FeaturedProduct(props: ProductDetailsProps) {
             onPress={props.handleBuyItNow}
             labelStyle={{color: '#ffffff'}}
             style={{
-              backgroundColor: '#313652',
+              backgroundColor: theme.colors.primary,
               borderRadius: 1,
               marginBottom: 10,
             }}>
