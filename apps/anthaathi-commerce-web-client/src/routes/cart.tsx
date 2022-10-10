@@ -1,9 +1,10 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
-import { Show } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
 import { cartItems, CartItems } from '~/Features/Cart/Components/CartItems';
 import { useNavigate } from '@solidjs/router';
-import { DiscountCouponList } from '~/Features/CMSComponents/Components/DiscountCouponList';
+import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
+import { Button } from '~/Features/Core/Components/Button';
 
 export default () => {
   return <CartPage />;
@@ -12,6 +13,7 @@ export default () => {
 function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
+  const [discountDilogOpen, setDiscountDilogOpen] = createSignal(false);
   const navigate = useNavigate();
 
   return (
@@ -116,7 +118,34 @@ function CartPage() {
             })}
           >
             <CartItems />
-            <DiscountCouponList />
+            <div
+              class={css({
+                display: 'flex',
+                flexDirection: 'row-reverse',
+              })}
+            >
+              <Button
+                $override={{
+                  Root: {
+                    style: {
+                      ...$theme.typography.LabelMedium,
+                      justifyContent: 'center',
+                      flex: 1,
+                      [$theme.mediaQuery?.md || '']: {
+                        flex: 'none',
+                      },
+                    },
+                  },
+                }}
+                onClick={() => setDiscountDilogOpen(true)}
+              >
+                Apply Coupon
+              </Button>
+              <DiscountCouponDialog
+                isOpen={discountDilogOpen}
+                setOpen={setDiscountDilogOpen}
+              />
+            </div>
           </div>
           <div
             class={css({

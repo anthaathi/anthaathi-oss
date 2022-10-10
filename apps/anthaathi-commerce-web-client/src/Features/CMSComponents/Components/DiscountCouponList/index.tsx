@@ -1,6 +1,23 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button } from '~/Features/Core/Components/Button';
 import { Img } from '~/Features/Core/Components/Image';
+import { Dialog } from '~/Features/Core/Components/Dialog';
+import { Accessor } from 'solid-js';
+
+export interface DiscountCouponDialogProps {
+  isOpen: Accessor<boolean>;
+  setOpen: (input: boolean) => void;
+}
+
+export function DiscountCouponDialog(props: DiscountCouponDialogProps) {
+  const [css, $theme] = useStyletron();
+
+  return (
+    <Dialog isOpen={props.isOpen} setOpen={props.setOpen}>
+      <DiscountCouponList />
+    </Dialog>
+  );
+}
 
 export function DiscountCouponList() {
   const [css, $theme] = useStyletron();
