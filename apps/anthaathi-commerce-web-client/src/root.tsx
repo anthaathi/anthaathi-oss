@@ -17,6 +17,7 @@ import { Footer } from '~/Features/Core/Components/Footer';
 import { MiniAnnouncement } from '~/Features/Core/Components/MiniAnnouncement';
 import { AppBar } from '~/Features/Core/Components/AppBar';
 import { Assets } from 'solid-js/web';
+import { MobileBottomBar } from '~/Features/CMSComponents/Components/MobileBottomBar';
 export default function Root() {
   const styletron = useContext(StyletronContext) as Server;
 
@@ -66,6 +67,8 @@ export default function Root() {
             </Routes>
 
             <Footer />
+
+            <MobileBottomBar />
           </ErrorBoundary>
         </Suspense>
         <Scripts />

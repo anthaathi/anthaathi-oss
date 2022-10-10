@@ -234,20 +234,6 @@ export function AppBar() {
 
       <div
         class={css({
-          padding: $theme.sizing.scale500,
-          [$theme.mediaQuery?.md || '']: {
-            display: 'none',
-          },
-          margin: '0 auto',
-          maxWidth: '520px',
-        })}
-        data-type="app-bar-search"
-      >
-        <Searchbar />
-      </div>
-
-      <div
-        class={css({
           maxWidth: $theme.sizing.maxWidth,
           margin: '0 auto',
           alignItems: 'center',
