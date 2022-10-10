@@ -13,7 +13,8 @@ export default () => {
 function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
-  const [discountDilogOpen, setDiscountDilogOpen] = createSignal(false);
+  const [discountDialogOpen, setDiscountDilogOpen] = createSignal(false);
+  const [selectedCoupon, setSelectedCoupon] = createSignal('');
   const navigate = useNavigate();
 
   return (
@@ -139,11 +140,14 @@ function CartPage() {
                 }}
                 onClick={() => setDiscountDilogOpen(true)}
               >
-                Apply Coupon
+                {selectedCoupon() == ''
+                  ? 'Apply Coupon'
+                  : 'Applied Coupon: "' + selectedCoupon() + '"'}
               </Button>
               <DiscountCouponDialog
-                isOpen={discountDilogOpen}
+                isOpen={discountDialogOpen}
                 setOpen={setDiscountDilogOpen}
+                setSelectedCoupon={setSelectedCoupon}
               />
             </div>
           </div>

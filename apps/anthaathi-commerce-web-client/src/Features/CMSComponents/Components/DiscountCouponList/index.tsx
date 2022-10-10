@@ -7,6 +7,7 @@ import { Accessor } from 'solid-js';
 export interface DiscountCouponDialogProps {
   isOpen: Accessor<boolean>;
   setOpen: (input: boolean) => void;
+  setSelectedCoupon: (input: string) => void;
 }
 
 export function DiscountCouponDialog(props: DiscountCouponDialogProps) {
@@ -14,12 +15,16 @@ export function DiscountCouponDialog(props: DiscountCouponDialogProps) {
 
   return (
     <Dialog isOpen={props.isOpen} setOpen={props.setOpen}>
-      <DiscountCouponList />
+      <DiscountCouponList dialog={{ ...props }} />
     </Dialog>
   );
 }
 
-export function DiscountCouponList() {
+export interface DiscountCouponListProps {
+  dialog: DiscountCouponDialogProps;
+}
+
+export function DiscountCouponList(props: DiscountCouponListProps) {
   const [css, $theme] = useStyletron();
 
   return (
@@ -34,7 +39,11 @@ export function DiscountCouponList() {
         title="Get up to 10 AED Paytm cashback using Paytm Wallet"
         subtitle="Valid on total value of items worth 100 AED or more."
         highlightedSubtitle="You will get up to 10 AED Paytm cashback with this code"
-        couponCode="C O U P O N"
+        couponCode="N E W M E M B E R"
+        onApplyClick={() => {
+          props.dialog.setSelectedCoupon('N E W M E M B E R');
+          props.dialog.setOpen(false);
+        }}
       />
       <DiscountCoupon
         imgSrc="https://mma.prnewswire.com/media/1699082/Simpl_Logo.jpg?w=200"
@@ -42,6 +51,10 @@ export function DiscountCouponList() {
         subtitle="Valid on total value of items worth 100 AED or more."
         highlightedSubtitle="You will get up to 10 AED Paytm cashback with this code"
         couponCode="C O U P O N"
+        onApplyClick={() => {
+          props.dialog.setSelectedCoupon('C O U P O N');
+          props.dialog.setOpen(false);
+        }}
       />
     </div>
   );
@@ -53,6 +66,7 @@ export interface DiscountCouponProps {
   subtitle: string;
   couponCode: string;
   highlightedSubtitle: string;
+  onApplyClick: () => void;
 }
 
 export function DiscountCoupon(props: DiscountCouponProps) {
@@ -118,7 +132,7 @@ export function DiscountCoupon(props: DiscountCouponProps) {
         })}
       >
         <CouponCode title={props.couponCode} />
-        <Button> Apply </Button>
+        <Button onClick={props.onApplyClick}>Apply</Button>
       </div>
       <div
         class={css({
