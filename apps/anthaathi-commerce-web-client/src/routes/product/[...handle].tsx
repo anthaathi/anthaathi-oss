@@ -4,9 +4,8 @@ import { FeaturedCollection } from '~/Features/CMSComponents/Components/Featured
 import { useStyletron } from '@anthaathi/solid-styletron';
 import productJson from '../../config/products.json';
 import { useNavigate, useRouteData } from '@solidjs/router';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
 import { RouteDataArgs } from 'solid-start';
-import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
 
 export const routeData = ({ params }: RouteDataArgs) => {
   const handle = () =>
@@ -22,6 +21,7 @@ export default function ProductPage() {
   const [css] = useStyletron();
   const navigate = useNavigate();
   const [cartItem, setCartItem] = cartItems;
+  const [appData, setAppData] = appStore;
 
   return (
     <>
@@ -56,6 +56,24 @@ export default function ProductPage() {
           notes: product()?.notes || '',
         }}
         handleAddToCart={() => {
+          if (
+            !appData.items.some(
+              (el: { id: number; quantity: number }) => el.id === product()?.id,
+            )
+          ) {
+            setAppData({
+              ...appData,
+              items: [
+                ...appData.items,
+                {
+                  id: product()?.id,
+                  quantity: appData.items.length + 1,
+                } as never,
+              ],
+            });
+          }
+        }}
+        handleBuyItNow={() => {
           if (cartItem.some((el) => el.id === product()?.id)) {
             const newState = cartItem.map((obj) => {
               if (obj.id === product()?.id) {
@@ -72,6 +90,16 @@ export default function ProductPage() {
                 numberOfItems: 1,
               } as never,
             ]);
+            setAppData({
+              ...appData,
+              items: [
+                ...appData.items,
+                {
+                  id: product()?.id,
+                  quantity: appData.items.length + 1,
+                } as never,
+              ],
+            });
           }
           navigate('/cart');
         }}
@@ -90,12 +118,16 @@ export default function ProductPage() {
               {
                 ...product(),
                 numberOfItems: 1,
-              },
+              } as never,
             ]);
           }
         }}
         handleRemoveProduct={() => {
-          if (cartItem.some((el) => el.id === product()?.id)) {
+          if (
+            cartItem.some(
+              (el) => el.id === product()?.id && el.numberOfItems > 1,
+            )
+          ) {
             const newState = cartItem.map((obj) => {
               if (obj.id === product()?.id && obj.numberOfItems !== 0) {
                 return { ...obj, numberOfItems: obj.numberOfItems - 1 };

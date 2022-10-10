@@ -142,6 +142,10 @@ export default function () {
         </Show>
         <div
           class={css({
+            [$theme.mediaQuery?.md || '']: {
+              flexShrink: 0,
+              width: '75%',
+            },
             flex: 8,
             paddingBottom: $theme.sizing.scale1200,
             paddingLeft: $theme.sizing.scale500,
@@ -158,6 +162,7 @@ export default function () {
                 flexGrow: 1,
                 [$theme.mediaQuery?.md ?? '']: {
                   width: 'calc(100% - 320px)',
+                  flexWrap: 'wrap',
                 },
               })}
             >

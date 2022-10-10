@@ -8,11 +8,15 @@ export interface ItemProps extends ProductProps {
 
 export const cartItems = createStore<ItemProps[]>([]);
 
+export const appStore = createStore({ items: [] });
+
 export function CartItems() {
   const [cartItem, setCartItem] = cartItems;
+  const [appData, setAppData] = appStore;
+
   return (
     <For each={cartItem}>
-      {(item, index) => {
+      {(item) => {
         return (
           <Show
             when={item.numberOfItems >= 0}
@@ -39,6 +43,16 @@ export function CartItems() {
                       numberOfItems: 1,
                     },
                   ]);
+                  setAppData({
+                    ...appData,
+                    items: [
+                      ...appData.items,
+                      {
+                        id: item.id,
+                        quantity: appData.items.length + 1,
+                      } as never,
+                    ],
+                  });
                 }
               }}
               handleRemoveProduct={() => {
@@ -60,6 +74,14 @@ export function CartItems() {
                         return obj.id !== item.id;
                       }),
                     );
+                    setAppData({
+                      ...appData,
+                      items: appData.items.filter(
+                        (obj: { id: number; quantity: number }) => {
+                          return obj.id !== item.id;
+                        },
+                      ),
+                    });
                   }
                 }
               }}
