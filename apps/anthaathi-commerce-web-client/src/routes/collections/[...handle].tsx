@@ -11,9 +11,8 @@ import { useLocation } from '@solidjs/router';
 import { SelectOption } from '~/Features/Core/Components/SelectOption';
 import RecentlyViewedItems from '~/Features/Commerce/Components/RecentlyViewedItems';
 import { Button, Kind, Size } from '~/Features/Core/Components/Button';
-import {
-  IconSlidersLarge,
-} from '@anthaathi/oracle-apex-solid-icons';
+import { IconSlidersLarge } from '@anthaathi/oracle-apex-solid-icons';
+import { CategoryList } from '~/Features/CMSComponents/Components/CategoryList';
 
 export default function () {
   const [css, $theme] = useStyletron();
@@ -37,6 +36,7 @@ export default function () {
           marginTop: $theme.sizing.scale500,
           marginBottom: $theme.sizing.scale500,
         })}
+        data-type="plp-page"
       >
         <Breadcrumbs
           list={[
@@ -89,9 +89,12 @@ export default function () {
         })}
       >
         <div
+          data-type="filter-container"
           class={css({
             [$theme.mediaQuery?.md || '']: {
               display: 'block',
+              flexShrink: 0,
+              width: '25%',
             },
             display: 'none',
             borderBottomLeftRadius: '4px',
@@ -110,9 +113,10 @@ export default function () {
             },
             marginLeft: $theme.sizing.scale400,
             marginRight: $theme.sizing.scale400,
-            flex: 3,
+            flexGrow: 3,
+            flexShrink: 1,
             [$theme.mediaQuery?.lg || '']: {
-              flex: 2,
+              flexGrow: 2,
             },
             marginBottom: $theme.sizing.scale500,
           })}
@@ -123,11 +127,17 @@ export default function () {
             items={productJson.featuredCollection.recentItems}
           />
         </div>
-        <SideBarFilter platform="web" />
-        <Show
-          when={showFilter()}
-          fallback={<></>}
+        <div
+          class={css({
+            [$theme.mediaQuery?.md || '']: {
+              flexShrink: 0,
+              width: '25%',
+            },
+          })}
         >
+          <SideBarFilter platform="web" />
+        </div>
+        <Show keyed={true} when={showFilter()} fallback={<></>}>
           <SideBarFilter platform="mobile" />
         </Show>
         <div
@@ -151,6 +161,65 @@ export default function () {
                 },
               })}
             >
+              <CategoryList
+                // title="Category"
+                items={[
+                  {
+                    id: 1,
+                    href: '/collections/fruits',
+                    title: 'Fruits',
+                    title_ar: 'الفاكهة',
+                    key: 'fruits',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+                  },
+                  {
+                    id: 2,
+                    href: '/collections/vegetables',
+                    title: 'Vegetables',
+                    title_ar: 'خضروات',
+                    key: 'vegetables',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+                  },
+                  {
+                    id: 3,
+                    href: '/collections/bulkbuy',
+                    title: 'Bulk Buy',
+                    title_ar: 'شراء بالجملة',
+                    key: 'bulkbuy',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
+                  },
+                  {
+                    id: 4,
+                    href: '/collections/organic',
+                    title: 'Organic',
+                    title_ar: 'عضوي',
+                    key: 'organic',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+                  },
+                  {
+                    id: 5,
+                    href: '/collections/precut',
+                    title: 'Pre-Cut',
+                    title_ar: 'قص مسبق',
+                    key: 'precut',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+                  },
+                  {
+                    id: 6,
+                    href: '/collections/prepacked',
+                    title: 'Pre-Packed',
+                    title_ar: 'معبأة مسبقا',
+                    key: 'prepacked',
+                    image:
+                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
+                  },
+                ]}
+              />
               <Grid
                 $override={{
                   Root: {

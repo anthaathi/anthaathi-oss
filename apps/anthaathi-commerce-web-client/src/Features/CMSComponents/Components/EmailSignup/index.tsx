@@ -55,10 +55,12 @@ export function EmailSignup() {
         class={css({
           display: 'flex',
           flexDirection: 'row',
+          paddingLeft: $theme.sizing.scale500,
+          paddingRight: $theme.sizing.scale500,
           paddingTop: $theme.sizing.scale1000,
           paddingBottom: $theme.sizing.scale1000,
           maxWidth: '420px',
-          width: '100%',
+          width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
           margin: '0 auto',
         })}
       >

@@ -67,7 +67,7 @@ export function AppBar() {
                 alt=""
                 $override={{
                   Root: {
-                    $style: { height: '48px', width: 'auto' },
+                    $style: { height: '32px', width: 'auto' },
                   },
                 }}
               />
@@ -224,20 +224,6 @@ export function AppBar() {
           </div>
         </div>
       </header>
-
-      <div
-        class={css({
-          padding: $theme.sizing.scale500,
-          [$theme.mediaQuery?.md || '']: {
-            display: 'none',
-          },
-          margin: '0 auto',
-          maxWidth: '520px',
-        })}
-        data-type="app-bar-search"
-      >
-        <Searchbar />
-      </div>
 
       <div
         class={css({

@@ -9,6 +9,7 @@ import { createMemo, createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
 import { cartItems } from '~/Features/Cart/Components/CartItems';
+import debounce from 'lodash.debounce';
 
 export interface ProductProps {
   id: number;
@@ -38,7 +39,7 @@ export function ProductTile(props: ProductProps) {
   }, [cartItem, props.id]);
 
   function getReduceQuantity() {
-    return () => {
+    return debounce(() => {
       if (cartItem.some((el) => el.id === props.id)) {
         const newState = cartItem.map((obj) => {
           if (obj.id === props.id && obj.numberOfItems !== 0) {
@@ -48,11 +49,11 @@ export function ProductTile(props: ProductProps) {
         });
         setCartItem(newState);
       }
-    };
+    }, 200);
   }
 
   function getOnIncreaseQuantity() {
-    return (e: Event) => {
+    return debounce((e: Event) => {
       const datasetElement = (e.target as HTMLDivElement).closest('button')
         ?.dataset['action'];
       switch (datasetElement) {
@@ -84,25 +85,30 @@ export function ProductTile(props: ProductProps) {
           },
         ]);
       }
-    };
+    }, 100);
   }
+
+  const onIncreaseQuantity = getOnIncreaseQuantity();
 
   return (
     <div
-      onClick={getOnIncreaseQuantity()}
+      onClick={onIncreaseQuantity}
       class={css({
         textDecoration: 'none',
         color: '#000',
         backgroundColor: '#fff',
-        borderBottomLeftRadius: '4px',
-        borderBottomRightRadius: '4px',
-        borderTopRightRadius: '4px',
-        borderTopLeftRadius: '4px',
+        borderBottomLeftRadius: '10px',
+        borderBottomRightRadius: '10px',
+        borderTopRightRadius: '10px',
+        borderTopLeftRadius: '10px',
+        userSelect: 'none',
         border: '1px solid #e4e4d9',
         ':hover': {
-          boxShadow: '1px 1px 5px 4px #E5E5EA',
+          boxShadow:
+            '0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16)',
         },
       })}
+      onTouchEnd={onIncreaseQuantity}
     >
       <div
         class={css({
