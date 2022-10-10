@@ -10,7 +10,7 @@ import { Link } from '@solidjs/router';
 import { createMemo, createSignal, For } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -18,13 +18,13 @@ export function AppBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
   const [isOpen, _setIsOpen] = createSignal(true, {});
-  const [cartItem] = cartItems;
+  const [appData] = appStore;
 
   let categoryHTML: HTMLDivElement;
 
   const cartItemLength = createMemo(() => {
-    return cartItem.length;
-  }, [cartItem]);
+    return appData.items.length;
+  }, [appData]);
 
   return (
     <nav

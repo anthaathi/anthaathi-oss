@@ -8,7 +8,11 @@ import {
 import { createMemo, createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
+import {
+  appStore,
+  cartItems,
+  ItemProps,
+} from '~/Features/Cart/Components/CartItems';
 import debounce from 'lodash.debounce';
 
 export interface ProductProps {
@@ -17,7 +21,7 @@ export interface ProductProps {
   name_ar?: string;
   description?: string;
   category?: string;
-  price: number;
+  price: string;
   currency: string;
   image: string;
   weight_unit?: string;
@@ -31,6 +35,7 @@ export function ProductTile(props: ProductProps) {
   const [isOpen, setIsOpen] = createSignal(false);
   const navigate = useNavigate();
   const [cartItem, setCartItem] = cartItems;
+  const [appData, setAppData] = appStore;
 
   const cartProductData = createMemo(() => {
     if (cartItem.some((el) => el.id === props.id)) {
@@ -40,14 +45,31 @@ export function ProductTile(props: ProductProps) {
 
   function getReduceQuantity() {
     return debounce(() => {
-      if (cartItem.some((el) => el.id === props.id)) {
-        const newState = cartItem.map((obj) => {
-          if (obj.id === props.id && obj.numberOfItems !== 0) {
-            return { ...obj, numberOfItems: obj.numberOfItems - 1 };
-          }
-          return obj;
-        });
-        setCartItem(newState);
+      const cartProduct: ItemProps | undefined = cartItem.find(
+        (res: ProductProps) => res.id === props.id,
+      );
+      if (cartProduct) {
+        if (cartProduct.numberOfItems > 1) {
+          const newState = cartItem.map((obj) => {
+            if (obj.id === props.id && obj.numberOfItems !== 0) {
+              return { ...obj, numberOfItems: obj.numberOfItems - 1 };
+            }
+            return obj;
+          });
+          setCartItem(newState);
+        } else {
+          setCartItem((current) =>
+            current.filter((obj) => {
+              return obj.id !== props.id;
+            }),
+          );
+          setAppData({
+            ...appData,
+            items: appData.items.filter((obj: { id: number; quantity: number }) => {
+              return obj.id !== props.id;
+            }),
+          });
+        }
       }
     }, 200);
   }
@@ -84,6 +106,16 @@ export function ProductTile(props: ProductProps) {
             numberOfItems: 1,
           },
         ]);
+        setAppData({
+          ...appData,
+          items: [
+            ...appData.items,
+            {
+              id: props.id,
+              quantity: appData.items.length + 1,
+            } as never,
+          ],
+        });
       }
     }, 100);
   }
