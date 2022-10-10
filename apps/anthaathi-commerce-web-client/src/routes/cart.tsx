@@ -140,9 +140,7 @@ function CartPage() {
                 }}
                 onClick={() => setDiscountDilogOpen(true)}
               >
-                {selectedCoupon() == ''
-                  ? 'Apply Coupon'
-                  : 'Applied Coupon: "' + selectedCoupon() + '"'}
+                {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
               </Button>
               <DiscountCouponDialog
                 isOpen={discountDialogOpen}
