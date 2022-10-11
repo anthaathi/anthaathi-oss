@@ -118,9 +118,6 @@ const ProductPage = (
                 }
               },
               handlePlusPress: () => {
-                console.log(cartItem);
-                // console.log(product[0]);
-                console.log(product);
                 if (cartItem.some(el => el.id === productDetails.id)) {
                   const newState = cartItem.map(obj => {
                     if (obj.id === productDetails.id) {
@@ -145,7 +142,7 @@ const ProductPage = (
               _component: HomePageComponentType.FeaturedCollection,
               key: '1251',
               title: 'Related Products',
-              products: dataJson.core.productPage.featuredCollection.products,
+              products: dataJson.core.homePage.featuredCollection.products,
               onProductPress: (item: ProductProps) => {
                 props.navigation.push('ProductPage', {
                   productDetails: {
@@ -178,7 +175,7 @@ const ProductPage = (
               _component: HomePageComponentType.FeaturedCollection,
               key: '1250',
               title: 'Recently viewed',
-              products: dataJson.core.productPage.featuredCollection.products,
+              products: dataJson.core.homePage.featuredCollection.products,
               onProductPress: (item: ProductProps) => {
                 props.navigation.push('ProductPage', {
                   productDetails: {

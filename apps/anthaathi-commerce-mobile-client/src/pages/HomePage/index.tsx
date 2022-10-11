@@ -64,68 +64,7 @@ const HomePage = (
               _component: HomePageComponentType.FeaturedCollection,
               key: '1251',
               title: 'Special Offers',
-              products: [
-                {
-                  name: dataJson.core.homePage.featuredCollection.products[0]
-                    .name,
-                  key: dataJson.core.homePage.featuredCollection.products[0]
-                    .key,
-                  price: 40.0,
-                  currency:
-                    dataJson.core.homePage.featuredCollection.products[0]
-                      .currency,
-                  weight_unit:
-                    dataJson.core.homePage.featuredCollection.products[0]
-                      .weight_unit,
-                  packaging:
-                    dataJson.core.homePage.featuredCollection.products[0]
-                      .packaging,
-                  notes:
-                    dataJson.core.homePage.featuredCollection.products[0].notes,
-                  image:
-                    dataJson.core.homePage.featuredCollection.products[0].image,
-                },
-                {
-                  name: dataJson.core.homePage.featuredCollection.products[1]
-                    .name,
-                  key: dataJson.core.homePage.featuredCollection.products[1]
-                    .key,
-                  price: 105.0,
-                  currency:
-                    dataJson.core.homePage.featuredCollection.products[1]
-                      .currency,
-                  weight_unit:
-                    dataJson.core.homePage.featuredCollection.products[1]
-                      .weight_unit,
-                  packaging:
-                    dataJson.core.homePage.featuredCollection.products[1]
-                      .packaging,
-                  notes:
-                    dataJson.core.homePage.featuredCollection.products[1].notes,
-                  image:
-                    dataJson.core.homePage.featuredCollection.products[1].image,
-                },
-                {
-                  name: dataJson.core.homePage.featuredCollection.products[2]
-                    .name,
-                  key: dataJson.core.homePage.featuredCollection.products[2]
-                    .key,
-                  price: 7.35,
-                  currency:
-                    dataJson.core.homePage.featuredCollection.products[2]
-                      .currency,
-                  weight_unit:
-                    dataJson.core.homePage.featuredCollection.products[2]
-                      .weight_unit,
-                  packaging:
-                    dataJson.core.homePage.featuredCollection.products[2]
-                      .packaging,
-                  notes:
-                    dataJson.core.homePage.featuredCollection.products[2].notes,
-                  image:
-                    dataJson.core.homePage.featuredCollection.products[2].image,
-                },
-              ],
+              products: dataJson.core.homePage.featuredCollection.products,
               handlePress: () => {
                 props.navigation.navigate('ProductListPage1');
               },
