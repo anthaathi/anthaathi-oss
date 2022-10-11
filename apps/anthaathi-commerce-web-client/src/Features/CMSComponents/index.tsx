@@ -19,6 +19,7 @@ import { PromotionalProductGrid } from './Components/PromotionalProductGrid';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
 import { BlogPostJournal } from '~/Features/CMSComponents/Components/BlogPostJournal';
 import productJson from '../../config/products';
+import {FAB} from "~/Features/Core/Components/FAB";
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -80,6 +81,7 @@ export function RenderCMSComponents() {
     <BlogPostJournal />,
     <AboutUs />,
     <EmailSignup />,
+    <FAB />
   ];
 
   const renderedElements = (
