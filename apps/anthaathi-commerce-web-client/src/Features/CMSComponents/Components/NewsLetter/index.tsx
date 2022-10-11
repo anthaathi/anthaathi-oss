@@ -4,13 +4,37 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { preloadImage } from '~/utils/preload-image';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { Img } from '~/Features/Core/Components/Image';
+import { Button, Kind } from '~/Features/Core/Components/Button';
+
+const newsLetterKey = '____NEWS_LETTER';
 
 export const NewsLetter = () => {
   const [isOpen, setIsOpen] = createSignal(false);
 
   const [css, $theme] = useStyletron();
 
+  function remindMeLater() {
+    localStorage.setItem(newsLetterKey, new Date().getTime() + '');
+    setIsOpen(false);
+  }
+
   createEffect(() => {
+    let shouldLoad = true;
+
+    const newsLetterValue = +(localStorage.getItem(newsLetterKey) || 'NaN');
+
+    if (!isNaN(newsLetterValue)) {
+      const closeDateKey = new Date(newsLetterValue);
+
+      closeDateKey.setMonth(closeDateKey.getMonth() + 1);
+
+      shouldLoad = closeDateKey < new Date();
+    }
+
+    if (!shouldLoad) {
+      return;
+    }
+
     Promise.all([
       preloadImage(
         'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/office-furniture-grey-chairs_1000x_8a2683aa-b3bd-4816-9ae5-3098b868d287_1000x.webp?v=1653582461',
@@ -69,6 +93,7 @@ export const NewsLetter = () => {
               [$theme.mediaQuery?.md || '']: {
                 width: '50%',
                 display: 'flex',
+                flexDirection: 'column',
                 maxHeight: '80vh',
                 height: '520px',
                 paddingLeft: $theme.sizing.scale400,
@@ -79,6 +104,10 @@ export const NewsLetter = () => {
             })}
           >
             <EmailSignup />
+
+            <Button $kind={Kind.Tertiary} onClick={() => remindMeLater()}>
+              Remind me later
+            </Button>
           </div>
         </div>
       </>

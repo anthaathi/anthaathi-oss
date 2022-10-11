@@ -32,6 +32,7 @@ export function MobileBottomBar() {
         return (
           <Button
             as={NavLink}
+            end={true}
             href={option.href}
             class={css({
               borderTop: '4px solid transparent',
@@ -82,11 +83,11 @@ export const Options = [
   {
     title: 'Notification',
     icon: () => <IconBellOLarge />,
-    href: '/notification',
+    href: '/account/profile/orders/my-orders',
   },
   {
     title: 'Account',
     icon: () => <IconUserLarge />,
-    href: '/account',
+    href: '/account/profile',
   },
 ];
