@@ -67,7 +67,7 @@ export default function MobileAppPromoter() {
 
       <span class={css({ flexGrow: 1 })} />
 
-      <Button>Download</Button>
+      <Button>DOWNLOAD</Button>
     </div>
   );
 }
