@@ -199,7 +199,7 @@ export function AppBar() {
                         fontSize: '12px',
                         position: 'absolute',
                         right: '40px',
-                        top: true ? '26px' : '5px',
+                        top: haveBigPicture() ? '26px' : '5px',
                         backgroundColor: '#118b44',
                         paddingLeft: '6px',
                         paddingRight: '6px',
@@ -237,11 +237,34 @@ export function AppBar() {
                 $as={Link}
                 href="/cart"
                 $startEnhancer={() => (
-                  <IconShoppingCartLarge
-                    height="18px"
-                    width="18px"
-                    class={css({})}
-                  />
+                  <>
+                    <IconShoppingCartLarge
+                      height="18px"
+                      width="18px"
+                      class={css({})}
+                    />
+                    <p
+                      class={css({
+                        display: cartItemLength() === 0 ? 'none' : 'block',
+                        fontSize: '12px',
+                        position: 'absolute',
+                        right: '52px',
+                        top: '-10px',
+                        backgroundColor: '#118b44',
+                        paddingLeft: '6px',
+                        paddingRight: '6px',
+                        paddingTop: '1px',
+                        paddingBottom: '1px',
+                        borderTopRightRadius: '40%',
+                        borderTopLeftRadius: '40%',
+                        borderBottomLeftRadius: '40%',
+                        borderBottomRightRadius: '40%',
+                        color: '#fff',
+                      })}
+                    >
+                      {cartItemLength()}
+                    </p>
+                  </>
                 )}
               />
               <Button

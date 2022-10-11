@@ -1,8 +1,9 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button } from '~/Features/Core/Components/Button';
 import { Img } from '~/Features/Core/Components/Image';
-import { Dialog } from '~/Features/Core/Components/Dialog';
 import { Accessor } from 'solid-js';
+import { SideOver } from '~/Features/Core/Components/SideOver';
+import { Input } from '~/Features/Core/Components/Input';
 
 export interface DiscountCouponDialogProps {
   isOpen: Accessor<boolean>;
@@ -11,12 +12,10 @@ export interface DiscountCouponDialogProps {
 }
 
 export function DiscountCouponDialog(props: DiscountCouponDialogProps) {
-  const [css, $theme] = useStyletron();
-
   return (
-    <Dialog isOpen={props.isOpen} setOpen={props.setOpen}>
+    <SideOver title="Coupon" isOpen={props.isOpen} setOpen={props.setOpen}>
       <DiscountCouponList dialog={{ ...props }} />
-    </Dialog>
+    </SideOver>
   );
 }
 
@@ -32,8 +31,54 @@ export function DiscountCouponList(props: DiscountCouponListProps) {
       class={css({
         display: 'flex',
         flexDirection: 'column',
+        overflowX: 'hidden',
+        overflowY: 'auto',
       })}
     >
+      <div
+        class={css({
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginTop: $theme.sizing.scale850,
+          marginBottom: $theme.sizing.scale400,
+        })}
+      >
+        <Input
+          placeholder="Enter coupon code"
+          id="couponCode"
+          $overrides={{
+            Root: {
+              style: {
+                height: '48px',
+                width: '70%',
+              },
+            },
+            Input: {
+              style: {
+                borderTopRightRadius: 0,
+                borderBottomRightRadius: 0,
+              },
+            },
+          }}
+        />
+
+        <Button
+          $override={{
+            Root: {
+              style: {
+                height: '48px',
+                width: '20%',
+              },
+            },
+          }}
+          onClick={() => {
+            props.dialog.setOpen(false);
+          }}
+        >
+          Apply
+        </Button>
+      </div>
       <DiscountCoupon
         imgSrc="https://1000logos.net/wp-content/uploads/2021/03/Paytm_Logo.png"
         title="Get up to 10 AED Paytm cashback using Paytm Wallet"
@@ -64,6 +109,28 @@ export function DiscountCouponList(props: DiscountCouponListProps) {
         couponCode="P A L"
         onApplyClick={() => {
           props.dialog.setSelectedCoupon('N E W M E M B E R');
+          props.dialog.setOpen(false);
+        }}
+      />
+      <DiscountCoupon
+        imgSrc="https://1000logos.net/wp-content/uploads/2021/03/Paytm_Logo.png"
+        title="Get up to 10 AED Paytm cashback using Paytm Wallet"
+        subtitle="Valid on total value of items worth 100 AED or more."
+        highlightedSubtitle="You will get up to 10 AED Paytm cashback with this code"
+        couponCode="N E W M E M B E R"
+        onApplyClick={() => {
+          props.dialog.setSelectedCoupon('N E W M E M B E R');
+          props.dialog.setOpen(false);
+        }}
+      />
+      <DiscountCoupon
+        imgSrc="https://mma.prnewswire.com/media/1699082/Simpl_Logo.jpg?w=200"
+        title="Get 5% cashback on transactions above 500 AED"
+        subtitle="Valid on total value of items worth 500 AED or more."
+        highlightedSubtitle="You will get flat 5% discount on total price"
+        couponCode="S I M P L"
+        onApplyClick={() => {
+          props.dialog.setSelectedCoupon('C O U P O N');
           props.dialog.setOpen(false);
         }}
       />
@@ -148,7 +215,7 @@ export function DiscountCoupon(props: DiscountCouponProps) {
       <div
         class={css({
           ...$theme.typography.LabelSmall,
-          color: '#0077ff',
+          color: '#118b44',
           marginBottom: $theme.sizing.scale300,
         })}
       >
@@ -172,7 +239,7 @@ export function CouponCode(props: CouponCodeProps) {
         minWidth: '150px',
         textAlign: 'center',
         backgroundColor: '#f5f5f5',
-        border: '2px dashed #0077ff',
+        border: '2px dashed #118b44',
         borderRadius: '5px',
         ...$theme.typography.LabelMedium,
       })}

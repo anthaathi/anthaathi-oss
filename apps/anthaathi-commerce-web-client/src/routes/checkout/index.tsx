@@ -12,12 +12,12 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions';
 import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
 import { Link } from '@solidjs/router';
-import { Input } from '~/Features/Core/Components/Input';
-import { CartItems } from '~/Features/Cart/Components/CartItems';
-import { Button, Kind } from '~/Features/Core/Components/Button';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
+import OrderedItems from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();
+  const [cartItem] = cartItems;
 
   return (
     <div
@@ -122,18 +122,20 @@ export default function Checkout() {
             },
             width: '100%',
             marginLeft: '12px',
-            marginTop: '12px',
           })}
         >
-          <CartItems />
-
-          <div class={css({ display: 'flex', alignItems: 'center' })}>
-            <Input
-              placeholder="Discount code"
-              $overrides={{ Root: { style: { flexGrow: 1 } } }}
-            />
-            <Button $kind={Kind.Tertiary}>Apply</Button>
-          </div>
+          <p
+            class={css({
+              ...$theme.typography.HeadingXSmall,
+              fontWeight: 'bold',
+              color: '#364A15',
+              marginTop: 0,
+              marginBottom: $theme.sizing.scale300,
+            })}
+          >
+            Items
+          </p>
+          <OrderedItems items={cartItem} />
         </div>
       </div>
       <Link
