@@ -1,20 +1,7 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { For } from 'solid-js';
+import { ItemProps } from '~/Features/Cart/Components/CartItems';
 import { Img } from '~/Features/Core/Components/Image';
-
-export interface ItemProps {
-  id: number;
-  name: string;
-  description?: string;
-  price: number;
-  currency: string;
-  image: string;
-  weight_unit: string;
-  packaging: string;
-  key: string;
-  numberOfItems: number;
-  notes?: string;
-}
 
 export interface OrderedItemProps {
   title?: string;
@@ -67,7 +54,7 @@ const ItemRenderer = ({ item }: { item: ItemProps }) => {
       />
       <div
         class={css({
-          marginLeft: $theme.sizing.scale400,
+          marginLeft: $theme.sizing.scale600,
         })}
       >
         <p
@@ -90,10 +77,19 @@ const ItemRenderer = ({ item }: { item: ItemProps }) => {
             marginBottom: $theme.sizing.scale100,
           })}
         >
-          {item.price + ' / Piece'}
+          {Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: item.currency,
+          }).format(+item.price) + ' / Piece'}
         </p>
         <FlexText label1="Quantity" label2={item.numberOfItems} />
-        <FlexText label1="Total" label2={item.numberOfItems * item.price} />
+        <FlexText
+          label1="Total"
+          label2={Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: item.currency,
+          }).format(+item.price * item.numberOfItems)}
+        />
       </div>
     </div>
   );

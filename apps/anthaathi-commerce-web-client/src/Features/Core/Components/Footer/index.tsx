@@ -177,12 +177,14 @@ function FooterInfoSection() {
     >
       <div
         class={css({
-          margin: $theme.sizing.scale500,
           paddingLeft: $theme.sizing.scale500,
           paddingRight: $theme.sizing.scale500,
         })}
       >
-        <img src="https://www.nrtcfresh.com/wp-content/uploads/elementor/thumbs/logo-oxvdmbxi3tcpf189vya3e34nmydvnk8z7t3tmr6um0.png" />
+        <img
+          class={css({ height: '180px', width: '180px' })}
+          src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Icon-1024-removebg-preview_256x256_crop_center.png?v=1665226330"
+        />
       </div>
       <div
         class={css({
@@ -433,7 +435,7 @@ function FooterSocialMediaSection() {
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,
                     height: '54px',
-                    justifyContent: 'center',    
+                    justifyContent: 'center',
                     width: '100%',
                   },
                 },

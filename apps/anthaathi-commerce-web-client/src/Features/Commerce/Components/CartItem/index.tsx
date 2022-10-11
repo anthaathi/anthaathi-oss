@@ -79,7 +79,7 @@ export function CartItem(props: CartItemProps) {
           {Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: props.product.currency,
-          }).format(props.product.price) + ' / Piece'}
+          }).format(+props.product.price) + ' / Piece'}
         </div>
 
         <div
@@ -113,7 +113,7 @@ export function CartItem(props: CartItemProps) {
           {Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: props.product.currency,
-          }).format(props.product.price * props.numberOfItems)}
+          }).format(+props.product.price * props.numberOfItems)}
         </div>
       </div>
     </div>
