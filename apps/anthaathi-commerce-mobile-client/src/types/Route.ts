@@ -19,4 +19,5 @@ export type RootStackParamList = {
   AddressInfo: {} | undefined;
   SelectDate: {} | undefined;
   OrderDetailsPage: {} | undefined;
+  ApplyCouponPage: {} | undefined;
 };

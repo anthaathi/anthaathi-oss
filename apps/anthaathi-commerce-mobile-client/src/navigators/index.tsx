@@ -16,6 +16,7 @@ import {RootStackParamList} from '../types/Route';
 import AddressInfoPage from '../pages/AddressDetails/AddressInfoPage';
 import SelectDatePage from '../pages/SelectDatePage';
 import OrderDetailsPage from '../pages/OrderDetailsPage';
+import ApplyCouponPage from '../pages/ApplyCouponPage';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -101,6 +102,13 @@ const MyStack = () => {
       <Stack.Screen
         name="OrderDetailsPage"
         component={OrderDetailsPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ApplyCouponPage"
+        component={ApplyCouponPage}
         options={{
           headerShown: false,
         }}
