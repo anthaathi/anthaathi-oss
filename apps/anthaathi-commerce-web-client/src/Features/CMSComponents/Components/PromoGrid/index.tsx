@@ -158,7 +158,14 @@ export function PromoGridCell(props: PromoGridCellProps) {
   }
 
   return (
-    <Link href={`/collections/${props.key}`}>
+    <Link
+      href={`/collections/${props.key}`}
+      class={css({
+        display: 'flex',
+        alignItems: 'center',
+        placeContent: 'center',
+      })}
+    >
       <div
         class={css$({
           height: heightWidth as never,
