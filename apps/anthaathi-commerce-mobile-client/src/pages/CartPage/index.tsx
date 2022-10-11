@@ -11,7 +11,7 @@ import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {useIntl} from 'react-intl';
 import {useTheme} from 'react-native-paper';
-import { ProductProps } from '../../features/CMS/containers/ProductListPage/components/ProductList';
+import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
@@ -194,6 +194,9 @@ const CartPage: React.FC<
                 _component: CartPageComponentType.PromoCode,
                 key: '12',
                 title: 'Add your promo code',
+                handlePress: () => {
+                  props.navigation.navigate('ApplyCouponPage');
+                },
               },
               {
                 _component: CartPageComponentType.PricingCard,
