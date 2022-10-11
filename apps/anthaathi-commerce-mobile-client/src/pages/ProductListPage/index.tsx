@@ -12,7 +12,7 @@ import {RootStackParamList} from '../../types/Route';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
-import { useIntl } from 'react-intl';
+import {useIntl} from 'react-intl';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
@@ -161,22 +161,37 @@ const ProductListPage = (
             },
             products: productFilter,
           },
-          {
-            _component: CoreComponentType.CMSFABButton,
-            key: '123',
-            title:
-              'View Basket ' +
-              (cartItem.length > 0 ? `(${cartItem.length} Items) (${intl.formatNumber(productTotalPrice, {
-                style: 'currency',
-                currency: 'AED',
-              })})` : ''),
-            icon: 'cart',
-            handlePress: () => {
-              props.navigation.navigate('CartPage');
-            },
-          },
         ]}
       />
+      {cartItem.length > 0 ? (
+        <CMSRenderer
+          components={[
+            {
+              _component: CoreComponentType.CMSFABButton,
+              key: '123',
+              title:
+                'View Basket ' +
+                (cartItem.length > 0
+                  ? `(${cartItem.length} Items) (${intl.formatNumber(
+                      productTotalPrice,
+                      {
+                        style: 'currency',
+                        currency: 'AED',
+                      },
+                    )})`
+                  : ''),
+              icon: 'cart',
+              buttonRadius: 50,
+              buttonBackgroundColor: '#0f8443',
+              buttonWidth: '90%',
+              buttonViewWidth: '100%',
+              handlePress: () => {
+                props.navigation.navigate('CartPage');
+              },
+            },
+          ]}
+        />
+      ) : null}
     </View>
   );
 };

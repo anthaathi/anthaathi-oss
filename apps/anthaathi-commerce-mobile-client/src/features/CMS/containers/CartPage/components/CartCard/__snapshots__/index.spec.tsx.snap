@@ -6,7 +6,7 @@ exports[`CartCard should render the item 1`] = `
   style={
     {
       "backgroundColor": "#ffffff",
-      "borderColor": "#E3E2E7",
+      "borderColor": undefined,
       "borderRadius": 4,
       "borderWidth": 1,
       "elevation": 1,
@@ -70,7 +70,7 @@ exports[`CartCard should render the item 1`] = `
         <Text
           style={
             {
-              "color": "#364A15",
+              "color": undefined,
               "fontSize": 16,
               "fontWeight": "600",
             }
@@ -93,7 +93,7 @@ exports[`CartCard should render the item 1`] = `
           style={
             [
               {
-                "color": "#0f8443",
+                "color": "#6200ee",
                 "fontSize": 18,
               },
               undefined,
@@ -111,7 +111,7 @@ exports[`CartCard should render the item 1`] = `
         <Text
           style={
             {
-              "color": "#0f8443",
+              "color": "#6200ee",
               "fontSize": 14,
               "fontWeight": "400",
               "marginLeft": 10,
@@ -142,7 +142,7 @@ exports[`CartCard should render the item 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgba(15, 132, 67, 0.38)",
+              "backgroundColor": "rgba(98, 0, 238, 0.38)",
               "height": 4,
               "opacity": 0,
               "overflow": "hidden",
@@ -167,7 +167,7 @@ exports[`CartCard should render the item 1`] = `
           <Text
             style={
               {
-                "color": "#364A15",
+                "color": undefined,
                 "fontSize": 12,
                 "fontWeight": "400",
               }
@@ -178,7 +178,7 @@ exports[`CartCard should render the item 1`] = `
           <Text
             style={
               {
-                "color": "#364A15",
+                "color": undefined,
                 "fontSize": 12,
                 "fontWeight": "600",
                 "marginLeft": 5,
@@ -198,7 +198,7 @@ exports[`CartCard should render the item 1`] = `
           <Text
             style={
               {
-                "color": "#364A15",
+                "color": undefined,
                 "fontSize": 12,
                 "fontWeight": "400",
               }
@@ -209,7 +209,7 @@ exports[`CartCard should render the item 1`] = `
           <Text
             style={
               {
-                "color": "#364A15",
+                "color": undefined,
                 "fontSize": 12,
                 "fontWeight": "600",
                 "marginLeft": 5,
@@ -230,7 +230,7 @@ exports[`CartCard should render the item 1`] = `
         <Text
           style={
             {
-              "color": "#364A15",
+              "color": undefined,
               "fontSize": 14,
               "fontWeight": "600",
               "marginVertical": 5,

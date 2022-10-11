@@ -66,7 +66,7 @@ exports[`BasketItem should render the item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "#008D3E",
+              "color": undefined,
               "fontSize": 14,
               "marginBottom": 9,
               "textDecorationLine": "underline",
@@ -131,40 +131,53 @@ exports[`BasketItem should render the item 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "space-between",
                 "marginHorizontal": 15,
+                "width": "100%",
               }
             }
           >
-            <Text
+            <View
               style={
-                [
-                  {
-                    "color": "#000000",
-                    "fontFamily": "System",
-                    "fontWeight": "400",
-                  },
-                  {
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                    "fontWeight": "900",
-                  },
-                ]
+                {
+                  "flexDirection": "row",
+                  "width": "45%",
+                }
               }
-              testID="productName"
-              variant="titleLarge"
             >
-              Baby Yellow Pepper
-            </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": undefined,
+                      "flex": 1,
+                      "flexWrap": "wrap",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                testID="productName"
+                variant="titleLarge"
+              >
+                Baby Yellow Pepper
+              </Text>
+            </View>
             <View
               style={
                 {
                   "alignItems": "center",
                   "backgroundColor": "#F1F9F4",
+                  "borderRadius": 50,
                   "flexDirection": "row",
-                  "height": 42,
-                  "justifyContent": "center",
+                  "height": 35,
+                  "justifyContent": "space-between",
                   "width": 120,
                 }
               }
@@ -212,8 +225,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginLeft": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -270,7 +286,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
@@ -323,8 +339,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginRight": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -382,7 +401,7 @@ exports[`BasketItem should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 13,
                     "fontWeight": "600",
                   },
@@ -412,7 +431,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "900",
                     },
@@ -434,7 +453,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginLeft": 5,
@@ -516,40 +535,53 @@ exports[`BasketItem should render the item 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "space-between",
                 "marginHorizontal": 15,
+                "width": "100%",
               }
             }
           >
-            <Text
+            <View
               style={
-                [
-                  {
-                    "color": "#000000",
-                    "fontFamily": "System",
-                    "fontWeight": "400",
-                  },
-                  {
-                    "textAlign": "left",
-                  },
-                  {
-                    "color": "#364A15",
-                    "fontSize": 14,
-                    "fontWeight": "900",
-                  },
-                ]
+                {
+                  "flexDirection": "row",
+                  "width": "45%",
+                }
               }
-              testID="productName"
-              variant="titleLarge"
             >
-              Capsicum mixed
-            </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    {
+                      "textAlign": "left",
+                    },
+                    {
+                      "color": undefined,
+                      "flex": 1,
+                      "flexWrap": "wrap",
+                      "fontSize": 14,
+                      "fontWeight": "900",
+                    },
+                  ]
+                }
+                testID="productName"
+                variant="titleLarge"
+              >
+                Capsicum mixed
+              </Text>
+            </View>
             <View
               style={
                 {
                   "alignItems": "center",
                   "backgroundColor": "#F1F9F4",
+                  "borderRadius": 50,
                   "flexDirection": "row",
-                  "height": 42,
-                  "justifyContent": "center",
+                  "height": 35,
+                  "justifyContent": "space-between",
                   "width": 120,
                 }
               }
@@ -597,8 +629,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginLeft": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -655,7 +690,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
@@ -708,8 +743,11 @@ exports[`BasketItem should render the item 1`] = `
                       },
                       undefined,
                       {
-                        "borderRadius": 0,
-                        "height": 42,
+                        "backgroundColor": "#D4EDDD",
+                        "borderRadius": 50,
+                        "height": 35,
+                        "marginRight": 0,
+                        "width": 35,
                       },
                     ],
                   ]
@@ -767,7 +805,7 @@ exports[`BasketItem should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 13,
                     "fontWeight": "600",
                   },
@@ -797,7 +835,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#364A15",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "900",
                     },
@@ -819,7 +857,7 @@ exports[`BasketItem should render the item 1`] = `
                       "textAlign": "left",
                     },
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginLeft": 5,

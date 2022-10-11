@@ -1,7 +1,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {Pressable, View} from 'react-native';
-import {Text, TouchableRipple} from 'react-native-paper';
+import {Text, TouchableRipple, useTheme} from 'react-native-paper';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
 export interface DeliveryAddressCardProps {
@@ -13,6 +13,7 @@ export interface DeliveryAddressCardProps {
 }
 
 const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <TouchableRipple
@@ -27,14 +28,19 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
       <View>
         <Text
           style={{
-            color: '#364A15',
+            color: theme.colors.titleTextColor,
             fontWeight: '700',
             fontSize: 16,
           }}>
           {props.deliveryTitle}
         </Text>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
-          <Text style={{color: '#364A15', fontSize: 14, width: '85%'}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 14,
+              width: '85%',
+            }}>
             {props.deliveryAddress}
           </Text>
           <Pressable
@@ -43,16 +49,20 @@ const DeliveryAddressCard = (props: DeliveryAddressCardProps) => {
             onPress={props.handlePress}>
             <Text
               testID="deliverAddressButtonTitle"
-              style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
+              style={{
+                color: theme.colors.greenTextColor,
+                fontSize: 14,
+                fontWeight: '500',
+              }}>
               {props.buttonTitle}
             </Text>
           </Pressable>
         </View>
         <View style={{flexDirection: 'row', marginVertical: 5}}>
-          <Text style={{color: '#808080', fontSize: 14}}>
+          <Text style={{color: theme.colors.greyTextColor, fontSize: 14}}>
             {intl.formatMessage({defaultMessage: 'Mobile'})}
           </Text>
-          <Text style={{color: '#364A15', fontSize: 14}}>
+          <Text style={{color: theme.colors.titleTextColor, fontSize: 14}}>
             {': ' + props.mobileNumber}
           </Text>
         </View>

@@ -1,6 +1,6 @@
 import {Pressable, View} from 'react-native';
 import React from 'react';
-import {Card, Text} from 'react-native-paper';
+import {Card, Text, useTheme} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {OrderPageComponentType} from '../../../../types/common';
 
@@ -28,11 +28,11 @@ const OrderDetailsList = (props: OrderDetailsListProps) => {
 
 const OrderDetails = ({order}: {order: OrderDetailsProps}) => {
   const intl = useIntl();
-
+  const theme = useTheme();
   return (
     <Card
       style={{
-        borderColor: '#E3E2E7',
+        borderColor: theme.colors.cardBorderColor,
         borderWidth: 1,
         borderRadius: 4,
         marginVertical: 5,
@@ -61,7 +61,7 @@ const OrderDetails = ({order}: {order: OrderDetailsProps}) => {
         <Pressable onPress={() => console.log('Pressed')}>
           <Text
             style={{
-              color: '#008D3E',
+              color: theme.colors.greenTextColor,
               fontSize: 14,
               fontWeight: '700',
               marginVertical: 10,
@@ -76,6 +76,7 @@ const OrderDetails = ({order}: {order: OrderDetailsProps}) => {
 };
 
 const InformationRenderer = ({label, name}: {label: string; name: string}) => {
+  const theme = useTheme();
   return (
     <View
       style={{
@@ -85,12 +86,20 @@ const InformationRenderer = ({label, name}: {label: string; name: string}) => {
       }}>
       <Text
         testID="labelInfoRendererId"
-        style={{color: '#808080', fontSize: 14, fontWeight: '400'}}>
+        style={{
+          color: theme.colors.greyTextColor,
+          fontSize: 14,
+          fontWeight: '400',
+        }}>
         {label + ':  '}
       </Text>
       <Text
         testID="nameInfoRendererId"
-        style={{color: '#364A15', fontSize: 14, fontWeight: '500'}}>
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 14,
+          fontWeight: '500',
+        }}>
         {name}
       </Text>
     </View>

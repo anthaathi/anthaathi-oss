@@ -56,7 +56,7 @@ exports[`SubCategories should render the item 1`] = `
           style={
             {
               "backgroundColor": "#6200ee",
-              "borderColor": "#E3E2E7",
+              "borderColor": undefined,
               "borderRadius": 2,
               "borderStyle": "solid",
               "borderWidth": 0,
@@ -177,7 +177,7 @@ exports[`SubCategories should render the item 1`] = `
           style={
             {
               "backgroundColor": "transparent",
-              "borderColor": "#E3E2E7",
+              "borderColor": undefined,
               "borderRadius": 2,
               "borderStyle": "solid",
               "borderWidth": 0.5,

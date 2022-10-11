@@ -2,12 +2,13 @@ import {View, Text, Platform, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {Button, Divider} from 'react-native-paper';
+import {Button, Divider, useTheme} from 'react-native-paper';
 import {CoreComponentType} from '../../../../types/common';
 import CMSBottomSheet from '../CMSBottomSheet';
 import {useIntl} from 'react-intl';
 
 const DatePicker = (props: {title: string}) => {
+  const theme = useTheme();
   const intl = useIntl();
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState(new Date());
@@ -20,14 +21,19 @@ const DatePicker = (props: {title: string}) => {
 
   return (
     <View testID="datePicker" style={{marginHorizontal: 10, marginVertical: 5}}>
-      <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+      <Text
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 16,
+          fontWeight: '600',
+        }}>
         {props.title}
       </Text>
 
       <Button
         style={{
           marginVertical: 3,
-          borderColor: '#E3E2E7',
+          borderColor: theme.colors.cardBorderColor,
           backgroundColor: '#fff',
         }}
         contentStyle={{
@@ -35,7 +41,7 @@ const DatePicker = (props: {title: string}) => {
           flexDirection: 'row-reverse',
           justifyContent: 'space-between',
         }}
-        labelStyle={{color: '#364A15'}}
+        labelStyle={{color: theme.colors.titleTextColor}}
         icon="pencil"
         onPress={() => setOpen(true)}
         uppercase={false}

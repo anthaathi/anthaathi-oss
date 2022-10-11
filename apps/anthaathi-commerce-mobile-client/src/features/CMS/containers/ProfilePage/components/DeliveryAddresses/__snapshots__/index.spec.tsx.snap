@@ -30,7 +30,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
             "textAlign": "left",
           },
           {
-            "color": "#364A15",
+            "color": undefined,
             "fontSize": 16,
             "fontWeight": "600",
           },
@@ -134,7 +134,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "fontWeight": "500",
                   },
                   {
-                    "color": "#008D3E",
+                    "color": undefined,
                   },
                 ],
               ]
@@ -151,7 +151,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
     style={
       {
         "backgroundColor": "#ffffff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 4,
         "borderWidth": 1,
         "elevation": 1,
@@ -232,7 +232,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "600",
                   },
@@ -254,7 +254,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#808080",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "500",
                   },
@@ -297,7 +297,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#008D3E",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "500",
                   },
@@ -353,7 +353,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "600",
                   },
@@ -375,7 +375,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#808080",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "500",
                   },
@@ -418,7 +418,7 @@ exports[`DeliveryAddresses should render the item 1`] = `
                     "textAlign": "left",
                   },
                   {
-                    "color": "#008D3E",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "500",
                   },

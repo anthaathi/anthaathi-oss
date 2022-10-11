@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, Title} from 'react-native-paper';
+import {Text, Title, useTheme} from 'react-native-paper';
 import {Image, Pressable, View, VirtualizedList} from 'react-native';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
@@ -98,6 +98,7 @@ function ItemRenderer({
   itemWidth: number;
   onProductPress: () => void;
 }) {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View
@@ -153,7 +154,12 @@ function ItemRenderer({
                 {item.name}
               </Title>
             </View>
-            <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               Dorne
             </Text>
             <View
@@ -163,13 +169,23 @@ function ItemRenderer({
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greenTextColor,
+                  fontSize: 14,
+                  fontWeight: '400',
+                }}>
                 {intl.formatNumber(item.price, {
                   style: 'currency',
                   currency: item.currency,
                 })}
               </Text>
-              <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greyTextColor,
+                  fontSize: 12,
+                  fontWeight: '400',
+                }}>
                 {' / ' + item.packaging}
               </Text>
             </View>

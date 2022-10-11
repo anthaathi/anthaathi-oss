@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text} from 'react-native-paper';
+import {Text, useTheme} from 'react-native-paper';
 import {
   Image,
   Pressable,
@@ -26,6 +26,7 @@ export default function SuggestedItem({
   handlePress2,
 }: SuggestedItemProps) {
   const intl = useIntl();
+  const theme = useTheme();
 
   return (
     <View
@@ -47,7 +48,7 @@ export default function SuggestedItem({
               marginBottom: 9,
               textDecorationLine: 'underline',
               fontSize: 14,
-              color: '#008D3E',
+              color: theme.colors.greenTextColor,
             }}>
             {intl.formatMessage({defaultMessage: 'View All'})}
           </Text>
@@ -79,6 +80,7 @@ function ItemRenderer({
   item: ProductProps;
   handlePress2: (item: ProductProps) => void;
 }) {
+  const theme = useTheme();
   return (
     <TouchableOpacity
       onPress={() => {
@@ -109,7 +111,7 @@ function ItemRenderer({
           style={{
             textAlign: 'center',
             paddingVertical: 5,
-            color: '#008D3E',
+            color: theme.colors.greenTextColor,
             fontWeight: '700',
             fontSize: 14,
             backgroundColor: '#F1F9F4',

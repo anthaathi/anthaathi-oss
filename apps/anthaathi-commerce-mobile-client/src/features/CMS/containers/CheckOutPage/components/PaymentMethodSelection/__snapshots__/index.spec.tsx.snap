@@ -12,7 +12,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
   <Text
     style={
       {
-        "color": "#364A15",
+        "color": undefined,
         "fontSize": 16,
         "fontWeight": "600",
       }
@@ -25,7 +25,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
     style={
       {
         "backgroundColor": "#ffffff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 10,
         "borderWidth": 1,
         "elevation": 1,
@@ -104,7 +104,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 style={
                   [
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 18,
                     },
                     undefined,
@@ -122,7 +122,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               <Text
                 style={
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "400",
                     "marginLeft": 10,
@@ -142,7 +142,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 },
                 undefined,
                 {
-                  "backgroundColor": "#E3E2E7",
+                  "backgroundColor": undefined,
                   "marginVertical": 3,
                 },
               ]
@@ -178,7 +178,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 style={
                   [
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 18,
                     },
                     undefined,
@@ -196,7 +196,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               <Text
                 style={
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "400",
                     "marginLeft": 10,
@@ -216,7 +216,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 },
                 undefined,
                 {
-                  "backgroundColor": "#E3E2E7",
+                  "backgroundColor": undefined,
                   "marginVertical": 3,
                 },
               ]
@@ -252,7 +252,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 style={
                   [
                     {
-                      "color": "#008D3E",
+                      "color": undefined,
                       "fontSize": 18,
                     },
                     undefined,
@@ -270,7 +270,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
               <Text
                 style={
                   {
-                    "color": "#364A15",
+                    "color": undefined,
                     "fontSize": 14,
                     "fontWeight": "400",
                     "marginLeft": 10,
@@ -290,7 +290,7 @@ exports[`PaymentMethodSelection should render the item 1`] = `
                 },
                 undefined,
                 {
-                  "backgroundColor": "#E3E2E7",
+                  "backgroundColor": undefined,
                   "marginVertical": 3,
                 },
               ]

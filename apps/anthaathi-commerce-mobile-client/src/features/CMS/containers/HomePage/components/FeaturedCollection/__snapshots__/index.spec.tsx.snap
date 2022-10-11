@@ -257,7 +257,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                           "textAlign": "left",
                         },
                         {
-                          "color": "#808080",
+                          "color": undefined,
                           "fontSize": 12,
                           "fontWeight": "400",
                         },
@@ -288,7 +288,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                             "textAlign": "left",
                           },
                           {
-                            "color": "#008D3E",
+                            "color": undefined,
                             "fontSize": 14,
                             "fontWeight": "400",
                           },
@@ -309,7 +309,7 @@ exports[`FeaturedCollection should render the item 1`] = `
                             "textAlign": "left",
                           },
                           {
-                            "color": "#808080",
+                            "color": undefined,
                             "fontSize": 12,
                             "fontWeight": "400",
                           },

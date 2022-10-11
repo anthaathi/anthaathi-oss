@@ -1,6 +1,6 @@
 import {View, VirtualizedList} from 'react-native';
 import React from 'react';
-import {Button} from 'react-native-paper';
+import {Button, useTheme} from 'react-native-paper';
 import {ProductListPageComponentType} from '../../../../types/common';
 
 type CategoryDetailsProps = {
@@ -30,13 +30,14 @@ const SubCategories = (props: SubCategoriesProps) => {
 };
 
 const ItemRenderer = ({item}: {item: CategoryDetailsProps}) => {
+  const theme = useTheme();
   return (
     <Button
       mode={item.id === '1' ? 'contained' : 'outlined'}
       style={{
         marginHorizontal: 5,
         marginVertical: 2,
-        borderColor: '#E3E2E7',
+        borderColor: theme.colors.greyTextColor,
         borderRadius: 2,
       }}
       labelStyle={{

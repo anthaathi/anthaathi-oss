@@ -57,7 +57,7 @@ exports[`PromoCode should render the item 1`] = `
                 "textAlign": "left",
               },
               {
-                "color": "#737272",
+                "color": undefined,
                 "fontSize": 14,
                 "fontWeight": "500",
               },

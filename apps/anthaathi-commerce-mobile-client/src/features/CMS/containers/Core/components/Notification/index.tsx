@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import {Divider, Text} from 'react-native-paper';
+import {Divider, Text, useTheme} from 'react-native-paper';
 import {CoreComponentType} from '../../../../types/common';
 
 export interface NotificationProps {
@@ -19,6 +19,7 @@ const Notification = ({
   time,
   icon,
 }: NotificationProps) => {
+  const theme = useTheme();
   return (
     <View
       testID="notification"
@@ -41,19 +42,24 @@ const Notification = ({
               <Text
                 style={{
                   fontSize: 14,
-                  color: '#364A15',
+                  color: theme.colors.titleTextColor,
                   fontWeight: '400',
                 }}>
                 {subtitle1}
               </Text>
             </View>
-            <Text style={{fontSize: 14, color: '#364A15', fontWeight: '400'}}>
+            <Text
+              style={{
+                fontSize: 14,
+                color: theme.colors.titleTextColor,
+                fontWeight: '400',
+              }}>
               {time}
             </Text>
           </View>
           <Text
             style={{
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontSize: 16,
               fontWeight: '600',
             }}>
@@ -62,7 +68,7 @@ const Notification = ({
           <Text
             style={{
               fontSize: 14,
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontWeight: '400',
             }}>
             {subtitle2}

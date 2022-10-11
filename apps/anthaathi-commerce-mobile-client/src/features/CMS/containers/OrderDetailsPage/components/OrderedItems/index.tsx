@@ -1,6 +1,6 @@
 import {Image, View, Text as RNText, Pressable} from 'react-native';
 import React from 'react';
-import {Divider, Text} from 'react-native-paper';
+import {Divider, Text, useTheme} from 'react-native-paper';
 import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {OrderDetailsPageComponentType} from '../../../../types/common';
@@ -18,6 +18,7 @@ export interface OrderedItemProps {
 }
 
 const OrderedItems = (props: OrderedItemProps) => {
+  const theme = useTheme();
   const itemHeight = useResponsiveValue([120, 250, 290, 330]);
   const itemWidth = useResponsiveValue([120, 240, 280, 320]);
 
@@ -35,7 +36,7 @@ const OrderedItems = (props: OrderedItemProps) => {
         }}>
         <RNText
           style={{
-            color: '#364A15',
+            color: theme.colors.titleTextColor,
             fontSize: 16,
             fontWeight: '600',
             marginBottom: 5,
@@ -49,7 +50,7 @@ const OrderedItems = (props: OrderedItemProps) => {
           backgroundColor: '#fff',
           paddingVertical: 5,
           paddingHorizontal: 5,
-          borderColor: '#E3E2E7',
+          borderColor: theme.colors.cardBorderColor,
           borderWidth: 1,
           borderRadius: 4,
         }}>
@@ -83,6 +84,7 @@ const ItemRenderer = ({
   divider: boolean;
   handlePress: (item: ProductProps) => void;
 }) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <Pressable onPress={() => handlePress(item)}>
@@ -104,7 +106,7 @@ const ItemRenderer = ({
               style={{
                 marginBottom: 5,
                 fontSize: 14,
-                color: '#364A15',
+                color: theme.colors.titleTextColor,
                 fontWeight: '900',
               }}>
               {item.name}
@@ -119,7 +121,7 @@ const ItemRenderer = ({
                 variant="titleLarge"
                 style={{
                   fontSize: 14,
-                  color: '#364A15',
+                  color: theme.colors.titleTextColor,
                   fontWeight: '900',
                 }}>
                 {intl.formatMessage({defaultMessage: 'Quantity'}) + ' :'}
@@ -130,7 +132,7 @@ const ItemRenderer = ({
                 variant="titleLarge"
                 style={{
                   fontSize: 14,
-                  color: '#008D3E',
+                  color: theme.colors.greenTextColor,
                   fontWeight: '700',
                   marginLeft: 5,
                 }}>
@@ -142,7 +144,7 @@ const ItemRenderer = ({
               variant="titleLarge"
               style={{
                 fontSize: 13,
-                color: '#364A15',
+                color: theme.colors.titleTextColor,
                 fontWeight: '600',
                 marginBottom: 5,
               }}>
@@ -164,7 +166,7 @@ const ItemRenderer = ({
                 variant="titleLarge"
                 style={{
                   fontSize: 14,
-                  color: '#364A15',
+                  color: theme.colors.titleTextColor,
                   fontWeight: '900',
                 }}>
                 {intl.formatMessage({defaultMessage: 'Total'}) + ' :'}
@@ -175,7 +177,7 @@ const ItemRenderer = ({
                 variant="titleLarge"
                 style={{
                   fontSize: 14,
-                  color: '#008D3E',
+                  color: theme.colors.greenTextColor,
                   fontWeight: '700',
                   marginLeft: 5,
                 }}>

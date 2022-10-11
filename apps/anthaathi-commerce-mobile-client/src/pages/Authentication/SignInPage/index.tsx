@@ -1,6 +1,6 @@
 import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Button, Text, TextInput} from 'react-native-paper';
+import {Button, Text, TextInput, useTheme} from 'react-native-paper';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../types/Route';
 import {useIntl} from 'react-intl';
@@ -8,6 +8,7 @@ import {useIntl} from 'react-intl';
 const SignInPage = (
   props: NativeStackScreenProps<RootStackParamList, 'SignIn'>,
 ) => {
+  const theme = useTheme();
   const intl = useIntl();
   const [passwordShow, setPasswordShow] = React.useState(true);
   return (
@@ -48,7 +49,7 @@ const SignInPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
           />
           <TextInput
             mode="flat"
@@ -60,7 +61,7 @@ const SignInPage = (
               marginHorizontal: 5,
               marginVertical: 10,
             }}
-            activeUnderlineColor="#0f8443"
+            activeUnderlineColor={theme.colors.primary}
             secureTextEntry={passwordShow}
             right={
               <TextInput.Icon
@@ -81,7 +82,7 @@ const SignInPage = (
             <Text
               style={{
                 textDecorationLine: 'underline',
-                color: '#0f8443',
+                color: theme.colors.primary,
                 fontWeight: '600',
                 fontSize: 13,
               }}>
@@ -120,7 +121,12 @@ const SignInPage = (
             onPress={() => {
               props.navigation.navigate('SignUp');
             }}>
-            <Text style={{color: '#0f8443', fontWeight: '700', fontSize: 13}}>
+            <Text
+              style={{
+                color: theme.colors.primary,
+                fontWeight: '700',
+                fontSize: 13,
+              }}>
               {intl.formatMessage({defaultMessage: 'Sign Up'})}
             </Text>
           </TouchableOpacity>

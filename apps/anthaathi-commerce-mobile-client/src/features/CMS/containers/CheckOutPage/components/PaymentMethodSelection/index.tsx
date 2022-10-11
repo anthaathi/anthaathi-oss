@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Pressable, Text, View} from 'react-native';
-import {Card, Divider} from 'react-native-paper';
+import {Card, Divider, useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CheckOutPageComponentType} from '../../../../types/common';
 
@@ -15,16 +15,22 @@ export interface PaymentMethodProps {
 }
 
 const PaymentMethodSelection = (props: PaymentMethodProps) => {
+  const theme = useTheme();
   const [checkedKey, setCheckedKey] = useState('');
   return (
     <View style={{marginHorizontal: 10}} testID="paymentMethodSelection">
-      <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+      <Text
+        style={{
+          color: theme.colors.titleTextColor,
+          fontSize: 16,
+          fontWeight: '600',
+        }}>
         {props.title}
       </Text>
 
       <Card
         style={{
-          borderColor: '#E3E2E7',
+          borderColor: theme.colors.cardBorderColor,
           borderWidth: 1,
           borderRadius: 10,
           marginVertical: 5,
@@ -55,6 +61,7 @@ const OptionItem = ({
   checkedKey: string;
   setCheckedKey: React.Dispatch<React.SetStateAction<string>>;
 }) => {
+  const theme = useTheme();
   return (
     <View>
       <Pressable
@@ -68,13 +75,13 @@ const OptionItem = ({
           }}>
           <Icon
             name={item.key === checkedKey ? 'circle-slice-8' : 'circle-outline'}
-            color="#008D3E"
+            color={theme.colors.greenTextColor}
             size={18}
           />
           <Text
             style={{
               marginLeft: 10,
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontSize: 14,
               fontWeight: item.key === checkedKey ? '600' : '400',
             }}>
@@ -82,7 +89,12 @@ const OptionItem = ({
           </Text>
         </View>
       </Pressable>
-      <Divider style={{backgroundColor: '#E3E2E7', marginVertical: 3}} />
+      <Divider
+        style={{
+          backgroundColor: theme.colors.cardBorderColor,
+          marginVertical: 3,
+        }}
+      />
     </View>
   );
 };

@@ -10,11 +10,13 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useRecoilState} from 'recoil';
 import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {useIntl} from 'react-intl';
+import {useTheme} from 'react-native-paper';
 import { ProductProps } from '../../features/CMS/containers/ProductListPage/components/ProductList';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
 > = props => {
+  const theme = useTheme();
   const intl = useIntl();
   const [cartItem, setCartItem] = useRecoilState(CartItemData);
 
@@ -209,14 +211,20 @@ const CartPage: React.FC<
           />
         </ScrollView>
       ) : (
-        <View style={{alignItems: 'center', marginTop: 50}}>
-          <Text style={{color: '#364A15', fontSize: 22, fontWeight: '700'}}>
+        <View
+          style={{alignItems: 'center', marginTop: 50, marginHorizontal: 10}}>
+          <Text
+            style={{
+              color: theme.colors.titleTextColor,
+              fontSize: 22,
+              fontWeight: '700',
+            }}>
             {intl.formatMessage({defaultMessage: 'Your cart is Empty'})}
           </Text>
 
           <Text
             style={{
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontSize: 16,
               fontWeight: '400',
               marginTop: 20,
@@ -229,7 +237,7 @@ const CartPage: React.FC<
 
           <Text
             style={{
-              color: '#364A15',
+              color: theme.colors.titleTextColor,
               fontSize: 16,
               fontWeight: '400',
               marginTop: 5,

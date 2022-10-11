@@ -12,12 +12,14 @@ import Header from '../../features/CMS/containers/Header';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import CategoryPage from '../CategoryPage';
 import {useIntl} from 'react-intl';
+import {useTheme} from 'react-native-paper';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
 export default function MainPage(
   props: NativeStackScreenProps<RootStackParamList, 'Dashboard'>,
 ) {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <>
@@ -36,8 +38,8 @@ export default function MainPage(
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: '#364A15',
-          // tabBarInactiveTintColor: '#008D3E',
+          tabBarActiveTintColor: theme.colors.titleTextColor,
+          // tabBarInactiveTintColor: theme.colors.greenTextColor,
           tabBarActiveBackgroundColor: '#F1F9F4',
           tabBarStyle: [
             Platform.OS === 'android' && {

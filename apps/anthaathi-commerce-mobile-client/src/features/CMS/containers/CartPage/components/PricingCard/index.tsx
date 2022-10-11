@@ -1,6 +1,6 @@
 import {View, Text, TextStyle, StyleProp} from 'react-native';
 import React from 'react';
-import {Card} from 'react-native-paper';
+import {Card, useTheme} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
 
@@ -26,6 +26,7 @@ export interface PricingCardProps {
 
 const PricingCard = (props: PricingCardProps) => {
   const intl = useIntl();
+  const theme = useTheme();
 
   return (
     <View
@@ -34,10 +35,10 @@ const PricingCard = (props: PricingCardProps) => {
       {props.title && (
         <Text
           style={{
-            color: '#364A15',
+            color: theme.colors.titleTextColor,
             fontSize: 16,
             fontWeight: '600',
-            marginBottom: 5
+            marginBottom: 5,
           }}>
           {props.title}
         </Text>
@@ -45,7 +46,7 @@ const PricingCard = (props: PricingCardProps) => {
 
       <Card
         style={{
-          borderColor: '#E3E2E7',
+          borderColor: theme.colors.cardBorderColor,
           borderWidth: 1,
           borderRadius: 4,
         }}>
@@ -85,8 +86,16 @@ const PricingCard = (props: PricingCardProps) => {
               style: 'currency',
               currency: props.total.currency,
             })}
-            titleStyle={{fontSize: 16, fontWeight: '700', color: '#364A15'}}
-            subtitleStyle={{fontSize: 16, fontWeight: '700', color: '#008D3E'}}
+            titleStyle={{
+              fontSize: 16,
+              fontWeight: '700',
+              color: theme.colors.titleTextColor,
+            }}
+            subtitleStyle={{
+              fontSize: 16,
+              fontWeight: '700',
+              color: theme.colors.greenTextColor,
+            }}
           />
         </Card.Content>
       </Card>
@@ -100,6 +109,7 @@ const ViewText = ({
   titleStyle,
   subtitleStyle,
 }: ViewTextProps) => {
+  const theme = useTheme();
   return (
     <View
       style={{
@@ -110,13 +120,13 @@ const ViewText = ({
       }}>
       <Text
         testID="title"
-        style={[{color: '#808080', fontSize: 14}, titleStyle]}>
+        style={[{color: theme.colors.greyTextColor, fontSize: 14}, titleStyle]}>
         {title}
       </Text>
       <Text
         testID="subtitle"
         style={[
-          {color: '#364A15', fontSize: 14, fontWeight: '600'},
+          {color: theme.colors.titleTextColor, fontSize: 14, fontWeight: '600'},
           subtitleStyle,
         ]}>
         {subtitle}

@@ -36,7 +36,12 @@ const PromoCode = (props: PromoCodeProps) => {
               flexDirection: 'row',
               justifyContent: 'space-around',
             }}>
-            <Text style={{color: '#737272', fontSize: 14, fontWeight: '500'}}>
+            <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 14,
+                fontWeight: '500',
+              }}>
               {props.title}
             </Text>
             <Icon name="tag" color={theme.colors.primary} size={20} />
@@ -70,7 +75,12 @@ const PromoCode = (props: PromoCodeProps) => {
         />
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={{color: '#364A15', fontSize: 16, fontWeight: '700'}}>
+            <Text
+              style={{
+                color: theme.colors.titleTextColor,
+                fontSize: 16,
+                fontWeight: '700',
+              }}>
               {intl.formatMessage({defaultMessage: 'Add New Coupon Code'})}
             </Text>
 
@@ -85,7 +95,7 @@ const PromoCode = (props: PromoCodeProps) => {
                 height: 56,
                 marginVertical: 10,
               }}
-              activeUnderlineColor="#0f8443"
+              activeUnderlineColor={theme.colors.primary}
             />
 
             <View

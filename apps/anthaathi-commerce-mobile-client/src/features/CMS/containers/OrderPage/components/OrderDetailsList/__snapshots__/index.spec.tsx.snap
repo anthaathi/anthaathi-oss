@@ -14,7 +14,7 @@ exports[`OrderDetailsList should render the item 1`] = `
     style={
       {
         "backgroundColor": "#ffffff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 4,
         "borderWidth": 1,
         "elevation": 1,
@@ -86,7 +86,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -108,7 +108,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -140,7 +140,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -162,7 +162,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -194,7 +194,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -216,7 +216,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -248,7 +248,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -270,7 +270,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -307,7 +307,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#008D3E",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "700",
                   "marginRight": 20,
@@ -327,7 +327,7 @@ exports[`OrderDetailsList should render the item 1`] = `
     style={
       {
         "backgroundColor": "#ffffff",
-        "borderColor": "#E3E2E7",
+        "borderColor": undefined,
         "borderRadius": 4,
         "borderWidth": 1,
         "elevation": 1,
@@ -399,7 +399,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -421,7 +421,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -453,7 +453,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -475,7 +475,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -507,7 +507,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -529,7 +529,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -561,7 +561,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#808080",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "400",
                 },
@@ -583,7 +583,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#364A15",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
@@ -620,7 +620,7 @@ exports[`OrderDetailsList should render the item 1`] = `
                   "textAlign": "left",
                 },
                 {
-                  "color": "#008D3E",
+                  "color": undefined,
                   "fontSize": 14,
                   "fontWeight": "700",
                   "marginRight": 20,

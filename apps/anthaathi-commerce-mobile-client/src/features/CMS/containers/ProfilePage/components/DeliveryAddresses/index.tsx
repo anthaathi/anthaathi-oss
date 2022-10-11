@@ -1,6 +1,6 @@
 import {Pressable, View} from 'react-native';
 import React from 'react';
-import {Button, Card, Divider, Text} from 'react-native-paper';
+import {Button, Card, Divider, Text, useTheme} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {ProfilePageComponentType} from '../../../../types/common';
 
@@ -23,6 +23,7 @@ export interface DeliveryAddressesProps {
 }
 
 const DeliveryAddresses = (props: DeliveryAddressesProps) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View style={{marginHorizontal: 10}} testID="deliveryAddresses">
@@ -32,20 +33,25 @@ const DeliveryAddresses = (props: DeliveryAddressesProps) => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text style={{color: '#364A15', fontSize: 16, fontWeight: '600'}}>
+        <Text
+          style={{
+            color: theme.colors.titleTextColor,
+            fontSize: 16,
+            fontWeight: '600',
+          }}>
           {props.title}
         </Text>
         <Button
           testID="addNewAddress"
           mode="text"
-          labelStyle={{color: '#008D3E'}}
+          labelStyle={{color: theme.colors.greenTextColor}}
           onPress={props.handlePress}>
           {intl.formatMessage({defaultMessage: 'Add New'})}
         </Button>
       </View>
       <Card
         style={{
-          borderColor: '#E3E2E7',
+          borderColor: theme.colors.cardBorderColor,
           borderWidth: 1,
           borderRadius: 4,
           marginVertical: 2,
@@ -68,6 +74,7 @@ const AddressRenderer = ({
   data: AddressProps;
   handlePress?: () => void;
 }) => {
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <>
@@ -82,7 +89,11 @@ const AddressRenderer = ({
         <View style={{width: '80%'}}>
           <Text
             testID="addressText1"
-            style={{fontSize: 14, color: '#364A15', fontWeight: '600'}}>
+            style={{
+              fontSize: 14,
+              color: theme.colors.titleTextColor,
+              fontWeight: '600',
+            }}>
             {data.apartment +
               ', ' +
               data.address +
@@ -92,7 +103,12 @@ const AddressRenderer = ({
               data.country}
           </Text>
 
-          <Text style={{fontSize: 14, color: '#808080', fontWeight: '500'}}>
+          <Text
+            style={{
+              fontSize: 14,
+              color: theme.colors.greyTextColor,
+              fontWeight: '500',
+            }}>
             {'Landmark: ' + data.landmark}
           </Text>
         </View>
@@ -102,7 +118,11 @@ const AddressRenderer = ({
           style={{width: '20%', alignItems: 'center'}}>
           <Text
             testID="addressChangeButtonTitle"
-            style={{color: '#008D3E', fontSize: 14, fontWeight: '500'}}>
+            style={{
+              color: theme.colors.greenTextColor,
+              fontSize: 14,
+              fontWeight: '500',
+            }}>
             {intl.formatMessage({defaultMessage: 'Edit'})}
           </Text>
         </Pressable>

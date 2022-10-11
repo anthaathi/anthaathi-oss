@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Avatar, Text, Title} from 'react-native-paper';
+import {Avatar, Text, Title, useTheme} from 'react-native-paper';
 import {
   Image,
   Pressable,
@@ -138,7 +138,7 @@ function ItemRenderer({
       return cartObj;
     }
   }, [cartItem, item.id]);
-
+  const theme = useTheme();
   const intl = useIntl();
   return (
     <View
@@ -147,7 +147,7 @@ function ItemRenderer({
         width: '48%',
         borderColor:
           cartProductData && cartProductData.id === item.id
-            ? '#008D3E'
+            ? theme.colors.greenTextColor
             : '#e7e7e7',
         backgroundColor: '#f0f0f0',
         borderWidth: 1,
@@ -251,7 +251,7 @@ function ItemRenderer({
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'space-between',
-                width: itemWidth * 0.9,
+                width: '100%',
               }}>
               <Title
                 style={{
@@ -265,13 +265,18 @@ function ItemRenderer({
               <TouchableOpacity onPress={handleInfoPress}>
                 <Entypo
                   name="info-with-circle"
-                  color="#364A15"
+                  color={theme.colors.titleTextColor}
                   size={18}
                   style={{paddingVertical: 5, paddingLeft: 10}}
                 />
               </TouchableOpacity>
             </View>
-            <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               Dorne
             </Text>
             <View
@@ -281,18 +286,33 @@ function ItemRenderer({
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <Text style={{color: '#008D3E', fontSize: 14, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greenTextColor,
+                  fontSize: 14,
+                  fontWeight: '400',
+                }}>
                 {intl.formatNumber(item.price, {
                   style: 'currency',
                   currency: item.currency,
                 })}
               </Text>
-              <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+              <Text
+                style={{
+                  color: theme.colors.greyTextColor,
+                  fontSize: 12,
+                  fontWeight: '400',
+                }}>
                 {' / ' + item.packaging}
               </Text>
             </View>
 
-            {/* <Text style={{color: '#808080', fontSize: 12, fontWeight: '400'}}>
+            {/* <Text
+              style={{
+                color: theme.colors.greyTextColor,
+                fontSize: 12,
+                fontWeight: '400',
+              }}>
               {item.notes}
             </Text> */}
           </View>
