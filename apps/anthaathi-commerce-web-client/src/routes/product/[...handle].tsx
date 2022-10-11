@@ -19,9 +19,6 @@ export const routeData = ({ params }: RouteDataArgs) => {
 export default function ProductPage() {
   const { product } = useRouteData<typeof routeData>();
   const [css] = useStyletron();
-  const navigate = useNavigate();
-  const [cartItem, setCartItem] = cartItems;
-  const [appData, setAppData] = appStore;
 
   return (
     <>
@@ -54,88 +51,6 @@ export default function ProductPage() {
           currency: product()?.currency!,
           image: [product()?.image!],
           notes: product()?.notes || '',
-        }}
-        handleAddToCart={() => {
-          if (
-            !appData.items.some(
-              (el: { id: number; quantity: number }) => el.id === product()?.id,
-            )
-          ) {
-            setAppData({
-              ...appData,
-              items: [
-                ...appData.items,
-                {
-                  id: product()?.id,
-                  quantity: appData.items.length + 1,
-                } as never,
-              ],
-            });
-          }
-        }}
-        handleBuyItNow={() => {
-          if (cartItem.some((el) => el.id === product()?.id)) {
-            const newState = cartItem.map((obj) => {
-              if (obj.id === product()?.id) {
-                return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-              }
-              return obj;
-            });
-            setCartItem(newState);
-          } else {
-            setCartItem([
-              ...cartItem,
-              {
-                ...product(),
-                numberOfItems: 1,
-              } as never,
-            ]);
-            setAppData({
-              ...appData,
-              items: [
-                ...appData.items,
-                {
-                  id: product()?.id,
-                  quantity: appData.items.length + 1,
-                } as never,
-              ],
-            });
-          }
-          navigate('/cart');
-        }}
-        handleAddProduct={() => {
-          if (cartItem.some((el) => el.id === product()?.id)) {
-            const newState = cartItem.map((obj) => {
-              if (obj.id === product()?.id) {
-                return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-              }
-              return obj;
-            });
-            setCartItem(newState);
-          } else {
-            setCartItem([
-              ...cartItem,
-              {
-                ...product(),
-                numberOfItems: 1,
-              } as never,
-            ]);
-          }
-        }}
-        handleRemoveProduct={() => {
-          if (
-            cartItem.some(
-              (el) => el.id === product()?.id && el.numberOfItems > 1,
-            )
-          ) {
-            const newState = cartItem.map((obj) => {
-              if (obj.id === product()?.id && obj.numberOfItems !== 0) {
-                return { ...obj, numberOfItems: obj.numberOfItems - 1 };
-              }
-              return obj;
-            });
-            setCartItem(newState);
-          }
         }}
       />
 

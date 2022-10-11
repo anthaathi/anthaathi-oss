@@ -1,7 +1,8 @@
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { For, Show } from 'solid-js';
-import { createStore, produce } from 'solid-js/store';
+import { createStore } from 'solid-js/store';
 import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
+
 export interface ItemProps extends ProductProps {
   numberOfItems: number;
 }
@@ -43,16 +44,6 @@ export function CartItems() {
                       numberOfItems: 1,
                     },
                   ]);
-                  setAppData({
-                    ...appData,
-                    items: [
-                      ...appData.items,
-                      {
-                        id: item.id,
-                        quantity: appData.items.length + 1,
-                      } as never,
-                    ],
-                  });
                 }
               }}
               handleRemoveProduct={() => {
@@ -74,14 +65,6 @@ export function CartItems() {
                         return obj.id !== item.id;
                       }),
                     );
-                    setAppData({
-                      ...appData,
-                      items: appData.items.filter(
-                        (obj: { id: number; quantity: number }) => {
-                          return obj.id !== item.id;
-                        },
-                      ),
-                    });
                   }
                 }
               }}

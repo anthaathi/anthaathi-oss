@@ -72,7 +72,8 @@ export function Button(
         borderBottomStyle: 'solid',
         borderBottomLeftRadius: '0',
         borderBottomRightRadius: '0',
-        transition: 'border-color all .2s',
+        transitionProperty: 'all',
+        transitionDuration: '.2s',
         ':hover': {
           borderBottomColor: cssVar(
             'button-tab-border-bottom-color',
@@ -190,7 +191,9 @@ export function Button(
         {
           cursor: 'pointer',
           display: 'flex',
-          transition: 'background-color ease .1s',
+          transitionProperty: 'background-color',
+          transitionTimingFunction: 'ease',
+          transitionDuration: '.1s',
           outline: '2px solid transparent',
           alignItems: 'center',
           outlineOffset: '-2px',

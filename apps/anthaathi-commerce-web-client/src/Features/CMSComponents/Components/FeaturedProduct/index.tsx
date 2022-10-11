@@ -9,6 +9,10 @@ import { FAQ } from '../FAQ';
 import { Img } from '~/Features/Core/Components/Image';
 import { Button } from 'solid-headless';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
+import { createSignal } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { produce } from 'solid-js/store';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -34,14 +38,48 @@ export interface ProductDetails {
 
 export interface ProductDetailsProps {
   productInfo: ProductDetails;
-  handleAddToCart?: () => void;
-  handleBuyItNow?: () => void;
-  handleAddProduct?: () => void;
-  handleRemoveProduct?: () => void;
 }
 
 export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
+
+  const [quantity, setQuantity] = createSignal(0);
+
+  const navigate = useNavigate();
+
+  const [, setCartItem] = cartItems;
+
+  const handleAddToCart = () => {
+    if (quantity() === 0) {
+      return;
+    }
+
+    setCartItem(
+      produce((prev) => {
+        const itemIndex = prev.findIndex(
+          (res) => res.id === props.productInfo.id,
+        );
+
+        if (itemIndex === -1) {
+          prev.push({
+            ...props.productInfo,
+            numberOfItems: quantity(),
+            price: props.productInfo.price + '',
+            image: props.productInfo.image[0],
+          });
+        } else {
+          prev[itemIndex].numberOfItems += quantity();
+        }
+
+        return prev;
+      }),
+    );
+  };
+
+  const handleBuyItNow = () => {
+    handleAddToCart();
+    navigate('/cart');
+  };
 
   return (
     <div
@@ -106,7 +144,6 @@ export function FeaturedProduct(props: ProductDetailsProps) {
         <div
           class={css({
             flex: 1,
-            //   backgroundColor: 'red',
           })}
         >
           <p
@@ -133,18 +170,6 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             {props.productInfo.notes}
           </h5>
 
-          {/* <p
-            class={css({
-              ...$theme.typography.LabelLarge,
-              marginTop: $theme.sizing.scale600,
-              marginBottom: 0,
-              fontWeight: 'bold',
-              color: '#000',
-            })}
-          >
-            Price
-          </p> */}
-
           <p
             class={css({
               ...$theme.typography.LabelLarge,
@@ -159,7 +184,9 @@ export function FeaturedProduct(props: ProductDetailsProps) {
               currency: props.productInfo.currency ?? 'AED',
             }).format(props.productInfo.price)}
           </p>
+
           <BlockInfo data={props.productInfo.blockInfo} />
+
           <div
             class={css({
               marginTop: $theme.sizing.scale400,
@@ -167,12 +194,13 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
-              handleAddProduct={props.handleAddProduct}
-              handleRemoveProduct={props.handleRemoveProduct}
+              onChangeQuantity={(value) => {
+                setQuantity(value);
+              }}
             />
           </div>
           <Button
-            onClick={props.handleAddToCart}
+            onClick={handleAddToCart}
             class={css({
               textAlign: 'center',
               marginTop: $theme.sizing.scale600,
@@ -195,7 +223,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
             Add to cart
           </Button>
           <Button
-            onClick={props.handleBuyItNow}
+            onClick={handleBuyItNow}
             class={css({
               marginTop: '10px',
               width: '100%',
@@ -243,7 +271,6 @@ export function FeaturedProduct(props: ProductDetailsProps) {
 }
 
 const BlockInfo = ({ data }: { data: BlockInfoProps }) => {
-  const [css, $theme] = useStyletron();
   return (
     <>
       <TextIcon

@@ -4,31 +4,38 @@ import {
   IconTrashOSmall,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { createMemo } from 'solid-js';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { createEffect, createSignal } from 'solid-js';
 
 export function CartQuantityChange({
-  id,
-  handleAddProduct,
-  handleRemoveProduct,
   trashIcon,
+  onChangeQuantity,
 }: {
   id: number;
   trashIcon?: boolean;
-  handleAddProduct?: () => void;
-  handleRemoveProduct?: () => void;
+  onChangeQuantity: (input: number) => void;
 }) {
   const [css, $theme] = useStyletron();
-  const [cartItem] = cartItems;
 
-  const cartProductData = createMemo(() => {
-    if (cartItem.some((item) => item.id === id)) {
-      let cartObj = cartItem.find((item) => item.id === id);
-      return cartObj?.numberOfItems;
-    } else {
-      return 0;
-    }
-  }, [cartItem, id]);
+  const [quantity, setQuantity] = createSignal(0);
+
+  createEffect(() => {
+    onChangeQuantity(quantity());
+  });
+
+  function increaseValue() {
+    setQuantity((prev) => {
+      return prev + 1;
+    });
+  }
+
+  function decreaseValue() {
+    setQuantity((prev) => {
+      if (prev === 0) {
+        return prev;
+      }
+      return prev - 1;
+    });
+  }
 
   return (
     <div
@@ -64,9 +71,11 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={handleRemoveProduct}
+          onClick={() => {
+            decreaseValue();
+          }}
         >
-          {trashIcon && cartProductData() === 1 ? (
+          {trashIcon && quantity() === 1 ? (
             <IconTrashOSmall width="14px" height="14px" fill="#000" />
           ) : (
             <IconMinusSmall width="14px" height="14px" fill="#000" />
@@ -94,7 +103,7 @@ export function CartQuantityChange({
             },
           ])}
         >
-          {cartProductData()}
+          {quantity()}
         </h4>
       </div>
       <div
@@ -118,7 +127,9 @@ export function CartQuantityChange({
               backgroundColor: '#cac9c9',
             },
           })}
-          onClick={handleAddProduct}
+          onClick={() => {
+            increaseValue();
+          }}
         >
           <IconPlusSmall width="14px" height="14px" fill="#000" />
         </button>

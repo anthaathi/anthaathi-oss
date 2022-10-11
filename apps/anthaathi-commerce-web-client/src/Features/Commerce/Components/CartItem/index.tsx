@@ -90,6 +90,7 @@ export function CartItem(props: CartItemProps) {
         >
           <CartQuantityChange
             trashIcon
+            onChangeQuantity={() => {}}
             id={props.product.id}
             handleAddProduct={props.handleAddProduct}
             handleRemoveProduct={props.handleRemoveProduct}

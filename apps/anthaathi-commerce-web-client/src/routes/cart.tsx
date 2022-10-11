@@ -76,7 +76,7 @@ function CartPage() {
               Shopping to fill it in.
             </div>
             <div
-              onclick={() => {
+              onClick={() => {
                 navigate('/');
               }}
               class={css({
