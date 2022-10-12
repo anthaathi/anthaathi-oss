@@ -8,14 +8,10 @@ import { Button } from '~/Features/Core/Components/Button';
 import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export default () => {
-  return <CartPage />;
-};
-
-function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
 
-  const [discountDialogOpen, setDiscountDilogOpen] = createSignal(false);
+  const [discountDialogOpen, setDiscountDialogOpen] = createSignal(false);
   const [selectedCoupon, setSelectedCoupon] = createSignal('');
   const navigate = useNavigate();
 
@@ -141,7 +137,7 @@ function CartPage() {
                     },
                   },
                 }}
-                onClick={() => setDiscountDilogOpen(true)}
+                onClick={() => setDiscountDialogOpen(true)}
               >
                 <div
                   class={css({
@@ -155,7 +151,7 @@ function CartPage() {
               </Button>
               <DiscountCouponDialog
                 isOpen={discountDialogOpen}
-                setOpen={setDiscountDilogOpen}
+                setOpen={setDiscountDialogOpen}
                 setSelectedCoupon={setSelectedCoupon}
               />
             </div>
@@ -176,4 +172,4 @@ function CartPage() {
       </Show>
     </div>
   );
-}
+};

@@ -51,7 +51,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
   const { setCartItem } = useCart();
 
   const handleAddToCart = () => {
-    setCartItem(props.productInfo.id, 1, true);
+    setCartItem(props.productInfo.id, quantity(), true);
   };
 
   const handleBuyItNow = () => {
@@ -172,6 +172,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
+              initialValue={0}
               onChangeQuantity={(value) => {
                 setQuantity(value);
               }}

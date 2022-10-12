@@ -90,6 +90,7 @@ export function CartItem(props: CartItemProps) {
         >
           <CartQuantityChange
             trashIcon
+            initialValue={props.numberOfItems}
             onChangeQuantity={(qty) => {
               setCartItem(props.product.id, qty);
             }}
