@@ -22,7 +22,11 @@ export function FAB() {
           Root: {
             style: {
               position: 'fixed',
-              bottom: '20px',
+              bottom: '80px',
+              [$theme.mediaQuery?.md || '']: {
+                bottom: '20px',
+              },
+              zIndex: 2,
               right: '20px',
               background: 'green',
               height: '70px',

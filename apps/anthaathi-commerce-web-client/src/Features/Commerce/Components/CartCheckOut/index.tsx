@@ -3,7 +3,8 @@ import { Button } from 'solid-headless';
 import { CartAddOrderNote } from '~/Features/Commerce/Components/CartAddNote';
 import { Link } from '@solidjs/router';
 import { createEffect, createSignal, Show } from 'solid-js';
-import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
+import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
 
 export interface CartCheckOutProps {
   subTotal?: string;
@@ -19,6 +20,8 @@ export function CartCheckOut(props: CartCheckOutProps) {
   }
 
   let [total, setTotal] = createSignal(getTotalValue());
+  const [discountDialogOpen, setDiscountDialogOpen] = createSignal(false);
+  const [selectedCoupon, setSelectedCoupon] = createSignal('');
 
   createEffect(() => {
     setTotal(getTotalValue());
@@ -98,6 +101,44 @@ export function CartCheckOut(props: CartCheckOutProps) {
             }).format(total() + total() * 0.05)}
           </div>
         </div>
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'row-reverse',
+          })}
+        >
+          <Button
+            onClick={() => {
+              setDiscountDialogOpen(!discountDialogOpen());
+            }}
+            class={css({
+              textAlign: 'center',
+              textDecoration: 'none',
+              paddingLeft: '10px',
+              paddingTop: '10px',
+              paddingRight: '0px',
+              paddingBottom: '10px',
+              color: 'green ',
+              ':hover': {
+                textDecoration: 'underline',
+                textUnderlineOffset: '12px',
+              },
+              backgroundColor: 'none',
+              lineHeight: '1.42',
+              fontSize: '18px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              border: 'none',
+            })}
+          >
+            {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
+          </Button>
+          <DiscountCouponDialog
+            isOpen={discountDialogOpen}
+            setOpen={setDiscountDialogOpen}
+            setSelectedCoupon={setSelectedCoupon}
+          />
+        </div>
       </div>
       <Show when={!props.minimal} keyed={false}>
         <Button
@@ -148,9 +189,9 @@ export function CartCheckOut(props: CartCheckOutProps) {
         </Button>
         <p
           class={css({
-            marginBottom: $theme.sizing.scale400,
             textAlign: 'center',
             fontSize: '.85em',
+            marginBottom: '30px',
             fontWeight: 400,
           })}
         >

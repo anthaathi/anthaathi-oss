@@ -484,9 +484,10 @@ function FooterSocialMediaSection() {
                 style: {
                   height: '50px',
                   width: '50px',
+                  justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid #E5E5EA',
+                    border: '1px solid grey',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -514,9 +515,10 @@ function FooterSocialMediaSection() {
                 style: {
                   height: '50px',
                   width: '50px',
+                  justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid #E5E5EA',
+                    border: '1px solid grey',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -544,9 +546,10 @@ function FooterSocialMediaSection() {
                 style: {
                   height: '50px',
                   width: '50px',
+                  justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid #E5E5EA',
+                    border: '1px solid grey',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -567,9 +570,10 @@ function FooterSocialMediaSection() {
                 style: {
                   height: '50px',
                   width: '50px',
+                  justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid #E5E5EA',
+                    border: '1px solid grey',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -670,19 +674,19 @@ const FooterLinksData: FooterSection[] = [
     items: [
       {
         title: 'My Account',
-        href: '/',
+        href: '/account/profile',
       },
       {
         title: 'Orders',
-        href: '/',
+        href: '/account/profile/orders/my-orders',
       },
       {
         title: 'Addresses',
-        href: '/',
+        href: '/account/profile/address-book',
       },
       {
         title: 'Account details',
-        href: '/',
+        href: '/account/profile/account-details',
       },
     ],
   },
