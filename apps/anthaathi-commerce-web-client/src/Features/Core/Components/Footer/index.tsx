@@ -670,19 +670,19 @@ const FooterLinksData: FooterSection[] = [
     items: [
       {
         title: 'My Account',
-        href: '/',
+        href: '/account/profile',
       },
       {
         title: 'Orders',
-        href: '/',
+        href: '/account/profile/orders/my-orders',
       },
       {
         title: 'Addresses',
-        href: '/',
+        href: '/account/profile/address-book',
       },
       {
         title: 'Account details',
-        href: '/',
+        href: '/account/profile/account-details',
       },
     ],
   },
