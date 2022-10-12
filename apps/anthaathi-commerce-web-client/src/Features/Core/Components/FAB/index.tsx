@@ -3,14 +3,20 @@ import WhatsApp from '../../../../icons/whatsapp.svg';
 import { useStyletron } from '@anthaathi/solid-styletron';
 
 export function FAB() {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <div>
       <Button
         $kind={Kind.Tertiary}
         $startEnhancer={() => (
-          <WhatsApp width="42px" height="42px" class={css({ color: '#FFF' })} />
+          <WhatsApp
+            height="32px"
+            width="32px"
+            class={css({
+              color: '#FFF',
+            })}
+          />
         )}
         onClick={() =>
           window.open(
