@@ -3,8 +3,7 @@ import { Breadcrumbs } from '~/Features/Core/Components/Breadcrumbs';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import productJson from '../../config/products.json';
-import { useNavigate, useRouteData } from '@solidjs/router';
-import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
+import { useRouteData } from '@solidjs/router';
 import { RouteDataArgs } from 'solid-start';
 
 export const routeData = ({ params }: RouteDataArgs) => {

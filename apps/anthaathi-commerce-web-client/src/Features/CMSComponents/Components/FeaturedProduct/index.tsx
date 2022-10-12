@@ -11,8 +11,9 @@ import { Button } from 'solid-headless';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
 import { createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
 import { produce } from 'solid-js/store';
+import { useCart } from '~/Features/Cart/Hooks';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -47,33 +48,10 @@ export function FeaturedProduct(props: ProductDetailsProps) {
 
   const navigate = useNavigate();
 
-  const [, setCartItem] = cartItems;
+  const { setCartItem } = useCart();
 
   const handleAddToCart = () => {
-    if (quantity() === 0) {
-      return;
-    }
-
-    setCartItem(
-      produce((prev) => {
-        const itemIndex = prev.findIndex(
-          (res) => res.id === props.productInfo.id,
-        );
-
-        if (itemIndex === -1) {
-          prev.push({
-            ...props.productInfo,
-            numberOfItems: quantity(),
-            price: props.productInfo.price + '',
-            image: props.productInfo.image[0],
-          });
-        } else {
-          prev[itemIndex].numberOfItems += quantity();
-        }
-
-        return prev;
-      }),
-    );
+    setCartItem(props.productInfo.id, quantity(), true);
   };
 
   const handleBuyItNow = () => {
@@ -194,6 +172,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
+              initialValue={1}
               onChangeQuantity={(value) => {
                 setQuantity(value);
               }}

@@ -1,16 +1,18 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
-import { Show } from 'solid-js';
-import { cartItems, CartItems } from '~/Features/Cart/Components/CartItems';
+import { createSignal, Show } from 'solid-js';
+import { CartItems } from '~/Features/Cart/Components/CartItems';
 import { useNavigate } from '@solidjs/router';
+import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
+import { Button } from '~/Features/Core/Components/Button';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export default () => {
-  return <CartPage />;
-};
-
-function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
+
+  const [discountDialogOpen, setDiscountDialogOpen] = createSignal(false);
+  const [selectedCoupon, setSelectedCoupon] = createSignal('');
   const navigate = useNavigate();
 
   return (
@@ -41,6 +43,7 @@ function CartPage() {
       </div>
       <Show
         when={cartItem.length > 0}
+        keyed={true}
         fallback={
           <div
             class={css({
@@ -115,6 +118,43 @@ function CartPage() {
             })}
           >
             <CartItems />
+            <div
+              class={css({
+                display: 'flex',
+                flexDirection: 'row-reverse',
+              })}
+            >
+              <Button
+                $override={{
+                  Root: {
+                    style: {
+                      ...$theme.typography.LabelMedium,
+                      justifyContent: 'center',
+                      flex: 1,
+                      [$theme.mediaQuery?.md || '']: {
+                        flex: 'none',
+                      },
+                    },
+                  },
+                }}
+                onClick={() => setDiscountDialogOpen(true)}
+              >
+                <div
+                  class={css({
+                    lineHeight: '1.42',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                  })}
+                >
+                  {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
+                </div>
+              </Button>
+              <DiscountCouponDialog
+                isOpen={discountDialogOpen}
+                setOpen={setDiscountDialogOpen}
+                setSelectedCoupon={setSelectedCoupon}
+              />
+            </div>
           </div>
           <div
             class={css({
@@ -132,4 +172,4 @@ function CartPage() {
       </Show>
     </div>
   );
-}
+};

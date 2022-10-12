@@ -4,28 +4,27 @@ import {
   IconTrashOSmall,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { useStyletron } from '@anthaathi/solid-styletron';
-import { createEffect, createSignal } from 'solid-js';
+import { createSignal } from 'solid-js';
 
 export function CartQuantityChange({
   trashIcon,
   onChangeQuantity,
+  initialValue = 0,
 }: {
   id: number;
+  initialValue?: number;
   trashIcon?: boolean;
   onChangeQuantity: (input: number) => void;
 }) {
   const [css, $theme] = useStyletron();
 
-  const [quantity, setQuantity] = createSignal(0);
-
-  createEffect(() => {
-    onChangeQuantity(quantity());
-  });
+  const [quantity, setQuantity] = createSignal(initialValue);
 
   function increaseValue() {
     setQuantity((prev) => {
       return prev + 1;
     });
+    onChangeQuantity(quantity());
   }
 
   function decreaseValue() {
@@ -35,6 +34,7 @@ export function CartQuantityChange({
       }
       return prev - 1;
     });
+    onChangeQuantity(quantity());
   }
 
   return (
