@@ -14,6 +14,7 @@ import { useNavigate } from '@solidjs/router';
 import { produce } from 'solid-js/store';
 import { useCart } from '~/Features/Cart/Hooks';
 import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
+import CartSlideOver from '~/Features/Cart/Components/CartSlideOver';
 
 type BlockInfoProps = {
   freeShipping: string;
@@ -45,6 +46,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
 
   const [quantity, setQuantity] = createSignal(0);
+  const [dialogOpen, setDialogOpen] = createSignal(false);
 
   const navigate = useNavigate();
 
@@ -52,10 +54,11 @@ export function FeaturedProduct(props: ProductDetailsProps) {
 
   const handleAddToCart = () => {
     setCartItem(props.productInfo.id, quantity(), true);
+    setDialogOpen(true);
   };
 
   const handleBuyItNow = () => {
-    handleAddToCart();
+    setCartItem(props.productInfo.id, quantity(), true);
     navigate('/cart');
   };
 
@@ -244,6 +247,10 @@ export function FeaturedProduct(props: ProductDetailsProps) {
               `,
           },
         ]}
+      />
+      <CartSlideOver
+        isOpen={dialogOpen}
+        setOpen={setDialogOpen}
       />
     </div>
   );

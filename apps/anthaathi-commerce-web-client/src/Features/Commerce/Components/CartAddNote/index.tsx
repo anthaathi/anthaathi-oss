@@ -9,7 +9,7 @@ import { useCssToken } from '~/Features/Core/Hooks/useCssToken';
 
 export function CartAddOrderNote() {
   const [css, $theme] = useStyletron();
-  const [isNoteVisible, setNoteVisibility] = createSignal(true);
+  const [isNoteVisible, setNoteVisibility] = createSignal(false);
   const cssVar = useCssToken();
 
   return (
