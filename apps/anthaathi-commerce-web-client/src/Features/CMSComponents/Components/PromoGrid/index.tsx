@@ -16,6 +16,7 @@ export interface PromoThings {
   src: string;
   alt: string;
   title: string;
+  href: string;
 }
 
 const Data: PromoThings[] = [
@@ -40,6 +41,7 @@ const Data: PromoThings[] = [
     sizes: '448px',
     src: '//cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_300x.jpg?v=1653586970',
     alt: '',
+    href: 'special-offers',
     title: 'Fruits',
   },
   {
@@ -62,6 +64,7 @@ const Data: PromoThings[] = [
     ],
     sizes: '448px',
     alt: '',
+    href: 'special-offers',
     title: 'Vegetables',
     src: '//cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_300x.jpg?v=1653677616',
   },
@@ -87,6 +90,7 @@ const Data: PromoThings[] = [
     ],
     sizes: '448px',
     alt: '',
+    href: 'special-offers',
   },
 ];
 
@@ -126,7 +130,7 @@ export interface PromoGridCellProps {
   srsSet: string[];
   sizes: string;
   alt: string;
-  key?: string;
+  href: string;
   title: string;
   $shape?: Shape;
   $size?: Size;
@@ -159,7 +163,7 @@ export function PromoGridCell(props: PromoGridCellProps) {
 
   return (
     <Link
-      href={`/collections/${props.key}`}
+      href={`/collections/${props.href}`}
       class={css({
         display: 'flex',
         alignItems: 'center',
