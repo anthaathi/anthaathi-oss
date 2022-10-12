@@ -101,6 +101,44 @@ export function CartCheckOut(props: CartCheckOutProps) {
             }).format(total() + total() * 0.05)}
           </div>
         </div>
+        <div
+          class={css({
+            display: 'flex',
+            flexDirection: 'row-reverse',
+          })}
+        >
+          <Button
+            onClick={() => {
+              setDiscountDialogOpen(!discountDialogOpen());
+            }}
+            class={css({
+              textAlign: 'center',
+              textDecoration: 'none',
+              paddingLeft: '10px',
+              paddingTop: '10px',
+              paddingRight: '0px',
+              paddingBottom: '10px',
+              color: 'green ',
+              ':hover': {
+                textDecoration: 'underline',
+                textUnderlineOffset: '12px',
+              },
+              backgroundColor: 'none',
+              lineHeight: '1.42',
+              fontSize: '18px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              border: 'none',
+            })}
+          >
+            {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
+          </Button>
+          <DiscountCouponDialog
+            isOpen={discountDialogOpen}
+            setOpen={setDiscountDialogOpen}
+            setSelectedCoupon={setSelectedCoupon}
+          />
+        </div>
       </div>
       <Show when={!props.minimal} keyed={false}>
         <Button
@@ -159,35 +197,6 @@ export function CartCheckOut(props: CartCheckOutProps) {
         >
           Terms and condition applied
         </p>
-        <Button
-          onClick={() => {
-            setDiscountDialogOpen(!discountDialogOpen());
-          }}
-          class={css({
-            textAlign: 'center',
-            textDecoration: 'none',
-            width: '100%',
-            paddingLeft: '10px',
-            paddingTop: '10px',
-            paddingRight: '10px',
-            paddingBottom: '10px',
-            color: '#ffffff',
-            backgroundColor: '#108a43',
-            lineHeight: '1.42',
-            fontSize: '18px',
-            fontWeight: 700,
-            cursor: 'pointer',
-            marginBottom: '20px',
-            border: '1px solid #108a43',
-          })}
-        >
-          {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
-        </Button>
-        <DiscountCouponDialog
-          isOpen={discountDialogOpen}
-          setOpen={setDiscountDialogOpen}
-          setSelectedCoupon={setSelectedCoupon}
-        />
       </Show>
     </div>
   );
