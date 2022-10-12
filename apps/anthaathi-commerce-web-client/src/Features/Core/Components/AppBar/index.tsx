@@ -85,7 +85,7 @@ export function AppBar() {
           >
             <Link href="/">
               <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180"
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
                 $override={{
                   Root: {
@@ -93,7 +93,10 @@ export function AppBar() {
                       transitionDuration: '100ms',
                       transitionProperty: 'height',
                       transitionTimingFunction: 'ease',
-                      height: haveBigPicture() ? '96px' : '48px',
+                      height: haveBigPicture() ? '64px' : '36px',
+                      [$theme.mediaQuery?.md || '']: {
+                        height: haveBigPicture() ? '84px' : '48px',
+                      },
                       width: 'auto',
                     },
                   },
@@ -287,7 +290,18 @@ export function AppBar() {
           {(category) => {
             return (
               <Button $as={Link} href={`${category.href}`} $kind={Kind.Tab}>
-                {category.title}
+                {/* <p
+                  class={css([
+                    {
+                      fontSize: $theme.typography.font350.fontSize,
+                      fontWeight: $theme.typography.font550.fontWeight,
+                      marginTop: 0,
+                      marginBottom: 0,
+                    },
+                  ])}
+                > */}
+                  {category.title}
+                {/* </p> */}
               </Button>
             );
           }}
@@ -310,7 +324,7 @@ export function AppBar() {
 }
 
 function MobileMenu() {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
 
   return (
     <ul
@@ -331,7 +345,18 @@ function MobileMenu() {
                 $as={Link}
                 href={category.href}
               >
-                {category.title}
+                {/* <p
+                  class={css([
+                    {
+                      fontSize: $theme.typography.font250.fontSize,
+                      fontWeight: $theme.typography.font550.fontWeight,
+                      marginTop: 0,
+                      marginBottom: 0,
+                    },
+                  ])}
+                > */}
+                  {category.title}
+                {/* </p> */}
               </Button>
             </li>
           );

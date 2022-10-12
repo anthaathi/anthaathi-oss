@@ -179,11 +179,13 @@ function FooterInfoSection() {
         class={css({
           paddingLeft: $theme.sizing.scale500,
           paddingRight: $theme.sizing.scale500,
+          paddingTop: $theme.sizing.scale200,
+          paddingBottom: $theme.sizing.scale600,
         })}
       >
         <img
-          class={css({ height: '180px', width: '180px' })}
-          src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/Icon-1024-removebg-preview_256x256_crop_center.png?v=1665226330"
+          class={css({ height: '84px' })}
+          src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
         />
       </div>
       <div
@@ -487,7 +489,7 @@ function FooterSocialMediaSection() {
                   justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid grey',
+                    border: '1px solid #e4e4d9',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -518,7 +520,7 @@ function FooterSocialMediaSection() {
                   justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid grey',
+                    border: '1px solid #e4e4d9',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -549,7 +551,7 @@ function FooterSocialMediaSection() {
                   justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid grey',
+                    border: '1px solid #e4e4d9',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
@@ -573,7 +575,7 @@ function FooterSocialMediaSection() {
                   justifyContent: 'center',
                   background: 'white',
                   ':hover': {
-                    border: '1px solid grey',
+                    border: '1px solid #e4e4d9',
                     background: 'white',
                   },
                   borderTopLeftRadius: '50px',
