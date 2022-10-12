@@ -4,6 +4,7 @@ import { CartAddOrderNote } from '~/Features/Commerce/Components/CartAddNote';
 import { Link } from '@solidjs/router';
 import { createEffect, createSignal, Show } from 'solid-js';
 import { cartItems } from '~/Features/Cart/Components/CartItems';
+import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
 
 export interface CartCheckOutProps {
   subTotal?: string;
@@ -19,6 +20,8 @@ export function CartCheckOut(props: CartCheckOutProps) {
   }
 
   let [total, setTotal] = createSignal(getTotalValue());
+  const [discountDialogOpen, setDiscountDialogOpen] = createSignal(false);
+  const [selectedCoupon, setSelectedCoupon] = createSignal('');
 
   createEffect(() => {
     setTotal(getTotalValue());
@@ -148,14 +151,43 @@ export function CartCheckOut(props: CartCheckOutProps) {
         </Button>
         <p
           class={css({
-            marginBottom: $theme.sizing.scale400,
             textAlign: 'center',
             fontSize: '.85em',
+            marginBottom: '30px',
             fontWeight: 400,
           })}
         >
           Terms and condition applied
         </p>
+        <Button
+          onClick={() => {
+            setDiscountDialogOpen(!discountDialogOpen());
+          }}
+          class={css({
+            textAlign: 'center',
+            textDecoration: 'none',
+            width: '100%',
+            paddingLeft: '10px',
+            paddingTop: '10px',
+            paddingRight: '10px',
+            paddingBottom: '10px',
+            color: '#ffffff',
+            backgroundColor: '#108a43',
+            lineHeight: '1.42',
+            fontSize: '18px',
+            fontWeight: 700,
+            cursor: 'pointer',
+            marginBottom: '20px',
+            border: '1px solid #108a43',
+          })}
+        >
+          {selectedCoupon() == '' ? 'Apply Coupon' : 'Coupon Applied !'}
+        </Button>
+        <DiscountCouponDialog
+          isOpen={discountDialogOpen}
+          setOpen={setDiscountDialogOpen}
+          setSelectedCoupon={setSelectedCoupon}
+        />
       </Show>
     </div>
   );
