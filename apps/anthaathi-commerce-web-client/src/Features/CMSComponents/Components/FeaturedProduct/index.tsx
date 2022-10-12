@@ -172,7 +172,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
-              initialValue={0}
+              initialValue={1}
               onChangeQuantity={(value) => {
                 setQuantity(value);
               }}
