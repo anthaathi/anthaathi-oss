@@ -3,8 +3,8 @@ import { Button } from 'solid-headless';
 import { CartAddOrderNote } from '~/Features/Commerce/Components/CartAddNote';
 import { Link } from '@solidjs/router';
 import { createEffect, createSignal, Show } from 'solid-js';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
 import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export interface CartCheckOutProps {
   subTotal?: string;
