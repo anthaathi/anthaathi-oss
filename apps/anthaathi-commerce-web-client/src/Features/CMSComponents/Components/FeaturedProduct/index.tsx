@@ -11,9 +11,7 @@ import { Button } from 'solid-headless';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
 import { createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
-import { produce } from 'solid-js/store';
 import { useCart } from '~/Features/Cart/Hooks';
-import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 import CartSlideOver from '~/Features/Cart/Components/CartSlideOver';
 
 type BlockInfoProps = {
@@ -45,8 +43,8 @@ export interface ProductDetailsProps {
 export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
 
-  const [quantity, setQuantity] = createSignal(0);
   const [dialogOpen, setDialogOpen] = createSignal(false);
+  const [quantity, setQuantity] = createSignal(1);
 
   const navigate = useNavigate();
 
@@ -175,7 +173,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
-              initialValue={1}
+              initialValue={quantity()}
               onChangeQuantity={(value) => {
                 setQuantity(value);
               }}
