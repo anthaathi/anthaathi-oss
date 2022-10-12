@@ -44,7 +44,7 @@ export interface ProductDetailsProps {
 export function FeaturedProduct(props: ProductDetailsProps) {
   const [css, $theme] = useStyletron();
 
-  const [quantity, setQuantity] = createSignal(0);
+  const [quantity, setQuantity] = createSignal(1);
 
   const navigate = useNavigate();
 
@@ -172,7 +172,7 @@ export function FeaturedProduct(props: ProductDetailsProps) {
           >
             <CartQuantityChange
               id={props.productInfo.id}
-              initialValue={1}
+              initialValue={quantity()}
               onChangeQuantity={(value) => {
                 setQuantity(value);
               }}

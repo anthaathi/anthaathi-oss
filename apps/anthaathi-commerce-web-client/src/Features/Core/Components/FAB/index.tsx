@@ -1,15 +1,17 @@
-import { useStyletron } from '@anthaathi/solid-styletron';
 import { Button, Kind } from '~/Features/Core/Components/Button';
-import { IconEnvelopeLarge } from '@anthaathi/oracle-apex-solid-icons';
+import WhatsApp from '../../../../icons/whatsapp.svg';
+import { useStyletron } from '@anthaathi/solid-styletron';
 
 export function FAB() {
-  const [css, $theme] = useStyletron();
+  const [css] = useStyletron();
 
   return (
     <div>
       <Button
         $kind={Kind.Tertiary}
-        $startEnhancer={() => <IconEnvelopeLarge fill="white" />}
+        $startEnhancer={() => (
+          <WhatsApp width="42px" height="42px" class={css({ color: '#FFF' })} />
+        )}
         onClick={() =>
           window.open(
             'https://api.whatsapp.com/send?phone=+971509751445',
