@@ -15,7 +15,7 @@ export function CartCheckOut(props: CartCheckOutProps) {
   const [cart] = cartItems;
 
   function getTotalValue() {
-    return cart.reduce((prev, res) => res.numberOfItems * res.price + prev, 0);
+    return cart.reduce((prev, res) => res.numberOfItems * +res.price + prev, 0);
   }
 
   let [total, setTotal] = createSignal(getTotalValue());
