@@ -16,6 +16,61 @@ export function MiniAnnouncement() {
   const { scrollLeft, scrollRight } = useSnapscroll(() => ref!);
   const cssVar = useCssToken();
 
+  function getCurrentItem() {
+    if (!ref) {
+      return 0;
+    }
+
+    let currentWidth = 0;
+    let index = 0;
+
+    for (let child of ref.children) {
+      if (ref.scrollLeft <= currentWidth) {
+        return index;
+      }
+
+      index++;
+      currentWidth += child.clientWidth;
+    }
+
+    return ref.children.length - 1;
+  }
+
+  function scrollNext() {
+    if (!ref) {
+      return;
+    }
+
+    const currentItemIndex = getCurrentItem();
+
+    ref.children
+      .item(
+        currentItemIndex === ref.children.length - 1 ? 0 : currentItemIndex + 1,
+      )
+      ?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+  }
+
+  function scrollPrevious() {
+    if (!ref) {
+      return;
+    }
+
+    const currentItemIndex = getCurrentItem();
+
+    const goToIndex =
+      currentItemIndex === 0 ? ref.children.length - 1 : currentItemIndex - 1;
+
+    ref.children.item(goToIndex)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
+  }
+
   return (
     <div
       data-type="mini-announcement"
@@ -58,7 +113,7 @@ export function MiniAnnouncement() {
               backgroundColor: 'rgba(255, 255, 255, .6)',
               cursor: 'pointer',
             })}
-            onClick={scrollLeft}
+            onClick={scrollNext}
           >
             <AngleLeft />
           </button>
@@ -134,7 +189,7 @@ export function MiniAnnouncement() {
               backgroundColor: 'rgba(255, 255, 255, .6)',
               cursor: 'pointer',
             })}
-            onClick={scrollRight}
+            onClick={scrollPrevious}
           >
             <AngleRight />
           </button>
