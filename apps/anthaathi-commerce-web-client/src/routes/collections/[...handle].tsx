@@ -166,65 +166,73 @@ export default function () {
                 },
               })}
             >
-              <CategoryList
-                // title="Category"
-                items={[
-                  {
-                    id: 1,
-                    href: '/collections/fruits',
-                    title: 'Fruits',
-                    title_ar: 'الفاكهة',
-                    key: 'fruits',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+              <div
+                class={css({
+                  display: 'none',
+                  [$theme.mediaQuery?.md || '']: {
+                    display: 'block',
                   },
-                  {
-                    id: 2,
-                    href: '/collections/vegetables',
-                    title: 'Vegetables',
-                    title_ar: 'خضروات',
-                    key: 'vegetables',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
-                  },
-                  {
-                    id: 3,
-                    href: '/collections/bulkbuy',
-                    title: 'Bulk Buy',
-                    title_ar: 'شراء بالجملة',
-                    key: 'bulkbuy',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
-                  },
-                  {
-                    id: 4,
-                    href: '/collections/organic',
-                    title: 'Organic',
-                    title_ar: 'عضوي',
-                    key: 'organic',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
-                  },
-                  {
-                    id: 5,
-                    href: '/collections/precut',
-                    title: 'Pre-Cut',
-                    title_ar: 'قص مسبق',
-                    key: 'precut',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
-                  },
-                  {
-                    id: 6,
-                    href: '/collections/prepacked',
-                    title: 'Pre-Packed',
-                    title_ar: 'معبأة مسبقا',
-                    key: 'prepacked',
-                    image:
-                      'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
-                  },
-                ]}
-              />
+                })}
+              >
+                <CategoryList
+                  items={[
+                    {
+                      id: 1,
+                      href: '/collections/fruits',
+                      title: 'Fruits',
+                      title_ar: 'الفاكهة',
+                      key: 'fruits',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+                    },
+                    {
+                      id: 2,
+                      href: '/collections/vegetables',
+                      title: 'Vegetables',
+                      title_ar: 'خضروات',
+                      key: 'vegetables',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+                    },
+                    {
+                      id: 3,
+                      href: '/collections/bulkbuy',
+                      title: 'Bulk Buy',
+                      title_ar: 'شراء بالجملة',
+                      key: 'bulkbuy',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
+                    },
+                    {
+                      id: 4,
+                      href: '/collections/organic',
+                      title: 'Organic',
+                      title_ar: 'عضوي',
+                      key: 'organic',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+                    },
+                    {
+                      id: 5,
+                      href: '/collections/precut',
+                      title: 'Pre-Cut',
+                      title_ar: 'قص مسبق',
+                      key: 'precut',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+                    },
+                    {
+                      id: 6,
+                      href: '/collections/prepacked',
+                      title: 'Pre-Packed',
+                      title_ar: 'معبأة مسبقا',
+                      key: 'prepacked',
+                      image:
+                        'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
+                    },
+                  ]}
+                />
+              </div>
               <Grid
                 $override={{
                   Root: {

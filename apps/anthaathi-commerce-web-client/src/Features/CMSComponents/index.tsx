@@ -21,7 +21,6 @@ import { BlogPostJournal } from '~/Features/CMSComponents/Components/BlogPostJou
 import productJson from '../../config/products';
 import { FAB } from '~/Features/Core/Components/FAB';
 import MobileAppPromoter from '~/Features/CMSComponents/Components/MobileAppPromoter';
-import { Link } from '@solidjs/router';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);

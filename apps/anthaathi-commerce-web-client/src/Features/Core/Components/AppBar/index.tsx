@@ -7,10 +7,11 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import { createSignal, For, onCleanup, onMount } from 'solid-js';
+import { createEffect, createSignal, For, onCleanup, onMount } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { useCart } from '~/Features/Cart/Hooks';
+import { useLocation } from 'solid-start/router';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -22,6 +23,12 @@ export function AppBar() {
   let categoryHTML: HTMLDivElement;
 
   const { cartItemLength } = useCart();
+
+  const location = useLocation();
+
+  createEffect(() => {
+    setMobileMenuOpen(!location.pathname);
+  });
 
   const [haveBigPicture, setHaveBigPicture] = createSignal(false);
 
@@ -153,7 +160,9 @@ export function AppBar() {
                   />
                 </TransitionChild>
               </Transition>
+
               <Searchbar />
+
               <span class={css({ flexGrow: 1 })} />
 
               <Button
