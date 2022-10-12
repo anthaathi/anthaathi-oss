@@ -12,8 +12,8 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { DeliveryOptions } from '~/Features/Checkout/Components/DeliveryOptions';
 import { PaymentOptions } from '~/Features/Checkout/Components/PaymentOptions';
 import { Link } from '@solidjs/router';
-import { cartItems } from '~/Features/Cart/Components/CartItems';
 import OrderedItems from '~/Features/CMSComponents/Components/OrderDetailsPage/OrderedItems';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export default function Checkout() {
   const [css, $theme] = useStyletron();

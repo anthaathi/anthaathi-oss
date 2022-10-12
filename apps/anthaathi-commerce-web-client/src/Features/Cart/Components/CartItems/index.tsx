@@ -1,19 +1,14 @@
 import { CartItem } from '~/Features/Commerce/Components/CartItem';
 import { For, Show } from 'solid-js';
-import { createStore } from 'solid-js/store';
 import { ProductProps } from '~/Features/Commerce/Components/ProductTile';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export interface ItemProps extends ProductProps {
   numberOfItems: number;
 }
 
-export const cartItems = createStore<ItemProps[]>([]);
-
-export const appStore = createStore({ items: [] });
-
 export function CartItems() {
-  const [cartItem, setCartItem] = cartItems;
-  const [appData, setAppData] = appStore;
+  const [cartItem] = cartItems;
 
   return (
     <For each={cartItem}>
@@ -24,51 +19,7 @@ export function CartItems() {
             keyed={true}
             fallback={() => <></>}
           >
-            <CartItem
-              numberOfItems={item.numberOfItems}
-              product={item}
-              handleAddProduct={() => {
-                if (cartItem.some((el) => el.id === item.id)) {
-                  const newState = cartItem.map((obj) => {
-                    if (obj.id === item.id) {
-                      return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-                    }
-                    return obj;
-                  });
-                  setCartItem(newState);
-                } else {
-                  setCartItem([
-                    ...cartItem,
-                    {
-                      ...item,
-                      numberOfItems: 1,
-                    },
-                  ]);
-                }
-              }}
-              handleRemoveProduct={() => {
-                const cartProduct: ItemProps | undefined = cartItem.find(
-                  (res: ProductProps) => res.id === item.id,
-                );
-                if (cartProduct) {
-                  if (cartProduct.numberOfItems > 1) {
-                    const newState = cartItem.map((obj) => {
-                      if (obj.id === item.id && obj.numberOfItems !== 0) {
-                        return { ...obj, numberOfItems: obj.numberOfItems - 1 };
-                      }
-                      return obj;
-                    });
-                    setCartItem(newState);
-                  } else {
-                    setCartItem((current) =>
-                      current.filter((obj) => {
-                        return obj.id !== item.id;
-                      }),
-                    );
-                  }
-                }
-              }}
-            />
+            <CartItem numberOfItems={item.numberOfItems} product={item} />
           </Show>
         );
       }}

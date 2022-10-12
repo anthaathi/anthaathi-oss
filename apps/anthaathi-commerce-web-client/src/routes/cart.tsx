@@ -1,10 +1,11 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartCheckOut } from '~/Features/Commerce/Components/CartCheckOut';
 import { createSignal, Show } from 'solid-js';
-import { cartItems, CartItems } from '~/Features/Cart/Components/CartItems';
+import { CartItems } from '~/Features/Cart/Components/CartItems';
 import { useNavigate } from '@solidjs/router';
 import { DiscountCouponDialog } from '~/Features/CMSComponents/Components/DiscountCouponList';
 import { Button } from '~/Features/Core/Components/Button';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 
 export default () => {
   return <CartPage />;
@@ -13,6 +14,7 @@ export default () => {
 function CartPage() {
   const [css, $theme] = useStyletron();
   const [cartItem] = cartItems;
+
   const [discountDialogOpen, setDiscountDilogOpen] = createSignal(false);
   const [selectedCoupon, setSelectedCoupon] = createSignal('');
   const navigate = useNavigate();
@@ -45,6 +47,7 @@ function CartPage() {
       </div>
       <Show
         when={cartItem.length > 0}
+        keyed={true}
         fallback={
           <div
             class={css({

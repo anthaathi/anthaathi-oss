@@ -2,16 +2,16 @@ import { useStyletron } from '@anthaathi/solid-styletron';
 import { CartQuantityChange } from '~/Features/Commerce/Components/CartQuantityChange';
 import { Img } from '~/Features/Core/Components/Image';
 import { ProductProps } from '../ProductTile';
+import { useCart } from '~/Features/Cart/Hooks';
 
 export interface CartItemProps {
   product: ProductProps;
   numberOfItems: number;
-  handleAddProduct?: () => void;
-  handleRemoveProduct?: () => void;
 }
 
 export function CartItem(props: CartItemProps) {
   const [css, $theme] = useStyletron();
+  const { setCartItem } = useCart();
 
   return (
     <div
@@ -90,10 +90,10 @@ export function CartItem(props: CartItemProps) {
         >
           <CartQuantityChange
             trashIcon
-            onChangeQuantity={() => {}}
+            onChangeQuantity={(qty) => {
+              setCartItem(props.product.id, qty);
+            }}
             id={props.product.id}
-            handleAddProduct={props.handleAddProduct}
-            handleRemoveProduct={props.handleRemoveProduct}
           />
         </div>
       </div>

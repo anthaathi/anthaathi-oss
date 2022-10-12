@@ -7,17 +7,10 @@ import {
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Link } from '@solidjs/router';
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  For,
-  onCleanup,
-  onMount,
-} from 'solid-js';
+import { createSignal, For, onCleanup, onMount } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
-import { appStore, cartItems } from '~/Features/Cart/Components/CartItems';
+import { useCart } from '~/Features/Cart/Hooks';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -25,13 +18,10 @@ export function AppBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = createSignal(false);
 
   const [isOpen, _setIsOpen] = createSignal(true, {});
-  const [appData] = appStore;
 
   let categoryHTML: HTMLDivElement;
 
-  const cartItemLength = createMemo(() => {
-    return appData.items.length;
-  }, [appData]);
+  const { cartItemLength } = useCart();
 
   const [haveBigPicture, setHaveBigPicture] = createSignal(false);
 
@@ -40,6 +30,7 @@ export function AppBar() {
   }
 
   onMount(() => {
+    onWindowScroll();
     window.addEventListener('scroll', onWindowScroll);
   });
 

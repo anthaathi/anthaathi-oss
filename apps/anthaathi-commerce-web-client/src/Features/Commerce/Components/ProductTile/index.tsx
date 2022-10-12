@@ -8,12 +8,10 @@ import {
 import { createMemo, createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
-import {
-  appStore,
-  cartItems,
-  ItemProps,
-} from '~/Features/Cart/Components/CartItems';
+import { ItemProps } from '~/Features/Cart/Components/CartItems';
 import debounce from 'lodash.debounce';
+import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
+import { useCart } from '~/Features/Cart/Hooks';
 
 export interface ProductProps {
   id: number;
@@ -34,8 +32,9 @@ export function ProductTile(props: ProductProps) {
   const [css, $theme] = useStyletron();
   const [isOpen, setIsOpen] = createSignal(false);
   const navigate = useNavigate();
-  const [cartItem, setCartItem] = cartItems;
-  const [appData, setAppData] = appStore;
+  const [cartItem] = cartItems;
+
+  const { setCartItem } = useCart();
 
   const cartProductData = createMemo(() => {
     if (cartItem.some((el) => el.id === props.id)) {
@@ -45,32 +44,7 @@ export function ProductTile(props: ProductProps) {
 
   function getReduceQuantity() {
     return debounce(() => {
-      const cartProduct: ItemProps | undefined = cartItem.find(
-        (res: ProductProps) => res.id === props.id,
-      );
-      if (cartProduct) {
-        if (cartProduct.numberOfItems > 1) {
-          const newState = cartItem.map((obj) => {
-            if (obj.id === props.id && obj.numberOfItems !== 0) {
-              return { ...obj, numberOfItems: obj.numberOfItems - 1 };
-            }
-            return obj;
-          });
-          setCartItem(newState);
-        } else {
-          setCartItem((current) =>
-            current.filter((obj) => {
-              return obj.id !== props.id;
-            }),
-          );
-          setAppData({
-            ...appData,
-            items: appData.items.filter((obj: { id: number; quantity: number }) => {
-              return obj.id !== props.id;
-            }),
-          });
-        }
-      }
+      setCartItem(props.id, -1, true);
     }, 200);
   }
 
@@ -90,33 +64,7 @@ export function ProductTile(props: ProductProps) {
           return;
       }
 
-      if (cartItem.some((el) => el.id === props.id)) {
-        const newState = cartItem.map((obj) => {
-          if (obj.id === props.id) {
-            return { ...obj, numberOfItems: obj.numberOfItems + 1 };
-          }
-          return obj;
-        });
-        setCartItem(newState);
-      } else {
-        setCartItem([
-          ...cartItem,
-          {
-            ...props,
-            numberOfItems: 1,
-          },
-        ]);
-        setAppData({
-          ...appData,
-          items: [
-            ...appData.items,
-            {
-              id: props.id,
-              quantity: appData.items.length + 1,
-            } as never,
-          ],
-        });
-      }
+      setCartItem(props.id, 1, true);
     }, 100);
   }
 
@@ -436,7 +384,7 @@ export function ProductTile(props: ProductProps) {
             {Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: props.currency,
-            }).format(props.price) +
+            }).format(+props.price) +
               ' / ' +
               props.packaging}
           </h5>
