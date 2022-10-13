@@ -8,10 +8,10 @@ import {
 import {RootStackParamList} from '../../types/Route';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useRecoilState} from 'recoil';
-import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {useIntl} from 'react-intl';
 import {useTheme} from 'react-native-paper';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
+import { CartItemData } from '../../hooks/useCart';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
