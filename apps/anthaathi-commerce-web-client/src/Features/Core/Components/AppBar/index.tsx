@@ -12,6 +12,7 @@ import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { useCart } from '~/Features/Cart/Hooks';
 import { useLocation } from 'solid-start/router';
+import Root from '~/root';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -289,18 +290,30 @@ export function AppBar() {
         <For each={Categories}>
           {(category) => {
             return (
-              <Button $as={Link} href={`${category.href}`} $kind={Kind.Tab}>
+              <Button
+                $as={Link}
+                href={`${category.href}`}
+                $kind={Kind.Tab}
+                $override={{
+                  Root: {
+                    style: {
+                      fontSize: '40px', //$theme.typography.font350.fontSize,
+                      fontWeight: $theme.typography.font550.fontWeight,
+                    },
+                  },
+                }}
+              >
                 {/* <p
-                  class={css([
+                  class={css(
                     {
                       fontSize: $theme.typography.font350.fontSize,
                       fontWeight: $theme.typography.font550.fontWeight,
                       marginTop: 0,
                       marginBottom: 0,
                     },
-                  ])}
+                  )}
                 > */}
-                  {category.title}
+                {category.title}
                 {/* </p> */}
               </Button>
             );
@@ -355,7 +368,7 @@ function MobileMenu() {
                     },
                   ])}
                 > */}
-                  {category.title}
+                {category.title}
                 {/* </p> */}
               </Button>
             </li>

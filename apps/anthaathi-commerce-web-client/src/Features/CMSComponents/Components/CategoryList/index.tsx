@@ -38,17 +38,7 @@ export function CategoryList(props: CategoryListProps) {
           {props.title}
         </h5>
       )}
-      {/* <Grid
-        $override={{
-          Root: {
-            style: {
-              rowGap: '8px',
-              gridGap: '15px',
-            },
-          },
-        }}
-        columns={[5, 7, 8]}
-      > */}
+
       <div
         class={css({
           display: 'flex',
@@ -61,7 +51,6 @@ export function CategoryList(props: CategoryListProps) {
           {(item) => <CategoryDetails item={item} />}
         </For>
       </div>
-      {/* </Grid> */}
     </div>
   );
 }
@@ -86,12 +75,12 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
             $style: {
               margin: '0px',
               objectFit: 'cover',
-              // [$theme.mediaQuery?.md || '']: {
+              [$theme.mediaQuery?.md || '']: {
               width: '120px',
               height: '120px',
-              // },
-              // width: '120px',
-              // height: '120px',
+              },
+              width: '96px',
+              height: '96px',
               borderRadius: '50%',
               ':hover': {
                 animation: 'fade-in-show .4s',
