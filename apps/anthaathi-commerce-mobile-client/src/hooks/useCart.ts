@@ -34,7 +34,6 @@ export const useCart = () => {
 
             setCart(prev)
         } else {
-            console.log(count, 'dd', prev[index].numberOfItems === 1 && !isDelta && count === 1, prev[index].numberOfItems ,isDelta , count)
             if (prev[index].numberOfItems === 1 && count === -1 || prev[index].numberOfItems === 1 && !isDelta && count === 0) {
                 setCart(current =>
                     current.filter(obj => {
@@ -72,6 +71,5 @@ export const useCart = () => {
 
     return {
         setCartItem,
-        // cartItemLength,
     };
 };
