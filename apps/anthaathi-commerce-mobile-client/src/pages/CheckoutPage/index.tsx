@@ -10,7 +10,7 @@ import {RootStackParamList} from '../../types/Route';
 import {OptionDataProps} from '../../features/CMS/containers/Core/components/CMSSelectOption';
 import {TextInput, useTheme} from 'react-native-paper';
 import {useSetRecoilState} from 'recoil';
-import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import { CartItemData } from '../../hooks/useCart';
 
 const CheckoutPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CheckoutPage'>

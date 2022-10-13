@@ -5,257 +5,207 @@ import {useResponsiveValue} from '../../../../utils/useResponsiveValue';
 import {useIntl} from 'react-intl';
 import {CartPageComponentType} from '../../../../types/common';
 import {ProductProps} from '../../../ProductListPage/components/ProductList';
+import CartQuantityChange from "../CartQuantityChange";
+import {useCart} from "../../../../../../hooks/useCart";
 
 export interface ItemProps extends ProductProps {
-  numberOfItems: number;
+    numberOfItems: number;
 }
 
 export interface BasketItemProps {
-  title: string;
-  items: ItemProps[];
-  handlePressRemoveAllProduct?: () => void;
-  handlePressViewProduct?: (item: ProductProps) => void;
-  addProductPress?: (id: number) => void;
-  removeProductPress?: (id: number, numberOfItems: number) => void;
+    title: string;
+    items: ItemProps[];
+    handlePressRemoveAllProduct?: () => void;
+    handlePressViewProduct?: (item: ProductProps) => void;
+    addProductPress?: (id: number) => void;
+    removeProductPress?: (id: number, numberOfItems: number) => void;
 }
 
 const BasketItem = (props: BasketItemProps) => {
-  const theme = useTheme();
-  const intl = useIntl();
-  const itemHeight = useResponsiveValue([120, 250, 290, 330]);
-  const itemWidth = useResponsiveValue([120, 240, 280, 320]);
+    const theme = useTheme();
+    const intl = useIntl();
+    const itemHeight = useResponsiveValue([120, 250, 290, 330]);
+    const itemWidth = useResponsiveValue([120, 240, 280, 320]);
 
-  return (
-    <View
-      style={{
-        marginHorizontal: 5,
-      }}
-      testID="basketItem">
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
-        <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
-          {props.title}
-        </Text>
-
-        <Pressable
-          onPress={props.handlePressRemoveAllProduct}
-          testID="handlePressBasketItem">
-          <Text
-            variant="titleMedium"
+    return (
+        <View
             style={{
-              marginBottom: 9,
-              textDecorationLine: 'underline',
-              fontSize: 14,
-              color: theme.colors.greenTextColor,
-            }}>
-            {intl.formatMessage({defaultMessage: 'Remove All'})}
-          </Text>
-        </Pressable>
-      </View>
+                marginHorizontal: 5,
+            }}
+            testID="basketItem">
+            <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                <Text variant="titleLarge" style={{marginBottom: 9, fontSize: 20}}>
+                    {props.title}
+                </Text>
 
-      <View>
-        {props.items.map(item => {
-          return (
-            <ItemRenderer
-              key={item.key}
-              item={item}
-              itemHeight={itemHeight}
-              itemWidth={itemWidth}
-              handlePressViewProduct={
-                props.handlePressViewProduct || (() => {})
-              }
-              addProductPress={props.addProductPress || (() => {})}
-              removeProductPress={props.removeProductPress || (() => {})}
-            />
-          );
-        })}
-      </View>
-    </View>
-  );
+                <Pressable
+                    onPress={props.handlePressRemoveAllProduct}
+                    testID="handlePressBasketItem">
+                    <Text
+                        variant="titleMedium"
+                        style={{
+                            marginBottom: 9,
+                            textDecorationLine: 'underline',
+                            fontSize: 14,
+                            color: theme.colors.greenTextColor,
+                        }}>
+                        {intl.formatMessage({defaultMessage: 'Remove All'})}
+                    </Text>
+                </Pressable>
+            </View>
+
+            <View>
+                {props.items.map(item => {
+                    return (
+                        <ItemRenderer
+                            key={item.key}
+                            item={item}
+                            itemHeight={itemHeight}
+                            itemWidth={itemWidth}
+                            handlePressViewProduct={
+                                props.handlePressViewProduct || (() => {
+                                })
+                            }
+                            addProductPress={props.addProductPress || (() => {
+                            })}
+                            removeProductPress={props.removeProductPress || (() => {
+                            })}
+                        />
+                    );
+                })}
+            </View>
+        </View>
+    );
 };
 
 const ItemRenderer = ({
-  item,
-  itemHeight,
-  itemWidth,
-  handlePressViewProduct,
-  addProductPress,
-  removeProductPress,
-}: {
-  item: ItemProps;
-  itemHeight: number;
-  itemWidth: number;
-  handlePressViewProduct: (item: ProductProps) => void;
-  addProductPress: (id: number) => void;
-  removeProductPress: (id: number, numberOfItems: number) => void;
+                          item,
+                          itemHeight,
+                          itemWidth,
+                          handlePressViewProduct,
+                          addProductPress,
+                          removeProductPress,
+                      }: {
+    item: ItemProps;
+    itemHeight: number;
+    itemWidth: number;
+    handlePressViewProduct: (item: ProductProps) => void;
+    addProductPress: (id: number) => void;
+    removeProductPress: (id: number, numberOfItems: number) => void;
 }) => {
-  const theme = useTheme();
-  const intl = useIntl();
-  return (
-    <View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Pressable onPress={() => handlePressViewProduct(item)}>
-            <Image
-              testID="basketProductImage"
-              source={{uri: item.image}}
-              style={{height: itemHeight, width: itemWidth}}
-            />
-          </Pressable>
+    const theme = useTheme();
+    const intl = useIntl();
+    const { setCartItem } = useCart();
 
-          <View
-            style={{
-              marginHorizontal: 15,
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              width: '100%',
-            }}>
-            <View style={{flexDirection: 'row', width: '45%'}}>
-              <Text
-                testID="productName"
-                variant="titleLarge"
-                style={{
-                  flex: 1,
-                  fontSize: 14,
-                  color: theme.colors.titleTextColor,
-                  fontWeight: '900',
-                  flexWrap: 'wrap',
-                }}>
-                {item.name}
-              </Text>
-            </View>
-            <ProductCountButton
-              numberOfItems={item.numberOfItems}
-              addProductPress={() => addProductPress(item.id)}
-              removeProductPress={() =>
-                removeProductPress(item.id, item.numberOfItems)
-              }
-            />
-
-            <Text
-              variant="titleLarge"
-              style={{
-                fontSize: 13,
-                color: theme.colors.titleTextColor,
-                fontWeight: '600',
-              }}>
-              {intl.formatNumber(item.price, {
-                style: 'currency',
-                currency: item.currency,
-              }) +
-                ' / ' +
-                intl.formatMessage({defaultMessage: 'Piece'})}
-            </Text>
-
+    return (
+        <View>
             <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <Text
-                variant="titleLarge"
                 style={{
-                  fontSize: 14,
-                  color: theme.colors.titleTextColor,
-                  fontWeight: '900',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
                 }}>
-                {intl.formatMessage({defaultMessage: 'Total'}) + ' :'}
-              </Text>
+                <View style={{flexDirection: 'row'}}>
+                    <Pressable onPress={() => handlePressViewProduct(item)}>
+                        <Image
+                            testID="basketProductImage"
+                            source={{uri: item.image}}
+                            style={{height: itemHeight, width: itemWidth}}
+                        />
+                    </Pressable>
 
-              <Text
-                testID="productPrice"
-                variant="titleLarge"
-                style={{
-                  fontSize: 14,
-                  color: theme.colors.greenTextColor,
-                  fontWeight: '700',
-                  marginLeft: 5,
-                }}>
-                {intl.formatNumber(item.price * item.numberOfItems, {
-                  style: 'currency',
-                  currency: item.currency,
-                })}
-              </Text>
+                    <View
+                        style={{
+                            marginHorizontal: 15,
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                        }}>
+                        <View style={{flexDirection: 'row', width: '45%'}}>
+                            <Text
+                                testID="productName"
+                                variant="titleLarge"
+                                style={{
+                                    flex: 1,
+                                    fontSize: 14,
+                                    color: theme.colors.titleTextColor,
+                                    fontWeight: '900',
+                                    flexWrap: 'wrap',
+                                }}>
+                                {item.name}
+                            </Text>
+                        </View>
+
+                        <CartQuantityChange
+                            trashIcon
+                            initialValue={item.numberOfItems}
+                            onChangeQuantity={(qty) => {
+                                setCartItem(item.id, qty);
+                            }}
+                            id={item.id}
+                        />
+
+                        <Text
+                            variant="titleLarge"
+                            style={{
+                                fontSize: 13,
+                                color: theme.colors.titleTextColor,
+                                fontWeight: '600',
+                            }}>
+                            {intl.formatNumber(item.price, {
+                                    style: 'currency',
+                                    currency: item.currency,
+                                }) +
+                                ' / ' +
+                                intl.formatMessage({defaultMessage: 'Piece'})}
+                        </Text>
+
+                        <View
+                            style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                            }}>
+                            <Text
+                                variant="titleLarge"
+                                style={{
+                                    fontSize: 14,
+                                    color: theme.colors.titleTextColor,
+                                    fontWeight: '900',
+                                }}>
+                                {intl.formatMessage({defaultMessage: 'Total'}) + ' :'}
+                            </Text>
+
+                            <Text
+                                testID="productPrice"
+                                variant="titleLarge"
+                                style={{
+                                    fontSize: 14,
+                                    color: theme.colors.greenTextColor,
+                                    fontWeight: '700',
+                                    marginLeft: 5,
+                                }}>
+                                {intl.formatNumber(item.price * item.numberOfItems, {
+                                    style: 'currency',
+                                    currency: item.currency,
+                                })}
+                            </Text>
+                        </View>
+                    </View>
+                </View>
             </View>
-          </View>
+            <Divider style={{marginVertical: 10}}/>
         </View>
-      </View>
-      <Divider style={{marginVertical: 10}} />
-    </View>
-  );
+    );
 };
 
-const ProductCountButton = ({
-  numberOfItems,
-  addProductPress,
-  removeProductPress,
-}: {
-  numberOfItems: number;
-  addProductPress: () => void;
-  removeProductPress: () => void;
-}) => {
-  const theme = useTheme();
-  return (
-    <View
-      style={{
-        width: 120,
-        flexDirection: 'row',
-        backgroundColor: '#F1F9F4',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        height: 35,
-        borderRadius: 50,
-      }}>
-      <IconButton
-        style={{
-          borderRadius: 50,
-          height: 35,
-          marginLeft: 0,
-          width: 35,
-          backgroundColor: '#D4EDDD',
-        }}
-        icon={numberOfItems > 1 ? 'minus' : 'delete'}
-        iconColor={theme.colors.greenTextColor}
-        size={20}
-        onPress={removeProductPress}
-      />
-      <Text
-        style={{
-          marginHorizontal: 5,
-          fontSize: 14,
-          color: theme.colors.titleTextColor,
-          fontWeight: '700',
-        }}>
-        {numberOfItems}
-      </Text>
-      <IconButton
-        style={{
-          borderRadius: 50,
-          height: 35,
-          marginRight: 0,
-          backgroundColor: '#D4EDDD',
-          width: 35,
-        }}
-        icon="plus"
-        iconColor={theme.colors.greenTextColor}
-        size={20}
-        onPress={addProductPress}
-      />
-    </View>
-  );
-};
 
 export default BasketItem;
 
 export const BasketItemCMSInput = {
-  _component: CartPageComponentType.BasketItem,
-  component: BasketItem,
+    _component: CartPageComponentType.BasketItem,
+    component: BasketItem,
 };

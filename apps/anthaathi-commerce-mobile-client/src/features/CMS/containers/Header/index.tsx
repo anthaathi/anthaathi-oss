@@ -12,8 +12,8 @@ import {CoreComponentType} from '../../types/common';
 import RNRestart from 'react-native-restart';
 import ChatWootWidget from '@chatwoot/react-native-widget';
 import {useRecoilValue} from 'recoil';
-import {CartItemData} from '../../context/CartItemContext';
 import {useIntl} from 'react-intl';
+import { CartItemData } from '../../../../hooks/useCart';
 
 export interface HeaderProps {
   leftIcon?: string;
