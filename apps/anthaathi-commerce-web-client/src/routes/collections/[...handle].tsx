@@ -36,7 +36,6 @@ export const routeData = ({ params }: RouteDataArgs) => {
 export default function () {
   const { productList, categoryName } = useRouteData<typeof routeData>();
   const [css, $theme] = useStyletron();
-  const location = useLocation();
   const [showFilter, setShowFilter] = createSignal(false);
 
   return (
@@ -345,7 +344,7 @@ const SideBarFilter = (props: { platform: 'mobile' | 'web' }) => {
   );
 };
 
-const categoryList = [
+export const categoryList = [
   {
     title: 'Special Offers',
     value: '/collections/specialoffers',

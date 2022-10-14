@@ -1,6 +1,6 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Searchbar } from '../Searchbar';
-import { Button, Kind } from '../Button';
+import { Button, Kind, Size } from '../Button';
 import {
   IconReorderSmall,
   IconShoppingCartLarge,
@@ -295,26 +295,16 @@ export function AppBar() {
                 href={`${category.href}`}
                 $kind={Kind.Tab}
                 $override={{
-                  Root: {
+                  Content: {
                     style: {
-                      fontSize: '40px', //$theme.typography.font350.fontSize,
+                      fontSize: $theme.typography.font350.fontSize,
                       fontWeight: $theme.typography.font550.fontWeight,
+                      textAlign: 'center',
                     },
                   },
                 }}
               >
-                {/* <p
-                  class={css(
-                    {
-                      fontSize: $theme.typography.font350.fontSize,
-                      fontWeight: $theme.typography.font550.fontWeight,
-                      marginTop: 0,
-                      marginBottom: 0,
-                    },
-                  )}
-                > */}
                 {category.title}
-                {/* </p> */}
               </Button>
             );
           }}
@@ -328,6 +318,10 @@ export function AppBar() {
           maxHeight: mobileMenuOpen() ? '80vh' : '0',
           overflow: mobileMenuOpen() ? 'hidden' : 'auto',
           transition: 'all ease .2s',
+          [$theme.mediaQuery?.md || '']: {
+            display: 'none',
+          },
+          display: 'block',
         })}
       >
         <MobileMenu />
@@ -357,19 +351,17 @@ function MobileMenu() {
                 $fullWidth={true}
                 $as={Link}
                 href={category.href}
-              >
-                {/* <p
-                  class={css([
-                    {
+                $override={{
+                  Content: {
+                    style: {
                       fontSize: $theme.typography.font250.fontSize,
                       fontWeight: $theme.typography.font550.fontWeight,
-                      marginTop: 0,
-                      marginBottom: 0,
+                      textAlign: 'center',
                     },
-                  ])}
-                > */}
+                  },
+                }}
+              >
                 {category.title}
-                {/* </p> */}
               </Button>
             </li>
           );
