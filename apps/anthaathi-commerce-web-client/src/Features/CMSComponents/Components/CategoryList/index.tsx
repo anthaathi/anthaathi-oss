@@ -95,7 +95,7 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
           $theme.typography.ParagraphLarge,
           {
             marginTop: $theme.sizing.scale600,
-            marginBottom: $theme.sizing.scale1000,
+            marginBottom: $theme.sizing.scale500,
             fontWeight: 'bold',
             color: '#000',
           },
