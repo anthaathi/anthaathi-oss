@@ -65,7 +65,8 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: $theme.sizing.scale500,
+        marginLeft: $theme.sizing.scale600,
+        marginRight: $theme.sizing.scale600,
       })}
     >
       <Img
@@ -76,11 +77,11 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
               margin: '0px',
               objectFit: 'cover',
               [$theme.mediaQuery?.md || '']: {
-              width: '120px',
-              height: '120px',
+              width: '104px',
+              height: '104px',
               },
-              width: '96px',
-              height: '96px',
+              width: '72px',
+              height: '72px',
               borderRadius: '50%',
               ':hover': {
                 animation: 'fade-in-show .4s',

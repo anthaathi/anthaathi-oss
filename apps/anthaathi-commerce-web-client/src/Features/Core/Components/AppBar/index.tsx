@@ -1,18 +1,23 @@
 import { useStyletron } from '@anthaathi/solid-styletron';
 import { Searchbar } from '../Searchbar';
-import { Button, Kind, Size } from '../Button';
+import { Button, Kind } from '../Button';
 import {
   IconReorderSmall,
   IconShoppingCartLarge,
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
-import { Link } from '@solidjs/router';
-import { createEffect, createSignal, For, onCleanup, onMount } from 'solid-js';
+import { Link, NavLink } from '@solidjs/router';
+import {
+  createEffect,
+  createSignal,
+  For,
+  onCleanup,
+  onMount,
+} from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { useCart } from '~/Features/Cart/Hooks';
 import { useLocation } from 'solid-start/router';
-import Root from '~/root';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -30,7 +35,6 @@ export function AppBar() {
   createEffect(() => {
     setMobileMenuOpen(!location.pathname);
   });
-
   const [haveBigPicture, setHaveBigPicture] = createSignal(false);
 
   function onWindowScroll() {
@@ -291,7 +295,15 @@ export function AppBar() {
           {(category) => {
             return (
               <Button
-                $as={Link}
+                $as={NavLink}
+                activeClass={css([
+                  {
+                    borderBottom:
+                      location.pathname === category.href
+                        ? '3px solid #118b44'
+                        : '0px solid transparent',
+                  },
+                ])}
                 href={`${category.href}`}
                 $kind={Kind.Tab}
                 $override={{
@@ -349,7 +361,15 @@ function MobileMenu() {
               <Button
                 $kind={Kind.Tertiary}
                 $fullWidth={true}
-                $as={Link}
+                $as={NavLink}
+                activeClass={css([
+                  {
+                    borderBottom:
+                      location.pathname === category.href
+                        ? '2px solid #118b44'
+                        : '0px solid transparent',
+                  },
+                ])}
                 href={category.href}
                 $override={{
                   Content: {
