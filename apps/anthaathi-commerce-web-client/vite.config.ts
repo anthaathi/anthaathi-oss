@@ -6,8 +6,14 @@ import vercel from 'solid-start-vercel';
 import analyze from 'rollup-plugin-analyzer';
 
 export default defineConfig({
-  plugins: [solid({ ssr: true, adapter: vercel() }), SVGInjectPlugin()],
+  plugins: [
+    solid(
+      process.env.VERCEL ? { ssr: true, adapter: vercel() } : { ssr: true },
+    ),
+    SVGInjectPlugin(),
+  ],
   build: {
+    target: ['chrome58'],
     rollupOptions: {
       plugins: [analyze() as never],
     },
