@@ -7753,6 +7753,7 @@ __metadata:
     "@types/lodash.debounce": ^4.0.7
     lodash.debounce: ^4.0.8
     prettier: ^2.7.1
+    rollup-plugin-analyzer: ^4.0.0
     solid-headless: ^0.13.0
     solid-js: ^1.5.6
     solid-start: 0.1.0
@@ -22621,6 +22622,13 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-analyzer@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "rollup-plugin-analyzer@npm:4.0.0"
+  checksum: 72f794f79efe4f620674a48949be9f64dc3cbf601c52ff90ae7cbeaacb604b86bb34321695d0f8f320e5c0b47880022849d92c51d231e1b32c6757a2c627be5e
   languageName: node
   linkType: hard
 

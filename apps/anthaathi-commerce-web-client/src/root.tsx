@@ -62,7 +62,6 @@ export default function Root() {
           <ErrorBoundary>
             <MiniAnnouncement />
             <AppBar />
-
             <Routes>
               <FileRoutes />
             </Routes>

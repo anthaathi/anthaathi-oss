@@ -30,7 +30,7 @@ export function AppBar() {
     setMobileMenuOpen(!location.pathname);
   });
 
-  const [haveBigPicture, setHaveBigPicture] = createSignal(false);
+  const [haveBigPicture, setHaveBigPicture] = createSignal(true);
 
   function onWindowScroll() {
     setHaveBigPicture((window.pageYOffset || window.scrollY) < 200);
