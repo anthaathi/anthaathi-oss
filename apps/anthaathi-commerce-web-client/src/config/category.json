@@ -71,6 +71,14 @@
       "title_ar": "أزهار منعشة",
       "key": "freshblooms",
       "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196"
+    },
+    {
+      "id": 10,
+      "href": "/collections/delmonte",
+      "title": "Del Monte",
+      "title_ar": "عضوي",
+      "key": "delmonte",
+      "image": "https://cdn.shopify.com/s/files/1/0648/1303/9842/files/DM_Logo_256x256_crop_center.png?v=1666003439"
     }
   ]
 }

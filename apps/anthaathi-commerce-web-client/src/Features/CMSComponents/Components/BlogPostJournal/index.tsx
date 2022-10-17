@@ -14,6 +14,8 @@ export function BlogPostJournal() {
         maxWidth: $theme.sizing.maxWidth,
         paddingLeft: $theme.sizing.scale1000,
         paddingRight: $theme.sizing.scale1000,
+        paddingTop: $theme.sizing.scale1000,
+        paddingBottom: $theme.sizing.scale1000,
       })}
     >
       <div

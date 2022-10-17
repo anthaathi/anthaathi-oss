@@ -20,21 +20,50 @@ import { CategoryList } from './Components/CategoryList';
 import { useStyletron } from '@anthaathi/solid-styletron';
 import productJson from '../../config/products.json';
 import categoryJson from '../../config/category.json';
+import { BannerSlide } from './Components/BannerSilde';
+import { PromoGrid } from './Components/PromoGrid';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
   const timeStart = new Date();
- 
+
   const App = () => [
     <NewsLetter />,
     <MobileAppPromoter />,
-    <SplitSlides />,
-    <CategoryList items={categoryJson.categoryList} />,
-    <ImageAndText />,
+    <BannerSlide
+      list={[
+        {
+          id: '1',
+          imgSrc:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/a-papaya-is-surrounded-by-fruit-on-yellow-background_900x.jpg?v=1653586970',
+          href: '/',
+        },
+        {
+          id: '2',
+          imgSrc:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/fresh-vegetables-flatlay_900x.jpg?v=1653677616',
+          href: '/',
+        },
+        {
+          id: '3',
+          imgSrc:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/files/basket-of-fresh-picked-apple_900x.jpg?v=1653677196',
+          href: '/',
+        },
+      ]}
+    />,
+    <CategoryList title="Categories" items={categoryJson.categoryList} />,
     <FeaturedCollection
       title="In Season"
       products={productJson.featuredCollection.collection1}
     />,
+    <PromoGrid />,
+    <FeaturedCollection
+      title="Special Offers"
+      products={productJson.featuredCollection.collection2}
+    />,
+    // <ImageAndText />,
+
     <SplitOfferCard
       title={'Get Exclusive Offers'}
       subtitle={
@@ -78,10 +107,10 @@ export function RenderCMSComponents() {
         },
       ]}
     />,
-    <HowItWorks />,
+    // <HowItWorks />,
     <BlogPostJournal />,
-    <AboutUs />,
-    <EmailSignup />,
+    // <AboutUs />,
+    // <EmailSignup />,
     <FAB />,
   ];
 
