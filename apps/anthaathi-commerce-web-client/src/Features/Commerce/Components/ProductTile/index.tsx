@@ -8,7 +8,6 @@ import {
 import { createMemo, createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import { Img } from '~/Features/Core/Components/Image';
-import { ItemProps } from '~/Features/Cart/Components/CartItems';
 import debounce from 'lodash.debounce';
 import { cartItems } from '~/Features/Cart/Components/CartItems/CartItems';
 import { useCart } from '~/Features/Cart/Hooks';
