@@ -10,9 +10,9 @@ import productJson from '../../config/product.json';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types/Route';
 import {useRecoilState} from 'recoil';
-import {CartItemData} from '../../features/CMS/context/CartItemContext';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
 import {useIntl} from 'react-intl';
+import { CartItemData } from '../../hooks/useCart';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
@@ -114,23 +114,23 @@ const ProductListPage = (
             _component: ProductListPageComponentType.ProductList,
             key: '1233',
             handlePress: (item: ProductProps) => {
-              if (cartItem.some(el => el.id === item.id)) {
-                const newState = cartItem.map(obj => {
-                  if (obj.id === item.id) {
-                    return {...obj, numberOfItems: obj.numberOfItems + 1};
-                  }
-                  return obj;
-                });
-                setCartItem(newState);
-              } else {
-                setCartItem(oldCartItem => [
-                  ...oldCartItem,
-                  {
-                    ...item,
-                    numberOfItems: 1,
-                  },
-                ]);
-              }
+              // if (cartItem.some(el => el.id === item.id)) {
+              //   const newState = cartItem.map(obj => {
+              //     if (obj.id === item.id) {
+              //       return {...obj, numberOfItems: obj.numberOfItems + 1};
+              //     }
+              //     return obj;
+              //   });
+              //   setCartItem(newState);
+              // } else {
+              //   setCartItem(oldCartItem => [
+              //     ...oldCartItem,
+              //     {
+              //       ...item,
+              //       numberOfItems: 1,
+              //     },
+              //   ]);
+              // }
             },
             handleInfoPress: (item: ProductProps) => {
               props.navigation.navigate('ProductPage', {

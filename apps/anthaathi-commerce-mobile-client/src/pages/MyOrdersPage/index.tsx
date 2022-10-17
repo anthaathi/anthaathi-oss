@@ -6,7 +6,7 @@ import {CartPageComponentType} from '../../features/CMS/types/common';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native';
 import {useRecoilState} from 'recoil';
-import {CartItemData} from '../../features/CMS/context/CartItemContext';
+import { CartItemData } from '../../hooks/useCart';
 
 export const MyOrdersPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'MyOrdersPage'>

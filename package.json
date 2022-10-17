@@ -25,7 +25,7 @@
     "postinstall-postinstall": "^2.1.0"
   },
   "devDependencies": {
-    "gts": "^3.1.0"
+    "gts": "^3.1.1"
   },
   "resolutions": {
     "baseui@12.1.0": "patch:baseui@npm:12.1.0#.yarn/patches/baseui-npm-12.1.0-e02dbe311a.patch"
