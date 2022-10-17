@@ -6,7 +6,7 @@ import {
   IconBellOLarge,
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
-import { Link, NavLink } from '@solidjs/router';
+import { NavLink } from '@solidjs/router';
 
 export function MobileBottomBar() {
   const [css, $theme] = useStyletron();
@@ -50,14 +50,16 @@ export function MobileBottomBar() {
               display: 'flex',
             })}
             activeClass={css({
-              borderTop: '4px solid #000',
+              backgroundColor: '#F1F9F4'
             })}
           >
             {option.icon}
             <span
               class={css({
                 marginTop: '8px',
-                ...$theme.typography.LabelSmall,
+                fontSize: $theme.typography.font250.fontSize,
+                fontWeight: $theme.typography.font550.fontWeight,
+                color: '#364A15',
               })}
             >
               {option.title}
