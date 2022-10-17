@@ -1,11 +1,9 @@
 import { ServerContext } from 'solid-start/server';
 import { useContext } from 'solid-js';
-import { SplitSlides } from '~/Features/CMSComponents/Components/SplitSlides';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { addServerTiming } from '~/utils/add-server-timing';
 import { isServer } from 'solid-js/web';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
-import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
 import { SplitOfferCard } from './Components/SplitOfferCard';
 import { HeroSlide } from './Components/HeroSlide';
@@ -17,7 +15,6 @@ import { BlogPostJournal } from '~/Features/CMSComponents/Components/BlogPostJou
 import { FAB } from '~/Features/Core/Components/FAB';
 import MobileAppPromoter from '~/Features/CMSComponents/Components/MobileAppPromoter';
 import { CategoryList } from './Components/CategoryList';
-import { useStyletron } from '@anthaathi/solid-styletron';
 import productJson from '../../config/products.json';
 import categoryJson from '../../config/category.json';
 import { BannerSlide } from './Components/BannerSilde';
@@ -107,10 +104,10 @@ export function RenderCMSComponents() {
         },
       ]}
     />,
-    // <HowItWorks />,
+    <HowItWorks />,
     <BlogPostJournal />,
-    // <AboutUs />,
-    // <EmailSignup />,
+    <AboutUs />,
+    <EmailSignup />,
     <FAB />,
   ];
 
