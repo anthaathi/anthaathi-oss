@@ -22,7 +22,14 @@ export interface CategoryListProps {
 export function CategoryList(props: CategoryListProps) {
   const [css, $theme] = useStyletron();
   return (
-    <div>
+    <div
+      class={css({
+        maxWidth: $theme.sizing.maxWidth,
+        margin: '0 auto',
+        width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        marginTop: $theme.sizing.scale700,
+      })}
+    >
       {props.title && (
         <h5
           class={css([
@@ -38,7 +45,6 @@ export function CategoryList(props: CategoryListProps) {
           {props.title}
         </h5>
       )}
-
       <div
         class={css({
           display: 'flex',
@@ -77,8 +83,8 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
               margin: '0px',
               objectFit: 'cover',
               [$theme.mediaQuery?.md || '']: {
-              width: '104px',
-              height: '104px',
+                width: '104px',
+                height: '104px',
               },
               width: '72px',
               height: '72px',
