@@ -6,18 +6,13 @@ import {
   IconShoppingCartLarge,
   IconUserLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
-import { Link, NavLink } from '@solidjs/router';
-import {
-  createEffect,
-  createSignal,
-  For,
-  onCleanup,
-  onMount,
-} from 'solid-js';
+import { Link } from '@solidjs/router';
+import { createEffect, createSignal, For, onCleanup, onMount } from 'solid-js';
 import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { useCart } from '~/Features/Cart/Hooks';
 import { useLocation } from 'solid-start/router';
+import categoryJson from '../../../../config/category.json';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -35,8 +30,7 @@ export function AppBar() {
   createEffect(() => {
     setMobileMenuOpen(!location.pathname);
   });
-
-  const [haveBigPicture, setHaveBigPicture] = createSignal(true);
+  const [haveBigPicture, setHaveBigPicture] = createSignal(false);
 
   function onWindowScroll() {
     setHaveBigPicture((window.pageYOffset || window.scrollY) < 200);
@@ -292,22 +286,24 @@ export function AppBar() {
         data-type="categories"
         ref={(pref) => categoryHTML}
       >
-        <For each={Categories}>
+        <For each={categoryJson.categoryList}>
           {(category) => {
             return (
               <Button
-                $as={NavLink}
-                activeClass={css([
-                  {
-                    borderBottom:
-                      location.pathname === category.href
-                        ? '3px solid #118b44'
-                        : '0px solid transparent',
-                  },
-                ])}
+                $as={Link}
                 href={`${category.href}`}
                 $kind={Kind.Tab}
                 $override={{
+                  Root: {
+                    style: {
+                      borderBottomColor:
+                        location.pathname === category.href
+                          ? '#118b44'
+                          : 'transparent',
+                      borderBottomWidth: '3px',
+                      borderBottomStyle: 'solid',
+                    },
+                  },
                   Content: {
                     style: {
                       fontSize: $theme.typography.font350.fontSize,
@@ -345,6 +341,7 @@ export function AppBar() {
 
 function MobileMenu() {
   const [css, $theme] = useStyletron();
+  const location = useLocation();
 
   return (
     <ul
@@ -355,24 +352,24 @@ function MobileMenu() {
         height: '100%',
       })}
     >
-      <For each={Categories}>
+      <For each={categoryJson.categoryList}>
         {(category) => {
           return (
             <li class={css({ listStyle: 'none', width: '100%' })}>
               <Button
                 $kind={Kind.Tertiary}
                 $fullWidth={true}
-                $as={NavLink}
-                activeClass={css([
-                  {
-                    borderBottom:
-                      location.pathname === category.href
-                        ? '2px solid #118b44'
-                        : '0px solid transparent',
-                  },
-                ])}
+                $as={Link}
                 href={category.href}
                 $override={{
+                  Root: {
+                    style: {
+                      background:
+                        location.pathname === category.href
+                          ? '#E0E0E0'
+                          : '#fff',
+                    },
+                  },
                   Content: {
                     style: {
                       fontSize: $theme.typography.font250.fontSize,
@@ -391,46 +388,3 @@ function MobileMenu() {
     </ul>
   );
 }
-
-const Categories = [
-  {
-    title: 'Special Offers',
-    href: '/collections/specialoffers',
-  },
-  {
-    title: 'Organic',
-    href: '/collections/organic',
-  },
-  {
-    title: 'Fruits',
-    href: '/collections/fruits',
-  },
-  {
-    title: 'Vegetables',
-    href: '/collections/vegetables',
-  },
-  {
-    title: 'Bulk Buy',
-    href: '/collections/bulkbuy',
-  },
-  {
-    title: 'Precut',
-    href: '/collections/precut',
-  },
-  {
-    title: 'Pre-Packed',
-    href: '/collections/prepacked',
-  },
-  {
-    title: 'Gift Corner',
-    href: '/collections/giftcorner',
-  },
-  {
-    title: 'Juices',
-    href: '/collections/juices',
-  },
-  {
-    title: 'Fresh blooms',
-    href: '/collections/freshblooms',
-  },
-];

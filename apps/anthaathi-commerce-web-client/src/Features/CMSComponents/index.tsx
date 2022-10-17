@@ -4,10 +4,6 @@ import { SplitSlides } from '~/Features/CMSComponents/Components/SplitSlides';
 import { EmailSignup } from '~/Features/CMSComponents/Components/EmailSignup';
 import { addServerTiming } from '~/utils/add-server-timing';
 import { isServer } from 'solid-js/web';
-import {
-  PromoGrid,
-  Shape,
-} from '~/Features/CMSComponents/Components/PromoGrid';
 import { NewsLetter } from '~/Features/CMSComponents/Components/NewsLetter';
 import { ImageAndText } from '~/Features/CMSComponents/Components/ImageAndText';
 import { FeaturedCollection } from '~/Features/CMSComponents/Components/FeaturedCollection';
@@ -28,14 +24,11 @@ import categoryJson from '../../config/category.json';
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
   const timeStart = new Date();
-  const [css, $theme] = useStyletron();
-
+ 
   const App = () => [
     <NewsLetter />,
     <MobileAppPromoter />,
     <SplitSlides />,
-    // <PromoGrid shape={Shape.Circle} />,
-
     <CategoryList items={categoryJson.categoryList} />,
     <ImageAndText />,
     <FeaturedCollection

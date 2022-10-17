@@ -27,7 +27,7 @@ export function CategoryList(props: CategoryListProps) {
         maxWidth: $theme.sizing.maxWidth,
         margin: '0 auto',
         width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
-        marginTop: $theme.sizing.scale700,
+        paddingTop: $theme.sizing.scale700,
       })}
     >
       {props.title && (
