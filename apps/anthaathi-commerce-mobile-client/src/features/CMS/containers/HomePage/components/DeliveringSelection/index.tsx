@@ -1,6 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 import * as React from 'react';
 import {
+  Platform,
   ScrollView,
   StyleSheet,
   TouchableHighlight,
@@ -77,6 +78,8 @@ export function DeliveringSelection(props: DeliveringSelectionProps) {
           backgroundColor: 'white',
           maxHeight: '40%',
           minHeight: '15%',
+          paddingBottom: Platform.OS === 'ios' ? 35 : 0,
+          bottom: Platform.OS === 'ios' ? 35 : 0,
         }}
         bottomSheetTitleStyle={{color: '#0A2463'}}
         setBottomSheetVisible={setVisible}

@@ -5,7 +5,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import CMSRenderer from '../../features/CMS';
 import {CoreComponentType} from '../../features/CMS/types/common';
-import {Button, Divider, TextInput, useTheme} from 'react-native-paper';
+import {Button, Colors, Divider, TextInput, useTheme} from 'react-native-paper';
 import {useIntl} from 'react-intl';
 import {useDimension} from '../../features/CMS/utils/useDimension';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -169,6 +169,7 @@ const ListItemRenderer = ({
             width: 120,
             paddingVertical: 5,
             textAlign: 'center',
+            color: Colors.grey600,
           }}>
           ADCBOFFER
         </Text>
