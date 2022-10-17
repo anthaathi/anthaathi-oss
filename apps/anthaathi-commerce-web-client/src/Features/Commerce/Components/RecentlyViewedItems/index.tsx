@@ -3,20 +3,13 @@ import { useNavigate } from '@solidjs/router';
 import { For } from 'solid-js';
 
 import { Img } from '~/Features/Core/Components/Image';
+import { ProductProps } from '../ProductTile';
 
-export interface ProductItmes {
-  id: number;
-  name: string;
-  description?: string;
-  price: number;
-  currency: string;
-  packaging: string;
-  image: string;
-}
+
 
 export interface RecentlyViewedItemsProps {
   title?: string;
-  items: ProductItmes[];
+  items: ProductProps[];
 }
 export default function RecentlyViewedItems(props: RecentlyViewedItemsProps) {
   const [css, $theme] = useStyletron();
@@ -37,13 +30,13 @@ export default function RecentlyViewedItems(props: RecentlyViewedItemsProps) {
         </p>
       )}
       <For each={props.items}>
-        {(item: ProductItmes) => <RenderItem {...item} />}
+        {(item) => <RenderItem {...item} />}
       </For>
     </div>
   );
 }
 
-const RenderItem = (props: ProductItmes) => {
+const RenderItem = (props: ProductProps) => {
   const [css, $theme] = useStyletron();
   const navigate = useNavigate();
   return (

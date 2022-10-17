@@ -12,6 +12,7 @@ import { Transition, TransitionChild } from 'solid-headless';
 import { Img } from '~/Features/Core/Components/Image';
 import { useCart } from '~/Features/Cart/Hooks';
 import { useLocation } from 'solid-start/router';
+import categoryJson from '../../../../config/category.json';
 
 export function AppBar() {
   const [css, $theme] = useStyletron();
@@ -29,8 +30,7 @@ export function AppBar() {
   createEffect(() => {
     setMobileMenuOpen(!location.pathname);
   });
-
-  const [haveBigPicture, setHaveBigPicture] = createSignal(true);
+  const [haveBigPicture, setHaveBigPicture] = createSignal(false);
 
   function onWindowScroll() {
     setHaveBigPicture((window.pageYOffset || window.scrollY) < 200);
@@ -85,7 +85,7 @@ export function AppBar() {
           >
             <Link href="/">
               <Img
-                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/everyday_1_256x256.png?v=1662529180"
+                src="https://cdn.shopify.com/s/files/1/0648/1303/9842/files/logo-oxvdmbxi6g2vpdrt9kcwy3xyhpvajr03in9rykvzfk_220x@2x.png?v=1653569545"
                 alt=""
                 $override={{
                   Root: {
@@ -93,7 +93,10 @@ export function AppBar() {
                       transitionDuration: '100ms',
                       transitionProperty: 'height',
                       transitionTimingFunction: 'ease',
-                      height: haveBigPicture() ? '96px' : '48px',
+                      height: haveBigPicture() ? '64px' : '36px',
+                      [$theme.mediaQuery?.md || '']: {
+                        height: haveBigPicture() ? '84px' : '48px',
+                      },
                       width: 'auto',
                     },
                   },
@@ -283,10 +286,33 @@ export function AppBar() {
         data-type="categories"
         ref={(pref) => categoryHTML}
       >
-        <For each={Categories}>
+        <For each={categoryJson.categoryList}>
           {(category) => {
             return (
-              <Button $as={Link} href={`${category.href}`} $kind={Kind.Tab}>
+              <Button
+                $as={Link}
+                href={`${category.href}`}
+                $kind={Kind.Tab}
+                $override={{
+                  Root: {
+                    style: {
+                      borderBottomColor:
+                        location.pathname === category.href
+                          ? '#118b44'
+                          : 'transparent',
+                      borderBottomWidth: '3px',
+                      borderBottomStyle: 'solid',
+                    },
+                  },
+                  Content: {
+                    style: {
+                      fontSize: $theme.typography.font350.fontSize,
+                      fontWeight: $theme.typography.font550.fontWeight,
+                      textAlign: 'center',
+                    },
+                  },
+                }}
+              >
                 {category.title}
               </Button>
             );
@@ -301,6 +327,10 @@ export function AppBar() {
           maxHeight: mobileMenuOpen() ? '80vh' : '0',
           overflow: mobileMenuOpen() ? 'hidden' : 'auto',
           transition: 'all ease .2s',
+          [$theme.mediaQuery?.md || '']: {
+            display: 'none',
+          },
+          display: 'block',
         })}
       >
         <MobileMenu />
@@ -310,7 +340,8 @@ export function AppBar() {
 }
 
 function MobileMenu() {
-  const [css] = useStyletron();
+  const [css, $theme] = useStyletron();
+  const location = useLocation();
 
   return (
     <ul
@@ -321,7 +352,7 @@ function MobileMenu() {
         height: '100%',
       })}
     >
-      <For each={Categories}>
+      <For each={categoryJson.categoryList}>
         {(category) => {
           return (
             <li class={css({ listStyle: 'none', width: '100%' })}>
@@ -330,6 +361,23 @@ function MobileMenu() {
                 $fullWidth={true}
                 $as={Link}
                 href={category.href}
+                $override={{
+                  Root: {
+                    style: {
+                      background:
+                        location.pathname === category.href
+                          ? '#E0E0E0'
+                          : '#fff',
+                    },
+                  },
+                  Content: {
+                    style: {
+                      fontSize: $theme.typography.font250.fontSize,
+                      fontWeight: $theme.typography.font550.fontWeight,
+                      textAlign: 'center',
+                    },
+                  },
+                }}
               >
                 {category.title}
               </Button>
@@ -340,46 +388,3 @@ function MobileMenu() {
     </ul>
   );
 }
-
-const Categories = [
-  {
-    title: 'Special Offers',
-    href: '/collections/specialoffers',
-  },
-  {
-    title: 'Organic',
-    href: '/collections/organic',
-  },
-  {
-    title: 'Fruits',
-    href: '/collections/fruits',
-  },
-  {
-    title: 'Vegetables',
-    href: '/collections/vegetables',
-  },
-  {
-    title: 'Bulk Buy',
-    href: '/collections/bulkbuy',
-  },
-  {
-    title: 'Precut',
-    href: '/collections/precut',
-  },
-  {
-    title: 'Pre-Packed',
-    href: '/collections/prepacked',
-  },
-  {
-    title: 'Gift Corner',
-    href: '/collections/giftcorner',
-  },
-  {
-    title: 'Juices',
-    href: '/collections/juices',
-  },
-  {
-    title: 'Fresh blooms',
-    href: '/collections/freshblooms',
-  },
-];

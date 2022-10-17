@@ -145,6 +145,12 @@ export function ProductTile(props: ProductProps) {
                     cartProductData()?.numberOfItems !== 0
                       ? 'element'
                       : 'none',
+                  display:
+                    cartProductData &&
+                    cartProductData()?.id === props.id &&
+                    cartProductData()?.numberOfItems !== 0
+                      ? 'block'
+                      : 'none',
                   paddingLeft: '10px',
                   paddingRight: '10px',
                   paddingTop: '10px',

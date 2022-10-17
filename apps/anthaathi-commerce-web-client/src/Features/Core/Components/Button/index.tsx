@@ -19,6 +19,9 @@ export interface ButtonProps {
     Root?: {
       style?: StyleObject;
     };
+    Content?: {
+      style?: StyleObject;
+    };
   };
   $size?: Size;
 }
@@ -44,7 +47,11 @@ export function Button(
   const [css, $theme] = useStyletron();
   const cssVar = useCssToken();
   const c = children(() =>
-    props.children ? <span>{props.children}</span> : null,
+    props.children ? (
+      <div class={css([props?.$override?.Content?.style])}>
+        {props.children}
+      </div>
+    ) : null,
   );
 
   let styleObject: StyleObject = {};

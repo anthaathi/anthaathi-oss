@@ -22,7 +22,14 @@ export interface CategoryListProps {
 export function CategoryList(props: CategoryListProps) {
   const [css, $theme] = useStyletron();
   return (
-    <div>
+    <div
+      class={css({
+        maxWidth: $theme.sizing.maxWidth,
+        margin: '0 auto',
+        width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
+        paddingTop: $theme.sizing.scale700,
+      })}
+    >
       {props.title && (
         <h5
           class={css([
@@ -38,21 +45,18 @@ export function CategoryList(props: CategoryListProps) {
           {props.title}
         </h5>
       )}
-      <Grid
-        $override={{
-          Root: {
-            style: {
-              rowGap: '8px',
-              gridGap: '15px',
-            },
-          },
-        }}
-        columns={[2, 3, 4, 5, 6]}
+      <div
+        class={css({
+          display: 'flex',
+          overflowY: 'auto',
+          marginTop: $theme.sizing.scale700,
+          marginBottom: $theme.sizing.scale700,
+        })}
       >
         <For each={props.items}>
           {(item) => <CategoryDetails item={item} />}
         </For>
-      </Grid>
+      </div>
     </div>
   );
 }
@@ -67,6 +71,8 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
+        marginLeft: $theme.sizing.scale600,
+        marginRight: $theme.sizing.scale600,
       })}
     >
       <Img
@@ -76,12 +82,12 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
             $style: {
               margin: '0px',
               objectFit: 'cover',
-              // [$theme.mediaQuery?.md || '']: {
-              width: '180px',
-              height: '180px',
-              // },
-              // width: '120px',
-              // height: '120px',
+              [$theme.mediaQuery?.md || '']: {
+                width: '104px',
+                height: '104px',
+              },
+              width: '72px',
+              height: '72px',
               borderRadius: '50%',
               ':hover': {
                 animation: 'fade-in-show .4s',
@@ -96,7 +102,7 @@ const CategoryDetails = ({ item }: { item: CategoryDetailsProps }) => {
           $theme.typography.ParagraphLarge,
           {
             marginTop: $theme.sizing.scale600,
-            marginBottom: $theme.sizing.scale1000,
+            marginBottom: $theme.sizing.scale500,
             fontWeight: 'bold',
             color: '#000',
           },
