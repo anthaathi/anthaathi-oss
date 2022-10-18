@@ -15,7 +15,7 @@ const CMSButton = ({title, handlePress}: CMSButtonProps) => {
         marginVertical: 10,
         marginHorizontal: '4%',
         borderRadius: 4,
-        width: '96%',
+        width: '92%',
         position: 'absolute',
         bottom: 0,
       }}

@@ -11,7 +11,7 @@ import {useRecoilState} from 'recoil';
 import {useIntl} from 'react-intl';
 import {useTheme} from 'react-native-paper';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
-import { CartItemData } from '../../hooks/useCart';
+import {CartItemData} from '../../hooks/useCart';
 
 const CartPage: React.FC<
   NativeStackScreenProps<RootStackParamList, 'CartPage'>
@@ -231,6 +231,7 @@ const CartPage: React.FC<
               fontSize: 16,
               fontWeight: '400',
               marginTop: 20,
+              textAlign: 'center',
             }}>
             {intl.formatMessage({
               defaultMessage:

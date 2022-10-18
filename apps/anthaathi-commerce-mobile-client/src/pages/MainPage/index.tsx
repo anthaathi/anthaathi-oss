@@ -40,6 +40,7 @@ export default function MainPage(
           headerShown: false,
           tabBarActiveTintColor: theme.colors.titleTextColor,
           // tabBarInactiveTintColor: theme.colors.greenTextColor,
+          tabBarHideOnKeyboard: true,
           tabBarActiveBackgroundColor: '#F1F9F4',
           tabBarStyle: [
             Platform.OS === 'android' && {

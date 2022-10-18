@@ -12,7 +12,7 @@ import {RootStackParamList} from '../../types/Route';
 import {useRecoilState} from 'recoil';
 import {ProductProps} from '../../features/CMS/containers/ProductListPage/components/ProductList';
 import {useIntl} from 'react-intl';
-import { CartItemData } from '../../hooks/useCart';
+import {CartItemData} from '../../hooks/useCart';
 
 const ProductListPage = (
   props: NativeStackScreenProps<RootStackParamList, 'ProductListPage'>,
