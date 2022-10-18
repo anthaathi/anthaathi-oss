@@ -27,8 +27,8 @@ export function BlogPosts(props: BlogPostProps) {
         maxWidth: $theme.sizing.maxWidth,
         margin: '0 auto',
         width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
-        marginTop: $theme.sizing.scale800,
-        marginBottom: $theme.sizing.scale800,
+        paddingTop: $theme.sizing.scale800,
+        paddingBottom: $theme.sizing.scale800,
       })}
     >
       <div
