@@ -1,94 +1,21 @@
-import {
-  useResponsiveStyletron,
-  useStyletron,
-} from '@anthaathi/solid-styletron';
-import { createSignal, For, Show } from 'solid-js';
+import { useResponsiveStyletron } from '@anthaathi/solid-styletron';
+import { createSignal, For, onMount, Show } from 'solid-js';
 import { Button, Kind } from '~/Features/Core/Components/Button';
 import {
   IconArrowLeftLarge,
   IconArrowRightLarge,
 } from '@anthaathi/oracle-apex-solid-icons';
 import { Img } from '~/Features/Core/Components/Image';
+import { useCarousel } from '~/hooks/useCarousel';
 
 export function BannerSlide(props: {
   list: { id: string; imgSrc: string; href?: string }[];
 }) {
   const [css, $theme] = useResponsiveStyletron();
   let divRef: HTMLDivElement | null;
-  const [indexNumber, setIndexNumber] = createSignal(0);
+  
+  const { indexNumber, scrollNext, scrollPrevious, scrollToIndex } = useCarousel(() => divRef);
   const [condition] = createSignal(false);
-
-  function getCurrentItem() {
-    if (!divRef) {
-      return 0;
-    }
-
-    let currentWidth = 0;
-    let index = 0;
-
-    for (let child of divRef.children) {
-      if (divRef.scrollLeft <= currentWidth) {
-        return index;
-      }
-
-      index++;
-      currentWidth += child.clientWidth;
-    }
-
-    return divRef.children.length - 1;
-  }
-
-  function scrollNext() {
-    if (!divRef) {
-      return;
-    }
-
-    const currentItemIndex = getCurrentItem();
-
-    divRef.children
-      .item(
-        currentItemIndex === divRef.children.length - 1
-          ? 0
-          : currentItemIndex + 1,
-      )
-      ?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest',
-      });
-  }
-
-  function scrollPrevious() {
-    if (!divRef) {
-      return;
-    }
-
-    const currentItemIndex = getCurrentItem();
-
-    const goToIndex =
-      currentItemIndex === 0
-        ? divRef.children.length - 1
-        : currentItemIndex - 1;
-
-    divRef.children.item(goToIndex)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
-  }
-
-  function scrollToIndex(scrollIndex: number) {
-    if (!divRef) {
-      return;
-    }
-
-    divRef.children.item(scrollIndex)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
-    setIndexNumber(scrollIndex);
-  }
 
   return (
     <div
