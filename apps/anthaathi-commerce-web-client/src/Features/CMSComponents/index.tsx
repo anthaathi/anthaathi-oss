@@ -19,6 +19,11 @@ import productJson from '../../config/products.json';
 import categoryJson from '../../config/category.json';
 import { BannerSlide } from './Components/BannerSilde';
 import { PromoGrid } from './Components/PromoGrid';
+import {
+  IconClipboardCheckLarge,
+  IconIdCardOLarge,
+  IconTruckLarge,
+} from '@anthaathi/oracle-apex-solid-icons';
 
 export function RenderCMSComponents() {
   const context = useContext(ServerContext);
@@ -104,7 +109,24 @@ export function RenderCMSComponents() {
         },
       ]}
     />,
-    <HowItWorks />,
+    <HowItWorks
+      title="How It Works"
+      subtitle="Shopping for the freshest produce has never been easier"
+      list={[
+        {
+          icon: <IconIdCardOLarge height="70px" width="70px" />,
+          title: 'Register',
+        },
+        {
+          icon: <IconClipboardCheckLarge height="70px" width="70px" />,
+          title: 'Select Products & Place Order',
+        },
+        {
+          icon: <IconTruckLarge height="70px" width="70px" />,
+          title: 'Schedule Delivery',
+        },
+      ]}
+    />,
     <BlogPostJournal />,
     <AboutUs />,
     <EmailSignup />,

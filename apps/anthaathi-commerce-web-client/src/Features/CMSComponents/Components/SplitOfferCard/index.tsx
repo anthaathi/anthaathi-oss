@@ -115,18 +115,30 @@ export function SplitOfferCard(props: SplitCardOfferProps) {
                 $kind={Kind.Secondary}
                 $size={Size.Large}
                 onClick={props.handlePress}
-                class={css({
-                  textAlign: 'center',
-                  color: '#fff',
-                  paddingTop: '10px',
-                  paddingBottom: '10px',
-                  backgroundColor: '#000',
-                  width: '160px',
-                  fontWeight: 'bold',
-                  fontSize: '18px',
-                  borderRadius: '4px',
-                  ':hover': { cursor: 'pointer' },
-                })}
+                $override={{
+                  Root: {
+                    style: {
+                      textAlign: 'center',
+                      color: '#fff',
+                      paddingTop: '10px',
+                      paddingBottom: '10px',
+                      background: '#000',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      borderTopLeftRadius: '4px',
+                      borderTopRightRadius: '4px',
+                      borderBottomLeftRadius: '4px',
+                      borderBottomRightRadius: '4px',
+                      ':hover': { background: '#000' },
+                    },
+                  },
+                  Content: {
+                    style: {
+                      color: '#fff',
+                      ':hover': { color: '#fff' },
+                    },
+                  },
+                }}
               >
                 {props.buttonTitle}
               </Button>
