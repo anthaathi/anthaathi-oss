@@ -11,7 +11,7 @@ import { HowItWorks } from '~/Features/CMSComponents/Components/HowItWorks';
 import { AboutUs } from '~/Features/CMSComponents/Components/AboutUs';
 import { PromotionalProductGrid } from './Components/PromotionalProductGrid';
 import { ProductInfo } from '~/Features/Commerce/Components/ProductInfo';
-import { BlogPostJournal } from '~/Features/CMSComponents/Components/BlogPostJournal';
+import { BlogPosts } from '~/Features/CMSComponents/Components/BlogPosts';
 import { FAB } from '~/Features/Core/Components/FAB';
 import MobileAppPromoter from '~/Features/CMSComponents/Components/MobileAppPromoter';
 import { CategoryList } from './Components/CategoryList';
@@ -127,7 +127,44 @@ export function RenderCMSComponents() {
         },
       ]}
     />,
-    <BlogPostJournal />,
+    <BlogPosts
+      title="From the journal"
+      mainBlog={{
+        id: 1,
+        image:
+          'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Fathers-day-recipe-ideas-by-fresh-fruit-company-in-Dubai-1200x600_1080x.jpg?v=1653586976',
+        title: '3 Fantastic Father’s Day Meals with help from NRTC Fresh',
+        published_date: 'MAY 26, 2022',
+        author: 'Omkar Yadav',
+      }}
+      blogs={[
+        {
+          id: 2,
+          image:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-ways-to-reduce-food-wastage-with-Fresh-fruits-and-Vegetables-1200x600_360x.jpg?v=1653586497',
+          title: '5 Fruit and Vegetable preparation tips with NRTC Fresh',
+          published_date: 'MAY 26, 2022',
+          author: 'Omkar Yadav',
+        },
+        {
+          id: 3,
+          image:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/5-tips-to-cook-delicious-vegetable-online-Dubai-1200x600_900x.jpg?v=1653586237',
+          title: '5 tips to cook delicious Vegetables from NRTC Fresh',
+          published_date: 'MAY 26, 2022',
+          author: 'Omkar Yadav',
+        },
+        {
+          id: 4,
+          image:
+            'https://cdn.shopify.com/s/files/1/0648/1303/9842/articles/Make-perfect-Veggie-burger-with-online-vegetables-Dubai-1200x600_360x.jpg?v=1653585741',
+          title:
+            'How To Make The Perfect Veggie Burger With NRTC Fresh Vegetables',
+          published_date: 'MAY 26, 2022',
+          author: 'Omkar Yadav',
+        },
+      ]}
+    />,
     <AboutUs />,
     <EmailSignup />,
     <FAB />,
