@@ -16,26 +16,34 @@ export function PromotionalProductGrid(props: PromotionalProductGridProps) {
   return (
     <div
       class={css({
-        width: '100%',
+        maxWidth: $theme.sizing.maxWidth,
+        margin: '0 auto',
+        width: `calc(100% - ${$theme.sizing.scale500} - ${$theme.sizing.scale500})`,
       })}
     >
-      <Grid
-        $override={{
-          Root: {
-            style: {
-              gridColumnGap: '5px',
-              backgroundColor: cssVar(
-                'promotional-product-grid-background',
-                '#FEFEFE',
-              ),
-            },
-          },
-        }}
-        data-type="promotional-product-grid"
-        columns={[1, 1, 1, 2]}
+      <div
+        class={css({
+          width: '100%',
+        })}
       >
-        <For each={props.products || []}>{(product) => <ProductCell />}</For>
-      </Grid>
+        <Grid
+          $override={{
+            Root: {
+              style: {
+                gridColumnGap: '5px',
+                backgroundColor: cssVar(
+                  'promotional-product-grid-background',
+                  '#FEFEFE',
+                ),
+              },
+            },
+          }}
+          data-type="promotional-product-grid"
+          columns={[1, 1, 1, 2]}
+        >
+          <For each={props.products || []}>{(product) => <ProductCell />}</For>
+        </Grid>
+      </div>
     </div>
   );
 }

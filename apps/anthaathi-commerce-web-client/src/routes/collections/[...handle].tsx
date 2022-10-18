@@ -296,4 +296,8 @@ export const categoryList = [
     title: 'Fresh blooms',
     value: '/collections/freshblooms',
   },
+  {
+    title: 'Del Monte',
+    value: '/collections/delmonte',
+  },
 ];
