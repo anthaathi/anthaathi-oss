@@ -57,7 +57,7 @@ exports[`PromoCode should render the item 1`] = `
                 "textAlign": "left",
               },
               {
-                "color": undefined,
+                "color": "#737272",
                 "fontSize": 14,
                 "fontWeight": "500",
               },
@@ -90,12 +90,5 @@ exports[`PromoCode should render the item 1`] = `
       </View>
     </View>
   </View>
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    onRequestClose={[Function]}
-    transparent={true}
-    visible={false}
-  />
 </View>
 `;

@@ -178,7 +178,8 @@ exports[`BasketItem should render the item 1`] = `
                   "flexDirection": "row",
                   "height": 35,
                   "justifyContent": "space-between",
-                  "width": 120,
+                  "marginVertical": 10,
+                  "width": 110,
                 }
               }
             >
@@ -290,6 +291,7 @@ exports[`BasketItem should render the item 1`] = `
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
+                      "textAlign": "center",
                     },
                   ]
                 }
@@ -582,7 +584,8 @@ exports[`BasketItem should render the item 1`] = `
                   "flexDirection": "row",
                   "height": 35,
                   "justifyContent": "space-between",
-                  "width": 120,
+                  "marginVertical": 10,
+                  "width": 110,
                 }
               }
             >
@@ -694,6 +697,7 @@ exports[`BasketItem should render the item 1`] = `
                       "fontSize": 14,
                       "fontWeight": "700",
                       "marginHorizontal": 5,
+                      "textAlign": "center",
                     },
                   ]
                 }
