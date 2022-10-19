@@ -349,11 +349,11 @@ exports[`FeaturedProduct should render the item 1`] = `
           accessibilityRole="button"
           accessibilityState={
             {
-              "disabled": true,
+              "disabled": false,
             }
           }
           accessible={true}
-          focusable={false}
+          focusable={true}
           hitSlop={
             {
               "bottom": 6,
@@ -458,17 +458,17 @@ exports[`FeaturedProduct should render the item 1`] = `
             ]
           }
         >
-          0
+          1
         </Text>
         <View
           accessibilityRole="button"
           accessibilityState={
             {
-              "disabled": true,
+              "disabled": false,
             }
           }
           accessible={true}
-          focusable={false}
+          focusable={true}
           hitSlop={
             {
               "bottom": 6,
@@ -579,11 +579,11 @@ exports[`FeaturedProduct should render the item 1`] = `
           accessibilityRole="button"
           accessibilityState={
             {
-              "disabled": true,
+              "disabled": false,
             }
           }
           accessible={true}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -686,11 +686,11 @@ exports[`FeaturedProduct should render the item 1`] = `
           accessibilityRole="button"
           accessibilityState={
             {
-              "disabled": true,
+              "disabled": false,
             }
           }
           accessible={true}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

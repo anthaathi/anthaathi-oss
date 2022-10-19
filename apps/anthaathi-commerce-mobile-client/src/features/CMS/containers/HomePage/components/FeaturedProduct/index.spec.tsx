@@ -76,47 +76,7 @@ describe('FeaturedProduct', () => {
     expect(temp.queryByText('Name test')).toBeTruthy();
   });
 
-  it('should call when we call tap handleAddToCart, handleBuyItNow', function () {
-    const onpress1 = jest.fn();
-    const onpress2 = jest.fn();
-
-    const temp = render(
-      <ThemeProvider>
-        <RecoilRoot>
-          <IntlProvider locale="en-US" messages={locale}>
-            <FeaturedProduct
-              productInfo={{
-                name: 'test',
-                listInfo: {
-                  description: 'test',
-                  shippingInformation: 'Shipping Information',
-                },
-                blockInfo: {
-                  freeShipping: 'Free shipping in UAE',
-                  inStock: 'In stock, ready to ship',
-                  securePayments: 'Secure Payments',
-                  isFresh: 'Fresh',
-                },
-                price: 0,
-                currency: 'USD',
-                image: [
-                  'https://burst.shopifycdn.com/photos/tea-cup-with-hot-peppers-and-yellow-tomatoes-on-red.jpg?width=240&format=pjpg&exif=1&iptc=1',
-                ],
-              }}
-              handleAddToCart={onpress1}
-              handleBuyItNow={onpress2}
-            />
-          </IntlProvider>
-        </RecoilRoot>
-      </ThemeProvider>,
-    );
-
-    fireEvent.press(temp.queryByTestId('handleAddToCart')!);
-    fireEvent.press(temp.queryByTestId('handleBuyItNow')!);
-    expect(onpress1).toBeCalledTimes(1);
-    expect(onpress2).toBeCalledTimes(1);
-  });
-
+  
   it('should have FeaturedProduct name', () => {
     const temp = render(
       <ThemeProvider>
