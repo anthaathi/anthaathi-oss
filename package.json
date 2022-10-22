@@ -8,6 +8,7 @@
     "apps/anthaathi-commerce-web-client",
     "apps/anthaathi-commerce-engine",
     "apps/anthaathi-crm-web-client",
+    "apps/anthaathi-commerce-checkout-web-client",
     "tools/node-tooling",
     "docs",
     "website"
