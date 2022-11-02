@@ -1,0 +1,16 @@
+group = "org.anthaathi.commerce.product"
+version = "1.0-SNAPSHOT"
+
+dependencies {
+    implementation("io.quarkus:quarkus-hibernate-orm")
+    implementation("io.quarkus:quarkus-flyway")
+    implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
+    implementation("io.quarkus:quarkus-cache")
+    implementation("io.quarkus:quarkus-kubernetes")
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("io.quarkus:quarkus-arc")
+    implementation("org.eclipse.microprofile.metrics:microprofile-metrics-api")
+    implementation("io.quarkus:quarkus-grpc")
+    testImplementation("io.quarkus:quarkus-junit5")
+}

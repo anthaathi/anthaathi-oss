@@ -20,9 +20,13 @@ include(
 )
 
 include(
-    ":apps:anthaathi-graphql-engine"
+    ":apps:anthaathi-commerce-checkout-engine",
+    ":apps:anthaathi-commerce-product-engine",
+    ":apps:anthaathi-common-proto",
 )
 
 include(
     ":tools:node-tooling"
 )
+include("apps:anthaathi-common-proto")
+findProject(":apps:anthaathi-common-proto")?.name = "anthaathi-common-proto"

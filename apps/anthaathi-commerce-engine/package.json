@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "CONFIG_PATH=.env.local directus start",
-    "directus": "directus",
+    "directus": "CONFIG_PATH=.env.local directus",
     "dump": "CONFIG_PATH=.env.local directus schema snapshot > schema.yaml",
     "restore": "CONFIG_PATH=.env.local directus schema apply ./schema.yaml"
   },

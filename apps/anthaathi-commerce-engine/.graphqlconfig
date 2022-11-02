@@ -4,9 +4,9 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "http://192.168.1.107:8055/graphql",
+        "url": "http://localhost:8055/graphql",
         "headers": {
-          "x-shopify-storefront-access-token": "21e08cf61cf49aa6aa76a10f11c417f8"
+          "user-agent": "JS GraphQL"
         },
         "introspect": false
       }

@@ -17,7 +17,7 @@ collections:
       item_duplication_fields: null
       note: SEO Global
       singleton: true
-      sort: null
+      sort: 2
       sort_field: null
       translations: null
       unarchive_value: draft
@@ -25,14 +25,14 @@ collections:
       comment: null
       name: SEO_global
       schema: public
-  - collection: childs
+  - collection: application
     meta:
       accountability: all
       archive_app_filter: true
-      archive_field: null
-      archive_value: null
+      archive_field: status
+      archive_value: archived
       collapse: open
-      collection: childs
+      collection: application
       color: null
       display_template: null
       group: null
@@ -41,13 +41,109 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 1
+      sort_field: sort
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: application
+      schema: public
+  - collection: blog
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: blog
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 3
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: blog
+      schema: public
+  - collection: blog_files
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: blog_files
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 18
       sort_field: null
       translations: null
       unarchive_value: null
     schema:
       comment: null
-      name: childs
+      name: blog_files
+      schema: public
+  - collection: blog_product
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: blog_product
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 17
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: blog_product
+      schema: public
+  - collection: client_details
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: client_details
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 22
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: client_details
       schema: public
   - collection: collection
     meta:
@@ -65,13 +161,85 @@ collections:
       item_duplication_fields: null
       note: Collections
       singleton: false
-      sort: null
+      sort: 4
       sort_field: sort
       translations: null
       unarchive_value: draft
     schema:
       comment: null
       name: collection
+      schema: public
+  - collection: collection_application
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: collection_application
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 19
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: collection_application
+      schema: public
+  - collection: collection_product
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: collection_product
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 16
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: collection_product
+      schema: public
+  - collection: collection_product_relation
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: collection_product_relation
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 12
+      sort_field: sort
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: collection_product_relation
       schema: public
   - collection: country
     meta:
@@ -89,7 +257,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 5
       sort_field: sort
       translations: null
       unarchive_value: draft
@@ -113,13 +281,580 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 6
       sort_field: sort
       translations: null
       unarchive_value: draft
     schema:
       comment: null
       name: currency
+      schema: public
+  - collection: customer
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: customer
+      color: null
+      display_template: null
+      group: customer_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: customer
+      schema: public
+  - collection: customer_address
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: customer_address
+      color: null
+      display_template: null
+      group: customer_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: customer_address
+      schema: public
+  - collection: customer_collection
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: closed
+      collection: customer_collection
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: folder
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 23
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema: null
+  - collection: customer_metafield
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: customer_metafield
+      color: null
+      display_template: null
+      group: customer_collection
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 4
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: customer_metafield
+      schema: public
+  - collection: discount_allocation
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: discount_allocation
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 25
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: discount_allocation
+      schema: public
+  - collection: discount_application
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: discount_application
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 26
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: discount_application
+      schema: public
+  - collection: discount_code
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: discount_code
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 27
+      sort_field: null
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: discount_code
+      schema: public
+  - collection: duty
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: duty
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 5
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: duty
+      schema: public
+  - collection: duty_tax_line
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: duty_tax_line
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 31
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: duty_tax_line
+      schema: public
+  - collection: email_marketing_concent
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: email_marketing_concent
+      color: null
+      display_template: null
+      group: marketing_consent
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: email_marketing_concent
+      schema: public
+  - collection: flyway_schema_history
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: flyway_schema_history
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 21
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: flyway_schema_history
+      schema: public
+  - collection: languages
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: languages
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 7
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: languages
+      schema: public
+  - collection: line_item_property
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: line_item_property
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 3
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: line_item_property
+      schema: public
+  - collection: list_item
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: list_item
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: list_item
+      schema: public
+  - collection: list_item_line_item_property
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: list_item_line_item_property
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 32
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: list_item_line_item_property
+      schema: public
+  - collection: marketing_consent
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: closed
+      collection: marketing_consent
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: folder
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 24
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema: null
+  - collection: metafield
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: metafield
+      color: null
+      display_template: null
+      group: customer_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 3
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: metafield
+      schema: public
+  - collection: money
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: money
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 6
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: money
+      schema: public
+  - collection: money_set
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: money_set
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 7
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: money_set
+      schema: public
+  - collection: order
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: order
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: order
+      schema: public
+  - collection: order_collection
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: order_collection
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: folder
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 28
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema: null
+  - collection: order_discount_application
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: order_discount_application
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 29
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: order_discount_application
+      schema: public
+  - collection: order_discount_code
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: order_discount_code
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 30
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: order_discount_code
+      schema: public
+  - collection: order_money_set
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: order_money_set
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: order_money_set
       schema: public
   - collection: pages
     meta:
@@ -137,13 +872,61 @@ collections:
       item_duplication_fields: null
       note: Page
       singleton: false
-      sort: null
+      sort: 8
       sort_field: sort
       translations: null
       unarchive_value: draft
     schema:
       comment: null
       name: pages
+      schema: public
+  - collection: payment_schedule
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: payment_schedule
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: payment_schedule
+      schema: public
+  - collection: payment_terms
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: payment_terms
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: payment_terms
       schema: public
   - collection: product
     meta:
@@ -161,13 +944,37 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 9
       sort_field: sort
       translations: null
       unarchive_value: draft
     schema:
       comment: null
       name: product
+      schema: public
+  - collection: product_application
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: product_application
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 20
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: product_application
       schema: public
   - collection: product_files
     meta:
@@ -185,13 +992,157 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 13
       sort_field: null
       translations: null
       unarchive_value: null
     schema:
       comment: null
       name: product_files
+      schema: public
+  - collection: product_pricing
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: product_pricing
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 10
+      sort_field: sort
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: product_pricing
+      schema: public
+  - collection: product_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: product_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 14
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: product_translations
+      schema: public
+  - collection: product_variant
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: status
+      archive_value: archived
+      collapse: open
+      collection: product_variant
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 11
+      sort_field: sort
+      translations: null
+      unarchive_value: draft
+    schema:
+      comment: null
+      name: product_variant
+      schema: public
+  - collection: product_variant_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: product_variant_translations
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 15
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: product_variant_translations
+      schema: public
+  - collection: sms_marketing_consent
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: sms_marketing_consent
+      color: null
+      display_template: null
+      group: marketing_consent
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: sms_marketing_consent
+      schema: public
+  - collection: tax_line
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: tax_line
+      color: null
+      display_template: null
+      group: order_collection
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 4
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema:
+      comment: null
+      name: tax_line
       schema: public
 fields:
   - collection: SEO_global
@@ -511,34 +1462,987 @@ fields:
       schema: public
       table: SEO_global
     type: uuid
-  - collection: childs
-    field: collection
+  - collection: application
+    field: apiKey
     meta:
-      collection: childs
+      collection: application
       conditions: null
       display: null
       display_options: null
-      field: collection
+      field: apiKey
       group: null
       hidden: false
-      interface: list-o2m
+      interface: input
+      note: null
+      options:
+        placeholder: API Key
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: apiKey
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: string
+  - collection: application
+    field: collections
+    meta:
+      collection: application
+      conditions: null
+      display: null
+      display_options: null
+      field: collections
+      group: null
+      hidden: false
+      interface: list-m2m
       note: null
       options: null
       readonly: false
       required: false
       sort: null
       special:
-        - o2m
+        - m2m
       translations: null
       validation: null
       validation_message: null
       width: full
     schema: null
     type: alias
-  - collection: childs
+  - collection: application
+    field: date_created
+    meta:
+      collection: application
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 7
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: timestamp
+  - collection: application
+    field: date_updated
+    meta:
+      collection: application
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 9
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: timestamp
+  - collection: application
     field: id
     meta:
-      collection: childs
+      collection: application
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('application_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: application
+    type: integer
+  - collection: application
+    field: products
+    meta:
+      collection: application
+      conditions: null
+      display: null
+      display_options: null
+      field: products
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: application
+    field: sort
+    meta:
+      collection: application
+      conditions: null
+      display: null
+      display_options: null
+      field: sort
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: sort
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: application
+    type: integer
+  - collection: application
+    field: status
+    meta:
+      collection: application
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: string
+  - collection: application
+    field: title
+    meta:
+      collection: application
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: title
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: string
+  - collection: application
+    field: user_created
+    meta:
+      collection: application
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 6
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: uuid
+  - collection: application
+    field: user_updated
+    meta:
+      collection: application
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 8
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: application
+    type: uuid
+  - collection: blog
+    field: application
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: application
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: blog
+    field: content
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: content
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: text
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: content
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: text
+  - collection: blog
+    field: date_created
+    meta:
+      collection: blog
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: timestamp
+  - collection: blog
+    field: date_updated
+    meta:
+      collection: blog
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: timestamp
+  - collection: blog
+    field: description
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: text
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: description
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: text
+  - collection: blog
+    field: id
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: uuid
+  - collection: blog
+    field: images
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: images
+      group: null
+      hidden: false
+      interface: files
+      note: null
+      options:
+        folder: 05d16e6a-916a-4fa9-8907-66ddbeecec8a
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - files
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: blog
+    field: status
+    meta:
+      collection: blog
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: string
+  - collection: blog
+    field: title
+    meta:
+      collection: blog
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: title
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: string
+  - collection: blog
+    field: user_created
+    meta:
+      collection: blog
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: uuid
+  - collection: blog
+    field: user_updated
+    meta:
+      collection: blog
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog
+    type: uuid
+  - collection: blog_files
+    field: blog_id
+    meta:
+      collection: blog_files
+      conditions: null
+      display: null
+      display_options: null
+      field: blog_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: blog
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: blog_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog_files
+    type: uuid
+  - collection: blog_files
+    field: directus_files_id
+    meta:
+      collection: blog_files
+      conditions: null
+      display: null
+      display_options: null
+      field: directus_files_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_files
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: directus_files_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog_files
+    type: uuid
+  - collection: blog_files
+    field: id
+    meta:
+      collection: blog_files
       conditions: null
       display: null
       display_options: null
@@ -559,7 +2463,7 @@ fields:
     schema:
       comment: null
       data_type: integer
-      default_value: nextval('childs_id_seq'::regclass)
+      default_value: nextval('blog_files_id_seq'::regclass)
       foreign_key_column: null
       foreign_key_schema: null
       foreign_key_table: null
@@ -574,8 +2478,529 @@ fields:
       numeric_precision: 32
       numeric_scale: 0
       schema: public
-      table: childs
+      table: blog_files
     type: integer
+  - collection: blog_product
+    field: blog_id
+    meta:
+      collection: blog_product
+      conditions: null
+      display: null
+      display_options: null
+      field: blog_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: blog
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: blog_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog_product
+    type: uuid
+  - collection: blog_product
+    field: id
+    meta:
+      collection: blog_product
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('blog_product_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: blog_product
+    type: integer
+  - collection: blog_product
+    field: product_id
+    meta:
+      collection: blog_product
+      conditions: null
+      display: null
+      display_options: null
+      field: product_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: product
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: product_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: blog_product
+    type: uuid
+  - collection: client_details
+    field: accept_language
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: accept_language
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: accept_language
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: client_details
+    field: browser_height
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: browser_height
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: browser_height
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: client_details
+    field: browser_ip
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: browser_ip
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: browser_ip
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: client_details
+    field: browser_width
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: browser_width
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: browser_width
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: client_details
+    field: date_created
+    meta:
+      collection: client_details
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: timestamp
+  - collection: client_details
+    field: date_updated
+    meta:
+      collection: client_details
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: timestamp
+  - collection: client_details
+    field: id
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: uuid
+  - collection: client_details
+    field: session_hash
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: session_hash
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: session_hash
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: client_details
+    field: user_agent
+    meta:
+      collection: client_details
+      conditions: null
+      display: null
+      display_options: null
+      field: user_agent
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: user_agent
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: client_details
+    type: string
+  - collection: collection
+    field: application
+    meta:
+      collection: collection
+      conditions: null
+      display: null
+      display_options: null
+      field: application
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
   - collection: collection
     field: collection
     meta:
@@ -592,7 +3017,7 @@ fields:
         template: '{{title}}'
       readonly: false
       required: false
-      sort: 12
+      sort: 13
       special:
         - o2m
       translations: null
@@ -617,7 +3042,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 9
+      sort: 10
       special:
         - date-created
       translations: null
@@ -660,7 +3085,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 11
+      sort: 12
       special:
         - date-updated
       translations: null
@@ -745,7 +3170,7 @@ fields:
         placeholder: Handle
       readonly: false
       required: false
-      sort: 5
+      sort: 6
       special: null
       translations: null
       validation: null
@@ -870,7 +3295,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 13
+      sort: 14
       special: null
       translations: null
       validation: null
@@ -897,6 +3322,32 @@ fields:
       table: collection
     type: uuid
   - collection: collection
+    field: products
+    meta:
+      collection: collection
+      conditions: null
+      display: null
+      display_options: null
+      field: products
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        enableSearchFilter: true
+        layout: table
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: collection
     field: sort
     meta:
       collection: collection
@@ -911,7 +3362,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 7
+      sort: 8
       special: null
       translations: null
       validation: null
@@ -973,7 +3424,7 @@ fields:
             value: archived
       readonly: false
       required: false
-      sort: 6
+      sort: 7
       special: null
       translations: null
       validation: null
@@ -1057,7 +3508,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 8
+      sort: 9
       special:
         - user-created
       translations: null
@@ -1100,7 +3551,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 10
+      sort: 11
       special:
         - user-updated
       translations: null
@@ -1126,6 +3577,568 @@ fields:
       numeric_scale: null
       schema: public
       table: collection
+    type: uuid
+  - collection: collection_application
+    field: application_id
+    meta:
+      collection: collection_application
+      conditions: null
+      display: null
+      display_options: null
+      field: application_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: application
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: application_id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: collection_application
+    type: integer
+  - collection: collection_application
+    field: collection_id
+    meta:
+      collection: collection_application
+      conditions: null
+      display: null
+      display_options: null
+      field: collection_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: collection
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: collection_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_application
+    type: uuid
+  - collection: collection_application
+    field: id
+    meta:
+      collection: collection_application
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('collection_application_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: collection_application
+    type: integer
+  - collection: collection_product
+    field: collection_id
+    meta:
+      collection: collection_product
+      conditions: null
+      display: null
+      display_options: null
+      field: collection_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: collection
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: collection_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product
+    type: uuid
+  - collection: collection_product
+    field: id
+    meta:
+      collection: collection_product
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('collection_product_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: collection_product
+    type: integer
+  - collection: collection_product
+    field: product_id
+    meta:
+      collection: collection_product
+      conditions: null
+      display: null
+      display_options: null
+      field: product_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: product
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: product_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product
+    type: uuid
+  - collection: collection_product_relation
+    field: date_created
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product_relation
+    type: timestamp
+  - collection: collection_product_relation
+    field: date_updated
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product_relation
+    type: timestamp
+  - collection: collection_product_relation
+    field: id
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('collection_product_relation_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: collection_product_relation
+    type: integer
+  - collection: collection_product_relation
+    field: sort
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: null
+      display_options: null
+      field: sort
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: sort
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: collection_product_relation
+    type: integer
+  - collection: collection_product_relation
+    field: status
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:published
+            value: published
+            foreground: '#FFFFFF'
+            background: var(--primary)
+          - text: $t:draft
+            value: draft
+            foreground: '#18222F'
+            background: '#D3DAE4'
+          - text: $t:archived
+            value: archived
+            foreground: '#FFFFFF'
+            background: var(--warning)
+        showAsDot: true
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: draft
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: status
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product_relation
+    type: string
+  - collection: collection_product_relation
+    field: user_created
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product_relation
+    type: uuid
+  - collection: collection_product_relation
+    field: user_updated
+    meta:
+      collection: collection_product_relation
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: collection_product_relation
     type: uuid
   - collection: country
     field: code
@@ -1927,10 +4940,76 @@ fields:
       schema: public
       table: currency
     type: uuid
-  - collection: pages
+  - collection: customer
+    field: addresses
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: addresses
+      group: null
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: customer
+    field: currency
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: currency
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: currency
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: currency
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: customer
+    type: integer
+  - collection: customer
     field: date_created
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: datetime
       display_options:
@@ -1943,7 +5022,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 7
+      sort: null
       special:
         - date-created
       translations: null
@@ -1968,12 +5047,12 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
+      table: customer
     type: timestamp
-  - collection: pages
+  - collection: customer
     field: date_updated
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: datetime
       display_options:
@@ -1986,7 +5065,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 9
+      sort: null
       special:
         - date-updated
       translations: null
@@ -2011,25 +5090,48 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
+      table: customer
     type: timestamp
-  - collection: pages
-    field: description
+  - collection: customer
+    field: default_address
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: null
       display_options: null
-      field: description
+      field: default_address
       group: null
       hidden: false
-      interface: input-multiline
+      interface: list-o2m
       note: null
-      options:
-        placeholder: Description
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: customer
+    field: email
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
       readonly: false
       required: true
-      sort: 3
+      sort: null
       special: null
       translations: null
       validation: null
@@ -2037,7 +5139,7 @@ fields:
       width: full
     schema:
       comment: null
-      data_type: text
+      data_type: character varying
       default_value: null
       foreign_key_column: null
       foreign_key_schema: null
@@ -2048,39 +5150,80 @@ fields:
       is_nullable: true
       is_primary_key: false
       is_unique: false
-      max_length: null
-      name: description
+      max_length: 255
+      name: email
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
-    type: text
-  - collection: pages
-    field: handle
+      table: customer
+    type: string
+  - collection: customer
+    field: email_marketing_consent
     meta:
-      collection: pages
-      conditions: []
+      collection: customer
+      conditions: null
       display: null
       display_options: null
-      field: handle
+      field: email_marketing_consent
       group: null
       hidden: false
-      interface: input
+      interface: select-dropdown-m2o
       note: null
-      options:
-        slug: true
-        trim: true
+      options: null
       readonly: false
       required: false
-      sort: 1
-      special: null
+      sort: null
+      special:
+        - m2o
       translations: null
       validation: null
       validation_message: null
       width: full
     schema:
       comment: null
-      data_type: character varying
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: email_marketing_concent
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: email_marketing_consent
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer
+    type: uuid
+  - collection: customer
+    field: id
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
       default_value: null
       foreign_key_column: null
       foreign_key_schema: null
@@ -2091,29 +5234,77 @@ fields:
       is_nullable: false
       is_primary_key: true
       is_unique: true
-      max_length: 255
-      name: handle
+      max_length: null
+      name: id
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
-    type: string
-  - collection: pages
-    field: sort
+      table: customer
+    type: uuid
+  - collection: customer
+    field: last_order
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: null
       display_options: null
-      field: sort
+      field: last_order
       group: null
-      hidden: true
+      hidden: false
+      interface: list-o2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - o2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: customer
+    field: metafield
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: metafield
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: customer
+    field: note
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: note
+      group: null
+      hidden: false
       interface: input
       note: null
       options: null
       readonly: false
       required: false
-      sort: 5
+      sort: null
       special: null
       translations: null
       validation: null
@@ -2121,11 +5312,94 @@ fields:
       width: full
     schema:
       comment: null
-      data_type: integer
+      data_type: character varying
       default_value: null
       foreign_key_column: null
       foreign_key_schema: null
       foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: note
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer
+    type: string
+  - collection: customer
+    field: phone
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: phone
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: phone
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer
+    type: string
+  - collection: customer
+    field: sms_marketing_consent
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: sms_marketing_consent
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: sms_marketing_consent
       generation_expression: null
       has_auto_increment: false
       is_generated: false
@@ -2133,91 +5407,37 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: null
-      name: sort
-      numeric_precision: 32
-      numeric_scale: 0
+      name: sms_marketing_consent
+      numeric_precision: null
+      numeric_scale: null
       schema: public
-      table: pages
-    type: integer
-  - collection: pages
-    field: status
+      table: customer
+    type: uuid
+  - collection: customer
+    field: state
     meta:
-      collection: pages
+      collection: customer
       conditions: null
-      display: labels
-      display_options:
-        choices:
-          - text: $t:published
-            value: published
-            foreground: '#FFFFFF'
-            background: var(--primary)
-          - text: $t:draft
-            value: draft
-            foreground: '#18222F'
-            background: '#D3DAE4'
-          - text: $t:archived
-            value: archived
-            foreground: '#FFFFFF'
-            background: var(--warning)
-        showAsDot: true
-      field: status
+      display: null
+      display_options: null
+      field: state
       group: null
       hidden: false
       interface: select-dropdown
       note: null
       options:
         choices:
-          - text: $t:published
-            value: published
-          - text: $t:draft
-            value: draft
-          - text: $t:archived
-            value: archived
+          - text: Disabled
+            value: disabled
+          - text: Invited
+            value: invited
+          - text: Enabled
+            value: enabled
+          - text: Declined
+            value: declined
       readonly: false
       required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      comment: null
-      data_type: character varying
-      default_value: draft
-      foreign_key_column: null
-      foreign_key_schema: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: false
-      is_unique: false
-      max_length: 255
-      name: status
-      numeric_precision: null
-      numeric_scale: null
-      schema: public
-      table: pages
-    type: string
-  - collection: pages
-    field: title
-    meta:
-      collection: pages
-      conditions: null
-      display: null
-      display_options: null
-      field: title
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        placeholder: Title
-      readonly: false
-      required: false
-      sort: 2
+      sort: null
       special: null
       translations: null
       validation: null
@@ -2237,16 +5457,16 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: 255
-      name: title
+      name: state
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
+      table: customer
     type: string
-  - collection: pages
+  - collection: customer
     field: user_created
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: user
       display_options: null
@@ -2259,7 +5479,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 6
+      sort: null
       special:
         - user-created
       translations: null
@@ -2284,12 +5504,12 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
+      table: customer
     type: uuid
-  - collection: pages
+  - collection: customer
     field: user_updated
     meta:
-      collection: pages
+      collection: customer
       conditions: null
       display: user
       display_options: null
@@ -2302,7 +5522,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 8
+      sort: null
       special:
         - user-updated
       translations: null
@@ -2327,12 +5547,302 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: pages
+      table: customer
     type: uuid
-  - collection: product
+  - collection: customer
+    field: verified_email
+    meta:
+      collection: customer
+      conditions: null
+      display: null
+      display_options: null
+      field: verified_email
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: boolean
+      default_value: false
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: verified_email
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer
+    type: boolean
+  - collection: customer_address
+    field: address1
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: address1
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: address1
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: address2
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: address2
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: address2
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: city
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: city
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: city
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: company
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: company
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: company
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: country_info
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: country_info
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 11
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: country
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: country_info
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: uuid
+  - collection: customer_address
+    field: customer
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: customer
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: customer
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: customer
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: uuid
+  - collection: customer_address
     field: date_created
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: datetime
       display_options:
@@ -2345,7 +5855,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 10
+      sort: 3
       special:
         - date-created
       translations: null
@@ -2370,12 +5880,12 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: customer_address
     type: timestamp
-  - collection: product
+  - collection: customer_address
     field: date_updated
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: datetime
       display_options:
@@ -2388,7 +5898,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 12
+      sort: 5
       special:
         - date-updated
       translations: null
@@ -2413,37 +5923,34 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: customer_address
     type: timestamp
-  - collection: product
-    field: description
+  - collection: customer_address
+    field: default
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: null
       display_options: null
-      field: description
+      field: default
       group: null
       hidden: false
-      interface: input-rich-text-html
+      interface: boolean
       note: null
-      options:
-        clear: true
-        placeholder: Description
-        softLength: 255
-        trim: true
+      options: null
       readonly: false
       required: true
-      sort: 3
-      special: null
+      sort: 12
+      special:
+        - cast-boolean
       translations: null
       validation: null
       validation_message: null
       width: full
     schema:
       comment: null
-      data_type: text
-      default_value: null
+      data_type: boolean
+      default_value: false
       foreign_key_column: null
       foreign_key_schema: null
       foreign_key_table: null
@@ -2454,16 +5961,57 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: null
-      name: description
+      name: default
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
-    type: text
-  - collection: product
+      table: customer_address
+    type: boolean
+  - collection: customer_address
+    field: first_name
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: first_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 13
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: first_name
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
     field: id
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: null
       display_options: null
@@ -2500,51 +6048,24 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: customer_address
     type: uuid
-  - collection: product
-    field: media
+  - collection: customer_address
+    field: last_name
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: null
       display_options: null
-      field: media
-      group: null
-      hidden: false
-      interface: files
-      note: null
-      options:
-        template: product
-      readonly: false
-      required: false
-      sort: 6
-      special:
-        - files
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema: null
-    type: alias
-  - collection: product
-    field: origin
-    meta:
-      collection: product
-      conditions: null
-      display: null
-      display_options: null
-      field: origin
+      field: last_name
       group: null
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: location_on
-        placeholder: Origin
+      options: null
       readonly: false
-      required: false
-      sort: 5
+      required: true
+      sort: 14
       special: null
       translations: null
       validation: null
@@ -2564,43 +6085,830 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: 255
-      name: origin
+      name: last_name
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: customer_address
     type: string
-  - collection: product
-    field: packaging
+  - collection: customer_address
+    field: phone
     meta:
-      collection: product
+      collection: customer_address
       conditions: null
       display: null
       display_options: null
-      field: packaging
+      field: phone
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 15
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: phone
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: province
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: province
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 16
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: province
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: province_code
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: province_code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 17
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: province_code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_address
+    field: user_created
+    meta:
+      collection: customer_address
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: uuid
+  - collection: customer_address
+    field: user_updated
+    meta:
+      collection: customer_address
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: uuid
+  - collection: customer_address
+    field: zip
+    meta:
+      collection: customer_address
+      conditions: null
+      display: null
+      display_options: null
+      field: zip
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 18
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: zip
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_address
+    type: string
+  - collection: customer_metafield
+    field: customer_id
+    meta:
+      collection: customer_metafield
+      conditions: null
+      display: null
+      display_options: null
+      field: customer_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: customer
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: customer_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_metafield
+    type: uuid
+  - collection: customer_metafield
+    field: id
+    meta:
+      collection: customer_metafield
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: integer
+      default_value: nextval('customer_metafield_id_seq'::regclass)
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: true
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: customer_metafield
+    type: integer
+  - collection: customer_metafield
+    field: metafield_id
+    meta:
+      collection: customer_metafield
+      conditions: null
+      display: null
+      display_options: null
+      field: metafield_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: metafield
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: metafield_id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: customer_metafield
+    type: uuid
+  - collection: discount_allocation
+    field: amount
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: null
+      display_options: null
+      field: amount
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: amount
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: string
+  - collection: discount_allocation
+    field: amount_set
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: null
+      display_options: null
+      field: amount_set
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: money_set
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: amount_set
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_allocation
+    field: date_created
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: timestamp
+  - collection: discount_allocation
+    field: date_updated
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: timestamp
+  - collection: discount_allocation
+    field: discount_application
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: null
+      display_options: null
+      field: discount_application
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: discount_application
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: discount_application
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_allocation
+    field: id
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_allocation
+    field: line_item
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: null
+      display_options: null
+      field: line_item
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: list_item
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: line_item
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_allocation
+    field: user_created
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_allocation
+    field: user_updated
+    meta:
+      collection: discount_allocation
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_allocation
+    type: uuid
+  - collection: discount_application
+    field: allocation_method
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: allocation_method
       group: null
       hidden: false
       interface: select-dropdown
       note: null
       options:
-        allowOther: true
         choices:
-          - text: Piece
-            value: Piece
-          - text: KG
-            value: KG
-          - text: Box
-            value: Box
-          - text: Bag
-            value: Bag
-          - text: Pack
-            value: Pack
-          - text: Pot
-            value: Pot
-        placeholder: Packaging
+          - text: Across
+            value: across
+          - text: Each
+            value: each
+          - text: One
+            value: one
       readonly: false
       required: false
-      sort: 4
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: 'NULL'
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: allocation_method
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: code
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
       special: null
       translations: null
       validation: null
@@ -2620,22 +6928,108 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: 255
-      name: packaging
+      name: code
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: discount_application
     type: string
-  - collection: product
-    field: sort
+  - collection: discount_application
+    field: date_created
     meta:
-      collection: product
+      collection: discount_application
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: timestamp
+  - collection: discount_application
+    field: date_updated
+    meta:
+      collection: discount_application
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: timestamp
+  - collection: discount_application
+    field: description
+    meta:
+      collection: discount_application
       conditions: null
       display: null
       display_options: null
-      field: sort
+      field: description
       group: null
-      hidden: true
+      hidden: false
       interface: input
       note: null
       options: null
@@ -2649,7 +7043,530 @@ fields:
       width: full
     schema:
       comment: null
-      data_type: integer
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: description
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: id
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: uuid
+  - collection: discount_application
+    field: target_selection
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: target_selection
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: All
+            value: all
+          - text: Entitled
+            value: entitled
+          - text: Explicit
+            value: explicit
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: target_selection
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: target_type
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: target_type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Line Item
+            value: line_item
+          - text: Shipping Line
+            value: shipping_line
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: target_type
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: title
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: title
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: type
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Automatic
+            value: automatic
+          - text: Discount Code
+            value: discount_code
+          - text: Manual
+            value: manual
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: type
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: user_created
+    meta:
+      collection: discount_application
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: uuid
+  - collection: discount_application
+    field: user_updated
+    meta:
+      collection: discount_application
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: uuid
+  - collection: discount_application
+    field: value
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: value
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: value
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_application
+    field: value_type
+    meta:
+      collection: discount_application
+      conditions: null
+      display: null
+      display_options: null
+      field: value_type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Fixed Amount
+            value: fixed_amount
+          - text: Percentage
+            value: percentage
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: value_type
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_application
+    type: string
+  - collection: discount_code
+    field: amount
+    meta:
+      collection: discount_code
+      conditions: null
+      display: null
+      display_options: null
+      field: amount
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: amount
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_code
+    type: string
+  - collection: discount_code
+    field: code
+    meta:
+      collection: discount_code
+      conditions: null
+      display: null
+      display_options: null
+      field: code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_code
+    type: string
+  - collection: discount_code
+    field: date_created
+    meta:
+      collection: discount_code
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
       default_value: null
       foreign_key_column: null
       foreign_key_schema: null
@@ -2661,16 +7578,101 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: null
-      name: sort
-      numeric_precision: 32
-      numeric_scale: 0
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
       schema: public
-      table: product
-    type: integer
-  - collection: product
+      table: discount_code
+    type: timestamp
+  - collection: discount_code
+    field: date_updated
+    meta:
+      collection: discount_code
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_code
+    type: timestamp
+  - collection: discount_code
+    field: id
+    meta:
+      collection: discount_code
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: discount_code
+    type: uuid
+  - collection: discount_code
     field: status
     meta:
-      collection: product
+      collection: discount_code
       conditions: null
       display: labels
       display_options:
@@ -2703,7 +7705,7 @@ fields:
             value: archived
       readonly: false
       required: false
-      sort: 7
+      sort: null
       special: null
       translations: null
       validation: null
@@ -2727,29 +7729,33 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: discount_code
     type: string
-  - collection: product
-    field: title
+  - collection: discount_code
+    field: type
     meta:
-      collection: product
-      conditions: []
+      collection: discount_code
+      conditions: null
       display: null
       display_options: null
-      field: title
+      field: type
       group: null
       hidden: false
-      interface: input
+      interface: select-dropdown
       note: null
       options:
-        placeholder: Title
+        choices:
+          - text: Fixed Amount
+            value: fixed_amount
+          - text: Percentage
+            value: percentage
+          - text: Shipping
+            value: shipping
       readonly: false
-      required: false
-      sort: 2
+      required: true
+      sort: null
       special: null
-      translations:
-        - language: ar-SA
-          translation: title_ar_SA
+      translations: null
       validation: null
       validation_message: null
       width: full
@@ -2767,16 +7773,16 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: 255
-      name: title
+      name: type
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: discount_code
     type: string
-  - collection: product
+  - collection: discount_code
     field: user_created
     meta:
-      collection: product
+      collection: discount_code
       conditions: null
       display: user
       display_options: null
@@ -2789,7 +7795,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 9
+      sort: null
       special:
         - user-created
       translations: null
@@ -2814,12 +7820,12 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: discount_code
     type: uuid
-  - collection: product
+  - collection: discount_code
     field: user_updated
     meta:
-      collection: product
+      collection: discount_code
       conditions: null
       display: user
       display_options: null
@@ -2832,7 +7838,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 11
+      sort: null
       special:
         - user-updated
       translations: null
@@ -2857,25 +7863,24 @@ fields:
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: discount_code
     type: uuid
-  - collection: product
-    field: vendor
+  - collection: duty
+    field: admin_graphql_api_id
     meta:
-      collection: product
+      collection: duty
       conditions: null
       display: null
       display_options: null
-      field: vendor
+      field: admin_graphql_api_id
       group: null
       hidden: false
       interface: input
       note: null
-      options:
-        placeholder: Vendor
+      options: null
       readonly: false
       required: false
-      sort: null
+      sort: 12
       special: null
       translations: null
       validation: null
@@ -2895,20 +7900,467 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: 255
-      name: vendor
+      name: admin_graphql_api_id
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product
+      table: duty
     type: string
-  - collection: product_files
-    field: directus_files_id
+  - collection: duty
+    field: country_code_of_origin
     meta:
-      collection: product_files
+      collection: duty
       conditions: null
       display: null
       display_options: null
-      field: directus_files_id
+      field: country_code_of_origin
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: country
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: country_code_of_origin
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: date_created
+    meta:
+      collection: duty
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: timestamp
+  - collection: duty
+    field: date_updated
+    meta:
+      collection: duty
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: timestamp
+  - collection: duty
+    field: harmonized_system_code
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: harmonized_system_code
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: harmonized_system_code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: string
+  - collection: duty
+    field: id
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: line_item
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: line_item
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 11
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: list_item
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: line_item
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: presentment_money
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: presentment_money
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 10
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: money
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: presentment_money
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: shop_money
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: shop_money
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 9
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: money
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: shop_money
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: tax_lines
+    meta:
+      collection: duty
+      conditions: null
+      display: null
+      display_options: null
+      field: tax_lines
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema: null
+    type: alias
+  - collection: duty
+    field: user_created
+    meta:
+      collection: duty
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty
+    field: user_updated
+    meta:
+      collection: duty
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: id
+      foreign_key_schema: public
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: duty
+    type: uuid
+  - collection: duty_tax_line
+    field: duty_id
+    meta:
+      collection: duty_tax_line
+      conditions: null
+      display: null
+      display_options: null
+      field: duty_id
       group: null
       hidden: true
       interface: null
@@ -2928,7 +8380,7 @@ fields:
       default_value: null
       foreign_key_column: id
       foreign_key_schema: public
-      foreign_key_table: directus_files
+      foreign_key_table: duty
       generation_expression: null
       has_auto_increment: false
       is_generated: false
@@ -2936,16 +8388,16 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: null
-      name: directus_files_id
+      name: duty_id
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product_files
+      table: duty_tax_line
     type: uuid
-  - collection: product_files
+  - collection: duty_tax_line
     field: id
     meta:
-      collection: product_files
+      collection: duty_tax_line
       conditions: null
       display: null
       display_options: null
@@ -2966,7 +8418,7 @@ fields:
     schema:
       comment: null
       data_type: integer
-      default_value: nextval('product_files_id_seq'::regclass)
+      default_value: nextval('duty_tax_line_id_seq'::regclass)
       foreign_key_column: null
       foreign_key_schema: null
       foreign_key_table: null
@@ -2981,16 +8433,16 @@ fields:
       numeric_precision: 32
       numeric_scale: 0
       schema: public
-      table: product_files
+      table: duty_tax_line
     type: integer
-  - collection: product_files
-    field: product_id
+  - collection: duty_tax_line
+    field: tax_line_id
     meta:
-      collection: product_files
+      collection: duty_tax_line
       conditions: null
       display: null
       display_options: null
-      field: product_id
+      field: tax_line_id
       group: null
       hidden: true
       interface: null
@@ -3010,7 +8462,7 @@ fields:
       default_value: null
       foreign_key_column: id
       foreign_key_schema: public
-      foreign_key_table: product
+      foreign_key_table: tax_line
       generation_expression: null
       has_auto_increment: false
       is_generated: false
@@ -3018,362 +8470,660 @@ fields:
       is_primary_key: false
       is_unique: false
       max_length: null
-      name: product_id
+      name: tax_line_id
       numeric_precision: null
       numeric_scale: null
       schema: public
-      table: product_files
+      table: duty_tax_line
     type: uuid
-relations:
-  - collection: SEO_global
+  - collection: email_marketing_concent
+    field: concent_updated_at
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: null
+      display_options: null
+      field: concent_updated_at
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: concent_updated_at
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: timestamp
+  - collection: email_marketing_concent
+    field: date_created
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_created
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: timestamp
+  - collection: email_marketing_concent
+    field: date_updated
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: datetime
+      display_options:
+        relative: true
+      field: date_updated
+      group: null
+      hidden: true
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - date-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: null
+      data_type: timestamp with time zone
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: date_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: timestamp
+  - collection: email_marketing_concent
+    field: id
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: uuid
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: uuid
+  - collection: email_marketing_concent
+    field: opt_in_level
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: null
+      display_options: null
+      field: opt_in_level
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: CONFIRMED_OPT_IN
+            value: CONFIRMED_OPT_IN
+          - text: SINGLE_OPT_IN
+            value: SINGLE_OPT_IN
+          - text: UNKNOWN
+            value: UNKNOWN
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: UNKNOWN
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: opt_in_level
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: string
+  - collection: email_marketing_concent
+    field: state
+    meta:
+      collection: email_marketing_concent
+      conditions: null
+      display: null
+      display_options: null
+      field: state
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: INVALID
+            value: INVALID
+          - text: NOT_SUBSCRIBED
+            value: NOT_SUBSCRIBED
+          - text: PENDING
+            value: PENDING
+          - text: REDACTED
+            value: REDACTED
+          - text: SUBSCRIBED
+            value: SUBSCRIBED
+          - text: UNSUBSCRIBED
+            value: UNSUBSCRIBED
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: null
+      data_type: character varying
+      default_value: PENDING
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: state
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: string
+  - collection: email_marketing_concent
     field: user_created
     meta:
-      junction_field: null
-      many_collection: SEO_global
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      collection: email_marketing_concent
+      conditions: null
+      display: user
+      display_options: null
+      field: user_created
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-created
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
     schema:
-      column: user_created
-      constraint_name: seo_global_user_created_foreign
+      comment: null
+      data_type: uuid
+      default_value: null
       foreign_key_column: id
       foreign_key_schema: public
       foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: SEO_global
-  - collection: SEO_global
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_created
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: uuid
+  - collection: email_marketing_concent
     field: user_updated
     meta:
-      junction_field: null
-      many_collection: SEO_global
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      collection: email_marketing_concent
+      conditions: null
+      display: user
+      display_options: null
+      field: user_updated
+      group: null
+      hidden: true
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      readonly: true
+      required: false
+      sort: null
+      special:
+        - user-updated
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
     schema:
-      column: user_updated
-      constraint_name: seo_global_user_updated_foreign
+      comment: null
+      data_type: uuid
+      default_value: null
       foreign_key_column: id
       foreign_key_schema: public
       foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: SEO_global
-  - collection: collection
-    field: icon
-    meta:
-      junction_field: null
-      many_collection: collection
-      many_field: icon
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_files
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: user_updated
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: email_marketing_concent
+    type: uuid
+  - collection: flyway_schema_history
+    field: checksum
+    meta: null
     schema:
-      column: icon
-      constraint_name: collection_icon_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_files
-      on_delete: SET NULL
-      on_update: NO ACTION
-      table: collection
-  - collection: collection
-    field: parent_collection
-    meta:
-      junction_field: null
-      many_collection: collection
-      many_field: parent_collection
-      one_allowed_collections: null
-      one_collection: collection
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: collection
-      sort_field: null
-    related_collection: collection
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: checksum
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: flyway_schema_history
+    type: integer
+  - collection: flyway_schema_history
+    field: description
+    meta: null
     schema:
-      column: parent_collection
-      constraint_name: collection_parent_collection_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: collection
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: collection
-  - collection: collection
-    field: user_created
-    meta:
-      junction_field: null
-      many_collection: collection
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 200
+      name: description
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: string
+  - collection: flyway_schema_history
+    field: execution_time
+    meta: null
     schema:
-      column: user_created
-      constraint_name: collection_user_created_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: collection
-  - collection: collection
-    field: user_updated
-    meta:
-      junction_field: null
-      many_collection: collection
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: execution_time
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: flyway_schema_history
+    type: integer
+  - collection: flyway_schema_history
+    field: installed_by
+    meta: null
     schema:
-      column: user_updated
-      constraint_name: collection_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: collection
-  - collection: country
-    field: user_created
-    meta:
-      junction_field: null
-      many_collection: country
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 100
+      name: installed_by
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: string
+  - collection: flyway_schema_history
+    field: installed_on
+    meta: null
     schema:
-      column: user_created
-      constraint_name: country_user_created_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: country
-  - collection: country
-    field: user_updated
-    meta:
-      junction_field: null
-      many_collection: country
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: timestamp without time zone
+      default_value: now()
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: installed_on
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: dateTime
+  - collection: flyway_schema_history
+    field: installed_rank
+    meta: null
     schema:
-      column: user_updated
-      constraint_name: country_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: country
-  - collection: currency
-    field: user_created
-    meta:
-      junction_field: null
-      many_collection: currency
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: integer
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: null
+      name: installed_rank
+      numeric_precision: 32
+      numeric_scale: 0
+      schema: public
+      table: flyway_schema_history
+    type: integer
+  - collection: flyway_schema_history
+    field: script
+    meta: null
     schema:
-      column: user_created
-      constraint_name: currency_user_created_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: currency
-  - collection: currency
-    field: user_updated
-    meta:
-      junction_field: null
-      many_collection: currency
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 1000
+      name: script
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: string
+  - collection: flyway_schema_history
+    field: success
+    meta: null
     schema:
-      column: user_updated
-      constraint_name: currency_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: currency
-  - collection: pages
-    field: user_created
-    meta:
-      junction_field: null
-      many_collection: pages
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: boolean
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: success
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: boolean
+  - collection: flyway_schema_history
+    field: type
+    meta: null
     schema:
-      column: user_created
-      constraint_name: pages_user_created_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: pages
-  - collection: pages
-    field: user_updated
-    meta:
-      junction_field: null
-      many_collection: pages
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: false
+      is_unique: false
+      max_length: 20
+      name: type
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: string
+  - collection: flyway_schema_history
+    field: version
+    meta: null
     schema:
-      column: user_updated
-      constraint_name: pages_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: pages
-  - collection: product
-    field: user_created
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 50
+      name: version
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: flyway_schema_history
+    type: string
+  - collection: languages
+    field: code
     meta:
-      junction_field: null
-      many_collection: product
-      many_field: user_created
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
+      collection: languages
+      conditions: null
+      display: null
+      display_options: null
+      field: code
+      group: null
+      hidden: false
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: null
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
     schema:
-      column: user_created
-      constraint_name: product_user_created_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: product
-  - collection: product
-    field: user_updated
+      comment: null
+      data_type: character varying
+      default_value: null
+      foreign_key_column: null
+      foreign_key_schema: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: true
+      max_length: 255
+      name: code
+      numeric_precision: null
+      numeric_scale: null
+      schema: public
+      table: languages
+    type: string
+  - collection: languages
+    field: direction
     meta:
-      junction_field: null
-      many_collection: product
-      many_field: user_updated
-      one_allowed_collections: null
-      one_collection: directus_users
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_users
-    schema:
-      column: user_updated
-      constraint_name: product_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
-      table: product
-  - collection: product_files
-    field: directus_files_id
-    meta:
-      junction_field: product_id
-      many_collection: product_files
-      many_field: directus_files_id
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    related_collection: directus_files
-    schema:
-      column: directus_files_id
-      constraint_name: product_files_directus_files_id_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: directus_files
-      on_delete: SET NULL
-      on_update: NO ACTION
-      table: product_files
-  - collection: product_files
-    field: product_id
-    meta:
-      junction_field: directus_files_id
-      many_collection: product_files
-      many_field: product_id
-      one_allowed_collections: null
-      one_collection: product
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: media
-      sort_field: null
-    related_collection: product
-    schema:
-      column: product_id
-      constraint_name: product_files_product_id_foreign
-      foreign_key_column: id
-      foreign_key_schema: public
-      foreign_key_table: product
-      on_delete: SET NULL
-      on_update: NO ACTION
-      table: product_files
+      collection: languages
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: $t:left_to_right
+            value: ltr
+          - text: $t:right_to_left
+            value: rtl
+        format: false
+      field: direction
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: $t:left_to_right
+            value: ltr
+          - text: $t:rig

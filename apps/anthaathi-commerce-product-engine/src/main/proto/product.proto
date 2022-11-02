@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.anthaathi.common";
+option java_outer_classname = "ProductProto";
+
+package product_proto;
+
+service ProductGRPC {
+  rpc GetProductByID (GetProductByIDRequest) returns (Product) {}
+  rpc GetProductByIDs (GetProductByIDsRequest) returns (Products) {}
+}
+
+message ProductRequest {
+  string id = 1;
+  repeated string variant_ids = 2;
+}
+
+message GetProductByIDRequest {
+  ProductRequest request = 1;
+  string locale = 2;
+  string currency = 3;
+}
+
+message GetProductByIDsRequest {
+  repeated ProductRequest request = 1;
+  string locale = 2;
+  string currency = 3;
+}
+
+message Products {
+  repeated Product product = 1;
+}
+
+message Product {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string handle = 4;
+  string origin = 5;
+  string vendor = 6;
+  Media media = 7;
+  repeated ProductVariant variant = 8;
+}
+
+message ProductVariant {
+  string id = 1;
+  string title = 2;
+  string sku = 3;
+  string barcode = 4;
+  bool taxable = 5;
+  uint32 position = 6;
+  string packaging = 7;
+  string weight_unit = 8;
+  string origin = 9;
+  string purchase_note = 10;
+}
+
+message Media {
+  string id = 1;
+  string url = 2;
+}

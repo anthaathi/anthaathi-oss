@@ -33,9 +33,10 @@ allprojects {
     }
 }
 
-val quarkusCommonProjects = listOf<Project>()
-
-val quarkusWebAppDeps = mapOf<Project, List<Project>>()
+val quarkusApps = listOf(
+    project(":apps:anthaathi-commerce-checkout-engine"),
+    project(":apps:anthaathi-commerce-product-engine")
+)
 
 // This needs to be calculated in future
 val libraryDeps = mapOf<Project, List<Project>>()
@@ -50,67 +51,23 @@ val reactNativeApps = listOf(
 
 val kotlinLibraries = listOf<Project>()
 
-
-val springBoot = listOf<Project>()
-
-configure(subprojects.filter { it in springBoot }) {
-    apply {
-        plugin("org.springframework.boot")
-        plugin("io.spring.dependency-management")
-        plugin("org.jetbrains.kotlin.jvm")
-        plugin("org.jetbrains.kotlin.plugin.spring")
-        plugin("org.springframework.boot")
-        plugin("io.spring.dependency-management")
-    }
-
-    java.sourceCompatibility = JavaVersion.VERSION_11
-
-    repositories {
-        mavenCentral()
-    }
-}
-
 // Quarkus configuration
-configure(subprojects.filter { it in quarkusCommonProjects }) {
+configure(subprojects.filter { it in quarkusApps }) {
     apply {
         plugin("org.jetbrains.kotlin.jvm")
         plugin("org.jetbrains.kotlin.plugin.allopen")
         plugin("io.quarkus")
     }
 
-    tasks.register("buildDocker") {
-        // This build the frontend application and move it to the build
-        // folder so one container can have frontend and backend
-        if (quarkusWebAppDeps.containsKey(this.project)) {
-            val fileProjectPath = File(this.project.projectDir, "src/main/resources/META-INF/resources").toString()
-
-            quarkusWebAppDeps[this.project]?.forEach { itt ->
-                val moveFileTaskName = "${ this.project.name }-${ itt.name }moveFile"
-
-                val task = itt.tasks.register<Copy>(moveFileTaskName) {
-                    doFirst {
-                        mkdir(fileProjectPath)
-                    }
-                    from(File(this.project.projectDir, "dist").toString())
-                    into(fileProjectPath)
-
-                    dependsOn("buildProd")
-                }
-
-                dependsOn.add(task)
-            }
-        }
-
-        finalizedBy(tasks.build)
+    repositories {
+        mavenCentral()
+        mavenLocal()
     }
 
     dependencies {
         implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
         implementation("io.quarkus:quarkus-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("io.quarkus:quarkus-arc")
-        implementation("io.quarkus:quarkus-resteasy-reactive")
-
         testImplementation("io.quarkus:quarkus-junit5")
         testImplementation("io.rest-assured:rest-assured")
     }
@@ -122,13 +79,13 @@ configure(subprojects.filter { it in quarkusCommonProjects }) {
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
         kotlinOptions.javaParameters = true
     }
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 

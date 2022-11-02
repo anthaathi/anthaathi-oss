@@ -1,0 +1,501 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    create_product_files_item(data: create_product_files_input!): product_files
+    create_product_files_items(data: [create_product_files_input!], filter: product_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_files!]!
+    create_product_item(data: create_product_input!): product
+    create_product_items(data: [create_product_input!], filter: product_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product!]!
+    delete_product_files_item(id: ID!): delete_one
+    delete_product_files_items(ids: [ID]!): delete_many
+    delete_product_item(id: ID!): delete_one
+    delete_product_items(ids: [ID]!): delete_many
+    update_product_batch(data: [update_product_input!], filter: product_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product!]!
+    update_product_files_batch(data: [update_product_files_input!], filter: product_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_files!]!
+    update_product_files_item(data: update_product_files_input!, id: ID!): product_files
+    update_product_files_items(data: update_product_files_input!, filter: product_files_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_files!]!
+    update_product_item(data: update_product_input!, id: ID!): product
+    update_product_items(data: update_product_input!, filter: product_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product!]!
+}
+
+type Query {
+    product(filter: product_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product!]!
+    product_aggregated(filter: product_filter, groupBy: [String], limit: Int, search: String, sort: [String]): [product_aggregated!]!
+    product_by_id(id: ID!): product
+    product_files(filter: product_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_files!]!
+    product_files_aggregated(filter: product_files_filter, groupBy: [String], limit: Int, search: String, sort: [String]): [product_files_aggregated!]!
+    product_files_by_id(id: ID!): product_files
+    product_variant(filter: product_variant_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant!]!
+    product_variant_aggregated(filter: product_variant_filter, groupBy: [String], limit: Int, search: String, sort: [String]): [product_variant_aggregated!]!
+    product_variant_by_id(id: ID!): product_variant
+}
+
+type count_functions {
+    count: Int
+}
+
+type datetime_functions {
+    day: Int
+    hour: Int
+    minute: Int
+    month: Int
+    second: Int
+    week: Int
+    weekday: Int
+    year: Int
+}
+
+type delete_many {
+    ids: [ID]!
+}
+
+type delete_one {
+    id: ID!
+}
+
+type directus_files {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String!
+    filesize: String
+    folder(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+    height: Int
+    id: ID!
+    location: String
+    metadata: JSON
+    metadata_func: count_functions
+    modified_by: String
+    modified_on: Date
+    modified_on_func: datetime_functions
+    storage: String!
+    tags: JSON
+    tags_func: count_functions
+    title: String
+    type: String
+    uploaded_by: String
+    uploaded_on: Date
+    uploaded_on_func: datetime_functions
+    width: Int
+}
+
+type directus_folders {
+    id: ID!
+    name: String!
+    parent(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+}
+
+type product {
+    date_created: Date
+    date_created_func: datetime_functions
+    date_updated: Date
+    date_updated_func: datetime_functions
+    description: String
+    handle: String
+    id: ID!
+    media(filter: product_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_files]
+    media_func: count_functions
+    origin: String
+    product_variants(filter: product_variant_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [product_variant]
+    product_variants_func: count_functions
+    sort: Int
+    status: String
+    title: String
+    user_created: String
+    user_updated: String
+    vendor: String
+}
+
+type product_aggregated {
+    avg: product_aggregated_fields
+    avgDistinct: product_aggregated_fields
+    count: product_aggregated_count
+    countAll: Int
+    countDistinct: product_aggregated_count
+    group: JSON
+    max: product_aggregated_fields
+    min: product_aggregated_fields
+    sum: product_aggregated_fields
+    sumDistinct: product_aggregated_fields
+}
+
+type product_aggregated_count {
+    date_created: Int
+    date_updated: Int
+    description: Int
+    handle: Int
+    id: Int
+    media: Int
+    origin: Int
+    product_variants: Int
+    sort: Int
+    status: Int
+    title: Int
+    user_created: Int
+    user_updated: Int
+    vendor: Int
+}
+
+type product_aggregated_fields {
+    sort: Float
+}
+
+type product_files {
+    directus_files_id(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    id: ID!
+    product_id(filter: product_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): product
+}
+
+type product_files_aggregated {
+    avg: product_files_aggregated_fields
+    avgDistinct: product_files_aggregated_fields
+    count: product_files_aggregated_count
+    countAll: Int
+    countDistinct: product_files_aggregated_count
+    group: JSON
+    max: product_files_aggregated_fields
+    min: product_files_aggregated_fields
+    sum: product_files_aggregated_fields
+    sumDistinct: product_files_aggregated_fields
+}
+
+type product_files_aggregated_count {
+    directus_files_id: Int
+    id: Int
+    product_id: Int
+}
+
+type product_files_aggregated_fields {
+    id: Float
+}
+
+type product_variant {
+    barcode: String
+    date_created: Date
+    date_created_func: datetime_functions
+    date_updated: Date
+    date_updated_func: datetime_functions
+    id: ID!
+    origin: String
+    packaging: String
+    position: Int
+    product(filter: product_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): product
+    purchase_note: String
+    requires_shipping: Boolean
+    sku: String
+    sort: Int
+    status: String
+    taxable: Boolean
+    title: String
+    user_created: String
+    user_updated: String
+    weight_unit: String
+}
+
+type product_variant_aggregated {
+    avg: product_variant_aggregated_fields
+    avgDistinct: product_variant_aggregated_fields
+    count: product_variant_aggregated_count
+    countAll: Int
+    countDistinct: product_variant_aggregated_count
+    group: JSON
+    max: product_variant_aggregated_fields
+    min: product_variant_aggregated_fields
+    sum: product_variant_aggregated_fields
+    sumDistinct: product_variant_aggregated_fields
+}
+
+type product_variant_aggregated_count {
+    barcode: Int
+    date_created: Int
+    date_updated: Int
+    id: Int
+    origin: Int
+    packaging: Int
+    position: Int
+    product: Int
+    purchase_note: Int
+    requires_shipping: Int
+    sku: Int
+    sort: Int
+    status: Int
+    taxable: Int
+    title: Int
+    user_created: Int
+    user_updated: Int
+    weight_unit: Int
+}
+
+type product_variant_aggregated_fields {
+    id: Float
+    position: Float
+    sort: Float
+}
+
+"ISO8601 Date values"
+scalar Date
+
+"A Float or a String"
+scalar GraphQLStringOrFloat
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+input boolean_filter_operators {
+    _eq: Boolean
+    _neq: Boolean
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input count_function_filter_operators {
+    count: number_filter_operators
+}
+
+input create_directus_files_input {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String!
+    filesize: String
+    folder: String
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by: String
+    modified_on: Date
+    storage: String!
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by: String
+    uploaded_on: Date
+    width: Int
+}
+
+input create_product_files_input {
+    directus_files_id: create_directus_files_input
+    id: ID
+    product_id: create_product_input
+}
+
+input create_product_input {
+    date_created: Date
+    date_updated: Date
+    description: String
+    handle: String
+    id: ID
+    media: [create_product_files_input]
+    origin: String
+    sort: Int
+    status: String
+    title: String
+    user_created: String
+    user_updated: String
+    vendor: String
+}
+
+input date_filter_operators {
+    _between: [GraphQLStringOrFloat]
+    _eq: String
+    _gt: String
+    _gte: String
+    _lt: String
+    _lte: String
+    _nbetween: [GraphQLStringOrFloat]
+    _neq: String
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input datetime_function_filter_operators {
+    day: number_filter_operators
+    hour: number_filter_operators
+    minute: number_filter_operators
+    month: number_filter_operators
+    second: number_filter_operators
+    week: number_filter_operators
+    weekday: number_filter_operators
+    year: number_filter_operators
+}
+
+input directus_files_filter {
+    _and: [directus_files_filter]
+    _or: [directus_files_filter]
+    charset: string_filter_operators
+    description: string_filter_operators
+    duration: number_filter_operators
+    embed: string_filter_operators
+    filename_disk: string_filter_operators
+    filename_download: string_filter_operators
+    filesize: string_filter_operators
+    folder: directus_folders_filter
+    height: number_filter_operators
+    id: string_filter_operators
+    location: string_filter_operators
+    metadata: string_filter_operators
+    metadata_func: count_function_filter_operators
+    modified_by: string_filter_operators
+    modified_on: date_filter_operators
+    modified_on_func: datetime_function_filter_operators
+    storage: string_filter_operators
+    tags: string_filter_operators
+    tags_func: count_function_filter_operators
+    title: string_filter_operators
+    type: string_filter_operators
+    uploaded_by: string_filter_operators
+    uploaded_on: date_filter_operators
+    uploaded_on_func: datetime_function_filter_operators
+    width: number_filter_operators
+}
+
+input directus_folders_filter {
+    _and: [directus_folders_filter]
+    _or: [directus_folders_filter]
+    id: string_filter_operators
+    name: string_filter_operators
+    parent: directus_folders_filter
+}
+
+input number_filter_operators {
+    _between: [GraphQLStringOrFloat]
+    _eq: GraphQLStringOrFloat
+    _gt: GraphQLStringOrFloat
+    _gte: GraphQLStringOrFloat
+    _in: [GraphQLStringOrFloat]
+    _lt: GraphQLStringOrFloat
+    _lte: GraphQLStringOrFloat
+    _nbetween: [GraphQLStringOrFloat]
+    _neq: GraphQLStringOrFloat
+    _nin: [GraphQLStringOrFloat]
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input product_files_filter {
+    _and: [product_files_filter]
+    _or: [product_files_filter]
+    directus_files_id: directus_files_filter
+    id: number_filter_operators
+    product_id: product_filter
+}
+
+input product_filter {
+    _and: [product_filter]
+    _or: [product_filter]
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    date_updated: date_filter_operators
+    date_updated_func: datetime_function_filter_operators
+    description: string_filter_operators
+    handle: string_filter_operators
+    id: string_filter_operators
+    media: product_files_filter
+    media_func: count_function_filter_operators
+    origin: string_filter_operators
+    product_variants: product_variant_filter
+    product_variants_func: count_function_filter_operators
+    sort: number_filter_operators
+    status: string_filter_operators
+    title: string_filter_operators
+    user_created: string_filter_operators
+    user_updated: string_filter_operators
+    vendor: string_filter_operators
+}
+
+input product_variant_filter {
+    _and: [product_variant_filter]
+    _or: [product_variant_filter]
+    barcode: string_filter_operators
+    date_created: date_filter_operators
+    date_created_func: datetime_function_filter_operators
+    date_updated: date_filter_operators
+    date_updated_func: datetime_function_filter_operators
+    id: number_filter_operators
+    origin: string_filter_operators
+    packaging: string_filter_operators
+    position: number_filter_operators
+    product: product_filter
+    purchase_note: string_filter_operators
+    requires_shipping: boolean_filter_operators
+    sku: string_filter_operators
+    sort: number_filter_operators
+    status: string_filter_operators
+    taxable: boolean_filter_operators
+    title: string_filter_operators
+    user_created: string_filter_operators
+    user_updated: string_filter_operators
+    weight_unit: string_filter_operators
+}
+
+input string_filter_operators {
+    _contains: String
+    _empty: Boolean
+    _ends_with: String
+    _eq: String
+    _in: [String]
+    _ncontains: String
+    _nempty: Boolean
+    _nends_with: String
+    _neq: String
+    _nin: [String]
+    _nnull: Boolean
+    _nstarts_with: String
+    _null: Boolean
+    _starts_with: String
+}
+
+input update_directus_files_input {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String
+    filesize: String
+    folder: String
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by: String
+    modified_on: Date
+    storage: String
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by: String
+    uploaded_on: Date
+    width: Int
+}
+
+input update_product_files_input {
+    directus_files_id: update_directus_files_input
+    id: ID
+    product_id: update_product_input
+}
+
+input update_product_input {
+    date_created: Date
+    date_updated: Date
+    description: String
+    handle: String
+    id: ID
+    media: [update_product_files_input]
+    origin: String
+    sort: Int
+    status: String
+    title: String
+    user_created: String
+    user_updated: String
+    vendor: String
+}
